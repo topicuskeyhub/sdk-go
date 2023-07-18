@@ -1,0 +1,25 @@
+{
+  "descriptionHash": "1BC739EF4210E2B2349F950ECEEB143BE5C52A5D2C616884FF1F8E230744C5B74F53A8DE2D4CA312BFC4D4C81F669CB3A77F5F71CDB18BE9EF5549E207431057",
+  "descriptionLocation": "/home/papegaaij/tmp/kiota/keyhub/openapi.json-go",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.4.0",
+  "clientClassName": "KeyHubClient",
+  "clientNamespaceName": "github.com/topicuskeyhub/sdk-go",
+  "language": "Go",
+  "usesBackingStore": false,
+  "includeAdditionalData": true,
+  "serializers": [
+    "github.com/microsoft/kiota-serialization-json-go.JsonSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "github.com/microsoft/kiota-serialization-json-go.JsonParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "text/plain",
+    "application/x-www-form-urlencoded"
+  ],
+  "includePatterns": [],
+  "excludePatterns": [],
+  "disabledValidationRules": []
+}
