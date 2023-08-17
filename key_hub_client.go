@@ -54,7 +54,7 @@ func NewKeyHubClient(requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa52
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RegisterDefaultSerializer(func() i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriterFactory { return i25911dc319edd61cbac496af7eab5ef20b6069a42515e22ec6a9bc97bf598488.NewJsonSerializationWriterFactory() })
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RegisterDefaultDeserializer(func() i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNodeFactory { return i25911dc319edd61cbac496af7eab5ef20b6069a42515e22ec6a9bc97bf598488.NewJsonParseNodeFactory() })
     if m.BaseRequestBuilder.RequestAdapter.GetBaseUrl() == "" {
-        m.BaseRequestBuilder.RequestAdapter.SetBaseUrl("https://keyhub.localhost:8443/keyhub/rest/v1")
+        m.BaseRequestBuilder.RequestAdapter.SetBaseUrl("https://keyhub.example.com/keyhub/rest/v1")
     }
     m.BaseRequestBuilder.PathParameters["baseurl"] = m.BaseRequestBuilder.RequestAdapter.GetBaseUrl()
     return m

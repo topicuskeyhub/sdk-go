@@ -3,6 +3,7 @@ package group
 import (
     "context"
     i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
+    i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274 "strconv"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
@@ -66,6 +67,7 @@ type ItemAccountRequestBuilderPostRequestConfiguration struct {
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
 // ByGroupaccountid gets an item from the github.com/topicuskeyhub/sdk-go.group.item.account.item collection
+// Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
 func (m *ItemAccountRequestBuilder) ByGroupaccountid(groupaccountid string)(*ItemAccountWithGroupaccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -74,6 +76,15 @@ func (m *ItemAccountRequestBuilder) ByGroupaccountid(groupaccountid string)(*Ite
     if groupaccountid != "" {
         urlTplParams["groupaccountid"] = groupaccountid
     }
+    return NewItemAccountWithGroupaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+}
+// ByGroupaccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.group.item.account.item collection
+func (m *ItemAccountRequestBuilder) ByGroupaccountidInt64(groupaccountid int64)(*ItemAccountWithGroupaccountItemRequestBuilder) {
+    urlTplParams := make(map[string]string)
+    for idx, item := range m.BaseRequestBuilder.PathParameters {
+        urlTplParams[idx] = item
+    }
+    urlTplParams["groupaccountid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(groupaccountid, 10)
     return NewItemAccountWithGroupaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewItemAccountRequestBuilderInternal instantiates a new AccountRequestBuilder and sets the default values.

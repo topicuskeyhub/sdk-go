@@ -3,6 +3,7 @@ package account
 import (
     "context"
     i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
+    i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274 "strconv"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
@@ -104,6 +105,7 @@ func (m *AccountRequestBuilder) Auditstats()(*AuditstatsRequestBuilder) {
     return NewAuditstatsRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByAccountid gets an item from the github.com/topicuskeyhub/sdk-go.account.item collection
+// Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
 func (m *AccountRequestBuilder) ByAccountid(accountid string)(*WithAccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -112,6 +114,15 @@ func (m *AccountRequestBuilder) ByAccountid(accountid string)(*WithAccountItemRe
     if accountid != "" {
         urlTplParams["accountid"] = accountid
     }
+    return NewWithAccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+}
+// ByAccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.account.item collection
+func (m *AccountRequestBuilder) ByAccountidInt64(accountid int64)(*WithAccountItemRequestBuilder) {
+    urlTplParams := make(map[string]string)
+    for idx, item := range m.BaseRequestBuilder.PathParameters {
+        urlTplParams[idx] = item
+    }
+    urlTplParams["accountid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(accountid, 10)
     return NewWithAccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewAccountRequestBuilderInternal instantiates a new AccountRequestBuilder and sets the default values.

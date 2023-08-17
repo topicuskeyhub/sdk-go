@@ -3,6 +3,7 @@ package groupclient
 import (
     "context"
     i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
+    i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274 "strconv"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
@@ -48,6 +49,7 @@ type GroupclientRequestBuilderGetRequestConfiguration struct {
     QueryParameters *GroupclientRequestBuilderGetQueryParameters
 }
 // ById gets an item from the github.com/topicuskeyhub/sdk-go.groupclient.item collection
+// Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
 func (m *GroupclientRequestBuilder) ById(id string)(*GroupclientItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -56,6 +58,15 @@ func (m *GroupclientRequestBuilder) ById(id string)(*GroupclientItemRequestBuild
     if id != "" {
         urlTplParams["id"] = id
     }
+    return NewGroupclientItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+}
+// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.groupclient.item collection
+func (m *GroupclientRequestBuilder) ByIdInt64(id int64)(*GroupclientItemRequestBuilder) {
+    urlTplParams := make(map[string]string)
+    for idx, item := range m.BaseRequestBuilder.PathParameters {
+        urlTplParams[idx] = item
+    }
+    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
     return NewGroupclientItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewGroupclientRequestBuilderInternal instantiates a new GroupclientRequestBuilder and sets the default values.

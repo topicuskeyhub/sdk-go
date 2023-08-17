@@ -41,12 +41,16 @@ type ItemGroupRequestBuilderGetQueryParameters struct {
     NotLinkedToGroup []int64
     // Only return groups on system that do are not linked to the given service account, specified by id.
     NotLinkedToServiceAccount []int64
+    // Filter groups-on-system on organizational units, specified by id.
+    OrganizationalUnitForEnforcement []int64
     // Filter the groups on system on groups that are owner for them, specified by id. This parameter supports composition with all parameters from the group resource.
     OwnedBy []int64
     // Filter records on a complex CQL query.
     Q []string
     // Only return groups that are the on one of the given systems, specified by id. This parameter supports composition with all parameters from the systems resource.
     System []int64
+    // Constrain groups-on-system on the system the current user is content admin or owner of, specified by id.
+    SystemForEnforcement []int64
     // Filter the groups on system on groups that are tier 2 owner for them, specified by id. A tier 2 owner is an owner of a group on system that is linked to a service account this group on system is also linked to.
     Tier2OwnedBy []int64
 }
@@ -80,7 +84,7 @@ func (m *ItemGroupRequestBuilder) ById(id string)(*ItemGroupGroupItemRequestBuil
 // NewItemGroupRequestBuilderInternal instantiates a new GroupRequestBuilder and sets the default values.
 func NewItemGroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupRequestBuilder) {
     m := &ItemGroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{id}/group{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,adminnedBy*,contentAdminnedBy*,group*,nameContains*,nameInSystem*,notLinkedToGroup*,notLinkedToServiceAccount*,ownedBy*,system*,tier2OwnedBy*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{id}/group{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,adminnedBy*,contentAdminnedBy*,group*,nameContains*,nameInSystem*,notLinkedToGroup*,notLinkedToServiceAccount*,organizationalUnitForEnforcement*,ownedBy*,system*,systemForEnforcement*,tier2OwnedBy*}", pathParameters),
     }
     return m
 }

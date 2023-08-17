@@ -1,4 +1,7 @@
+// not-generated
 package sdkgo
+
+//go:generate bash generate.sh
 
 import (
 	"context"
