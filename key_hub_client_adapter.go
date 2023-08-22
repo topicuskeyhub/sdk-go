@@ -1,6 +1,6 @@
-// not-generated
 package sdkgo
 
+// not-generated
 //go:generate bash generate.sh
 
 import (
