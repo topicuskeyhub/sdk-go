@@ -144,12 +144,6 @@ func (m *AuthAccount_additionalObjects) GetVault()(VaultVaultable) {
 // Serialize serializes information the current object
 func (m *AuthAccount_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     {
-        err := writer.WriteBoolValue("activeLogin", m.GetActiveLogin())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err := writer.WriteObjectValue("audit", m.GetAudit())
         if err != nil {
             return err

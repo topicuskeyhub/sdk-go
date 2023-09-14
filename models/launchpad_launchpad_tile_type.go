@@ -35,3 +35,6 @@ func SerializeLaunchpadLaunchpadTileType(values []LaunchpadLaunchpadTileType) []
     }
     return result
 }
+func (i LaunchpadLaunchpadTileType) isMultiValue() bool {
+    return false
+}

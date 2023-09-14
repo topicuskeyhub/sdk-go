@@ -77,3 +77,6 @@ func SerializeClientOAuth2ClientPermissionType(values []ClientOAuth2ClientPermis
     }
     return result
 }
+func (i ClientOAuth2ClientPermissionType) isMultiValue() bool {
+    return false
+}

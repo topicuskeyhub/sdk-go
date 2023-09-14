@@ -32,3 +32,6 @@ func SerializeGroupGroupRights(values []GroupGroupRights) []string {
     }
     return result
 }
+func (i GroupGroupRights) isMultiValue() bool {
+    return false
+}

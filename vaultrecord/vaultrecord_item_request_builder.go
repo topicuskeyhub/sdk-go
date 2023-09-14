@@ -13,7 +13,7 @@ type VaultrecordItemRequestBuilder struct {
 // VaultrecordItemRequestBuilderGetQueryParameters returns the vault record identified by the id. To access the secrets, use the full uri of the record. This endpoint does not support reading secrets.
 type VaultrecordItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // VaultrecordItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type VaultrecordItemRequestBuilderGetRequestConfiguration struct {
@@ -62,7 +62,7 @@ func (m *VaultrecordItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -71,4 +71,8 @@ func (m *VaultrecordItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *VaultrecordItemRequestBuilder) WithUrl(rawUrl string)(*VaultrecordItemRequestBuilder) {
+    return NewVaultrecordItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

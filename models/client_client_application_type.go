@@ -35,3 +35,6 @@ func SerializeClientClientApplicationType(values []ClientClientApplicationType) 
     }
     return result
 }
+func (i ClientClientApplicationType) isMultiValue() bool {
+    return false
+}

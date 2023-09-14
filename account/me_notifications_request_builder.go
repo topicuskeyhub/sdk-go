@@ -13,9 +13,9 @@ type MeNotificationsRequestBuilder struct {
 // MeNotificationsRequestBuilderGetQueryParameters returns the notifications to be displayed on the dashboard of the user. At most 50 notifications are returned.
 type MeNotificationsRequestBuilderGetQueryParameters struct {
     // 
-    RequestMailKey *string
+    RequestMailKey *string `uriparametername:"requestMailKey"`
     // 
-    RequestsToRetainIds []int64
+    RequestsToRetainIds []int64 `uriparametername:"requestsToRetainIds"`
 }
 // MeNotificationsRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type MeNotificationsRequestBuilderGetRequestConfiguration struct {
@@ -64,7 +64,7 @@ func (m *MeNotificationsRequestBuilder) ToGetRequestInformation(ctx context.Cont
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -73,4 +73,8 @@ func (m *MeNotificationsRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *MeNotificationsRequestBuilder) WithUrl(rawUrl string)(*MeNotificationsRequestBuilder) {
+    return NewMeNotificationsRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

@@ -16,63 +16,63 @@ type VaultrecordRequestBuilder struct {
 // VaultrecordRequestBuilderGetQueryParameters query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
 type VaultrecordRequestBuilderGetQueryParameters struct {
     // Filter records that accessible by the given account(s), specified by id.
-    AccessibleByAccount []int64
+    AccessibleByAccount []int64 `uriparametername:"accessibleByAccount"`
     // Filter records that accessible by the given account(s) and the account is manager of the group, specified by id.
-    AccessibleByAccountAsManager []int64
+    AccessibleByAccountAsManager []int64 `uriparametername:"accessibleByAccountAsManager"`
     // Filter records that accessible by the given client(s), specified by id.
-    AccessibleByClient []int64
+    AccessibleByClient []int64 `uriparametername:"accessibleByClient"`
     // 
-    Account []int64
+    Account []int64 `uriparametername:"account"`
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool
+    Any []bool `uriparametername:"any"`
     // 
-    Client []int64
+    Client []int64 `uriparametername:"client"`
     // Filter records on the color.
-    Color []string
+    Color []string `uriparametername:"color"`
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
-    Exclude []int64
+    Exclude []int64 `uriparametername:"exclude"`
     // Only return records that show an expiration warning at or before the given date.
-    ExpireWarningBeforeOrAt []i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
+    ExpireWarningBeforeOrAt []i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly `uriparametername:"expireWarningBeforeOrAt"`
     // Filter records on the exact filename.
-    Filename []string
+    Filename []string `uriparametername:"filename"`
     // 
-    Group []int64
+    Group []int64 `uriparametername:"group"`
     // Only return records that have or do not have an expiration policy set.
-    HasNoPolicy []bool
+    HasNoPolicy []bool `uriparametername:"hasNoPolicy"`
     // Filter records that are shared (have a parent record)
-    HasParent []bool
+    HasParent []bool `uriparametername:"hasParent"`
     // Only return records that have or do not have expired.
-    HasValidPolicy []bool
+    HasValidPolicy []bool `uriparametername:"hasValidPolicy"`
     // Filter the results on the given ids.
-    Id []int64
+    Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter records on the exact name.
-    Name []string
+    Name []string `uriparametername:"name"`
     // Search records on (part of) the UUID, name, filename, URI or username.
-    NameContains []string
+    NameContains []string `uriparametername:"nameContains"`
     // Filter records that are shared from the specified parent record, specified by id.
-    Parent []int64
+    Parent []int64 `uriparametername:"parent"`
     // Filter records on a complex CQL query.
-    Q []string
+    Q []string `uriparametername:"q"`
     // Filter records by secret using composition. Use secret.type to filter on type.
-    Secret []int64
+    Secret []int64 `uriparametername:"secret"`
     // Only return records for which the sharing period has expired at or before the given date.
-    ShareExpiresBeforeOrAt []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ShareExpiresBeforeOrAt []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"shareExpiresBeforeOrAt"`
     // Filter records on the exact URI.
-    Url []string
+    Url []string `uriparametername:"url"`
     // Filter records on the exact username.
-    Username []string
+    Username []string `uriparametername:"username"`
     // Filter records on one or more UUIDs.
-    Uuid []string
+    Uuid []string `uriparametername:"uuid"`
     // Filter the records by vault, specified by id. This parameter supports composition with all parameters from the vault resource.
-    Vault []int64
+    Vault []int64 `uriparametername:"vault"`
 }
 // VaultrecordRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type VaultrecordRequestBuilderGetRequestConfiguration struct {
@@ -142,7 +142,7 @@ func (m *VaultrecordRequestBuilder) ToGetRequestInformation(ctx context.Context,
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -151,4 +151,8 @@ func (m *VaultrecordRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *VaultrecordRequestBuilder) WithUrl(rawUrl string)(*VaultrecordRequestBuilder) {
+    return NewVaultrecordRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

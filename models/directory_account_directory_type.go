@@ -38,3 +38,6 @@ func SerializeDirectoryAccountDirectoryType(values []DirectoryAccountDirectoryTy
     }
     return result
 }
+func (i DirectoryAccountDirectoryType) isMultiValue() bool {
+    return false
+}

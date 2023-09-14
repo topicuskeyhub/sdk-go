@@ -128,3 +128,6 @@ func SerializeRequestModificationRequestType(values []RequestModificationRequest
     }
     return result
 }
+func (i RequestModificationRequestType) isMultiValue() bool {
+    return false
+}

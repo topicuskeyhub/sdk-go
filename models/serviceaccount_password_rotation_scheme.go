@@ -35,3 +35,6 @@ func SerializeServiceaccountPasswordRotationScheme(values []ServiceaccountPasswo
     }
     return result
 }
+func (i ServiceaccountPasswordRotationScheme) isMultiValue() bool {
+    return false
+}

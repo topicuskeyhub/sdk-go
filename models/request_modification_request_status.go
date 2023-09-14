@@ -38,3 +38,6 @@ func SerializeRequestModificationRequestStatus(values []RequestModificationReque
     }
     return result
 }
+func (i RequestModificationRequestStatus) isMultiValue() bool {
+    return false
+}

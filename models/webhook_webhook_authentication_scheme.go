@@ -38,3 +38,6 @@ func SerializeWebhookWebhookAuthenticationScheme(values []WebhookWebhookAuthenti
     }
     return result
 }
+func (i WebhookWebhookAuthenticationScheme) isMultiValue() bool {
+    return false
+}

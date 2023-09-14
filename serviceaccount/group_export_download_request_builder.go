@@ -13,7 +13,7 @@ type GroupExportDownloadRequestBuilder struct {
 // GroupExportDownloadRequestBuilderGetQueryParameters downloads the export previously prepared.
 type GroupExportDownloadRequestBuilderGetQueryParameters struct {
     // 
-    Export *string
+    Export *string `uriparametername:"export"`
 }
 // GroupExportDownloadRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type GroupExportDownloadRequestBuilderGetRequestConfiguration struct {
@@ -70,4 +70,8 @@ func (m *GroupExportDownloadRequestBuilder) ToGetRequestInformation(ctx context.
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *GroupExportDownloadRequestBuilder) WithUrl(rawUrl string)(*GroupExportDownloadRequestBuilder) {
+    return NewGroupExportDownloadRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

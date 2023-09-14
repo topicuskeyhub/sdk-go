@@ -13,7 +13,7 @@ type ProvisioningRequestBuilder struct {
 // ProvisioningRequestBuilderGetQueryParameters returns the status of provisioning for the current user. The groups are filtered by the specified filter.
 type ProvisioningRequestBuilderGetQueryParameters struct {
     // 
-    Filter *string
+    Filter *string `uriparametername:"filter"`
 }
 // ProvisioningRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioningRequestBuilderGetRequestConfiguration struct {
@@ -27,7 +27,7 @@ type ProvisioningRequestBuilderGetRequestConfiguration struct {
 // ProvisioningRequestBuilderPutQueryParameters updates the provisioning for the current user. This updates the end time for the given groups. If 'ignoreErrors' is set, errors do not cause the update to abort if errors are detected. To enable groups with auditing enabled the reason query parameter is required.
 type ProvisioningRequestBuilderPutQueryParameters struct {
     // 
-    Reason *string
+    Reason *string `uriparametername:"reason"`
 }
 // ProvisioningRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioningRequestBuilderPutRequestConfiguration struct {
@@ -99,7 +99,7 @@ func (m *ProvisioningRequestBuilder) ToGetRequestInformation(ctx context.Context
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -119,8 +119,8 @@ func (m *ProvisioningRequestBuilder) ToPutRequestInformation(ctx context.Context
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -132,4 +132,8 @@ func (m *ProvisioningRequestBuilder) ToPutRequestInformation(ctx context.Context
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ProvisioningRequestBuilder) WithUrl(rawUrl string)(*ProvisioningRequestBuilder) {
+    return NewProvisioningRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

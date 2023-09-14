@@ -15,29 +15,29 @@ type GroupclientRequestBuilder struct {
 // GroupclientRequestBuilderGetQueryParameters queries over all client links for a group. The various query parameters can be used to filter the response.
 type GroupclientRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool
+    Any []bool `uriparametername:"any"`
     // Filter client group links on the groups performing technical administration of the client, specified by id. This parameter supports composition with all parameters from the group resource.
-    AppAdminGroup []int64
+    AppAdminGroup []int64 `uriparametername:"appAdminGroup"`
     // Filter client group links on the groups with ownership of the client, specified by id. This parameter supports composition with all parameters from the group resource.
-    AppOwnerGroup []int64
+    AppOwnerGroup []int64 `uriparametername:"appOwnerGroup"`
     // Filter client group links on the given clients, specified by id. This parameter supports composition with all parameters from the client resource.
-    Client []int64
+    Client []int64 `uriparametername:"client"`
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
-    Exclude []int64
+    Exclude []int64 `uriparametername:"exclude"`
     // Filter client group links on the given groups, specified by id. This parameter supports composition with all parameters from the group resource.
-    Group []int64
+    Group []int64 `uriparametername:"group"`
     // Filter the results on the given ids.
-    Id []int64
+    Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter records on a complex CQL query.
-    Q []string
+    Q []string `uriparametername:"q"`
 }
 // GroupclientRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type GroupclientRequestBuilderGetRequestConfiguration struct {
@@ -107,7 +107,7 @@ func (m *GroupclientRequestBuilder) ToGetRequestInformation(ctx context.Context,
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -116,4 +116,8 @@ func (m *GroupclientRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *GroupclientRequestBuilder) WithUrl(rawUrl string)(*GroupclientRequestBuilder) {
+    return NewGroupclientRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

@@ -20,7 +20,7 @@ type WithAccountItemRequestBuilderDeleteRequestConfiguration struct {
 // WithAccountItemRequestBuilderGetQueryParameters returns the account identified by the id.
 type WithAccountItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // WithAccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithAccountItemRequestBuilderGetRequestConfiguration struct {
@@ -109,7 +109,7 @@ func (m *WithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -126,4 +126,8 @@ func (m *WithAccountItemRequestBuilder) Validate()(*ItemValidateRequestBuilder) 
 // Vault the vault property
 func (m *WithAccountItemRequestBuilder) Vault()(*ItemVaultRequestBuilder) {
     return NewItemVaultRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *WithAccountItemRequestBuilder) WithUrl(rawUrl string)(*WithAccountItemRequestBuilder) {
+    return NewWithAccountItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

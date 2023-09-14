@@ -47,3 +47,6 @@ func SerializeProvisioningGroupOnSystemType(values []ProvisioningGroupOnSystemTy
     }
     return result
 }
+func (i ProvisioningGroupOnSystemType) isMultiValue() bool {
+    return false
+}

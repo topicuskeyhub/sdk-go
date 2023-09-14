@@ -35,3 +35,6 @@ func SerializeProvisioningAccountProvisioningResult(values []ProvisioningAccount
     }
     return result
 }
+func (i ProvisioningAccountProvisioningResult) isMultiValue() bool {
+    return false
+}

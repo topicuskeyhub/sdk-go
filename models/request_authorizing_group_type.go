@@ -38,3 +38,6 @@ func SerializeRequestAuthorizingGroupType(values []RequestAuthorizingGroupType) 
     }
     return result
 }
+func (i RequestAuthorizingGroupType) isMultiValue() bool {
+    return false
+}

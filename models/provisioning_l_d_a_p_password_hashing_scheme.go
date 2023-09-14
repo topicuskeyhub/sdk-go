@@ -32,3 +32,6 @@ func SerializeProvisioningLDAPPasswordHashingScheme(values []ProvisioningLDAPPas
     }
     return result
 }
+func (i ProvisioningLDAPPasswordHashingScheme) isMultiValue() bool {
+    return false
+}

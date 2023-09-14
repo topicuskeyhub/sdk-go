@@ -35,3 +35,6 @@ func SerializeProvisioningCircuitBreakerState(values []ProvisioningCircuitBreake
     }
     return result
 }
+func (i ProvisioningCircuitBreakerState) isMultiValue() bool {
+    return false
+}

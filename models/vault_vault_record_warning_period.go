@@ -47,3 +47,6 @@ func SerializeVaultVaultRecordWarningPeriod(values []VaultVaultRecordWarningPeri
     }
     return result
 }
+func (i VaultVaultRecordWarningPeriod) isMultiValue() bool {
+    return false
+}

@@ -38,3 +38,6 @@ func SerializeDirectoryLDAPDirectoryPasswordRecovery(values []DirectoryLDAPDirec
     }
     return result
 }
+func (i DirectoryLDAPDirectoryPasswordRecovery) isMultiValue() bool {
+    return false
+}

@@ -35,3 +35,6 @@ func SerializeRequestUpdateGroupMembershipType(values []RequestUpdateGroupMember
     }
     return result
 }
+func (i RequestUpdateGroupMembershipType) isMultiValue() bool {
+    return false
+}

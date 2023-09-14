@@ -20,7 +20,7 @@ type ProvisioninggroupItemRequestBuilderDeleteRequestConfiguration struct {
 // ProvisioninggroupItemRequestBuilderGetQueryParameters returns the provisioning group identified by the id.
 type ProvisioninggroupItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // ProvisioninggroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioninggroupItemRequestBuilderGetRequestConfiguration struct {
@@ -34,7 +34,7 @@ type ProvisioninggroupItemRequestBuilderGetRequestConfiguration struct {
 // ProvisioninggroupItemRequestBuilderPutQueryParameters updates the provisioning group identified by the id.
 type ProvisioninggroupItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // ProvisioninggroupItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioninggroupItemRequestBuilderPutRequestConfiguration struct {
@@ -130,7 +130,7 @@ func (m *ProvisioninggroupItemRequestBuilder) ToGetRequestInformation(ctx contex
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -146,8 +146,8 @@ func (m *ProvisioninggroupItemRequestBuilder) ToPutRequestInformation(ctx contex
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -159,4 +159,8 @@ func (m *ProvisioninggroupItemRequestBuilder) ToPutRequestInformation(ctx contex
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ProvisioninggroupItemRequestBuilder) WithUrl(rawUrl string)(*ProvisioninggroupItemRequestBuilder) {
+    return NewProvisioninggroupItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

@@ -178,12 +178,6 @@ func (m *ProvisioningProvisionedSystem_additionalObjects) Serialize(writer i878a
         }
     }
     {
-        err := writer.WriteStringValue("loginName", m.GetLoginName())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err := writer.WriteObjectValue("managementPermissions", m.GetManagementPermissions())
         if err != nil {
             return err

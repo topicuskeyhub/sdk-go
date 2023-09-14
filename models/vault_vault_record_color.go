@@ -59,3 +59,6 @@ func SerializeVaultVaultRecordColor(values []VaultVaultRecordColor) []string {
     }
     return result
 }
+func (i VaultVaultRecordColor) isMultiValue() bool {
+    return false
+}

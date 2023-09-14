@@ -35,3 +35,6 @@ func SerializeAuthSecurityLevel(values []AuthSecurityLevel) []string {
     }
     return result
 }
+func (i AuthSecurityLevel) isMultiValue() bool {
+    return false
+}

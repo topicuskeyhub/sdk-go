@@ -13,7 +13,7 @@ type ItemSynclogSynclogItemRequestBuilder struct {
 // ItemSynclogSynclogItemRequestBuilderGetQueryParameters returns the sync log for a provisioned system.
 type ItemSynclogSynclogItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // ItemSynclogSynclogItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemSynclogSynclogItemRequestBuilderGetRequestConfiguration struct {
@@ -62,7 +62,7 @@ func (m *ItemSynclogSynclogItemRequestBuilder) ToGetRequestInformation(ctx conte
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -71,4 +71,8 @@ func (m *ItemSynclogSynclogItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemSynclogSynclogItemRequestBuilder) WithUrl(rawUrl string)(*ItemSynclogSynclogItemRequestBuilder) {
+    return NewItemSynclogSynclogItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

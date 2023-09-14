@@ -15,31 +15,31 @@ type ItemInternalaccountRequestBuilder struct {
 // ItemInternalaccountRequestBuilderGetQueryParameters queries over all internal accounts within a directory. The various query parameters can be used to filter the response.
 type ItemInternalaccountRequestBuilderGetQueryParameters struct {
     // Filter the internal accounts by KeyHub accounts, specified by id. This parameter supports composition with all parameters from the account resource.
-    Account []int64
+    Account []int64 `uriparametername:"account"`
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool
+    Any []bool `uriparametername:"any"`
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the internal accounts by directory, specified by id. This parameter supports composition with all parameters from the account directory resource.
-    Directory []int64
+    Directory []int64 `uriparametername:"directory"`
     // Filter the internal accounts by the owner group of the directory, specified by id. This parameter supports composition with all parameters from the account resource.
-    DirectoryOwnerGroup []int64
+    DirectoryOwnerGroup []int64 `uriparametername:"directoryOwnerGroup"`
     // Filter the results to exclude the given ids.
-    Exclude []int64
+    Exclude []int64 `uriparametername:"exclude"`
     // Only return internal accounts that have or have not been active.
-    HasBeenActive []bool
+    HasBeenActive []bool `uriparametername:"hasBeenActive"`
     // Filter the results on the given ids.
-    Id []int64
+    Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter the internal accounts by organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64
+    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
     // Filter records on a complex CQL query.
-    Q []string
+    Q []string `uriparametername:"q"`
 }
 // ItemInternalaccountRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemInternalaccountRequestBuilderGetRequestConfiguration struct {
@@ -135,7 +135,7 @@ func (m *ItemInternalaccountRequestBuilder) ToGetRequestInformation(ctx context.
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -151,8 +151,8 @@ func (m *ItemInternalaccountRequestBuilder) ToPostRequestInformation(ctx context
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -161,4 +161,8 @@ func (m *ItemInternalaccountRequestBuilder) ToPostRequestInformation(ctx context
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemInternalaccountRequestBuilder) WithUrl(rawUrl string)(*ItemInternalaccountRequestBuilder) {
+    return NewItemInternalaccountRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

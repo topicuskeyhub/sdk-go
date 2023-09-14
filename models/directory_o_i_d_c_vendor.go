@@ -35,3 +35,6 @@ func SerializeDirectoryOIDCVendor(values []DirectoryOIDCVendor) []string {
     }
     return result
 }
+func (i DirectoryOIDCVendor) isMultiValue() bool {
+    return false
+}

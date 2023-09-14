@@ -15,33 +15,35 @@ type ProvisioninggroupRequestBuilder struct {
 // ProvisioninggroupRequestBuilderGetQueryParameters query for all provisioning groups in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ProvisioninggroupRequestBuilderGetQueryParameters struct {
     // Only return provisioning groups that do or do not require activation.
-    ActivationRequired []bool
+    ActivationRequired []bool `uriparametername:"activationRequired"`
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool
+    Any []bool `uriparametername:"any"`
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
-    Exclude []int64
+    Exclude []int64 `uriparametername:"exclude"`
     // Only return provisioning groups for one of the given groups, specified by id. This parameter supports composition with all parameters from the groups resource.
-    Group []int64
+    Group []int64 `uriparametername:"group"`
     // Only return provisioning groups for one of the given groups on system, specified by id. This parameter supports composition with all parameters from the groups on system resource.
-    GroupOnSystem []int64
+    GroupOnSystem []int64 `uriparametername:"groupOnSystem"`
+    // Only return provisioning groups for which one of the given groups is the owner of its group on system, specified by id. This parameter supports composition with all parameters from the groups resource.
+    GroupOnSystemOwnerGroup []int64 `uriparametername:"groupOnSystemOwnerGroup"`
     // Filter the results on the given ids.
-    Id []int64
+    Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter records on a complex CQL query.
-    Q []string
+    Q []string `uriparametername:"q"`
     // Only return provisioning groups that are provisionined the on one of the given systems, specified by id. This parameter supports composition with all parameters from the systems resource.
-    System []int64
+    System []int64 `uriparametername:"system"`
     // Only return provisioning groups for which one of the given groups is technical administrator for its group on system, specified by id. This parameter supports composition with all parameters from the groups resource.
-    SystemAdminGroup []int64
+    SystemAdminGroup []int64 `uriparametername:"systemAdminGroup"`
     // Only return provisioning groups for which one of the given groups is content administrator for its group on system, specified by id. This parameter supports composition with all parameters from the groups resource.
-    SystemContentAdminGroup []int64
+    SystemContentAdminGroup []int64 `uriparametername:"systemContentAdminGroup"`
 }
 // ProvisioninggroupRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioninggroupRequestBuilderGetRequestConfiguration struct {
@@ -76,7 +78,7 @@ func (m *ProvisioninggroupRequestBuilder) ByIdInt64(id int64)(*Provisioninggroup
 // NewProvisioninggroupRequestBuilderInternal instantiates a new ProvisioninggroupRequestBuilder and sets the default values.
 func NewProvisioninggroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProvisioninggroupRequestBuilder) {
     m := &ProvisioninggroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/provisioninggroup{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,activationRequired*,group*,groupOnSystem*,system*,systemAdminGroup*,systemContentAdminGroup*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/provisioninggroup{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,activationRequired*,group*,groupOnSystem*,groupOnSystemOwnerGroup*,system*,systemAdminGroup*,systemContentAdminGroup*}", pathParameters),
     }
     return m
 }
@@ -111,7 +113,7 @@ func (m *ProvisioninggroupRequestBuilder) ToGetRequestInformation(ctx context.Co
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -120,4 +122,8 @@ func (m *ProvisioninggroupRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ProvisioninggroupRequestBuilder) WithUrl(rawUrl string)(*ProvisioninggroupRequestBuilder) {
+    return NewProvisioninggroupRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

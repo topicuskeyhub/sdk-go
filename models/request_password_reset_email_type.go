@@ -35,3 +35,6 @@ func SerializeRequestPasswordResetEmailType(values []RequestPasswordResetEmailTy
     }
     return result
 }
+func (i RequestPasswordResetEmailType) isMultiValue() bool {
+    return false
+}

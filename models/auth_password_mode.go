@@ -38,3 +38,6 @@ func SerializeAuthPasswordMode(values []AuthPasswordMode) []string {
     }
     return result
 }
+func (i AuthPasswordMode) isMultiValue() bool {
+    return false
+}

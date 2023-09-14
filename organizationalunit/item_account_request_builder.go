@@ -14,25 +14,25 @@ type ItemAccountRequestBuilder struct {
 // ItemAccountRequestBuilderGetQueryParameters queries over accounts that are member of the organizational unit. The various query parameters can be used to filter the response.
 type ItemAccountRequestBuilderGetQueryParameters struct {
     // Filter the organizational units-accounts by accounts, specified by id. This parameter supports composition with all parameters from the account resource.
-    Account []int64
+    Account []int64 `uriparametername:"account"`
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool
+    Any []bool `uriparametername:"any"`
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
-    Exclude []int64
+    Exclude []int64 `uriparametername:"exclude"`
     // Filter the results on the given ids.
-    Id []int64
+    Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter the organizational units-accounts by organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64
+    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
     // Filter records on a complex CQL query.
-    Q []string
+    Q []string `uriparametername:"q"`
 }
 // ItemAccountRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAccountRequestBuilderGetRequestConfiguration struct {
@@ -118,7 +118,7 @@ func (m *ItemAccountRequestBuilder) ToGetRequestInformation(ctx context.Context,
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -134,8 +134,8 @@ func (m *ItemAccountRequestBuilder) ToPostRequestInformation(ctx context.Context
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -144,4 +144,8 @@ func (m *ItemAccountRequestBuilder) ToPostRequestInformation(ctx context.Context
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemAccountRequestBuilder) WithUrl(rawUrl string)(*ItemAccountRequestBuilder) {
+    return NewItemAccountRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

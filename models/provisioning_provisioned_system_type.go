@@ -47,3 +47,6 @@ func SerializeProvisioningProvisionedSystemType(values []ProvisioningProvisioned
     }
     return result
 }
+func (i ProvisioningProvisionedSystemType) isMultiValue() bool {
+    return false
+}

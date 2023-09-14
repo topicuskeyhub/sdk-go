@@ -38,3 +38,6 @@ func SerializeAuthPermittedOperation(values []AuthPermittedOperation) []string {
     }
     return result
 }
+func (i AuthPermittedOperation) isMultiValue() bool {
+    return false
+}

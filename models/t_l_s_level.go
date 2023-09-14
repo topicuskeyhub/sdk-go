@@ -44,3 +44,6 @@ func SerializeTLSLevel(values []TLSLevel) []string {
     }
     return result
 }
+func (i TLSLevel) isMultiValue() bool {
+    return false
+}

@@ -20,7 +20,7 @@ type CertificateItemRequestBuilderDeleteRequestConfiguration struct {
 // CertificateItemRequestBuilderGetQueryParameters returns the global trusted certificate identified by the id.
 type CertificateItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // CertificateItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type CertificateItemRequestBuilderGetRequestConfiguration struct {
@@ -34,7 +34,7 @@ type CertificateItemRequestBuilderGetRequestConfiguration struct {
 // CertificateItemRequestBuilderPutQueryParameters updates the global trusted certificate identified by the id.
 type CertificateItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // CertificateItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type CertificateItemRequestBuilderPutRequestConfiguration struct {
@@ -130,7 +130,7 @@ func (m *CertificateItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -146,8 +146,8 @@ func (m *CertificateItemRequestBuilder) ToPutRequestInformation(ctx context.Cont
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -159,4 +159,8 @@ func (m *CertificateItemRequestBuilder) ToPutRequestInformation(ctx context.Cont
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *CertificateItemRequestBuilder) WithUrl(rawUrl string)(*CertificateItemRequestBuilder) {
+    return NewCertificateItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

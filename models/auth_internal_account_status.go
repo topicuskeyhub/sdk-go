@@ -38,3 +38,6 @@ func SerializeAuthInternalAccountStatus(values []AuthInternalAccountStatus) []st
     }
     return result
 }
+func (i AuthInternalAccountStatus) isMultiValue() bool {
+    return false
+}

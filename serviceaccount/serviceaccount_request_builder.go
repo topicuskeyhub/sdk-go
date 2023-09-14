@@ -15,49 +15,49 @@ type ServiceaccountRequestBuilder struct {
 // ServiceaccountRequestBuilderGetQueryParameters query for all service accounts in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ServiceaccountRequestBuilderGetQueryParameters struct {
     // Only return active or inactive service accounts.
-    Active []string
+    Active []string `uriparametername:"active"`
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool
+    Any []bool `uriparametername:"any"`
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
-    Exclude []int64
+    Exclude []int64 `uriparametername:"exclude"`
     // Filter the service accounts by groups on systems, specified by id. This parameter supports composition with all parameters from the group on system resource.
-    GroupOnSystem []int64
+    GroupOnSystem []int64 `uriparametername:"groupOnSystem"`
     // Filter the service accounts on group on systems owned by any of the given groups, specified by id.
-    GroupOnSystemOwners []int64
+    GroupOnSystemOwners []int64 `uriparametername:"groupOnSystemOwners"`
     // Filter the results on the given ids.
-    Id []int64
+    Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter service accounts on the exact name.
-    Name []string
+    Name []string `uriparametername:"name"`
     // Search service accounts on (part of) the name, username or uuid.
-    NameContains []string
+    NameContains []string `uriparametername:"nameContains"`
     // Only return service accounts for which the name does not start with the given prefix.
-    NameDoesNotStartWith []string
+    NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
     // Only return service accounts for which the name starts with the given prefix.
-    NameStartsWith []string
+    NameStartsWith []string `uriparametername:"nameStartsWith"`
     // Filter the service accounts by the password shared in the vault, specified by id. This parameter supports composition with all parameters from the vault record resource.
-    Password []int64
+    Password []int64 `uriparametername:"password"`
     // Only return service accounts with the given password rotation scheme.
-    PasswordRotation []string
+    PasswordRotation []string `uriparametername:"passwordRotation"`
     // Filter records on a complex CQL query.
-    Q []string
+    Q []string `uriparametername:"q"`
     // Filter the service accounts on active requests for group on systems owned by any of the given groups, specified by id.
-    RequestedGroupOnSystemOwners []int64
+    RequestedGroupOnSystemOwners []int64 `uriparametername:"requestedGroupOnSystemOwners"`
     // Filter the service accounts by provisioned systems, specified by id. This parameter supports composition with all parameters from the provisioned system resource.
-    System []int64
+    System []int64 `uriparametername:"system"`
     // Filter the service accounts on groups that perform technical administration for them, specified by id. This parameter supports composition with all parameters from the group resource.
-    TechnicalAdministrator []int64
+    TechnicalAdministrator []int64 `uriparametername:"technicalAdministrator"`
     // Filter service accounts on the exact username.
-    Username []string
+    Username []string `uriparametername:"username"`
     // Filter results on one or more UUIDs.
-    Uuid []string
+    Uuid []string `uriparametername:"uuid"`
 }
 // ServiceaccountRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ServiceaccountRequestBuilderGetRequestConfiguration struct {
@@ -165,7 +165,7 @@ func (m *ServiceaccountRequestBuilder) ToGetRequestInformation(ctx context.Conte
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -181,8 +181,8 @@ func (m *ServiceaccountRequestBuilder) ToPostRequestInformation(ctx context.Cont
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -191,4 +191,8 @@ func (m *ServiceaccountRequestBuilder) ToPostRequestInformation(ctx context.Cont
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ServiceaccountRequestBuilder) WithUrl(rawUrl string)(*ServiceaccountRequestBuilder) {
+    return NewServiceaccountRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

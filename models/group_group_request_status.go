@@ -35,3 +35,6 @@ func SerializeGroupGroupRequestStatus(values []GroupGroupRequestStatus) []string
     }
     return result
 }
+func (i GroupGroupRequestStatus) isMultiValue() bool {
+    return false
+}

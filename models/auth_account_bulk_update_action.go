@@ -35,3 +35,6 @@ func SerializeAuthAccountBulkUpdateAction(values []AuthAccountBulkUpdateAction) 
     }
     return result
 }
+func (i AuthAccountBulkUpdateAction) isMultiValue() bool {
+    return false
+}

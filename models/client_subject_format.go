@@ -38,3 +38,6 @@ func SerializeClientSubjectFormat(values []ClientSubjectFormat) []string {
     }
     return result
 }
+func (i ClientSubjectFormat) isMultiValue() bool {
+    return false
+}

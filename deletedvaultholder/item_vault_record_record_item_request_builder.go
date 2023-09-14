@@ -20,7 +20,7 @@ type ItemVaultRecordRecordItemRequestBuilderDeleteRequestConfiguration struct {
 // ItemVaultRecordRecordItemRequestBuilderGetQueryParameters returns the vault record identified by the id. When the 'secret' additonal object is requested, the 'topicus-Vault-session' header must be specified.
 type ItemVaultRecordRecordItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // ItemVaultRecordRecordItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultRecordRecordItemRequestBuilderGetRequestConfiguration struct {
@@ -34,7 +34,7 @@ type ItemVaultRecordRecordItemRequestBuilderGetRequestConfiguration struct {
 // ItemVaultRecordRecordItemRequestBuilderPutQueryParameters updates the vault record identified by the id. To update the secrets, the 'secret' additional object must be used, in addition to specifying the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
 type ItemVaultRecordRecordItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // ItemVaultRecordRecordItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultRecordRecordItemRequestBuilderPutRequestConfiguration struct {
@@ -134,7 +134,7 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) ToGetRequestInformation(ctx co
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -150,8 +150,8 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) ToPutRequestInformation(ctx co
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -163,4 +163,8 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) ToPutRequestInformation(ctx co
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemVaultRecordRecordItemRequestBuilder) WithUrl(rawUrl string)(*ItemVaultRecordRecordItemRequestBuilder) {
+    return NewItemVaultRecordRecordItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

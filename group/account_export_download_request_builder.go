@@ -13,7 +13,7 @@ type AccountExportDownloadRequestBuilder struct {
 // AccountExportDownloadRequestBuilderGetQueryParameters downloads the export previously prepared.
 type AccountExportDownloadRequestBuilderGetQueryParameters struct {
     // 
-    Export *string
+    Export *string `uriparametername:"export"`
 }
 // AccountExportDownloadRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AccountExportDownloadRequestBuilderGetRequestConfiguration struct {
@@ -70,4 +70,8 @@ func (m *AccountExportDownloadRequestBuilder) ToGetRequestInformation(ctx contex
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *AccountExportDownloadRequestBuilder) WithUrl(rawUrl string)(*AccountExportDownloadRequestBuilder) {
+    return NewAccountExportDownloadRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

@@ -180,12 +180,6 @@ func (m *ClientClientApplication_additionalObjects) Serialize(writer i878a80d233
         }
     }
     {
-        err := writer.WriteInt32Value("vaultRecordCount", m.GetVaultRecordCount())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err := writer.WriteAdditionalData(m.GetAdditionalData())
         if err != nil {
             return err

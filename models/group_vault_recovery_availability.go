@@ -35,3 +35,6 @@ func SerializeGroupVaultRecoveryAvailability(values []GroupVaultRecoveryAvailabi
     }
     return result
 }
+func (i GroupVaultRecoveryAvailability) isMultiValue() bool {
+    return false
+}

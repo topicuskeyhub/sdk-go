@@ -77,3 +77,6 @@ func SerializeMarkItemMarkerType(values []MarkItemMarkerType) []string {
     }
     return result
 }
+func (i MarkItemMarkerType) isMultiValue() bool {
+    return false
+}

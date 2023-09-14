@@ -50,3 +50,6 @@ func SerializeLicenseLicenseFeature(values []LicenseLicenseFeature) []string {
     }
     return result
 }
+func (i LicenseLicenseFeature) isMultiValue() bool {
+    return false
+}

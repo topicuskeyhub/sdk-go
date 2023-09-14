@@ -20,7 +20,7 @@ type WithDirectoryItemRequestBuilderDeleteRequestConfiguration struct {
 // WithDirectoryItemRequestBuilderGetQueryParameters returns the directory identified by the id.
 type WithDirectoryItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // WithDirectoryItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithDirectoryItemRequestBuilderGetRequestConfiguration struct {
@@ -34,7 +34,7 @@ type WithDirectoryItemRequestBuilderGetRequestConfiguration struct {
 // WithDirectoryItemRequestBuilderPutQueryParameters updates the directory identified by the id.
 type WithDirectoryItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // WithDirectoryItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithDirectoryItemRequestBuilderPutRequestConfiguration struct {
@@ -134,7 +134,7 @@ func (m *WithDirectoryItemRequestBuilder) ToGetRequestInformation(ctx context.Co
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -150,8 +150,8 @@ func (m *WithDirectoryItemRequestBuilder) ToPutRequestInformation(ctx context.Co
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -163,4 +163,8 @@ func (m *WithDirectoryItemRequestBuilder) ToPutRequestInformation(ctx context.Co
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *WithDirectoryItemRequestBuilder) WithUrl(rawUrl string)(*WithDirectoryItemRequestBuilder) {
+    return NewWithDirectoryItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

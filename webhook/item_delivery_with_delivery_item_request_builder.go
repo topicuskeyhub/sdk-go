@@ -13,7 +13,7 @@ type ItemDeliveryWithDeliveryItemRequestBuilder struct {
 // ItemDeliveryWithDeliveryItemRequestBuilderGetQueryParameters returns the single webhook delivery.
 type ItemDeliveryWithDeliveryItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
 }
 // ItemDeliveryWithDeliveryItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemDeliveryWithDeliveryItemRequestBuilderGetRequestConfiguration struct {
@@ -66,7 +66,7 @@ func (m *ItemDeliveryWithDeliveryItemRequestBuilder) ToGetRequestInformation(ctx
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -75,4 +75,8 @@ func (m *ItemDeliveryWithDeliveryItemRequestBuilder) ToGetRequestInformation(ctx
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemDeliveryWithDeliveryItemRequestBuilder) WithUrl(rawUrl string)(*ItemDeliveryWithDeliveryItemRequestBuilder) {
+    return NewItemDeliveryWithDeliveryItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

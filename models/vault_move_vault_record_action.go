@@ -35,3 +35,6 @@ func SerializeVaultMoveVaultRecordAction(values []VaultMoveVaultRecordAction) []
     }
     return result
 }
+func (i VaultMoveVaultRecordAction) isMultiValue() bool {
+    return false
+}

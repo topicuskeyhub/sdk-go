@@ -653,3 +653,6 @@ func SerializeAuditAuditRecordType(values []AuditAuditRecordType) []string {
     }
     return result
 }
+func (i AuditAuditRecordType) isMultiValue() bool {
+    return false
+}

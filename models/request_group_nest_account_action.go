@@ -35,3 +35,6 @@ func SerializeRequestGroupNestAccountAction(values []RequestGroupNestAccountActi
     }
     return result
 }
+func (i RequestGroupNestAccountAction) isMultiValue() bool {
+    return false
+}

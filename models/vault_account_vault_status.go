@@ -38,3 +38,6 @@ func SerializeVaultAccountVaultStatus(values []VaultAccountVaultStatus) []string
     }
     return result
 }
+func (i VaultAccountVaultStatus) isMultiValue() bool {
+    return false
+}

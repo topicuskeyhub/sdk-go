@@ -56,3 +56,6 @@ func SerializeLicenseKeyHubLicenseInfoLicenseStatus(values []LicenseKeyHubLicens
     }
     return result
 }
+func (i LicenseKeyHubLicenseInfoLicenseStatus) isMultiValue() bool {
+    return false
+}

@@ -16,8 +16,6 @@ type ProvisioningProvisionedSystem struct {
     contentAdministrator GroupGroupPrimerable
     // The externalUuid property
     externalUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-    // The organizationalUnit property
-    organizationalUnit OrganizationOrganizationalUnitPrimerable
     // The owner property
     owner GroupGroupPrimerable
     // The selfServiceExistingGroups property
@@ -137,16 +135,6 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
         }
         return nil
     }
-    res["organizationalUnit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetOrganizationalUnit(val.(OrganizationOrganizationalUnitPrimerable))
-        }
-        return nil
-    }
     res["owner"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
         if err != nil {
@@ -219,10 +207,6 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
     }
     return res
 }
-// GetOrganizationalUnit gets the organizationalUnit property value. The organizationalUnit property
-func (m *ProvisioningProvisionedSystem) GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable) {
-    return m.organizationalUnit
-}
 // GetOwner gets the owner property value. The owner property
 func (m *ProvisioningProvisionedSystem) GetOwner()(GroupGroupPrimerable) {
     return m.owner
@@ -265,12 +249,6 @@ func (m *ProvisioningProvisionedSystem) Serialize(writer i878a80d2330e89d2689638
     }
     {
         err = writer.WriteObjectValue("contentAdministrator", m.GetContentAdministrator())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("organizationalUnit", m.GetOrganizationalUnit())
         if err != nil {
             return err
         }
@@ -335,10 +313,6 @@ func (m *ProvisioningProvisionedSystem) SetContentAdministrator(value GroupGroup
 func (m *ProvisioningProvisionedSystem) SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
     m.externalUuid = value
 }
-// SetOrganizationalUnit sets the organizationalUnit property value. The organizationalUnit property
-func (m *ProvisioningProvisionedSystem) SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)() {
-    m.organizationalUnit = value
-}
 // SetOwner sets the owner property value. The owner property
 func (m *ProvisioningProvisionedSystem) SetOwner(value GroupGroupPrimerable)() {
     m.owner = value
@@ -375,7 +349,6 @@ type ProvisioningProvisionedSystemable interface {
     GetAdditionalObjects()(ProvisioningProvisionedSystem_additionalObjectsable)
     GetContentAdministrator()(GroupGroupPrimerable)
     GetExternalUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-    GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable)
     GetOwner()(GroupGroupPrimerable)
     GetSelfServiceExistingGroups()(*bool)
     GetSelfServiceNewGroups()(*bool)
@@ -387,7 +360,6 @@ type ProvisioningProvisionedSystemable interface {
     SetAdditionalObjects(value ProvisioningProvisionedSystem_additionalObjectsable)()
     SetContentAdministrator(value GroupGroupPrimerable)()
     SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
-    SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)()
     SetOwner(value GroupGroupPrimerable)()
     SetSelfServiceExistingGroups(value *bool)()
     SetSelfServiceNewGroups(value *bool)()

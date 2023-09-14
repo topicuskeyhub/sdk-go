@@ -53,3 +53,6 @@ func SerializeNotificationCertificateUsage(values []NotificationCertificateUsage
     }
     return result
 }
+func (i NotificationCertificateUsage) isMultiValue() bool {
+    return false
+}

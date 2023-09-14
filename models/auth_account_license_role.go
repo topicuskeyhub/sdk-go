@@ -32,3 +32,6 @@ func SerializeAuthAccountLicenseRole(values []AuthAccountLicenseRole) []string {
     }
     return result
 }
+func (i AuthAccountLicenseRole) isMultiValue() bool {
+    return false
+}

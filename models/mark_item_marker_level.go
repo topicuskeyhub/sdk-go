@@ -32,3 +32,6 @@ func SerializeMarkItemMarkerLevel(values []MarkItemMarkerLevel) []string {
     }
     return result
 }
+func (i MarkItemMarkerLevel) isMultiValue() bool {
+    return false
+}

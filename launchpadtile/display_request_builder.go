@@ -13,11 +13,11 @@ type DisplayRequestBuilder struct {
 // DisplayRequestBuilderGetQueryParameters query tiles for display on the launchpad. This returns a normalized view over the tiles, per group. A single tile can be returned multiple times if access is given via multiple groups.
 type DisplayRequestBuilderGetQueryParameters struct {
     // 
-    Filter *string
+    Filter *string `uriparametername:"filter"`
     // 
-    Group *int64
+    Group *int64 `uriparametername:"group"`
     // 
-    ModifiedSince *string
+    ModifiedSince *string `uriparametername:"modifiedSince"`
 }
 // DisplayRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type DisplayRequestBuilderGetRequestConfiguration struct {
@@ -66,7 +66,7 @@ func (m *DisplayRequestBuilder) ToGetRequestInformation(ctx context.Context, req
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -75,4 +75,8 @@ func (m *DisplayRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *DisplayRequestBuilder) WithUrl(rawUrl string)(*DisplayRequestBuilder) {
+    return NewDisplayRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

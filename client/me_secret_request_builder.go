@@ -55,7 +55,7 @@ func (m *MeSecretRequestBuilder) ToPostRequestInformation(ctx context.Context, b
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -64,4 +64,8 @@ func (m *MeSecretRequestBuilder) ToPostRequestInformation(ctx context.Context, b
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *MeSecretRequestBuilder) WithUrl(rawUrl string)(*MeSecretRequestBuilder) {
+    return NewMeSecretRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

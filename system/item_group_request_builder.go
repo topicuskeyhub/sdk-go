@@ -14,45 +14,45 @@ type ItemGroupRequestBuilder struct {
 // ItemGroupRequestBuilderGetQueryParameters query for all groups on systems within a provisioned system in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ItemGroupRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
     // Filter the groups on system on groups that perform technical administration for the systems they belong to, specified by id. This parameter supports composition with all parameters from the group resource.
-    AdminnedBy []int64
+    AdminnedBy []int64 `uriparametername:"adminnedBy"`
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool
+    Any []bool `uriparametername:"any"`
     // Filter the groups on system on groups that perform content administration for the systems they belong to, specified by id. This parameter supports composition with all parameters from the group resource.
-    ContentAdminnedBy []int64
+    ContentAdminnedBy []int64 `uriparametername:"contentAdminnedBy"`
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
-    Exclude []int64
+    Exclude []int64 `uriparametername:"exclude"`
     // Only return groups on system that have a provisioning group with one of the given groups, specified by id. This parameter supports composition with all parameters from the groups resource.
-    Group []int64
+    Group []int64 `uriparametername:"group"`
     // Filter the results on the given ids.
-    Id []int64
+    Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Search groups on (part of) the display name or the name in system.
-    NameContains []string
+    NameContains []string `uriparametername:"nameContains"`
     // Filter groups on system on the exact name in system.
-    NameInSystem []string
+    NameInSystem []string `uriparametername:"nameInSystem"`
     // Only return groups on system that do not have a provisioning group with one of the given groups, specified by id.
-    NotLinkedToGroup []int64
+    NotLinkedToGroup []int64 `uriparametername:"notLinkedToGroup"`
     // Only return groups on system that do are not linked to the given service account, specified by id.
-    NotLinkedToServiceAccount []int64
+    NotLinkedToServiceAccount []int64 `uriparametername:"notLinkedToServiceAccount"`
     // Filter groups-on-system on organizational units, specified by id.
-    OrganizationalUnitForEnforcement []int64
+    OrganizationalUnitForEnforcement []int64 `uriparametername:"organizationalUnitForEnforcement"`
     // Filter the groups on system on groups that are owner for them, specified by id. This parameter supports composition with all parameters from the group resource.
-    OwnedBy []int64
+    OwnedBy []int64 `uriparametername:"ownedBy"`
     // Filter records on a complex CQL query.
-    Q []string
+    Q []string `uriparametername:"q"`
     // Only return groups that are the on one of the given systems, specified by id. This parameter supports composition with all parameters from the systems resource.
-    System []int64
+    System []int64 `uriparametername:"system"`
     // Constrain groups-on-system on the system the current user is content admin or owner of, specified by id.
-    SystemForEnforcement []int64
+    SystemForEnforcement []int64 `uriparametername:"systemForEnforcement"`
     // Filter the groups on system on groups that are tier 2 owner for them, specified by id. A tier 2 owner is an owner of a group on system that is linked to a service account this group on system is also linked to.
-    Tier2OwnedBy []int64
+    Tier2OwnedBy []int64 `uriparametername:"tier2OwnedBy"`
 }
 // ItemGroupRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemGroupRequestBuilderGetRequestConfiguration struct {
@@ -138,7 +138,7 @@ func (m *ItemGroupRequestBuilder) ToGetRequestInformation(ctx context.Context, r
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -154,8 +154,8 @@ func (m *ItemGroupRequestBuilder) ToPostRequestInformation(ctx context.Context, 
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=65", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
     if err != nil {
         return nil, err
     }
@@ -164,4 +164,8 @@ func (m *ItemGroupRequestBuilder) ToPostRequestInformation(ctx context.Context, 
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemGroupRequestBuilder) WithUrl(rawUrl string)(*ItemGroupRequestBuilder) {
+    return NewItemGroupRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

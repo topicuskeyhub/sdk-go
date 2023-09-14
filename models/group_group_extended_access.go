@@ -38,3 +38,6 @@ func SerializeGroupGroupExtendedAccess(values []GroupGroupExtendedAccess) []stri
     }
     return result
 }
+func (i GroupGroupExtendedAccess) isMultiValue() bool {
+    return false
+}

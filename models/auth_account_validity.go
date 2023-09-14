@@ -44,3 +44,6 @@ func SerializeAuthAccountValidity(values []AuthAccountValidity) []string {
     }
     return result
 }
+func (i AuthAccountValidity) isMultiValue() bool {
+    return false
+}

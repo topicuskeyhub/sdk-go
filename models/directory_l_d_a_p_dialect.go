@@ -32,3 +32,6 @@ func SerializeDirectoryLDAPDialect(values []DirectoryLDAPDialect) []string {
     }
     return result
 }
+func (i DirectoryLDAPDialect) isMultiValue() bool {
+    return false
+}

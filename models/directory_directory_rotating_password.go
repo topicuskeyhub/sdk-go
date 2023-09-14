@@ -35,3 +35,6 @@ func SerializeDirectoryDirectoryRotatingPassword(values []DirectoryDirectoryRota
     }
     return result
 }
+func (i DirectoryDirectoryRotatingPassword) isMultiValue() bool {
+    return false
+}

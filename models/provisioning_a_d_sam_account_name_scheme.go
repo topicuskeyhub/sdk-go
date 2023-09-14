@@ -41,3 +41,6 @@ func SerializeProvisioningADSamAccountNameScheme(values []ProvisioningADSamAccou
     }
     return result
 }
+func (i ProvisioningADSamAccountNameScheme) isMultiValue() bool {
+    return false
+}

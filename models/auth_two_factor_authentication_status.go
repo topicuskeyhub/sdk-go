@@ -44,3 +44,6 @@ func SerializeAuthTwoFactorAuthenticationStatus(values []AuthTwoFactorAuthentica
     }
     return result
 }
+func (i AuthTwoFactorAuthenticationStatus) isMultiValue() bool {
+    return false
+}

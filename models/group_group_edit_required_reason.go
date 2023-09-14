@@ -59,3 +59,6 @@ func SerializeGroupGroupEditRequiredReason(values []GroupGroupEditRequiredReason
     }
     return result
 }
+func (i GroupGroupEditRequiredReason) isMultiValue() bool {
+    return false
+}

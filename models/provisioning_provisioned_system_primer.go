@@ -11,6 +11,8 @@ type ProvisioningProvisionedSystemPrimer struct {
     active *bool
     // The name property
     name *string
+    // The organizationalUnit property
+    organizationalUnit OrganizationOrganizationalUnitPrimerable
     // The type property
     provisioningProvisionedSystemPrimerType *ProvisioningProvisionedSystemType
     // The uuid property
@@ -90,6 +92,16 @@ func (m *ProvisioningProvisionedSystemPrimer) GetFieldDeserializers()(map[string
         }
         return nil
     }
+    res["organizationalUnit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOrganizationalUnit(val.(OrganizationOrganizationalUnitPrimerable))
+        }
+        return nil
+    }
     res["type"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetEnumValue(ParseProvisioningProvisionedSystemType)
         if err != nil {
@@ -115,6 +127,10 @@ func (m *ProvisioningProvisionedSystemPrimer) GetFieldDeserializers()(map[string
 // GetName gets the name property value. The name property
 func (m *ProvisioningProvisionedSystemPrimer) GetName()(*string) {
     return m.name
+}
+// GetOrganizationalUnit gets the organizationalUnit property value. The organizationalUnit property
+func (m *ProvisioningProvisionedSystemPrimer) GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable) {
+    return m.organizationalUnit
 }
 // GetProvisioningProvisionedSystemPrimerType gets the type property value. The type property
 func (m *ProvisioningProvisionedSystemPrimer) GetProvisioningProvisionedSystemPrimerType()(*ProvisioningProvisionedSystemType) {
@@ -142,6 +158,12 @@ func (m *ProvisioningProvisionedSystemPrimer) Serialize(writer i878a80d2330e89d2
             return err
         }
     }
+    {
+        err = writer.WriteObjectValue("organizationalUnit", m.GetOrganizationalUnit())
+        if err != nil {
+            return err
+        }
+    }
     if m.GetProvisioningProvisionedSystemPrimerType() != nil {
         cast := (*m.GetProvisioningProvisionedSystemPrimerType()).String()
         err = writer.WriteStringValue("type", &cast)
@@ -159,6 +181,10 @@ func (m *ProvisioningProvisionedSystemPrimer) SetActive(value *bool)() {
 func (m *ProvisioningProvisionedSystemPrimer) SetName(value *string)() {
     m.name = value
 }
+// SetOrganizationalUnit sets the organizationalUnit property value. The organizationalUnit property
+func (m *ProvisioningProvisionedSystemPrimer) SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)() {
+    m.organizationalUnit = value
+}
 // SetProvisioningProvisionedSystemPrimerType sets the type property value. The type property
 func (m *ProvisioningProvisionedSystemPrimer) SetProvisioningProvisionedSystemPrimerType(value *ProvisioningProvisionedSystemType)() {
     m.provisioningProvisionedSystemPrimerType = value
@@ -173,10 +199,12 @@ type ProvisioningProvisionedSystemPrimerable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetActive()(*bool)
     GetName()(*string)
+    GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable)
     GetProvisioningProvisionedSystemPrimerType()(*ProvisioningProvisionedSystemType)
     GetUuid()(*string)
     SetActive(value *bool)()
     SetName(value *string)()
+    SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)()
     SetProvisioningProvisionedSystemPrimerType(value *ProvisioningProvisionedSystemType)()
     SetUuid(value *string)()
 }

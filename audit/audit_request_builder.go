@@ -15,47 +15,47 @@ type AuditRequestBuilder struct {
 // AuditRequestBuilderGetQueryParameters query for all audit records in Topicus KeyHub. The various query parameters can be used to filter the response.
 type AuditRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
-    Additional []string
+    Additional []string `uriparametername:"additional"`
     // Only return records after a given date.
-    After []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    After []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"after"`
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool
+    Any []bool `uriparametername:"any"`
     // Only return records before a given date.
-    Before []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    Before []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"before"`
     // Perform a full text search on the contents of audit records.
-    Containing []string
+    Containing []string `uriparametername:"containing"`
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
-    Exclude []int64
+    Exclude []int64 `uriparametername:"exclude"`
     // Filter the results on the given ids.
-    Id []int64
+    Id []int64 `uriparametername:"id"`
     // Include or do not include records that are considered daily use.
-    IncludeDaily []bool
+    IncludeDaily []bool `uriparametername:"includeDaily"`
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Only return audit records targeting the given group either via onGroup1 or onGroup2, specified by id.
-    OnGroup []int64
+    OnGroup []int64 `uriparametername:"onGroup"`
     // Only return audit records targeting the given group specifically as onGroup1, specified by id.
-    OnGroup1 []int64
+    OnGroup1 []int64 `uriparametername:"onGroup1"`
     // Only return audit records performed by or targeting the given account, specified by id.
-    OnOrByAccount []int64
+    OnOrByAccount []int64 `uriparametername:"onOrByAccount"`
     // Only return audit records performed by or targeting the given client, specified by id.
-    OnOrByClient []int64
+    OnOrByClient []int64 `uriparametername:"onOrByClient"`
     // Only return audit records targeting the given service account, specified by id.
-    OnServiceAccount []int64
+    OnServiceAccount []int64 `uriparametername:"onServiceAccount"`
     // Only return audit records that have the performed-by-name set or not set.
-    PerformedByNameSet []bool
+    PerformedByNameSet []bool `uriparametername:"performedByNameSet"`
     // Only return audit records that are performed by the given account or client, specified by uuid.
-    PerformedByUuid []string
+    PerformedByUuid []string `uriparametername:"performedByUuid"`
     // Filter records on a complex CQL query.
-    Q []string
+    Q []string `uriparametername:"q"`
     // Filter audit records on the given type(s).
-    Type []string
+    Type []string `uriparametername:"type"`
     // Only return audit records that are meant to be displayed to the given account, specified by id.
-    VisibleFor []int64
+    VisibleFor []int64 `uriparametername:"visibleFor"`
 }
 // AuditRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AuditRequestBuilderGetRequestConfiguration struct {
@@ -129,7 +129,7 @@ func (m *AuditRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=65")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -138,4 +138,8 @@ func (m *AuditRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *AuditRequestBuilder) WithUrl(rawUrl string)(*AuditRequestBuilder) {
+    return NewAuditRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

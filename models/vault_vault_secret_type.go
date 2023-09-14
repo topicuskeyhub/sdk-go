@@ -38,3 +38,6 @@ func SerializeVaultVaultSecretType(values []VaultVaultSecretType) []string {
     }
     return result
 }
+func (i VaultVaultSecretType) isMultiValue() bool {
+    return false
+}

@@ -1,5 +1,7 @@
 package sdkgo
 
+// not-generated
+
 import (
 	_ "embed"
 )

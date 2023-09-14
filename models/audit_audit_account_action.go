@@ -41,3 +41,6 @@ func SerializeAuditAuditAccountAction(values []AuditAuditAccountAction) []string
     }
     return result
 }
+func (i AuditAuditAccountAction) isMultiValue() bool {
+    return false
+}

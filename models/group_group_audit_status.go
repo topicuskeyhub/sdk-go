@@ -38,3 +38,6 @@ func SerializeGroupGroupAuditStatus(values []GroupGroupAuditStatus) []string {
     }
     return result
 }
+func (i GroupGroupAuditStatus) isMultiValue() bool {
+    return false
+}

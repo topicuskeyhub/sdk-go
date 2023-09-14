@@ -35,3 +35,6 @@ func SerializeAuditAuditRequiredSourceType(values []AuditAuditRequiredSourceType
     }
     return result
 }
+func (i AuditAuditRequiredSourceType) isMultiValue() bool {
+    return false
+}

@@ -35,3 +35,6 @@ func SerializeVaultVaultHolderType(values []VaultVaultHolderType) []string {
     }
     return result
 }
+func (i VaultVaultHolderType) isMultiValue() bool {
+    return false
+}

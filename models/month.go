@@ -62,3 +62,6 @@ func SerializeMonth(values []Month) []string {
     }
     return result
 }
+func (i Month) isMultiValue() bool {
+    return false
+}
