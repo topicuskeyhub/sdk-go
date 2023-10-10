@@ -30,7 +30,7 @@ func CreateRequestModificationRequest_additionalObjectsFromDiscriminatorValue(pa
 func (m *RequestModificationRequest_additionalObjects) GetAcceptParams()(RequestAcceptModificationRequestParametersable) {
     return m.acceptParams
 }
-// GetAdditionalData gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *RequestModificationRequest_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
@@ -109,7 +109,7 @@ func (m *RequestModificationRequest_additionalObjects) Serialize(writer i878a80d
 func (m *RequestModificationRequest_additionalObjects) SetAcceptParams(value RequestAcceptModificationRequestParametersable)() {
     m.acceptParams = value
 }
-// SetAdditionalData sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *RequestModificationRequest_additionalObjects) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
 }

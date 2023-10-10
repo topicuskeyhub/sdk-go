@@ -2842,39 +2842,6 @@
         }
       }
     },
-    "/account/export/download": {
-      "get": {
-        "tags": [
-          "miscellaneous"
-        ],
-        "summary": "Downloads an export of accounts",
-        "description": "Downloads the export previously prepared.",
-        "operationId": "streamExport_account_export_download",
-        "parameters": [
-          {
-            "name": "export",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Accounts export",
-            "content": {
-              "text/csv": {}
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/error"
-          },
-          "5XX": {
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
     "/account/vault/unlock": {
       "post": {
         "tags": [
@@ -3121,6 +3088,57 @@
         }
       }
     },
+    "/account/{accountid}/vault/newpassword": {
+      "get": {
+        "tags": [
+          "vault"
+        ],
+        "summary": "Returns a random generated password",
+        "description": "Returns a random generated password using the given strategy, or the default strategy if none given.",
+        "operationId": "newpassword_account_vault_newpassword",
+        "parameters": [
+          {
+            "name": "strategy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "accountid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/vnd.topicus.keyhub+json;version=66": {
+                "schema": {
+                  "$ref": "#/components/schemas/simpleStringValue"
+                }
+              },
+              "application/vnd.topicus.keyhub+xml;version=66": {
+                "schema": {
+                  "$ref": "#/components/schemas/simpleStringValue"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/account/{accountid}/vault/random": {
       "get": {
         "tags": [
@@ -3128,7 +3146,7 @@
         ],
         "summary": "Returns a random generated value",
         "description": "Returns a random generated value of the given length, default 24.",
-        "operationId": "generate_account_vault_random",
+        "operationId": "random_account_vault_random",
         "parameters": [
           {
             "name": "length",
@@ -3197,7 +3215,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -3674,7 +3694,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -3746,7 +3768,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -3896,6 +3920,38 @@
         "responses": {
           "204": {
             "description": "Vault record moved/copied/shared"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/account/{accountid}/vault/record/export": {
+      "post": {
+        "tags": [
+          "miscellaneous"
+        ],
+        "summary": "Prepares an export of vault records in CSV format",
+        "description": "Prepares an export of vault records using the filtering specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.",
+        "operationId": "startExport_account_vault_record_export",
+        "parameters": [
+          {
+            "name": "accountid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Export prepared"
           },
           "4XX": {
             "$ref": "#/components/responses/error"
@@ -4332,39 +4388,6 @@
         "responses": {
           "202": {
             "description": "Export prepared"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/error"
-          },
-          "5XX": {
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/audit/export/download": {
-      "get": {
-        "tags": [
-          "miscellaneous"
-        ],
-        "summary": "Downloads an export of audit records",
-        "description": "Downloads the export previously prepared.",
-        "operationId": "streamExport_audit_export_download",
-        "parameters": [
-          {
-            "name": "export",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Audit export",
-            "content": {
-              "text/csv": {}
-            }
           },
           "4XX": {
             "$ref": "#/components/responses/error"
@@ -5882,6 +5905,57 @@
         }
       }
     },
+    "/client/{clientid}/vault/newpassword": {
+      "get": {
+        "tags": [
+          "vault"
+        ],
+        "summary": "Returns a random generated password",
+        "description": "Returns a random generated password using the given strategy, or the default strategy if none given.",
+        "operationId": "newpassword_client_vault_newpassword",
+        "parameters": [
+          {
+            "name": "strategy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clientid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/vnd.topicus.keyhub+json;version=66": {
+                "schema": {
+                  "$ref": "#/components/schemas/simpleStringValue"
+                }
+              },
+              "application/vnd.topicus.keyhub+xml;version=66": {
+                "schema": {
+                  "$ref": "#/components/schemas/simpleStringValue"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/client/{clientid}/vault/random": {
       "get": {
         "tags": [
@@ -5889,7 +5963,7 @@
         ],
         "summary": "Returns a random generated value",
         "description": "Returns a random generated value of the given length, default 24.",
-        "operationId": "generate_client_vault_random",
+        "operationId": "random_client_vault_random",
         "parameters": [
           {
             "name": "length",
@@ -5958,7 +6032,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -6435,7 +6511,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -6507,7 +6585,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -6657,6 +6737,38 @@
         "responses": {
           "204": {
             "description": "Vault record moved/copied/shared"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/client/{clientid}/vault/record/export": {
+      "post": {
+        "tags": [
+          "miscellaneous"
+        ],
+        "summary": "Prepares an export of vault records in CSV format",
+        "description": "Prepares an export of vault records using the filtering specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.",
+        "operationId": "startExport_client_vault_record_export",
+        "parameters": [
+          {
+            "name": "clientid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Export prepared"
           },
           "4XX": {
             "$ref": "#/components/responses/error"
@@ -7083,6 +7195,57 @@
         }
       }
     },
+    "/deletedvaultholder/{vaultid}/vault/newpassword": {
+      "get": {
+        "tags": [
+          "vault"
+        ],
+        "summary": "Returns a random generated password",
+        "description": "Returns a random generated password using the given strategy, or the default strategy if none given.",
+        "operationId": "newpassword_deletedvaultholder_vault_newpassword",
+        "parameters": [
+          {
+            "name": "strategy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vaultid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/vnd.topicus.keyhub+json;version=66": {
+                "schema": {
+                  "$ref": "#/components/schemas/simpleStringValue"
+                }
+              },
+              "application/vnd.topicus.keyhub+xml;version=66": {
+                "schema": {
+                  "$ref": "#/components/schemas/simpleStringValue"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/deletedvaultholder/{vaultid}/vault/random": {
       "get": {
         "tags": [
@@ -7090,7 +7253,7 @@
         ],
         "summary": "Returns a random generated value",
         "description": "Returns a random generated value of the given length, default 24.",
-        "operationId": "generate_deletedvaultholder_vault_random",
+        "operationId": "random_deletedvaultholder_vault_random",
         "parameters": [
           {
             "name": "length",
@@ -7159,7 +7322,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -7636,7 +7801,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -7708,7 +7875,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -7868,6 +8037,38 @@
         }
       }
     },
+    "/deletedvaultholder/{vaultid}/vault/record/export": {
+      "post": {
+        "tags": [
+          "miscellaneous"
+        ],
+        "summary": "Prepares an export of vault records in CSV format",
+        "description": "Prepares an export of vault records using the filtering specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.",
+        "operationId": "startExport_deletedvaultholder_vault_record_export",
+        "parameters": [
+          {
+            "name": "vaultid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Export prepared"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/deletedvaultholder/{vaultid}/vault/recover": {
       "post": {
         "tags": [
@@ -7904,6 +8105,39 @@
         "responses": {
           "204": {
             "description": "Access recovered"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/export": {
+      "get": {
+        "tags": [
+          "miscellaneous"
+        ],
+        "summary": "Downloads an export",
+        "description": "Downloads the export previously prepared.",
+        "operationId": "streamExport_export",
+        "parameters": [
+          {
+            "name": "export",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Export download",
+            "content": {
+              "text/csv": {}
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/error"
@@ -11297,72 +11531,6 @@
         }
       }
     },
-    "/group/export/download": {
-      "get": {
-        "tags": [
-          "miscellaneous"
-        ],
-        "summary": "Downloads an export of groups",
-        "description": "Downloads the export previously prepared.",
-        "operationId": "streamExport_group_export_download",
-        "parameters": [
-          {
-            "name": "export",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Groups export",
-            "content": {
-              "text/csv": {}
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/error"
-          },
-          "5XX": {
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/group/account/export/download": {
-      "get": {
-        "tags": [
-          "miscellaneous"
-        ],
-        "summary": "Downloads an export of groupaccounts",
-        "description": "Downloads the export previously prepared.",
-        "operationId": "streamGroupAccountExport_group_account_export_download",
-        "parameters": [
-          {
-            "name": "export",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Groupaccounts export",
-            "content": {
-              "text/csv": {}
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/error"
-          },
-          "5XX": {
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
     "/group/{groupid}/vault": {
       "get": {
         "tags": [
@@ -11437,6 +11605,57 @@
         }
       }
     },
+    "/group/{groupid}/vault/newpassword": {
+      "get": {
+        "tags": [
+          "vault"
+        ],
+        "summary": "Returns a random generated password",
+        "description": "Returns a random generated password using the given strategy, or the default strategy if none given.",
+        "operationId": "newpassword_group_vault_newpassword",
+        "parameters": [
+          {
+            "name": "strategy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "groupid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/vnd.topicus.keyhub+json;version=66": {
+                "schema": {
+                  "$ref": "#/components/schemas/simpleStringValue"
+                }
+              },
+              "application/vnd.topicus.keyhub+xml;version=66": {
+                "schema": {
+                  "$ref": "#/components/schemas/simpleStringValue"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/group/{groupid}/vault/random": {
       "get": {
         "tags": [
@@ -11444,7 +11663,7 @@
         ],
         "summary": "Returns a random generated value",
         "description": "Returns a random generated value of the given length, default 24.",
-        "operationId": "generate_group_vault_random",
+        "operationId": "random_group_vault_random",
         "parameters": [
           {
             "name": "length",
@@ -11513,7 +11732,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -11990,7 +12211,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -12062,7 +12285,9 @@
                   "audit",
                   "deleteTile",
                   "parent",
+                  "passwordMetadata",
                   "secret",
+                  "shareSummary",
                   "shares",
                   "tile",
                   "vaultholder"
@@ -12212,6 +12437,38 @@
         "responses": {
           "204": {
             "description": "Vault record moved/copied/shared"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/group/{groupid}/vault/record/export": {
+      "post": {
+        "tags": [
+          "miscellaneous"
+        ],
+        "summary": "Prepares an export of vault records in CSV format",
+        "description": "Prepares an export of vault records using the filtering specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.",
+        "operationId": "startExport_group_vault_record_export",
+        "parameters": [
+          {
+            "name": "groupid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Export prepared"
           },
           "4XX": {
             "$ref": "#/components/responses/error"
@@ -17650,72 +17907,6 @@
         }
       }
     },
-    "/serviceaccount/export/download": {
-      "get": {
-        "tags": [
-          "miscellaneous"
-        ],
-        "summary": "Downloads an export of service accounts",
-        "description": "Downloads the export previously prepared.",
-        "operationId": "streamExport_serviceaccount_export_download",
-        "parameters": [
-          {
-            "name": "export",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Service accounts export",
-            "content": {
-              "text/csv": {}
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/error"
-          },
-          "5XX": {
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
-    "/serviceaccount/group/export/download": {
-      "get": {
-        "tags": [
-          "miscellaneous"
-        ],
-        "summary": "Downloads an export of service account group on systems",
-        "description": "Downloads the export previously prepared.",
-        "operationId": "streamGroupExport_serviceaccount_group_export_download",
-        "parameters": [
-          {
-            "name": "export",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Service account group on systems export",
-            "content": {
-              "text/csv": {}
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/error"
-          },
-          "5XX": {
-            "$ref": "#/components/responses/error"
-          }
-        }
-      }
-    },
     "/serviceaccount/{accountid}/status": {
       "put": {
         "tags": [
@@ -17782,7 +17973,13 @@
                 "type": "string",
                 "enum": [
                   "audit",
-                  "shareSummary"
+                  "parent",
+                  "passwordMetadata",
+                  "secret",
+                  "shareSummary",
+                  "shares",
+                  "tile",
+                  "vaultholder"
                 ]
               }
             }
@@ -17842,7 +18039,13 @@
                 "type": "string",
                 "enum": [
                   "audit",
-                  "shareSummary"
+                  "parent",
+                  "passwordMetadata",
+                  "secret",
+                  "shareSummary",
+                  "shares",
+                  "tile",
+                  "vaultholder"
                 ]
               }
             }
@@ -19452,6 +19655,7 @@
             "simple.VersionInfo": "#/components/schemas/simpleVersionInfo",
             "vault.DeletedVaultRecovery": "#/components/schemas/vaultDeletedVaultRecovery",
             "vault.MoveVaultRecord": "#/components/schemas/vaultMoveVaultRecord",
+            "vault.PasswordMetadata": "#/components/schemas/vaultPasswordMetadata",
             "vault.VaultRecordSecrets": "#/components/schemas/vaultVaultRecordSecrets",
             "vault.VaultRecordShare": "#/components/schemas/vaultVaultRecordShare",
             "vault.VaultRecordShareSummary": "#/components/schemas/vaultVaultRecordShareSummary",
@@ -19858,6 +20062,7 @@
           "UPDATE_GROUP_MEMBERSHIP_DECLINED",
           "UPDATE_GROUP_MEMBERSHIP_REQUESTED",
           "VAULT_ACCESS_RESTORED",
+          "VAULT_EXPORTED",
           "VAULT_PERSONAL_RESET",
           "VAULT_PERSONAL_SETUP",
           "VAULT_RECORD_CREATED",
@@ -20879,14 +21084,7 @@
                 "type": "object",
                 "properties": {
                   "secret": {
-                    "allOf": [
-                      {
-                        "$ref": "#/components/schemas/GeneratedSecret"
-                      },
-                      {
-                        "writeOnly": true
-                      }
-                    ]
+                    "$ref": "#/components/schemas/GeneratedSecret"
                   },
                   "groups": {
                     "allOf": [
@@ -27961,14 +28159,7 @@
                 "type": "object",
                 "properties": {
                   "secret": {
-                    "allOf": [
-                      {
-                        "$ref": "#/components/schemas/GeneratedSecret"
-                      },
-                      {
-                        "writeOnly": true
-                      }
-                    ]
+                    "$ref": "#/components/schemas/GeneratedSecret"
                   },
                   "groups": {
                     "allOf": [
@@ -28441,6 +28632,78 @@
         ],
         "title": "vaultMoveVaultRecordAction"
       },
+      "vaultPasswordMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NonLinkable",
+            "title": "vaultPasswordMetadata"
+          },
+          {
+            "title": "vaultPasswordMetadata",
+            "required": [
+              "$type",
+              "dictionary",
+              "duplicate",
+              "length",
+              "lowerCount",
+              "numberCount",
+              "specialCount",
+              "strength",
+              "upperCount"
+            ],
+            "type": "object",
+            "properties": {
+              "hash": {
+                "type": "string"
+              },
+              "duplicate": {
+                "type": "boolean",
+                "x-tkh-default": false
+              },
+              "dictionary": {
+                "type": "boolean",
+                "x-tkh-default": false
+              },
+              "strength": {
+                "type": "integer",
+                "format": "int32",
+                "x-tkh-default": 0
+              },
+              "length": {
+                "type": "integer",
+                "format": "int32",
+                "x-tkh-default": 0
+              },
+              "lowerCount": {
+                "type": "integer",
+                "format": "int32",
+                "x-tkh-default": 0
+              },
+              "upperCount": {
+                "type": "integer",
+                "format": "int32",
+                "x-tkh-default": 0
+              },
+              "numberCount": {
+                "type": "integer",
+                "format": "int32",
+                "x-tkh-default": 0
+              },
+              "specialCount": {
+                "type": "integer",
+                "format": "int32",
+                "x-tkh-default": 0
+              },
+              "$type": {
+                "type": "string",
+                "default": "vault.PasswordMetadata"
+              }
+            },
+            "x-tkh-discriminator": "vault.PasswordMetadata"
+          }
+        ],
+        "title": "vaultPasswordMetadata"
+      },
       "vaultVault": {
         "allOf": [
           {
@@ -28558,12 +28821,29 @@
                     ]
                   },
                   "secret": {
-                    "$ref": "#/components/schemas/vaultVaultRecordSecrets"
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/vaultVaultRecordSecrets"
+                      },
+                      {
+                        "readOnly": true
+                      }
+                    ]
                   },
                   "shares": {
                     "allOf": [
                       {
                         "$ref": "#/components/schemas/vaultVaultRecordPrimerLinkableWrapper"
+                      },
+                      {
+                        "readOnly": true
+                      }
+                    ]
+                  },
+                  "shareSummary": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/vaultVaultRecordShareSummary"
                       },
                       {
                         "readOnly": true
@@ -28581,26 +28861,33 @@
                     ]
                   },
                   "tile": {
-                    "$ref": "#/components/schemas/launchpadVaultRecordLaunchpadTile"
-                  },
-                  "deleteTile": {
-                    "type": "boolean",
-                    "writeOnly": true
-                  },
-                  "audit": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/AuditInfo"
+                        "$ref": "#/components/schemas/launchpadVaultRecordLaunchpadTile"
                       },
                       {
                         "readOnly": true
                       }
                     ]
                   },
-                  "shareSummary": {
+                  "deleteTile": {
+                    "type": "boolean",
+                    "writeOnly": true
+                  },
+                  "passwordMetadata": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/vaultVaultRecordShareSummary"
+                        "$ref": "#/components/schemas/vaultPasswordMetadata"
+                      },
+                      {
+                        "readOnly": true
+                      }
+                    ]
+                  },
+                  "audit": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/AuditInfo"
                       },
                       {
                         "readOnly": true

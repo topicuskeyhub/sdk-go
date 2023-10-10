@@ -124,6 +124,10 @@ func NewItemVaultRecordRequestBuilder(rawUrl string, requestAdapter i2ae4187f7da
     urlParams["request-raw-url"] = rawUrl
     return NewItemVaultRecordRequestBuilderInternal(urlParams, requestAdapter)
 }
+// Export the export property
+func (m *ItemVaultRecordRequestBuilder) Export()(*ItemVaultRecordExportRequestBuilder) {
+    return NewItemVaultRecordExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Get query for vault records in a specific vault. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
 func (m *ItemVaultRecordRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemVaultRecordRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);

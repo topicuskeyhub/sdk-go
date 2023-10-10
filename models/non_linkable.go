@@ -146,6 +146,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewVaultDeletedVaultRecovery(), nil
                     case "vault.MoveVaultRecord":
                         return NewVaultMoveVaultRecord(), nil
+                    case "vault.PasswordMetadata":
+                        return NewVaultPasswordMetadata(), nil
                     case "vault.VaultRecordSecrets":
                         return NewVaultVaultRecordSecrets(), nil
                     case "vault.VaultRecordShare":
@@ -168,7 +170,7 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
     }
     return NewNonLinkable(), nil
 }
-// GetAdditionalData gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *NonLinkable) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
@@ -207,7 +209,7 @@ func (m *NonLinkable) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6
     }
     return nil
 }
-// SetAdditionalData sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *NonLinkable) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
 }

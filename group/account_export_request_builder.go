@@ -30,10 +30,6 @@ func NewAccountExportRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee
     urlParams["request-raw-url"] = rawUrl
     return NewAccountExportRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Download the download property
-func (m *AccountExportRequestBuilder) Download()(*AccountExportDownloadRequestBuilder) {
-    return NewAccountExportDownloadRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
-}
 // Post prepares an export of groupaccounts using the filtering on groups specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.
 func (m *AccountExportRequestBuilder) Post(ctx context.Context, requestConfiguration *AccountExportRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration);

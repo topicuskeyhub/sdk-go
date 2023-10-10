@@ -30,10 +30,6 @@ func NewGroupExportRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee26
     urlParams["request-raw-url"] = rawUrl
     return NewGroupExportRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Download the download property
-func (m *GroupExportRequestBuilder) Download()(*GroupExportDownloadRequestBuilder) {
-    return NewGroupExportDownloadRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
-}
 // Post prepares an export of service account group on systems using the filtering specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.
 func (m *GroupExportRequestBuilder) Post(ctx context.Context, requestConfiguration *GroupExportRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration);

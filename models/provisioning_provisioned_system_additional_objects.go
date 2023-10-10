@@ -40,7 +40,7 @@ func CreateProvisioningProvisionedSystem_additionalObjectsFromDiscriminatorValue
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetAccount()(ProvisioningProvisionedAccountable) {
     return m.account
 }
-// GetAdditionalData gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
@@ -213,7 +213,7 @@ func (m *ProvisioningProvisionedSystem_additionalObjects) Serialize(writer i878a
 func (m *ProvisioningProvisionedSystem_additionalObjects) SetAccount(value ProvisioningProvisionedAccountable)() {
     m.account = value
 }
-// SetAdditionalData sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *ProvisioningProvisionedSystem_additionalObjects) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
 }

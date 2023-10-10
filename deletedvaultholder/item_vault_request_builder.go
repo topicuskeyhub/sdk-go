@@ -72,6 +72,10 @@ func (m *ItemVaultRequestBuilder) Get(ctx context.Context, requestConfiguration 
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultable), nil
 }
+// Newpassword the newpassword property
+func (m *ItemVaultRequestBuilder) Newpassword()(*ItemVaultNewpasswordRequestBuilder) {
+    return NewItemVaultNewpasswordRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Random the random property
 func (m *ItemVaultRequestBuilder) Random()(*ItemVaultRandomRequestBuilder) {
     return NewItemVaultRandomRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)

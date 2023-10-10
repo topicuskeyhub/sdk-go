@@ -22,6 +22,7 @@ import (
     ib269aad83a59eeaa00948e8e0cf61b0f8955fcb99e4910b745aa70768d6d63c4 "github.com/topicuskeyhub/sdk-go/account"
     ib7bf253b601139c5fca70bba4f4843e6731e3522bee75715df4b77d2107eff28 "github.com/topicuskeyhub/sdk-go/directory"
     ibdde25a8196c6c3406e5b0b02de36d833849b28ee37dca06694dc2ec8a725bdc "github.com/topicuskeyhub/sdk-go/system"
+    ie19695769860c2ce81c94e08d7b1cdbbd24da28301e01a4408a5565b07ee913d "github.com/topicuskeyhub/sdk-go/export"
     ifb310ad74101a00ed1acdc17b384ce2e8964f5a38f9d9302b22aaaa28ff4d3e4 "github.com/topicuskeyhub/sdk-go/organizationalunit"
     ifdfb91cbbf9b2d09fc5fb9b2405c3a72348d071234970eca4305212177f72cf2 "github.com/topicuskeyhub/sdk-go/client"
 )
@@ -66,6 +67,10 @@ func (m *KeyHubClient) Deletedvaultholder()(*i9acdc2253f5a58228075fc1e46bdd8aca4
 // Directory the directory property
 func (m *KeyHubClient) Directory()(*ib7bf253b601139c5fca70bba4f4843e6731e3522bee75715df4b77d2107eff28.DirectoryRequestBuilder) {
     return ib7bf253b601139c5fca70bba4f4843e6731e3522bee75715df4b77d2107eff28.NewDirectoryRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Export the export property
+func (m *KeyHubClient) Export()(*ie19695769860c2ce81c94e08d7b1cdbbd24da28301e01a4408a5565b07ee913d.ExportRequestBuilder) {
+    return ie19695769860c2ce81c94e08d7b1cdbbd24da28301e01a4408a5565b07ee913d.NewExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Group the group property
 func (m *KeyHubClient) Group()(*i6f1edc8cb6d249770cb1634d5c07b8945f2349df7d873c8e22898a5bfd8123aa.GroupRequestBuilder) {

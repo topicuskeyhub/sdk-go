@@ -14,6 +14,8 @@ type VaultVaultRecord_additionalObjects struct {
     deleteTile *bool
     // The parent property
     parent VaultVaultRecordPrimerable
+    // The passwordMetadata property
+    passwordMetadata VaultPasswordMetadataable
     // The secret property
     secret VaultVaultRecordSecretsable
     // The shares property
@@ -36,7 +38,7 @@ func NewVaultVaultRecord_additionalObjects()(*VaultVaultRecord_additionalObjects
 func CreateVaultVaultRecord_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVaultRecord_additionalObjects(), nil
 }
-// GetAdditionalData gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *VaultVaultRecord_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
@@ -78,6 +80,16 @@ func (m *VaultVaultRecord_additionalObjects) GetFieldDeserializers()(map[string]
         }
         if val != nil {
             m.SetParent(val.(VaultVaultRecordPrimerable))
+        }
+        return nil
+    }
+    res["passwordMetadata"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateVaultPasswordMetadataFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetPasswordMetadata(val.(VaultPasswordMetadataable))
         }
         return nil
     }
@@ -137,6 +149,10 @@ func (m *VaultVaultRecord_additionalObjects) GetFieldDeserializers()(map[string]
 func (m *VaultVaultRecord_additionalObjects) GetParent()(VaultVaultRecordPrimerable) {
     return m.parent
 }
+// GetPasswordMetadata gets the passwordMetadata property value. The passwordMetadata property
+func (m *VaultVaultRecord_additionalObjects) GetPasswordMetadata()(VaultPasswordMetadataable) {
+    return m.passwordMetadata
+}
 // GetSecret gets the secret property value. The secret property
 func (m *VaultVaultRecord_additionalObjects) GetSecret()(VaultVaultRecordSecretsable) {
     return m.secret
@@ -173,6 +189,12 @@ func (m *VaultVaultRecord_additionalObjects) Serialize(writer i878a80d2330e89d26
     }
     {
         err := writer.WriteObjectValue("parent", m.GetParent())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("passwordMetadata", m.GetPasswordMetadata())
         if err != nil {
             return err
         }
@@ -215,7 +237,7 @@ func (m *VaultVaultRecord_additionalObjects) Serialize(writer i878a80d2330e89d26
     }
     return nil
 }
-// SetAdditionalData sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *VaultVaultRecord_additionalObjects) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
 }
@@ -230,6 +252,10 @@ func (m *VaultVaultRecord_additionalObjects) SetDeleteTile(value *bool)() {
 // SetParent sets the parent property value. The parent property
 func (m *VaultVaultRecord_additionalObjects) SetParent(value VaultVaultRecordPrimerable)() {
     m.parent = value
+}
+// SetPasswordMetadata sets the passwordMetadata property value. The passwordMetadata property
+func (m *VaultVaultRecord_additionalObjects) SetPasswordMetadata(value VaultPasswordMetadataable)() {
+    m.passwordMetadata = value
 }
 // SetSecret sets the secret property value. The secret property
 func (m *VaultVaultRecord_additionalObjects) SetSecret(value VaultVaultRecordSecretsable)() {
@@ -258,6 +284,7 @@ type VaultVaultRecord_additionalObjectsable interface {
     GetAudit()(AuditInfoable)
     GetDeleteTile()(*bool)
     GetParent()(VaultVaultRecordPrimerable)
+    GetPasswordMetadata()(VaultPasswordMetadataable)
     GetSecret()(VaultVaultRecordSecretsable)
     GetShares()(VaultVaultRecordPrimerLinkableWrapperable)
     GetShareSummary()(VaultVaultRecordShareSummaryable)
@@ -266,6 +293,7 @@ type VaultVaultRecord_additionalObjectsable interface {
     SetAudit(value AuditInfoable)()
     SetDeleteTile(value *bool)()
     SetParent(value VaultVaultRecordPrimerable)()
+    SetPasswordMetadata(value VaultPasswordMetadataable)()
     SetSecret(value VaultVaultRecordSecretsable)()
     SetShares(value VaultVaultRecordPrimerLinkableWrapperable)()
     SetShareSummary(value VaultVaultRecordShareSummaryable)()
