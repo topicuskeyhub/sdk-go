@@ -76,12 +76,19 @@ type WebhookRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *WebhookRequestBuilderGetQueryParameters
 }
+// WebhookRequestBuilderPostQueryParameters creates one or more new webhooks and returns the newly created webhooks.
+type WebhookRequestBuilderPostQueryParameters struct {
+    // Request additional information to be returned for every record.
+    Additional []string `uriparametername:"additional"`
+}
 // WebhookRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WebhookRequestBuilderPostRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+    // Request query parameters
+    QueryParameters *WebhookRequestBuilderPostQueryParameters
 }
 // ById gets an item from the github.com/topicuskeyhub/sdk-go.webhook.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
@@ -161,7 +168,7 @@ func (m *WebhookRequestBuilder) ToGetRequestInformation(ctx context.Context, req
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=67")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -177,12 +184,15 @@ func (m *WebhookRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=67")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=67", body)
     if err != nil {
         return nil, err
     }
     if requestConfiguration != nil {
+        if requestConfiguration.QueryParameters != nil {
+            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+        }
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }

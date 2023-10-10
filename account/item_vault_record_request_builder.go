@@ -83,12 +83,19 @@ type ItemVaultRecordRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *ItemVaultRecordRequestBuilderGetQueryParameters
 }
+// ItemVaultRecordRequestBuilderPostQueryParameters creates one or more new vault records and returns the newly created records. Secrets are specified via the additional object secret. It is required to specify the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
+type ItemVaultRecordRequestBuilderPostQueryParameters struct {
+    // Request additional information to be returned for every record.
+    Additional []string `uriparametername:"additional"`
+}
 // ItemVaultRecordRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultRecordRequestBuilderPostRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+    // Request query parameters
+    QueryParameters *ItemVaultRecordRequestBuilderPostQueryParameters
 }
 // ById gets an item from the github.com/topicuskeyhub/sdk-go.account.item.vault.record.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
@@ -172,7 +179,7 @@ func (m *ItemVaultRecordRequestBuilder) ToGetRequestInformation(ctx context.Cont
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=67")
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -188,12 +195,15 @@ func (m *ItemVaultRecordRequestBuilder) ToPostRequestInformation(ctx context.Con
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
     requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=66")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=66", body)
+    requestInfo.Headers.Add("Accept", "application/vnd.topicus.keyhub+json;version=67")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=67", body)
     if err != nil {
         return nil, err
     }
     if requestConfiguration != nil {
+        if requestConfiguration.QueryParameters != nil {
+            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+        }
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
