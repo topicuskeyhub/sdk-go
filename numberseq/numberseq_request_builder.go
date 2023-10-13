@@ -56,26 +56,26 @@ type NumberseqRequestBuilderPostRequestConfiguration struct {
     // Request query parameters
     QueryParameters *NumberseqRequestBuilderPostQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.numberseq.item collection
+// ByNumberseqid gets an item from the github.com/topicuskeyhub/sdk-go.numberseq.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *NumberseqRequestBuilder) ById(id string)(*NumberseqItemRequestBuilder) {
+func (m *NumberseqRequestBuilder) ByNumberseqid(numberseqid string)(*WithNumberseqItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if numberseqid != "" {
+        urlTplParams["numberseqid"] = numberseqid
     }
-    return NewNumberseqItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithNumberseqItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.numberseq.item collection
-func (m *NumberseqRequestBuilder) ByIdInt64(id int64)(*NumberseqItemRequestBuilder) {
+// ByNumberseqidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.numberseq.item collection
+func (m *NumberseqRequestBuilder) ByNumberseqidInt64(numberseqid int64)(*WithNumberseqItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewNumberseqItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["numberseqid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(numberseqid, 10)
+    return NewWithNumberseqItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewNumberseqRequestBuilderInternal instantiates a new NumberseqRequestBuilder and sets the default values.
 func NewNumberseqRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*NumberseqRequestBuilder) {

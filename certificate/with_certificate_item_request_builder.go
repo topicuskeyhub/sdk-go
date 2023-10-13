@@ -6,60 +6,60 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// CertificateItemRequestBuilder builds and executes requests for operations under \certificate\{id}
-type CertificateItemRequestBuilder struct {
+// WithCertificateItemRequestBuilder builds and executes requests for operations under \certificate\{certificateid}
+type WithCertificateItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// CertificateItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type CertificateItemRequestBuilderDeleteRequestConfiguration struct {
+// WithCertificateItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithCertificateItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// CertificateItemRequestBuilderGetQueryParameters returns the global trusted certificate identified by the id.
-type CertificateItemRequestBuilderGetQueryParameters struct {
+// WithCertificateItemRequestBuilderGetQueryParameters returns the global trusted certificate identified by the id.
+type WithCertificateItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// CertificateItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type CertificateItemRequestBuilderGetRequestConfiguration struct {
+// WithCertificateItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithCertificateItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *CertificateItemRequestBuilderGetQueryParameters
+    QueryParameters *WithCertificateItemRequestBuilderGetQueryParameters
 }
-// CertificateItemRequestBuilderPutQueryParameters updates the global trusted certificate identified by the id.
-type CertificateItemRequestBuilderPutQueryParameters struct {
+// WithCertificateItemRequestBuilderPutQueryParameters updates the global trusted certificate identified by the id.
+type WithCertificateItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// CertificateItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type CertificateItemRequestBuilderPutRequestConfiguration struct {
+// WithCertificateItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithCertificateItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *CertificateItemRequestBuilderPutQueryParameters
+    QueryParameters *WithCertificateItemRequestBuilderPutQueryParameters
 }
-// NewCertificateItemRequestBuilderInternal instantiates a new CertificateItemRequestBuilder and sets the default values.
-func NewCertificateItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*CertificateItemRequestBuilder) {
-    m := &CertificateItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/certificate/{id}{?additional*}", pathParameters),
+// NewWithCertificateItemRequestBuilderInternal instantiates a new WithCertificateItemRequestBuilder and sets the default values.
+func NewWithCertificateItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithCertificateItemRequestBuilder) {
+    m := &WithCertificateItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/certificate/{certificateid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewCertificateItemRequestBuilder instantiates a new CertificateItemRequestBuilder and sets the default values.
-func NewCertificateItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*CertificateItemRequestBuilder) {
+// NewWithCertificateItemRequestBuilder instantiates a new WithCertificateItemRequestBuilder and sets the default values.
+func NewWithCertificateItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithCertificateItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewCertificateItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithCertificateItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete permanently removes the global trusted certificate identified by the id. This cannot be undone.
-func (m *CertificateItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *CertificateItemRequestBuilderDeleteRequestConfiguration)(error) {
+func (m *WithCertificateItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithCertificateItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -75,7 +75,7 @@ func (m *CertificateItemRequestBuilder) Delete(ctx context.Context, requestConfi
     return nil
 }
 // Get returns the global trusted certificate identified by the id.
-func (m *CertificateItemRequestBuilder) Get(ctx context.Context, requestConfiguration *CertificateItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable, error) {
+func (m *WithCertificateItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithCertificateItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -94,7 +94,7 @@ func (m *CertificateItemRequestBuilder) Get(ctx context.Context, requestConfigur
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable), nil
 }
 // Put updates the global trusted certificate identified by the id.
-func (m *CertificateItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable, requestConfiguration *CertificateItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable, error) {
+func (m *WithCertificateItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable, requestConfiguration *WithCertificateItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -113,7 +113,7 @@ func (m *CertificateItemRequestBuilder) Put(ctx context.Context, body ie2969523f
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable), nil
 }
 // ToDeleteRequestInformation permanently removes the global trusted certificate identified by the id. This cannot be undone.
-func (m *CertificateItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *CertificateItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithCertificateItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithCertificateItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -125,7 +125,7 @@ func (m *CertificateItemRequestBuilder) ToDeleteRequestInformation(ctx context.C
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the global trusted certificate identified by the id.
-func (m *CertificateItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *CertificateItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithCertificateItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithCertificateItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -141,7 +141,7 @@ func (m *CertificateItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the global trusted certificate identified by the id.
-func (m *CertificateItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable, requestConfiguration *CertificateItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithCertificateItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CertificateCertificateable, requestConfiguration *WithCertificateItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -161,6 +161,6 @@ func (m *CertificateItemRequestBuilder) ToPutRequestInformation(ctx context.Cont
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *CertificateItemRequestBuilder) WithUrl(rawUrl string)(*CertificateItemRequestBuilder) {
-    return NewCertificateItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithCertificateItemRequestBuilder) WithUrl(rawUrl string)(*WithCertificateItemRequestBuilder) {
+    return NewWithCertificateItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

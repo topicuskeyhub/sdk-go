@@ -6,57 +6,57 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// SystemItemRequestBuilder builds and executes requests for operations under \system\{id}
-type SystemItemRequestBuilder struct {
+// WithSystemItemRequestBuilder builds and executes requests for operations under \system\{systemid}
+type WithSystemItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// SystemItemRequestBuilderGetQueryParameters returns the provisioned system identified by the id.
-type SystemItemRequestBuilderGetQueryParameters struct {
+// WithSystemItemRequestBuilderGetQueryParameters returns the provisioned system identified by the id.
+type WithSystemItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// SystemItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type SystemItemRequestBuilderGetRequestConfiguration struct {
+// WithSystemItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithSystemItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *SystemItemRequestBuilderGetQueryParameters
+    QueryParameters *WithSystemItemRequestBuilderGetQueryParameters
 }
-// SystemItemRequestBuilderPutQueryParameters updates the provisioned system identified by the id.
-type SystemItemRequestBuilderPutQueryParameters struct {
+// WithSystemItemRequestBuilderPutQueryParameters updates the provisioned system identified by the id.
+type WithSystemItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// SystemItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type SystemItemRequestBuilderPutRequestConfiguration struct {
+// WithSystemItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithSystemItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *SystemItemRequestBuilderPutQueryParameters
+    QueryParameters *WithSystemItemRequestBuilderPutQueryParameters
 }
 // Account the account property
-func (m *SystemItemRequestBuilder) Account()(*ItemAccountRequestBuilder) {
+func (m *WithSystemItemRequestBuilder) Account()(*ItemAccountRequestBuilder) {
     return NewItemAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// NewSystemItemRequestBuilderInternal instantiates a new SystemItemRequestBuilder and sets the default values.
-func NewSystemItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*SystemItemRequestBuilder) {
-    m := &SystemItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{id}{?additional*}", pathParameters),
+// NewWithSystemItemRequestBuilderInternal instantiates a new WithSystemItemRequestBuilder and sets the default values.
+func NewWithSystemItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithSystemItemRequestBuilder) {
+    m := &WithSystemItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewSystemItemRequestBuilder instantiates a new SystemItemRequestBuilder and sets the default values.
-func NewSystemItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*SystemItemRequestBuilder) {
+// NewWithSystemItemRequestBuilder instantiates a new WithSystemItemRequestBuilder and sets the default values.
+func NewWithSystemItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithSystemItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewSystemItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithSystemItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get returns the provisioned system identified by the id.
-func (m *SystemItemRequestBuilder) Get(ctx context.Context, requestConfiguration *SystemItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable, error) {
+func (m *WithSystemItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithSystemItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -75,11 +75,11 @@ func (m *SystemItemRequestBuilder) Get(ctx context.Context, requestConfiguration
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable), nil
 }
 // Group the group property
-func (m *SystemItemRequestBuilder) Group()(*ItemGroupRequestBuilder) {
+func (m *WithSystemItemRequestBuilder) Group()(*ItemGroupRequestBuilder) {
     return NewItemGroupRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Put updates the provisioned system identified by the id.
-func (m *SystemItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable, requestConfiguration *SystemItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable, error) {
+func (m *WithSystemItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable, requestConfiguration *WithSystemItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -98,15 +98,15 @@ func (m *SystemItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2f
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable), nil
 }
 // Sync the sync property
-func (m *SystemItemRequestBuilder) Sync()(*ItemSyncRequestBuilder) {
+func (m *WithSystemItemRequestBuilder) Sync()(*ItemSyncRequestBuilder) {
     return NewItemSyncRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Synclog the synclog property
-func (m *SystemItemRequestBuilder) Synclog()(*ItemSynclogRequestBuilder) {
+func (m *WithSystemItemRequestBuilder) Synclog()(*ItemSynclogRequestBuilder) {
     return NewItemSynclogRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToGetRequestInformation returns the provisioned system identified by the id.
-func (m *SystemItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *SystemItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithSystemItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithSystemItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -122,7 +122,7 @@ func (m *SystemItemRequestBuilder) ToGetRequestInformation(ctx context.Context, 
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the provisioned system identified by the id.
-func (m *SystemItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable, requestConfiguration *SystemItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithSystemItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemable, requestConfiguration *WithSystemItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -142,6 +142,6 @@ func (m *SystemItemRequestBuilder) ToPutRequestInformation(ctx context.Context, 
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *SystemItemRequestBuilder) WithUrl(rawUrl string)(*SystemItemRequestBuilder) {
-    return NewSystemItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithSystemItemRequestBuilder) WithUrl(rawUrl string)(*WithSystemItemRequestBuilder) {
+    return NewWithSystemItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

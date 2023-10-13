@@ -6,57 +6,57 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// OrganizationalunitItemRequestBuilder builds and executes requests for operations under \organizationalunit\{id}
-type OrganizationalunitItemRequestBuilder struct {
+// WithOrganizationalunitItemRequestBuilder builds and executes requests for operations under \organizationalunit\{organizationalunitid}
+type WithOrganizationalunitItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// OrganizationalunitItemRequestBuilderGetQueryParameters returns the organizational unit identified by the id.
-type OrganizationalunitItemRequestBuilderGetQueryParameters struct {
+// WithOrganizationalunitItemRequestBuilderGetQueryParameters returns the organizational unit identified by the id.
+type WithOrganizationalunitItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// OrganizationalunitItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type OrganizationalunitItemRequestBuilderGetRequestConfiguration struct {
+// WithOrganizationalunitItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithOrganizationalunitItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *OrganizationalunitItemRequestBuilderGetQueryParameters
+    QueryParameters *WithOrganizationalunitItemRequestBuilderGetQueryParameters
 }
-// OrganizationalunitItemRequestBuilderPutQueryParameters updates the organizational unit identified by the id.
-type OrganizationalunitItemRequestBuilderPutQueryParameters struct {
+// WithOrganizationalunitItemRequestBuilderPutQueryParameters updates the organizational unit identified by the id.
+type WithOrganizationalunitItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// OrganizationalunitItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type OrganizationalunitItemRequestBuilderPutRequestConfiguration struct {
+// WithOrganizationalunitItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithOrganizationalunitItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *OrganizationalunitItemRequestBuilderPutQueryParameters
+    QueryParameters *WithOrganizationalunitItemRequestBuilderPutQueryParameters
 }
 // Account the account property
-func (m *OrganizationalunitItemRequestBuilder) Account()(*ItemAccountRequestBuilder) {
+func (m *WithOrganizationalunitItemRequestBuilder) Account()(*ItemAccountRequestBuilder) {
     return NewItemAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// NewOrganizationalunitItemRequestBuilderInternal instantiates a new OrganizationalunitItemRequestBuilder and sets the default values.
-func NewOrganizationalunitItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*OrganizationalunitItemRequestBuilder) {
-    m := &OrganizationalunitItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit/{id}{?additional*}", pathParameters),
+// NewWithOrganizationalunitItemRequestBuilderInternal instantiates a new WithOrganizationalunitItemRequestBuilder and sets the default values.
+func NewWithOrganizationalunitItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithOrganizationalunitItemRequestBuilder) {
+    m := &WithOrganizationalunitItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit/{organizationalunitid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewOrganizationalunitItemRequestBuilder instantiates a new OrganizationalunitItemRequestBuilder and sets the default values.
-func NewOrganizationalunitItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*OrganizationalunitItemRequestBuilder) {
+// NewWithOrganizationalunitItemRequestBuilder instantiates a new WithOrganizationalunitItemRequestBuilder and sets the default values.
+func NewWithOrganizationalunitItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithOrganizationalunitItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewOrganizationalunitItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithOrganizationalunitItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get returns the organizational unit identified by the id.
-func (m *OrganizationalunitItemRequestBuilder) Get(ctx context.Context, requestConfiguration *OrganizationalunitItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable, error) {
+func (m *WithOrganizationalunitItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithOrganizationalunitItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -75,7 +75,7 @@ func (m *OrganizationalunitItemRequestBuilder) Get(ctx context.Context, requestC
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable), nil
 }
 // Put updates the organizational unit identified by the id.
-func (m *OrganizationalunitItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable, requestConfiguration *OrganizationalunitItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable, error) {
+func (m *WithOrganizationalunitItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable, requestConfiguration *WithOrganizationalunitItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -94,7 +94,7 @@ func (m *OrganizationalunitItemRequestBuilder) Put(ctx context.Context, body ie2
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable), nil
 }
 // ToGetRequestInformation returns the organizational unit identified by the id.
-func (m *OrganizationalunitItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *OrganizationalunitItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithOrganizationalunitItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithOrganizationalunitItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -110,7 +110,7 @@ func (m *OrganizationalunitItemRequestBuilder) ToGetRequestInformation(ctx conte
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the organizational unit identified by the id.
-func (m *OrganizationalunitItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable, requestConfiguration *OrganizationalunitItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithOrganizationalunitItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitable, requestConfiguration *WithOrganizationalunitItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -130,6 +130,6 @@ func (m *OrganizationalunitItemRequestBuilder) ToPutRequestInformation(ctx conte
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *OrganizationalunitItemRequestBuilder) WithUrl(rawUrl string)(*OrganizationalunitItemRequestBuilder) {
-    return NewOrganizationalunitItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithOrganizationalunitItemRequestBuilder) WithUrl(rawUrl string)(*WithOrganizationalunitItemRequestBuilder) {
+    return NewWithOrganizationalunitItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

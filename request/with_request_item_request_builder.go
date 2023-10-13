@@ -6,57 +6,57 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// RequestItemRequestBuilder builds and executes requests for operations under \request\{id}
-type RequestItemRequestBuilder struct {
+// WithRequestItemRequestBuilder builds and executes requests for operations under \request\{requestid}
+type WithRequestItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// RequestItemRequestBuilderGetQueryParameters returns the single modification request.
-type RequestItemRequestBuilderGetQueryParameters struct {
+// WithRequestItemRequestBuilderGetQueryParameters returns the single modification request.
+type WithRequestItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// RequestItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type RequestItemRequestBuilderGetRequestConfiguration struct {
+// WithRequestItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithRequestItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *RequestItemRequestBuilderGetQueryParameters
+    QueryParameters *WithRequestItemRequestBuilderGetQueryParameters
 }
-// RequestItemRequestBuilderPutQueryParameters updates the modification request identified by the id. Only the status and feedback can be updated and only when the request currently has status 'REQUESTED'.
-type RequestItemRequestBuilderPutQueryParameters struct {
+// WithRequestItemRequestBuilderPutQueryParameters updates the modification request identified by the id. Only the status and feedback can be updated and only when the request currently has status 'REQUESTED'.
+type WithRequestItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// RequestItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type RequestItemRequestBuilderPutRequestConfiguration struct {
+// WithRequestItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithRequestItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *RequestItemRequestBuilderPutQueryParameters
+    QueryParameters *WithRequestItemRequestBuilderPutQueryParameters
 }
 // Cancel the cancel property
-func (m *RequestItemRequestBuilder) Cancel()(*ItemCancelRequestBuilder) {
+func (m *WithRequestItemRequestBuilder) Cancel()(*ItemCancelRequestBuilder) {
     return NewItemCancelRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// NewRequestItemRequestBuilderInternal instantiates a new RequestItemRequestBuilder and sets the default values.
-func NewRequestItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*RequestItemRequestBuilder) {
-    m := &RequestItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request/{id}{?additional*}", pathParameters),
+// NewWithRequestItemRequestBuilderInternal instantiates a new WithRequestItemRequestBuilder and sets the default values.
+func NewWithRequestItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithRequestItemRequestBuilder) {
+    m := &WithRequestItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request/{requestid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewRequestItemRequestBuilder instantiates a new RequestItemRequestBuilder and sets the default values.
-func NewRequestItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*RequestItemRequestBuilder) {
+// NewWithRequestItemRequestBuilder instantiates a new WithRequestItemRequestBuilder and sets the default values.
+func NewWithRequestItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithRequestItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewRequestItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithRequestItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get returns the single modification request.
-func (m *RequestItemRequestBuilder) Get(ctx context.Context, requestConfiguration *RequestItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable, error) {
+func (m *WithRequestItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithRequestItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -75,7 +75,7 @@ func (m *RequestItemRequestBuilder) Get(ctx context.Context, requestConfiguratio
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable), nil
 }
 // Put updates the modification request identified by the id. Only the status and feedback can be updated and only when the request currently has status 'REQUESTED'.
-func (m *RequestItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable, requestConfiguration *RequestItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable, error) {
+func (m *WithRequestItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable, requestConfiguration *WithRequestItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -94,7 +94,7 @@ func (m *RequestItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable), nil
 }
 // ToGetRequestInformation returns the single modification request.
-func (m *RequestItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *RequestItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithRequestItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithRequestItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -110,7 +110,7 @@ func (m *RequestItemRequestBuilder) ToGetRequestInformation(ctx context.Context,
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the modification request identified by the id. Only the status and feedback can be updated and only when the request currently has status 'REQUESTED'.
-func (m *RequestItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable, requestConfiguration *RequestItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithRequestItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestable, requestConfiguration *WithRequestItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -130,6 +130,6 @@ func (m *RequestItemRequestBuilder) ToPutRequestInformation(ctx context.Context,
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *RequestItemRequestBuilder) WithUrl(rawUrl string)(*RequestItemRequestBuilder) {
-    return NewRequestItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithRequestItemRequestBuilder) WithUrl(rawUrl string)(*WithRequestItemRequestBuilder) {
+    return NewWithRequestItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

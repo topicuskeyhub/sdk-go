@@ -1,4 +1,4 @@
-package serviceaccount
+package numberseq
 
 import (
     "context"
@@ -6,59 +6,60 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// WithAccountItemRequestBuilder builds and executes requests for operations under \serviceaccount\{accountid}
-type WithAccountItemRequestBuilder struct {
+// WithNumberseqItemRequestBuilder builds and executes requests for operations under \numberseq\{numberseqid}
+type WithNumberseqItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// WithAccountItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type WithAccountItemRequestBuilderDeleteRequestConfiguration struct {
+// WithNumberseqItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithNumberseqItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// WithAccountItemRequestBuilderGetQueryParameters returns the service account identified by the id.
-type WithAccountItemRequestBuilderGetQueryParameters struct {
+// WithNumberseqItemRequestBuilderGetQueryParameters returns the provision number sequence identified by the id.
+type WithNumberseqItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// WithAccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type WithAccountItemRequestBuilderGetRequestConfiguration struct {
+// WithNumberseqItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithNumberseqItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *WithAccountItemRequestBuilderGetQueryParameters
+    QueryParameters *WithNumberseqItemRequestBuilderGetQueryParameters
 }
-// WithAccountItemRequestBuilderPutQueryParameters updates the service account identified by the id.
-type WithAccountItemRequestBuilderPutQueryParameters struct {
+// WithNumberseqItemRequestBuilderPutQueryParameters updates the provision number sequence identified by the id.
+type WithNumberseqItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// WithAccountItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type WithAccountItemRequestBuilderPutRequestConfiguration struct {
+// WithNumberseqItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithNumberseqItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *WithAccountItemRequestBuilderPutQueryParameters
+    QueryParameters *WithNumberseqItemRequestBuilderPutQueryParameters
 }
-// NewWithAccountItemRequestBuilderInternal instantiates a new WithAccountItemRequestBuilder and sets the default values.
-func NewWithAccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithAccountItemRequestBuilder) {
-    m := &WithAccountItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/serviceaccount/{accountid}{?additional*}", pathParameters),
+// NewWithNumberseqItemRequestBuilderInternal instantiates a new WithNumberseqItemRequestBuilder and sets the default values.
+func NewWithNumberseqItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithNumberseqItemRequestBuilder) {
+    m := &WithNumberseqItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/numberseq/{numberseqid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewWithAccountItemRequestBuilder instantiates a new WithAccountItemRequestBuilder and sets the default values.
-func NewWithAccountItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithAccountItemRequestBuilder) {
+// NewWithNumberseqItemRequestBuilder instantiates a new WithNumberseqItemRequestBuilder and sets the default values.
+func NewWithNumberseqItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithNumberseqItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewWithAccountItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithNumberseqItemRequestBuilderInternal(urlParams, requestAdapter)
 }
-func (m *WithAccountItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithAccountItemRequestBuilderDeleteRequestConfiguration)(error) {
+// Delete permanently removes the provision number sequence. This cannot be undone.
+func (m *WithNumberseqItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithNumberseqItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -73,8 +74,8 @@ func (m *WithAccountItemRequestBuilder) Delete(ctx context.Context, requestConfi
     }
     return nil
 }
-// Get returns the service account identified by the id.
-func (m *WithAccountItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithAccountItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable, error) {
+// Get returns the provision number sequence identified by the id.
+func (m *WithNumberseqItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithNumberseqItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -83,21 +84,17 @@ func (m *WithAccountItemRequestBuilder) Get(ctx context.Context, requestConfigur
         "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
         "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateServiceaccountServiceAccountFromDiscriminatorValue, errorMapping)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue, errorMapping)
     if err != nil {
         return nil, err
     }
     if res == nil {
         return nil, nil
     }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable), nil
+    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable), nil
 }
-// Group the group property
-func (m *WithAccountItemRequestBuilder) Group()(*ItemGroupRequestBuilder) {
-    return NewItemGroupRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
-}
-// Put updates the service account identified by the id.
-func (m *WithAccountItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable, requestConfiguration *WithAccountItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable, error) {
+// Put updates the provision number sequence identified by the id.
+func (m *WithNumberseqItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable, requestConfiguration *WithNumberseqItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -106,20 +103,17 @@ func (m *WithAccountItemRequestBuilder) Put(ctx context.Context, body ie2969523f
         "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
         "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateServiceaccountServiceAccountFromDiscriminatorValue, errorMapping)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue, errorMapping)
     if err != nil {
         return nil, err
     }
     if res == nil {
         return nil, nil
     }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable), nil
+    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable), nil
 }
-// Status the status property
-func (m *WithAccountItemRequestBuilder) Status()(*ItemStatusRequestBuilder) {
-    return NewItemStatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
-}
-func (m *WithAccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithAccountItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToDeleteRequestInformation permanently removes the provision number sequence. This cannot be undone.
+func (m *WithNumberseqItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithNumberseqItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -130,8 +124,8 @@ func (m *WithAccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.C
     }
     return requestInfo, nil
 }
-// ToGetRequestInformation returns the service account identified by the id.
-func (m *WithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithAccountItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToGetRequestInformation returns the provision number sequence identified by the id.
+func (m *WithNumberseqItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithNumberseqItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -146,8 +140,8 @@ func (m *WithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
     }
     return requestInfo, nil
 }
-// ToPutRequestInformation updates the service account identified by the id.
-func (m *WithAccountItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable, requestConfiguration *WithAccountItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToPutRequestInformation updates the provision number sequence identified by the id.
+func (m *WithNumberseqItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable, requestConfiguration *WithNumberseqItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -167,6 +161,6 @@ func (m *WithAccountItemRequestBuilder) ToPutRequestInformation(ctx context.Cont
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *WithAccountItemRequestBuilder) WithUrl(rawUrl string)(*WithAccountItemRequestBuilder) {
-    return NewWithAccountItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithNumberseqItemRequestBuilder) WithUrl(rawUrl string)(*WithNumberseqItemRequestBuilder) {
+    return NewWithNumberseqItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

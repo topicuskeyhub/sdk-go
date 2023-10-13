@@ -6,46 +6,46 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemGroupGroupItemRequestBuilder builds and executes requests for operations under \system\{systemid}\group\{id}
-type ItemGroupGroupItemRequestBuilder struct {
+// ItemGroupWithGroupItemRequestBuilder builds and executes requests for operations under \system\{systemid}\group\{groupid}
+type ItemGroupWithGroupItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ItemGroupGroupItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemGroupGroupItemRequestBuilderDeleteRequestConfiguration struct {
+// ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// ItemGroupGroupItemRequestBuilderGetQueryParameters returns the group on system identified by the id.
-type ItemGroupGroupItemRequestBuilderGetQueryParameters struct {
+// ItemGroupWithGroupItemRequestBuilderGetQueryParameters returns the group on system identified by the id.
+type ItemGroupWithGroupItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ItemGroupGroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemGroupGroupItemRequestBuilderGetRequestConfiguration struct {
+// ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ItemGroupGroupItemRequestBuilderGetQueryParameters
+    QueryParameters *ItemGroupWithGroupItemRequestBuilderGetQueryParameters
 }
-// NewItemGroupGroupItemRequestBuilderInternal instantiates a new GroupItemRequestBuilder and sets the default values.
-func NewItemGroupGroupItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupGroupItemRequestBuilder) {
-    m := &ItemGroupGroupItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/group/{id}{?additional*}", pathParameters),
+// NewItemGroupWithGroupItemRequestBuilderInternal instantiates a new WithGroupItemRequestBuilder and sets the default values.
+func NewItemGroupWithGroupItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupWithGroupItemRequestBuilder) {
+    m := &ItemGroupWithGroupItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/group/{groupid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewItemGroupGroupItemRequestBuilder instantiates a new GroupItemRequestBuilder and sets the default values.
-func NewItemGroupGroupItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupGroupItemRequestBuilder) {
+// NewItemGroupWithGroupItemRequestBuilder instantiates a new WithGroupItemRequestBuilder and sets the default values.
+func NewItemGroupWithGroupItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupWithGroupItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewItemGroupGroupItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewItemGroupWithGroupItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete deletes the group on system identified by the id. If 'system=true' is passed as query parameter, the group is also removed from the system.
-func (m *ItemGroupGroupItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemGroupGroupItemRequestBuilderDeleteRequestConfiguration)(error) {
+func (m *ItemGroupWithGroupItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -61,7 +61,7 @@ func (m *ItemGroupGroupItemRequestBuilder) Delete(ctx context.Context, requestCo
     return nil
 }
 // Get returns the group on system identified by the id.
-func (m *ItemGroupGroupItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemGroupGroupItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningGroupOnSystemable, error) {
+func (m *ItemGroupWithGroupItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningGroupOnSystemable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -80,7 +80,7 @@ func (m *ItemGroupGroupItemRequestBuilder) Get(ctx context.Context, requestConfi
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningGroupOnSystemable), nil
 }
 // ToDeleteRequestInformation deletes the group on system identified by the id. If 'system=true' is passed as query parameter, the group is also removed from the system.
-func (m *ItemGroupGroupItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemGroupGroupItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemGroupWithGroupItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -92,7 +92,7 @@ func (m *ItemGroupGroupItemRequestBuilder) ToDeleteRequestInformation(ctx contex
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the group on system identified by the id.
-func (m *ItemGroupGroupItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemGroupGroupItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemGroupWithGroupItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -108,6 +108,6 @@ func (m *ItemGroupGroupItemRequestBuilder) ToGetRequestInformation(ctx context.C
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *ItemGroupGroupItemRequestBuilder) WithUrl(rawUrl string)(*ItemGroupGroupItemRequestBuilder) {
-    return NewItemGroupGroupItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemGroupWithGroupItemRequestBuilder) WithUrl(rawUrl string)(*ItemGroupWithGroupItemRequestBuilder) {
+    return NewItemGroupWithGroupItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

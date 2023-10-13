@@ -6,7 +6,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemAccountItemNestingRequestBuilder builds and executes requests for operations under \group\{groupid}\account\{groupaccountid}\nesting
+// ItemAccountItemNestingRequestBuilder builds and executes requests for operations under \group\{groupid}\account\{accountid}\nesting
 type ItemAccountItemNestingRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -20,7 +20,7 @@ type ItemAccountItemNestingRequestBuilderPutRequestConfiguration struct {
 // NewItemAccountItemNestingRequestBuilderInternal instantiates a new NestingRequestBuilder and sets the default values.
 func NewItemAccountItemNestingRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountItemNestingRequestBuilder) {
     m := &ItemAccountItemNestingRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/account/{groupaccountid}/nesting", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/account/{accountid}/nesting", pathParameters),
     }
     return m
 }

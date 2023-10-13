@@ -48,26 +48,26 @@ type ItemPermissionRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *ItemPermissionRequestBuilderGetQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.client.item.permission.item collection
+// ByPermissionid gets an item from the github.com/topicuskeyhub/sdk-go.client.item.permission.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *ItemPermissionRequestBuilder) ById(id string)(*ItemPermissionPermissionItemRequestBuilder) {
+func (m *ItemPermissionRequestBuilder) ByPermissionid(permissionid string)(*ItemPermissionWithPermissionItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if permissionid != "" {
+        urlTplParams["permissionid"] = permissionid
     }
-    return NewItemPermissionPermissionItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewItemPermissionWithPermissionItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.client.item.permission.item collection
-func (m *ItemPermissionRequestBuilder) ByIdInt64(id int64)(*ItemPermissionPermissionItemRequestBuilder) {
+// ByPermissionidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.client.item.permission.item collection
+func (m *ItemPermissionRequestBuilder) ByPermissionidInt64(permissionid int64)(*ItemPermissionWithPermissionItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewItemPermissionPermissionItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["permissionid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(permissionid, 10)
+    return NewItemPermissionWithPermissionItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewItemPermissionRequestBuilderInternal instantiates a new PermissionRequestBuilder and sets the default values.
 func NewItemPermissionRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemPermissionRequestBuilder) {

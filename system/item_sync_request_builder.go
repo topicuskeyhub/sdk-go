@@ -6,7 +6,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemSyncRequestBuilder builds and executes requests for operations under \system\{id}\sync
+// ItemSyncRequestBuilder builds and executes requests for operations under \system\{systemid}\sync
 type ItemSyncRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -20,7 +20,7 @@ type ItemSyncRequestBuilderPostRequestConfiguration struct {
 // NewItemSyncRequestBuilderInternal instantiates a new SyncRequestBuilder and sets the default values.
 func NewItemSyncRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemSyncRequestBuilder) {
     m := &ItemSyncRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{id}/sync", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/sync", pathParameters),
     }
     return m
 }

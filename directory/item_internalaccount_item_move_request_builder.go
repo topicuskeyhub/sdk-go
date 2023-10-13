@@ -6,7 +6,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemInternalaccountItemMoveRequestBuilder builds and executes requests for operations under \directory\{directoryid}\internalaccount\{id}\move
+// ItemInternalaccountItemMoveRequestBuilder builds and executes requests for operations under \directory\{directoryid}\internalaccount\{internalaccountid}\move
 type ItemInternalaccountItemMoveRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -20,7 +20,7 @@ type ItemInternalaccountItemMoveRequestBuilderPostRequestConfiguration struct {
 // NewItemInternalaccountItemMoveRequestBuilderInternal instantiates a new MoveRequestBuilder and sets the default values.
 func NewItemInternalaccountItemMoveRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountItemMoveRequestBuilder) {
     m := &ItemInternalaccountItemMoveRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount/{id}/move", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount/{internalaccountid}/move", pathParameters),
     }
     return m
 }

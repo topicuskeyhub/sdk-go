@@ -54,26 +54,26 @@ type ProvisioninggroupRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *ProvisioninggroupRequestBuilderGetQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.provisioninggroup.item collection
+// ByProvisioninggroupid gets an item from the github.com/topicuskeyhub/sdk-go.provisioninggroup.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *ProvisioninggroupRequestBuilder) ById(id string)(*ProvisioninggroupItemRequestBuilder) {
+func (m *ProvisioninggroupRequestBuilder) ByProvisioninggroupid(provisioninggroupid string)(*WithProvisioninggroupItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if provisioninggroupid != "" {
+        urlTplParams["provisioninggroupid"] = provisioninggroupid
     }
-    return NewProvisioninggroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithProvisioninggroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.provisioninggroup.item collection
-func (m *ProvisioninggroupRequestBuilder) ByIdInt64(id int64)(*ProvisioninggroupItemRequestBuilder) {
+// ByProvisioninggroupidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.provisioninggroup.item collection
+func (m *ProvisioninggroupRequestBuilder) ByProvisioninggroupidInt64(provisioninggroupid int64)(*WithProvisioninggroupItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewProvisioninggroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["provisioninggroupid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(provisioninggroupid, 10)
+    return NewWithProvisioninggroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewProvisioninggroupRequestBuilderInternal instantiates a new ProvisioninggroupRequestBuilder and sets the default values.
 func NewProvisioninggroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProvisioninggroupRequestBuilder) {

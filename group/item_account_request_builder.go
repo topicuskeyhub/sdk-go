@@ -73,26 +73,26 @@ type ItemAccountRequestBuilderPostRequestConfiguration struct {
     // Request query parameters
     QueryParameters *ItemAccountRequestBuilderPostQueryParameters
 }
-// ByGroupaccountid gets an item from the github.com/topicuskeyhub/sdk-go.group.item.account.item collection
+// ByAccountid gets an item from the github.com/topicuskeyhub/sdk-go.group.item.account.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *ItemAccountRequestBuilder) ByGroupaccountid(groupaccountid string)(*ItemAccountWithGroupaccountItemRequestBuilder) {
+func (m *ItemAccountRequestBuilder) ByAccountid(accountid string)(*ItemAccountWithAccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if groupaccountid != "" {
-        urlTplParams["groupaccountid"] = groupaccountid
+    if accountid != "" {
+        urlTplParams["accountid"] = accountid
     }
-    return NewItemAccountWithGroupaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewItemAccountWithAccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByGroupaccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.group.item.account.item collection
-func (m *ItemAccountRequestBuilder) ByGroupaccountidInt64(groupaccountid int64)(*ItemAccountWithGroupaccountItemRequestBuilder) {
+// ByAccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.group.item.account.item collection
+func (m *ItemAccountRequestBuilder) ByAccountidInt64(accountid int64)(*ItemAccountWithAccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["groupaccountid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(groupaccountid, 10)
-    return NewItemAccountWithGroupaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["accountid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(accountid, 10)
+    return NewItemAccountWithAccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewItemAccountRequestBuilderInternal instantiates a new AccountRequestBuilder and sets the default values.
 func NewItemAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountRequestBuilder) {

@@ -6,7 +6,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemCancelRequestBuilder builds and executes requests for operations under \request\{id}\cancel
+// ItemCancelRequestBuilder builds and executes requests for operations under \request\{requestid}\cancel
 type ItemCancelRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -20,7 +20,7 @@ type ItemCancelRequestBuilderPostRequestConfiguration struct {
 // NewItemCancelRequestBuilderInternal instantiates a new CancelRequestBuilder and sets the default values.
 func NewItemCancelRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemCancelRequestBuilder) {
     m := &ItemCancelRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request/{id}/cancel", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request/{requestid}/cancel", pathParameters),
     }
     return m
 }

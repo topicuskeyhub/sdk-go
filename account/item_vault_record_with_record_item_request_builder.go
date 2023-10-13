@@ -6,60 +6,60 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemVaultRecordRecordItemRequestBuilder builds and executes requests for operations under \account\{accountid}\vault\record\{id}
-type ItemVaultRecordRecordItemRequestBuilder struct {
+// ItemVaultRecordWithRecordItemRequestBuilder builds and executes requests for operations under \account\{accountid}\vault\record\{recordid}
+type ItemVaultRecordWithRecordItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ItemVaultRecordRecordItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemVaultRecordRecordItemRequestBuilderDeleteRequestConfiguration struct {
+// ItemVaultRecordWithRecordItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemVaultRecordWithRecordItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// ItemVaultRecordRecordItemRequestBuilderGetQueryParameters returns the vault record identified by the id. When the 'secret' additonal object is requested, the 'topicus-Vault-session' header must be specified.
-type ItemVaultRecordRecordItemRequestBuilderGetQueryParameters struct {
+// ItemVaultRecordWithRecordItemRequestBuilderGetQueryParameters returns the vault record identified by the id. When the 'secret' additonal object is requested, the 'topicus-Vault-session' header must be specified.
+type ItemVaultRecordWithRecordItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ItemVaultRecordRecordItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemVaultRecordRecordItemRequestBuilderGetRequestConfiguration struct {
+// ItemVaultRecordWithRecordItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemVaultRecordWithRecordItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ItemVaultRecordRecordItemRequestBuilderGetQueryParameters
+    QueryParameters *ItemVaultRecordWithRecordItemRequestBuilderGetQueryParameters
 }
-// ItemVaultRecordRecordItemRequestBuilderPutQueryParameters updates the vault record identified by the id. To update the secrets, the 'secret' additional object must be used, in addition to specifying the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
-type ItemVaultRecordRecordItemRequestBuilderPutQueryParameters struct {
+// ItemVaultRecordWithRecordItemRequestBuilderPutQueryParameters updates the vault record identified by the id. To update the secrets, the 'secret' additional object must be used, in addition to specifying the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
+type ItemVaultRecordWithRecordItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ItemVaultRecordRecordItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemVaultRecordRecordItemRequestBuilderPutRequestConfiguration struct {
+// ItemVaultRecordWithRecordItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemVaultRecordWithRecordItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ItemVaultRecordRecordItemRequestBuilderPutQueryParameters
+    QueryParameters *ItemVaultRecordWithRecordItemRequestBuilderPutQueryParameters
 }
-// NewItemVaultRecordRecordItemRequestBuilderInternal instantiates a new RecordItemRequestBuilder and sets the default values.
-func NewItemVaultRecordRecordItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecordRecordItemRequestBuilder) {
-    m := &ItemVaultRecordRecordItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/vault/record/{id}{?additional*}", pathParameters),
+// NewItemVaultRecordWithRecordItemRequestBuilderInternal instantiates a new WithRecordItemRequestBuilder and sets the default values.
+func NewItemVaultRecordWithRecordItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecordWithRecordItemRequestBuilder) {
+    m := &ItemVaultRecordWithRecordItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/vault/record/{recordid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewItemVaultRecordRecordItemRequestBuilder instantiates a new RecordItemRequestBuilder and sets the default values.
-func NewItemVaultRecordRecordItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecordRecordItemRequestBuilder) {
+// NewItemVaultRecordWithRecordItemRequestBuilder instantiates a new WithRecordItemRequestBuilder and sets the default values.
+func NewItemVaultRecordWithRecordItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecordWithRecordItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewItemVaultRecordRecordItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewItemVaultRecordWithRecordItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete removes the vault record identified by the id. This cannot be undone.
-func (m *ItemVaultRecordRecordItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemVaultRecordRecordItemRequestBuilderDeleteRequestConfiguration)(error) {
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemVaultRecordWithRecordItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -75,7 +75,7 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) Delete(ctx context.Context, re
     return nil
 }
 // Get returns the vault record identified by the id. When the 'secret' additonal object is requested, the 'topicus-Vault-session' header must be specified.
-func (m *ItemVaultRecordRecordItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemVaultRecordRecordItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable, error) {
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemVaultRecordWithRecordItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -94,11 +94,11 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) Get(ctx context.Context, reque
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable), nil
 }
 // Move the move property
-func (m *ItemVaultRecordRecordItemRequestBuilder) Move()(*ItemVaultRecordItemMoveRequestBuilder) {
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) Move()(*ItemVaultRecordItemMoveRequestBuilder) {
     return NewItemVaultRecordItemMoveRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Put updates the vault record identified by the id. To update the secrets, the 'secret' additional object must be used, in addition to specifying the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
-func (m *ItemVaultRecordRecordItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable, requestConfiguration *ItemVaultRecordRecordItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable, error) {
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable, requestConfiguration *ItemVaultRecordWithRecordItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -117,7 +117,7 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) Put(ctx context.Context, body 
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable), nil
 }
 // ToDeleteRequestInformation removes the vault record identified by the id. This cannot be undone.
-func (m *ItemVaultRecordRecordItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemVaultRecordRecordItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemVaultRecordWithRecordItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -129,7 +129,7 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) ToDeleteRequestInformation(ctx
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the vault record identified by the id. When the 'secret' additonal object is requested, the 'topicus-Vault-session' header must be specified.
-func (m *ItemVaultRecordRecordItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemVaultRecordRecordItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemVaultRecordWithRecordItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -145,7 +145,7 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) ToGetRequestInformation(ctx co
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the vault record identified by the id. To update the secrets, the 'secret' additional object must be used, in addition to specifying the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
-func (m *ItemVaultRecordRecordItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable, requestConfiguration *ItemVaultRecordRecordItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable, requestConfiguration *ItemVaultRecordWithRecordItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -165,6 +165,6 @@ func (m *ItemVaultRecordRecordItemRequestBuilder) ToPutRequestInformation(ctx co
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *ItemVaultRecordRecordItemRequestBuilder) WithUrl(rawUrl string)(*ItemVaultRecordRecordItemRequestBuilder) {
-    return NewItemVaultRecordRecordItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) WithUrl(rawUrl string)(*ItemVaultRecordWithRecordItemRequestBuilder) {
+    return NewItemVaultRecordWithRecordItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

@@ -58,26 +58,26 @@ type GroupfolderRequestBuilderPostRequestConfiguration struct {
     // Request query parameters
     QueryParameters *GroupfolderRequestBuilderPostQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.groupfolder.item collection
+// ByGroupfolderid gets an item from the github.com/topicuskeyhub/sdk-go.groupfolder.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *GroupfolderRequestBuilder) ById(id string)(*GroupfolderItemRequestBuilder) {
+func (m *GroupfolderRequestBuilder) ByGroupfolderid(groupfolderid string)(*WithGroupfolderItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if groupfolderid != "" {
+        urlTplParams["groupfolderid"] = groupfolderid
     }
-    return NewGroupfolderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithGroupfolderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.groupfolder.item collection
-func (m *GroupfolderRequestBuilder) ByIdInt64(id int64)(*GroupfolderItemRequestBuilder) {
+// ByGroupfolderidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.groupfolder.item collection
+func (m *GroupfolderRequestBuilder) ByGroupfolderidInt64(groupfolderid int64)(*WithGroupfolderItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewGroupfolderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["groupfolderid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(groupfolderid, 10)
+    return NewWithGroupfolderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewGroupfolderRequestBuilderInternal instantiates a new GroupfolderRequestBuilder and sets the default values.
 func NewGroupfolderRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupfolderRequestBuilder) {

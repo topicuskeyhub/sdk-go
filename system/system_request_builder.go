@@ -109,26 +109,26 @@ type SystemRequestBuilderPostRequestConfiguration struct {
     // Request query parameters
     QueryParameters *SystemRequestBuilderPostQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.system.item collection
+// BySystemid gets an item from the github.com/topicuskeyhub/sdk-go.system.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *SystemRequestBuilder) ById(id string)(*SystemItemRequestBuilder) {
+func (m *SystemRequestBuilder) BySystemid(systemid string)(*WithSystemItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if systemid != "" {
+        urlTplParams["systemid"] = systemid
     }
-    return NewSystemItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithSystemItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.system.item collection
-func (m *SystemRequestBuilder) ByIdInt64(id int64)(*SystemItemRequestBuilder) {
+// BySystemidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.system.item collection
+func (m *SystemRequestBuilder) BySystemidInt64(systemid int64)(*WithSystemItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewSystemItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["systemid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(systemid, 10)
+    return NewWithSystemItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewSystemRequestBuilderInternal instantiates a new SystemRequestBuilder and sets the default values.
 func NewSystemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*SystemRequestBuilder) {

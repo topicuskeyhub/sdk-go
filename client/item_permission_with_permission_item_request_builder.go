@@ -6,46 +6,46 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemPermissionPermissionItemRequestBuilder builds and executes requests for operations under \client\{clientid}\permission\{id}
-type ItemPermissionPermissionItemRequestBuilder struct {
+// ItemPermissionWithPermissionItemRequestBuilder builds and executes requests for operations under \client\{clientid}\permission\{permissionid}
+type ItemPermissionWithPermissionItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ItemPermissionPermissionItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemPermissionPermissionItemRequestBuilderDeleteRequestConfiguration struct {
+// ItemPermissionWithPermissionItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemPermissionWithPermissionItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// ItemPermissionPermissionItemRequestBuilderGetQueryParameters returns the permission identified by the id.
-type ItemPermissionPermissionItemRequestBuilderGetQueryParameters struct {
+// ItemPermissionWithPermissionItemRequestBuilderGetQueryParameters returns the permission identified by the id.
+type ItemPermissionWithPermissionItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ItemPermissionPermissionItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemPermissionPermissionItemRequestBuilderGetRequestConfiguration struct {
+// ItemPermissionWithPermissionItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemPermissionWithPermissionItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ItemPermissionPermissionItemRequestBuilderGetQueryParameters
+    QueryParameters *ItemPermissionWithPermissionItemRequestBuilderGetQueryParameters
 }
-// NewItemPermissionPermissionItemRequestBuilderInternal instantiates a new PermissionItemRequestBuilder and sets the default values.
-func NewItemPermissionPermissionItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemPermissionPermissionItemRequestBuilder) {
-    m := &ItemPermissionPermissionItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/{clientid}/permission/{id}{?additional*}", pathParameters),
+// NewItemPermissionWithPermissionItemRequestBuilderInternal instantiates a new WithPermissionItemRequestBuilder and sets the default values.
+func NewItemPermissionWithPermissionItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemPermissionWithPermissionItemRequestBuilder) {
+    m := &ItemPermissionWithPermissionItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/{clientid}/permission/{permissionid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewItemPermissionPermissionItemRequestBuilder instantiates a new PermissionItemRequestBuilder and sets the default values.
-func NewItemPermissionPermissionItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemPermissionPermissionItemRequestBuilder) {
+// NewItemPermissionWithPermissionItemRequestBuilder instantiates a new WithPermissionItemRequestBuilder and sets the default values.
+func NewItemPermissionWithPermissionItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemPermissionWithPermissionItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewItemPermissionPermissionItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewItemPermissionWithPermissionItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete deletes the permission identified by the id.
-func (m *ItemPermissionPermissionItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemPermissionPermissionItemRequestBuilderDeleteRequestConfiguration)(error) {
+func (m *ItemPermissionWithPermissionItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemPermissionWithPermissionItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -61,7 +61,7 @@ func (m *ItemPermissionPermissionItemRequestBuilder) Delete(ctx context.Context,
     return nil
 }
 // Get returns the permission identified by the id.
-func (m *ItemPermissionPermissionItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemPermissionPermissionItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientOAuth2ClientPermissionable, error) {
+func (m *ItemPermissionWithPermissionItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemPermissionWithPermissionItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientOAuth2ClientPermissionable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -80,7 +80,7 @@ func (m *ItemPermissionPermissionItemRequestBuilder) Get(ctx context.Context, re
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientOAuth2ClientPermissionable), nil
 }
 // ToDeleteRequestInformation deletes the permission identified by the id.
-func (m *ItemPermissionPermissionItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemPermissionPermissionItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemPermissionWithPermissionItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemPermissionWithPermissionItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -92,7 +92,7 @@ func (m *ItemPermissionPermissionItemRequestBuilder) ToDeleteRequestInformation(
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the permission identified by the id.
-func (m *ItemPermissionPermissionItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemPermissionPermissionItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemPermissionWithPermissionItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemPermissionWithPermissionItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -108,6 +108,6 @@ func (m *ItemPermissionPermissionItemRequestBuilder) ToGetRequestInformation(ctx
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *ItemPermissionPermissionItemRequestBuilder) WithUrl(rawUrl string)(*ItemPermissionPermissionItemRequestBuilder) {
-    return NewItemPermissionPermissionItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemPermissionWithPermissionItemRequestBuilder) WithUrl(rawUrl string)(*ItemPermissionWithPermissionItemRequestBuilder) {
+    return NewItemPermissionWithPermissionItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

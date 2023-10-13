@@ -8,7 +8,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemGroupRequestBuilder builds and executes requests for operations under \serviceaccount\{accountid}\group
+// ItemGroupRequestBuilder builds and executes requests for operations under \serviceaccount\{serviceaccountid}\group
 type ItemGroupRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -44,31 +44,31 @@ type ItemGroupRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *ItemGroupRequestBuilderGetQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item.group.item collection
+// ByGroupid gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item.group.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *ItemGroupRequestBuilder) ById(id string)(*ItemGroupGroupItemRequestBuilder) {
+func (m *ItemGroupRequestBuilder) ByGroupid(groupid string)(*ItemGroupWithGroupItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if groupid != "" {
+        urlTplParams["groupid"] = groupid
     }
-    return NewItemGroupGroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewItemGroupWithGroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item.group.item collection
-func (m *ItemGroupRequestBuilder) ByIdInt64(id int64)(*ItemGroupGroupItemRequestBuilder) {
+// ByGroupidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item.group.item collection
+func (m *ItemGroupRequestBuilder) ByGroupidInt64(groupid int64)(*ItemGroupWithGroupItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewItemGroupGroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["groupid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(groupid, 10)
+    return NewItemGroupWithGroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewItemGroupRequestBuilderInternal instantiates a new GroupRequestBuilder and sets the default values.
 func NewItemGroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupRequestBuilder) {
     m := &ItemGroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/serviceaccount/{accountid}/group{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,groupOnSystem*,serviceAccount*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/serviceaccount/{serviceaccountid}/group{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,groupOnSystem*,serviceAccount*}", pathParameters),
     }
     return m
 }

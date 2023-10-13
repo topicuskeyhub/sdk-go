@@ -3,11 +3,12 @@ package webhook
 import (
     "context"
     i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
+    i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274 "strconv"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemDeliveryRequestBuilder builds and executes requests for operations under \webhook\{id}\delivery
+// ItemDeliveryRequestBuilder builds and executes requests for operations under \webhook\{webhookid}\delivery
 type ItemDeliveryRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -42,6 +43,7 @@ type ItemDeliveryRequestBuilderGetRequestConfiguration struct {
     QueryParameters *ItemDeliveryRequestBuilderGetQueryParameters
 }
 // ByDeliveryid gets an item from the github.com/topicuskeyhub/sdk-go.webhook.item.delivery.item collection
+// Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
 func (m *ItemDeliveryRequestBuilder) ByDeliveryid(deliveryid string)(*ItemDeliveryWithDeliveryItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -52,10 +54,19 @@ func (m *ItemDeliveryRequestBuilder) ByDeliveryid(deliveryid string)(*ItemDelive
     }
     return NewItemDeliveryWithDeliveryItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
+// ByDeliveryidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.webhook.item.delivery.item collection
+func (m *ItemDeliveryRequestBuilder) ByDeliveryidInt64(deliveryid int64)(*ItemDeliveryWithDeliveryItemRequestBuilder) {
+    urlTplParams := make(map[string]string)
+    for idx, item := range m.BaseRequestBuilder.PathParameters {
+        urlTplParams[idx] = item
+    }
+    urlTplParams["deliveryid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(deliveryid, 10)
+    return NewItemDeliveryWithDeliveryItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+}
 // NewItemDeliveryRequestBuilderInternal instantiates a new DeliveryRequestBuilder and sets the default values.
 func NewItemDeliveryRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemDeliveryRequestBuilder) {
     m := &ItemDeliveryRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook/{id}/delivery{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,webhook*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook/{webhookid}/delivery{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,webhook*}", pathParameters),
     }
     return m
 }

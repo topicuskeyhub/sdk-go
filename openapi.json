@@ -453,7 +453,7 @@
         }
       }
     },
-    "/directory/{id}": {
+    "/directory/{directoryid}": {
       "get": {
         "tags": [
           "account"
@@ -480,7 +480,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "directoryid",
             "in": "path",
             "required": true,
             "schema": {
@@ -539,7 +539,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "directoryid",
             "in": "path",
             "required": true,
             "schema": {
@@ -595,7 +595,7 @@
         "operationId": "delete_directory",
         "parameters": [
           {
-            "name": "id",
+            "name": "directoryid",
             "in": "path",
             "required": true,
             "schema": {
@@ -909,7 +909,7 @@
         }
       }
     },
-    "/directory/{directoryid}/internalaccount/{id}": {
+    "/directory/{directoryid}/internalaccount/{internalaccountid}": {
       "get": {
         "tags": [
           "account"
@@ -935,7 +935,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "internalaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -1002,7 +1002,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "internalaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -1067,7 +1067,7 @@
         "operationId": "delete_directory_internalaccount",
         "parameters": [
           {
-            "name": "id",
+            "name": "internalaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -1208,7 +1208,7 @@
         }
       }
     },
-    "/account/{id}": {
+    "/account/{accountid}": {
       "get": {
         "tags": [
           "account"
@@ -1239,7 +1239,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -1281,7 +1281,7 @@
         "operationId": "delete_account",
         "parameters": [
           {
-            "name": "id",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -1988,7 +1988,7 @@
         }
       }
     },
-    "/account/{accountid}/group/{id}": {
+    "/account/{accountid}/group/{groupid}": {
       "get": {
         "tags": [
           "account",
@@ -2015,7 +2015,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -2067,7 +2067,7 @@
         "operationId": "delete_account_group",
         "parameters": [
           {
-            "name": "id",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -2367,7 +2367,7 @@
         }
       }
     },
-    "/account/{accountid}/group/{accountgroupid}/status": {
+    "/account/{accountid}/group/{groupid}/status": {
       "put": {
         "tags": [
           "profile"
@@ -2377,7 +2377,7 @@
         "operationId": "updateStatus_account_group_status",
         "parameters": [
           {
-            "name": "accountgroupid",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -2455,7 +2455,7 @@
         }
       }
     },
-    "/account/{accountid}/organizationalunit/{id}": {
+    "/account/{accountid}/organizationalunit/{organizationalunitid}": {
       "get": {
         "tags": [
           "account"
@@ -2480,7 +2480,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "organizationalunitid",
             "in": "path",
             "required": true,
             "schema": {
@@ -3730,7 +3730,7 @@
         }
       }
     },
-    "/account/{accountid}/vault/record/{id}": {
+    "/account/{accountid}/vault/record/{recordid}": {
       "get": {
         "tags": [
           "vault"
@@ -3763,7 +3763,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -3837,7 +3837,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -3902,7 +3902,7 @@
         "operationId": "delete_account_vault_record",
         "parameters": [
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -4066,7 +4066,7 @@
         }
       }
     },
-    "/audit/{id}": {
+    "/audit/{auditid}": {
       "get": {
         "tags": [
           "miscellaneous"
@@ -4091,7 +4091,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "auditid",
             "in": "path",
             "required": true,
             "schema": {
@@ -4713,7 +4713,7 @@
         }
       }
     },
-    "/certificate/{id}": {
+    "/certificate/{certificateid}": {
       "get": {
         "tags": [
           "miscellaneous"
@@ -4738,7 +4738,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "certificateid",
             "in": "path",
             "required": true,
             "schema": {
@@ -4795,7 +4795,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "certificateid",
             "in": "path",
             "required": true,
             "schema": {
@@ -4851,7 +4851,7 @@
         "operationId": "delete_certificate",
         "parameters": [
           {
-            "name": "id",
+            "name": "certificateid",
             "in": "path",
             "required": true,
             "schema": {
@@ -5331,7 +5331,7 @@
         }
       }
     },
-    "/client/{id}": {
+    "/client/{clientid}": {
       "get": {
         "tags": [
           "client"
@@ -5362,7 +5362,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "clientid",
             "in": "path",
             "required": true,
             "schema": {
@@ -5425,7 +5425,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "clientid",
             "in": "path",
             "required": true,
             "schema": {
@@ -5481,7 +5481,7 @@
         "operationId": "delete_client",
         "parameters": [
           {
-            "name": "id",
+            "name": "clientid",
             "in": "path",
             "required": true,
             "schema": {
@@ -5534,7 +5534,7 @@
         }
       }
     },
-    "/client/{clientid}/permission/{id}": {
+    "/client/{clientid}/permission/{permissionid}": {
       "get": {
         "tags": [
           "client"
@@ -5559,7 +5559,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "permissionid",
             "in": "path",
             "required": true,
             "schema": {
@@ -5610,7 +5610,7 @@
         "operationId": "delete_client_permission",
         "parameters": [
           {
-            "name": "id",
+            "name": "permissionid",
             "in": "path",
             "required": true,
             "schema": {
@@ -6610,7 +6610,7 @@
         }
       }
     },
-    "/client/{clientid}/vault/record/{id}": {
+    "/client/{clientid}/vault/record/{recordid}": {
       "get": {
         "tags": [
           "vault"
@@ -6643,7 +6643,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -6717,7 +6717,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -6782,7 +6782,7 @@
         "operationId": "delete_client_vault_record",
         "parameters": [
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -6946,7 +6946,7 @@
         }
       }
     },
-    "/deletedvaultholder/{id}": {
+    "/deletedvaultholder/{deletedvaultholderid}": {
       "get": {
         "tags": [
           "vault"
@@ -6972,7 +6972,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "deletedvaultholderid",
             "in": "path",
             "required": true,
             "schema": {
@@ -7014,7 +7014,7 @@
         "operationId": "delete_deletedvaultholder",
         "parameters": [
           {
-            "name": "id",
+            "name": "deletedvaultholderid",
             "in": "path",
             "required": true,
             "schema": {
@@ -7923,7 +7923,7 @@
         }
       }
     },
-    "/deletedvaultholder/{vaultid}/vault/record/{id}": {
+    "/deletedvaultholder/{vaultid}/vault/record/{recordid}": {
       "get": {
         "tags": [
           "vault"
@@ -7956,7 +7956,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -8030,7 +8030,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -8095,7 +8095,7 @@
         "operationId": "delete_deletedvaultholder_vault_record",
         "parameters": [
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -8550,7 +8550,7 @@
         }
       }
     },
-    "/groupclassification/{id}": {
+    "/groupclassification/{groupclassificationid}": {
       "get": {
         "tags": [
           "group"
@@ -8576,7 +8576,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupclassificationid",
             "in": "path",
             "required": true,
             "schema": {
@@ -8634,7 +8634,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupclassificationid",
             "in": "path",
             "required": true,
             "schema": {
@@ -8690,7 +8690,7 @@
         "operationId": "delete_groupclassification",
         "parameters": [
           {
-            "name": "id",
+            "name": "groupclassificationid",
             "in": "path",
             "required": true,
             "schema": {
@@ -8712,7 +8712,7 @@
         }
       }
     },
-    "/groupclient/{id}": {
+    "/groupclient/{groupclientid}": {
       "get": {
         "tags": [
           "client",
@@ -8738,7 +8738,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupclientid",
             "in": "path",
             "required": true,
             "schema": {
@@ -8796,7 +8796,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupclientid",
             "in": "path",
             "required": true,
             "schema": {
@@ -8853,7 +8853,7 @@
         "operationId": "delete_groupclient",
         "parameters": [
           {
-            "name": "id",
+            "name": "groupclientid",
             "in": "path",
             "required": true,
             "schema": {
@@ -9307,7 +9307,7 @@
         }
       }
     },
-    "/groupfolder/{id}": {
+    "/groupfolder/{groupfolderid}": {
       "get": {
         "tags": [
           "profile"
@@ -9332,7 +9332,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupfolderid",
             "in": "path",
             "required": true,
             "schema": {
@@ -9389,7 +9389,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupfolderid",
             "in": "path",
             "required": true,
             "schema": {
@@ -9445,7 +9445,7 @@
         "operationId": "delete_groupfolder",
         "parameters": [
           {
-            "name": "id",
+            "name": "groupfolderid",
             "in": "path",
             "required": true,
             "schema": {
@@ -9807,7 +9807,7 @@
         }
       }
     },
-    "/group/{groupid}/account/{id}": {
+    "/group/{groupid}/account/{accountid}": {
       "get": {
         "tags": [
           "account",
@@ -9833,7 +9833,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -9900,7 +9900,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -9966,7 +9966,7 @@
         "operationId": "delete_group_account",
         "parameters": [
           {
-            "name": "id",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -9997,7 +9997,7 @@
         }
       }
     },
-    "/group/{groupid}/account/{groupaccountid}/nesting": {
+    "/group/{groupid}/account/{accountid}/nesting": {
       "put": {
         "tags": [
           "group"
@@ -10007,7 +10007,7 @@
         "operationId": "updateNesting_group_account_nesting",
         "parameters": [
           {
-            "name": "groupaccountid",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -10316,7 +10316,7 @@
         }
       }
     },
-    "/group/{groupid}/audit/{id}": {
+    "/group/{groupid}/audit/{auditid}": {
       "get": {
         "tags": [
           "group"
@@ -10341,7 +10341,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "auditid",
             "in": "path",
             "required": true,
             "schema": {
@@ -10407,7 +10407,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "auditid",
             "in": "path",
             "required": true,
             "schema": {
@@ -11414,7 +11414,7 @@
         }
       }
     },
-    "/group/{id}": {
+    "/group/{groupid}": {
       "get": {
         "tags": [
           "group"
@@ -11466,7 +11466,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -11550,7 +11550,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -12465,7 +12465,7 @@
         }
       }
     },
-    "/group/{groupid}/vault/record/{id}": {
+    "/group/{groupid}/vault/record/{recordid}": {
       "get": {
         "tags": [
           "vault"
@@ -12498,7 +12498,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -12572,7 +12572,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -12637,7 +12637,7 @@
         "operationId": "delete_group_vault_record",
         "parameters": [
           {
-            "name": "id",
+            "name": "recordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -13139,7 +13139,7 @@
         }
       }
     },
-    "/launchpadtile/{id}": {
+    "/launchpadtile/{launchpadtileid}": {
       "get": {
         "tags": [
           "miscellaneous"
@@ -13164,7 +13164,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "launchpadtileid",
             "in": "path",
             "required": true,
             "schema": {
@@ -13221,7 +13221,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "launchpadtileid",
             "in": "path",
             "required": true,
             "schema": {
@@ -13277,7 +13277,7 @@
         "operationId": "delete_launchpadtile",
         "parameters": [
           {
-            "name": "id",
+            "name": "launchpadtileid",
             "in": "path",
             "required": true,
             "schema": {
@@ -13959,7 +13959,7 @@
         }
       }
     },
-    "/request/{id}": {
+    "/request/{requestid}": {
       "get": {
         "tags": [
           "miscellaneous"
@@ -13986,7 +13986,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "requestid",
             "in": "path",
             "required": true,
             "schema": {
@@ -14045,7 +14045,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "requestid",
             "in": "path",
             "required": true,
             "schema": {
@@ -14347,7 +14347,7 @@
         }
       }
     },
-    "/organizationalunit/{organizationalunitid}/account/{id}": {
+    "/organizationalunit/{organizationalunitid}/account/{accountid}": {
       "get": {
         "tags": [
           "account",
@@ -14373,7 +14373,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -14425,7 +14425,7 @@
         "operationId": "delete_organizationalunit_account",
         "parameters": [
           {
-            "name": "id",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -14779,7 +14779,7 @@
         }
       }
     },
-    "/organizationalunit/{id}": {
+    "/organizationalunit/{organizationalunitid}": {
       "get": {
         "tags": [
           "miscellaneous"
@@ -14805,7 +14805,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "organizationalunitid",
             "in": "path",
             "required": true,
             "schema": {
@@ -14863,7 +14863,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "organizationalunitid",
             "in": "path",
             "required": true,
             "schema": {
@@ -15133,7 +15133,7 @@
         }
       }
     },
-    "/numberseq/{id}": {
+    "/numberseq/{numberseqid}": {
       "get": {
         "tags": [
           "provisioning"
@@ -15159,7 +15159,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "numberseqid",
             "in": "path",
             "required": true,
             "schema": {
@@ -15217,7 +15217,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "numberseqid",
             "in": "path",
             "required": true,
             "schema": {
@@ -15273,7 +15273,7 @@
         "operationId": "delete_numberseq",
         "parameters": [
           {
-            "name": "id",
+            "name": "numberseqid",
             "in": "path",
             "required": true,
             "schema": {
@@ -15295,7 +15295,7 @@
         }
       }
     },
-    "/system/{systemid}/account/{id}": {
+    "/system/{systemid}/account/{accountid}": {
       "get": {
         "tags": [
           "provisioning"
@@ -15320,7 +15320,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "accountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -16118,7 +16118,7 @@
         }
       }
     },
-    "/system/{id}": {
+    "/system/{systemid}": {
       "get": {
         "tags": [
           "provisioning"
@@ -16150,7 +16150,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "systemid",
             "in": "path",
             "required": true,
             "schema": {
@@ -16214,7 +16214,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "systemid",
             "in": "path",
             "required": true,
             "schema": {
@@ -16646,7 +16646,7 @@
         }
       }
     },
-    "/system/{systemid}/group/{id}": {
+    "/system/{systemid}/group/{groupid}": {
       "get": {
         "tags": [
           "provisioning"
@@ -16673,7 +16673,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -16724,7 +16724,7 @@
         "operationId": "delete_system_group",
         "parameters": [
           {
-            "name": "id",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -16787,7 +16787,7 @@
         }
       }
     },
-    "/system/{systemid}/synclog/{id}": {
+    "/system/{systemid}/synclog/{synclogid}": {
       "get": {
         "tags": [
           "provisioning"
@@ -16812,7 +16812,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "synclogid",
             "in": "path",
             "required": true,
             "schema": {
@@ -17023,7 +17023,7 @@
         }
       }
     },
-    "/provisioninggroup/{id}": {
+    "/provisioninggroup/{provisioninggroupid}": {
       "get": {
         "tags": [
           "provisioning"
@@ -17048,7 +17048,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "provisioninggroupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -17105,7 +17105,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "provisioninggroupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -17161,7 +17161,7 @@
         "operationId": "delete_provisioninggroup",
         "parameters": [
           {
-            "name": "id",
+            "name": "provisioninggroupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -17805,7 +17805,7 @@
         }
       }
     },
-    "/serviceaccount/{id}": {
+    "/serviceaccount/{serviceaccountid}": {
       "get": {
         "tags": [
           "provisioning"
@@ -17832,7 +17832,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "serviceaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -17891,7 +17891,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "serviceaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -17945,7 +17945,7 @@
         "operationId": "delete_serviceaccount",
         "parameters": [
           {
-            "name": "id",
+            "name": "serviceaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -18000,7 +18000,7 @@
         }
       }
     },
-    "/serviceaccount/{accountid}/group/{id}": {
+    "/serviceaccount/{serviceaccountid}/group/{groupid}": {
       "get": {
         "tags": [
           "provisioning"
@@ -18025,7 +18025,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -18034,7 +18034,7 @@
             }
           },
           {
-            "name": "accountid",
+            "name": "serviceaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -18076,7 +18076,7 @@
         "operationId": "delete_serviceaccount_group",
         "parameters": [
           {
-            "name": "id",
+            "name": "groupid",
             "in": "path",
             "required": true,
             "schema": {
@@ -18085,7 +18085,7 @@
             }
           },
           {
-            "name": "accountid",
+            "name": "serviceaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -18107,7 +18107,7 @@
         }
       }
     },
-    "/serviceaccount/{accountid}/group": {
+    "/serviceaccount/{serviceaccountid}/group": {
       "get": {
         "tags": [
           "provisioning"
@@ -18254,7 +18254,7 @@
             }
           },
           {
-            "name": "accountid",
+            "name": "serviceaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -18330,7 +18330,7 @@
         }
       }
     },
-    "/serviceaccount/{accountid}/status": {
+    "/serviceaccount/{serviceaccountid}/status": {
       "put": {
         "tags": [
           "provisioning"
@@ -18340,7 +18340,7 @@
         "operationId": "updateStatus_serviceaccount_status",
         "parameters": [
           {
-            "name": "accountid",
+            "name": "serviceaccountid",
             "in": "path",
             "required": true,
             "schema": {
@@ -18376,7 +18376,7 @@
         }
       }
     },
-    "/vaultrecord/{id}": {
+    "/vaultrecord/{vaultrecordid}": {
       "get": {
         "tags": [
           "vault"
@@ -18408,7 +18408,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "vaultrecordid",
             "in": "path",
             "required": true,
             "schema": {
@@ -19290,7 +19290,7 @@
         }
       }
     },
-    "/webhook/{id}": {
+    "/webhook/{webhookid}": {
       "get": {
         "tags": [
           "miscellaneous"
@@ -19315,7 +19315,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "webhookid",
             "in": "path",
             "required": true,
             "schema": {
@@ -19372,7 +19372,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "webhookid",
             "in": "path",
             "required": true,
             "schema": {
@@ -19428,7 +19428,7 @@
         "operationId": "delete_webhook",
         "parameters": [
           {
-            "name": "id",
+            "name": "webhookid",
             "in": "path",
             "required": true,
             "schema": {
@@ -19450,7 +19450,7 @@
         }
       }
     },
-    "/webhook/{webhookid}/delivery/{id}": {
+    "/webhook/{webhookid}/delivery/{deliveryid}": {
       "get": {
         "tags": [
           "miscellaneous"
@@ -19475,7 +19475,7 @@
             }
           },
           {
-            "name": "id",
+            "name": "deliveryid",
             "in": "path",
             "required": true,
             "schema": {
@@ -19855,17 +19855,21 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "x-tkh-immutable": true
           },
           "rel": {
-            "type": "string"
+            "type": "string",
+            "x-tkh-immutable": true
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "x-tkh-immutable": true
           },
           "href": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "x-tkh-immutable": true
           }
         },
         "x-tkh-discriminator": "Link",
@@ -19881,13 +19885,15 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RestLink"
-            }
+            },
+            "x-tkh-immutable": true
           },
           "permissions": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/authPermission"
-            }
+            },
+            "x-tkh-immutable": true
           },
           "$type": {
             "type": "string"
@@ -20203,6 +20209,7 @@
                     "$ref": "#/components/schemas/auditAuditRecordType"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -20278,6 +20285,7 @@
                     "$ref": "#/components/schemas/authSecurityLevel"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -20631,14 +20639,28 @@
                 }
               },
               "directoryType": {
-                "$ref": "#/components/schemas/directoryAccountDirectoryType"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/directoryAccountDirectoryType"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "directoryName": {
                 "type": "string",
                 "readOnly": true
               },
               "directoryRotatingPassword": {
-                "$ref": "#/components/schemas/directoryDirectoryRotatingPassword"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/directoryDirectoryRotatingPassword"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "locale": {
                 "type": "string",
@@ -20650,13 +20672,34 @@
                 "readOnly": true
               },
               "directory": {
-                "$ref": "#/components/schemas/directoryAccountDirectoryPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/directoryAccountDirectoryPrimer"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "twoFactorStatus": {
-                "$ref": "#/components/schemas/authTwoFactorAuthenticationStatus"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/authTwoFactorAuthenticationStatus"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "licenseRole": {
-                "$ref": "#/components/schemas/authAccountLicenseRole"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/authAccountLicenseRole"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",
@@ -20858,7 +20901,14 @@
             "type": "object",
             "properties": {
               "validity": {
-                "$ref": "#/components/schemas/authAccountValidity"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/authAccountValidity"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "uuid": {
                 "type": "string",
@@ -21461,6 +21511,7 @@
                     "$ref": "#/components/schemas/certificateCertificateType"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -21665,6 +21716,7 @@
                     "$ref": "#/components/schemas/clientClientApplicationType"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -21749,7 +21801,14 @@
                 "x-tkh-default": false
               },
               "sharedSecret": {
-                "$ref": "#/components/schemas/vaultVaultRecordPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/vaultVaultRecordPrimer"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",
@@ -21834,7 +21893,14 @@
                 "x-tkh-default": true
               },
               "sharedSecret": {
-                "$ref": "#/components/schemas/vaultVaultRecordPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/vaultVaultRecordPrimer"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",
@@ -22192,6 +22258,7 @@
                     "$ref": "#/components/schemas/directoryAccountDirectoryType"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -22654,7 +22721,14 @@
                 "x-tkh-default": true
               },
               "folder": {
-                "$ref": "#/components/schemas/groupGroupFolder"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupFolder"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "lastUsed": {
                 "type": "string",
@@ -22805,6 +22879,7 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -22815,6 +22890,7 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -22825,6 +22901,7 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -22835,6 +22912,7 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -22853,7 +22931,9 @@
                     "$ref": "#/components/schemas/groupGroupClassificationPrimer"
                   },
                   {
-                    "x-tkh-create-only": true
+                    "readOnly": true,
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
                   }
                 ]
               },
@@ -22861,7 +22941,14 @@
                 "type": "string"
               },
               "auditConfig": {
-                "$ref": "#/components/schemas/groupGroupAuditConfig"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupAuditConfig"
+                  },
+                  {
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
               },
               "privateGroup": {
                 "type": "boolean",
@@ -22891,6 +22978,7 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -22901,7 +22989,8 @@
                     "$ref": "#/components/schemas/organizationOrganizationalUnitPrimer"
                   },
                   {
-                    "x-tkh-create-only": true
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
                   }
                 ]
               },
@@ -23216,10 +23305,24 @@
                 "x-tkh-default": true
               },
               "directory": {
-                "$ref": "#/components/schemas/directoryAccountDirectoryPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/directoryAccountDirectoryPrimer"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "twoFactorStatus": {
-                "$ref": "#/components/schemas/authTwoFactorAuthenticationStatus"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/authTwoFactorAuthenticationStatus"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "lastUsed": {
                 "type": "string",
@@ -23489,7 +23592,14 @@
                 "readOnly": true
               },
               "rights": {
-                "$ref": "#/components/schemas/groupGroupRights"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupRights"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "endDate": {
                 "type": "string",
@@ -23545,7 +23655,8 @@
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/Month"
-                }
+                },
+                "x-tkh-backend-determines-default": true
               },
               "$type": {
                 "type": "string",
@@ -23917,6 +24028,7 @@
                     "$ref": "#/components/schemas/clientClientApplicationPrimer"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -23927,15 +24039,30 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
               },
               "owner": {
-                "$ref": "#/components/schemas/groupGroupPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupPrimer"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "technicalAdministrator": {
-                "$ref": "#/components/schemas/groupGroupPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupPrimer"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "activationRequired": {
                 "type": "boolean",
@@ -24334,6 +24461,7 @@
                     "$ref": "#/components/schemas/provisioningGroupOnSystem"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -24344,6 +24472,7 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -24500,6 +24629,7 @@
                     "$ref": "#/components/schemas/launchpadLaunchpadTileType"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-default": "MANUAL",
                     "x-tkh-immutable": true
                   }
@@ -25450,7 +25580,14 @@
                 "$ref": "#/components/schemas/groupGroupPrimer"
               },
               "parent": {
-                "$ref": "#/components/schemas/organizationOrganizationalUnitPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/organizationOrganizationalUnitPrimer"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "description": {
                 "type": "string"
@@ -26795,6 +26932,7 @@
                     "$ref": "#/components/schemas/provisioningProvisionedSystemType"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -27791,6 +27929,7 @@
                     "$ref": "#/components/schemas/requestModificationRequestType"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]
@@ -28571,7 +28710,14 @@
                 "$ref": "#/components/schemas/requestUpdateGroupMembershipType"
               },
               "currentRights": {
-                "$ref": "#/components/schemas/groupGroupRights"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupRights"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "currentEndDate": {
                 "type": "string",
@@ -28670,7 +28816,14 @@
                 "type": "string"
               },
               "password": {
-                "$ref": "#/components/schemas/vaultVaultRecordPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/vaultVaultRecordPrimer"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",
@@ -29011,6 +29164,7 @@
                     "$ref": "#/components/schemas/vaultVaultHolderType"
                   },
                   {
+                    "readOnly": true,
                     "x-tkh-immutable": true
                   }
                 ]

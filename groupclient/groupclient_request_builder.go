@@ -48,26 +48,26 @@ type GroupclientRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *GroupclientRequestBuilderGetQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.groupclient.item collection
+// ByGroupclientid gets an item from the github.com/topicuskeyhub/sdk-go.groupclient.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *GroupclientRequestBuilder) ById(id string)(*GroupclientItemRequestBuilder) {
+func (m *GroupclientRequestBuilder) ByGroupclientid(groupclientid string)(*WithGroupclientItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if groupclientid != "" {
+        urlTplParams["groupclientid"] = groupclientid
     }
-    return NewGroupclientItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithGroupclientItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.groupclient.item collection
-func (m *GroupclientRequestBuilder) ByIdInt64(id int64)(*GroupclientItemRequestBuilder) {
+// ByGroupclientidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.groupclient.item collection
+func (m *GroupclientRequestBuilder) ByGroupclientidInt64(groupclientid int64)(*WithGroupclientItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewGroupclientItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["groupclientid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(groupclientid, 10)
+    return NewWithGroupclientItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewGroupclientRequestBuilderInternal instantiates a new GroupclientRequestBuilder and sets the default values.
 func NewGroupclientRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupclientRequestBuilder) {

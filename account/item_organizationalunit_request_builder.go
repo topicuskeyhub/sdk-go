@@ -44,26 +44,26 @@ type ItemOrganizationalunitRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *ItemOrganizationalunitRequestBuilderGetQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.account.item.organizationalunit.item collection
+// ByOrganizationalunitid gets an item from the github.com/topicuskeyhub/sdk-go.account.item.organizationalunit.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *ItemOrganizationalunitRequestBuilder) ById(id string)(*ItemOrganizationalunitOrganizationalunitItemRequestBuilder) {
+func (m *ItemOrganizationalunitRequestBuilder) ByOrganizationalunitid(organizationalunitid string)(*ItemOrganizationalunitWithOrganizationalunitItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if organizationalunitid != "" {
+        urlTplParams["organizationalunitid"] = organizationalunitid
     }
-    return NewItemOrganizationalunitOrganizationalunitItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewItemOrganizationalunitWithOrganizationalunitItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.account.item.organizationalunit.item collection
-func (m *ItemOrganizationalunitRequestBuilder) ByIdInt64(id int64)(*ItemOrganizationalunitOrganizationalunitItemRequestBuilder) {
+// ByOrganizationalunitidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.account.item.organizationalunit.item collection
+func (m *ItemOrganizationalunitRequestBuilder) ByOrganizationalunitidInt64(organizationalunitid int64)(*ItemOrganizationalunitWithOrganizationalunitItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewItemOrganizationalunitOrganizationalunitItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["organizationalunitid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(organizationalunitid, 10)
+    return NewItemOrganizationalunitWithOrganizationalunitItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewItemOrganizationalunitRequestBuilderInternal instantiates a new OrganizationalunitRequestBuilder and sets the default values.
 func NewItemOrganizationalunitRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemOrganizationalunitRequestBuilder) {

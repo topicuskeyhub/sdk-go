@@ -86,26 +86,26 @@ type ServiceaccountRequestBuilderPostRequestConfiguration struct {
 func (m *ServiceaccountRequestBuilder) Auditstats()(*AuditstatsRequestBuilder) {
     return NewAuditstatsRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByAccountid gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item collection
+// ByServiceaccountid gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *ServiceaccountRequestBuilder) ByAccountid(accountid string)(*WithAccountItemRequestBuilder) {
+func (m *ServiceaccountRequestBuilder) ByServiceaccountid(serviceaccountid string)(*WithServiceaccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if accountid != "" {
-        urlTplParams["accountid"] = accountid
+    if serviceaccountid != "" {
+        urlTplParams["serviceaccountid"] = serviceaccountid
     }
-    return NewWithAccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithServiceaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByAccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item collection
-func (m *ServiceaccountRequestBuilder) ByAccountidInt64(accountid int64)(*WithAccountItemRequestBuilder) {
+// ByServiceaccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item collection
+func (m *ServiceaccountRequestBuilder) ByServiceaccountidInt64(serviceaccountid int64)(*WithServiceaccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["accountid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(accountid, 10)
-    return NewWithAccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["serviceaccountid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(serviceaccountid, 10)
+    return NewWithServiceaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewServiceaccountRequestBuilderInternal instantiates a new ServiceaccountRequestBuilder and sets the default values.
 func NewServiceaccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ServiceaccountRequestBuilder) {

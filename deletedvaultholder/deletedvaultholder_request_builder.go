@@ -42,26 +42,26 @@ type DeletedvaultholderRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *DeletedvaultholderRequestBuilderGetQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.deletedvaultholder.item collection
+// ByDeletedvaultholderid gets an item from the github.com/topicuskeyhub/sdk-go.deletedvaultholder.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *DeletedvaultholderRequestBuilder) ById(id string)(*DeletedvaultholderItemRequestBuilder) {
+func (m *DeletedvaultholderRequestBuilder) ByDeletedvaultholderid(deletedvaultholderid string)(*WithDeletedvaultholderItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if deletedvaultholderid != "" {
+        urlTplParams["deletedvaultholderid"] = deletedvaultholderid
     }
-    return NewDeletedvaultholderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithDeletedvaultholderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.deletedvaultholder.item collection
-func (m *DeletedvaultholderRequestBuilder) ByIdInt64(id int64)(*DeletedvaultholderItemRequestBuilder) {
+// ByDeletedvaultholderidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.deletedvaultholder.item collection
+func (m *DeletedvaultholderRequestBuilder) ByDeletedvaultholderidInt64(deletedvaultholderid int64)(*WithDeletedvaultholderItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewDeletedvaultholderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["deletedvaultholderid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(deletedvaultholderid, 10)
+    return NewWithDeletedvaultholderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewDeletedvaultholderRequestBuilderInternal instantiates a new DeletedvaultholderRequestBuilder and sets the default values.
 func NewDeletedvaultholderRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*DeletedvaultholderRequestBuilder) {

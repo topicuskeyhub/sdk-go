@@ -64,26 +64,26 @@ type ItemInternalaccountRequestBuilderPostRequestConfiguration struct {
     // Request query parameters
     QueryParameters *ItemInternalaccountRequestBuilderPostQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.directory.item.internalaccount.item collection
+// ByInternalaccountid gets an item from the github.com/topicuskeyhub/sdk-go.directory.item.internalaccount.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *ItemInternalaccountRequestBuilder) ById(id string)(*ItemInternalaccountInternalaccountItemRequestBuilder) {
+func (m *ItemInternalaccountRequestBuilder) ByInternalaccountid(internalaccountid string)(*ItemInternalaccountWithInternalaccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if internalaccountid != "" {
+        urlTplParams["internalaccountid"] = internalaccountid
     }
-    return NewItemInternalaccountInternalaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewItemInternalaccountWithInternalaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.directory.item.internalaccount.item collection
-func (m *ItemInternalaccountRequestBuilder) ByIdInt64(id int64)(*ItemInternalaccountInternalaccountItemRequestBuilder) {
+// ByInternalaccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.directory.item.internalaccount.item collection
+func (m *ItemInternalaccountRequestBuilder) ByInternalaccountidInt64(internalaccountid int64)(*ItemInternalaccountWithInternalaccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewItemInternalaccountInternalaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["internalaccountid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(internalaccountid, 10)
+    return NewItemInternalaccountWithInternalaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewItemInternalaccountRequestBuilderInternal instantiates a new InternalaccountRequestBuilder and sets the default values.
 func NewItemInternalaccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountRequestBuilder) {

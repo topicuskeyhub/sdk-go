@@ -110,26 +110,26 @@ type RequestRequestBuilderPostRequestConfiguration struct {
     // Request query parameters
     QueryParameters *RequestRequestBuilderPostQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.request.item collection
+// ByRequestid gets an item from the github.com/topicuskeyhub/sdk-go.request.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *RequestRequestBuilder) ById(id string)(*RequestItemRequestBuilder) {
+func (m *RequestRequestBuilder) ByRequestid(requestid string)(*WithRequestItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if requestid != "" {
+        urlTplParams["requestid"] = requestid
     }
-    return NewRequestItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithRequestItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.request.item collection
-func (m *RequestRequestBuilder) ByIdInt64(id int64)(*RequestItemRequestBuilder) {
+// ByRequestidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.request.item collection
+func (m *RequestRequestBuilder) ByRequestidInt64(requestid int64)(*WithRequestItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewRequestItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["requestid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(requestid, 10)
+    return NewWithRequestItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewRequestRequestBuilderInternal instantiates a new RequestRequestBuilder and sets the default values.
 func NewRequestRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*RequestRequestBuilder) {

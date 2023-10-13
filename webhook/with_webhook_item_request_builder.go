@@ -6,60 +6,60 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// WebhookItemRequestBuilder builds and executes requests for operations under \webhook\{id}
-type WebhookItemRequestBuilder struct {
+// WithWebhookItemRequestBuilder builds and executes requests for operations under \webhook\{webhookid}
+type WithWebhookItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// WebhookItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type WebhookItemRequestBuilderDeleteRequestConfiguration struct {
+// WithWebhookItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithWebhookItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// WebhookItemRequestBuilderGetQueryParameters returns the single webhook.
-type WebhookItemRequestBuilderGetQueryParameters struct {
+// WithWebhookItemRequestBuilderGetQueryParameters returns the single webhook.
+type WithWebhookItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// WebhookItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type WebhookItemRequestBuilderGetRequestConfiguration struct {
+// WithWebhookItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithWebhookItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *WebhookItemRequestBuilderGetQueryParameters
+    QueryParameters *WithWebhookItemRequestBuilderGetQueryParameters
 }
-// WebhookItemRequestBuilderPutQueryParameters updates the webhook identified by the id.
-type WebhookItemRequestBuilderPutQueryParameters struct {
+// WithWebhookItemRequestBuilderPutQueryParameters updates the webhook identified by the id.
+type WithWebhookItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// WebhookItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type WebhookItemRequestBuilderPutRequestConfiguration struct {
+// WithWebhookItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithWebhookItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *WebhookItemRequestBuilderPutQueryParameters
+    QueryParameters *WithWebhookItemRequestBuilderPutQueryParameters
 }
-// NewWebhookItemRequestBuilderInternal instantiates a new WebhookItemRequestBuilder and sets the default values.
-func NewWebhookItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WebhookItemRequestBuilder) {
-    m := &WebhookItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook/{id}{?additional*}", pathParameters),
+// NewWithWebhookItemRequestBuilderInternal instantiates a new WithWebhookItemRequestBuilder and sets the default values.
+func NewWithWebhookItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithWebhookItemRequestBuilder) {
+    m := &WithWebhookItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook/{webhookid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewWebhookItemRequestBuilder instantiates a new WebhookItemRequestBuilder and sets the default values.
-func NewWebhookItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WebhookItemRequestBuilder) {
+// NewWithWebhookItemRequestBuilder instantiates a new WithWebhookItemRequestBuilder and sets the default values.
+func NewWithWebhookItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithWebhookItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewWebhookItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithWebhookItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete removes the specified webhook.
-func (m *WebhookItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WebhookItemRequestBuilderDeleteRequestConfiguration)(error) {
+func (m *WithWebhookItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithWebhookItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -75,11 +75,11 @@ func (m *WebhookItemRequestBuilder) Delete(ctx context.Context, requestConfigura
     return nil
 }
 // Delivery the delivery property
-func (m *WebhookItemRequestBuilder) Delivery()(*ItemDeliveryRequestBuilder) {
+func (m *WithWebhookItemRequestBuilder) Delivery()(*ItemDeliveryRequestBuilder) {
     return NewItemDeliveryRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Get returns the single webhook.
-func (m *WebhookItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WebhookItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, error) {
+func (m *WithWebhookItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithWebhookItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -98,7 +98,7 @@ func (m *WebhookItemRequestBuilder) Get(ctx context.Context, requestConfiguratio
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable), nil
 }
 // Put updates the webhook identified by the id.
-func (m *WebhookItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, requestConfiguration *WebhookItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, error) {
+func (m *WithWebhookItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, requestConfiguration *WithWebhookItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -117,7 +117,7 @@ func (m *WebhookItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable), nil
 }
 // ToDeleteRequestInformation removes the specified webhook.
-func (m *WebhookItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WebhookItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithWebhookItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithWebhookItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -129,7 +129,7 @@ func (m *WebhookItemRequestBuilder) ToDeleteRequestInformation(ctx context.Conte
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single webhook.
-func (m *WebhookItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WebhookItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithWebhookItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithWebhookItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -145,7 +145,7 @@ func (m *WebhookItemRequestBuilder) ToGetRequestInformation(ctx context.Context,
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the webhook identified by the id.
-func (m *WebhookItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, requestConfiguration *WebhookItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithWebhookItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, requestConfiguration *WithWebhookItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -165,6 +165,6 @@ func (m *WebhookItemRequestBuilder) ToPutRequestInformation(ctx context.Context,
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *WebhookItemRequestBuilder) WithUrl(rawUrl string)(*WebhookItemRequestBuilder) {
-    return NewWebhookItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithWebhookItemRequestBuilder) WithUrl(rawUrl string)(*WithWebhookItemRequestBuilder) {
+    return NewWithWebhookItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

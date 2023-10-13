@@ -6,60 +6,60 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemInternalaccountInternalaccountItemRequestBuilder builds and executes requests for operations under \directory\{directoryid}\internalaccount\{id}
-type ItemInternalaccountInternalaccountItemRequestBuilder struct {
+// ItemInternalaccountWithInternalaccountItemRequestBuilder builds and executes requests for operations under \directory\{directoryid}\internalaccount\{internalaccountid}
+type ItemInternalaccountWithInternalaccountItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ItemInternalaccountInternalaccountItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemInternalaccountInternalaccountItemRequestBuilderDeleteRequestConfiguration struct {
+// ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// ItemInternalaccountInternalaccountItemRequestBuilderGetQueryParameters returns the single internal accounts within a directory.
-type ItemInternalaccountInternalaccountItemRequestBuilderGetQueryParameters struct {
+// ItemInternalaccountWithInternalaccountItemRequestBuilderGetQueryParameters returns the single internal accounts within a directory.
+type ItemInternalaccountWithInternalaccountItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ItemInternalaccountInternalaccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemInternalaccountInternalaccountItemRequestBuilderGetRequestConfiguration struct {
+// ItemInternalaccountWithInternalaccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemInternalaccountWithInternalaccountItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ItemInternalaccountInternalaccountItemRequestBuilderGetQueryParameters
+    QueryParameters *ItemInternalaccountWithInternalaccountItemRequestBuilderGetQueryParameters
 }
-// ItemInternalaccountInternalaccountItemRequestBuilderPutQueryParameters updates the internal accounts within a directory identified by the id.
-type ItemInternalaccountInternalaccountItemRequestBuilderPutQueryParameters struct {
+// ItemInternalaccountWithInternalaccountItemRequestBuilderPutQueryParameters updates the internal accounts within a directory identified by the id.
+type ItemInternalaccountWithInternalaccountItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ItemInternalaccountInternalaccountItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemInternalaccountInternalaccountItemRequestBuilderPutRequestConfiguration struct {
+// ItemInternalaccountWithInternalaccountItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemInternalaccountWithInternalaccountItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ItemInternalaccountInternalaccountItemRequestBuilderPutQueryParameters
+    QueryParameters *ItemInternalaccountWithInternalaccountItemRequestBuilderPutQueryParameters
 }
-// NewItemInternalaccountInternalaccountItemRequestBuilderInternal instantiates a new InternalaccountItemRequestBuilder and sets the default values.
-func NewItemInternalaccountInternalaccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountInternalaccountItemRequestBuilder) {
-    m := &ItemInternalaccountInternalaccountItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount/{id}{?additional*}", pathParameters),
+// NewItemInternalaccountWithInternalaccountItemRequestBuilderInternal instantiates a new WithInternalaccountItemRequestBuilder and sets the default values.
+func NewItemInternalaccountWithInternalaccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountWithInternalaccountItemRequestBuilder) {
+    m := &ItemInternalaccountWithInternalaccountItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount/{internalaccountid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewItemInternalaccountInternalaccountItemRequestBuilder instantiates a new InternalaccountItemRequestBuilder and sets the default values.
-func NewItemInternalaccountInternalaccountItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountInternalaccountItemRequestBuilder) {
+// NewItemInternalaccountWithInternalaccountItemRequestBuilder instantiates a new WithInternalaccountItemRequestBuilder and sets the default values.
+func NewItemInternalaccountWithInternalaccountItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountWithInternalaccountItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewItemInternalaccountInternalaccountItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewItemInternalaccountWithInternalaccountItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete removes the specified internal accounts from a directory, including the associated KeyHub account.
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemInternalaccountInternalaccountItemRequestBuilderDeleteRequestConfiguration)(error) {
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -75,7 +75,7 @@ func (m *ItemInternalaccountInternalaccountItemRequestBuilder) Delete(ctx contex
     return nil
 }
 // Get returns the single internal accounts within a directory.
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemInternalaccountInternalaccountItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable, error) {
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemInternalaccountWithInternalaccountItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -94,11 +94,11 @@ func (m *ItemInternalaccountInternalaccountItemRequestBuilder) Get(ctx context.C
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable), nil
 }
 // Move the move property
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) Move()(*ItemInternalaccountItemMoveRequestBuilder) {
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) Move()(*ItemInternalaccountItemMoveRequestBuilder) {
     return NewItemInternalaccountItemMoveRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Put updates the internal accounts within a directory identified by the id.
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable, requestConfiguration *ItemInternalaccountInternalaccountItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable, error) {
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable, requestConfiguration *ItemInternalaccountWithInternalaccountItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -117,11 +117,11 @@ func (m *ItemInternalaccountInternalaccountItemRequestBuilder) Put(ctx context.C
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable), nil
 }
 // Status the status property
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) Status()(*ItemInternalaccountItemStatusRequestBuilder) {
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) Status()(*ItemInternalaccountItemStatusRequestBuilder) {
     return NewItemInternalaccountItemStatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToDeleteRequestInformation removes the specified internal accounts from a directory, including the associated KeyHub account.
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemInternalaccountInternalaccountItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -133,7 +133,7 @@ func (m *ItemInternalaccountInternalaccountItemRequestBuilder) ToDeleteRequestIn
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single internal accounts within a directory.
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemInternalaccountInternalaccountItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemInternalaccountWithInternalaccountItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -149,7 +149,7 @@ func (m *ItemInternalaccountInternalaccountItemRequestBuilder) ToGetRequestInfor
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the internal accounts within a directory identified by the id.
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable, requestConfiguration *ItemInternalaccountInternalaccountItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountable, requestConfiguration *ItemInternalaccountWithInternalaccountItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -169,6 +169,6 @@ func (m *ItemInternalaccountInternalaccountItemRequestBuilder) ToPutRequestInfor
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *ItemInternalaccountInternalaccountItemRequestBuilder) WithUrl(rawUrl string)(*ItemInternalaccountInternalaccountItemRequestBuilder) {
-    return NewItemInternalaccountInternalaccountItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) WithUrl(rawUrl string)(*ItemInternalaccountWithInternalaccountItemRequestBuilder) {
+    return NewItemInternalaccountWithInternalaccountItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

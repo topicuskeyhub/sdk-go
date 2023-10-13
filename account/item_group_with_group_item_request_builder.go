@@ -6,46 +6,46 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemGroupWithAccountgroupItemRequestBuilder builds and executes requests for operations under \account\{accountid}\group\{accountgroupid}
-type ItemGroupWithAccountgroupItemRequestBuilder struct {
+// ItemGroupWithGroupItemRequestBuilder builds and executes requests for operations under \account\{accountid}\group\{groupid}
+type ItemGroupWithGroupItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ItemGroupWithAccountgroupItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemGroupWithAccountgroupItemRequestBuilderDeleteRequestConfiguration struct {
+// ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// ItemGroupWithAccountgroupItemRequestBuilderGetQueryParameters returns the single group membership for the account. This also contains information such as the rights and provisioning information.
-type ItemGroupWithAccountgroupItemRequestBuilderGetQueryParameters struct {
+// ItemGroupWithGroupItemRequestBuilderGetQueryParameters returns the single group membership for the account. This also contains information such as the rights and provisioning information.
+type ItemGroupWithGroupItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ItemGroupWithAccountgroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemGroupWithAccountgroupItemRequestBuilderGetRequestConfiguration struct {
+// ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ItemGroupWithAccountgroupItemRequestBuilderGetQueryParameters
+    QueryParameters *ItemGroupWithGroupItemRequestBuilderGetQueryParameters
 }
-// NewItemGroupWithAccountgroupItemRequestBuilderInternal instantiates a new WithAccountgroupItemRequestBuilder and sets the default values.
-func NewItemGroupWithAccountgroupItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupWithAccountgroupItemRequestBuilder) {
-    m := &ItemGroupWithAccountgroupItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/group/{accountgroupid}{?additional*}", pathParameters),
+// NewItemGroupWithGroupItemRequestBuilderInternal instantiates a new WithGroupItemRequestBuilder and sets the default values.
+func NewItemGroupWithGroupItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupWithGroupItemRequestBuilder) {
+    m := &ItemGroupWithGroupItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/group/{groupid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewItemGroupWithAccountgroupItemRequestBuilder instantiates a new WithAccountgroupItemRequestBuilder and sets the default values.
-func NewItemGroupWithAccountgroupItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupWithAccountgroupItemRequestBuilder) {
+// NewItemGroupWithGroupItemRequestBuilder instantiates a new WithGroupItemRequestBuilder and sets the default values.
+func NewItemGroupWithGroupItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupWithGroupItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewItemGroupWithAccountgroupItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewItemGroupWithGroupItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete removes the specified group membership, effectively removing the account from the group.
-func (m *ItemGroupWithAccountgroupItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemGroupWithAccountgroupItemRequestBuilderDeleteRequestConfiguration)(error) {
+func (m *ItemGroupWithGroupItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -61,7 +61,7 @@ func (m *ItemGroupWithAccountgroupItemRequestBuilder) Delete(ctx context.Context
     return nil
 }
 // Get returns the single group membership for the account. This also contains information such as the rights and provisioning information.
-func (m *ItemGroupWithAccountgroupItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemGroupWithAccountgroupItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupAccountGroupable, error) {
+func (m *ItemGroupWithGroupItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupAccountGroupable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -80,11 +80,11 @@ func (m *ItemGroupWithAccountgroupItemRequestBuilder) Get(ctx context.Context, r
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupAccountGroupable), nil
 }
 // Status the status property
-func (m *ItemGroupWithAccountgroupItemRequestBuilder) Status()(*ItemGroupItemStatusRequestBuilder) {
+func (m *ItemGroupWithGroupItemRequestBuilder) Status()(*ItemGroupItemStatusRequestBuilder) {
     return NewItemGroupItemStatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToDeleteRequestInformation removes the specified group membership, effectively removing the account from the group.
-func (m *ItemGroupWithAccountgroupItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemGroupWithAccountgroupItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemGroupWithGroupItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -96,7 +96,7 @@ func (m *ItemGroupWithAccountgroupItemRequestBuilder) ToDeleteRequestInformation
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single group membership for the account. This also contains information such as the rights and provisioning information.
-func (m *ItemGroupWithAccountgroupItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemGroupWithAccountgroupItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemGroupWithGroupItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -112,6 +112,6 @@ func (m *ItemGroupWithAccountgroupItemRequestBuilder) ToGetRequestInformation(ct
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *ItemGroupWithAccountgroupItemRequestBuilder) WithUrl(rawUrl string)(*ItemGroupWithAccountgroupItemRequestBuilder) {
-    return NewItemGroupWithAccountgroupItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemGroupWithGroupItemRequestBuilder) WithUrl(rawUrl string)(*ItemGroupWithGroupItemRequestBuilder) {
+    return NewItemGroupWithGroupItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

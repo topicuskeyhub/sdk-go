@@ -83,26 +83,26 @@ type VaultrecordRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *VaultrecordRequestBuilderGetQueryParameters
 }
-// ById gets an item from the github.com/topicuskeyhub/sdk-go.vaultrecord.item collection
+// ByVaultrecordid gets an item from the github.com/topicuskeyhub/sdk-go.vaultrecord.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *VaultrecordRequestBuilder) ById(id string)(*VaultrecordItemRequestBuilder) {
+func (m *VaultrecordRequestBuilder) ByVaultrecordid(vaultrecordid string)(*WithVaultrecordItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if id != "" {
-        urlTplParams["id"] = id
+    if vaultrecordid != "" {
+        urlTplParams["vaultrecordid"] = vaultrecordid
     }
-    return NewVaultrecordItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewWithVaultrecordItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.vaultrecord.item collection
-func (m *VaultrecordRequestBuilder) ByIdInt64(id int64)(*VaultrecordItemRequestBuilder) {
+// ByVaultrecordidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.vaultrecord.item collection
+func (m *VaultrecordRequestBuilder) ByVaultrecordidInt64(vaultrecordid int64)(*WithVaultrecordItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["id"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(id, 10)
-    return NewVaultrecordItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["vaultrecordid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(vaultrecordid, 10)
+    return NewWithVaultrecordItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewVaultrecordRequestBuilderInternal instantiates a new VaultrecordRequestBuilder and sets the default values.
 func NewVaultrecordRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*VaultrecordRequestBuilder) {

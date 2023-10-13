@@ -1,4 +1,4 @@
-package numberseq
+package provisioninggroup
 
 import (
     "context"
@@ -6,60 +6,60 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// NumberseqItemRequestBuilder builds and executes requests for operations under \numberseq\{id}
-type NumberseqItemRequestBuilder struct {
+// WithProvisioninggroupItemRequestBuilder builds and executes requests for operations under \provisioninggroup\{provisioninggroupid}
+type WithProvisioninggroupItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// NumberseqItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type NumberseqItemRequestBuilderDeleteRequestConfiguration struct {
+// WithProvisioninggroupItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithProvisioninggroupItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NumberseqItemRequestBuilderGetQueryParameters returns the provision number sequence identified by the id.
-type NumberseqItemRequestBuilderGetQueryParameters struct {
+// WithProvisioninggroupItemRequestBuilderGetQueryParameters returns the provisioning group identified by the id.
+type WithProvisioninggroupItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// NumberseqItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type NumberseqItemRequestBuilderGetRequestConfiguration struct {
+// WithProvisioninggroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithProvisioninggroupItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *NumberseqItemRequestBuilderGetQueryParameters
+    QueryParameters *WithProvisioninggroupItemRequestBuilderGetQueryParameters
 }
-// NumberseqItemRequestBuilderPutQueryParameters updates the provision number sequence identified by the id.
-type NumberseqItemRequestBuilderPutQueryParameters struct {
+// WithProvisioninggroupItemRequestBuilderPutQueryParameters updates the provisioning group identified by the id.
+type WithProvisioninggroupItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// NumberseqItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type NumberseqItemRequestBuilderPutRequestConfiguration struct {
+// WithProvisioninggroupItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithProvisioninggroupItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *NumberseqItemRequestBuilderPutQueryParameters
+    QueryParameters *WithProvisioninggroupItemRequestBuilderPutQueryParameters
 }
-// NewNumberseqItemRequestBuilderInternal instantiates a new NumberseqItemRequestBuilder and sets the default values.
-func NewNumberseqItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*NumberseqItemRequestBuilder) {
-    m := &NumberseqItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/numberseq/{id}{?additional*}", pathParameters),
+// NewWithProvisioninggroupItemRequestBuilderInternal instantiates a new WithProvisioninggroupItemRequestBuilder and sets the default values.
+func NewWithProvisioninggroupItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithProvisioninggroupItemRequestBuilder) {
+    m := &WithProvisioninggroupItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/provisioninggroup/{provisioninggroupid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewNumberseqItemRequestBuilder instantiates a new NumberseqItemRequestBuilder and sets the default values.
-func NewNumberseqItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*NumberseqItemRequestBuilder) {
+// NewWithProvisioninggroupItemRequestBuilder instantiates a new WithProvisioninggroupItemRequestBuilder and sets the default values.
+func NewWithProvisioninggroupItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithProvisioninggroupItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewNumberseqItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithProvisioninggroupItemRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Delete permanently removes the provision number sequence. This cannot be undone.
-func (m *NumberseqItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *NumberseqItemRequestBuilderDeleteRequestConfiguration)(error) {
+// Delete deletes the provisioning group identified by the id.
+func (m *WithProvisioninggroupItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithProvisioninggroupItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -74,8 +74,8 @@ func (m *NumberseqItemRequestBuilder) Delete(ctx context.Context, requestConfigu
     }
     return nil
 }
-// Get returns the provision number sequence identified by the id.
-func (m *NumberseqItemRequestBuilder) Get(ctx context.Context, requestConfiguration *NumberseqItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable, error) {
+// Get returns the provisioning group identified by the id.
+func (m *WithProvisioninggroupItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithProvisioninggroupItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -84,17 +84,17 @@ func (m *NumberseqItemRequestBuilder) Get(ctx context.Context, requestConfigurat
         "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
         "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue, errorMapping)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupProvisioningGroupFromDiscriminatorValue, errorMapping)
     if err != nil {
         return nil, err
     }
     if res == nil {
         return nil, nil
     }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable), nil
+    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable), nil
 }
-// Put updates the provision number sequence identified by the id.
-func (m *NumberseqItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable, requestConfiguration *NumberseqItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable, error) {
+// Put updates the provisioning group identified by the id.
+func (m *WithProvisioninggroupItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable, requestConfiguration *WithProvisioninggroupItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -103,17 +103,17 @@ func (m *NumberseqItemRequestBuilder) Put(ctx context.Context, body ie2969523f41
         "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
         "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue, errorMapping)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupProvisioningGroupFromDiscriminatorValue, errorMapping)
     if err != nil {
         return nil, err
     }
     if res == nil {
         return nil, nil
     }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable), nil
+    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable), nil
 }
-// ToDeleteRequestInformation permanently removes the provision number sequence. This cannot be undone.
-func (m *NumberseqItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *NumberseqItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToDeleteRequestInformation deletes the provisioning group identified by the id.
+func (m *WithProvisioninggroupItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithProvisioninggroupItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -124,8 +124,8 @@ func (m *NumberseqItemRequestBuilder) ToDeleteRequestInformation(ctx context.Con
     }
     return requestInfo, nil
 }
-// ToGetRequestInformation returns the provision number sequence identified by the id.
-func (m *NumberseqItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *NumberseqItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToGetRequestInformation returns the provisioning group identified by the id.
+func (m *WithProvisioninggroupItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithProvisioninggroupItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -140,8 +140,8 @@ func (m *NumberseqItemRequestBuilder) ToGetRequestInformation(ctx context.Contex
     }
     return requestInfo, nil
 }
-// ToPutRequestInformation updates the provision number sequence identified by the id.
-func (m *NumberseqItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceable, requestConfiguration *NumberseqItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToPutRequestInformation updates the provisioning group identified by the id.
+func (m *WithProvisioninggroupItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable, requestConfiguration *WithProvisioninggroupItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -161,6 +161,6 @@ func (m *NumberseqItemRequestBuilder) ToPutRequestInformation(ctx context.Contex
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *NumberseqItemRequestBuilder) WithUrl(rawUrl string)(*NumberseqItemRequestBuilder) {
-    return NewNumberseqItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithProvisioninggroupItemRequestBuilder) WithUrl(rawUrl string)(*WithProvisioninggroupItemRequestBuilder) {
+    return NewWithProvisioninggroupItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

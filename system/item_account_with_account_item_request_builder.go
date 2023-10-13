@@ -6,39 +6,39 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemAccountAccountItemRequestBuilder builds and executes requests for operations under \system\{systemid}\account\{id}
-type ItemAccountAccountItemRequestBuilder struct {
+// ItemAccountWithAccountItemRequestBuilder builds and executes requests for operations under \system\{systemid}\account\{accountid}
+type ItemAccountWithAccountItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ItemAccountAccountItemRequestBuilderGetQueryParameters returns the provisioned account identified by the id.
-type ItemAccountAccountItemRequestBuilderGetQueryParameters struct {
+// ItemAccountWithAccountItemRequestBuilderGetQueryParameters returns the provisioned account identified by the id.
+type ItemAccountWithAccountItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ItemAccountAccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ItemAccountAccountItemRequestBuilderGetRequestConfiguration struct {
+// ItemAccountWithAccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type ItemAccountWithAccountItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ItemAccountAccountItemRequestBuilderGetQueryParameters
+    QueryParameters *ItemAccountWithAccountItemRequestBuilderGetQueryParameters
 }
-// NewItemAccountAccountItemRequestBuilderInternal instantiates a new AccountItemRequestBuilder and sets the default values.
-func NewItemAccountAccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountAccountItemRequestBuilder) {
-    m := &ItemAccountAccountItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/account/{id}{?additional*}", pathParameters),
+// NewItemAccountWithAccountItemRequestBuilderInternal instantiates a new WithAccountItemRequestBuilder and sets the default values.
+func NewItemAccountWithAccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountWithAccountItemRequestBuilder) {
+    m := &ItemAccountWithAccountItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/account/{accountid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewItemAccountAccountItemRequestBuilder instantiates a new AccountItemRequestBuilder and sets the default values.
-func NewItemAccountAccountItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountAccountItemRequestBuilder) {
+// NewItemAccountWithAccountItemRequestBuilder instantiates a new WithAccountItemRequestBuilder and sets the default values.
+func NewItemAccountWithAccountItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountWithAccountItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewItemAccountAccountItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewItemAccountWithAccountItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get returns the provisioned account identified by the id.
-func (m *ItemAccountAccountItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemAccountAccountItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedAccountable, error) {
+func (m *ItemAccountWithAccountItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemAccountWithAccountItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedAccountable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -57,7 +57,7 @@ func (m *ItemAccountAccountItemRequestBuilder) Get(ctx context.Context, requestC
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedAccountable), nil
 }
 // ToGetRequestInformation returns the provisioned account identified by the id.
-func (m *ItemAccountAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemAccountAccountItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemAccountWithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemAccountWithAccountItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -73,6 +73,6 @@ func (m *ItemAccountAccountItemRequestBuilder) ToGetRequestInformation(ctx conte
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *ItemAccountAccountItemRequestBuilder) WithUrl(rawUrl string)(*ItemAccountAccountItemRequestBuilder) {
-    return NewItemAccountAccountItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemAccountWithAccountItemRequestBuilder) WithUrl(rawUrl string)(*ItemAccountWithAccountItemRequestBuilder) {
+    return NewItemAccountWithAccountItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

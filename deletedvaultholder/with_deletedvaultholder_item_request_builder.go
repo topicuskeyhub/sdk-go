@@ -6,46 +6,46 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// DeletedvaultholderItemRequestBuilder builds and executes requests for operations under \deletedvaultholder\{id}
-type DeletedvaultholderItemRequestBuilder struct {
+// WithDeletedvaultholderItemRequestBuilder builds and executes requests for operations under \deletedvaultholder\{deletedvaultholderid}
+type WithDeletedvaultholderItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// DeletedvaultholderItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type DeletedvaultholderItemRequestBuilderDeleteRequestConfiguration struct {
+// WithDeletedvaultholderItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithDeletedvaultholderItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// DeletedvaultholderItemRequestBuilderGetQueryParameters returns the deleted vault identified by the id.
-type DeletedvaultholderItemRequestBuilderGetQueryParameters struct {
+// WithDeletedvaultholderItemRequestBuilderGetQueryParameters returns the deleted vault identified by the id.
+type WithDeletedvaultholderItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// DeletedvaultholderItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type DeletedvaultholderItemRequestBuilderGetRequestConfiguration struct {
+// WithDeletedvaultholderItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithDeletedvaultholderItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *DeletedvaultholderItemRequestBuilderGetQueryParameters
+    QueryParameters *WithDeletedvaultholderItemRequestBuilderGetQueryParameters
 }
-// NewDeletedvaultholderItemRequestBuilderInternal instantiates a new DeletedvaultholderItemRequestBuilder and sets the default values.
-func NewDeletedvaultholderItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*DeletedvaultholderItemRequestBuilder) {
-    m := &DeletedvaultholderItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/deletedvaultholder/{id}{?additional*}", pathParameters),
+// NewWithDeletedvaultholderItemRequestBuilderInternal instantiates a new WithDeletedvaultholderItemRequestBuilder and sets the default values.
+func NewWithDeletedvaultholderItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithDeletedvaultholderItemRequestBuilder) {
+    m := &WithDeletedvaultholderItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/deletedvaultholder/{deletedvaultholderid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewDeletedvaultholderItemRequestBuilder instantiates a new DeletedvaultholderItemRequestBuilder and sets the default values.
-func NewDeletedvaultholderItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*DeletedvaultholderItemRequestBuilder) {
+// NewWithDeletedvaultholderItemRequestBuilder instantiates a new WithDeletedvaultholderItemRequestBuilder and sets the default values.
+func NewWithDeletedvaultholderItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithDeletedvaultholderItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewDeletedvaultholderItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithDeletedvaultholderItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete permanently removes the deleted vault identified by the id. This cannot be undone.
-func (m *DeletedvaultholderItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *DeletedvaultholderItemRequestBuilderDeleteRequestConfiguration)(error) {
+func (m *WithDeletedvaultholderItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithDeletedvaultholderItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -61,7 +61,7 @@ func (m *DeletedvaultholderItemRequestBuilder) Delete(ctx context.Context, reque
     return nil
 }
 // Get returns the deleted vault identified by the id.
-func (m *DeletedvaultholderItemRequestBuilder) Get(ctx context.Context, requestConfiguration *DeletedvaultholderItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultDeletedVaultHolderable, error) {
+func (m *WithDeletedvaultholderItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithDeletedvaultholderItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultDeletedVaultHolderable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -80,11 +80,11 @@ func (m *DeletedvaultholderItemRequestBuilder) Get(ctx context.Context, requestC
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultDeletedVaultHolderable), nil
 }
 // Recover the recover property
-func (m *DeletedvaultholderItemRequestBuilder) Recover()(*ItemRecoverRequestBuilder) {
+func (m *WithDeletedvaultholderItemRequestBuilder) Recover()(*ItemRecoverRequestBuilder) {
     return NewItemRecoverRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToDeleteRequestInformation permanently removes the deleted vault identified by the id. This cannot be undone.
-func (m *DeletedvaultholderItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *DeletedvaultholderItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithDeletedvaultholderItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithDeletedvaultholderItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -96,7 +96,7 @@ func (m *DeletedvaultholderItemRequestBuilder) ToDeleteRequestInformation(ctx co
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the deleted vault identified by the id.
-func (m *DeletedvaultholderItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *DeletedvaultholderItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *WithDeletedvaultholderItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithDeletedvaultholderItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -112,10 +112,10 @@ func (m *DeletedvaultholderItemRequestBuilder) ToGetRequestInformation(ctx conte
     return requestInfo, nil
 }
 // Vault the vault property
-func (m *DeletedvaultholderItemRequestBuilder) Vault()(*ItemVaultRequestBuilder) {
+func (m *WithDeletedvaultholderItemRequestBuilder) Vault()(*ItemVaultRequestBuilder) {
     return NewItemVaultRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *DeletedvaultholderItemRequestBuilder) WithUrl(rawUrl string)(*DeletedvaultholderItemRequestBuilder) {
-    return NewDeletedvaultholderItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithDeletedvaultholderItemRequestBuilder) WithUrl(rawUrl string)(*WithDeletedvaultholderItemRequestBuilder) {
+    return NewWithDeletedvaultholderItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

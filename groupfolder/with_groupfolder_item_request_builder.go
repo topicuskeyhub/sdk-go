@@ -1,4 +1,4 @@
-package provisioninggroup
+package groupfolder
 
 import (
     "context"
@@ -6,60 +6,60 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ProvisioninggroupItemRequestBuilder builds and executes requests for operations under \provisioninggroup\{id}
-type ProvisioninggroupItemRequestBuilder struct {
+// WithGroupfolderItemRequestBuilder builds and executes requests for operations under \groupfolder\{groupfolderid}
+type WithGroupfolderItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ProvisioninggroupItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ProvisioninggroupItemRequestBuilderDeleteRequestConfiguration struct {
+// WithGroupfolderItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithGroupfolderItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// ProvisioninggroupItemRequestBuilderGetQueryParameters returns the provisioning group identified by the id.
-type ProvisioninggroupItemRequestBuilderGetQueryParameters struct {
+// WithGroupfolderItemRequestBuilderGetQueryParameters returns the group folder identified by the id.
+type WithGroupfolderItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ProvisioninggroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ProvisioninggroupItemRequestBuilderGetRequestConfiguration struct {
+// WithGroupfolderItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithGroupfolderItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ProvisioninggroupItemRequestBuilderGetQueryParameters
+    QueryParameters *WithGroupfolderItemRequestBuilderGetQueryParameters
 }
-// ProvisioninggroupItemRequestBuilderPutQueryParameters updates the provisioning group identified by the id.
-type ProvisioninggroupItemRequestBuilderPutQueryParameters struct {
+// WithGroupfolderItemRequestBuilderPutQueryParameters updates the group folder identified by the id.
+type WithGroupfolderItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// ProvisioninggroupItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type ProvisioninggroupItemRequestBuilderPutRequestConfiguration struct {
+// WithGroupfolderItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithGroupfolderItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *ProvisioninggroupItemRequestBuilderPutQueryParameters
+    QueryParameters *WithGroupfolderItemRequestBuilderPutQueryParameters
 }
-// NewProvisioninggroupItemRequestBuilderInternal instantiates a new ProvisioninggroupItemRequestBuilder and sets the default values.
-func NewProvisioninggroupItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProvisioninggroupItemRequestBuilder) {
-    m := &ProvisioninggroupItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/provisioninggroup/{id}{?additional*}", pathParameters),
+// NewWithGroupfolderItemRequestBuilderInternal instantiates a new WithGroupfolderItemRequestBuilder and sets the default values.
+func NewWithGroupfolderItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithGroupfolderItemRequestBuilder) {
+    m := &WithGroupfolderItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/groupfolder/{groupfolderid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewProvisioninggroupItemRequestBuilder instantiates a new ProvisioninggroupItemRequestBuilder and sets the default values.
-func NewProvisioninggroupItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProvisioninggroupItemRequestBuilder) {
+// NewWithGroupfolderItemRequestBuilder instantiates a new WithGroupfolderItemRequestBuilder and sets the default values.
+func NewWithGroupfolderItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithGroupfolderItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewProvisioninggroupItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithGroupfolderItemRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Delete deletes the provisioning group identified by the id.
-func (m *ProvisioninggroupItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ProvisioninggroupItemRequestBuilderDeleteRequestConfiguration)(error) {
+// Delete permanently removes the group folder. This cannot be undone.
+func (m *WithGroupfolderItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithGroupfolderItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -74,8 +74,8 @@ func (m *ProvisioninggroupItemRequestBuilder) Delete(ctx context.Context, reques
     }
     return nil
 }
-// Get returns the provisioning group identified by the id.
-func (m *ProvisioninggroupItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ProvisioninggroupItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable, error) {
+// Get returns the group folder identified by the id.
+func (m *WithGroupfolderItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithGroupfolderItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupFolderable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -84,17 +84,17 @@ func (m *ProvisioninggroupItemRequestBuilder) Get(ctx context.Context, requestCo
         "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
         "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupProvisioningGroupFromDiscriminatorValue, errorMapping)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupGroupFolderFromDiscriminatorValue, errorMapping)
     if err != nil {
         return nil, err
     }
     if res == nil {
         return nil, nil
     }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable), nil
+    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupFolderable), nil
 }
-// Put updates the provisioning group identified by the id.
-func (m *ProvisioninggroupItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable, requestConfiguration *ProvisioninggroupItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable, error) {
+// Put updates the group folder identified by the id.
+func (m *WithGroupfolderItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupFolderable, requestConfiguration *WithGroupfolderItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupFolderable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -103,17 +103,17 @@ func (m *ProvisioninggroupItemRequestBuilder) Put(ctx context.Context, body ie29
         "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
         "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupProvisioningGroupFromDiscriminatorValue, errorMapping)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupGroupFolderFromDiscriminatorValue, errorMapping)
     if err != nil {
         return nil, err
     }
     if res == nil {
         return nil, nil
     }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable), nil
+    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupFolderable), nil
 }
-// ToDeleteRequestInformation deletes the provisioning group identified by the id.
-func (m *ProvisioninggroupItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ProvisioninggroupItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToDeleteRequestInformation permanently removes the group folder. This cannot be undone.
+func (m *WithGroupfolderItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithGroupfolderItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -124,8 +124,8 @@ func (m *ProvisioninggroupItemRequestBuilder) ToDeleteRequestInformation(ctx con
     }
     return requestInfo, nil
 }
-// ToGetRequestInformation returns the provisioning group identified by the id.
-func (m *ProvisioninggroupItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ProvisioninggroupItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToGetRequestInformation returns the group folder identified by the id.
+func (m *WithGroupfolderItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithGroupfolderItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -140,8 +140,8 @@ func (m *ProvisioninggroupItemRequestBuilder) ToGetRequestInformation(ctx contex
     }
     return requestInfo, nil
 }
-// ToPutRequestInformation updates the provisioning group identified by the id.
-func (m *ProvisioninggroupItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupProvisioningGroupable, requestConfiguration *ProvisioninggroupItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToPutRequestInformation updates the group folder identified by the id.
+func (m *WithGroupfolderItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupFolderable, requestConfiguration *WithGroupfolderItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -161,6 +161,6 @@ func (m *ProvisioninggroupItemRequestBuilder) ToPutRequestInformation(ctx contex
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *ProvisioninggroupItemRequestBuilder) WithUrl(rawUrl string)(*ProvisioninggroupItemRequestBuilder) {
-    return NewProvisioninggroupItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithGroupfolderItemRequestBuilder) WithUrl(rawUrl string)(*WithGroupfolderItemRequestBuilder) {
+    return NewWithGroupfolderItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

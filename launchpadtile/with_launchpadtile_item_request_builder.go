@@ -1,4 +1,4 @@
-package groupclient
+package launchpadtile
 
 import (
     "context"
@@ -6,60 +6,60 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// GroupclientItemRequestBuilder builds and executes requests for operations under \groupclient\{id}
-type GroupclientItemRequestBuilder struct {
+// WithLaunchpadtileItemRequestBuilder builds and executes requests for operations under \launchpadtile\{launchpadtileid}
+type WithLaunchpadtileItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// GroupclientItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type GroupclientItemRequestBuilderDeleteRequestConfiguration struct {
+// WithLaunchpadtileItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithLaunchpadtileItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// GroupclientItemRequestBuilderGetQueryParameters returns the single client link for the group.
-type GroupclientItemRequestBuilderGetQueryParameters struct {
+// WithLaunchpadtileItemRequestBuilderGetQueryParameters returns the single launchpad tile.
+type WithLaunchpadtileItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// GroupclientItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type GroupclientItemRequestBuilderGetRequestConfiguration struct {
+// WithLaunchpadtileItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithLaunchpadtileItemRequestBuilderGetRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *GroupclientItemRequestBuilderGetQueryParameters
+    QueryParameters *WithLaunchpadtileItemRequestBuilderGetQueryParameters
 }
-// GroupclientItemRequestBuilderPutQueryParameters updates the client link for a group identified by the id.
-type GroupclientItemRequestBuilderPutQueryParameters struct {
+// WithLaunchpadtileItemRequestBuilderPutQueryParameters updates the launchpad tile identified by the id.
+type WithLaunchpadtileItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
 }
-// GroupclientItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
-type GroupclientItemRequestBuilderPutRequestConfiguration struct {
+// WithLaunchpadtileItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
+type WithLaunchpadtileItemRequestBuilderPutRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
     // Request query parameters
-    QueryParameters *GroupclientItemRequestBuilderPutQueryParameters
+    QueryParameters *WithLaunchpadtileItemRequestBuilderPutQueryParameters
 }
-// NewGroupclientItemRequestBuilderInternal instantiates a new GroupclientItemRequestBuilder and sets the default values.
-func NewGroupclientItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupclientItemRequestBuilder) {
-    m := &GroupclientItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/groupclient/{id}{?additional*}", pathParameters),
+// NewWithLaunchpadtileItemRequestBuilderInternal instantiates a new WithLaunchpadtileItemRequestBuilder and sets the default values.
+func NewWithLaunchpadtileItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithLaunchpadtileItemRequestBuilder) {
+    m := &WithLaunchpadtileItemRequestBuilder{
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/launchpadtile/{launchpadtileid}{?additional*}", pathParameters),
     }
     return m
 }
-// NewGroupclientItemRequestBuilder instantiates a new GroupclientItemRequestBuilder and sets the default values.
-func NewGroupclientItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupclientItemRequestBuilder) {
+// NewWithLaunchpadtileItemRequestBuilder instantiates a new WithLaunchpadtileItemRequestBuilder and sets the default values.
+func NewWithLaunchpadtileItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithLaunchpadtileItemRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
-    return NewGroupclientItemRequestBuilderInternal(urlParams, requestAdapter)
+    return NewWithLaunchpadtileItemRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Delete removes the specified client link, effectively removing access to the client for members of  the group.
-func (m *GroupclientItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *GroupclientItemRequestBuilderDeleteRequestConfiguration)(error) {
+// Delete removes the specified launchpad tile.
+func (m *WithLaunchpadtileItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithLaunchpadtileItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
@@ -74,8 +74,8 @@ func (m *GroupclientItemRequestBuilder) Delete(ctx context.Context, requestConfi
     }
     return nil
 }
-// Get returns the single client link for the group.
-func (m *GroupclientItemRequestBuilder) Get(ctx context.Context, requestConfiguration *GroupclientItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupClientable, error) {
+// Get returns the single launchpad tile.
+func (m *WithLaunchpadtileItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithLaunchpadtileItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.LaunchpadLaunchpadTileable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
@@ -84,17 +84,17 @@ func (m *GroupclientItemRequestBuilder) Get(ctx context.Context, requestConfigur
         "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
         "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupGroupClientFromDiscriminatorValue, errorMapping)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateLaunchpadLaunchpadTileFromDiscriminatorValue, errorMapping)
     if err != nil {
         return nil, err
     }
     if res == nil {
         return nil, nil
     }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupClientable), nil
+    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.LaunchpadLaunchpadTileable), nil
 }
-// Put updates the client link for a group identified by the id.
-func (m *GroupclientItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupClientable, requestConfiguration *GroupclientItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupClientable, error) {
+// Put updates the launchpad tile identified by the id.
+func (m *WithLaunchpadtileItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.LaunchpadLaunchpadTileable, requestConfiguration *WithLaunchpadtileItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.LaunchpadLaunchpadTileable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -103,17 +103,17 @@ func (m *GroupclientItemRequestBuilder) Put(ctx context.Context, body ie2969523f
         "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
         "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupGroupClientFromDiscriminatorValue, errorMapping)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateLaunchpadLaunchpadTileFromDiscriminatorValue, errorMapping)
     if err != nil {
         return nil, err
     }
     if res == nil {
         return nil, nil
     }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupClientable), nil
+    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.LaunchpadLaunchpadTileable), nil
 }
-// ToDeleteRequestInformation removes the specified client link, effectively removing access to the client for members of  the group.
-func (m *GroupclientItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *GroupclientItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToDeleteRequestInformation removes the specified launchpad tile.
+func (m *WithLaunchpadtileItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithLaunchpadtileItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -124,8 +124,8 @@ func (m *GroupclientItemRequestBuilder) ToDeleteRequestInformation(ctx context.C
     }
     return requestInfo, nil
 }
-// ToGetRequestInformation returns the single client link for the group.
-func (m *GroupclientItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *GroupclientItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToGetRequestInformation returns the single launchpad tile.
+func (m *WithLaunchpadtileItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithLaunchpadtileItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -140,8 +140,8 @@ func (m *GroupclientItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
     }
     return requestInfo, nil
 }
-// ToPutRequestInformation updates the client link for a group identified by the id.
-func (m *GroupclientItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupClientable, requestConfiguration *GroupclientItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+// ToPutRequestInformation updates the launchpad tile identified by the id.
+func (m *WithLaunchpadtileItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.LaunchpadLaunchpadTileable, requestConfiguration *WithLaunchpadtileItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
     requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
     requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
@@ -161,6 +161,6 @@ func (m *GroupclientItemRequestBuilder) ToPutRequestInformation(ctx context.Cont
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
-func (m *GroupclientItemRequestBuilder) WithUrl(rawUrl string)(*GroupclientItemRequestBuilder) {
-    return NewGroupclientItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *WithLaunchpadtileItemRequestBuilder) WithUrl(rawUrl string)(*WithLaunchpadtileItemRequestBuilder) {
+    return NewWithLaunchpadtileItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

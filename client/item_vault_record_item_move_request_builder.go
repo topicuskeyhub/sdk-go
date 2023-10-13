@@ -6,7 +6,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemVaultRecordItemMoveRequestBuilder builds and executes requests for operations under \client\{clientid}\vault\record\{id}\move
+// ItemVaultRecordItemMoveRequestBuilder builds and executes requests for operations under \client\{clientid}\vault\record\{recordid}\move
 type ItemVaultRecordItemMoveRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -20,7 +20,7 @@ type ItemVaultRecordItemMoveRequestBuilderPostRequestConfiguration struct {
 // NewItemVaultRecordItemMoveRequestBuilderInternal instantiates a new MoveRequestBuilder and sets the default values.
 func NewItemVaultRecordItemMoveRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecordItemMoveRequestBuilder) {
     m := &ItemVaultRecordItemMoveRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/{clientid}/vault/record/{id}/move", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/{clientid}/vault/record/{recordid}/move", pathParameters),
     }
     return m
 }
