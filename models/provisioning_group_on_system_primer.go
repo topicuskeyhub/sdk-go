@@ -135,12 +135,6 @@ func (m *ProvisioningGroupOnSystemPrimer) Serialize(writer i878a80d2330e89d26896
             return err
         }
     }
-    {
-        err = writer.WriteStringValue("shortNameInSystem", m.GetShortNameInSystem())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetDisplayName sets the displayName property value. The displayName property

@@ -21,13 +21,13 @@ type ItemVaultRecordRequestBuilderGetQueryParameters struct {
     AccessibleByAccountAsManager []int64 `uriparametername:"accessibleByAccountAsManager"`
     // Filter records that accessible by the given client(s), specified by id.
     AccessibleByClient []int64 `uriparametername:"accessibleByClient"`
-    // 
+    // Filter the records by account, specified by id. This parameter supports composition with all parameters from the account resource.
     Account []int64 `uriparametername:"account"`
     // Request additional information to be returned for every record.
     Additional []string `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
-    // 
+    // Filter the records by client, specified by id. This parameter supports composition with all parameters from the client resource.
     Client []int64 `uriparametername:"client"`
     // Filter records on the color.
     Color []string `uriparametername:"color"`
@@ -41,7 +41,7 @@ type ItemVaultRecordRequestBuilderGetQueryParameters struct {
     ExpireWarningBeforeOrAt []i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly `uriparametername:"expireWarningBeforeOrAt"`
     // Filter records on the exact filename.
     Filename []string `uriparametername:"filename"`
-    // 
+    // Filter the records by group, specified by id. This parameter supports composition with all parameters from the group resource.
     Group []int64 `uriparametername:"group"`
     // Only return records that have or do not have an expiration policy set.
     HasNoPolicy []bool `uriparametername:"hasNoPolicy"`

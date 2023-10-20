@@ -11,8 +11,9 @@ require (
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect
+	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/pquerna/cachecontrol v0.2.0 // indirect
-	github.com/std-uritemplate/std-uritemplate/go v0.0.43 // indirect
+	github.com/std-uritemplate/std-uritemplate/go v0.0.46 // indirect
 	golang.org/x/crypto v0.14.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect

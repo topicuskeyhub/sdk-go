@@ -28,6 +28,8 @@ type AccountRequestBuilderGetQueryParameters struct {
     Admin []bool `uriparametername:"admin"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
+    // Only return the accounts for which the base organizational unit of the directory is equal to or an ancestor of the given unit(s), specified by id.
+    BaseOrganizationalUnitAncestorOf []int64 `uriparametername:"baseOrganizationalUnitAncestorOf"`
     // Only return records that have been created after the given instant.
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
@@ -128,7 +130,7 @@ func (m *AccountRequestBuilder) ByAccountidInt64(accountid int64)(*WithAccountIt
 // NewAccountRequestBuilderInternal instantiates a new AccountRequestBuilder and sets the default values.
 func NewAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccountRequestBuilder) {
     m := &AccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,admin*,directory*,directoryOwnedBy*,email*,group*,hasEmail*,hasVault*,hasVaultSecretForGroup*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,reregistrationRequired*,rotatingPasswordEnabled*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,admin*,baseOrganizationalUnitAncestorOf*,directory*,directoryOwnedBy*,email*,group*,hasEmail*,hasVault*,hasVaultSecretForGroup*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,reregistrationRequired*,rotatingPasswordEnabled*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
     }
     return m
 }
