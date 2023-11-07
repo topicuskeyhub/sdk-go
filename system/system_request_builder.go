@@ -37,12 +37,16 @@ type SystemRequestBuilderGetQueryParameters struct {
     ExternalUuid []i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID `uriparametername:"externalUuid"`
     // Filter systems on the Azure OIDC directory for which it is a provisioned source directory, specified by id. This parameter supports composition with all parameters from the directory resource.
     ForAzureOIDCDirectory []int64 `uriparametername:"forAzureOIDCDirectory"`
+    // Filter provisioned namespaces on their base system, specified by id. This parameter supports composition with all parameters from the provisioned system resource.
+    ForBaseSystem []int64 `uriparametername:"forBaseSystem"`
     // Filter systems on the clients for which it is an internal provisioned LDAP, specified by id. This parameter supports composition with all parameters from the client resource.
     ForClient []int64 `uriparametername:"forClient"`
     // Filter systems on the LDAP directory for which it is a provisioned source directory, specified by id. This parameter supports composition with all parameters from the directory resource.
     ForLDAPDirectory []int64 `uriparametername:"forLDAPDirectory"`
     // Filter the systems by groups for which a provisioning group references a group on the returned systems, specified by id. This parameter supports composition with all parameters from the group resource.
     Group []int64 `uriparametername:"group"`
+    // Filter systems on the specified groupDN, for those system types that have such a property.
+    GroupDN []string `uriparametername:"groupDN"`
     // Filter systems on the groups on a system, specified by id. This parameter supports composition with all parameters from the group on system resource.
     GroupOnSystem []int64 `uriparametername:"groupOnSystem"`
     // Filter the results on the given ids.
@@ -77,6 +81,8 @@ type SystemRequestBuilderGetQueryParameters struct {
     SelfServiceNewGroups []bool `uriparametername:"selfServiceNewGroups"`
     // Only return systems for which self-service for service accounts is enabled.
     SelfServiceServiceAccounts []bool `uriparametername:"selfServiceServiceAccounts"`
+    // Filter systems on the specified serviceAccountDN, for those system types that have such a property.
+    ServiceAccountDN []string `uriparametername:"serviceAccountDN"`
     // Filter the systems on groups that perform technical administration for them, specified by id. This parameter supports composition with all parameters from the group resource.
     TechnicalAdministrator []int64 `uriparametername:"technicalAdministrator"`
     // Filter the systems on the TLS setting used.
@@ -133,7 +139,7 @@ func (m *SystemRequestBuilder) BySystemidInt64(systemid int64)(*WithSystemItemRe
 // NewSystemRequestBuilderInternal instantiates a new SystemRequestBuilder and sets the default values.
 func NewSystemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*SystemRequestBuilder) {
     m := &SystemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,account*,active*,contentAdministrator*,expiredCertificate*,externalUuid*,forAzureOIDCDirectory*,forClient*,forLDAPDirectory*,group*,groupOnSystem*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,numbering*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,provisioningGroup*,selfServiceExistingGroups*,selfServiceNewGroups*,selfServiceServiceAccounts*,technicalAdministrator*,tls*,type*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,account*,active*,contentAdministrator*,expiredCertificate*,externalUuid*,forAzureOIDCDirectory*,forBaseSystem*,forClient*,forLDAPDirectory*,group*,groupDN*,groupOnSystem*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,numbering*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,provisioningGroup*,selfServiceExistingGroups*,selfServiceNewGroups*,selfServiceServiceAccounts*,serviceAccountDN*,technicalAdministrator*,tls*,type*,uuid*}", pathParameters),
     }
     return m
 }

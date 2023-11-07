@@ -31,6 +31,8 @@ func CreateRequestAcceptModificationRequestParametersFromDiscriminatorValue(pars
             }
             if mappingValue != nil {
                 switch *mappingValue {
+                    case "request.AcceptCreateProvisionedNamespaceRequestParameters":
+                        return NewRequestAcceptCreateProvisionedNamespaceRequestParameters(), nil
                     case "request.AcceptGrantAccessRequestParameters":
                         return NewRequestAcceptGrantAccessRequestParameters(), nil
                     case "request.AcceptJoinGroupRequestParameters":

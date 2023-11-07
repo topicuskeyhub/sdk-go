@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/google/uuid v1.4.0
-	github.com/microsoft/kiota-abstractions-go v1.3.1
+	github.com/microsoft/kiota-abstractions-go v1.4.0
 	github.com/microsoft/kiota-serialization-json-go v1.0.4
 	golang.org/x/oauth2 v0.13.0
 )

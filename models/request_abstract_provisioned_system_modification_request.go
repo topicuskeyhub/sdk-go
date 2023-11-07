@@ -35,6 +35,8 @@ func CreateRequestAbstractProvisionedSystemModificationRequestFromDiscriminatorV
                 switch *mappingValue {
                     case "request.CreateGroupOnSystemRequest":
                         return NewRequestCreateGroupOnSystemRequest(), nil
+                    case "request.CreateProvisionedNamespaceRequest":
+                        return NewRequestCreateProvisionedNamespaceRequest(), nil
                     case "request.CreateServiceAccountRequest":
                         return NewRequestCreateServiceAccountRequest(), nil
                     case "request.RemoveProvisionedSystemRequest":

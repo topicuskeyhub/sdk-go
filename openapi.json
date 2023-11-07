@@ -14245,6 +14245,19 @@
             }
           },
           {
+            "name": "newNamespaceName",
+            "in": "query",
+            "description": "Only return CreateProvisionedNamespaceRequest with an exact match on the namespace name.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "newServiceAccountName",
             "in": "query",
             "description": "Only return CreateServiceAccountRequest with an exact match on the username.",
@@ -16400,6 +16413,20 @@
             }
           },
           {
+            "name": "forBaseSystem",
+            "in": "query",
+            "description": "Filter provisioned namespaces on their base system, specified by id. This parameter supports composition with all parameters from the provisioned system resource.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
             "name": "forClient",
             "in": "query",
             "description": "Filter systems on the clients for which it is an internal provisioned LDAP, specified by id. This parameter supports composition with all parameters from the client resource.",
@@ -16438,6 +16465,19 @@
               "items": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "groupDN",
+            "in": "query",
+            "description": "Filter systems on the specified groupDN, for those system types that have such a property.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -16627,6 +16667,19 @@
               "type": "array",
               "items": {
                 "type": "boolean"
+              }
+            }
+          },
+          {
+            "name": "serviceAccountDN",
+            "in": "query",
+            "description": "Filter systems on the specified serviceAccountDN, for those system types that have such a property.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -20784,6 +20837,7 @@
             "provisioning.ProvisionedInternalLDAP": "#/components/schemas/provisioningProvisionedInternalLDAP",
             "provisioning.ProvisionedLDAP": "#/components/schemas/provisioningProvisionedLDAP",
             "provisioning.ProvisionedLDAPDirectory": "#/components/schemas/provisioningProvisionedLDAPDirectory",
+            "provisioning.ProvisionedNamespace": "#/components/schemas/provisioningProvisionedNamespace",
             "provisioning.ProvisionedSystem": "#/components/schemas/provisioningProvisionedSystem",
             "provisioning.ProvisionedSystemPrimer": "#/components/schemas/provisioningProvisionedSystemPrimer",
             "provisioning.ProvisionedSystemSyncLog": "#/components/schemas/provisioningProvisionedSystemSyncLog",
@@ -20793,6 +20847,7 @@
             "request.AddGroupAdminRequest": "#/components/schemas/requestAddGroupAdminRequest",
             "request.CreateGroupOnSystemRequest": "#/components/schemas/requestCreateGroupOnSystemRequest",
             "request.CreateGroupRequest": "#/components/schemas/requestCreateGroupRequest",
+            "request.CreateProvisionedNamespaceRequest": "#/components/schemas/requestCreateProvisionedNamespaceRequest",
             "request.CreateServiceAccountRequest": "#/components/schemas/requestCreateServiceAccountRequest",
             "request.Disable2FARequest": "#/components/schemas/requestDisable2FARequest",
             "request.EnableTechnicalAdministrationRequest": "#/components/schemas/requestEnableTechnicalAdministrationRequest",
@@ -20918,6 +20973,7 @@
             "provisioning.ProvisioningManagementPermissions": "#/components/schemas/provisioningProvisioningManagementPermissions",
             "provisioning.ProvisioningStatus": "#/components/schemas/provisioningProvisioningStatus",
             "provisioning.TokenPassword": "#/components/schemas/provisioningTokenPassword",
+            "request.AcceptCreateProvisionedNamespaceRequestParameters": "#/components/schemas/requestAcceptCreateProvisionedNamespaceRequestParameters",
             "request.AcceptGrantAccessRequestParameters": "#/components/schemas/requestAcceptGrantAccessRequestParameters",
             "request.AcceptJoinGroupRequestParameters": "#/components/schemas/requestAcceptJoinGroupRequestParameters",
             "request.AcceptModificationRequestParameters": "#/components/schemas/requestAcceptModificationRequestParameters",
@@ -21223,6 +21279,9 @@
           "CREATE_GROUP_ON_SYSTEM_ACCEPTED",
           "CREATE_GROUP_ON_SYSTEM_DECLINED",
           "CREATE_GROUP_ON_SYSTEM_REQUESTED",
+          "CREATE_PROVISIONED_NAMESPACE_ACCEPTED",
+          "CREATE_PROVISIONED_NAMESPACE_DECLINED",
+          "CREATE_PROVISIONED_NAMESPACE_REQUESTED",
           "CREATE_SERVICE_ACCOUNT_ACCEPTED",
           "CREATE_SERVICE_ACCOUNT_DECLINED",
           "CREATE_SERVICE_ACCOUNT_REQUESTED",
@@ -23824,17 +23883,6 @@
                   }
                 ]
               },
-              "organizationalUnit": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/organizationOrganizationalUnitPrimer"
-                  },
-                  {
-                    "x-tkh-create-only": true,
-                    "x-tkh-backend-determines-default": true
-                  }
-                ]
-              },
               "$type": {
                 "type": "string",
                 "default": "group.Group"
@@ -25139,6 +25187,17 @@
                 "maxLength": 255,
                 "minLength": 0,
                 "type": "string"
+              },
+              "organizationalUnit": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/organizationOrganizationalUnitPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",
@@ -27560,6 +27619,54 @@
         ],
         "title": "provisioningProvisionedLDAPDirectory"
       },
+      "provisioningProvisionedNamespace": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/provisioningProvisionedSystem",
+            "title": "provisioningProvisionedNamespace"
+          },
+          {
+            "title": "provisioningProvisionedNamespace",
+            "required": [
+              "$type",
+              "baseSystem",
+              "contentAdministrator",
+              "groupDN",
+              "name",
+              "owner",
+              "serviceAccountDN",
+              "technicalAdministrator"
+            ],
+            "type": "object",
+            "properties": {
+              "baseSystem": {
+                "$ref": "#/components/schemas/provisioningProvisionedSystemPrimer"
+              },
+              "groupDN": {
+                "maxLength": 255,
+                "minLength": 0,
+                "type": "string"
+              },
+              "serviceAccountDN": {
+                "maxLength": 255,
+                "minLength": 0,
+                "type": "string"
+              },
+              "$type": {
+                "type": "string",
+                "default": "provisioning.ProvisionedNamespace"
+              }
+            },
+            "x-tkh-writescope": {
+              "provisioningProvisionedNamespace": true,
+              "provisioningProvisionedSystem": true,
+              "provisioningProvisionedSystemPrimer": true
+            },
+            "x-tkh-discriminator": "provisioning.ProvisionedNamespace"
+          }
+        ],
+        "title": "provisioningProvisionedNamespace"
+      },
       "provisioningProvisionedSystem": {
         "allOf": [
           {
@@ -27576,6 +27683,7 @@
               "owner",
               "selfServiceExistingGroups",
               "selfServiceNewGroups",
+              "selfServiceNewNamespaces",
               "selfServiceServiceAccounts",
               "shouldDestroyUnknownAccounts",
               "technicalAdministrator"
@@ -27620,6 +27728,10 @@
                 "x-tkh-default": true
               },
               "selfServiceServiceAccounts": {
+                "type": "boolean",
+                "x-tkh-default": true
+              },
+              "selfServiceNewNamespaces": {
                 "type": "boolean",
                 "x-tkh-default": true
               },
@@ -27718,6 +27830,7 @@
                 "provisioning.ProvisionedInternalLDAP": "#/components/schemas/provisioningProvisionedInternalLDAP",
                 "provisioning.ProvisionedLDAP": "#/components/schemas/provisioningProvisionedLDAP",
                 "provisioning.ProvisionedLDAPDirectory": "#/components/schemas/provisioningProvisionedLDAPDirectory",
+                "provisioning.ProvisionedNamespace": "#/components/schemas/provisioningProvisionedNamespace",
                 "provisioning.ProvisionedSystem": "#/components/schemas/provisioningProvisionedSystem"
               }
             },
@@ -27799,6 +27912,7 @@
                 "provisioning.ProvisionedInternalLDAP": "#/components/schemas/provisioningProvisionedInternalLDAP",
                 "provisioning.ProvisionedLDAP": "#/components/schemas/provisioningProvisionedLDAP",
                 "provisioning.ProvisionedLDAPDirectory": "#/components/schemas/provisioningProvisionedLDAPDirectory",
+                "provisioning.ProvisionedNamespace": "#/components/schemas/provisioningProvisionedNamespace",
                 "provisioning.ProvisionedSystem": "#/components/schemas/provisioningProvisionedSystem",
                 "provisioning.ProvisionedSystemPrimer": "#/components/schemas/provisioningProvisionedSystemPrimer"
               }
@@ -27912,7 +28026,8 @@
           "SOURCE_LDAP_DIRECTORY",
           "SOURCE_AZURE_OIDC_DIRECTORY",
           "SOURCE_AZURE_SYNC_LDAP_DIRECTORY",
-          "INTERNAL_LDAP"
+          "INTERNAL_LDAP",
+          "PROVISIONED_NAMESPACE"
         ],
         "title": "provisioningProvisionedSystemType"
       },
@@ -28119,6 +28234,7 @@
               "mapping": {
                 "request.AbstractProvisionedSystemModificationRequest": "#/components/schemas/requestAbstractProvisionedSystemModificationRequest",
                 "request.CreateGroupOnSystemRequest": "#/components/schemas/requestCreateGroupOnSystemRequest",
+                "request.CreateProvisionedNamespaceRequest": "#/components/schemas/requestCreateProvisionedNamespaceRequest",
                 "request.CreateServiceAccountRequest": "#/components/schemas/requestCreateServiceAccountRequest",
                 "request.RemoveProvisionedSystemRequest": "#/components/schemas/requestRemoveProvisionedSystemRequest",
                 "request.TransferProvisionedSystemAdministrationRequest": "#/components/schemas/requestTransferProvisionedSystemAdministrationRequest",
@@ -28130,6 +28246,37 @@
           }
         ],
         "title": "requestAbstractProvisionedSystemModificationRequest"
+      },
+      "requestAcceptCreateProvisionedNamespaceRequestParameters": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/requestAcceptModificationRequestParameters",
+            "title": "requestAcceptCreateProvisionedNamespaceRequestParameters"
+          },
+          {
+            "title": "requestAcceptCreateProvisionedNamespaceRequestParameters",
+            "required": [
+              "$type",
+              "groupDN",
+              "serviceAccountDN"
+            ],
+            "type": "object",
+            "properties": {
+              "groupDN": {
+                "type": "string"
+              },
+              "serviceAccountDN": {
+                "type": "string"
+              },
+              "$type": {
+                "type": "string",
+                "default": "request.AcceptCreateProvisionedNamespaceRequestParameters"
+              }
+            },
+            "x-tkh-discriminator": "request.AcceptCreateProvisionedNamespaceRequestParameters"
+          }
+        ],
+        "title": "requestAcceptCreateProvisionedNamespaceRequestParameters"
       },
       "requestAcceptGrantAccessRequestParameters": {
         "allOf": [
@@ -28220,6 +28367,7 @@
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
+                "request.AcceptCreateProvisionedNamespaceRequestParameters": "#/components/schemas/requestAcceptCreateProvisionedNamespaceRequestParameters",
                 "request.AcceptGrantAccessRequestParameters": "#/components/schemas/requestAcceptGrantAccessRequestParameters",
                 "request.AcceptJoinGroupRequestParameters": "#/components/schemas/requestAcceptJoinGroupRequestParameters",
                 "request.AcceptModificationRequestParameters": "#/components/schemas/requestAcceptModificationRequestParameters"
@@ -28350,6 +28498,41 @@
           }
         ],
         "title": "requestCreateGroupRequest"
+      },
+      "requestCreateProvisionedNamespaceRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/requestAbstractProvisionedSystemModificationRequest",
+            "title": "requestCreateProvisionedNamespaceRequest"
+          },
+          {
+            "title": "requestCreateProvisionedNamespaceRequest",
+            "required": [
+              "$type",
+              "namespaceName",
+              "system"
+            ],
+            "type": "object",
+            "properties": {
+              "namespaceName": {
+                "maxLength": 255,
+                "minLength": 0,
+                "type": "string"
+              },
+              "$type": {
+                "type": "string",
+                "default": "request.CreateProvisionedNamespaceRequest"
+              }
+            },
+            "x-tkh-writescope": {
+              "requestAbstractProvisionedSystemModificationRequest": true,
+              "requestCreateProvisionedNamespaceRequest": true,
+              "requestModificationRequest": true
+            },
+            "x-tkh-discriminator": "request.CreateProvisionedNamespaceRequest"
+          }
+        ],
+        "title": "requestCreateProvisionedNamespaceRequest"
       },
       "requestCreateServiceAccountRequest": {
         "allOf": [
@@ -28834,6 +29017,7 @@
                 "request.AddGroupAdminRequest": "#/components/schemas/requestAddGroupAdminRequest",
                 "request.CreateGroupOnSystemRequest": "#/components/schemas/requestCreateGroupOnSystemRequest",
                 "request.CreateGroupRequest": "#/components/schemas/requestCreateGroupRequest",
+                "request.CreateProvisionedNamespaceRequest": "#/components/schemas/requestCreateProvisionedNamespaceRequest",
                 "request.CreateServiceAccountRequest": "#/components/schemas/requestCreateServiceAccountRequest",
                 "request.Disable2FARequest": "#/components/schemas/requestDisable2FARequest",
                 "request.EnableTechnicalAdministrationRequest": "#/components/schemas/requestEnableTechnicalAdministrationRequest",
@@ -28901,6 +29085,7 @@
           "ADD_GROUP_ADMIN",
           "CREATE_GROUP",
           "CREATE_GROUP_ON_SYSTEM",
+          "CREATE_PROVISIONED_NAMESPACE",
           "CREATE_SERVICE_ACCOUNT",
           "DISABLE_2FA",
           "ENABLE_TECHNICAL_ADMINISTRATION",

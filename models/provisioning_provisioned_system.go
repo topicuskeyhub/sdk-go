@@ -22,6 +22,8 @@ type ProvisioningProvisionedSystem struct {
     selfServiceExistingGroups *bool
     // The selfServiceNewGroups property
     selfServiceNewGroups *bool
+    // The selfServiceNewNamespaces property
+    selfServiceNewNamespaces *bool
     // The selfServiceServiceAccounts property
     selfServiceServiceAccounts *bool
     // The shouldDestroyUnknownAccounts property
@@ -70,6 +72,8 @@ func CreateProvisioningProvisionedSystemFromDiscriminatorValue(parseNode i878a80
                         return NewProvisioningProvisionedLDAP(), nil
                     case "provisioning.ProvisionedLDAPDirectory":
                         return NewProvisioningProvisionedLDAPDirectory(), nil
+                    case "provisioning.ProvisionedNamespace":
+                        return NewProvisioningProvisionedNamespace(), nil
                 }
             }
         }
@@ -165,6 +169,16 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
         }
         return nil
     }
+    res["selfServiceNewNamespaces"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetSelfServiceNewNamespaces(val)
+        }
+        return nil
+    }
     res["selfServiceServiceAccounts"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -219,6 +233,10 @@ func (m *ProvisioningProvisionedSystem) GetSelfServiceExistingGroups()(*bool) {
 func (m *ProvisioningProvisionedSystem) GetSelfServiceNewGroups()(*bool) {
     return m.selfServiceNewGroups
 }
+// GetSelfServiceNewNamespaces gets the selfServiceNewNamespaces property value. The selfServiceNewNamespaces property
+func (m *ProvisioningProvisionedSystem) GetSelfServiceNewNamespaces()(*bool) {
+    return m.selfServiceNewNamespaces
+}
 // GetSelfServiceServiceAccounts gets the selfServiceServiceAccounts property value. The selfServiceServiceAccounts property
 func (m *ProvisioningProvisionedSystem) GetSelfServiceServiceAccounts()(*bool) {
     return m.selfServiceServiceAccounts
@@ -267,6 +285,12 @@ func (m *ProvisioningProvisionedSystem) Serialize(writer i878a80d2330e89d2689638
     }
     {
         err = writer.WriteBoolValue("selfServiceNewGroups", m.GetSelfServiceNewGroups())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteBoolValue("selfServiceNewNamespaces", m.GetSelfServiceNewNamespaces())
         if err != nil {
             return err
         }
@@ -325,6 +349,10 @@ func (m *ProvisioningProvisionedSystem) SetSelfServiceExistingGroups(value *bool
 func (m *ProvisioningProvisionedSystem) SetSelfServiceNewGroups(value *bool)() {
     m.selfServiceNewGroups = value
 }
+// SetSelfServiceNewNamespaces sets the selfServiceNewNamespaces property value. The selfServiceNewNamespaces property
+func (m *ProvisioningProvisionedSystem) SetSelfServiceNewNamespaces(value *bool)() {
+    m.selfServiceNewNamespaces = value
+}
 // SetSelfServiceServiceAccounts sets the selfServiceServiceAccounts property value. The selfServiceServiceAccounts property
 func (m *ProvisioningProvisionedSystem) SetSelfServiceServiceAccounts(value *bool)() {
     m.selfServiceServiceAccounts = value
@@ -352,6 +380,7 @@ type ProvisioningProvisionedSystemable interface {
     GetOwner()(GroupGroupPrimerable)
     GetSelfServiceExistingGroups()(*bool)
     GetSelfServiceNewGroups()(*bool)
+    GetSelfServiceNewNamespaces()(*bool)
     GetSelfServiceServiceAccounts()(*bool)
     GetShouldDestroyUnknownAccounts()(*bool)
     GetTechnicalAdministrator()(GroupGroupPrimerable)
@@ -363,6 +392,7 @@ type ProvisioningProvisionedSystemable interface {
     SetOwner(value GroupGroupPrimerable)()
     SetSelfServiceExistingGroups(value *bool)()
     SetSelfServiceNewGroups(value *bool)()
+    SetSelfServiceNewNamespaces(value *bool)()
     SetSelfServiceServiceAccounts(value *bool)()
     SetShouldDestroyUnknownAccounts(value *bool)()
     SetTechnicalAdministrator(value GroupGroupPrimerable)()

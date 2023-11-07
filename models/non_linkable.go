@@ -124,6 +124,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewProvisioningProvisioningStatus(), nil
                     case "provisioning.TokenPassword":
                         return NewProvisioningTokenPassword(), nil
+                    case "request.AcceptCreateProvisionedNamespaceRequestParameters":
+                        return NewRequestAcceptCreateProvisionedNamespaceRequestParameters(), nil
                     case "request.AcceptGrantAccessRequestParameters":
                         return NewRequestAcceptGrantAccessRequestParameters(), nil
                     case "request.AcceptJoinGroupRequestParameters":

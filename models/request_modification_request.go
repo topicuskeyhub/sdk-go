@@ -59,6 +59,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestCreateGroupOnSystemRequest(), nil
                     case "request.CreateGroupRequest":
                         return NewRequestCreateGroupRequest(), nil
+                    case "request.CreateProvisionedNamespaceRequest":
+                        return NewRequestCreateProvisionedNamespaceRequest(), nil
                     case "request.CreateServiceAccountRequest":
                         return NewRequestCreateServiceAccountRequest(), nil
                     case "request.Disable2FARequest":

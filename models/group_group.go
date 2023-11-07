@@ -37,8 +37,6 @@ type GroupGroup struct {
     hideAuditTrail *bool
     // The nestedUnder property
     nestedUnder GroupGroupPrimerable
-    // The organizationalUnit property
-    organizationalUnit OrganizationOrganizationalUnitPrimerable
     // The privateGroup property
     privateGroup *bool
     // The recordTrail property
@@ -276,16 +274,6 @@ func (m *GroupGroup) GetFieldDeserializers()(map[string]func(i878a80d2330e89d268
         }
         return nil
     }
-    res["organizationalUnit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetOrganizationalUnit(val.(OrganizationOrganizationalUnitPrimerable))
-        }
-        return nil
-    }
     res["privateGroup"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -355,10 +343,6 @@ func (m *GroupGroup) GetHideAuditTrail()(*bool) {
 // GetNestedUnder gets the nestedUnder property value. The nestedUnder property
 func (m *GroupGroup) GetNestedUnder()(GroupGroupPrimerable) {
     return m.nestedUnder
-}
-// GetOrganizationalUnit gets the organizationalUnit property value. The organizationalUnit property
-func (m *GroupGroup) GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable) {
-    return m.organizationalUnit
 }
 // GetPrivateGroup gets the privateGroup property value. The privateGroup property
 func (m *GroupGroup) GetPrivateGroup()(*bool) {
@@ -464,12 +448,6 @@ func (m *GroupGroup) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c
         }
     }
     {
-        err = writer.WriteObjectValue("organizationalUnit", m.GetOrganizationalUnit())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err = writer.WriteBoolValue("privateGroup", m.GetPrivateGroup())
         if err != nil {
             return err
@@ -568,10 +546,6 @@ func (m *GroupGroup) SetHideAuditTrail(value *bool)() {
 func (m *GroupGroup) SetNestedUnder(value GroupGroupPrimerable)() {
     m.nestedUnder = value
 }
-// SetOrganizationalUnit sets the organizationalUnit property value. The organizationalUnit property
-func (m *GroupGroup) SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)() {
-    m.organizationalUnit = value
-}
 // SetPrivateGroup sets the privateGroup property value. The privateGroup property
 func (m *GroupGroup) SetPrivateGroup(value *bool)() {
     m.privateGroup = value
@@ -615,7 +589,6 @@ type GroupGroupable interface {
     GetExtendedAccess()(*GroupGroupExtendedAccess)
     GetHideAuditTrail()(*bool)
     GetNestedUnder()(GroupGroupPrimerable)
-    GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable)
     GetPrivateGroup()(*bool)
     GetRecordTrail()(*bool)
     GetRotatingPasswordRequired()(*bool)
@@ -637,7 +610,6 @@ type GroupGroupable interface {
     SetExtendedAccess(value *GroupGroupExtendedAccess)()
     SetHideAuditTrail(value *bool)()
     SetNestedUnder(value GroupGroupPrimerable)()
-    SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)()
     SetPrivateGroup(value *bool)()
     SetRecordTrail(value *bool)()
     SetRotatingPasswordRequired(value *bool)()

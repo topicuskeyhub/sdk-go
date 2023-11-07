@@ -142,6 +142,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProvisioningProvisionedLDAP(), nil
                     case "provisioning.ProvisionedLDAPDirectory":
                         return NewProvisioningProvisionedLDAPDirectory(), nil
+                    case "provisioning.ProvisionedNamespace":
+                        return NewProvisioningProvisionedNamespace(), nil
                     case "provisioning.ProvisionedSystem":
                         return NewProvisioningProvisionedSystem(), nil
                     case "provisioning.ProvisionedSystemPrimer":
@@ -162,6 +164,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestCreateGroupOnSystemRequest(), nil
                     case "request.CreateGroupRequest":
                         return NewRequestCreateGroupRequest(), nil
+                    case "request.CreateProvisionedNamespaceRequest":
+                        return NewRequestCreateProvisionedNamespaceRequest(), nil
                     case "request.CreateServiceAccountRequest":
                         return NewRequestCreateServiceAccountRequest(), nil
                     case "request.Disable2FARequest":

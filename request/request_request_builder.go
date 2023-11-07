@@ -58,6 +58,8 @@ type RequestRequestBuilderGetQueryParameters struct {
     NewGroupName []string `uriparametername:"newGroupName"`
     // Only return CreateGroupOnSystemRequest with an exact match on the name in system.
     NewGroupOnSystemName []string `uriparametername:"newGroupOnSystemName"`
+    // Only return CreateProvisionedNamespaceRequest with an exact match on the namespace name.
+    NewNamespaceName []string `uriparametername:"newNamespaceName"`
     // Only return CreateServiceAccountRequest with an exact match on the username.
     NewServiceAccountName []string `uriparametername:"newServiceAccountName"`
     // Filter requests on the given organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
@@ -134,7 +136,7 @@ func (m *RequestRequestBuilder) ByRequestidInt64(requestid int64)(*WithRequestIt
 // NewRequestRequestBuilderInternal instantiates a new RequestRequestBuilder and sets the default values.
 func NewRequestRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*RequestRequestBuilder) {
     m := &RequestRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,accountToUpdate*,adminToRevoke*,application*,authorizationType*,authorizingGroupType*,clientPermission*,connectAuthorization*,directory*,group*,groupOnSystem*,internalAccount*,mailKey*,newAdmin*,newGroupName*,newGroupOnSystemName*,newServiceAccountName*,organizationalUnit*,precededBy*,processedBy*,requestedBy*,requestingGroup*,serviceAccount*,status*,system*,triggeredFollowUpRequest*,type*,updateGroupMembershipType*,wasProcessedBy*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,accountToUpdate*,adminToRevoke*,application*,authorizationType*,authorizingGroupType*,clientPermission*,connectAuthorization*,directory*,group*,groupOnSystem*,internalAccount*,mailKey*,newAdmin*,newGroupName*,newGroupOnSystemName*,newNamespaceName*,newServiceAccountName*,organizationalUnit*,precededBy*,processedBy*,requestedBy*,requestingGroup*,serviceAccount*,status*,system*,triggeredFollowUpRequest*,type*,updateGroupMembershipType*,wasProcessedBy*}", pathParameters),
     }
     return m
 }
