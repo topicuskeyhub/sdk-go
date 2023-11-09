@@ -2,7 +2,7 @@
   "descriptionHash": "0BACB55C0C7B2B5080816EC69FC6A7ADEA118EEC89271DCB87A69E580A943B6BD637A7777AFA3E44433E288F67A9DB7A1E82DC5E08D755F53DDDA4F9145A02CC",
   "descriptionLocation": "openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.7.0",
+  "kiotaVersion": "1.8.2",
   "clientClassName": "KeyHubClient",
   "clientNamespaceName": "github.com/topicuskeyhub/sdk-go",
   "language": "Go",
@@ -16,7 +16,7 @@
     "github.com/microsoft/kiota-serialization-json-go.JsonParseNodeFactory"
   ],
   "structuredMimeTypes": [
-    "application/json"
+    "application/vnd.topicus.keyhub\u002Bjson"
   ],
   "includePatterns": [],
   "excludePatterns": [],
