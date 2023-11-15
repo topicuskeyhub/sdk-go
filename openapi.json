@@ -22477,8 +22477,7 @@
             "title": "clientClientApplication",
             "required": [
               "$type",
-              "name",
-              "type"
+              "name"
             ],
             "type": "object",
             "properties": {
@@ -22488,10 +22487,26 @@
                 "readOnly": true
               },
               "owner": {
-                "$ref": "#/components/schemas/groupGroupPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
               },
               "technicalAdministrator": {
-                "$ref": "#/components/schemas/groupGroupPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",
@@ -22501,7 +22516,14 @@
                 "type": "object",
                 "properties": {
                   "secret": {
-                    "$ref": "#/components/schemas/GeneratedSecret"
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/GeneratedSecret"
+                      },
+                      {
+                        "x-tkh-backend-determines-default": true
+                      }
+                    ]
                   },
                   "groups": {
                     "allOf": [
@@ -22579,8 +22601,7 @@
             "required": [
               "$type",
               "name",
-              "ssoApplication",
-              "type"
+              "ssoApplication"
             ],
             "type": "object",
             "properties": {
@@ -22594,7 +22615,8 @@
               "clientId": {
                 "maxLength": 255,
                 "minLength": 0,
-                "type": "string"
+                "type": "string",
+                "x-tkh-backend-determines-default": true
               },
               "type": {
                 "allOf": [
@@ -22616,7 +22638,8 @@
                 "type": "array",
                 "items": {
                   "type": "string"
-                }
+                },
+                "x-tkh-backend-determines-default": true
               },
               "ssoApplication": {
                 "type": "boolean",
@@ -22665,7 +22688,6 @@
               "$type",
               "name",
               "shareSecretInVault",
-              "type",
               "usedForProvisioning"
             ],
             "type": "object",
@@ -22726,7 +22748,6 @@
               "name",
               "shareSecretInVault",
               "showLandingPage",
-              "type",
               "useClientCredentials"
             ],
             "type": "object",
@@ -22965,8 +22986,7 @@
             "required": [
               "$type",
               "name",
-              "subjectFormat",
-              "type"
+              "subjectFormat"
             ],
             "type": "object",
             "properties": {
@@ -23779,7 +23799,6 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
-                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -23790,7 +23809,6 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
-                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -23801,7 +23819,6 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
-                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -23812,7 +23829,6 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
-                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -23831,7 +23847,6 @@
                     "$ref": "#/components/schemas/groupGroupClassificationPrimer"
                   },
                   {
-                    "readOnly": true,
                     "x-tkh-create-only": true,
                     "x-tkh-backend-determines-default": true
                   }
@@ -23878,7 +23893,6 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
-                    "readOnly": true,
                     "x-tkh-create-only": true
                   }
                 ]
@@ -25372,7 +25386,6 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
-                    "readOnly": true,
                     "x-tkh-create-only": true,
                     "x-tkh-immutable": true
                   }
@@ -25519,8 +25532,7 @@
             "title": "launchpadLaunchpadTile",
             "required": [
               "$type",
-              "identiconCode",
-              "type"
+              "identiconCode"
             ],
             "type": "object",
             "properties": {
@@ -25656,7 +25668,6 @@
             "required": [
               "$type",
               "title",
-              "type",
               "uri"
             ],
             "type": "object",
@@ -25693,8 +25704,7 @@
           {
             "title": "launchpadSsoApplicationLaunchpadTile",
             "required": [
-              "$type",
-              "type"
+              "$type"
             ],
             "type": "object",
             "properties": {
@@ -25725,8 +25735,7 @@
           {
             "title": "launchpadVaultRecordLaunchpadTile",
             "required": [
-              "$type",
-              "type"
+              "$type"
             ],
             "type": "object",
             "properties": {
@@ -25786,8 +25795,6 @@
                 "minItems": 0,
                 "type": "array",
                 "items": {
-                  "maxLength": 100,
-                  "minLength": 0,
                   "type": "string"
                 }
               },
@@ -26686,7 +26693,6 @@
             "required": [
               "$type",
               "baseDN",
-              "contentAdministrator",
               "host",
               "name",
               "owner",
@@ -27261,7 +27267,6 @@
             "required": [
               "$type",
               "baseDN",
-              "contentAdministrator",
               "host",
               "name",
               "owner",
@@ -27361,7 +27366,6 @@
             "title": "provisioningProvisionedAzureOIDCDirectory",
             "required": [
               "$type",
-              "contentAdministrator",
               "directory",
               "name",
               "owner",
@@ -27403,7 +27407,6 @@
               "$type",
               "clientId",
               "clientSecret",
-              "contentAdministrator",
               "directory",
               "name",
               "owner",
@@ -27453,7 +27456,6 @@
               "$type",
               "clientId",
               "clientSecret",
-              "contentAdministrator",
               "name",
               "owner",
               "technicalAdministrator",
@@ -27502,7 +27504,6 @@
             "title": "provisioningProvisionedInternalLDAP",
             "required": [
               "$type",
-              "contentAdministrator",
               "name",
               "owner",
               "technicalAdministrator"
@@ -27538,7 +27539,6 @@
             "required": [
               "$type",
               "baseDN",
-              "contentAdministrator",
               "gid",
               "hashingScheme",
               "host",
@@ -27587,7 +27587,6 @@
             "title": "provisioningProvisionedLDAPDirectory",
             "required": [
               "$type",
-              "contentAdministrator",
               "directory",
               "groupDN",
               "name",
@@ -27630,7 +27629,6 @@
             "required": [
               "$type",
               "baseSystem",
-              "contentAdministrator",
               "groupDN",
               "name",
               "owner",
@@ -27678,7 +27676,6 @@
             "required": [
               "$type",
               "accountCount",
-              "contentAdministrator",
               "name",
               "owner",
               "selfServiceExistingGroups",
@@ -27702,13 +27699,34 @@
                 "type": "string"
               },
               "owner": {
-                "$ref": "#/components/schemas/groupGroupPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true
+                  }
+                ]
               },
               "technicalAdministrator": {
-                "$ref": "#/components/schemas/groupGroupPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true
+                  }
+                ]
               },
               "contentAdministrator": {
-                "$ref": "#/components/schemas/groupGroupPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/groupGroupPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true
+                  }
+                ]
               },
               "externalUuid": {
                 "type": "string",
@@ -27894,7 +27912,15 @@
                 ]
               },
               "organizationalUnit": {
-                "$ref": "#/components/schemas/organizationOrganizationalUnitPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/organizationOrganizationalUnitPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",
@@ -29838,7 +29864,14 @@
                 "$ref": "#/components/schemas/groupGroupPrimer"
               },
               "passwordRotation": {
-                "$ref": "#/components/schemas/serviceaccountPasswordRotationScheme"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/serviceaccountPasswordRotationScheme"
+                  },
+                  {
+                    "x-tkh-default": "DAILY"
+                  }
+                ]
               },
               "description": {
                 "type": "string"
@@ -29997,11 +30030,19 @@
                 "maxLength": 255,
                 "minLength": 0,
                 "type": "string",
-                "readOnly": true,
+                "x-tkh-create-only": true,
                 "x-tkh-immutable": true
               },
               "system": {
-                "$ref": "#/components/schemas/provisioningProvisionedSystemPrimer"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/provisioningProvisionedSystemPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true,
+                    "x-tkh-immutable": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",

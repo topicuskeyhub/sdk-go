@@ -148,6 +148,12 @@ func (m *ServiceaccountServiceAccountPrimer) Serialize(writer i878a80d2330e89d26
             return err
         }
     }
+    {
+        err = writer.WriteStringValue("username", m.GetUsername())
+        if err != nil {
+            return err
+        }
+    }
     return nil
 }
 // SetActive sets the active property value. The active property
