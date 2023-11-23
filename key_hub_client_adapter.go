@@ -8,9 +8,13 @@ package sdkgo
 
 import (
 	"context"
+	"encoding/json"
+	"errors"
 	"fmt"
+	"io"
 	nethttp "net/http"
 	"net/url"
+	"strings"
 	"time"
 
 	"github.com/coreos/go-oidc/v3/oidc"
@@ -116,7 +120,7 @@ func NewKeyHubRequestAdapterForDeviceCode(client *nethttp.Client, issuer string,
 	}
 	oauth2Conf.Endpoint.DeviceAuthURL = issuer + "/login/oauth2/authorizedevice"
 
-	response, err := oauth2Conf.DeviceAuth(ctx, oauth2.SetAuthURLParam("authVault", "access"))
+	response, err := DeviceAuth(ctx, &oauth2Conf)
 	if err != nil {
 		panic(err)
 	}
@@ -125,7 +129,6 @@ func NewKeyHubRequestAdapterForDeviceCode(client *nethttp.Client, issuer string,
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(token)
 
 	tokenSource := oauth2Conf.TokenSource(ctx, token)
 	accessTokenProvider := NewKeyHubAccessTokenProvider(&tokenSource)
@@ -142,4 +145,75 @@ func NewKeyHubRequestAdapterForDeviceCode(client *nethttp.Client, issuer string,
 	}
 	adapter.SetBaseUrl(issuer + "/keyhub/rest/v1")
 	return adapter, nil
+}
+
+// copied from https://github.com/golang/oauth2/blob/master/deviceauth.go until https://github.com/golang/oauth2/issues/685 is fixed
+// DeviceAuth returns a device auth struct which contains a device code
+// and authorization information provided for users to enter on another device.
+func DeviceAuth(ctx context.Context, c *oauth2.Config, opts ...oauth2.AuthCodeOption) (*oauth2.DeviceAuthResponse, error) {
+	// https://datatracker.ietf.org/doc/html/rfc8628#section-3.1
+	v := url.Values{
+		"client_id": {c.ClientID},
+	}
+	if len(c.Scopes) > 0 {
+		v.Set("scope", strings.Join(c.Scopes, " "))
+	}
+	v.Set("authVault", "access")
+	return retrieveDeviceAuth(ctx, c, v)
+}
+
+func retrieveDeviceAuth(ctx context.Context, c *oauth2.Config, v url.Values) (*oauth2.DeviceAuthResponse, error) {
+	if c.Endpoint.DeviceAuthURL == "" {
+		return nil, errors.New("endpoint missing DeviceAuthURL")
+	}
+
+	req, err := nethttp.NewRequest("POST", c.Endpoint.DeviceAuthURL, strings.NewReader(v.Encode()))
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Set("Accept", "application/json")
+
+	if c.ClientSecret != "" {
+		req.SetBasicAuth(url.QueryEscape(c.ClientID), url.QueryEscape(c.ClientSecret))
+	}
+
+	t := time.Now()
+	r, err := ContextClient(ctx).Do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	body, err := io.ReadAll(io.LimitReader(r.Body, 1<<20))
+	if err != nil {
+		return nil, fmt.Errorf("oauth2: cannot auth device: %v", err)
+	}
+	if code := r.StatusCode; code < 200 || code > 299 {
+		return nil, &oauth2.RetrieveError{
+			Response: r,
+			Body:     body,
+		}
+	}
+
+	da := &oauth2.DeviceAuthResponse{}
+	err = json.Unmarshal(body, &da)
+	if err != nil {
+		return nil, fmt.Errorf("unmarshal %s", err)
+	}
+
+	if !da.Expiry.IsZero() {
+		// Make a small adjustment to account for time taken by the request
+		da.Expiry = da.Expiry.Add(-time.Since(t))
+	}
+
+	return da, nil
+}
+
+func ContextClient(ctx context.Context) *nethttp.Client {
+	if ctx != nil {
+		if hc, ok := ctx.Value(oauth2.HTTPClient).(*nethttp.Client); ok {
+			return hc
+		}
+	}
+	return nethttp.DefaultClient
 }

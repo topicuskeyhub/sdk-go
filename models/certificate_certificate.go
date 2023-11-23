@@ -10,7 +10,7 @@ type CertificateCertificate struct {
     // The additionalObjects property
     additionalObjects CertificateCertificate_additionalObjectsable
     // The keyData property
-    keyData []string
+    keyData *string
 }
 // NewCertificateCertificate instantiates a new certificateCertificate and sets the default values.
 func NewCertificateCertificate()(*CertificateCertificate) {
@@ -43,25 +43,19 @@ func (m *CertificateCertificate) GetFieldDeserializers()(map[string]func(i878a80
         return nil
     }
     res["keyData"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfPrimitiveValues("string")
+        val, err := n.GetStringValue()
         if err != nil {
             return err
         }
         if val != nil {
-            res := make([]string, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = *(v.(*string))
-                }
-            }
-            m.SetKeyData(res)
+            m.SetKeyData(val)
         }
         return nil
     }
     return res
 }
 // GetKeyData gets the keyData property value. The keyData property
-func (m *CertificateCertificate) GetKeyData()([]string) {
+func (m *CertificateCertificate) GetKeyData()(*string) {
     return m.keyData
 }
 // Serialize serializes information the current object
@@ -76,8 +70,8 @@ func (m *CertificateCertificate) Serialize(writer i878a80d2330e89d26896388a3f487
             return err
         }
     }
-    if m.GetKeyData() != nil {
-        err = writer.WriteCollectionOfStringValues("keyData", m.GetKeyData())
+    {
+        err = writer.WriteStringValue("keyData", m.GetKeyData())
         if err != nil {
             return err
         }
@@ -89,7 +83,7 @@ func (m *CertificateCertificate) SetAdditionalObjects(value CertificateCertifica
     m.additionalObjects = value
 }
 // SetKeyData sets the keyData property value. The keyData property
-func (m *CertificateCertificate) SetKeyData(value []string)() {
+func (m *CertificateCertificate) SetKeyData(value *string)() {
     m.keyData = value
 }
 // CertificateCertificateable 
@@ -97,7 +91,7 @@ type CertificateCertificateable interface {
     CertificateCertificatePrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAdditionalObjects()(CertificateCertificate_additionalObjectsable)
-    GetKeyData()([]string)
+    GetKeyData()(*string)
     SetAdditionalObjects(value CertificateCertificate_additionalObjectsable)()
-    SetKeyData(value []string)()
+    SetKeyData(value *string)()
 }

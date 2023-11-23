@@ -836,6 +836,19 @@
             }
           },
           {
+            "name": "status",
+            "in": "query",
+            "description": "Only return internal accounts with the given status.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/authInternalAccountStatus"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -22060,7 +22073,14 @@
                 "readOnly": true
               },
               "status": {
-                "$ref": "#/components/schemas/authInternalAccountStatus"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/authInternalAccountStatus"
+                  },
+                  {
+                    "readOnly": true
+                  }
+                ]
               },
               "firstName": {
                 "maxLength": 255,
@@ -22133,6 +22153,7 @@
         "enum": [
           "UNVERIFIED",
           "NOT_ACTIVATED",
+          "ACTIVATION_NOT_SENT",
           "ACTIVATION_EXPIRED",
           "ACTIVATED"
         ],
@@ -22330,11 +22351,8 @@
             "type": "object",
             "properties": {
               "keyData": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "format": "byte"
-                }
+                "type": "string",
+                "format": "base64"
               },
               "$type": {
                 "type": "string",
@@ -22431,11 +22449,8 @@
                 "readOnly": true
               },
               "certificateData": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "format": "byte"
-                }
+                "type": "string",
+                "format": "base64"
               },
               "expiration": {
                 "type": "string",
@@ -25471,11 +25486,8 @@
                 "x-tkh-default": 0
               },
               "logo": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "format": "byte"
-                }
+                "type": "string",
+                "format": "base64"
               },
               "title": {
                 "type": "string"
@@ -25554,11 +25566,8 @@
                 "x-tkh-default": 0
               },
               "logo": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "format": "byte"
-                }
+                "type": "string",
+                "format": "base64"
               },
               "group": {
                 "$ref": "#/components/schemas/groupGroupPrimer"
@@ -27724,7 +27733,8 @@
                     "$ref": "#/components/schemas/groupGroupPrimer"
                   },
                   {
-                    "x-tkh-create-only": true
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
                   }
                 ]
               },

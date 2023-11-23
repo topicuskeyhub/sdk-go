@@ -40,6 +40,8 @@ type ItemInternalaccountRequestBuilderGetQueryParameters struct {
     OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
+    // Only return internal accounts with the given status.
+    Status []string `uriparametername:"status"`
 }
 // ItemInternalaccountRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemInternalaccountRequestBuilderGetRequestConfiguration struct {
@@ -88,7 +90,7 @@ func (m *ItemInternalaccountRequestBuilder) ByInternalaccountidInt64(internalacc
 // NewItemInternalaccountRequestBuilderInternal instantiates a new InternalaccountRequestBuilder and sets the default values.
 func NewItemInternalaccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountRequestBuilder) {
     m := &ItemInternalaccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,account*,directory*,directoryOwnerGroup*,hasBeenActive*,organizationalUnit*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,account*,directory*,directoryOwnerGroup*,hasBeenActive*,organizationalUnit*,status*}", pathParameters),
     }
     return m
 }
