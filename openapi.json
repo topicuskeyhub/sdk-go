@@ -20743,6 +20743,16 @@
         ],
         "title": "GeneratedSecret"
       },
+      "HttpAuthenticationScheme": {
+        "type": "string",
+        "enum": [
+          "NONE",
+          "BASIC",
+          "BEARER",
+          "CUSTOM"
+        ],
+        "title": "HttpAuthenticationScheme"
+      },
       "RestLink": {
         "type": "object",
         "properties": {
@@ -20851,6 +20861,7 @@
             "provisioning.ProvisionedLDAP": "#/components/schemas/provisioningProvisionedLDAP",
             "provisioning.ProvisionedLDAPDirectory": "#/components/schemas/provisioningProvisionedLDAPDirectory",
             "provisioning.ProvisionedNamespace": "#/components/schemas/provisioningProvisionedNamespace",
+            "provisioning.ProvisionedSCIM": "#/components/schemas/provisioningProvisionedSCIM",
             "provisioning.ProvisionedSystem": "#/components/schemas/provisioningProvisionedSystem",
             "provisioning.ProvisionedSystemPrimer": "#/components/schemas/provisioningProvisionedSystemPrimer",
             "provisioning.ProvisionedSystemSyncLog": "#/components/schemas/provisioningProvisionedSystemSyncLog",
@@ -27056,7 +27067,8 @@
           "GROUP",
           "AZURE_ROLE",
           "AZURE_UNIFIED_GROUP",
-          "AZURE_SECURITY_GROUP"
+          "AZURE_SECURITY_GROUP",
+          "SCIM"
         ],
         "title": "provisioningGroupOnSystemType"
       },
@@ -27674,6 +27686,99 @@
         ],
         "title": "provisioningProvisionedNamespace"
       },
+      "provisioningProvisionedSCIM": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/provisioningProvisionedSystem",
+            "title": "provisioningProvisionedSCIM"
+          },
+          {
+            "title": "provisioningProvisionedSCIM",
+            "required": [
+              "$type",
+              "authenticationScheme",
+              "name",
+              "owner",
+              "technicalAdministrator",
+              "url",
+              "vendor"
+            ],
+            "type": "object",
+            "properties": {
+              "vendor": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/provisioningProvisionedSCIMVendor"
+                  },
+                  {
+                    "x-tkh-default": "DEFAULT"
+                  }
+                ]
+              },
+              "url": {
+                "maxLength": 512,
+                "minLength": 0,
+                "type": "string"
+              },
+              "authenticationScheme": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/HttpAuthenticationScheme"
+                  },
+                  {
+                    "x-tkh-default": "NONE"
+                  }
+                ]
+              },
+              "basicAuthUsername": {
+                "maxLength": 512,
+                "minLength": 0,
+                "type": "string"
+              },
+              "basicAuthPassword": {
+                "maxLength": 512,
+                "minLength": 0,
+                "type": "string"
+              },
+              "bearerToken": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string"
+              },
+              "customHeaderName": {
+                "maxLength": 64,
+                "minLength": 0,
+                "type": "string"
+              },
+              "customHeaderValue": {
+                "maxLength": 1024,
+                "minLength": 0,
+                "type": "string"
+              },
+              "$type": {
+                "type": "string",
+                "default": "provisioning.ProvisionedSCIM"
+              }
+            },
+            "x-tkh-writescope": {
+              "provisioningProvisionedSCIM": true,
+              "provisioningProvisionedSystem": true,
+              "provisioningProvisionedSystemPrimer": true
+            },
+            "x-tkh-discriminator": "provisioning.ProvisionedSCIM"
+          }
+        ],
+        "title": "provisioningProvisionedSCIM"
+      },
+      "provisioningProvisionedSCIMVendor": {
+        "type": "string",
+        "enum": [
+          "DEFAULT",
+          "AWS",
+          "KEYSTONE"
+        ],
+        "title": "provisioningProvisionedSCIMVendor"
+      },
       "provisioningProvisionedSystem": {
         "allOf": [
           {
@@ -27859,6 +27964,7 @@
                 "provisioning.ProvisionedLDAP": "#/components/schemas/provisioningProvisionedLDAP",
                 "provisioning.ProvisionedLDAPDirectory": "#/components/schemas/provisioningProvisionedLDAPDirectory",
                 "provisioning.ProvisionedNamespace": "#/components/schemas/provisioningProvisionedNamespace",
+                "provisioning.ProvisionedSCIM": "#/components/schemas/provisioningProvisionedSCIM",
                 "provisioning.ProvisionedSystem": "#/components/schemas/provisioningProvisionedSystem"
               }
             },
@@ -27949,6 +28055,7 @@
                 "provisioning.ProvisionedLDAP": "#/components/schemas/provisioningProvisionedLDAP",
                 "provisioning.ProvisionedLDAPDirectory": "#/components/schemas/provisioningProvisionedLDAPDirectory",
                 "provisioning.ProvisionedNamespace": "#/components/schemas/provisioningProvisionedNamespace",
+                "provisioning.ProvisionedSCIM": "#/components/schemas/provisioningProvisionedSCIM",
                 "provisioning.ProvisionedSystem": "#/components/schemas/provisioningProvisionedSystem",
                 "provisioning.ProvisionedSystemPrimer": "#/components/schemas/provisioningProvisionedSystemPrimer"
               }
@@ -28062,6 +28169,7 @@
           "SOURCE_LDAP_DIRECTORY",
           "SOURCE_AZURE_OIDC_DIRECTORY",
           "SOURCE_AZURE_SYNC_LDAP_DIRECTORY",
+          "SCIM",
           "INTERNAL_LDAP",
           "PROVISIONED_NAMESPACE"
         ],
@@ -31028,7 +31136,7 @@
               "authenticationScheme": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/webhookWebhookAuthenticationScheme"
+                    "$ref": "#/components/schemas/HttpAuthenticationScheme"
                   },
                   {
                     "x-tkh-default": "NONE"
@@ -31116,16 +31224,6 @@
           }
         ],
         "title": "webhookWebhook"
-      },
-      "webhookWebhookAuthenticationScheme": {
-        "type": "string",
-        "enum": [
-          "NONE",
-          "BASIC",
-          "BEARER",
-          "CUSTOM"
-        ],
-        "title": "webhookWebhookAuthenticationScheme"
       },
       "webhookWebhookDelivery": {
         "allOf": [

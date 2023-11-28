@@ -13,10 +13,11 @@ const (
     AZURE_ROLE_PROVISIONINGGROUPONSYSTEMTYPE
     AZURE_UNIFIED_GROUP_PROVISIONINGGROUPONSYSTEMTYPE
     AZURE_SECURITY_GROUP_PROVISIONINGGROUPONSYSTEMTYPE
+    SCIM_PROVISIONINGGROUPONSYSTEMTYPE
 )
 
 func (i ProvisioningGroupOnSystemType) String() string {
-    return []string{"POSIX_GROUP", "GROUP_OF_NAMES", "GROUP_OF_UNIQUE_NAMES", "GROUP", "AZURE_ROLE", "AZURE_UNIFIED_GROUP", "AZURE_SECURITY_GROUP"}[i]
+    return []string{"POSIX_GROUP", "GROUP_OF_NAMES", "GROUP_OF_UNIQUE_NAMES", "GROUP", "AZURE_ROLE", "AZURE_UNIFIED_GROUP", "AZURE_SECURITY_GROUP", "SCIM"}[i]
 }
 func ParseProvisioningGroupOnSystemType(v string) (any, error) {
     result := POSIX_GROUP_PROVISIONINGGROUPONSYSTEMTYPE
@@ -35,6 +36,8 @@ func ParseProvisioningGroupOnSystemType(v string) (any, error) {
             result = AZURE_UNIFIED_GROUP_PROVISIONINGGROUPONSYSTEMTYPE
         case "AZURE_SECURITY_GROUP":
             result = AZURE_SECURITY_GROUP_PROVISIONINGGROUPONSYSTEMTYPE
+        case "SCIM":
+            result = SCIM_PROVISIONINGGROUPONSYSTEMTYPE
         default:
             return 0, errors.New("Unknown ProvisioningGroupOnSystemType value: " + v)
     }

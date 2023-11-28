@@ -74,6 +74,8 @@ func CreateProvisioningProvisionedSystemFromDiscriminatorValue(parseNode i878a80
                         return NewProvisioningProvisionedLDAPDirectory(), nil
                     case "provisioning.ProvisionedNamespace":
                         return NewProvisioningProvisionedNamespace(), nil
+                    case "provisioning.ProvisionedSCIM":
+                        return NewProvisioningProvisionedSCIM(), nil
                 }
             }
         }

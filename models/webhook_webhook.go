@@ -16,7 +16,7 @@ type WebhookWebhook struct {
     // The allTypes property
     allTypes *bool
     // The authenticationScheme property
-    authenticationScheme *WebhookWebhookAuthenticationScheme
+    authenticationScheme *HttpAuthenticationScheme
     // The basicAuthPassword property
     basicAuthPassword *string
     // The basicAuthUsername property
@@ -82,7 +82,7 @@ func (m *WebhookWebhook) GetAllTypes()(*bool) {
     return m.allTypes
 }
 // GetAuthenticationScheme gets the authenticationScheme property value. The authenticationScheme property
-func (m *WebhookWebhook) GetAuthenticationScheme()(*WebhookWebhookAuthenticationScheme) {
+func (m *WebhookWebhook) GetAuthenticationScheme()(*HttpAuthenticationScheme) {
     return m.authenticationScheme
 }
 // GetBasicAuthPassword gets the basicAuthPassword property value. The basicAuthPassword property
@@ -161,12 +161,12 @@ func (m *WebhookWebhook) GetFieldDeserializers()(map[string]func(i878a80d2330e89
         return nil
     }
     res["authenticationScheme"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseWebhookWebhookAuthenticationScheme)
+        val, err := n.GetEnumValue(ParseHttpAuthenticationScheme)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAuthenticationScheme(val.(*WebhookWebhookAuthenticationScheme))
+            m.SetAuthenticationScheme(val.(*HttpAuthenticationScheme))
         }
         return nil
     }
@@ -537,7 +537,7 @@ func (m *WebhookWebhook) SetAllTypes(value *bool)() {
     m.allTypes = value
 }
 // SetAuthenticationScheme sets the authenticationScheme property value. The authenticationScheme property
-func (m *WebhookWebhook) SetAuthenticationScheme(value *WebhookWebhookAuthenticationScheme)() {
+func (m *WebhookWebhook) SetAuthenticationScheme(value *HttpAuthenticationScheme)() {
     m.authenticationScheme = value
 }
 // SetBasicAuthPassword sets the basicAuthPassword property value. The basicAuthPassword property
@@ -616,7 +616,7 @@ type WebhookWebhookable interface {
     GetActive()(*bool)
     GetAdditionalObjects()(WebhookWebhook_additionalObjectsable)
     GetAllTypes()(*bool)
-    GetAuthenticationScheme()(*WebhookWebhookAuthenticationScheme)
+    GetAuthenticationScheme()(*HttpAuthenticationScheme)
     GetBasicAuthPassword()(*string)
     GetBasicAuthUsername()(*string)
     GetBearerToken()(*string)
@@ -638,7 +638,7 @@ type WebhookWebhookable interface {
     SetActive(value *bool)()
     SetAdditionalObjects(value WebhookWebhook_additionalObjectsable)()
     SetAllTypes(value *bool)()
-    SetAuthenticationScheme(value *WebhookWebhookAuthenticationScheme)()
+    SetAuthenticationScheme(value *HttpAuthenticationScheme)()
     SetBasicAuthPassword(value *string)()
     SetBasicAuthUsername(value *string)()
     SetBearerToken(value *string)()

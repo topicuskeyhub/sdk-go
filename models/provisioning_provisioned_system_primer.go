@@ -59,6 +59,8 @@ func CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue(parseNode i
                         return NewProvisioningProvisionedLDAPDirectory(), nil
                     case "provisioning.ProvisionedNamespace":
                         return NewProvisioningProvisionedNamespace(), nil
+                    case "provisioning.ProvisionedSCIM":
+                        return NewProvisioningProvisionedSCIM(), nil
                     case "provisioning.ProvisionedSystem":
                         return NewProvisioningProvisionedSystem(), nil
                 }

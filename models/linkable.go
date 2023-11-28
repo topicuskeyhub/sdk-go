@@ -144,6 +144,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProvisioningProvisionedLDAPDirectory(), nil
                     case "provisioning.ProvisionedNamespace":
                         return NewProvisioningProvisionedNamespace(), nil
+                    case "provisioning.ProvisionedSCIM":
+                        return NewProvisioningProvisionedSCIM(), nil
                     case "provisioning.ProvisionedSystem":
                         return NewProvisioningProvisionedSystem(), nil
                     case "provisioning.ProvisionedSystemPrimer":
