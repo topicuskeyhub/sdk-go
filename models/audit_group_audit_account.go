@@ -5,8 +5,8 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupAuditAccount 
-type GroupGroupAuditAccount struct {
+// AuditGroupAuditAccount 
+type AuditGroupAuditAccount struct {
     Linkable
     // The accountUuid property
     accountUuid *string
@@ -33,49 +33,49 @@ type GroupGroupAuditAccount struct {
     // The username property
     username *string
 }
-// NewGroupGroupAuditAccount instantiates a new groupGroupAuditAccount and sets the default values.
-func NewGroupGroupAuditAccount()(*GroupGroupAuditAccount) {
-    m := &GroupGroupAuditAccount{
+// NewAuditGroupAuditAccount instantiates a new auditGroupAuditAccount and sets the default values.
+func NewAuditGroupAuditAccount()(*AuditGroupAuditAccount) {
+    m := &AuditGroupAuditAccount{
         Linkable: *NewLinkable(),
     }
-    typeEscapedValue := "group.GroupAuditAccount"
+    typeEscapedValue := "audit.GroupAuditAccount"
     m.SetTypeEscaped(&typeEscapedValue)
     return m
 }
-// CreateGroupGroupAuditAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
-func CreateGroupGroupAuditAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewGroupGroupAuditAccount(), nil
+// CreateAuditGroupAuditAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+func CreateAuditGroupAuditAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+    return NewAuditGroupAuditAccount(), nil
 }
 // GetAccountUuid gets the accountUuid property value. The accountUuid property
-func (m *GroupGroupAuditAccount) GetAccountUuid()(*string) {
+func (m *AuditGroupAuditAccount) GetAccountUuid()(*string) {
     return m.accountUuid
 }
 // GetAccountValid gets the accountValid property value. The accountValid property
-func (m *GroupGroupAuditAccount) GetAccountValid()(*bool) {
+func (m *AuditGroupAuditAccount) GetAccountValid()(*bool) {
     return m.accountValid
 }
 // GetAction gets the action property value. The action property
-func (m *GroupGroupAuditAccount) GetAction()(*AuditAuditAccountAction) {
+func (m *AuditGroupAuditAccount) GetAction()(*AuditAuditAccountAction) {
     return m.action
 }
 // GetComment gets the comment property value. The comment property
-func (m *GroupGroupAuditAccount) GetComment()(*string) {
+func (m *AuditGroupAuditAccount) GetComment()(*string) {
     return m.comment
 }
 // GetDisconnectedNested gets the disconnectedNested property value. The disconnectedNested property
-func (m *GroupGroupAuditAccount) GetDisconnectedNested()(*bool) {
+func (m *AuditGroupAuditAccount) GetDisconnectedNested()(*bool) {
     return m.disconnectedNested
 }
 // GetDisplayName gets the displayName property value. The displayName property
-func (m *GroupGroupAuditAccount) GetDisplayName()(*string) {
+func (m *AuditGroupAuditAccount) GetDisplayName()(*string) {
     return m.displayName
 }
 // GetEndDate gets the endDate property value. The endDate property
-func (m *GroupGroupAuditAccount) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
+func (m *AuditGroupAuditAccount) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.endDate
 }
 // GetFieldDeserializers the deserialization information for the current model
-func (m *GroupGroupAuditAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
+func (m *AuditGroupAuditAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["accountUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
@@ -200,27 +200,27 @@ func (m *GroupGroupAuditAccount) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetLastActive gets the lastActive property value. The lastActive property
-func (m *GroupGroupAuditAccount) GetLastActive()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+func (m *AuditGroupAuditAccount) GetLastActive()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.lastActive
 }
 // GetLastUsed gets the lastUsed property value. The lastUsed property
-func (m *GroupGroupAuditAccount) GetLastUsed()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
+func (m *AuditGroupAuditAccount) GetLastUsed()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.lastUsed
 }
 // GetNested gets the nested property value. The nested property
-func (m *GroupGroupAuditAccount) GetNested()(*bool) {
+func (m *AuditGroupAuditAccount) GetNested()(*bool) {
     return m.nested
 }
 // GetRights gets the rights property value. The rights property
-func (m *GroupGroupAuditAccount) GetRights()(*GroupGroupRights) {
+func (m *AuditGroupAuditAccount) GetRights()(*GroupGroupRights) {
     return m.rights
 }
 // GetUsername gets the username property value. The username property
-func (m *GroupGroupAuditAccount) GetUsername()(*string) {
+func (m *AuditGroupAuditAccount) GetUsername()(*string) {
     return m.username
 }
 // Serialize serializes information the current object
-func (m *GroupGroupAuditAccount) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
+func (m *AuditGroupAuditAccount) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     err := m.Linkable.Serialize(writer)
     if err != nil {
         return err
@@ -254,55 +254,55 @@ func (m *GroupGroupAuditAccount) Serialize(writer i878a80d2330e89d26896388a3f487
     return nil
 }
 // SetAccountUuid sets the accountUuid property value. The accountUuid property
-func (m *GroupGroupAuditAccount) SetAccountUuid(value *string)() {
+func (m *AuditGroupAuditAccount) SetAccountUuid(value *string)() {
     m.accountUuid = value
 }
 // SetAccountValid sets the accountValid property value. The accountValid property
-func (m *GroupGroupAuditAccount) SetAccountValid(value *bool)() {
+func (m *AuditGroupAuditAccount) SetAccountValid(value *bool)() {
     m.accountValid = value
 }
 // SetAction sets the action property value. The action property
-func (m *GroupGroupAuditAccount) SetAction(value *AuditAuditAccountAction)() {
+func (m *AuditGroupAuditAccount) SetAction(value *AuditAuditAccountAction)() {
     m.action = value
 }
 // SetComment sets the comment property value. The comment property
-func (m *GroupGroupAuditAccount) SetComment(value *string)() {
+func (m *AuditGroupAuditAccount) SetComment(value *string)() {
     m.comment = value
 }
 // SetDisconnectedNested sets the disconnectedNested property value. The disconnectedNested property
-func (m *GroupGroupAuditAccount) SetDisconnectedNested(value *bool)() {
+func (m *AuditGroupAuditAccount) SetDisconnectedNested(value *bool)() {
     m.disconnectedNested = value
 }
 // SetDisplayName sets the displayName property value. The displayName property
-func (m *GroupGroupAuditAccount) SetDisplayName(value *string)() {
+func (m *AuditGroupAuditAccount) SetDisplayName(value *string)() {
     m.displayName = value
 }
 // SetEndDate sets the endDate property value. The endDate property
-func (m *GroupGroupAuditAccount) SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)() {
+func (m *AuditGroupAuditAccount) SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)() {
     m.endDate = value
 }
 // SetLastActive sets the lastActive property value. The lastActive property
-func (m *GroupGroupAuditAccount) SetLastActive(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
+func (m *AuditGroupAuditAccount) SetLastActive(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.lastActive = value
 }
 // SetLastUsed sets the lastUsed property value. The lastUsed property
-func (m *GroupGroupAuditAccount) SetLastUsed(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)() {
+func (m *AuditGroupAuditAccount) SetLastUsed(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)() {
     m.lastUsed = value
 }
 // SetNested sets the nested property value. The nested property
-func (m *GroupGroupAuditAccount) SetNested(value *bool)() {
+func (m *AuditGroupAuditAccount) SetNested(value *bool)() {
     m.nested = value
 }
 // SetRights sets the rights property value. The rights property
-func (m *GroupGroupAuditAccount) SetRights(value *GroupGroupRights)() {
+func (m *AuditGroupAuditAccount) SetRights(value *GroupGroupRights)() {
     m.rights = value
 }
 // SetUsername sets the username property value. The username property
-func (m *GroupGroupAuditAccount) SetUsername(value *string)() {
+func (m *AuditGroupAuditAccount) SetUsername(value *string)() {
     m.username = value
 }
-// GroupGroupAuditAccountable 
-type GroupGroupAuditAccountable interface {
+// AuditGroupAuditAccountable 
+type AuditGroupAuditAccountable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAccountUuid()(*string)

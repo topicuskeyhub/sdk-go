@@ -42,26 +42,26 @@ type DeletedvaultholderRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *DeletedvaultholderRequestBuilderGetQueryParameters
 }
-// ByDeletedvaultholderid gets an item from the github.com/topicuskeyhub/sdk-go.deletedvaultholder.item collection
+// ByDeletedvaultholderId gets an item from the github.com/topicuskeyhub/sdk-go.deletedvaultholder.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-func (m *DeletedvaultholderRequestBuilder) ByDeletedvaultholderid(deletedvaultholderid string)(*WithDeletedvaultholderItemRequestBuilder) {
+func (m *DeletedvaultholderRequestBuilder) ByDeletedvaultholderId(deletedvaultholderId string)(*DeletedvaultholderItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if deletedvaultholderid != "" {
-        urlTplParams["deletedvaultholderid"] = deletedvaultholderid
+    if deletedvaultholderId != "" {
+        urlTplParams["deletedvaultholder%2Did"] = deletedvaultholderId
     }
-    return NewWithDeletedvaultholderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewDeletedvaultholderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByDeletedvaultholderidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.deletedvaultholder.item collection
-func (m *DeletedvaultholderRequestBuilder) ByDeletedvaultholderidInt64(deletedvaultholderid int64)(*WithDeletedvaultholderItemRequestBuilder) {
+// ByDeletedvaultholderIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.deletedvaultholder.item collection
+func (m *DeletedvaultholderRequestBuilder) ByDeletedvaultholderIdInt64(deletedvaultholderId int64)(*DeletedvaultholderItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["deletedvaultholderid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(deletedvaultholderid, 10)
-    return NewWithDeletedvaultholderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["deletedvaultholder%2Did"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(deletedvaultholderId, 10)
+    return NewDeletedvaultholderItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewDeletedvaultholderRequestBuilderInternal instantiates a new DeletedvaultholderRequestBuilder and sets the default values.
 func NewDeletedvaultholderRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*DeletedvaultholderRequestBuilder) {
@@ -97,7 +97,7 @@ func (m *DeletedvaultholderRequestBuilder) Get(ctx context.Context, requestConfi
 }
 // ToGetRequestInformation query for all deletes vaults in Topicus KeyHub. The various query parameters can be used to filter the response.
 func (m *DeletedvaultholderRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *DeletedvaultholderRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -105,10 +105,7 @@ func (m *DeletedvaultholderRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
-    requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
-    requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=67")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=68")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

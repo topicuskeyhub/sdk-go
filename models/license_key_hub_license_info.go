@@ -16,8 +16,6 @@ type LicenseKeyHubLicenseInfo struct {
     customerContact *string
     // The customerDomains property
     customerDomains []string
-    // The details property
-    details []string
     // The expirationTime property
     expirationTime *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The features property
@@ -69,10 +67,6 @@ func (m *LicenseKeyHubLicenseInfo) GetCustomerContact()(*string) {
 // GetCustomerDomains gets the customerDomains property value. The customerDomains property
 func (m *LicenseKeyHubLicenseInfo) GetCustomerDomains()([]string) {
     return m.customerDomains
-}
-// GetDetails gets the details property value. The details property
-func (m *LicenseKeyHubLicenseInfo) GetDetails()([]string) {
-    return m.details
 }
 // GetExpirationTime gets the expirationTime property value. The expirationTime property
 func (m *LicenseKeyHubLicenseInfo) GetExpirationTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
@@ -128,22 +122,6 @@ func (m *LicenseKeyHubLicenseInfo) GetFieldDeserializers()(map[string]func(i878a
                 }
             }
             m.SetCustomerDomains(res)
-        }
-        return nil
-    }
-    res["details"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfPrimitiveValues("string")
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]string, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = *(v.(*string))
-                }
-            }
-            m.SetDetails(res)
         }
         return nil
     }
@@ -332,12 +310,6 @@ func (m *LicenseKeyHubLicenseInfo) Serialize(writer i878a80d2330e89d26896388a3f4
             return err
         }
     }
-    if m.GetDetails() != nil {
-        err = writer.WriteCollectionOfStringValues("details", m.GetDetails())
-        if err != nil {
-            return err
-        }
-    }
     {
         err = writer.WriteTimeValue("expirationTime", m.GetExpirationTime())
         if err != nil {
@@ -422,10 +394,6 @@ func (m *LicenseKeyHubLicenseInfo) SetCustomerContact(value *string)() {
 func (m *LicenseKeyHubLicenseInfo) SetCustomerDomains(value []string)() {
     m.customerDomains = value
 }
-// SetDetails sets the details property value. The details property
-func (m *LicenseKeyHubLicenseInfo) SetDetails(value []string)() {
-    m.details = value
-}
 // SetExpirationTime sets the expirationTime property value. The expirationTime property
 func (m *LicenseKeyHubLicenseInfo) SetExpirationTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.expirationTime = value
@@ -478,7 +446,6 @@ type LicenseKeyHubLicenseInfoable interface {
     GetCustomerCompany()(*string)
     GetCustomerContact()(*string)
     GetCustomerDomains()([]string)
-    GetDetails()([]string)
     GetExpirationTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetFeatures()([]LicenseLicenseFeature)
     GetIssueTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
@@ -494,7 +461,6 @@ type LicenseKeyHubLicenseInfoable interface {
     SetCustomerCompany(value *string)()
     SetCustomerContact(value *string)()
     SetCustomerDomains(value []string)()
-    SetDetails(value []string)()
     SetExpirationTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetFeatures(value []LicenseLicenseFeature)()
     SetIssueTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()

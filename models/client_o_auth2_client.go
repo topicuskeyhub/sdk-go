@@ -13,14 +13,14 @@ type ClientOAuth2Client struct {
     attributes ClientOAuth2Client_attributesable
     // The callbackURI property
     callbackURI *string
-    // The confidential property
-    confidential *bool
     // The debugMode property
     debugMode *bool
     // The idTokenClaims property
     idTokenClaims *string
     // The initiateLoginURI property
     initiateLoginURI *string
+    // The profile property
+    profile *ClientOAuth2ClientProfile
     // The resourceURIs property
     resourceURIs *string
     // The sharedSecret property
@@ -56,10 +56,6 @@ func (m *ClientOAuth2Client) GetAttributes()(ClientOAuth2Client_attributesable) 
 // GetCallbackURI gets the callbackURI property value. The callbackURI property
 func (m *ClientOAuth2Client) GetCallbackURI()(*string) {
     return m.callbackURI
-}
-// GetConfidential gets the confidential property value. The confidential property
-func (m *ClientOAuth2Client) GetConfidential()(*bool) {
-    return m.confidential
 }
 // GetDebugMode gets the debugMode property value. The debugMode property
 func (m *ClientOAuth2Client) GetDebugMode()(*bool) {
@@ -104,16 +100,6 @@ func (m *ClientOAuth2Client) GetFieldDeserializers()(map[string]func(i878a80d233
         }
         return nil
     }
-    res["confidential"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetConfidential(val)
-        }
-        return nil
-    }
     res["debugMode"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -141,6 +127,16 @@ func (m *ClientOAuth2Client) GetFieldDeserializers()(map[string]func(i878a80d233
         }
         if val != nil {
             m.SetInitiateLoginURI(val)
+        }
+        return nil
+    }
+    res["profile"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetEnumValue(ParseClientOAuth2ClientProfile)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetProfile(val.(*ClientOAuth2ClientProfile))
         }
         return nil
     }
@@ -204,6 +200,10 @@ func (m *ClientOAuth2Client) GetIdTokenClaims()(*string) {
 func (m *ClientOAuth2Client) GetInitiateLoginURI()(*string) {
     return m.initiateLoginURI
 }
+// GetProfile gets the profile property value. The profile property
+func (m *ClientOAuth2Client) GetProfile()(*ClientOAuth2ClientProfile) {
+    return m.profile
+}
 // GetResourceURIs gets the resourceURIs property value. The resourceURIs property
 func (m *ClientOAuth2Client) GetResourceURIs()(*string) {
     return m.resourceURIs
@@ -243,12 +243,6 @@ func (m *ClientOAuth2Client) Serialize(writer i878a80d2330e89d26896388a3f487eef2
         }
     }
     {
-        err = writer.WriteBoolValue("confidential", m.GetConfidential())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err = writer.WriteBoolValue("debugMode", m.GetDebugMode())
         if err != nil {
             return err
@@ -262,6 +256,13 @@ func (m *ClientOAuth2Client) Serialize(writer i878a80d2330e89d26896388a3f487eef2
     }
     {
         err = writer.WriteStringValue("initiateLoginURI", m.GetInitiateLoginURI())
+        if err != nil {
+            return err
+        }
+    }
+    if m.GetProfile() != nil {
+        cast := (*m.GetProfile()).String()
+        err = writer.WriteStringValue("profile", &cast)
         if err != nil {
             return err
         }
@@ -310,10 +311,6 @@ func (m *ClientOAuth2Client) SetAttributes(value ClientOAuth2Client_attributesab
 func (m *ClientOAuth2Client) SetCallbackURI(value *string)() {
     m.callbackURI = value
 }
-// SetConfidential sets the confidential property value. The confidential property
-func (m *ClientOAuth2Client) SetConfidential(value *bool)() {
-    m.confidential = value
-}
 // SetDebugMode sets the debugMode property value. The debugMode property
 func (m *ClientOAuth2Client) SetDebugMode(value *bool)() {
     m.debugMode = value
@@ -325,6 +322,10 @@ func (m *ClientOAuth2Client) SetIdTokenClaims(value *string)() {
 // SetInitiateLoginURI sets the initiateLoginURI property value. The initiateLoginURI property
 func (m *ClientOAuth2Client) SetInitiateLoginURI(value *string)() {
     m.initiateLoginURI = value
+}
+// SetProfile sets the profile property value. The profile property
+func (m *ClientOAuth2Client) SetProfile(value *ClientOAuth2ClientProfile)() {
+    m.profile = value
 }
 // SetResourceURIs sets the resourceURIs property value. The resourceURIs property
 func (m *ClientOAuth2Client) SetResourceURIs(value *string)() {
@@ -353,10 +354,10 @@ type ClientOAuth2Clientable interface {
     GetAccountPermissions()([]AuthPermissionable)
     GetAttributes()(ClientOAuth2Client_attributesable)
     GetCallbackURI()(*string)
-    GetConfidential()(*bool)
     GetDebugMode()(*bool)
     GetIdTokenClaims()(*string)
     GetInitiateLoginURI()(*string)
+    GetProfile()(*ClientOAuth2ClientProfile)
     GetResourceURIs()(*string)
     GetSharedSecret()(VaultVaultRecordPrimerable)
     GetShareSecretInVault()(*bool)
@@ -365,10 +366,10 @@ type ClientOAuth2Clientable interface {
     SetAccountPermissions(value []AuthPermissionable)()
     SetAttributes(value ClientOAuth2Client_attributesable)()
     SetCallbackURI(value *string)()
-    SetConfidential(value *bool)()
     SetDebugMode(value *bool)()
     SetIdTokenClaims(value *string)()
     SetInitiateLoginURI(value *string)()
+    SetProfile(value *ClientOAuth2ClientProfile)()
     SetResourceURIs(value *string)()
     SetSharedSecret(value VaultVaultRecordPrimerable)()
     SetShareSecretInVault(value *bool)()

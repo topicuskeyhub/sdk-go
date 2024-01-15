@@ -51,7 +51,7 @@ type GroupGroup_additionalObjects struct {
     // The ownedSystems property
     ownedSystems ProvisioningProvisionedSystemLinkableWrapperable
     // The recentAudits property
-    recentAudits GroupGroupAuditLinkableWrapperable
+    recentAudits AuditGroupAuditLinkableWrapperable
     // The requeststatus property
     requeststatus *GroupGroupRequestStatus
     // The serviceAccounts property
@@ -328,12 +328,12 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i
         return nil
     }
     res["recentAudits"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupAuditLinkableWrapperFromDiscriminatorValue)
+        val, err := n.GetObjectValue(CreateAuditGroupAuditLinkableWrapperFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetRecentAudits(val.(GroupGroupAuditLinkableWrapperable))
+            m.SetRecentAudits(val.(AuditGroupAuditLinkableWrapperable))
         }
         return nil
     }
@@ -438,7 +438,7 @@ func (m *GroupGroup_additionalObjects) GetOwnedSystems()(ProvisioningProvisioned
     return m.ownedSystems
 }
 // GetRecentAudits gets the recentAudits property value. The recentAudits property
-func (m *GroupGroup_additionalObjects) GetRecentAudits()(GroupGroupAuditLinkableWrapperable) {
+func (m *GroupGroup_additionalObjects) GetRecentAudits()(AuditGroupAuditLinkableWrapperable) {
     return m.recentAudits
 }
 // GetRequeststatus gets the requeststatus property value. The requeststatus property
@@ -723,7 +723,7 @@ func (m *GroupGroup_additionalObjects) SetOwnedSystems(value ProvisioningProvisi
     m.ownedSystems = value
 }
 // SetRecentAudits sets the recentAudits property value. The recentAudits property
-func (m *GroupGroup_additionalObjects) SetRecentAudits(value GroupGroupAuditLinkableWrapperable)() {
+func (m *GroupGroup_additionalObjects) SetRecentAudits(value AuditGroupAuditLinkableWrapperable)() {
     m.recentAudits = value
 }
 // SetRequeststatus sets the requeststatus property value. The requeststatus property
@@ -771,7 +771,7 @@ type GroupGroup_additionalObjectsable interface {
     GetOwnedGroupsOnSystem()(ProvisioningOwnedGroupOnSystemsWrapperable)
     GetOwnedOrganizationalUnits()(OrganizationOrganizationalUnitLinkableWrapperable)
     GetOwnedSystems()(ProvisioningProvisionedSystemLinkableWrapperable)
-    GetRecentAudits()(GroupGroupAuditLinkableWrapperable)
+    GetRecentAudits()(AuditGroupAuditLinkableWrapperable)
     GetRequeststatus()(*GroupGroupRequestStatus)
     GetServiceAccounts()(ServiceaccountServiceAccountLinkableWrapperable)
     GetSystems()(GroupProvisioningGroupLinkableWrapperable)
@@ -798,7 +798,7 @@ type GroupGroup_additionalObjectsable interface {
     SetOwnedGroupsOnSystem(value ProvisioningOwnedGroupOnSystemsWrapperable)()
     SetOwnedOrganizationalUnits(value OrganizationOrganizationalUnitLinkableWrapperable)()
     SetOwnedSystems(value ProvisioningProvisionedSystemLinkableWrapperable)()
-    SetRecentAudits(value GroupGroupAuditLinkableWrapperable)()
+    SetRecentAudits(value AuditGroupAuditLinkableWrapperable)()
     SetRequeststatus(value *GroupGroupRequestStatus)()
     SetServiceAccounts(value ServiceaccountServiceAccountLinkableWrapperable)()
     SetSystems(value GroupProvisioningGroupLinkableWrapperable)()

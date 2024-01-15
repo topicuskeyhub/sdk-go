@@ -38,6 +38,12 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                 switch *mappingValue {
                     case "audit.AuditRecord":
                         return NewAuditAuditRecord(), nil
+                    case "audit.GroupAudit":
+                        return NewAuditGroupAudit(), nil
+                    case "audit.GroupAuditAccount":
+                        return NewAuditGroupAuditAccount(), nil
+                    case "audit.NestedGroupAudit":
+                        return NewAuditNestedGroupAudit(), nil
                     case "auth.Account":
                         return NewAuthAccount(), nil
                     case "auth.AccountPrimer":
@@ -82,10 +88,6 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewGroupGroup(), nil
                     case "group.GroupAccount":
                         return NewGroupGroupAccount(), nil
-                    case "group.GroupAudit":
-                        return NewGroupGroupAudit(), nil
-                    case "group.GroupAuditAccount":
-                        return NewGroupGroupAuditAccount(), nil
                     case "group.GroupAuditConfig":
                         return NewGroupGroupAuditConfig(), nil
                     case "group.GroupClassification":

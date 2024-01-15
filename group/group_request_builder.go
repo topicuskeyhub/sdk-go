@@ -100,10 +100,12 @@ type GroupRequestBuilderGetQueryParameters struct {
     NameOrDescriptionContains []string `uriparametername:"nameOrDescriptionContains"`
     // Filter groups on the start of the name.
     NameStartsWith []string `uriparametername:"nameStartsWith"`
-    // Only return groups that are, or are not, nested under another group
+    // Only return groups that are, or are not, nested under another group.
     NestedGroup []bool `uriparametername:"nestedGroup"`
-    // Only return groups that are nested under the given groups
+    // Only return groups that are nested under the given groups, specified by id. This parameter supports composition with all parameters from the group resource.
     NestedUnder []int64 `uriparametername:"nestedUnder"`
+    // Only return groups that are not nested under the given groups, specified by id. This parameter supports composition with all parameters from the group resource.
+    NotNestedUnder []int64 `uriparametername:"notNestedUnder"`
     // Only return groups that have at least the given number of members.
     NumberOfAccountsGreaterOrEqual []int64 `uriparametername:"numberOfAccountsGreaterOrEqual"`
     // Filter groups on organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
@@ -190,7 +192,7 @@ func (m *GroupRequestBuilder) ByGroupidInt64(groupid int64)(*WithGroupItemReques
 // NewGroupRequestBuilderInternal instantiates a new GroupRequestBuilder and sets the default values.
 func NewGroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupRequestBuilder) {
     m := &GroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,accessModifiedSince*,accessQuicksearch*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditor*,auditsReviewedBy*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,groupAuditConfig*,hasAnyAuthorizingGroupSet*,hasAuditing*,hasClients*,hasMoreThanOneManager*,hasSystems*,hasVault*,hasWebhooks*,isManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,privateGroup*,provisioningAuthorizedBy*,rotatingPasswordRequired*,singleManaged*,uuid*,vault*,vaultRecovery*,visibility*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,accessModifiedSince*,accessQuicksearch*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditor*,auditsReviewedBy*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,groupAuditConfig*,hasAnyAuthorizingGroupSet*,hasAuditing*,hasClients*,hasMoreThanOneManager*,hasSystems*,hasVault*,hasWebhooks*,isManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,privateGroup*,provisioningAuthorizedBy*,rotatingPasswordRequired*,singleManaged*,uuid*,vault*,vaultRecovery*,visibility*}", pathParameters),
     }
     return m
 }
@@ -248,7 +250,7 @@ func (m *GroupRequestBuilder) Segments()(*SegmentsRequestBuilder) {
 }
 // ToGetRequestInformation query for all groups in Topicus KeyHub. The various query parameters can be used to filter the response.
 func (m *GroupRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *GroupRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -256,15 +258,12 @@ func (m *GroupRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
-    requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
-    requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=67")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=68")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new groups and returns the newly created groups. It is required to specify the first admin via the admins additional object.
 func (m *GroupRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupLinkableWrapperable, requestConfiguration *GroupRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -272,11 +271,8 @@ func (m *GroupRequestBuilder) ToPostRequestInformation(ctx context.Context, body
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
-    requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
-    requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=67")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=67", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=68")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=68", body)
     if err != nil {
         return nil, err
     }

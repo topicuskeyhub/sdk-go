@@ -81,12 +81,6 @@ func (m *GeneratedSecret) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0
         return err
     }
     {
-        err = writer.WriteStringValue("generatedSecret", m.GetGeneratedSecret())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err = writer.WriteStringValue("oldSecret", m.GetOldSecret())
         if err != nil {
             return err

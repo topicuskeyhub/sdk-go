@@ -42,6 +42,8 @@ type ServiceaccountRequestBuilderGetQueryParameters struct {
     NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
     // Only return service accounts for which the name starts with the given prefix.
     NameStartsWith []string `uriparametername:"nameStartsWith"`
+    // Filter service accounts on their  organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
+    OrganizationalUnitForEnforcement []int64 `uriparametername:"organizationalUnitForEnforcement"`
     // Filter the service accounts by the password shared in the vault, specified by id. This parameter supports composition with all parameters from the vault record resource.
     Password []int64 `uriparametername:"password"`
     // Only return service accounts with the given password rotation scheme.
@@ -110,7 +112,7 @@ func (m *ServiceaccountRequestBuilder) ByServiceaccountidInt64(serviceaccountid 
 // NewServiceaccountRequestBuilderInternal instantiates a new ServiceaccountRequestBuilder and sets the default values.
 func NewServiceaccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ServiceaccountRequestBuilder) {
     m := &ServiceaccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/serviceaccount{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,active*,groupOnSystem*,groupOnSystemOwners*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,password*,passwordRotation*,requestedGroupOnSystemOwners*,system*,technicalAdministrator*,username*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/serviceaccount{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,active*,groupOnSystem*,groupOnSystemOwners*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,organizationalUnitForEnforcement*,password*,passwordRotation*,requestedGroupOnSystemOwners*,system*,technicalAdministrator*,username*,uuid*}", pathParameters),
     }
     return m
 }
@@ -168,7 +170,7 @@ func (m *ServiceaccountRequestBuilder) Post(ctx context.Context, body ie2969523f
 }
 // ToGetRequestInformation query for all service accounts in Topicus KeyHub. The various query parameters can be used to filter the response.
 func (m *ServiceaccountRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ServiceaccountRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -176,15 +178,12 @@ func (m *ServiceaccountRequestBuilder) ToGetRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
-    requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
-    requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=67")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=68")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new service accounts and returns the newly created service accounts.
 func (m *ServiceaccountRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountLinkableWrapperable, requestConfiguration *ServiceaccountRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformation()
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -192,11 +191,8 @@ func (m *ServiceaccountRequestBuilder) ToPostRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.UrlTemplate = m.BaseRequestBuilder.UrlTemplate
-    requestInfo.PathParameters = m.BaseRequestBuilder.PathParameters
-    requestInfo.Method = i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=67")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=67", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=68")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=68", body)
     if err != nil {
         return nil, err
     }
