@@ -176,60 +176,6 @@ func (m *VaultPasswordMetadata) Serialize(writer i878a80d2330e89d26896388a3f487e
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteBoolValue("dictionary", m.GetDictionary())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("duplicate", m.GetDuplicate())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("hash", m.GetHash())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("length", m.GetLength())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("lowerCount", m.GetLowerCount())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("numberCount", m.GetNumberCount())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("specialCount", m.GetSpecialCount())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("strength", m.GetStrength())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("upperCount", m.GetUpperCount())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetDictionary sets the dictionary property value. The dictionary property

@@ -160,54 +160,6 @@ func (m *GroupGroupAuditingInfo) Serialize(writer i878a80d2330e89d26896388a3f487
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteDateOnlyValue("auditDueDate", m.GetAuditDueDate())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteDateOnlyValue("lastAuditDate", m.GetLastAuditDate())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("nrAccounts", m.GetNrAccounts())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("nrDisabledAccounts", m.GetNrDisabledAccounts())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("nrDisabledManagers", m.GetNrDisabledManagers())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("nrExpiredVaultRecords", m.GetNrExpiredVaultRecords())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("nrManagers", m.GetNrManagers())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("nrVaultRecordsWithEndDate", m.GetNrVaultRecordsWithEndDate())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetAuditDueDate sets the auditDueDate property value. The auditDueDate property

@@ -80,24 +80,6 @@ func (m *ProvisioningProvisioningManagementPermissions) Serialize(writer i878a80
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteBoolValue("createNewGroupsAllowed", m.GetCreateNewGroupsAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("createServiceAccountsAllowed", m.GetCreateServiceAccountsAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("reuseExistingGroupsAllowed", m.GetReuseExistingGroupsAllowed())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetCreateNewGroupsAllowed sets the createNewGroupsAllowed property value. The createNewGroupsAllowed property

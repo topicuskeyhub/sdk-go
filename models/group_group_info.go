@@ -128,42 +128,6 @@ func (m *GroupGroupInfo) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteInt32Value("nrAccounts", m.GetNrAccounts())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("nrAccountsWithVault", m.GetNrAccountsWithVault())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("nrAudits", m.GetNrAudits())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("nrClients", m.GetNrClients())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("nrProvisionedSystems", m.GetNrProvisionedSystems())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("nrVaultRecords", m.GetNrVaultRecords())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetNrAccounts sets the nrAccounts property value. The nrAccounts property

@@ -46,12 +46,6 @@ func (m *GroupAuthorizedGroupsWrapper) Serialize(writer i878a80d2330e89d26896388
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteInt64Value("groupCount", m.GetGroupCount())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetGroupCount sets the groupCount property value. The groupCount property

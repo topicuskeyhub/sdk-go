@@ -97,30 +97,6 @@ func (m *AuditInfo) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c0
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteTimeValue("createdAt", m.GetCreatedAt())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("createdBy", m.GetCreatedBy())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteTimeValue("lastModifiedAt", m.GetLastModifiedAt())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("lastModifiedBy", m.GetLastModifiedBy())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetCreatedAt sets the createdAt property value. The createdAt property

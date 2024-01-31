@@ -119,7 +119,7 @@ func (m *WithGroupclassificationItemRequestBuilder) ToDeleteRequestInformation(c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=68")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the group classification identified by the id.
@@ -132,7 +132,7 @@ func (m *WithGroupclassificationItemRequestBuilder) ToGetRequestInformation(ctx 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=68")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the group classification identified by the id.
@@ -145,8 +145,8 @@ func (m *WithGroupclassificationItemRequestBuilder) ToPutRequestInformation(ctx 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=68")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=68", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=69", body)
     if err != nil {
         return nil, err
     }

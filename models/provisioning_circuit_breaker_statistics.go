@@ -96,24 +96,6 @@ func (m *ProvisioningCircuitBreakerStatistics) Serialize(writer i878a80d2330e89d
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteInt64Value("numberOfFailedCalls", m.GetNumberOfFailedCalls())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("numberOfNotPermittedCalls", m.GetNumberOfNotPermittedCalls())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("numberOfSuccessfulCalls", m.GetNumberOfSuccessfulCalls())
-        if err != nil {
-            return err
-        }
-    }
     if m.GetState() != nil {
         cast := (*m.GetState()).String()
         err = writer.WriteStringValue("state", &cast)

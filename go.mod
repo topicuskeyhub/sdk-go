@@ -4,8 +4,8 @@ go 1.20
 
 require (
 	github.com/coreos/go-oidc/v3 v3.9.0
-	github.com/google/uuid v1.5.0
-	github.com/microsoft/kiota-abstractions-go v1.5.3
+	github.com/google/uuid v1.6.0
+	github.com/microsoft/kiota-abstractions-go v1.5.6
 	github.com/microsoft/kiota-serialization-json-go v1.0.5
 	golang.org/x/oauth2 v0.16.0
 )
@@ -23,8 +23,8 @@ require (
 	github.com/cjlapao/common-go v0.0.39 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/microsoft/kiota-http-go v1.1.1
-	go.opentelemetry.io/otel v1.21.0 // indirect
-	go.opentelemetry.io/otel/metric v1.21.0 // indirect
-	go.opentelemetry.io/otel/trace v1.21.0 // indirect
+	github.com/microsoft/kiota-http-go v1.3.0
+	go.opentelemetry.io/otel v1.22.0 // indirect
+	go.opentelemetry.io/otel/metric v1.22.0 // indirect
+	go.opentelemetry.io/otel/trace v1.22.0 // indirect
 )

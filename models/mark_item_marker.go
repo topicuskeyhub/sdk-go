@@ -94,12 +94,6 @@ func (m *MarkItemMarker) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a
             return err
         }
     }
-    {
-        err = writer.WriteObjectValue("parameters", m.GetParameters())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetLevel sets the level property value. The level property

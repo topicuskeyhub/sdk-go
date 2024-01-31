@@ -80,18 +80,6 @@ func (m *DirectoryAccountDirectoryStatusReport) Serialize(writer i878a80d2330e89
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteInt64Value("accounts", m.GetAccounts())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("reason", m.GetReason())
-        if err != nil {
-            return err
-        }
-    }
     if m.GetStatus() != nil {
         cast := (*m.GetStatus()).String()
         err = writer.WriteStringValue("status", &cast)

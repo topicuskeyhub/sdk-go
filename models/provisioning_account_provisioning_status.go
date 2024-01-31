@@ -9,10 +9,12 @@ type ProvisioningAccountProvisioningStatus struct {
     NonLinkable
     // The description property
     description *string
+    // The provisionedSystem property
+    provisionedSystem ProvisioningProvisionedSystemPrimerable
+    // The provisioningGroup property
+    provisioningGroup GroupProvisioningGroupable
     // The result property
     result *ProvisioningAccountProvisioningResult
-    // The system property
-    system GroupProvisioningGroupable
 }
 // NewProvisioningAccountProvisioningStatus instantiates a new provisioningAccountProvisioningStatus and sets the default values.
 func NewProvisioningAccountProvisioningStatus()(*ProvisioningAccountProvisioningStatus) {
@@ -44,6 +46,26 @@ func (m *ProvisioningAccountProvisioningStatus) GetFieldDeserializers()(map[stri
         }
         return nil
     }
+    res["provisionedSystem"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetProvisionedSystem(val.(ProvisioningProvisionedSystemPrimerable))
+        }
+        return nil
+    }
+    res["provisioningGroup"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateGroupProvisioningGroupFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetProvisioningGroup(val.(GroupProvisioningGroupable))
+        }
+        return nil
+    }
     res["result"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetEnumValue(ParseProvisioningAccountProvisioningResult)
         if err != nil {
@@ -54,25 +76,19 @@ func (m *ProvisioningAccountProvisioningStatus) GetFieldDeserializers()(map[stri
         }
         return nil
     }
-    res["system"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupProvisioningGroupFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSystem(val.(GroupProvisioningGroupable))
-        }
-        return nil
-    }
     return res
+}
+// GetProvisionedSystem gets the provisionedSystem property value. The provisionedSystem property
+func (m *ProvisioningAccountProvisioningStatus) GetProvisionedSystem()(ProvisioningProvisionedSystemPrimerable) {
+    return m.provisionedSystem
+}
+// GetProvisioningGroup gets the provisioningGroup property value. The provisioningGroup property
+func (m *ProvisioningAccountProvisioningStatus) GetProvisioningGroup()(GroupProvisioningGroupable) {
+    return m.provisioningGroup
 }
 // GetResult gets the result property value. The result property
 func (m *ProvisioningAccountProvisioningStatus) GetResult()(*ProvisioningAccountProvisioningResult) {
     return m.result
-}
-// GetSystem gets the system property value. The system property
-func (m *ProvisioningAccountProvisioningStatus) GetSystem()(GroupProvisioningGroupable) {
-    return m.system
 }
 // Serialize serializes information the current object
 func (m *ProvisioningAccountProvisioningStatus) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -86,15 +102,21 @@ func (m *ProvisioningAccountProvisioningStatus) Serialize(writer i878a80d2330e89
             return err
         }
     }
-    if m.GetResult() != nil {
-        cast := (*m.GetResult()).String()
-        err = writer.WriteStringValue("result", &cast)
+    {
+        err = writer.WriteObjectValue("provisionedSystem", m.GetProvisionedSystem())
         if err != nil {
             return err
         }
     }
     {
-        err = writer.WriteObjectValue("system", m.GetSystem())
+        err = writer.WriteObjectValue("provisioningGroup", m.GetProvisioningGroup())
+        if err != nil {
+            return err
+        }
+    }
+    if m.GetResult() != nil {
+        cast := (*m.GetResult()).String()
+        err = writer.WriteStringValue("result", &cast)
         if err != nil {
             return err
         }
@@ -105,22 +127,28 @@ func (m *ProvisioningAccountProvisioningStatus) Serialize(writer i878a80d2330e89
 func (m *ProvisioningAccountProvisioningStatus) SetDescription(value *string)() {
     m.description = value
 }
+// SetProvisionedSystem sets the provisionedSystem property value. The provisionedSystem property
+func (m *ProvisioningAccountProvisioningStatus) SetProvisionedSystem(value ProvisioningProvisionedSystemPrimerable)() {
+    m.provisionedSystem = value
+}
+// SetProvisioningGroup sets the provisioningGroup property value. The provisioningGroup property
+func (m *ProvisioningAccountProvisioningStatus) SetProvisioningGroup(value GroupProvisioningGroupable)() {
+    m.provisioningGroup = value
+}
 // SetResult sets the result property value. The result property
 func (m *ProvisioningAccountProvisioningStatus) SetResult(value *ProvisioningAccountProvisioningResult)() {
     m.result = value
-}
-// SetSystem sets the system property value. The system property
-func (m *ProvisioningAccountProvisioningStatus) SetSystem(value GroupProvisioningGroupable)() {
-    m.system = value
 }
 // ProvisioningAccountProvisioningStatusable 
 type ProvisioningAccountProvisioningStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetDescription()(*string)
+    GetProvisionedSystem()(ProvisioningProvisionedSystemPrimerable)
+    GetProvisioningGroup()(GroupProvisioningGroupable)
     GetResult()(*ProvisioningAccountProvisioningResult)
-    GetSystem()(GroupProvisioningGroupable)
     SetDescription(value *string)()
+    SetProvisionedSystem(value ProvisioningProvisionedSystemPrimerable)()
+    SetProvisioningGroup(value GroupProvisioningGroupable)()
     SetResult(value *ProvisioningAccountProvisioningResult)()
-    SetSystem(value GroupProvisioningGroupable)()
 }

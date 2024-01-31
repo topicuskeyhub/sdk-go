@@ -46,12 +46,6 @@ func (m *ProvisioningOwnedGroupOnSystemsWrapper) Serialize(writer i878a80d2330e8
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteInt64Value("unlinkedCount", m.GetUnlinkedCount())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetUnlinkedCount sets the unlinkedCount property value. The unlinkedCount property
