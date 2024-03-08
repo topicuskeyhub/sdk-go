@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningAccountProvisioningStatus 
 type ProvisioningAccountProvisioningStatus struct {
     NonLinkable
     // The description property
@@ -16,7 +15,7 @@ type ProvisioningAccountProvisioningStatus struct {
     // The result property
     result *ProvisioningAccountProvisioningResult
 }
-// NewProvisioningAccountProvisioningStatus instantiates a new provisioningAccountProvisioningStatus and sets the default values.
+// NewProvisioningAccountProvisioningStatus instantiates a new ProvisioningAccountProvisioningStatus and sets the default values.
 func NewProvisioningAccountProvisioningStatus()(*ProvisioningAccountProvisioningStatus) {
     m := &ProvisioningAccountProvisioningStatus{
         NonLinkable: *NewNonLinkable(),
@@ -26,14 +25,17 @@ func NewProvisioningAccountProvisioningStatus()(*ProvisioningAccountProvisioning
     return m
 }
 // CreateProvisioningAccountProvisioningStatusFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningAccountProvisioningStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningAccountProvisioningStatus(), nil
 }
 // GetDescription gets the description property value. The description property
+// returns a *string when successful
 func (m *ProvisioningAccountProvisioningStatus) GetDescription()(*string) {
     return m.description
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningAccountProvisioningStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["description"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -79,14 +81,17 @@ func (m *ProvisioningAccountProvisioningStatus) GetFieldDeserializers()(map[stri
     return res
 }
 // GetProvisionedSystem gets the provisionedSystem property value. The provisionedSystem property
+// returns a ProvisioningProvisionedSystemPrimerable when successful
 func (m *ProvisioningAccountProvisioningStatus) GetProvisionedSystem()(ProvisioningProvisionedSystemPrimerable) {
     return m.provisionedSystem
 }
 // GetProvisioningGroup gets the provisioningGroup property value. The provisioningGroup property
+// returns a GroupProvisioningGroupable when successful
 func (m *ProvisioningAccountProvisioningStatus) GetProvisioningGroup()(GroupProvisioningGroupable) {
     return m.provisioningGroup
 }
 // GetResult gets the result property value. The result property
+// returns a *ProvisioningAccountProvisioningResult when successful
 func (m *ProvisioningAccountProvisioningStatus) GetResult()(*ProvisioningAccountProvisioningResult) {
     return m.result
 }
@@ -139,7 +144,6 @@ func (m *ProvisioningAccountProvisioningStatus) SetProvisioningGroup(value Group
 func (m *ProvisioningAccountProvisioningStatus) SetResult(value *ProvisioningAccountProvisioningResult)() {
     m.result = value
 }
-// ProvisioningAccountProvisioningStatusable 
 type ProvisioningAccountProvisioningStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestAbstractApplicationModificationRequest 
 type RequestAbstractApplicationModificationRequest struct {
     RequestModificationRequest
     // The application property
     application ClientClientApplicationPrimerable
 }
-// NewRequestAbstractApplicationModificationRequest instantiates a new requestAbstractApplicationModificationRequest and sets the default values.
+// NewRequestAbstractApplicationModificationRequest instantiates a new RequestAbstractApplicationModificationRequest and sets the default values.
 func NewRequestAbstractApplicationModificationRequest()(*RequestAbstractApplicationModificationRequest) {
     m := &RequestAbstractApplicationModificationRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -20,6 +19,7 @@ func NewRequestAbstractApplicationModificationRequest()(*RequestAbstractApplicat
     return m
 }
 // CreateRequestAbstractApplicationModificationRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestAbstractApplicationModificationRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -48,10 +48,12 @@ func CreateRequestAbstractApplicationModificationRequestFromDiscriminatorValue(p
     return NewRequestAbstractApplicationModificationRequest(), nil
 }
 // GetApplication gets the application property value. The application property
+// returns a ClientClientApplicationPrimerable when successful
 func (m *RequestAbstractApplicationModificationRequest) GetApplication()(ClientClientApplicationPrimerable) {
     return m.application
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestAbstractApplicationModificationRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["application"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -84,7 +86,6 @@ func (m *RequestAbstractApplicationModificationRequest) Serialize(writer i878a80
 func (m *RequestAbstractApplicationModificationRequest) SetApplication(value ClientClientApplicationPrimerable)() {
     m.application = value
 }
-// RequestAbstractApplicationModificationRequestable 
 type RequestAbstractApplicationModificationRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

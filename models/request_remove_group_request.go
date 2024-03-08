@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestRemoveGroupRequest 
 type RequestRemoveGroupRequest struct {
     RequestModificationRequest
     // The groupName property
     groupName *string
 }
-// NewRequestRemoveGroupRequest instantiates a new requestRemoveGroupRequest and sets the default values.
+// NewRequestRemoveGroupRequest instantiates a new RequestRemoveGroupRequest and sets the default values.
 func NewRequestRemoveGroupRequest()(*RequestRemoveGroupRequest) {
     m := &RequestRemoveGroupRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -20,10 +19,12 @@ func NewRequestRemoveGroupRequest()(*RequestRemoveGroupRequest) {
     return m
 }
 // CreateRequestRemoveGroupRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestRemoveGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestRemoveGroupRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestRemoveGroupRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["groupName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -39,6 +40,7 @@ func (m *RequestRemoveGroupRequest) GetFieldDeserializers()(map[string]func(i878
     return res
 }
 // GetGroupName gets the groupName property value. The groupName property
+// returns a *string when successful
 func (m *RequestRemoveGroupRequest) GetGroupName()(*string) {
     return m.groupName
 }
@@ -60,7 +62,6 @@ func (m *RequestRemoveGroupRequest) Serialize(writer i878a80d2330e89d26896388a3f
 func (m *RequestRemoveGroupRequest) SetGroupName(value *string)() {
     m.groupName = value
 }
-// RequestRemoveGroupRequestable 
 type RequestRemoveGroupRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

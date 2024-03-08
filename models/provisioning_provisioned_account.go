@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedAccount 
 type ProvisioningProvisionedAccount struct {
     AuthAccountPrimer
     // The additionalObjects property
@@ -12,7 +11,7 @@ type ProvisioningProvisionedAccount struct {
     // The uid property
     uid *int64
 }
-// NewProvisioningProvisionedAccount instantiates a new provisioningProvisionedAccount and sets the default values.
+// NewProvisioningProvisionedAccount instantiates a new ProvisioningProvisionedAccount and sets the default values.
 func NewProvisioningProvisionedAccount()(*ProvisioningProvisionedAccount) {
     m := &ProvisioningProvisionedAccount{
         AuthAccountPrimer: *NewAuthAccountPrimer(),
@@ -22,14 +21,17 @@ func NewProvisioningProvisionedAccount()(*ProvisioningProvisionedAccount) {
     return m
 }
 // CreateProvisioningProvisionedAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedAccount(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a ProvisioningProvisionedAccount_additionalObjectsable when successful
 func (m *ProvisioningProvisionedAccount) GetAdditionalObjects()(ProvisioningProvisionedAccount_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.AuthAccountPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -55,6 +57,7 @@ func (m *ProvisioningProvisionedAccount) GetFieldDeserializers()(map[string]func
     return res
 }
 // GetUid gets the uid property value. The uid property
+// returns a *int64 when successful
 func (m *ProvisioningProvisionedAccount) GetUid()(*int64) {
     return m.uid
 }
@@ -80,7 +83,6 @@ func (m *ProvisioningProvisionedAccount) SetAdditionalObjects(value Provisioning
 func (m *ProvisioningProvisionedAccount) SetUid(value *int64)() {
     m.uid = value
 }
-// ProvisioningProvisionedAccountable 
 type ProvisioningProvisionedAccountable interface {
     AuthAccountPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

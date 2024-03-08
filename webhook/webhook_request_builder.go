@@ -17,9 +17,15 @@ type WebhookRequestBuilderGetQueryParameters struct {
     // Filter webhooks on the given accounts, specified by id.
     Account []int64 `uriparametername:"account"`
     // Only return active or inactive webhooks.
+    // Deprecated: This property is deprecated, use ActiveAsBooleanEnum instead
     Active []string `uriparametername:"active"`
+    // Only return active or inactive webhooks.
+    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum `uriparametername:"active"`
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Filter webhooks on the given groups performing technical adminstration for the system or client for the webhooks, specified by id.
@@ -56,12 +62,20 @@ type WebhookRequestBuilderGetQueryParameters struct {
     ServiceAccount []int64 `uriparametername:"serviceAccount"`
     // Filter webhooks on the given service accounts, specified by id. This parameter supports composition with all parameters from the provisioning group resource.
     ServiceAccountNotNull []int64 `uriparametername:"serviceAccountNotNull"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter webhooks on the given systems, specified by id.
     System []int64 `uriparametername:"system"`
     // Filter results on the given TLS mode(s).
+    // Deprecated: This property is deprecated, use TlsAsTLSLevel instead
     Tls []string `uriparametername:"tls"`
+    // Filter results on the given TLS mode(s).
+    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel `uriparametername:"tls"`
     // Only return webhooks that trigger on one of the given type(s).
+    // Deprecated: This property is deprecated, use TypeAsAuditAuditRecordType instead
     Type []string `uriparametername:"type"`
+    // Only return webhooks that trigger on one of the given type(s).
+    TypeAsAuditAuditRecordType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditAuditRecordType `uriparametername:"type"`
     // Filter results on one or more URLs.
     Url []string `uriparametername:"url"`
     // Filter results on one or more UUIDs.
@@ -79,7 +93,10 @@ type WebhookRequestBuilderGetRequestConfiguration struct {
 // WebhookRequestBuilderPostQueryParameters creates one or more new webhooks and returns the newly created webhooks.
 type WebhookRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // WebhookRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WebhookRequestBuilderPostRequestConfiguration struct {
@@ -92,6 +109,7 @@ type WebhookRequestBuilderPostRequestConfiguration struct {
 }
 // ByWebhookid gets an item from the github.com/topicuskeyhub/sdk-go.webhook.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithWebhookItemRequestBuilder when successful
 func (m *WebhookRequestBuilder) ByWebhookid(webhookid string)(*WithWebhookItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -103,6 +121,7 @@ func (m *WebhookRequestBuilder) ByWebhookid(webhookid string)(*WithWebhookItemRe
     return NewWithWebhookItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByWebhookidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.webhook.item collection
+// returns a *WithWebhookItemRequestBuilder when successful
 func (m *WebhookRequestBuilder) ByWebhookidInt64(webhookid int64)(*WithWebhookItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -114,7 +133,7 @@ func (m *WebhookRequestBuilder) ByWebhookidInt64(webhookid int64)(*WithWebhookIt
 // NewWebhookRequestBuilderInternal instantiates a new WebhookRequestBuilder and sets the default values.
 func NewWebhookRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WebhookRequestBuilder) {
     m := &WebhookRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,account*,active*,appAdminGroup*,appOwnerGroup*,client*,contentAdminGroup*,directory*,expiredCertificate*,global*,group*,nameContains*,serviceAccount*,serviceAccountNotNull*,system*,tls*,type*,url*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook{?account*,active*,additional*,any*,appAdminGroup*,appOwnerGroup*,client*,contentAdminGroup*,createdAfter*,createdBefore*,directory*,exclude*,expiredCertificate*,global*,group*,id*,modifiedSince*,nameContains*,q*,serviceAccount*,serviceAccountNotNull*,sort*,system*,tls*,type*,url*,uuid*}", pathParameters),
     }
     return m
 }
@@ -125,14 +144,15 @@ func NewWebhookRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371
     return NewWebhookRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get queries over all webhooks. The various query parameters can be used to filter the response.
+// returns a WebhookWebhookLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WebhookRequestBuilder) Get(ctx context.Context, requestConfiguration *WebhookRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateWebhookWebhookLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -144,14 +164,15 @@ func (m *WebhookRequestBuilder) Get(ctx context.Context, requestConfiguration *W
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookLinkableWrapperable), nil
 }
 // Post creates one or more new webhooks and returns the newly created webhooks.
+// returns a WebhookWebhookLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WebhookRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookLinkableWrapperable, requestConfiguration *WebhookRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateWebhookWebhookLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -163,6 +184,7 @@ func (m *WebhookRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookLinkableWrapperable), nil
 }
 // ToGetRequestInformation queries over all webhooks. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *WebhookRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WebhookRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -176,8 +198,9 @@ func (m *WebhookRequestBuilder) ToGetRequestInformation(ctx context.Context, req
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new webhooks and returns the newly created webhooks.
+// returns a *RequestInformation when successful
 func (m *WebhookRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookLinkableWrapperable, requestConfiguration *WebhookRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/webhook{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -193,6 +216,7 @@ func (m *WebhookRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *WebhookRequestBuilder when successful
 func (m *WebhookRequestBuilder) WithUrl(rawUrl string)(*WebhookRequestBuilder) {
     return NewWebhookRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

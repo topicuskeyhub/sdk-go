@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningGroupOnSystem_additionalObjects 
 type ProvisioningGroupOnSystem_additionalObjects struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
@@ -15,7 +14,7 @@ type ProvisioningGroupOnSystem_additionalObjects struct {
     // The serviceAccounts property
     serviceAccounts ServiceaccountServiceAccountPrimerLinkableWrapperable
 }
-// NewProvisioningGroupOnSystem_additionalObjects instantiates a new provisioningGroupOnSystem_additionalObjects and sets the default values.
+// NewProvisioningGroupOnSystem_additionalObjects instantiates a new ProvisioningGroupOnSystem_additionalObjects and sets the default values.
 func NewProvisioningGroupOnSystem_additionalObjects()(*ProvisioningGroupOnSystem_additionalObjects) {
     m := &ProvisioningGroupOnSystem_additionalObjects{
     }
@@ -23,18 +22,22 @@ func NewProvisioningGroupOnSystem_additionalObjects()(*ProvisioningGroupOnSystem
     return m
 }
 // CreateProvisioningGroupOnSystem_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningGroupOnSystem_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningGroupOnSystem_additionalObjects(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *ProvisioningGroupOnSystem_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetAudit gets the audit property value. The audit property
+// returns a AuditInfoable when successful
 func (m *ProvisioningGroupOnSystem_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningGroupOnSystem_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -70,10 +73,12 @@ func (m *ProvisioningGroupOnSystem_additionalObjects) GetFieldDeserializers()(ma
     return res
 }
 // GetProvgroups gets the provgroups property value. The provgroups property
+// returns a GroupProvisioningGroupLinkableWrapperable when successful
 func (m *ProvisioningGroupOnSystem_additionalObjects) GetProvgroups()(GroupProvisioningGroupLinkableWrapperable) {
     return m.provgroups
 }
 // GetServiceAccounts gets the serviceAccounts property value. The serviceAccounts property
+// returns a ServiceaccountServiceAccountPrimerLinkableWrapperable when successful
 func (m *ProvisioningGroupOnSystem_additionalObjects) GetServiceAccounts()(ServiceaccountServiceAccountPrimerLinkableWrapperable) {
     return m.serviceAccounts
 }
@@ -121,7 +126,6 @@ func (m *ProvisioningGroupOnSystem_additionalObjects) SetProvgroups(value GroupP
 func (m *ProvisioningGroupOnSystem_additionalObjects) SetServiceAccounts(value ServiceaccountServiceAccountPrimerLinkableWrapperable)() {
     m.serviceAccounts = value
 }
-// ProvisioningGroupOnSystem_additionalObjectsable 
 type ProvisioningGroupOnSystem_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

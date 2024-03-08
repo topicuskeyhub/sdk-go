@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NotificationOldApiVersionUsageNotification 
 type NotificationOldApiVersionUsageNotification struct {
     NotificationNotification
     // The apiVersion property
@@ -12,7 +11,7 @@ type NotificationOldApiVersionUsageNotification struct {
     // The client property
     client ClientOAuth2Clientable
 }
-// NewNotificationOldApiVersionUsageNotification instantiates a new notificationOldApiVersionUsageNotification and sets the default values.
+// NewNotificationOldApiVersionUsageNotification instantiates a new NotificationOldApiVersionUsageNotification and sets the default values.
 func NewNotificationOldApiVersionUsageNotification()(*NotificationOldApiVersionUsageNotification) {
     m := &NotificationOldApiVersionUsageNotification{
         NotificationNotification: *NewNotificationNotification(),
@@ -22,18 +21,22 @@ func NewNotificationOldApiVersionUsageNotification()(*NotificationOldApiVersionU
     return m
 }
 // CreateNotificationOldApiVersionUsageNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNotificationOldApiVersionUsageNotificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewNotificationOldApiVersionUsageNotification(), nil
 }
 // GetApiVersion gets the apiVersion property value. The apiVersion property
+// returns a *int32 when successful
 func (m *NotificationOldApiVersionUsageNotification) GetApiVersion()(*int32) {
     return m.apiVersion
 }
 // GetClient gets the client property value. The client property
+// returns a ClientOAuth2Clientable when successful
 func (m *NotificationOldApiVersionUsageNotification) GetClient()(ClientOAuth2Clientable) {
     return m.client
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationOldApiVersionUsageNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
     res["apiVersion"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -86,7 +89,6 @@ func (m *NotificationOldApiVersionUsageNotification) SetApiVersion(value *int32)
 func (m *NotificationOldApiVersionUsageNotification) SetClient(value ClientOAuth2Clientable)() {
     m.client = value
 }
-// NotificationOldApiVersionUsageNotificationable 
 type NotificationOldApiVersionUsageNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

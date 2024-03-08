@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthStoredAccountAttribute 
 type AuthStoredAccountAttribute struct {
     NonLinkable
     // The name property
@@ -12,7 +11,7 @@ type AuthStoredAccountAttribute struct {
     // The value property
     value *string
 }
-// NewAuthStoredAccountAttribute instantiates a new authStoredAccountAttribute and sets the default values.
+// NewAuthStoredAccountAttribute instantiates a new AuthStoredAccountAttribute and sets the default values.
 func NewAuthStoredAccountAttribute()(*AuthStoredAccountAttribute) {
     m := &AuthStoredAccountAttribute{
         NonLinkable: *NewNonLinkable(),
@@ -22,10 +21,12 @@ func NewAuthStoredAccountAttribute()(*AuthStoredAccountAttribute) {
     return m
 }
 // CreateAuthStoredAccountAttributeFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthStoredAccountAttributeFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuthStoredAccountAttribute(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthStoredAccountAttribute) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -51,10 +52,12 @@ func (m *AuthStoredAccountAttribute) GetFieldDeserializers()(map[string]func(i87
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *AuthStoredAccountAttribute) GetName()(*string) {
     return m.name
 }
 // GetValue gets the value property value. The value property
+// returns a *string when successful
 func (m *AuthStoredAccountAttribute) GetValue()(*string) {
     return m.value
 }
@@ -86,7 +89,6 @@ func (m *AuthStoredAccountAttribute) SetName(value *string)() {
 func (m *AuthStoredAccountAttribute) SetValue(value *string)() {
     m.value = value
 }
-// AuthStoredAccountAttributeable 
 type AuthStoredAccountAttributeable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

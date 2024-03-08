@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// OrganizationOrganizationalUnitAccount 
 type OrganizationOrganizationalUnitAccount struct {
     AuthAccountPrimer
     // The additionalObjects property
@@ -12,7 +11,7 @@ type OrganizationOrganizationalUnitAccount struct {
     // The directory property
     directory DirectoryAccountDirectoryPrimerable
 }
-// NewOrganizationOrganizationalUnitAccount instantiates a new organizationOrganizationalUnitAccount and sets the default values.
+// NewOrganizationOrganizationalUnitAccount instantiates a new OrganizationOrganizationalUnitAccount and sets the default values.
 func NewOrganizationOrganizationalUnitAccount()(*OrganizationOrganizationalUnitAccount) {
     m := &OrganizationOrganizationalUnitAccount{
         AuthAccountPrimer: *NewAuthAccountPrimer(),
@@ -22,18 +21,22 @@ func NewOrganizationOrganizationalUnitAccount()(*OrganizationOrganizationalUnitA
     return m
 }
 // CreateOrganizationOrganizationalUnitAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateOrganizationOrganizationalUnitAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewOrganizationOrganizationalUnitAccount(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a OrganizationOrganizationalUnitAccount_additionalObjectsable when successful
 func (m *OrganizationOrganizationalUnitAccount) GetAdditionalObjects()(OrganizationOrganizationalUnitAccount_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetDirectory gets the directory property value. The directory property
+// returns a DirectoryAccountDirectoryPrimerable when successful
 func (m *OrganizationOrganizationalUnitAccount) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
     return m.directory
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *OrganizationOrganizationalUnitAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.AuthAccountPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -86,7 +89,6 @@ func (m *OrganizationOrganizationalUnitAccount) SetAdditionalObjects(value Organ
 func (m *OrganizationOrganizationalUnitAccount) SetDirectory(value DirectoryAccountDirectoryPrimerable)() {
     m.directory = value
 }
-// OrganizationOrganizationalUnitAccountable 
 type OrganizationOrganizationalUnitAccountable interface {
     AuthAccountPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupClassification 
 type GroupGroupClassification struct {
     GroupGroupClassificationPrimer
     // The additionalObjects property
@@ -34,7 +33,7 @@ type GroupGroupClassification struct {
     // The vaultRequiresActivation property
     vaultRequiresActivation *bool
 }
-// NewGroupGroupClassification instantiates a new groupGroupClassification and sets the default values.
+// NewGroupGroupClassification instantiates a new GroupGroupClassification and sets the default values.
 func NewGroupGroupClassification()(*GroupGroupClassification) {
     m := &GroupGroupClassification{
         GroupGroupClassificationPrimer: *NewGroupGroupClassificationPrimer(),
@@ -44,38 +43,47 @@ func NewGroupGroupClassification()(*GroupGroupClassification) {
     return m
 }
 // CreateGroupGroupClassificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupClassificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupClassification(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a GroupGroupClassification_additionalObjectsable when successful
 func (m *GroupGroupClassification) GetAdditionalObjects()(GroupGroupClassification_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetAuthorizingGroupAuditingRequired gets the authorizingGroupAuditingRequired property value. The authorizingGroupAuditingRequired property
+// returns a *bool when successful
 func (m *GroupGroupClassification) GetAuthorizingGroupAuditingRequired()(*bool) {
     return m.authorizingGroupAuditingRequired
 }
 // GetAuthorizingGroupDelegationRequired gets the authorizingGroupDelegationRequired property value. The authorizingGroupDelegationRequired property
+// returns a *bool when successful
 func (m *GroupGroupClassification) GetAuthorizingGroupDelegationRequired()(*bool) {
     return m.authorizingGroupDelegationRequired
 }
 // GetAuthorizingGroupMembershipRequired gets the authorizingGroupMembershipRequired property value. The authorizingGroupMembershipRequired property
+// returns a *bool when successful
 func (m *GroupGroupClassification) GetAuthorizingGroupMembershipRequired()(*bool) {
     return m.authorizingGroupMembershipRequired
 }
 // GetAuthorizingGroupProvisioningRequired gets the authorizingGroupProvisioningRequired property value. The authorizingGroupProvisioningRequired property
+// returns a *bool when successful
 func (m *GroupGroupClassification) GetAuthorizingGroupProvisioningRequired()(*bool) {
     return m.authorizingGroupProvisioningRequired
 }
 // GetDefaultClassification gets the defaultClassification property value. The defaultClassification property
+// returns a *bool when successful
 func (m *GroupGroupClassification) GetDefaultClassification()(*bool) {
     return m.defaultClassification
 }
 // GetDescription gets the description property value. The description property
+// returns a *string when successful
 func (m *GroupGroupClassification) GetDescription()(*string) {
     return m.description
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupClassification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.GroupGroupClassificationPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -217,26 +225,32 @@ func (m *GroupGroupClassification) GetFieldDeserializers()(map[string]func(i878a
     return res
 }
 // GetMaximumAuditInterval gets the maximumAuditInterval property value. The maximumAuditInterval property
+// returns a *int32 when successful
 func (m *GroupGroupClassification) GetMaximumAuditInterval()(*int32) {
     return m.maximumAuditInterval
 }
 // GetMinimumNrManagers gets the minimumNrManagers property value. The minimumNrManagers property
+// returns a *int32 when successful
 func (m *GroupGroupClassification) GetMinimumNrManagers()(*int32) {
     return m.minimumNrManagers
 }
 // GetRecordTrailRequired gets the recordTrailRequired property value. The recordTrailRequired property
+// returns a *bool when successful
 func (m *GroupGroupClassification) GetRecordTrailRequired()(*bool) {
     return m.recordTrailRequired
 }
 // GetRequiredMonths gets the requiredMonths property value. The requiredMonths property
+// returns a []Month when successful
 func (m *GroupGroupClassification) GetRequiredMonths()([]Month) {
     return m.requiredMonths
 }
 // GetRotatingPasswordRequired gets the rotatingPasswordRequired property value. The rotatingPasswordRequired property
+// returns a *bool when successful
 func (m *GroupGroupClassification) GetRotatingPasswordRequired()(*bool) {
     return m.rotatingPasswordRequired
 }
 // GetVaultRequiresActivation gets the vaultRequiresActivation property value. The vaultRequiresActivation property
+// returns a *bool when successful
 func (m *GroupGroupClassification) GetVaultRequiresActivation()(*bool) {
     return m.vaultRequiresActivation
 }
@@ -372,7 +386,6 @@ func (m *GroupGroupClassification) SetRotatingPasswordRequired(value *bool)() {
 func (m *GroupGroupClassification) SetVaultRequiresActivation(value *bool)() {
     m.vaultRequiresActivation = value
 }
-// GroupGroupClassificationable 
 type GroupGroupClassificationable interface {
     GroupGroupClassificationPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningGroupOnSystem 
 type ProvisioningGroupOnSystem struct {
     ProvisioningGroupOnSystemPrimer
     // The additionalObjects property
@@ -14,7 +13,7 @@ type ProvisioningGroupOnSystem struct {
     // The system property
     system ProvisioningProvisionedSystemPrimerable
 }
-// NewProvisioningGroupOnSystem instantiates a new provisioningGroupOnSystem and sets the default values.
+// NewProvisioningGroupOnSystem instantiates a new ProvisioningGroupOnSystem and sets the default values.
 func NewProvisioningGroupOnSystem()(*ProvisioningGroupOnSystem) {
     m := &ProvisioningGroupOnSystem{
         ProvisioningGroupOnSystemPrimer: *NewProvisioningGroupOnSystemPrimer(),
@@ -24,14 +23,17 @@ func NewProvisioningGroupOnSystem()(*ProvisioningGroupOnSystem) {
     return m
 }
 // CreateProvisioningGroupOnSystemFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningGroupOnSystemFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningGroupOnSystem(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a ProvisioningGroupOnSystem_additionalObjectsable when successful
 func (m *ProvisioningGroupOnSystem) GetAdditionalObjects()(ProvisioningGroupOnSystem_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningGroupOnSystem) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningGroupOnSystemPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -67,10 +69,12 @@ func (m *ProvisioningGroupOnSystem) GetFieldDeserializers()(map[string]func(i878
     return res
 }
 // GetOwner gets the owner property value. The owner property
+// returns a GroupGroupPrimerable when successful
 func (m *ProvisioningGroupOnSystem) GetOwner()(GroupGroupPrimerable) {
     return m.owner
 }
 // GetSystem gets the system property value. The system property
+// returns a ProvisioningProvisionedSystemPrimerable when successful
 func (m *ProvisioningGroupOnSystem) GetSystem()(ProvisioningProvisionedSystemPrimerable) {
     return m.system
 }
@@ -112,7 +116,6 @@ func (m *ProvisioningGroupOnSystem) SetOwner(value GroupGroupPrimerable)() {
 func (m *ProvisioningGroupOnSystem) SetSystem(value ProvisioningProvisionedSystemPrimerable)() {
     m.system = value
 }
-// ProvisioningGroupOnSystemable 
 type ProvisioningGroupOnSystemable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningGroupOnSystemPrimerable

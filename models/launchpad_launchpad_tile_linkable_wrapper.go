@@ -4,14 +4,13 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// LaunchpadLaunchpadTileLinkableWrapper 
 type LaunchpadLaunchpadTileLinkableWrapper struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The items property
     items []LaunchpadLaunchpadTileable
 }
-// NewLaunchpadLaunchpadTileLinkableWrapper instantiates a new launchpadLaunchpadTileLinkableWrapper and sets the default values.
+// NewLaunchpadLaunchpadTileLinkableWrapper instantiates a new LaunchpadLaunchpadTileLinkableWrapper and sets the default values.
 func NewLaunchpadLaunchpadTileLinkableWrapper()(*LaunchpadLaunchpadTileLinkableWrapper) {
     m := &LaunchpadLaunchpadTileLinkableWrapper{
     }
@@ -19,14 +18,17 @@ func NewLaunchpadLaunchpadTileLinkableWrapper()(*LaunchpadLaunchpadTileLinkableW
     return m
 }
 // CreateLaunchpadLaunchpadTileLinkableWrapperFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateLaunchpadLaunchpadTileLinkableWrapperFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewLaunchpadLaunchpadTileLinkableWrapper(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *LaunchpadLaunchpadTileLinkableWrapper) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadLaunchpadTileLinkableWrapper) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["items"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -48,6 +50,7 @@ func (m *LaunchpadLaunchpadTileLinkableWrapper) GetFieldDeserializers()(map[stri
     return res
 }
 // GetItems gets the items property value. The items property
+// returns a []LaunchpadLaunchpadTileable when successful
 func (m *LaunchpadLaunchpadTileLinkableWrapper) GetItems()([]LaunchpadLaunchpadTileable) {
     return m.items
 }
@@ -81,7 +84,6 @@ func (m *LaunchpadLaunchpadTileLinkableWrapper) SetAdditionalData(value map[stri
 func (m *LaunchpadLaunchpadTileLinkableWrapper) SetItems(value []LaunchpadLaunchpadTileable)() {
     m.items = value
 }
-// LaunchpadLaunchpadTileLinkableWrapperable 
 type LaunchpadLaunchpadTileLinkableWrapperable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

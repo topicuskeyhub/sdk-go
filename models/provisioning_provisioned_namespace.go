@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedNamespace 
 type ProvisioningProvisionedNamespace struct {
     ProvisioningProvisionedSystem
     // The baseSystem property
@@ -14,7 +13,7 @@ type ProvisioningProvisionedNamespace struct {
     // The serviceAccountDN property
     serviceAccountDN *string
 }
-// NewProvisioningProvisionedNamespace instantiates a new provisioningProvisionedNamespace and sets the default values.
+// NewProvisioningProvisionedNamespace instantiates a new ProvisioningProvisionedNamespace and sets the default values.
 func NewProvisioningProvisionedNamespace()(*ProvisioningProvisionedNamespace) {
     m := &ProvisioningProvisionedNamespace{
         ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
@@ -24,14 +23,17 @@ func NewProvisioningProvisionedNamespace()(*ProvisioningProvisionedNamespace) {
     return m
 }
 // CreateProvisioningProvisionedNamespaceFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedNamespaceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedNamespace(), nil
 }
 // GetBaseSystem gets the baseSystem property value. The baseSystem property
+// returns a ProvisioningProvisionedSystemPrimerable when successful
 func (m *ProvisioningProvisionedNamespace) GetBaseSystem()(ProvisioningProvisionedSystemPrimerable) {
     return m.baseSystem
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedNamespace) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
     res["baseSystem"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -67,10 +69,12 @@ func (m *ProvisioningProvisionedNamespace) GetFieldDeserializers()(map[string]fu
     return res
 }
 // GetGroupDN gets the groupDN property value. The groupDN property
+// returns a *string when successful
 func (m *ProvisioningProvisionedNamespace) GetGroupDN()(*string) {
     return m.groupDN
 }
 // GetServiceAccountDN gets the serviceAccountDN property value. The serviceAccountDN property
+// returns a *string when successful
 func (m *ProvisioningProvisionedNamespace) GetServiceAccountDN()(*string) {
     return m.serviceAccountDN
 }
@@ -112,7 +116,6 @@ func (m *ProvisioningProvisionedNamespace) SetGroupDN(value *string)() {
 func (m *ProvisioningProvisionedNamespace) SetServiceAccountDN(value *string)() {
     m.serviceAccountDN = value
 }
-// ProvisioningProvisionedNamespaceable 
 type ProvisioningProvisionedNamespaceable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable

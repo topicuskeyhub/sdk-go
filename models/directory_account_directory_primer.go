@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// DirectoryAccountDirectoryPrimer 
 type DirectoryAccountDirectoryPrimer struct {
     Linkable
     // The accountValiditySupported property
@@ -18,7 +17,7 @@ type DirectoryAccountDirectoryPrimer struct {
     // The uuid property
     uuid *string
 }
-// NewDirectoryAccountDirectoryPrimer instantiates a new directoryAccountDirectoryPrimer and sets the default values.
+// NewDirectoryAccountDirectoryPrimer instantiates a new DirectoryAccountDirectoryPrimer and sets the default values.
 func NewDirectoryAccountDirectoryPrimer()(*DirectoryAccountDirectoryPrimer) {
     m := &DirectoryAccountDirectoryPrimer{
         Linkable: *NewLinkable(),
@@ -28,6 +27,7 @@ func NewDirectoryAccountDirectoryPrimer()(*DirectoryAccountDirectoryPrimer) {
     return m
 }
 // CreateDirectoryAccountDirectoryPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateDirectoryAccountDirectoryPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -58,18 +58,22 @@ func CreateDirectoryAccountDirectoryPrimerFromDiscriminatorValue(parseNode i878a
     return NewDirectoryAccountDirectoryPrimer(), nil
 }
 // GetAccountValiditySupported gets the accountValiditySupported property value. The accountValiditySupported property
+// returns a *bool when successful
 func (m *DirectoryAccountDirectoryPrimer) GetAccountValiditySupported()(*bool) {
     return m.accountValiditySupported
 }
 // GetActive gets the active property value. The active property
+// returns a *bool when successful
 func (m *DirectoryAccountDirectoryPrimer) GetActive()(*bool) {
     return m.active
 }
 // GetDirectoryAccountDirectoryPrimerType gets the type property value. The type property
+// returns a *DirectoryAccountDirectoryType when successful
 func (m *DirectoryAccountDirectoryPrimer) GetDirectoryAccountDirectoryPrimerType()(*DirectoryAccountDirectoryType) {
     return m.directoryAccountDirectoryPrimerType
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *DirectoryAccountDirectoryPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["accountValiditySupported"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -125,10 +129,12 @@ func (m *DirectoryAccountDirectoryPrimer) GetFieldDeserializers()(map[string]fun
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *DirectoryAccountDirectoryPrimer) GetName()(*string) {
     return m.name
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *DirectoryAccountDirectoryPrimer) GetUuid()(*string) {
     return m.uuid
 }
@@ -179,7 +185,6 @@ func (m *DirectoryAccountDirectoryPrimer) SetName(value *string)() {
 func (m *DirectoryAccountDirectoryPrimer) SetUuid(value *string)() {
     m.uuid = value
 }
-// DirectoryAccountDirectoryPrimerable 
 type DirectoryAccountDirectoryPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

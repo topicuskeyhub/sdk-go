@@ -17,28 +17,28 @@ type StatusBulkRequestBuilderPutRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewStatusBulkRequestBuilderInternal instantiates a new BulkRequestBuilder and sets the default values.
+// NewStatusBulkRequestBuilderInternal instantiates a new StatusBulkRequestBuilder and sets the default values.
 func NewStatusBulkRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*StatusBulkRequestBuilder) {
     m := &StatusBulkRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/status/bulk", pathParameters),
     }
     return m
 }
-// NewStatusBulkRequestBuilder instantiates a new BulkRequestBuilder and sets the default values.
+// NewStatusBulkRequestBuilder instantiates a new StatusBulkRequestBuilder and sets the default values.
 func NewStatusBulkRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*StatusBulkRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewStatusBulkRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Put updates multiple accounts. The given accounts will be updated according to the selected action, for example, have their license role set to the given license role, provided this matches the current license's conditions.
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *StatusBulkRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthAccountBulkUpdateable, requestConfiguration *StatusBulkRequestBuilderPutRequestConfiguration)(error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -47,6 +47,7 @@ func (m *StatusBulkRequestBuilder) Put(ctx context.Context, body ie2969523f41a2f
     return nil
 }
 // ToPutRequestInformation updates multiple accounts. The given accounts will be updated according to the selected action, for example, have their license role set to the given license role, provided this matches the current license's conditions.
+// returns a *RequestInformation when successful
 func (m *StatusBulkRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthAccountBulkUpdateable, requestConfiguration *StatusBulkRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -61,6 +62,7 @@ func (m *StatusBulkRequestBuilder) ToPutRequestInformation(ctx context.Context, 
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *StatusBulkRequestBuilder when successful
 func (m *StatusBulkRequestBuilder) WithUrl(rawUrl string)(*StatusBulkRequestBuilder) {
     return NewStatusBulkRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

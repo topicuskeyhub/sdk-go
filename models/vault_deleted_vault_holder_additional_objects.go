@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultDeletedVaultHolder_additionalObjects 
 type VaultDeletedVaultHolder_additionalObjects struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
@@ -13,7 +12,7 @@ type VaultDeletedVaultHolder_additionalObjects struct {
     // The vault property
     vault VaultVaultable
 }
-// NewVaultDeletedVaultHolder_additionalObjects instantiates a new vaultDeletedVaultHolder_additionalObjects and sets the default values.
+// NewVaultDeletedVaultHolder_additionalObjects instantiates a new VaultDeletedVaultHolder_additionalObjects and sets the default values.
 func NewVaultDeletedVaultHolder_additionalObjects()(*VaultDeletedVaultHolder_additionalObjects) {
     m := &VaultDeletedVaultHolder_additionalObjects{
     }
@@ -21,18 +20,22 @@ func NewVaultDeletedVaultHolder_additionalObjects()(*VaultDeletedVaultHolder_add
     return m
 }
 // CreateVaultDeletedVaultHolder_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultDeletedVaultHolder_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultDeletedVaultHolder_additionalObjects(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *VaultDeletedVaultHolder_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetAudit gets the audit property value. The audit property
+// returns a AuditInfoable when successful
 func (m *VaultDeletedVaultHolder_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultDeletedVaultHolder_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -58,6 +61,7 @@ func (m *VaultDeletedVaultHolder_additionalObjects) GetFieldDeserializers()(map[
     return res
 }
 // GetVault gets the vault property value. The vault property
+// returns a VaultVaultable when successful
 func (m *VaultDeletedVaultHolder_additionalObjects) GetVault()(VaultVaultable) {
     return m.vault
 }
@@ -95,7 +99,6 @@ func (m *VaultDeletedVaultHolder_additionalObjects) SetAudit(value AuditInfoable
 func (m *VaultDeletedVaultHolder_additionalObjects) SetVault(value VaultVaultable)() {
     m.vault = value
 }
-// VaultDeletedVaultHolder_additionalObjectsable 
 type VaultDeletedVaultHolder_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

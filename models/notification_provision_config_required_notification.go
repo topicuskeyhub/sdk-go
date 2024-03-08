@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NotificationProvisionConfigRequiredNotification 
 type NotificationProvisionConfigRequiredNotification struct {
     NotificationNotification
     // The systems property
     systems []ProvisioningProvisionedSystemPrimerable
 }
-// NewNotificationProvisionConfigRequiredNotification instantiates a new notificationProvisionConfigRequiredNotification and sets the default values.
+// NewNotificationProvisionConfigRequiredNotification instantiates a new NotificationProvisionConfigRequiredNotification and sets the default values.
 func NewNotificationProvisionConfigRequiredNotification()(*NotificationProvisionConfigRequiredNotification) {
     m := &NotificationProvisionConfigRequiredNotification{
         NotificationNotification: *NewNotificationNotification(),
@@ -20,10 +19,12 @@ func NewNotificationProvisionConfigRequiredNotification()(*NotificationProvision
     return m
 }
 // CreateNotificationProvisionConfigRequiredNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNotificationProvisionConfigRequiredNotificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewNotificationProvisionConfigRequiredNotification(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationProvisionConfigRequiredNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
     res["systems"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -45,6 +46,7 @@ func (m *NotificationProvisionConfigRequiredNotification) GetFieldDeserializers(
     return res
 }
 // GetSystems gets the systems property value. The systems property
+// returns a []ProvisioningProvisionedSystemPrimerable when successful
 func (m *NotificationProvisionConfigRequiredNotification) GetSystems()([]ProvisioningProvisionedSystemPrimerable) {
     return m.systems
 }
@@ -72,7 +74,6 @@ func (m *NotificationProvisionConfigRequiredNotification) Serialize(writer i878a
 func (m *NotificationProvisionConfigRequiredNotification) SetSystems(value []ProvisioningProvisionedSystemPrimerable)() {
     m.systems = value
 }
-// NotificationProvisionConfigRequiredNotificationable 
 type NotificationProvisionConfigRequiredNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

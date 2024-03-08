@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthAccountBulkUpdate 
 type AuthAccountBulkUpdate struct {
     NonLinkable
     // The action property
@@ -14,7 +13,7 @@ type AuthAccountBulkUpdate struct {
     // The selectedAccounts property
     selectedAccounts []int64
 }
-// NewAuthAccountBulkUpdate instantiates a new authAccountBulkUpdate and sets the default values.
+// NewAuthAccountBulkUpdate instantiates a new AuthAccountBulkUpdate and sets the default values.
 func NewAuthAccountBulkUpdate()(*AuthAccountBulkUpdate) {
     m := &AuthAccountBulkUpdate{
         NonLinkable: *NewNonLinkable(),
@@ -24,18 +23,22 @@ func NewAuthAccountBulkUpdate()(*AuthAccountBulkUpdate) {
     return m
 }
 // CreateAuthAccountBulkUpdateFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthAccountBulkUpdateFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuthAccountBulkUpdate(), nil
 }
 // GetAction gets the action property value. The action property
+// returns a *AuthAccountBulkUpdateAction when successful
 func (m *AuthAccountBulkUpdate) GetAction()(*AuthAccountBulkUpdateAction) {
     return m.action
 }
 // GetExclusiveSelection gets the exclusiveSelection property value. The exclusiveSelection property
+// returns a *bool when successful
 func (m *AuthAccountBulkUpdate) GetExclusiveSelection()(*bool) {
     return m.exclusiveSelection
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthAccountBulkUpdate) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["action"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -77,6 +80,7 @@ func (m *AuthAccountBulkUpdate) GetFieldDeserializers()(map[string]func(i878a80d
     return res
 }
 // GetSelectedAccounts gets the selectedAccounts property value. The selectedAccounts property
+// returns a []int64 when successful
 func (m *AuthAccountBulkUpdate) GetSelectedAccounts()([]int64) {
     return m.selectedAccounts
 }
@@ -119,7 +123,6 @@ func (m *AuthAccountBulkUpdate) SetExclusiveSelection(value *bool)() {
 func (m *AuthAccountBulkUpdate) SetSelectedAccounts(value []int64)() {
     m.selectedAccounts = value
 }
-// AuthAccountBulkUpdateable 
 type AuthAccountBulkUpdateable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

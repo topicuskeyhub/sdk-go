@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupAccountGroup 
 type GroupAccountGroup struct {
     GroupGroupPrimer
     // The additionalObjects property
@@ -23,7 +22,7 @@ type GroupAccountGroup struct {
     // The visibleForProvisioning property
     visibleForProvisioning *bool
 }
-// NewGroupAccountGroup instantiates a new groupAccountGroup and sets the default values.
+// NewGroupAccountGroup instantiates a new GroupAccountGroup and sets the default values.
 func NewGroupAccountGroup()(*GroupAccountGroup) {
     m := &GroupAccountGroup{
         GroupGroupPrimer: *NewGroupGroupPrimer(),
@@ -33,18 +32,22 @@ func NewGroupAccountGroup()(*GroupAccountGroup) {
     return m
 }
 // CreateGroupAccountGroupFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupAccountGroupFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupAccountGroup(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a GroupAccountGroup_additionalObjectsable when successful
 func (m *GroupAccountGroup) GetAdditionalObjects()(GroupAccountGroup_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetEndDate gets the endDate property value. The endDate property
+// returns a *DateOnly when successful
 func (m *GroupAccountGroup) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.endDate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupAccountGroup) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.GroupGroupPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -120,22 +123,27 @@ func (m *GroupAccountGroup) GetFieldDeserializers()(map[string]func(i878a80d2330
     return res
 }
 // GetFolder gets the folder property value. The folder property
+// returns a GroupGroupFolderable when successful
 func (m *GroupAccountGroup) GetFolder()(GroupGroupFolderable) {
     return m.folder
 }
 // GetLastUsed gets the lastUsed property value. The lastUsed property
+// returns a *DateOnly when successful
 func (m *GroupAccountGroup) GetLastUsed()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.lastUsed
 }
 // GetProvisioningEndTime gets the provisioningEndTime property value. The provisioningEndTime property
+// returns a *Time when successful
 func (m *GroupAccountGroup) GetProvisioningEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.provisioningEndTime
 }
 // GetRights gets the rights property value. The rights property
+// returns a *GroupGroupRights when successful
 func (m *GroupAccountGroup) GetRights()(*GroupGroupRights) {
     return m.rights
 }
 // GetVisibleForProvisioning gets the visibleForProvisioning property value. The visibleForProvisioning property
+// returns a *bool when successful
 func (m *GroupAccountGroup) GetVisibleForProvisioning()(*bool) {
     return m.visibleForProvisioning
 }
@@ -200,7 +208,6 @@ func (m *GroupAccountGroup) SetRights(value *GroupGroupRights)() {
 func (m *GroupAccountGroup) SetVisibleForProvisioning(value *bool)() {
     m.visibleForProvisioning = value
 }
-// GroupAccountGroupable 
 type GroupAccountGroupable interface {
     GroupGroupPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

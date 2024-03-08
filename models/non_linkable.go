@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NonLinkable 
 type NonLinkable struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
@@ -19,6 +18,7 @@ func NewNonLinkable()(*NonLinkable) {
     return m
 }
 // CreateNonLinkableFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -132,6 +132,14 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewRequestAcceptJoinGroupRequestParameters(), nil
                     case "request.AcceptModificationRequestParameters":
                         return NewRequestAcceptModificationRequestParameters(), nil
+                    case "request.ModificationRequestReport":
+                        return NewRequestModificationRequestReport(), nil
+                    case "request.ModificationRequestReportChangeDetails":
+                        return NewRequestModificationRequestReportChangeDetails(), nil
+                    case "request.ModificationRequestReportErrorDetails":
+                        return NewRequestModificationRequestReportErrorDetails(), nil
+                    case "request.ModificationRequestReportGroupChangeDetails":
+                        return NewRequestModificationRequestReportGroupChangeDetails(), nil
                     case "request.PasswordResetRequestStatus":
                         return NewRequestPasswordResetRequestStatus(), nil
                     case "SegmentCount":
@@ -173,10 +181,12 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
     return NewNonLinkable(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *NonLinkable) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NonLinkable) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["$type"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -192,6 +202,7 @@ func (m *NonLinkable) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26
     return res
 }
 // GetTypeEscaped gets the $type property value. The Type property
+// returns a *string when successful
 func (m *NonLinkable) GetTypeEscaped()(*string) {
     return m.typeEscaped
 }
@@ -219,7 +230,6 @@ func (m *NonLinkable) SetAdditionalData(value map[string]any)() {
 func (m *NonLinkable) SetTypeEscaped(value *string)() {
     m.typeEscaped = value
 }
-// NonLinkableable 
 type NonLinkableable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

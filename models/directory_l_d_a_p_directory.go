@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// DirectoryLDAPDirectory 
 type DirectoryLDAPDirectory struct {
     DirectoryAccountDirectory
     // The attributesToStore property
@@ -36,7 +35,7 @@ type DirectoryLDAPDirectory struct {
     // The trustedCertificate property
     trustedCertificate CertificateCertificatePrimerable
 }
-// NewDirectoryLDAPDirectory instantiates a new directoryLDAPDirectory and sets the default values.
+// NewDirectoryLDAPDirectory instantiates a new DirectoryLDAPDirectory and sets the default values.
 func NewDirectoryLDAPDirectory()(*DirectoryLDAPDirectory) {
     m := &DirectoryLDAPDirectory{
         DirectoryAccountDirectory: *NewDirectoryAccountDirectory(),
@@ -46,34 +45,42 @@ func NewDirectoryLDAPDirectory()(*DirectoryLDAPDirectory) {
     return m
 }
 // CreateDirectoryLDAPDirectoryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateDirectoryLDAPDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewDirectoryLDAPDirectory(), nil
 }
 // GetAttributesToStore gets the attributesToStore property value. The attributesToStore property
+// returns a *string when successful
 func (m *DirectoryLDAPDirectory) GetAttributesToStore()(*string) {
     return m.attributesToStore
 }
 // GetBaseDN gets the baseDN property value. The baseDN property
+// returns a *string when successful
 func (m *DirectoryLDAPDirectory) GetBaseDN()(*string) {
     return m.baseDN
 }
 // GetClientCertificate gets the clientCertificate property value. The clientCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *DirectoryLDAPDirectory) GetClientCertificate()(CertificateCertificatePrimerable) {
     return m.clientCertificate
 }
 // GetDialect gets the dialect property value. The dialect property
+// returns a *DirectoryLDAPDialect when successful
 func (m *DirectoryLDAPDirectory) GetDialect()(*DirectoryLDAPDialect) {
     return m.dialect
 }
 // GetFailoverHost gets the failoverHost property value. The failoverHost property
+// returns a *string when successful
 func (m *DirectoryLDAPDirectory) GetFailoverHost()(*string) {
     return m.failoverHost
 }
 // GetFailoverTrustedCertificate gets the failoverTrustedCertificate property value. The failoverTrustedCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *DirectoryLDAPDirectory) GetFailoverTrustedCertificate()(CertificateCertificatePrimerable) {
     return m.failoverTrustedCertificate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *DirectoryLDAPDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.DirectoryAccountDirectory.GetFieldDeserializers()
     res["attributesToStore"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -219,34 +226,42 @@ func (m *DirectoryLDAPDirectory) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetHost gets the host property value. The host property
+// returns a *string when successful
 func (m *DirectoryLDAPDirectory) GetHost()(*string) {
     return m.host
 }
 // GetPasswordRecovery gets the passwordRecovery property value. The passwordRecovery property
+// returns a *DirectoryLDAPDirectoryPasswordRecovery when successful
 func (m *DirectoryLDAPDirectory) GetPasswordRecovery()(*DirectoryLDAPDirectoryPasswordRecovery) {
     return m.passwordRecovery
 }
 // GetPort gets the port property value. The port property
+// returns a *int32 when successful
 func (m *DirectoryLDAPDirectory) GetPort()(*int32) {
     return m.port
 }
 // GetSearchBindDN gets the searchBindDN property value. The searchBindDN property
+// returns a *string when successful
 func (m *DirectoryLDAPDirectory) GetSearchBindDN()(*string) {
     return m.searchBindDN
 }
 // GetSearchBindPassword gets the searchBindPassword property value. The searchBindPassword property
+// returns a *string when successful
 func (m *DirectoryLDAPDirectory) GetSearchBindPassword()(*string) {
     return m.searchBindPassword
 }
 // GetSearchFilter gets the searchFilter property value. The searchFilter property
+// returns a *string when successful
 func (m *DirectoryLDAPDirectory) GetSearchFilter()(*string) {
     return m.searchFilter
 }
 // GetTls gets the tls property value. The tls property
+// returns a *TLSLevel when successful
 func (m *DirectoryLDAPDirectory) GetTls()(*TLSLevel) {
     return m.tls
 }
 // GetTrustedCertificate gets the trustedCertificate property value. The trustedCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *DirectoryLDAPDirectory) GetTrustedCertificate()(CertificateCertificatePrimerable) {
     return m.trustedCertificate
 }
@@ -401,7 +416,6 @@ func (m *DirectoryLDAPDirectory) SetTls(value *TLSLevel)() {
 func (m *DirectoryLDAPDirectory) SetTrustedCertificate(value CertificateCertificatePrimerable)() {
     m.trustedCertificate = value
 }
-// DirectoryLDAPDirectoryable 
 type DirectoryLDAPDirectoryable interface {
     DirectoryAccountDirectoryable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestUpdateGroupMembershipRequest 
 type RequestUpdateGroupMembershipRequest struct {
     RequestModificationRequest
     // The accountToUpdate property
@@ -20,7 +19,7 @@ type RequestUpdateGroupMembershipRequest struct {
     // The updateGroupMembershipType property
     updateGroupMembershipType *RequestUpdateGroupMembershipType
 }
-// NewRequestUpdateGroupMembershipRequest instantiates a new requestUpdateGroupMembershipRequest and sets the default values.
+// NewRequestUpdateGroupMembershipRequest instantiates a new RequestUpdateGroupMembershipRequest and sets the default values.
 func NewRequestUpdateGroupMembershipRequest()(*RequestUpdateGroupMembershipRequest) {
     m := &RequestUpdateGroupMembershipRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -30,26 +29,32 @@ func NewRequestUpdateGroupMembershipRequest()(*RequestUpdateGroupMembershipReque
     return m
 }
 // CreateRequestUpdateGroupMembershipRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestUpdateGroupMembershipRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestUpdateGroupMembershipRequest(), nil
 }
 // GetAccountToUpdate gets the accountToUpdate property value. The accountToUpdate property
+// returns a AuthAccountPrimerable when successful
 func (m *RequestUpdateGroupMembershipRequest) GetAccountToUpdate()(AuthAccountPrimerable) {
     return m.accountToUpdate
 }
 // GetCurrentEndDate gets the currentEndDate property value. The currentEndDate property
+// returns a *DateOnly when successful
 func (m *RequestUpdateGroupMembershipRequest) GetCurrentEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.currentEndDate
 }
 // GetCurrentRights gets the currentRights property value. The currentRights property
+// returns a *GroupGroupRights when successful
 func (m *RequestUpdateGroupMembershipRequest) GetCurrentRights()(*GroupGroupRights) {
     return m.currentRights
 }
 // GetEndDate gets the endDate property value. The endDate property
+// returns a *DateOnly when successful
 func (m *RequestUpdateGroupMembershipRequest) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.endDate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestUpdateGroupMembershipRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["accountToUpdate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -115,10 +120,12 @@ func (m *RequestUpdateGroupMembershipRequest) GetFieldDeserializers()(map[string
     return res
 }
 // GetRights gets the rights property value. The rights property
+// returns a *GroupGroupRights when successful
 func (m *RequestUpdateGroupMembershipRequest) GetRights()(*GroupGroupRights) {
     return m.rights
 }
 // GetUpdateGroupMembershipType gets the updateGroupMembershipType property value. The updateGroupMembershipType property
+// returns a *RequestUpdateGroupMembershipType when successful
 func (m *RequestUpdateGroupMembershipRequest) GetUpdateGroupMembershipType()(*RequestUpdateGroupMembershipType) {
     return m.updateGroupMembershipType
 }
@@ -187,7 +194,6 @@ func (m *RequestUpdateGroupMembershipRequest) SetRights(value *GroupGroupRights)
 func (m *RequestUpdateGroupMembershipRequest) SetUpdateGroupMembershipType(value *RequestUpdateGroupMembershipType)() {
     m.updateGroupMembershipType = value
 }
-// RequestUpdateGroupMembershipRequestable 
 type RequestUpdateGroupMembershipRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

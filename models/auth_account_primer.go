@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthAccountPrimer 
 type AuthAccountPrimer struct {
     Linkable
     // The displayName property
@@ -19,7 +18,7 @@ type AuthAccountPrimer struct {
     // The validity property
     validity *AuthAccountValidity
 }
-// NewAuthAccountPrimer instantiates a new authAccountPrimer and sets the default values.
+// NewAuthAccountPrimer instantiates a new AuthAccountPrimer and sets the default values.
 func NewAuthAccountPrimer()(*AuthAccountPrimer) {
     m := &AuthAccountPrimer{
         Linkable: *NewLinkable(),
@@ -29,6 +28,7 @@ func NewAuthAccountPrimer()(*AuthAccountPrimer) {
     return m
 }
 // CreateAuthAccountPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthAccountPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -59,10 +59,12 @@ func CreateAuthAccountPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d268
     return NewAuthAccountPrimer(), nil
 }
 // GetDisplayName gets the displayName property value. The displayName property
+// returns a *string when successful
 func (m *AuthAccountPrimer) GetDisplayName()(*string) {
     return m.displayName
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthAccountPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["displayName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -118,18 +120,22 @@ func (m *AuthAccountPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330
     return res
 }
 // GetLastActive gets the lastActive property value. The lastActive property
+// returns a *Time when successful
 func (m *AuthAccountPrimer) GetLastActive()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.lastActive
 }
 // GetUsername gets the username property value. The username property
+// returns a *string when successful
 func (m *AuthAccountPrimer) GetUsername()(*string) {
     return m.username
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *AuthAccountPrimer) GetUuid()(*string) {
     return m.uuid
 }
 // GetValidity gets the validity property value. The validity property
+// returns a *AuthAccountValidity when successful
 func (m *AuthAccountPrimer) GetValidity()(*AuthAccountValidity) {
     return m.validity
 }
@@ -168,7 +174,6 @@ func (m *AuthAccountPrimer) SetUuid(value *string)() {
 func (m *AuthAccountPrimer) SetValidity(value *AuthAccountValidity)() {
     m.validity = value
 }
-// AuthAccountPrimerable 
 type AuthAccountPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

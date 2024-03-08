@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestCreateGroupRequest 
 type RequestCreateGroupRequest struct {
     RequestAbstractOrganizationalUnitModificationRequest
     // The groupName property
     groupName *string
 }
-// NewRequestCreateGroupRequest instantiates a new requestCreateGroupRequest and sets the default values.
+// NewRequestCreateGroupRequest instantiates a new RequestCreateGroupRequest and sets the default values.
 func NewRequestCreateGroupRequest()(*RequestCreateGroupRequest) {
     m := &RequestCreateGroupRequest{
         RequestAbstractOrganizationalUnitModificationRequest: *NewRequestAbstractOrganizationalUnitModificationRequest(),
@@ -20,10 +19,12 @@ func NewRequestCreateGroupRequest()(*RequestCreateGroupRequest) {
     return m
 }
 // CreateRequestCreateGroupRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestCreateGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestCreateGroupRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestCreateGroupRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestAbstractOrganizationalUnitModificationRequest.GetFieldDeserializers()
     res["groupName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -39,6 +40,7 @@ func (m *RequestCreateGroupRequest) GetFieldDeserializers()(map[string]func(i878
     return res
 }
 // GetGroupName gets the groupName property value. The groupName property
+// returns a *string when successful
 func (m *RequestCreateGroupRequest) GetGroupName()(*string) {
     return m.groupName
 }
@@ -60,7 +62,6 @@ func (m *RequestCreateGroupRequest) Serialize(writer i878a80d2330e89d26896388a3f
 func (m *RequestCreateGroupRequest) SetGroupName(value *string)() {
     m.groupName = value
 }
-// RequestCreateGroupRequestable 
 type RequestCreateGroupRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestAbstractOrganizationalUnitModificationRequestable

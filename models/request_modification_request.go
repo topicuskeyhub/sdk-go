@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestModificationRequest 
 type RequestModificationRequest struct {
     Linkable
     // The account property
@@ -24,7 +23,7 @@ type RequestModificationRequest struct {
     // The status property
     status *RequestModificationRequestStatus
 }
-// NewRequestModificationRequest instantiates a new requestModificationRequest and sets the default values.
+// NewRequestModificationRequest instantiates a new RequestModificationRequest and sets the default values.
 func NewRequestModificationRequest()(*RequestModificationRequest) {
     m := &RequestModificationRequest{
         Linkable: *NewLinkable(),
@@ -34,6 +33,7 @@ func NewRequestModificationRequest()(*RequestModificationRequest) {
     return m
 }
 // CreateRequestModificationRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -85,6 +85,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestJoinGroupRequest(), nil
                     case "request.JoinVaultRequest":
                         return NewRequestJoinVaultRequest(), nil
+                    case "request.MoveGroupsRequest":
+                        return NewRequestMoveGroupsRequest(), nil
                     case "request.PasswordResetRequest":
                         return NewRequestPasswordResetRequest(), nil
                     case "request.RemoveGroupRequest":
@@ -130,22 +132,27 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
     return NewRequestModificationRequest(), nil
 }
 // GetAccount gets the account property value. The account property
+// returns a AuthAccountPrimerable when successful
 func (m *RequestModificationRequest) GetAccount()(AuthAccountPrimerable) {
     return m.account
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a RequestModificationRequest_additionalObjectsable when successful
 func (m *RequestModificationRequest) GetAdditionalObjects()(RequestModificationRequest_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetComment gets the comment property value. The comment property
+// returns a *string when successful
 func (m *RequestModificationRequest) GetComment()(*string) {
     return m.comment
 }
 // GetFeedback gets the feedback property value. The feedback property
+// returns a *string when successful
 func (m *RequestModificationRequest) GetFeedback()(*string) {
     return m.feedback
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestModificationRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -231,18 +238,22 @@ func (m *RequestModificationRequest) GetFieldDeserializers()(map[string]func(i87
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupPrimerable when successful
 func (m *RequestModificationRequest) GetGroup()(GroupGroupPrimerable) {
     return m.group
 }
 // GetMailKey gets the mailKey property value. The mailKey property
+// returns a *string when successful
 func (m *RequestModificationRequest) GetMailKey()(*string) {
     return m.mailKey
 }
 // GetRequestModificationRequestType gets the type property value. The type property
+// returns a *RequestModificationRequestType when successful
 func (m *RequestModificationRequest) GetRequestModificationRequestType()(*RequestModificationRequestType) {
     return m.requestModificationRequestType
 }
 // GetStatus gets the status property value. The status property
+// returns a *RequestModificationRequestStatus when successful
 func (m *RequestModificationRequest) GetStatus()(*RequestModificationRequestStatus) {
     return m.status
 }
@@ -330,7 +341,6 @@ func (m *RequestModificationRequest) SetRequestModificationRequestType(value *Re
 func (m *RequestModificationRequest) SetStatus(value *RequestModificationRequestStatus)() {
     m.status = value
 }
-// RequestModificationRequestable 
 type RequestModificationRequestable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

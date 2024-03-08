@@ -18,9 +18,15 @@ type SystemRequestBuilderGetQueryParameters struct {
     // Filter the systems by provisioned accounts, specified by id. This parameter supports composition with all parameters from the provisioned account resource.
     Account []int64 `uriparametername:"account"`
     // Only return active or inactive systems.
+    // Deprecated: This property is deprecated, use ActiveAsBooleanEnum instead
     Active []string `uriparametername:"active"`
+    // Only return active or inactive systems.
+    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum `uriparametername:"active"`
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Filter the systems on groups that perform content administration for them, specified by id. This parameter supports composition with all parameters from the group resource.
@@ -83,10 +89,15 @@ type SystemRequestBuilderGetQueryParameters struct {
     SelfServiceServiceAccounts []bool `uriparametername:"selfServiceServiceAccounts"`
     // Filter systems on the specified serviceAccountDN, for those system types that have such a property.
     ServiceAccountDN []string `uriparametername:"serviceAccountDN"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter the systems on groups that perform technical administration for them, specified by id. This parameter supports composition with all parameters from the group resource.
     TechnicalAdministrator []int64 `uriparametername:"technicalAdministrator"`
     // Filter the systems on the TLS setting used.
+    // Deprecated: This property is deprecated, use TlsAsTLSLevel instead
     Tls []string `uriparametername:"tls"`
+    // Filter the systems on the TLS setting used.
+    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel `uriparametername:"tls"`
     // Only return systems of the given type(s).
     Type []string `uriparametername:"type"`
     // Filter results on one or more UUIDs.
@@ -104,7 +115,10 @@ type SystemRequestBuilderGetRequestConfiguration struct {
 // SystemRequestBuilderPostQueryParameters creates one or more new provisioned systems and returns the newly created systems.
 type SystemRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // SystemRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type SystemRequestBuilderPostRequestConfiguration struct {
@@ -117,6 +131,7 @@ type SystemRequestBuilderPostRequestConfiguration struct {
 }
 // BySystemid gets an item from the github.com/topicuskeyhub/sdk-go.system.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithSystemItemRequestBuilder when successful
 func (m *SystemRequestBuilder) BySystemid(systemid string)(*WithSystemItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -128,6 +143,7 @@ func (m *SystemRequestBuilder) BySystemid(systemid string)(*WithSystemItemReques
     return NewWithSystemItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // BySystemidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.system.item collection
+// returns a *WithSystemItemRequestBuilder when successful
 func (m *SystemRequestBuilder) BySystemidInt64(systemid int64)(*WithSystemItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -139,7 +155,7 @@ func (m *SystemRequestBuilder) BySystemidInt64(systemid int64)(*WithSystemItemRe
 // NewSystemRequestBuilderInternal instantiates a new SystemRequestBuilder and sets the default values.
 func NewSystemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*SystemRequestBuilder) {
     m := &SystemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,account*,active*,contentAdministrator*,expiredCertificate*,externalUuid*,forAzureOIDCDirectory*,forBaseSystem*,forClient*,forLDAPDirectory*,group*,groupDN*,groupOnSystem*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,numbering*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,provisioningGroup*,selfServiceExistingGroups*,selfServiceNewGroups*,selfServiceServiceAccounts*,serviceAccountDN*,technicalAdministrator*,tls*,type*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system{?account*,active*,additional*,any*,contentAdministrator*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,externalUuid*,forAzureOIDCDirectory*,forBaseSystem*,forClient*,forLDAPDirectory*,group*,groupDN*,groupOnSystem*,id*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,numbering*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,provisioningGroup*,q*,selfServiceExistingGroups*,selfServiceNewGroups*,selfServiceServiceAccounts*,serviceAccountDN*,sort*,technicalAdministrator*,tls*,type*,uuid*}", pathParameters),
     }
     return m
 }
@@ -150,14 +166,15 @@ func NewSystemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371c
     return NewSystemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get query for all provisioned systems in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a ProvisioningProvisionedSystemLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *SystemRequestBuilder) Get(ctx context.Context, requestConfiguration *SystemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProvisioningProvisionedSystemLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -169,14 +186,15 @@ func (m *SystemRequestBuilder) Get(ctx context.Context, requestConfiguration *Sy
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemLinkableWrapperable), nil
 }
 // Post creates one or more new provisioned systems and returns the newly created systems.
+// returns a ProvisioningProvisionedSystemLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *SystemRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemLinkableWrapperable, requestConfiguration *SystemRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProvisioningProvisionedSystemLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -188,6 +206,7 @@ func (m *SystemRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemLinkableWrapperable), nil
 }
 // ToGetRequestInformation query for all provisioned systems in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *SystemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *SystemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -201,8 +220,9 @@ func (m *SystemRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new provisioned systems and returns the newly created systems.
+// returns a *RequestInformation when successful
 func (m *SystemRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemLinkableWrapperable, requestConfiguration *SystemRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/system{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -218,6 +238,7 @@ func (m *SystemRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *SystemRequestBuilder when successful
 func (m *SystemRequestBuilder) WithUrl(rawUrl string)(*SystemRequestBuilder) {
     return NewSystemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

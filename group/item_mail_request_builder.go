@@ -17,28 +17,28 @@ type ItemMailRequestBuilderPostRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewItemMailRequestBuilderInternal instantiates a new MailRequestBuilder and sets the default values.
+// NewItemMailRequestBuilderInternal instantiates a new ItemMailRequestBuilder and sets the default values.
 func NewItemMailRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemMailRequestBuilder) {
     m := &ItemMailRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/mail", pathParameters),
     }
     return m
 }
-// NewItemMailRequestBuilder instantiates a new MailRequestBuilder and sets the default values.
+// NewItemMailRequestBuilder instantiates a new ItemMailRequestBuilder and sets the default values.
 func NewItemMailRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemMailRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewItemMailRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Post send a mail to the managers of the group identified by the id.
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemMailRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupAdminMailable, requestConfiguration *ItemMailRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -47,6 +47,7 @@ func (m *ItemMailRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fa
     return nil
 }
 // ToPostRequestInformation send a mail to the managers of the group identified by the id.
+// returns a *RequestInformation when successful
 func (m *ItemMailRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupAdminMailable, requestConfiguration *ItemMailRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -61,6 +62,7 @@ func (m *ItemMailRequestBuilder) ToPostRequestInformation(ctx context.Context, b
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *ItemMailRequestBuilder when successful
 func (m *ItemMailRequestBuilder) WithUrl(rawUrl string)(*ItemMailRequestBuilder) {
     return NewItemMailRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

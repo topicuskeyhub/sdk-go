@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ServiceaccountServiceAccount 
 type ServiceaccountServiceAccount struct {
     ServiceaccountServiceAccountPrimer
     // The additionalObjects property
@@ -18,7 +17,7 @@ type ServiceaccountServiceAccount struct {
     // The technicalAdministrator property
     technicalAdministrator GroupGroupPrimerable
 }
-// NewServiceaccountServiceAccount instantiates a new serviceaccountServiceAccount and sets the default values.
+// NewServiceaccountServiceAccount instantiates a new ServiceaccountServiceAccount and sets the default values.
 func NewServiceaccountServiceAccount()(*ServiceaccountServiceAccount) {
     m := &ServiceaccountServiceAccount{
         ServiceaccountServiceAccountPrimer: *NewServiceaccountServiceAccountPrimer(),
@@ -28,18 +27,22 @@ func NewServiceaccountServiceAccount()(*ServiceaccountServiceAccount) {
     return m
 }
 // CreateServiceaccountServiceAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateServiceaccountServiceAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewServiceaccountServiceAccount(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a ServiceaccountServiceAccount_additionalObjectsable when successful
 func (m *ServiceaccountServiceAccount) GetAdditionalObjects()(ServiceaccountServiceAccount_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetDescription gets the description property value. The description property
+// returns a *string when successful
 func (m *ServiceaccountServiceAccount) GetDescription()(*string) {
     return m.description
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ServiceaccountServiceAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ServiceaccountServiceAccountPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -95,14 +98,17 @@ func (m *ServiceaccountServiceAccount) GetFieldDeserializers()(map[string]func(i
     return res
 }
 // GetPassword gets the password property value. The password property
+// returns a VaultVaultRecordPrimerable when successful
 func (m *ServiceaccountServiceAccount) GetPassword()(VaultVaultRecordPrimerable) {
     return m.password
 }
 // GetPasswordRotation gets the passwordRotation property value. The passwordRotation property
+// returns a *ServiceaccountPasswordRotationScheme when successful
 func (m *ServiceaccountServiceAccount) GetPasswordRotation()(*ServiceaccountPasswordRotationScheme) {
     return m.passwordRotation
 }
 // GetTechnicalAdministrator gets the technicalAdministrator property value. The technicalAdministrator property
+// returns a GroupGroupPrimerable when successful
 func (m *ServiceaccountServiceAccount) GetTechnicalAdministrator()(GroupGroupPrimerable) {
     return m.technicalAdministrator
 }
@@ -165,7 +171,6 @@ func (m *ServiceaccountServiceAccount) SetPasswordRotation(value *Serviceaccount
 func (m *ServiceaccountServiceAccount) SetTechnicalAdministrator(value GroupGroupPrimerable)() {
     m.technicalAdministrator = value
 }
-// ServiceaccountServiceAccountable 
 type ServiceaccountServiceAccountable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ServiceaccountServiceAccountPrimerable

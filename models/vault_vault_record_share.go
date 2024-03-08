@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultVaultRecordShare 
 type VaultVaultRecordShare struct {
     NonLinkable
     // The name property
@@ -12,7 +11,7 @@ type VaultVaultRecordShare struct {
     // The type property
     vaultVaultRecordShareType *VaultVaultHolderType
 }
-// NewVaultVaultRecordShare instantiates a new vaultVaultRecordShare and sets the default values.
+// NewVaultVaultRecordShare instantiates a new VaultVaultRecordShare and sets the default values.
 func NewVaultVaultRecordShare()(*VaultVaultRecordShare) {
     m := &VaultVaultRecordShare{
         NonLinkable: *NewNonLinkable(),
@@ -22,10 +21,12 @@ func NewVaultVaultRecordShare()(*VaultVaultRecordShare) {
     return m
 }
 // CreateVaultVaultRecordShareFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultVaultRecordShareFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVaultRecordShare(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVaultRecordShare) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -51,10 +52,12 @@ func (m *VaultVaultRecordShare) GetFieldDeserializers()(map[string]func(i878a80d
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *VaultVaultRecordShare) GetName()(*string) {
     return m.name
 }
 // GetVaultVaultRecordShareType gets the type property value. The type property
+// returns a *VaultVaultHolderType when successful
 func (m *VaultVaultRecordShare) GetVaultVaultRecordShareType()(*VaultVaultHolderType) {
     return m.vaultVaultRecordShareType
 }
@@ -87,7 +90,6 @@ func (m *VaultVaultRecordShare) SetName(value *string)() {
 func (m *VaultVaultRecordShare) SetVaultVaultRecordShareType(value *VaultVaultHolderType)() {
     m.vaultVaultRecordShareType = value
 }
-// VaultVaultRecordShareable 
 type VaultVaultRecordShareable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

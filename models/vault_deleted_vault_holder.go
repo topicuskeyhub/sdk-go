@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultDeletedVaultHolder 
 type VaultDeletedVaultHolder struct {
     Linkable
     // The additionalObjects property
@@ -16,7 +15,7 @@ type VaultDeletedVaultHolder struct {
     // The type property
     vaultDeletedVaultHolderType *VaultVaultHolderType
 }
-// NewVaultDeletedVaultHolder instantiates a new vaultDeletedVaultHolder and sets the default values.
+// NewVaultDeletedVaultHolder instantiates a new VaultDeletedVaultHolder and sets the default values.
 func NewVaultDeletedVaultHolder()(*VaultDeletedVaultHolder) {
     m := &VaultDeletedVaultHolder{
         Linkable: *NewLinkable(),
@@ -26,14 +25,17 @@ func NewVaultDeletedVaultHolder()(*VaultDeletedVaultHolder) {
     return m
 }
 // CreateVaultDeletedVaultHolderFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultDeletedVaultHolderFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultDeletedVaultHolder(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a VaultDeletedVaultHolder_additionalObjectsable when successful
 func (m *VaultDeletedVaultHolder) GetAdditionalObjects()(VaultDeletedVaultHolder_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultDeletedVaultHolder) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -79,14 +81,17 @@ func (m *VaultDeletedVaultHolder) GetFieldDeserializers()(map[string]func(i878a8
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *VaultDeletedVaultHolder) GetName()(*string) {
     return m.name
 }
 // GetRecordCount gets the recordCount property value. The recordCount property
+// returns a *int32 when successful
 func (m *VaultDeletedVaultHolder) GetRecordCount()(*int32) {
     return m.recordCount
 }
 // GetVaultDeletedVaultHolderType gets the type property value. The type property
+// returns a *VaultVaultHolderType when successful
 func (m *VaultDeletedVaultHolder) GetVaultDeletedVaultHolderType()(*VaultVaultHolderType) {
     return m.vaultDeletedVaultHolderType
 }
@@ -133,7 +138,6 @@ func (m *VaultDeletedVaultHolder) SetRecordCount(value *int32)() {
 func (m *VaultDeletedVaultHolder) SetVaultDeletedVaultHolderType(value *VaultVaultHolderType)() {
     m.vaultDeletedVaultHolderType = value
 }
-// VaultDeletedVaultHolderable 
 type VaultDeletedVaultHolderable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

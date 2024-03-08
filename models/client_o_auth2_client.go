@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ClientOAuth2Client 
 type ClientOAuth2Client struct {
     ClientClientApplication
     // The accountPermissions property
@@ -32,7 +31,7 @@ type ClientOAuth2Client struct {
     // The useClientCredentials property
     useClientCredentials *bool
 }
-// NewClientOAuth2Client instantiates a new clientOAuth2Client and sets the default values.
+// NewClientOAuth2Client instantiates a new ClientOAuth2Client and sets the default values.
 func NewClientOAuth2Client()(*ClientOAuth2Client) {
     m := &ClientOAuth2Client{
         ClientClientApplication: *NewClientClientApplication(),
@@ -42,26 +41,32 @@ func NewClientOAuth2Client()(*ClientOAuth2Client) {
     return m
 }
 // CreateClientOAuth2ClientFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateClientOAuth2ClientFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewClientOAuth2Client(), nil
 }
 // GetAccountPermissions gets the accountPermissions property value. The accountPermissions property
+// returns a []AuthPermissionable when successful
 func (m *ClientOAuth2Client) GetAccountPermissions()([]AuthPermissionable) {
     return m.accountPermissions
 }
 // GetAttributes gets the attributes property value. The attributes property
+// returns a ClientOAuth2Client_attributesable when successful
 func (m *ClientOAuth2Client) GetAttributes()(ClientOAuth2Client_attributesable) {
     return m.attributes
 }
 // GetCallbackURI gets the callbackURI property value. The callbackURI property
+// returns a *string when successful
 func (m *ClientOAuth2Client) GetCallbackURI()(*string) {
     return m.callbackURI
 }
 // GetDebugMode gets the debugMode property value. The debugMode property
+// returns a *bool when successful
 func (m *ClientOAuth2Client) GetDebugMode()(*bool) {
     return m.debugMode
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientOAuth2Client) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ClientClientApplication.GetFieldDeserializers()
     res["accountPermissions"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -193,34 +198,42 @@ func (m *ClientOAuth2Client) GetFieldDeserializers()(map[string]func(i878a80d233
     return res
 }
 // GetIdTokenClaims gets the idTokenClaims property value. The idTokenClaims property
+// returns a *string when successful
 func (m *ClientOAuth2Client) GetIdTokenClaims()(*string) {
     return m.idTokenClaims
 }
 // GetInitiateLoginURI gets the initiateLoginURI property value. The initiateLoginURI property
+// returns a *string when successful
 func (m *ClientOAuth2Client) GetInitiateLoginURI()(*string) {
     return m.initiateLoginURI
 }
 // GetProfile gets the profile property value. The profile property
+// returns a *ClientOAuth2ClientProfile when successful
 func (m *ClientOAuth2Client) GetProfile()(*ClientOAuth2ClientProfile) {
     return m.profile
 }
 // GetResourceURIs gets the resourceURIs property value. The resourceURIs property
+// returns a *string when successful
 func (m *ClientOAuth2Client) GetResourceURIs()(*string) {
     return m.resourceURIs
 }
 // GetSharedSecret gets the sharedSecret property value. The sharedSecret property
+// returns a VaultVaultRecordPrimerable when successful
 func (m *ClientOAuth2Client) GetSharedSecret()(VaultVaultRecordPrimerable) {
     return m.sharedSecret
 }
 // GetShareSecretInVault gets the shareSecretInVault property value. The shareSecretInVault property
+// returns a *bool when successful
 func (m *ClientOAuth2Client) GetShareSecretInVault()(*bool) {
     return m.shareSecretInVault
 }
 // GetShowLandingPage gets the showLandingPage property value. The showLandingPage property
+// returns a *bool when successful
 func (m *ClientOAuth2Client) GetShowLandingPage()(*bool) {
     return m.showLandingPage
 }
 // GetUseClientCredentials gets the useClientCredentials property value. The useClientCredentials property
+// returns a *bool when successful
 func (m *ClientOAuth2Client) GetUseClientCredentials()(*bool) {
     return m.useClientCredentials
 }
@@ -291,12 +304,6 @@ func (m *ClientOAuth2Client) Serialize(writer i878a80d2330e89d26896388a3f487eef2
             return err
         }
     }
-    {
-        err = writer.WriteBoolValue("useClientCredentials", m.GetUseClientCredentials())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetAccountPermissions sets the accountPermissions property value. The accountPermissions property
@@ -347,7 +354,6 @@ func (m *ClientOAuth2Client) SetShowLandingPage(value *bool)() {
 func (m *ClientOAuth2Client) SetUseClientCredentials(value *bool)() {
     m.useClientCredentials = value
 }
-// ClientOAuth2Clientable 
 type ClientOAuth2Clientable interface {
     ClientClientApplicationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

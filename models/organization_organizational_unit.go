@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// OrganizationOrganizationalUnit 
 type OrganizationOrganizationalUnit struct {
     OrganizationOrganizationalUnitPrimer
     // The additionalObjects property
@@ -18,7 +17,7 @@ type OrganizationOrganizationalUnit struct {
     // The parent property
     parent OrganizationOrganizationalUnitPrimerable
 }
-// NewOrganizationOrganizationalUnit instantiates a new organizationOrganizationalUnit and sets the default values.
+// NewOrganizationOrganizationalUnit instantiates a new OrganizationOrganizationalUnit and sets the default values.
 func NewOrganizationOrganizationalUnit()(*OrganizationOrganizationalUnit) {
     m := &OrganizationOrganizationalUnit{
         OrganizationOrganizationalUnitPrimer: *NewOrganizationOrganizationalUnitPrimer(),
@@ -28,22 +27,27 @@ func NewOrganizationOrganizationalUnit()(*OrganizationOrganizationalUnit) {
     return m
 }
 // CreateOrganizationOrganizationalUnitFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateOrganizationOrganizationalUnitFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewOrganizationOrganizationalUnit(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a OrganizationOrganizationalUnit_additionalObjectsable when successful
 func (m *OrganizationOrganizationalUnit) GetAdditionalObjects()(OrganizationOrganizationalUnit_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetDepth gets the depth property value. The depth property
+// returns a *int32 when successful
 func (m *OrganizationOrganizationalUnit) GetDepth()(*int32) {
     return m.depth
 }
 // GetDescription gets the description property value. The description property
+// returns a *string when successful
 func (m *OrganizationOrganizationalUnit) GetDescription()(*string) {
     return m.description
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *OrganizationOrganizationalUnit) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.OrganizationOrganizationalUnitPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -99,10 +103,12 @@ func (m *OrganizationOrganizationalUnit) GetFieldDeserializers()(map[string]func
     return res
 }
 // GetOwner gets the owner property value. The owner property
+// returns a GroupGroupPrimerable when successful
 func (m *OrganizationOrganizationalUnit) GetOwner()(GroupGroupPrimerable) {
     return m.owner
 }
 // GetParent gets the parent property value. The parent property
+// returns a OrganizationOrganizationalUnitPrimerable when successful
 func (m *OrganizationOrganizationalUnit) GetParent()(OrganizationOrganizationalUnitPrimerable) {
     return m.parent
 }
@@ -158,7 +164,6 @@ func (m *OrganizationOrganizationalUnit) SetOwner(value GroupGroupPrimerable)() 
 func (m *OrganizationOrganizationalUnit) SetParent(value OrganizationOrganizationalUnitPrimerable)() {
     m.parent = value
 }
-// OrganizationOrganizationalUnitable 
 type OrganizationOrganizationalUnitable interface {
     OrganizationOrganizationalUnitPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

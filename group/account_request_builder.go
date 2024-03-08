@@ -22,6 +22,7 @@ func NewAccountRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371
     return NewAccountRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Export the export property
+// returns a *AccountExportRequestBuilder when successful
 func (m *AccountRequestBuilder) Export()(*AccountExportRequestBuilder) {
     return NewAccountExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }

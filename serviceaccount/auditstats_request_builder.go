@@ -31,14 +31,15 @@ func NewAuditstatsRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263
     return NewAuditstatsRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get returns the counts and statistics of service accounts within Topicus KeyHub.
+// returns a ServiceaccountServiceAccountsAuditStatsable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *AuditstatsRequestBuilder) Get(ctx context.Context, requestConfiguration *AuditstatsRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountsAuditStatsable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateServiceaccountServiceAccountsAuditStatsFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -50,6 +51,7 @@ func (m *AuditstatsRequestBuilder) Get(ctx context.Context, requestConfiguration
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountsAuditStatsable), nil
 }
 // ToGetRequestInformation returns the counts and statistics of service accounts within Topicus KeyHub.
+// returns a *RequestInformation when successful
 func (m *AuditstatsRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *AuditstatsRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -60,6 +62,7 @@ func (m *AuditstatsRequestBuilder) ToGetRequestInformation(ctx context.Context, 
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *AuditstatsRequestBuilder when successful
 func (m *AuditstatsRequestBuilder) WithUrl(rawUrl string)(*AuditstatsRequestBuilder) {
     return NewAuditstatsRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

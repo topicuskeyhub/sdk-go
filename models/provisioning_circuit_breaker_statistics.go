@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningCircuitBreakerStatistics 
 type ProvisioningCircuitBreakerStatistics struct {
     NonLinkable
     // The numberOfFailedCalls property
@@ -16,7 +15,7 @@ type ProvisioningCircuitBreakerStatistics struct {
     // The state property
     state *ProvisioningCircuitBreakerState
 }
-// NewProvisioningCircuitBreakerStatistics instantiates a new provisioningCircuitBreakerStatistics and sets the default values.
+// NewProvisioningCircuitBreakerStatistics instantiates a new ProvisioningCircuitBreakerStatistics and sets the default values.
 func NewProvisioningCircuitBreakerStatistics()(*ProvisioningCircuitBreakerStatistics) {
     m := &ProvisioningCircuitBreakerStatistics{
         NonLinkable: *NewNonLinkable(),
@@ -26,10 +25,12 @@ func NewProvisioningCircuitBreakerStatistics()(*ProvisioningCircuitBreakerStatis
     return m
 }
 // CreateProvisioningCircuitBreakerStatisticsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningCircuitBreakerStatisticsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningCircuitBreakerStatistics(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningCircuitBreakerStatistics) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["numberOfFailedCalls"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -75,18 +76,22 @@ func (m *ProvisioningCircuitBreakerStatistics) GetFieldDeserializers()(map[strin
     return res
 }
 // GetNumberOfFailedCalls gets the numberOfFailedCalls property value. The numberOfFailedCalls property
+// returns a *int64 when successful
 func (m *ProvisioningCircuitBreakerStatistics) GetNumberOfFailedCalls()(*int64) {
     return m.numberOfFailedCalls
 }
 // GetNumberOfNotPermittedCalls gets the numberOfNotPermittedCalls property value. The numberOfNotPermittedCalls property
+// returns a *int64 when successful
 func (m *ProvisioningCircuitBreakerStatistics) GetNumberOfNotPermittedCalls()(*int64) {
     return m.numberOfNotPermittedCalls
 }
 // GetNumberOfSuccessfulCalls gets the numberOfSuccessfulCalls property value. The numberOfSuccessfulCalls property
+// returns a *int64 when successful
 func (m *ProvisioningCircuitBreakerStatistics) GetNumberOfSuccessfulCalls()(*int64) {
     return m.numberOfSuccessfulCalls
 }
 // GetState gets the state property value. The state property
+// returns a *ProvisioningCircuitBreakerState when successful
 func (m *ProvisioningCircuitBreakerStatistics) GetState()(*ProvisioningCircuitBreakerState) {
     return m.state
 }
@@ -121,7 +126,6 @@ func (m *ProvisioningCircuitBreakerStatistics) SetNumberOfSuccessfulCalls(value 
 func (m *ProvisioningCircuitBreakerStatistics) SetState(value *ProvisioningCircuitBreakerState)() {
     m.state = value
 }
-// ProvisioningCircuitBreakerStatisticsable 
 type ProvisioningCircuitBreakerStatisticsable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

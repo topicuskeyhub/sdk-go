@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningGroupOnSystemTypes 
 type ProvisioningGroupOnSystemTypes struct {
     NonLinkable
     // The types property
     types []ProvisioningGroupOnSystemType
 }
-// NewProvisioningGroupOnSystemTypes instantiates a new provisioningGroupOnSystemTypes and sets the default values.
+// NewProvisioningGroupOnSystemTypes instantiates a new ProvisioningGroupOnSystemTypes and sets the default values.
 func NewProvisioningGroupOnSystemTypes()(*ProvisioningGroupOnSystemTypes) {
     m := &ProvisioningGroupOnSystemTypes{
         NonLinkable: *NewNonLinkable(),
@@ -20,10 +19,12 @@ func NewProvisioningGroupOnSystemTypes()(*ProvisioningGroupOnSystemTypes) {
     return m
 }
 // CreateProvisioningGroupOnSystemTypesFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningGroupOnSystemTypesFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningGroupOnSystemTypes(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningGroupOnSystemTypes) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["types"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -45,6 +46,7 @@ func (m *ProvisioningGroupOnSystemTypes) GetFieldDeserializers()(map[string]func
     return res
 }
 // GetTypes gets the types property value. The types property
+// returns a []ProvisioningGroupOnSystemType when successful
 func (m *ProvisioningGroupOnSystemTypes) GetTypes()([]ProvisioningGroupOnSystemType) {
     return m.types
 }
@@ -66,7 +68,6 @@ func (m *ProvisioningGroupOnSystemTypes) Serialize(writer i878a80d2330e89d268963
 func (m *ProvisioningGroupOnSystemTypes) SetTypes(value []ProvisioningGroupOnSystemType)() {
     m.types = value
 }
-// ProvisioningGroupOnSystemTypesable 
 type ProvisioningGroupOnSystemTypesable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

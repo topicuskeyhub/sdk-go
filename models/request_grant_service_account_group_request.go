@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestGrantServiceAccountGroupRequest 
 type RequestGrantServiceAccountGroupRequest struct {
     RequestModificationRequest
     // The groupOnSystem property
@@ -12,7 +11,7 @@ type RequestGrantServiceAccountGroupRequest struct {
     // The serviceAccount property
     serviceAccount ServiceaccountServiceAccountPrimerable
 }
-// NewRequestGrantServiceAccountGroupRequest instantiates a new requestGrantServiceAccountGroupRequest and sets the default values.
+// NewRequestGrantServiceAccountGroupRequest instantiates a new RequestGrantServiceAccountGroupRequest and sets the default values.
 func NewRequestGrantServiceAccountGroupRequest()(*RequestGrantServiceAccountGroupRequest) {
     m := &RequestGrantServiceAccountGroupRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -22,10 +21,12 @@ func NewRequestGrantServiceAccountGroupRequest()(*RequestGrantServiceAccountGrou
     return m
 }
 // CreateRequestGrantServiceAccountGroupRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestGrantServiceAccountGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestGrantServiceAccountGroupRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestGrantServiceAccountGroupRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["groupOnSystem"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -51,10 +52,12 @@ func (m *RequestGrantServiceAccountGroupRequest) GetFieldDeserializers()(map[str
     return res
 }
 // GetGroupOnSystem gets the groupOnSystem property value. The groupOnSystem property
+// returns a ProvisioningGroupOnSystemable when successful
 func (m *RequestGrantServiceAccountGroupRequest) GetGroupOnSystem()(ProvisioningGroupOnSystemable) {
     return m.groupOnSystem
 }
 // GetServiceAccount gets the serviceAccount property value. The serviceAccount property
+// returns a ServiceaccountServiceAccountPrimerable when successful
 func (m *RequestGrantServiceAccountGroupRequest) GetServiceAccount()(ServiceaccountServiceAccountPrimerable) {
     return m.serviceAccount
 }
@@ -86,7 +89,6 @@ func (m *RequestGrantServiceAccountGroupRequest) SetGroupOnSystem(value Provisio
 func (m *RequestGrantServiceAccountGroupRequest) SetServiceAccount(value ServiceaccountServiceAccountPrimerable)() {
     m.serviceAccount = value
 }
-// RequestGrantServiceAccountGroupRequestable 
 type RequestGrantServiceAccountGroupRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

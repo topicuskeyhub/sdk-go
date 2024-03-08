@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// LaunchpadManualLaunchpadTile 
 type LaunchpadManualLaunchpadTile struct {
     LaunchpadLaunchpadTile
     // The title property
@@ -12,7 +11,7 @@ type LaunchpadManualLaunchpadTile struct {
     // The uri property
     uri *string
 }
-// NewLaunchpadManualLaunchpadTile instantiates a new launchpadManualLaunchpadTile and sets the default values.
+// NewLaunchpadManualLaunchpadTile instantiates a new LaunchpadManualLaunchpadTile and sets the default values.
 func NewLaunchpadManualLaunchpadTile()(*LaunchpadManualLaunchpadTile) {
     m := &LaunchpadManualLaunchpadTile{
         LaunchpadLaunchpadTile: *NewLaunchpadLaunchpadTile(),
@@ -22,10 +21,12 @@ func NewLaunchpadManualLaunchpadTile()(*LaunchpadManualLaunchpadTile) {
     return m
 }
 // CreateLaunchpadManualLaunchpadTileFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateLaunchpadManualLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewLaunchpadManualLaunchpadTile(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadManualLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.LaunchpadLaunchpadTile.GetFieldDeserializers()
     res["title"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -51,10 +52,12 @@ func (m *LaunchpadManualLaunchpadTile) GetFieldDeserializers()(map[string]func(i
     return res
 }
 // GetTitle gets the title property value. The title property
+// returns a *string when successful
 func (m *LaunchpadManualLaunchpadTile) GetTitle()(*string) {
     return m.title
 }
 // GetUri gets the uri property value. The uri property
+// returns a *string when successful
 func (m *LaunchpadManualLaunchpadTile) GetUri()(*string) {
     return m.uri
 }
@@ -86,7 +89,6 @@ func (m *LaunchpadManualLaunchpadTile) SetTitle(value *string)() {
 func (m *LaunchpadManualLaunchpadTile) SetUri(value *string)() {
     m.uri = value
 }
-// LaunchpadManualLaunchpadTileable 
 type LaunchpadManualLaunchpadTileable interface {
     LaunchpadLaunchpadTileable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

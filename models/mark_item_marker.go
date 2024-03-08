@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// MarkItemMarker 
 type MarkItemMarker struct {
     NonLinkable
     // The level property
@@ -14,7 +13,7 @@ type MarkItemMarker struct {
     // The parameters property
     parameters MarkItemMarker_parametersable
 }
-// NewMarkItemMarker instantiates a new markItemMarker and sets the default values.
+// NewMarkItemMarker instantiates a new MarkItemMarker and sets the default values.
 func NewMarkItemMarker()(*MarkItemMarker) {
     m := &MarkItemMarker{
         NonLinkable: *NewNonLinkable(),
@@ -24,10 +23,12 @@ func NewMarkItemMarker()(*MarkItemMarker) {
     return m
 }
 // CreateMarkItemMarkerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateMarkItemMarkerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewMarkItemMarker(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *MarkItemMarker) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["level"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -63,14 +64,17 @@ func (m *MarkItemMarker) GetFieldDeserializers()(map[string]func(i878a80d2330e89
     return res
 }
 // GetLevel gets the level property value. The level property
+// returns a *MarkItemMarkerLevel when successful
 func (m *MarkItemMarker) GetLevel()(*MarkItemMarkerLevel) {
     return m.level
 }
 // GetMarkItemMarkerType gets the type property value. The type property
+// returns a *MarkItemMarkerType when successful
 func (m *MarkItemMarker) GetMarkItemMarkerType()(*MarkItemMarkerType) {
     return m.markItemMarkerType
 }
 // GetParameters gets the parameters property value. The parameters property
+// returns a MarkItemMarker_parametersable when successful
 func (m *MarkItemMarker) GetParameters()(MarkItemMarker_parametersable) {
     return m.parameters
 }
@@ -108,7 +112,6 @@ func (m *MarkItemMarker) SetMarkItemMarkerType(value *MarkItemMarkerType)() {
 func (m *MarkItemMarker) SetParameters(value MarkItemMarker_parametersable)() {
     m.parameters = value
 }
-// MarkItemMarkerable 
 type MarkItemMarkerable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

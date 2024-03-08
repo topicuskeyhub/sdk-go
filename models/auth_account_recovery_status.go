@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthAccountRecoveryStatus 
 type AuthAccountRecoveryStatus struct {
     NonLinkable
     // The pending2FARecoveryRequest property
@@ -12,7 +11,7 @@ type AuthAccountRecoveryStatus struct {
     // The pendingPasswordRecoveryRequest property
     pendingPasswordRecoveryRequest *bool
 }
-// NewAuthAccountRecoveryStatus instantiates a new authAccountRecoveryStatus and sets the default values.
+// NewAuthAccountRecoveryStatus instantiates a new AuthAccountRecoveryStatus and sets the default values.
 func NewAuthAccountRecoveryStatus()(*AuthAccountRecoveryStatus) {
     m := &AuthAccountRecoveryStatus{
         NonLinkable: *NewNonLinkable(),
@@ -22,10 +21,12 @@ func NewAuthAccountRecoveryStatus()(*AuthAccountRecoveryStatus) {
     return m
 }
 // CreateAuthAccountRecoveryStatusFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthAccountRecoveryStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuthAccountRecoveryStatus(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthAccountRecoveryStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["pending2FARecoveryRequest"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -51,10 +52,12 @@ func (m *AuthAccountRecoveryStatus) GetFieldDeserializers()(map[string]func(i878
     return res
 }
 // GetPending2FARecoveryRequest gets the pending2FARecoveryRequest property value. The pending2FARecoveryRequest property
+// returns a *bool when successful
 func (m *AuthAccountRecoveryStatus) GetPending2FARecoveryRequest()(*bool) {
     return m.pending2FARecoveryRequest
 }
 // GetPendingPasswordRecoveryRequest gets the pendingPasswordRecoveryRequest property value. The pendingPasswordRecoveryRequest property
+// returns a *bool when successful
 func (m *AuthAccountRecoveryStatus) GetPendingPasswordRecoveryRequest()(*bool) {
     return m.pendingPasswordRecoveryRequest
 }
@@ -86,7 +89,6 @@ func (m *AuthAccountRecoveryStatus) SetPending2FARecoveryRequest(value *bool)() 
 func (m *AuthAccountRecoveryStatus) SetPendingPasswordRecoveryRequest(value *bool)() {
     m.pendingPasswordRecoveryRequest = value
 }
-// AuthAccountRecoveryStatusable 
 type AuthAccountRecoveryStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

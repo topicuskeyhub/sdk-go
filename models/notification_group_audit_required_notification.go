@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NotificationGroupAuditRequiredNotification 
 type NotificationGroupAuditRequiredNotification struct {
     NotificationNotification
     // The dueDate property
@@ -15,7 +14,7 @@ type NotificationGroupAuditRequiredNotification struct {
     // The type property
     notificationGroupAuditRequiredNotificationType *AuditAuditRequiredSourceType
 }
-// NewNotificationGroupAuditRequiredNotification instantiates a new notificationGroupAuditRequiredNotification and sets the default values.
+// NewNotificationGroupAuditRequiredNotification instantiates a new NotificationGroupAuditRequiredNotification and sets the default values.
 func NewNotificationGroupAuditRequiredNotification()(*NotificationGroupAuditRequiredNotification) {
     m := &NotificationGroupAuditRequiredNotification{
         NotificationNotification: *NewNotificationNotification(),
@@ -25,14 +24,17 @@ func NewNotificationGroupAuditRequiredNotification()(*NotificationGroupAuditRequ
     return m
 }
 // CreateNotificationGroupAuditRequiredNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNotificationGroupAuditRequiredNotificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewNotificationGroupAuditRequiredNotification(), nil
 }
 // GetDueDate gets the dueDate property value. The dueDate property
+// returns a *Time when successful
 func (m *NotificationGroupAuditRequiredNotification) GetDueDate()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.dueDate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationGroupAuditRequiredNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
     res["dueDate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -68,10 +70,12 @@ func (m *NotificationGroupAuditRequiredNotification) GetFieldDeserializers()(map
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupable when successful
 func (m *NotificationGroupAuditRequiredNotification) GetGroup()(GroupGroupable) {
     return m.group
 }
 // GetNotificationGroupAuditRequiredNotificationType gets the type property value. The type property
+// returns a *AuditAuditRequiredSourceType when successful
 func (m *NotificationGroupAuditRequiredNotification) GetNotificationGroupAuditRequiredNotificationType()(*AuditAuditRequiredSourceType) {
     return m.notificationGroupAuditRequiredNotificationType
 }
@@ -114,7 +118,6 @@ func (m *NotificationGroupAuditRequiredNotification) SetGroup(value GroupGroupab
 func (m *NotificationGroupAuditRequiredNotification) SetNotificationGroupAuditRequiredNotificationType(value *AuditAuditRequiredSourceType)() {
     m.notificationGroupAuditRequiredNotificationType = value
 }
-// NotificationGroupAuditRequiredNotificationable 
 type NotificationGroupAuditRequiredNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// LaunchpadLaunchpadTile 
 type LaunchpadLaunchpadTile struct {
     LaunchpadLaunchpadTilePrimer
     // The additionalObjects property
@@ -22,7 +21,7 @@ type LaunchpadLaunchpadTile struct {
     // The vaultRecord property
     vaultRecord VaultVaultRecordPrimerable
 }
-// NewLaunchpadLaunchpadTile instantiates a new launchpadLaunchpadTile and sets the default values.
+// NewLaunchpadLaunchpadTile instantiates a new LaunchpadLaunchpadTile and sets the default values.
 func NewLaunchpadLaunchpadTile()(*LaunchpadLaunchpadTile) {
     m := &LaunchpadLaunchpadTile{
         LaunchpadLaunchpadTilePrimer: *NewLaunchpadLaunchpadTilePrimer(),
@@ -32,6 +31,7 @@ func NewLaunchpadLaunchpadTile()(*LaunchpadLaunchpadTile) {
     return m
 }
 // CreateLaunchpadLaunchpadTileFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateLaunchpadLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -58,14 +58,17 @@ func CreateLaunchpadLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e8
     return NewLaunchpadLaunchpadTile(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a LaunchpadLaunchpadTile_additionalObjectsable when successful
 func (m *LaunchpadLaunchpadTile) GetAdditionalObjects()(LaunchpadLaunchpadTile_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetApplication gets the application property value. The application property
+// returns a ClientClientApplicationPrimerable when successful
 func (m *LaunchpadLaunchpadTile) GetApplication()(ClientClientApplicationPrimerable) {
     return m.application
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.LaunchpadLaunchpadTilePrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -141,22 +144,27 @@ func (m *LaunchpadLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupPrimerable when successful
 func (m *LaunchpadLaunchpadTile) GetGroup()(GroupGroupPrimerable) {
     return m.group
 }
 // GetIdenticonCode gets the identiconCode property value. The identiconCode property
+// returns a *int32 when successful
 func (m *LaunchpadLaunchpadTile) GetIdenticonCode()(*int32) {
     return m.identiconCode
 }
 // GetLaunchpadLaunchpadTileType gets the type property value. The type property
+// returns a *LaunchpadLaunchpadTileType when successful
 func (m *LaunchpadLaunchpadTile) GetLaunchpadLaunchpadTileType()(*LaunchpadLaunchpadTileType) {
     return m.launchpadLaunchpadTileType
 }
 // GetLogo gets the logo property value. The logo property
+// returns a *string when successful
 func (m *LaunchpadLaunchpadTile) GetLogo()(*string) {
     return m.logo
 }
 // GetVaultRecord gets the vaultRecord property value. The vaultRecord property
+// returns a VaultVaultRecordPrimerable when successful
 func (m *LaunchpadLaunchpadTile) GetVaultRecord()(VaultVaultRecordPrimerable) {
     return m.vaultRecord
 }
@@ -239,7 +247,6 @@ func (m *LaunchpadLaunchpadTile) SetLogo(value *string)() {
 func (m *LaunchpadLaunchpadTile) SetVaultRecord(value VaultVaultRecordPrimerable)() {
     m.vaultRecord = value
 }
-// LaunchpadLaunchpadTileable 
 type LaunchpadLaunchpadTileable interface {
     LaunchpadLaunchpadTilePrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

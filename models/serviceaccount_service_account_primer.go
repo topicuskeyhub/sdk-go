@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ServiceaccountServiceAccountPrimer 
 type ServiceaccountServiceAccountPrimer struct {
     Linkable
     // The active property
@@ -18,7 +17,7 @@ type ServiceaccountServiceAccountPrimer struct {
     // The uuid property
     uuid *string
 }
-// NewServiceaccountServiceAccountPrimer instantiates a new serviceaccountServiceAccountPrimer and sets the default values.
+// NewServiceaccountServiceAccountPrimer instantiates a new ServiceaccountServiceAccountPrimer and sets the default values.
 func NewServiceaccountServiceAccountPrimer()(*ServiceaccountServiceAccountPrimer) {
     m := &ServiceaccountServiceAccountPrimer{
         Linkable: *NewLinkable(),
@@ -28,6 +27,7 @@ func NewServiceaccountServiceAccountPrimer()(*ServiceaccountServiceAccountPrimer
     return m
 }
 // CreateServiceaccountServiceAccountPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateServiceaccountServiceAccountPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -50,10 +50,12 @@ func CreateServiceaccountServiceAccountPrimerFromDiscriminatorValue(parseNode i8
     return NewServiceaccountServiceAccountPrimer(), nil
 }
 // GetActive gets the active property value. The active property
+// returns a *bool when successful
 func (m *ServiceaccountServiceAccountPrimer) GetActive()(*bool) {
     return m.active
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ServiceaccountServiceAccountPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["active"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -109,18 +111,22 @@ func (m *ServiceaccountServiceAccountPrimer) GetFieldDeserializers()(map[string]
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *ServiceaccountServiceAccountPrimer) GetName()(*string) {
     return m.name
 }
 // GetSystem gets the system property value. The system property
+// returns a ProvisioningProvisionedSystemPrimerable when successful
 func (m *ServiceaccountServiceAccountPrimer) GetSystem()(ProvisioningProvisionedSystemPrimerable) {
     return m.system
 }
 // GetUsername gets the username property value. The username property
+// returns a *string when successful
 func (m *ServiceaccountServiceAccountPrimer) GetUsername()(*string) {
     return m.username
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *ServiceaccountServiceAccountPrimer) GetUuid()(*string) {
     return m.uuid
 }
@@ -176,7 +182,6 @@ func (m *ServiceaccountServiceAccountPrimer) SetUsername(value *string)() {
 func (m *ServiceaccountServiceAccountPrimer) SetUuid(value *string)() {
     m.uuid = value
 }
-// ServiceaccountServiceAccountPrimerable 
 type ServiceaccountServiceAccountPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

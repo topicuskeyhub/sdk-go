@@ -17,7 +17,10 @@ type RequestRequestBuilderGetQueryParameters struct {
     // Only return UpdateGroupMembershipRequest for the given account(s), specified by id. This parameter supports composition with all parameters from the account resource.
     AccountToUpdate []int64 `uriparametername:"accountToUpdate"`
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Only return RevokeAdminRequest for the given account(s), specified by id. This parameter supports composition with all parameters from the account resource.
     AdminToRevoke []int64 `uriparametername:"adminToRevoke"`
     // Return all or no records. This can be useful when composing parameters.
@@ -25,11 +28,20 @@ type RequestRequestBuilderGetQueryParameters struct {
     // Filter requests on the given applications, specified by id. This parameter supports composition with all parameters from the client resource.
     Application []int64 `uriparametername:"application"`
     // Only return SetupAuthorizingGroupRequest for the given type of authorization.
+    // Deprecated: This property is deprecated, use AuthorizationTypeAsRequestAuthorizingGroupType instead
     AuthorizationType []string `uriparametername:"authorizationType"`
+    // Only return SetupAuthorizingGroupRequest for the given type of authorization.
+    AuthorizationTypeAsRequestAuthorizingGroupType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestAuthorizingGroupType `uriparametername:"authorizationType"`
     // Only return SetupAuthorizingGroupRequest(s) for the given authorization type.
+    // Deprecated: This property is deprecated, use AuthorizingGroupTypeAsRequestAuthorizingGroupType instead
     AuthorizingGroupType []string `uriparametername:"authorizingGroupType"`
+    // Only return SetupAuthorizingGroupRequest(s) for the given authorization type.
+    AuthorizingGroupTypeAsRequestAuthorizingGroupType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestAuthorizingGroupType `uriparametername:"authorizingGroupType"`
     // Only return GrantClientPermissionRequest for the given permission type(s).
+    // Deprecated: This property is deprecated, use ClientPermissionAsClientOAuth2ClientPermissionType instead
     ClientPermission []string `uriparametername:"clientPermission"`
+    // Only return GrantClientPermissionRequest for the given permission type(s).
+    ClientPermissionAsClientOAuth2ClientPermissionType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientOAuth2ClientPermissionType `uriparametername:"clientPermission"`
     // Only return SetupAuthorizingGroupRequest(s) that either connect or disconnect additional authorization.
     ConnectAuthorization []bool `uriparametername:"connectAuthorization"`
     // Only return records that have been created after the given instant.
@@ -44,6 +56,8 @@ type RequestRequestBuilderGetQueryParameters struct {
     Group []int64 `uriparametername:"group"`
     // Filter requests on the given group on system, specified by id. This parameter supports composition with all parameters from the group on system resource.
     GroupOnSystem []int64 `uriparametername:"groupOnSystem"`
+    // Filter requests for multiple groups if they contain any of the given groups.
+    GroupsOverlapWith []int64 `uriparametername:"groupsOverlapWith"`
     // Filter the results on the given ids.
     Id []int64 `uriparametername:"id"`
     // Only return VerifyInternalAccountRequest for the given internal account(s), specified by id. This parameter supports composition with all parameters from the internal account resource.
@@ -64,6 +78,8 @@ type RequestRequestBuilderGetQueryParameters struct {
     NewServiceAccountName []string `uriparametername:"newServiceAccountName"`
     // Filter requests on the given organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
     OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
+    // Only return CreateGroupOnSystemRequest with the given owner group(s), specified by id. This parameter supports composition with all parameters from the grouop resource.
+    OwnerGroup []int64 `uriparametername:"ownerGroup"`
     // Only return requests that were preceded by the given request(s), specified by id. This parameter supports composition with all parameters from the request resource.
     PrecededBy []int64 `uriparametername:"precededBy"`
     // Only return modification requests that can be processed by the given account, specified by id. This includes requests requested by the given account that are not yet processed or have been declined in the past 2 days.
@@ -76,8 +92,13 @@ type RequestRequestBuilderGetQueryParameters struct {
     RequestingGroup []int64 `uriparametername:"requestingGroup"`
     // Filter requests on the given service accounts, specified by id. This parameter supports composition with all parameters from the service account resource.
     ServiceAccount []int64 `uriparametername:"serviceAccount"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter requests on the given status(es).
+    // Deprecated: This property is deprecated, use StatusAsRequestModificationRequestStatus instead
     Status []string `uriparametername:"status"`
+    // Filter requests on the given status(es).
+    StatusAsRequestModificationRequestStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestStatus `uriparametername:"status"`
     // Filter requests on the given systems, specified by id. This parameter supports composition with all parameters from the system resource.
     System []int64 `uriparametername:"system"`
     // Only return requests that did or did not trigger a follow up request.
@@ -85,7 +106,10 @@ type RequestRequestBuilderGetQueryParameters struct {
     // Only return requests of the given type(s).
     Type []string `uriparametername:"type"`
     // Only return UpdateGroupMembershipRequest(s) of the given update type.
+    // Deprecated: This property is deprecated, use UpdateGroupMembershipTypeAsRequestUpdateGroupMembershipType instead
     UpdateGroupMembershipType []string `uriparametername:"updateGroupMembershipType"`
+    // Only return UpdateGroupMembershipRequest(s) of the given update type.
+    UpdateGroupMembershipTypeAsRequestUpdateGroupMembershipType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestUpdateGroupMembershipType `uriparametername:"updateGroupMembershipType"`
     // Only return requests the were processed by the given account(s), specified by id. This parameter supports composition with all parameters from the account resource.
     WasProcessedBy []int64 `uriparametername:"wasProcessedBy"`
 }
@@ -101,7 +125,10 @@ type RequestRequestBuilderGetRequestConfiguration struct {
 // RequestRequestBuilderPostQueryParameters creates one or more new modification requests and returns the newly created requests.
 type RequestRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // RequestRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type RequestRequestBuilderPostRequestConfiguration struct {
@@ -114,6 +141,7 @@ type RequestRequestBuilderPostRequestConfiguration struct {
 }
 // ByRequestid gets an item from the github.com/topicuskeyhub/sdk-go.request.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithRequestItemRequestBuilder when successful
 func (m *RequestRequestBuilder) ByRequestid(requestid string)(*WithRequestItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -125,6 +153,7 @@ func (m *RequestRequestBuilder) ByRequestid(requestid string)(*WithRequestItemRe
     return NewWithRequestItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByRequestidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.request.item collection
+// returns a *WithRequestItemRequestBuilder when successful
 func (m *RequestRequestBuilder) ByRequestidInt64(requestid int64)(*WithRequestItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -136,7 +165,7 @@ func (m *RequestRequestBuilder) ByRequestidInt64(requestid int64)(*WithRequestIt
 // NewRequestRequestBuilderInternal instantiates a new RequestRequestBuilder and sets the default values.
 func NewRequestRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*RequestRequestBuilder) {
     m := &RequestRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,accountToUpdate*,adminToRevoke*,application*,authorizationType*,authorizingGroupType*,clientPermission*,connectAuthorization*,directory*,group*,groupOnSystem*,internalAccount*,mailKey*,newAdmin*,newGroupName*,newGroupOnSystemName*,newNamespaceName*,newServiceAccountName*,organizationalUnit*,precededBy*,processedBy*,requestedBy*,requestingGroup*,serviceAccount*,status*,system*,triggeredFollowUpRequest*,type*,updateGroupMembershipType*,wasProcessedBy*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request{?accountToUpdate*,additional*,adminToRevoke*,any*,application*,authorizationType*,authorizingGroupType*,clientPermission*,connectAuthorization*,createdAfter*,createdBefore*,directory*,exclude*,group*,groupOnSystem*,groupsOverlapWith*,id*,internalAccount*,mailKey*,modifiedSince*,newAdmin*,newGroupName*,newGroupOnSystemName*,newNamespaceName*,newServiceAccountName*,organizationalUnit*,ownerGroup*,precededBy*,processedBy*,q*,requestedBy*,requestingGroup*,serviceAccount*,sort*,status*,system*,triggeredFollowUpRequest*,type*,updateGroupMembershipType*,wasProcessedBy*}", pathParameters),
     }
     return m
 }
@@ -147,14 +176,15 @@ func NewRequestRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371
     return NewRequestRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get queries over all modification requests. The various query parameters can be used to filter the response.
+// returns a RequestModificationRequestLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *RequestRequestBuilder) Get(ctx context.Context, requestConfiguration *RequestRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateRequestModificationRequestLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -166,14 +196,15 @@ func (m *RequestRequestBuilder) Get(ctx context.Context, requestConfiguration *R
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestLinkableWrapperable), nil
 }
 // Post creates one or more new modification requests and returns the newly created requests.
+// returns a RequestModificationRequestLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *RequestRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestLinkableWrapperable, requestConfiguration *RequestRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateRequestModificationRequestLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -184,7 +215,13 @@ func (m *RequestRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestLinkableWrapperable), nil
 }
+// Report the report property
+// returns a *ReportRequestBuilder when successful
+func (m *RequestRequestBuilder) Report()(*ReportRequestBuilder) {
+    return NewReportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // ToGetRequestInformation queries over all modification requests. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *RequestRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *RequestRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -198,8 +235,9 @@ func (m *RequestRequestBuilder) ToGetRequestInformation(ctx context.Context, req
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new modification requests and returns the newly created requests.
+// returns a *RequestInformation when successful
 func (m *RequestRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestLinkableWrapperable, requestConfiguration *RequestRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/request{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -215,6 +253,7 @@ func (m *RequestRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *RequestRequestBuilder when successful
 func (m *RequestRequestBuilder) WithUrl(rawUrl string)(*RequestRequestBuilder) {
     return NewRequestRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

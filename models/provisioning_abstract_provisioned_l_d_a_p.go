@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningAbstractProvisionedLDAP 
 type ProvisioningAbstractProvisionedLDAP struct {
     ProvisioningProvisionedSystem
     // The attributes property
@@ -40,7 +39,7 @@ type ProvisioningAbstractProvisionedLDAP struct {
     // The userDN property
     userDN *string
 }
-// NewProvisioningAbstractProvisionedLDAP instantiates a new provisioningAbstractProvisionedLDAP and sets the default values.
+// NewProvisioningAbstractProvisionedLDAP instantiates a new ProvisioningAbstractProvisionedLDAP and sets the default values.
 func NewProvisioningAbstractProvisionedLDAP()(*ProvisioningAbstractProvisionedLDAP) {
     m := &ProvisioningAbstractProvisionedLDAP{
         ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
@@ -50,6 +49,7 @@ func NewProvisioningAbstractProvisionedLDAP()(*ProvisioningAbstractProvisionedLD
     return m
 }
 // CreateProvisioningAbstractProvisionedLDAPFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningAbstractProvisionedLDAPFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -74,34 +74,42 @@ func CreateProvisioningAbstractProvisionedLDAPFromDiscriminatorValue(parseNode i
     return NewProvisioningAbstractProvisionedLDAP(), nil
 }
 // GetAttributes gets the attributes property value. The attributes property
+// returns a ProvisioningAbstractProvisionedLDAP_attributesable when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetAttributes()(ProvisioningAbstractProvisionedLDAP_attributesable) {
     return m.attributes
 }
 // GetBaseDN gets the baseDN property value. The baseDN property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetBaseDN()(*string) {
     return m.baseDN
 }
 // GetBindDN gets the bindDN property value. The bindDN property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetBindDN()(*string) {
     return m.bindDN
 }
 // GetBindPassword gets the bindPassword property value. The bindPassword property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetBindPassword()(*string) {
     return m.bindPassword
 }
 // GetClientCertificate gets the clientCertificate property value. The clientCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetClientCertificate()(CertificateCertificatePrimerable) {
     return m.clientCertificate
 }
 // GetFailoverHost gets the failoverHost property value. The failoverHost property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetFailoverHost()(*string) {
     return m.failoverHost
 }
 // GetFailoverTrustedCertificate gets the failoverTrustedCertificate property value. The failoverTrustedCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetFailoverTrustedCertificate()(CertificateCertificatePrimerable) {
     return m.failoverTrustedCertificate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
     res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -267,38 +275,47 @@ func (m *ProvisioningAbstractProvisionedLDAP) GetFieldDeserializers()(map[string
     return res
 }
 // GetGroupDN gets the groupDN property value. The groupDN property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetGroupDN()(*string) {
     return m.groupDN
 }
 // GetHost gets the host property value. The host property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetHost()(*string) {
     return m.host
 }
 // GetObjectClasses gets the objectClasses property value. The objectClasses property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetObjectClasses()(*string) {
     return m.objectClasses
 }
 // GetPort gets the port property value. The port property
+// returns a *int32 when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetPort()(*int32) {
     return m.port
 }
 // GetServiceAccountDN gets the serviceAccountDN property value. The serviceAccountDN property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetServiceAccountDN()(*string) {
     return m.serviceAccountDN
 }
 // GetSshPublicKeySupported gets the sshPublicKeySupported property value. The sshPublicKeySupported property
+// returns a *bool when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetSshPublicKeySupported()(*bool) {
     return m.sshPublicKeySupported
 }
 // GetTls gets the tls property value. The tls property
+// returns a *TLSLevel when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetTls()(*TLSLevel) {
     return m.tls
 }
 // GetTrustedCertificate gets the trustedCertificate property value. The trustedCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetTrustedCertificate()(CertificateCertificatePrimerable) {
     return m.trustedCertificate
 }
 // GetUserDN gets the userDN property value. The userDN property
+// returns a *string when successful
 func (m *ProvisioningAbstractProvisionedLDAP) GetUserDN()(*string) {
     return m.userDN
 }
@@ -471,7 +488,6 @@ func (m *ProvisioningAbstractProvisionedLDAP) SetTrustedCertificate(value Certif
 func (m *ProvisioningAbstractProvisionedLDAP) SetUserDN(value *string)() {
     m.userDN = value
 }
-// ProvisioningAbstractProvisionedLDAPable 
 type ProvisioningAbstractProvisionedLDAPable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable

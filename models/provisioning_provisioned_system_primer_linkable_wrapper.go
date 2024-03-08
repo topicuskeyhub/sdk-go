@@ -4,14 +4,13 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedSystemPrimerLinkableWrapper 
 type ProvisioningProvisionedSystemPrimerLinkableWrapper struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The items property
     items []ProvisioningProvisionedSystemPrimerable
 }
-// NewProvisioningProvisionedSystemPrimerLinkableWrapper instantiates a new provisioningProvisionedSystemPrimerLinkableWrapper and sets the default values.
+// NewProvisioningProvisionedSystemPrimerLinkableWrapper instantiates a new ProvisioningProvisionedSystemPrimerLinkableWrapper and sets the default values.
 func NewProvisioningProvisionedSystemPrimerLinkableWrapper()(*ProvisioningProvisionedSystemPrimerLinkableWrapper) {
     m := &ProvisioningProvisionedSystemPrimerLinkableWrapper{
     }
@@ -19,14 +18,17 @@ func NewProvisioningProvisionedSystemPrimerLinkableWrapper()(*ProvisioningProvis
     return m
 }
 // CreateProvisioningProvisionedSystemPrimerLinkableWrapperFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedSystemPrimerLinkableWrapperFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedSystemPrimerLinkableWrapper(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *ProvisioningProvisionedSystemPrimerLinkableWrapper) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedSystemPrimerLinkableWrapper) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["items"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -48,6 +50,7 @@ func (m *ProvisioningProvisionedSystemPrimerLinkableWrapper) GetFieldDeserialize
     return res
 }
 // GetItems gets the items property value. The items property
+// returns a []ProvisioningProvisionedSystemPrimerable when successful
 func (m *ProvisioningProvisionedSystemPrimerLinkableWrapper) GetItems()([]ProvisioningProvisionedSystemPrimerable) {
     return m.items
 }
@@ -81,7 +84,6 @@ func (m *ProvisioningProvisionedSystemPrimerLinkableWrapper) SetAdditionalData(v
 func (m *ProvisioningProvisionedSystemPrimerLinkableWrapper) SetItems(value []ProvisioningProvisionedSystemPrimerable)() {
     m.items = value
 }
-// ProvisioningProvisionedSystemPrimerLinkableWrapperable 
 type ProvisioningProvisionedSystemPrimerLinkableWrapperable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

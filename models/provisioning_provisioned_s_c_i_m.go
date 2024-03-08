@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedSCIM 
 type ProvisioningProvisionedSCIM struct {
     ProvisioningProvisionedSystem
     // The authenticationScheme property
@@ -24,7 +23,7 @@ type ProvisioningProvisionedSCIM struct {
     // The vendor property
     vendorEscaped *ProvisioningProvisionedSCIMVendor
 }
-// NewProvisioningProvisionedSCIM instantiates a new provisioningProvisionedSCIM and sets the default values.
+// NewProvisioningProvisionedSCIM instantiates a new ProvisioningProvisionedSCIM and sets the default values.
 func NewProvisioningProvisionedSCIM()(*ProvisioningProvisionedSCIM) {
     m := &ProvisioningProvisionedSCIM{
         ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
@@ -34,34 +33,42 @@ func NewProvisioningProvisionedSCIM()(*ProvisioningProvisionedSCIM) {
     return m
 }
 // CreateProvisioningProvisionedSCIMFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedSCIMFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedSCIM(), nil
 }
 // GetAuthenticationScheme gets the authenticationScheme property value. The authenticationScheme property
+// returns a *HttpAuthenticationScheme when successful
 func (m *ProvisioningProvisionedSCIM) GetAuthenticationScheme()(*HttpAuthenticationScheme) {
     return m.authenticationScheme
 }
 // GetBasicAuthPassword gets the basicAuthPassword property value. The basicAuthPassword property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSCIM) GetBasicAuthPassword()(*string) {
     return m.basicAuthPassword
 }
 // GetBasicAuthUsername gets the basicAuthUsername property value. The basicAuthUsername property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSCIM) GetBasicAuthUsername()(*string) {
     return m.basicAuthUsername
 }
 // GetBearerToken gets the bearerToken property value. The bearerToken property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSCIM) GetBearerToken()(*string) {
     return m.bearerToken
 }
 // GetCustomHeaderName gets the customHeaderName property value. The customHeaderName property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSCIM) GetCustomHeaderName()(*string) {
     return m.customHeaderName
 }
 // GetCustomHeaderValue gets the customHeaderValue property value. The customHeaderValue property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSCIM) GetCustomHeaderValue()(*string) {
     return m.customHeaderValue
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
     res["authenticationScheme"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -147,10 +154,12 @@ func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers()(map[string]func(i8
     return res
 }
 // GetUrl gets the url property value. The url property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSCIM) GetUrl()(*string) {
     return m.url
 }
 // GetVendorEscaped gets the vendor property value. The vendor property
+// returns a *ProvisioningProvisionedSCIMVendor when successful
 func (m *ProvisioningProvisionedSCIM) GetVendorEscaped()(*ProvisioningProvisionedSCIMVendor) {
     return m.vendorEscaped
 }
@@ -244,7 +253,6 @@ func (m *ProvisioningProvisionedSCIM) SetUrl(value *string)() {
 func (m *ProvisioningProvisionedSCIM) SetVendorEscaped(value *ProvisioningProvisionedSCIMVendor)() {
     m.vendorEscaped = value
 }
-// ProvisioningProvisionedSCIMable 
 type ProvisioningProvisionedSCIMable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable

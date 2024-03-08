@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuditInfo 
 type AuditInfo struct {
     NonLinkable
     // The createdAt property
@@ -27,18 +26,22 @@ func NewAuditInfo()(*AuditInfo) {
     return m
 }
 // CreateAuditInfoFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuditInfoFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuditInfo(), nil
 }
 // GetCreatedAt gets the createdAt property value. The createdAt property
+// returns a *Time when successful
 func (m *AuditInfo) GetCreatedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.createdAt
 }
 // GetCreatedBy gets the createdBy property value. The createdBy property
+// returns a *string when successful
 func (m *AuditInfo) GetCreatedBy()(*string) {
     return m.createdBy
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuditInfo) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["createdAt"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -84,10 +87,12 @@ func (m *AuditInfo) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689
     return res
 }
 // GetLastModifiedAt gets the lastModifiedAt property value. The lastModifiedAt property
+// returns a *Time when successful
 func (m *AuditInfo) GetLastModifiedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.lastModifiedAt
 }
 // GetLastModifiedBy gets the lastModifiedBy property value. The lastModifiedBy property
+// returns a *string when successful
 func (m *AuditInfo) GetLastModifiedBy()(*string) {
     return m.lastModifiedBy
 }
@@ -115,7 +120,6 @@ func (m *AuditInfo) SetLastModifiedAt(value *i336074805fc853987abe6f7fe3ad97a6a6
 func (m *AuditInfo) SetLastModifiedBy(value *string)() {
     m.lastModifiedBy = value
 }
-// AuditInfoable 
 type AuditInfoable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningGroupOnSystemPrimer 
 type ProvisioningGroupOnSystemPrimer struct {
     Linkable
     // The displayName property
@@ -16,7 +15,7 @@ type ProvisioningGroupOnSystemPrimer struct {
     // The shortNameInSystem property
     shortNameInSystem *string
 }
-// NewProvisioningGroupOnSystemPrimer instantiates a new provisioningGroupOnSystemPrimer and sets the default values.
+// NewProvisioningGroupOnSystemPrimer instantiates a new ProvisioningGroupOnSystemPrimer and sets the default values.
 func NewProvisioningGroupOnSystemPrimer()(*ProvisioningGroupOnSystemPrimer) {
     m := &ProvisioningGroupOnSystemPrimer{
         Linkable: *NewLinkable(),
@@ -26,6 +25,7 @@ func NewProvisioningGroupOnSystemPrimer()(*ProvisioningGroupOnSystemPrimer) {
     return m
 }
 // CreateProvisioningGroupOnSystemPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningGroupOnSystemPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -50,10 +50,12 @@ func CreateProvisioningGroupOnSystemPrimerFromDiscriminatorValue(parseNode i878a
     return NewProvisioningGroupOnSystemPrimer(), nil
 }
 // GetDisplayName gets the displayName property value. The displayName property
+// returns a *string when successful
 func (m *ProvisioningGroupOnSystemPrimer) GetDisplayName()(*string) {
     return m.displayName
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningGroupOnSystemPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["displayName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -99,14 +101,17 @@ func (m *ProvisioningGroupOnSystemPrimer) GetFieldDeserializers()(map[string]fun
     return res
 }
 // GetNameInSystem gets the nameInSystem property value. The nameInSystem property
+// returns a *string when successful
 func (m *ProvisioningGroupOnSystemPrimer) GetNameInSystem()(*string) {
     return m.nameInSystem
 }
 // GetProvisioningGroupOnSystemPrimerType gets the type property value. The type property
+// returns a *ProvisioningGroupOnSystemType when successful
 func (m *ProvisioningGroupOnSystemPrimer) GetProvisioningGroupOnSystemPrimerType()(*ProvisioningGroupOnSystemType) {
     return m.provisioningGroupOnSystemPrimerType
 }
 // GetShortNameInSystem gets the shortNameInSystem property value. The shortNameInSystem property
+// returns a *string when successful
 func (m *ProvisioningGroupOnSystemPrimer) GetShortNameInSystem()(*string) {
     return m.shortNameInSystem
 }
@@ -153,7 +158,6 @@ func (m *ProvisioningGroupOnSystemPrimer) SetProvisioningGroupOnSystemPrimerType
 func (m *ProvisioningGroupOnSystemPrimer) SetShortNameInSystem(value *string)() {
     m.shortNameInSystem = value
 }
-// ProvisioningGroupOnSystemPrimerable 
 type ProvisioningGroupOnSystemPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

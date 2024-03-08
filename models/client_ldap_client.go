@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ClientLdapClient 
 type ClientLdapClient struct {
     ClientClientApplication
     // The bindDn property
@@ -18,7 +17,7 @@ type ClientLdapClient struct {
     // The usedForProvisioning property
     usedForProvisioning *bool
 }
-// NewClientLdapClient instantiates a new clientLdapClient and sets the default values.
+// NewClientLdapClient instantiates a new ClientLdapClient and sets the default values.
 func NewClientLdapClient()(*ClientLdapClient) {
     m := &ClientLdapClient{
         ClientClientApplication: *NewClientClientApplication(),
@@ -28,18 +27,22 @@ func NewClientLdapClient()(*ClientLdapClient) {
     return m
 }
 // CreateClientLdapClientFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateClientLdapClientFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewClientLdapClient(), nil
 }
 // GetBindDn gets the bindDn property value. The bindDn property
+// returns a *string when successful
 func (m *ClientLdapClient) GetBindDn()(*string) {
     return m.bindDn
 }
 // GetClientCertificate gets the clientCertificate property value. The clientCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *ClientLdapClient) GetClientCertificate()(CertificateCertificatePrimerable) {
     return m.clientCertificate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientLdapClient) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ClientClientApplication.GetFieldDeserializers()
     res["bindDn"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -95,14 +98,17 @@ func (m *ClientLdapClient) GetFieldDeserializers()(map[string]func(i878a80d2330e
     return res
 }
 // GetSharedSecret gets the sharedSecret property value. The sharedSecret property
+// returns a VaultVaultRecordPrimerable when successful
 func (m *ClientLdapClient) GetSharedSecret()(VaultVaultRecordPrimerable) {
     return m.sharedSecret
 }
 // GetShareSecretInVault gets the shareSecretInVault property value. The shareSecretInVault property
+// returns a *bool when successful
 func (m *ClientLdapClient) GetShareSecretInVault()(*bool) {
     return m.shareSecretInVault
 }
 // GetUsedForProvisioning gets the usedForProvisioning property value. The usedForProvisioning property
+// returns a *bool when successful
 func (m *ClientLdapClient) GetUsedForProvisioning()(*bool) {
     return m.usedForProvisioning
 }
@@ -152,7 +158,6 @@ func (m *ClientLdapClient) SetShareSecretInVault(value *bool)() {
 func (m *ClientLdapClient) SetUsedForProvisioning(value *bool)() {
     m.usedForProvisioning = value
 }
-// ClientLdapClientable 
 type ClientLdapClientable interface {
     ClientClientApplicationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

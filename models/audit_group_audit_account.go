@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuditGroupAuditAccount 
 type AuditGroupAuditAccount struct {
     Linkable
     // The accountUuid property
@@ -33,7 +32,7 @@ type AuditGroupAuditAccount struct {
     // The username property
     username *string
 }
-// NewAuditGroupAuditAccount instantiates a new auditGroupAuditAccount and sets the default values.
+// NewAuditGroupAuditAccount instantiates a new AuditGroupAuditAccount and sets the default values.
 func NewAuditGroupAuditAccount()(*AuditGroupAuditAccount) {
     m := &AuditGroupAuditAccount{
         Linkable: *NewLinkable(),
@@ -43,38 +42,47 @@ func NewAuditGroupAuditAccount()(*AuditGroupAuditAccount) {
     return m
 }
 // CreateAuditGroupAuditAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuditGroupAuditAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuditGroupAuditAccount(), nil
 }
 // GetAccountUuid gets the accountUuid property value. The accountUuid property
+// returns a *string when successful
 func (m *AuditGroupAuditAccount) GetAccountUuid()(*string) {
     return m.accountUuid
 }
 // GetAccountValid gets the accountValid property value. The accountValid property
+// returns a *bool when successful
 func (m *AuditGroupAuditAccount) GetAccountValid()(*bool) {
     return m.accountValid
 }
 // GetAction gets the action property value. The action property
+// returns a *AuditAuditAccountAction when successful
 func (m *AuditGroupAuditAccount) GetAction()(*AuditAuditAccountAction) {
     return m.action
 }
 // GetComment gets the comment property value. The comment property
+// returns a *string when successful
 func (m *AuditGroupAuditAccount) GetComment()(*string) {
     return m.comment
 }
 // GetDisconnectedNested gets the disconnectedNested property value. The disconnectedNested property
+// returns a *bool when successful
 func (m *AuditGroupAuditAccount) GetDisconnectedNested()(*bool) {
     return m.disconnectedNested
 }
 // GetDisplayName gets the displayName property value. The displayName property
+// returns a *string when successful
 func (m *AuditGroupAuditAccount) GetDisplayName()(*string) {
     return m.displayName
 }
 // GetEndDate gets the endDate property value. The endDate property
+// returns a *DateOnly when successful
 func (m *AuditGroupAuditAccount) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.endDate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuditGroupAuditAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["accountUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -200,22 +208,27 @@ func (m *AuditGroupAuditAccount) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetLastActive gets the lastActive property value. The lastActive property
+// returns a *Time when successful
 func (m *AuditGroupAuditAccount) GetLastActive()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.lastActive
 }
 // GetLastUsed gets the lastUsed property value. The lastUsed property
+// returns a *DateOnly when successful
 func (m *AuditGroupAuditAccount) GetLastUsed()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.lastUsed
 }
 // GetNested gets the nested property value. The nested property
+// returns a *bool when successful
 func (m *AuditGroupAuditAccount) GetNested()(*bool) {
     return m.nested
 }
 // GetRights gets the rights property value. The rights property
+// returns a *GroupGroupRights when successful
 func (m *AuditGroupAuditAccount) GetRights()(*GroupGroupRights) {
     return m.rights
 }
 // GetUsername gets the username property value. The username property
+// returns a *string when successful
 func (m *AuditGroupAuditAccount) GetUsername()(*string) {
     return m.username
 }
@@ -301,7 +314,6 @@ func (m *AuditGroupAuditAccount) SetRights(value *GroupGroupRights)() {
 func (m *AuditGroupAuditAccount) SetUsername(value *string)() {
     m.username = value
 }
-// AuditGroupAuditAccountable 
 type AuditGroupAuditAccountable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// DirectoryOIDCDirectory 
 type DirectoryOIDCDirectory struct {
     DirectoryAccountDirectory
     // The acrValues property
@@ -30,7 +29,7 @@ type DirectoryOIDCDirectory struct {
     // The vendor property
     vendorEscaped *DirectoryOIDCVendor
 }
-// NewDirectoryOIDCDirectory instantiates a new directoryOIDCDirectory and sets the default values.
+// NewDirectoryOIDCDirectory instantiates a new DirectoryOIDCDirectory and sets the default values.
 func NewDirectoryOIDCDirectory()(*DirectoryOIDCDirectory) {
     m := &DirectoryOIDCDirectory{
         DirectoryAccountDirectory: *NewDirectoryAccountDirectory(),
@@ -40,34 +39,42 @@ func NewDirectoryOIDCDirectory()(*DirectoryOIDCDirectory) {
     return m
 }
 // CreateDirectoryOIDCDirectoryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateDirectoryOIDCDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewDirectoryOIDCDirectory(), nil
 }
 // GetAcrValues gets the acrValues property value. The acrValues property
+// returns a *string when successful
 func (m *DirectoryOIDCDirectory) GetAcrValues()(*string) {
     return m.acrValues
 }
 // GetAttributesToStore gets the attributesToStore property value. The attributesToStore property
+// returns a *string when successful
 func (m *DirectoryOIDCDirectory) GetAttributesToStore()(*string) {
     return m.attributesToStore
 }
 // GetClientId gets the clientId property value. The clientId property
+// returns a *string when successful
 func (m *DirectoryOIDCDirectory) GetClientId()(*string) {
     return m.clientId
 }
 // GetClientSecret gets the clientSecret property value. The clientSecret property
+// returns a *string when successful
 func (m *DirectoryOIDCDirectory) GetClientSecret()(*string) {
     return m.clientSecret
 }
 // GetDomainRestriction gets the domainRestriction property value. The domainRestriction property
+// returns a *string when successful
 func (m *DirectoryOIDCDirectory) GetDomainRestriction()(*string) {
     return m.domainRestriction
 }
 // GetEnforces2fa gets the enforces2fa property value. The enforces2fa property
+// returns a *bool when successful
 func (m *DirectoryOIDCDirectory) GetEnforces2fa()(*bool) {
     return m.enforces2fa
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *DirectoryOIDCDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.DirectoryAccountDirectory.GetFieldDeserializers()
     res["acrValues"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -183,22 +190,27 @@ func (m *DirectoryOIDCDirectory) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetFullyResolvedIssuer gets the fullyResolvedIssuer property value. The fullyResolvedIssuer property
+// returns a *string when successful
 func (m *DirectoryOIDCDirectory) GetFullyResolvedIssuer()(*string) {
     return m.fullyResolvedIssuer
 }
 // GetIssuer gets the issuer property value. The issuer property
+// returns a *string when successful
 func (m *DirectoryOIDCDirectory) GetIssuer()(*string) {
     return m.issuer
 }
 // GetLogoutUrl gets the logoutUrl property value. The logoutUrl property
+// returns a *string when successful
 func (m *DirectoryOIDCDirectory) GetLogoutUrl()(*string) {
     return m.logoutUrl
 }
 // GetSendLoginHint gets the sendLoginHint property value. The sendLoginHint property
+// returns a *bool when successful
 func (m *DirectoryOIDCDirectory) GetSendLoginHint()(*bool) {
     return m.sendLoginHint
 }
 // GetVendorEscaped gets the vendor property value. The vendor property
+// returns a *DirectoryOIDCVendor when successful
 func (m *DirectoryOIDCDirectory) GetVendorEscaped()(*DirectoryOIDCVendor) {
     return m.vendorEscaped
 }
@@ -315,7 +327,6 @@ func (m *DirectoryOIDCDirectory) SetSendLoginHint(value *bool)() {
 func (m *DirectoryOIDCDirectory) SetVendorEscaped(value *DirectoryOIDCVendor)() {
     m.vendorEscaped = value
 }
-// DirectoryOIDCDirectoryable 
 type DirectoryOIDCDirectoryable interface {
     DirectoryAccountDirectoryable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

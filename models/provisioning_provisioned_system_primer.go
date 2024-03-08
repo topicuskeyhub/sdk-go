@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedSystemPrimer 
 type ProvisioningProvisionedSystemPrimer struct {
     Linkable
     // The active property
@@ -18,7 +17,7 @@ type ProvisioningProvisionedSystemPrimer struct {
     // The uuid property
     uuid *string
 }
-// NewProvisioningProvisionedSystemPrimer instantiates a new provisioningProvisionedSystemPrimer and sets the default values.
+// NewProvisioningProvisionedSystemPrimer instantiates a new ProvisioningProvisionedSystemPrimer and sets the default values.
 func NewProvisioningProvisionedSystemPrimer()(*ProvisioningProvisionedSystemPrimer) {
     m := &ProvisioningProvisionedSystemPrimer{
         Linkable: *NewLinkable(),
@@ -28,6 +27,7 @@ func NewProvisioningProvisionedSystemPrimer()(*ProvisioningProvisionedSystemPrim
     return m
 }
 // CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -70,10 +70,12 @@ func CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue(parseNode i
     return NewProvisioningProvisionedSystemPrimer(), nil
 }
 // GetActive gets the active property value. The active property
+// returns a *bool when successful
 func (m *ProvisioningProvisionedSystemPrimer) GetActive()(*bool) {
     return m.active
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedSystemPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["active"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -129,18 +131,22 @@ func (m *ProvisioningProvisionedSystemPrimer) GetFieldDeserializers()(map[string
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSystemPrimer) GetName()(*string) {
     return m.name
 }
 // GetOrganizationalUnit gets the organizationalUnit property value. The organizationalUnit property
+// returns a OrganizationOrganizationalUnitPrimerable when successful
 func (m *ProvisioningProvisionedSystemPrimer) GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable) {
     return m.organizationalUnit
 }
 // GetProvisioningProvisionedSystemPrimerType gets the type property value. The type property
+// returns a *ProvisioningProvisionedSystemType when successful
 func (m *ProvisioningProvisionedSystemPrimer) GetProvisioningProvisionedSystemPrimerType()(*ProvisioningProvisionedSystemType) {
     return m.provisioningProvisionedSystemPrimerType
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSystemPrimer) GetUuid()(*string) {
     return m.uuid
 }
@@ -197,7 +203,6 @@ func (m *ProvisioningProvisionedSystemPrimer) SetProvisioningProvisionedSystemPr
 func (m *ProvisioningProvisionedSystemPrimer) SetUuid(value *string)() {
     m.uuid = value
 }
-// ProvisioningProvisionedSystemPrimerable 
 type ProvisioningProvisionedSystemPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

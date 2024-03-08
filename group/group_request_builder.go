@@ -19,7 +19,10 @@ type GroupRequestBuilderGetQueryParameters struct {
     // Search groups by name of connected, owned or administrated clients, linked systems, webhooks or service accounts.
     AccessQuicksearch []string `uriparametername:"accessQuicksearch"`
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Only return groups that have or have not enabled application administration.
@@ -29,7 +32,10 @@ type GroupRequestBuilderGetQueryParameters struct {
     // Only return groups that have been audited since the given instant.
     AuditedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"auditedSince"`
     // Filter groups on the status of its periodic auditing. These sets are disjunct. A group always has only one status. A group that is over due for auditing will not be returned when only AUDITED is requested.
+    // Deprecated: This property is deprecated, use AuditingStatusAsGroupGroupAuditingStatus instead
     AuditingStatus []string `uriparametername:"auditingStatus"`
+    // Filter groups on the status of its periodic auditing. These sets are disjunct. A group always has only one status. A group that is over due for auditing will not be returned when only AUDITED is requested.
+    AuditingStatusAsGroupGroupAuditingStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupAuditingStatus `uriparametername:"auditingStatus"`
     // Only returns the auditor group or all other groups.
     Auditor []bool `uriparametername:"auditor"`
     // Only return groups that are or are not over due for a periodic audit.
@@ -66,6 +72,10 @@ type GroupRequestBuilderGetQueryParameters struct {
     HasAnyAuthorizingGroupSet []bool `uriparametername:"hasAnyAuthorizingGroupSet"`
     // Only return groups that have or do not have periodic auditing setup.
     HasAuditing []bool `uriparametername:"hasAuditing"`
+    // Only return groups that have or do not have an audit that is currently under review.
+    HasAuditUnderReview []bool `uriparametername:"hasAuditUnderReview"`
+    // Only return groups that have or do not have given permissions to OAuth2 clients.
+    HasClientPermissions []bool `uriparametername:"hasClientPermissions"`
     // Only return groups that have or do not have connected clients.
     HasClients []bool `uriparametername:"hasClients"`
     // Only return groups that have or do not have 2 or more managers.
@@ -83,7 +93,10 @@ type GroupRequestBuilderGetQueryParameters struct {
     // Only return the KeyHub administrator group or all other groups.
     KeyHubAdmin []bool `uriparametername:"keyHubAdmin"`
     // Only return groups that do or do not meet the various criteria set in the classification (if any).
+    // Deprecated: This property is deprecated, use MeetsClassificationCriteriaAsGroupGroupClassificationConformance instead
     MeetsClassificationCriteria []string `uriparametername:"meetsClassificationCriteria"`
+    // Only return groups that do or do not meet the various criteria set in the classification (if any).
+    MeetsClassificationCriteriaAsGroupGroupClassificationConformance []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupClassificationConformance `uriparametername:"meetsClassificationCriteria"`
     // Filter groups for which membership is authorized by one of the given groups, specified by id. This parameter supports composition with all parameters from the group resource.
     MembershipAuthorizedBy []int64 `uriparametername:"membershipAuthorizedBy"`
     // Only return records that have been modified since the given instant.
@@ -128,14 +141,22 @@ type GroupRequestBuilderGetQueryParameters struct {
     RotatingPasswordRequired []bool `uriparametername:"rotatingPasswordRequired"`
     // Only return groups that allow or do not allow management by a single manager.
     SingleManaged []bool `uriparametername:"singleManaged"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter results on one or more UUIDs.
     Uuid []string `uriparametername:"uuid"`
     // Filter the groups by vault, specified by id. This parameter supports composition with all parameters from the vault resource.
     Vault []int64 `uriparametername:"vault"`
     // Only return groups with the given vault recovery availability.
+    // Deprecated: This property is deprecated, use VaultRecoveryAsGroupVaultRecoveryAvailability instead
     VaultRecovery []string `uriparametername:"vaultRecovery"`
+    // Only return groups with the given vault recovery availability.
+    VaultRecoveryAsGroupVaultRecoveryAvailability []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupVaultRecoveryAvailability `uriparametername:"vaultRecovery"`
     // Filter groups on whether they are public or only visible to members. Possible values are ALL ("return all groups (public and hidden)"), PUBLIC ("return only public groups") and PUBLIC_OR_MEMBER ("return public groups and hidden groups of which the current subject is a member"). Default is PUBLIC_OR_MEMBER. This option does not influence permissions, i.e. filtering on ALL can lead to errors if the current subject does not have the correct permissions on one or more groups.
+    // Deprecated: This property is deprecated, use VisibilityAsGroupGroupVisibility instead
     Visibility []string `uriparametername:"visibility"`
+    // Filter groups on whether they are public or only visible to members. Possible values are ALL ("return all groups (public and hidden)"), PUBLIC ("return only public groups") and PUBLIC_OR_MEMBER ("return public groups and hidden groups of which the current subject is a member"). Default is PUBLIC_OR_MEMBER. This option does not influence permissions, i.e. filtering on ALL can lead to errors if the current subject does not have the correct permissions on one or more groups.
+    VisibilityAsGroupGroupVisibility []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupVisibility `uriparametername:"visibility"`
 }
 // GroupRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type GroupRequestBuilderGetRequestConfiguration struct {
@@ -149,7 +170,10 @@ type GroupRequestBuilderGetRequestConfiguration struct {
 // GroupRequestBuilderPostQueryParameters creates one or more new groups and returns the newly created groups. It is required to specify the first admin via the admins additional object.
 type GroupRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // GroupRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type GroupRequestBuilderPostRequestConfiguration struct {
@@ -161,15 +185,18 @@ type GroupRequestBuilderPostRequestConfiguration struct {
     QueryParameters *GroupRequestBuilderPostQueryParameters
 }
 // Account the account property
+// returns a *AccountRequestBuilder when successful
 func (m *GroupRequestBuilder) Account()(*AccountRequestBuilder) {
     return NewAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Auditstats the auditstats property
+// returns a *AuditstatsRequestBuilder when successful
 func (m *GroupRequestBuilder) Auditstats()(*AuditstatsRequestBuilder) {
     return NewAuditstatsRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByGroupid gets an item from the github.com/topicuskeyhub/sdk-go.group.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithGroupItemRequestBuilder when successful
 func (m *GroupRequestBuilder) ByGroupid(groupid string)(*WithGroupItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -181,6 +208,7 @@ func (m *GroupRequestBuilder) ByGroupid(groupid string)(*WithGroupItemRequestBui
     return NewWithGroupItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByGroupidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.group.item collection
+// returns a *WithGroupItemRequestBuilder when successful
 func (m *GroupRequestBuilder) ByGroupidInt64(groupid int64)(*WithGroupItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -192,7 +220,7 @@ func (m *GroupRequestBuilder) ByGroupidInt64(groupid int64)(*WithGroupItemReques
 // NewGroupRequestBuilderInternal instantiates a new GroupRequestBuilder and sets the default values.
 func NewGroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupRequestBuilder) {
     m := &GroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,accessModifiedSince*,accessQuicksearch*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditor*,auditsReviewedBy*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,groupAuditConfig*,hasAnyAuthorizingGroupSet*,hasAuditing*,hasClients*,hasMoreThanOneManager*,hasSystems*,hasVault*,hasWebhooks*,isManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,privateGroup*,provisioningAuthorizedBy*,rotatingPasswordRequired*,singleManaged*,uuid*,vault*,vaultRecovery*,visibility*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group{?accessModifiedSince*,accessQuicksearch*,additional*,any*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditor*,auditsReviewedBy*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,createdAfter*,createdBefore*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,exclude*,groupAuditConfig*,hasAnyAuthorizingGroupSet*,hasAuditUnderReview*,hasAuditing*,hasClientPermissions*,hasClients*,hasMoreThanOneManager*,hasSystems*,hasVault*,hasWebhooks*,id*,isManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,modifiedSince*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,privateGroup*,provisioningAuthorizedBy*,q*,rotatingPasswordRequired*,singleManaged*,sort*,uuid*,vault*,vaultRecovery*,visibility*}", pathParameters),
     }
     return m
 }
@@ -203,18 +231,20 @@ func NewGroupRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb
     return NewGroupRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Export the export property
+// returns a *ExportRequestBuilder when successful
 func (m *GroupRequestBuilder) Export()(*ExportRequestBuilder) {
     return NewExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Get query for all groups in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a GroupGroupLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *GroupRequestBuilder) Get(ctx context.Context, requestConfiguration *GroupRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupGroupLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -226,14 +256,15 @@ func (m *GroupRequestBuilder) Get(ctx context.Context, requestConfiguration *Gro
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupLinkableWrapperable), nil
 }
 // Post creates one or more new groups and returns the newly created groups. It is required to specify the first admin via the admins additional object.
+// returns a GroupGroupLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *GroupRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupLinkableWrapperable, requestConfiguration *GroupRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupGroupLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -245,10 +276,12 @@ func (m *GroupRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupLinkableWrapperable), nil
 }
 // Segments the segments property
+// returns a *SegmentsRequestBuilder when successful
 func (m *GroupRequestBuilder) Segments()(*SegmentsRequestBuilder) {
     return NewSegmentsRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToGetRequestInformation query for all groups in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *GroupRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *GroupRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -262,8 +295,9 @@ func (m *GroupRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new groups and returns the newly created groups. It is required to specify the first admin via the admins additional object.
+// returns a *RequestInformation when successful
 func (m *GroupRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupLinkableWrapperable, requestConfiguration *GroupRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/group{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -279,6 +313,7 @@ func (m *GroupRequestBuilder) ToPostRequestInformation(ctx context.Context, body
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *GroupRequestBuilder when successful
 func (m *GroupRequestBuilder) WithUrl(rawUrl string)(*GroupRequestBuilder) {
     return NewGroupRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

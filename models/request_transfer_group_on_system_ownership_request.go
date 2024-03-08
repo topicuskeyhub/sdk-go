@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestTransferGroupOnSystemOwnershipRequest 
 type RequestTransferGroupOnSystemOwnershipRequest struct {
     RequestModificationRequest
     // The groupOnSystem property
     groupOnSystem ProvisioningGroupOnSystemable
 }
-// NewRequestTransferGroupOnSystemOwnershipRequest instantiates a new requestTransferGroupOnSystemOwnershipRequest and sets the default values.
+// NewRequestTransferGroupOnSystemOwnershipRequest instantiates a new RequestTransferGroupOnSystemOwnershipRequest and sets the default values.
 func NewRequestTransferGroupOnSystemOwnershipRequest()(*RequestTransferGroupOnSystemOwnershipRequest) {
     m := &RequestTransferGroupOnSystemOwnershipRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -20,10 +19,12 @@ func NewRequestTransferGroupOnSystemOwnershipRequest()(*RequestTransferGroupOnSy
     return m
 }
 // CreateRequestTransferGroupOnSystemOwnershipRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestTransferGroupOnSystemOwnershipRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestTransferGroupOnSystemOwnershipRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestTransferGroupOnSystemOwnershipRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["groupOnSystem"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -39,6 +40,7 @@ func (m *RequestTransferGroupOnSystemOwnershipRequest) GetFieldDeserializers()(m
     return res
 }
 // GetGroupOnSystem gets the groupOnSystem property value. The groupOnSystem property
+// returns a ProvisioningGroupOnSystemable when successful
 func (m *RequestTransferGroupOnSystemOwnershipRequest) GetGroupOnSystem()(ProvisioningGroupOnSystemable) {
     return m.groupOnSystem
 }
@@ -60,7 +62,6 @@ func (m *RequestTransferGroupOnSystemOwnershipRequest) Serialize(writer i878a80d
 func (m *RequestTransferGroupOnSystemOwnershipRequest) SetGroupOnSystem(value ProvisioningGroupOnSystemable)() {
     m.groupOnSystem = value
 }
-// RequestTransferGroupOnSystemOwnershipRequestable 
 type RequestTransferGroupOnSystemOwnershipRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

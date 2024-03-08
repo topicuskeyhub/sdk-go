@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NotificationRotatingPasswordRequiredNotification 
 type NotificationRotatingPasswordRequiredNotification struct {
     NotificationNotification
     // The groups property
     groups []GroupGroupPrimerable
 }
-// NewNotificationRotatingPasswordRequiredNotification instantiates a new notificationRotatingPasswordRequiredNotification and sets the default values.
+// NewNotificationRotatingPasswordRequiredNotification instantiates a new NotificationRotatingPasswordRequiredNotification and sets the default values.
 func NewNotificationRotatingPasswordRequiredNotification()(*NotificationRotatingPasswordRequiredNotification) {
     m := &NotificationRotatingPasswordRequiredNotification{
         NotificationNotification: *NewNotificationNotification(),
@@ -20,10 +19,12 @@ func NewNotificationRotatingPasswordRequiredNotification()(*NotificationRotating
     return m
 }
 // CreateNotificationRotatingPasswordRequiredNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNotificationRotatingPasswordRequiredNotificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewNotificationRotatingPasswordRequiredNotification(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationRotatingPasswordRequiredNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
     res["groups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -45,6 +46,7 @@ func (m *NotificationRotatingPasswordRequiredNotification) GetFieldDeserializers
     return res
 }
 // GetGroups gets the groups property value. The groups property
+// returns a []GroupGroupPrimerable when successful
 func (m *NotificationRotatingPasswordRequiredNotification) GetGroups()([]GroupGroupPrimerable) {
     return m.groups
 }
@@ -72,7 +74,6 @@ func (m *NotificationRotatingPasswordRequiredNotification) Serialize(writer i878
 func (m *NotificationRotatingPasswordRequiredNotification) SetGroups(value []GroupGroupPrimerable)() {
     m.groups = value
 }
-// NotificationRotatingPasswordRequiredNotificationable 
 type NotificationRotatingPasswordRequiredNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

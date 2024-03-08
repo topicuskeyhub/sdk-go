@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ClientSaml2Client 
 type ClientSaml2Client struct {
     ClientClientApplication
     // The attributes property
@@ -16,7 +15,7 @@ type ClientSaml2Client struct {
     // The subjectFormat property
     subjectFormat *ClientSubjectFormat
 }
-// NewClientSaml2Client instantiates a new clientSaml2Client and sets the default values.
+// NewClientSaml2Client instantiates a new ClientSaml2Client and sets the default values.
 func NewClientSaml2Client()(*ClientSaml2Client) {
     m := &ClientSaml2Client{
         ClientClientApplication: *NewClientClientApplication(),
@@ -26,14 +25,17 @@ func NewClientSaml2Client()(*ClientSaml2Client) {
     return m
 }
 // CreateClientSaml2ClientFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateClientSaml2ClientFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewClientSaml2Client(), nil
 }
 // GetAttributes gets the attributes property value. The attributes property
+// returns a ClientSaml2Client_attributesable when successful
 func (m *ClientSaml2Client) GetAttributes()(ClientSaml2Client_attributesable) {
     return m.attributes
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientSaml2Client) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ClientClientApplication.GetFieldDeserializers()
     res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -79,14 +81,17 @@ func (m *ClientSaml2Client) GetFieldDeserializers()(map[string]func(i878a80d2330
     return res
 }
 // GetMetadata gets the metadata property value. The metadata property
+// returns a *string when successful
 func (m *ClientSaml2Client) GetMetadata()(*string) {
     return m.metadata
 }
 // GetMetadataUrl gets the metadataUrl property value. The metadataUrl property
+// returns a *string when successful
 func (m *ClientSaml2Client) GetMetadataUrl()(*string) {
     return m.metadataUrl
 }
 // GetSubjectFormat gets the subjectFormat property value. The subjectFormat property
+// returns a *ClientSubjectFormat when successful
 func (m *ClientSaml2Client) GetSubjectFormat()(*ClientSubjectFormat) {
     return m.subjectFormat
 }
@@ -139,7 +144,6 @@ func (m *ClientSaml2Client) SetMetadataUrl(value *string)() {
 func (m *ClientSaml2Client) SetSubjectFormat(value *ClientSubjectFormat)() {
     m.subjectFormat = value
 }
-// ClientSaml2Clientable 
 type ClientSaml2Clientable interface {
     ClientClientApplicationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

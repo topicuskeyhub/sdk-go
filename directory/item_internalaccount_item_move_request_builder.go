@@ -17,28 +17,28 @@ type ItemInternalaccountItemMoveRequestBuilderPostRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewItemInternalaccountItemMoveRequestBuilderInternal instantiates a new MoveRequestBuilder and sets the default values.
+// NewItemInternalaccountItemMoveRequestBuilderInternal instantiates a new ItemInternalaccountItemMoveRequestBuilder and sets the default values.
 func NewItemInternalaccountItemMoveRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountItemMoveRequestBuilder) {
     m := &ItemInternalaccountItemMoveRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount/{internalaccountid}/move", pathParameters),
     }
     return m
 }
-// NewItemInternalaccountItemMoveRequestBuilder instantiates a new MoveRequestBuilder and sets the default values.
+// NewItemInternalaccountItemMoveRequestBuilder instantiates a new ItemInternalaccountItemMoveRequestBuilder and sets the default values.
 func NewItemInternalaccountItemMoveRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountItemMoveRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewItemInternalaccountItemMoveRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Post move the internal account specified by the given id to a different directory.
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemInternalaccountItemMoveRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthMoveInternalAccountable, requestConfiguration *ItemInternalaccountItemMoveRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -47,6 +47,7 @@ func (m *ItemInternalaccountItemMoveRequestBuilder) Post(ctx context.Context, bo
     return nil
 }
 // ToPostRequestInformation move the internal account specified by the given id to a different directory.
+// returns a *RequestInformation when successful
 func (m *ItemInternalaccountItemMoveRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthMoveInternalAccountable, requestConfiguration *ItemInternalaccountItemMoveRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -61,6 +62,7 @@ func (m *ItemInternalaccountItemMoveRequestBuilder) ToPostRequestInformation(ctx
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *ItemInternalaccountItemMoveRequestBuilder when successful
 func (m *ItemInternalaccountItemMoveRequestBuilder) WithUrl(rawUrl string)(*ItemInternalaccountItemMoveRequestBuilder) {
     return NewItemInternalaccountItemMoveRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

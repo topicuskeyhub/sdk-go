@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultVaultRecordSecrets 
 type VaultVaultRecordSecrets struct {
     NonLinkable
     // The comment property
@@ -18,7 +17,7 @@ type VaultVaultRecordSecrets struct {
     // The writeTotp property
     writeTotp *bool
 }
-// NewVaultVaultRecordSecrets instantiates a new vaultVaultRecordSecrets and sets the default values.
+// NewVaultVaultRecordSecrets instantiates a new VaultVaultRecordSecrets and sets the default values.
 func NewVaultVaultRecordSecrets()(*VaultVaultRecordSecrets) {
     m := &VaultVaultRecordSecrets{
         NonLinkable: *NewNonLinkable(),
@@ -28,14 +27,17 @@ func NewVaultVaultRecordSecrets()(*VaultVaultRecordSecrets) {
     return m
 }
 // CreateVaultVaultRecordSecretsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultVaultRecordSecretsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVaultRecordSecrets(), nil
 }
 // GetComment gets the comment property value. The comment property
+// returns a *string when successful
 func (m *VaultVaultRecordSecrets) GetComment()(*string) {
     return m.comment
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVaultRecordSecrets) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["comment"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -91,18 +93,22 @@ func (m *VaultVaultRecordSecrets) GetFieldDeserializers()(map[string]func(i878a8
     return res
 }
 // GetFile gets the file property value. The file property
+// returns a *string when successful
 func (m *VaultVaultRecordSecrets) GetFile()(*string) {
     return m.file
 }
 // GetPassword gets the password property value. The password property
+// returns a *string when successful
 func (m *VaultVaultRecordSecrets) GetPassword()(*string) {
     return m.password
 }
 // GetTotp gets the totp property value. The totp property
+// returns a *string when successful
 func (m *VaultVaultRecordSecrets) GetTotp()(*string) {
     return m.totp
 }
 // GetWriteTotp gets the writeTotp property value. The writeTotp property
+// returns a *bool when successful
 func (m *VaultVaultRecordSecrets) GetWriteTotp()(*bool) {
     return m.writeTotp
 }
@@ -164,7 +170,6 @@ func (m *VaultVaultRecordSecrets) SetTotp(value *string)() {
 func (m *VaultVaultRecordSecrets) SetWriteTotp(value *bool)() {
     m.writeTotp = value
 }
-// VaultVaultRecordSecretsable 
 type VaultVaultRecordSecretsable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

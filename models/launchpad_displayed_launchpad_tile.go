@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// LaunchpadDisplayedLaunchpadTile 
 type LaunchpadDisplayedLaunchpadTile struct {
     Linkable
     // The group property
@@ -20,7 +19,7 @@ type LaunchpadDisplayedLaunchpadTile struct {
     // The uri property
     uri *string
 }
-// NewLaunchpadDisplayedLaunchpadTile instantiates a new launchpadDisplayedLaunchpadTile and sets the default values.
+// NewLaunchpadDisplayedLaunchpadTile instantiates a new LaunchpadDisplayedLaunchpadTile and sets the default values.
 func NewLaunchpadDisplayedLaunchpadTile()(*LaunchpadDisplayedLaunchpadTile) {
     m := &LaunchpadDisplayedLaunchpadTile{
         Linkable: *NewLinkable(),
@@ -30,10 +29,12 @@ func NewLaunchpadDisplayedLaunchpadTile()(*LaunchpadDisplayedLaunchpadTile) {
     return m
 }
 // CreateLaunchpadDisplayedLaunchpadTileFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateLaunchpadDisplayedLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewLaunchpadDisplayedLaunchpadTile(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadDisplayedLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["group"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -99,26 +100,32 @@ func (m *LaunchpadDisplayedLaunchpadTile) GetFieldDeserializers()(map[string]fun
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupPrimerable when successful
 func (m *LaunchpadDisplayedLaunchpadTile) GetGroup()(GroupGroupPrimerable) {
     return m.group
 }
 // GetIdenticonCode gets the identiconCode property value. The identiconCode property
+// returns a *int32 when successful
 func (m *LaunchpadDisplayedLaunchpadTile) GetIdenticonCode()(*int32) {
     return m.identiconCode
 }
 // GetLogo gets the logo property value. The logo property
+// returns a *string when successful
 func (m *LaunchpadDisplayedLaunchpadTile) GetLogo()(*string) {
     return m.logo
 }
 // GetTile gets the tile property value. The tile property
+// returns a LaunchpadLaunchpadTilePrimerable when successful
 func (m *LaunchpadDisplayedLaunchpadTile) GetTile()(LaunchpadLaunchpadTilePrimerable) {
     return m.tile
 }
 // GetTitle gets the title property value. The title property
+// returns a *string when successful
 func (m *LaunchpadDisplayedLaunchpadTile) GetTitle()(*string) {
     return m.title
 }
 // GetUri gets the uri property value. The uri property
+// returns a *string when successful
 func (m *LaunchpadDisplayedLaunchpadTile) GetUri()(*string) {
     return m.uri
 }
@@ -190,7 +197,6 @@ func (m *LaunchpadDisplayedLaunchpadTile) SetTitle(value *string)() {
 func (m *LaunchpadDisplayedLaunchpadTile) SetUri(value *string)() {
     m.uri = value
 }
-// LaunchpadDisplayedLaunchpadTileable 
 type LaunchpadDisplayedLaunchpadTileable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

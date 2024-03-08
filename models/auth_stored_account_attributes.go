@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthStoredAccountAttributes 
 type AuthStoredAccountAttributes struct {
     NonLinkable
     // The attributes property
     attributes []AuthStoredAccountAttributeable
 }
-// NewAuthStoredAccountAttributes instantiates a new authStoredAccountAttributes and sets the default values.
+// NewAuthStoredAccountAttributes instantiates a new AuthStoredAccountAttributes and sets the default values.
 func NewAuthStoredAccountAttributes()(*AuthStoredAccountAttributes) {
     m := &AuthStoredAccountAttributes{
         NonLinkable: *NewNonLinkable(),
@@ -20,14 +19,17 @@ func NewAuthStoredAccountAttributes()(*AuthStoredAccountAttributes) {
     return m
 }
 // CreateAuthStoredAccountAttributesFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthStoredAccountAttributesFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuthStoredAccountAttributes(), nil
 }
 // GetAttributes gets the attributes property value. The attributes property
+// returns a []AuthStoredAccountAttributeable when successful
 func (m *AuthStoredAccountAttributes) GetAttributes()([]AuthStoredAccountAttributeable) {
     return m.attributes
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthStoredAccountAttributes) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -72,7 +74,6 @@ func (m *AuthStoredAccountAttributes) Serialize(writer i878a80d2330e89d26896388a
 func (m *AuthStoredAccountAttributes) SetAttributes(value []AuthStoredAccountAttributeable)() {
     m.attributes = value
 }
-// AuthStoredAccountAttributesable 
 type AuthStoredAccountAttributesable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

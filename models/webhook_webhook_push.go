@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// WebhookWebhookPush 
 type WebhookWebhookPush struct {
     NonLinkable
     // The account property
@@ -51,7 +50,7 @@ type WebhookWebhookPush struct {
     // The type property
     webhookWebhookPushType *AuditAuditRecordType
 }
-// NewWebhookWebhookPush instantiates a new webhookWebhookPush and sets the default values.
+// NewWebhookWebhookPush instantiates a new WebhookWebhookPush and sets the default values.
 func NewWebhookWebhookPush()(*WebhookWebhookPush) {
     m := &WebhookWebhookPush{
         NonLinkable: *NewNonLinkable(),
@@ -61,30 +60,37 @@ func NewWebhookWebhookPush()(*WebhookWebhookPush) {
     return m
 }
 // CreateWebhookWebhookPushFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateWebhookWebhookPushFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewWebhookWebhookPush(), nil
 }
 // GetAccount gets the account property value. The account property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetAccount()(WebhookWebhookNameUuidable) {
     return m.account
 }
 // GetByParty gets the byParty property value. The byParty property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetByParty()(WebhookWebhookNameUuidable) {
     return m.byParty
 }
 // GetCertificate gets the certificate property value. The certificate property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetCertificate()(WebhookWebhookNameUuidable) {
     return m.certificate
 }
 // GetClient gets the client property value. The client property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetClient()(WebhookWebhookNameUuidable) {
     return m.client
 }
 // GetDirectory gets the directory property value. The directory property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetDirectory()(WebhookWebhookNameUuidable) {
     return m.directory
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *WebhookWebhookPush) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -300,66 +306,82 @@ func (m *WebhookWebhookPush) GetFieldDeserializers()(map[string]func(i878a80d233
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetGroup()(WebhookWebhookNameUuidable) {
     return m.group
 }
 // GetGroup2 gets the group2 property value. The group2 property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetGroup2()(WebhookWebhookNameUuidable) {
     return m.group2
 }
 // GetGroupClassification gets the groupClassification property value. The groupClassification property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetGroupClassification()(WebhookWebhookNameUuidable) {
     return m.groupClassification
 }
 // GetModificationRequest gets the modificationRequest property value. The modificationRequest property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetModificationRequest()(WebhookWebhookNameUuidable) {
     return m.modificationRequest
 }
 // GetOrganizationalUnit gets the organizationalUnit property value. The organizationalUnit property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetOrganizationalUnit()(WebhookWebhookNameUuidable) {
     return m.organizationalUnit
 }
 // GetParameter1 gets the parameter1 property value. The parameter1 property
+// returns a *string when successful
 func (m *WebhookWebhookPush) GetParameter1()(*string) {
     return m.parameter1
 }
 // GetParameter2 gets the parameter2 property value. The parameter2 property
+// returns a *string when successful
 func (m *WebhookWebhookPush) GetParameter2()(*string) {
     return m.parameter2
 }
 // GetParameter3 gets the parameter3 property value. The parameter3 property
+// returns a *string when successful
 func (m *WebhookWebhookPush) GetParameter3()(*string) {
     return m.parameter3
 }
 // GetSecurityLevel gets the securityLevel property value. The securityLevel property
+// returns a *AuthSecurityLevel when successful
 func (m *WebhookWebhookPush) GetSecurityLevel()(*AuthSecurityLevel) {
     return m.securityLevel
 }
 // GetSeq gets the seq property value. The seq property
+// returns a *int64 when successful
 func (m *WebhookWebhookPush) GetSeq()(*int64) {
     return m.seq
 }
 // GetServiceAccount gets the serviceAccount property value. The serviceAccount property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetServiceAccount()(WebhookWebhookNameUuidable) {
     return m.serviceAccount
 }
 // GetSystem gets the system property value. The system property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetSystem()(WebhookWebhookNameUuidable) {
     return m.system
 }
 // GetTimestamp gets the timestamp property value. The timestamp property
+// returns a *Time when successful
 func (m *WebhookWebhookPush) GetTimestamp()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.timestamp
 }
 // GetVaultRecord gets the vaultRecord property value. The vaultRecord property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetVaultRecord()(WebhookWebhookNameUuidable) {
     return m.vaultRecord
 }
 // GetWebhook gets the webhook property value. The webhook property
+// returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetWebhook()(WebhookWebhookNameUuidable) {
     return m.webhook
 }
 // GetWebhookWebhookPushType gets the type property value. The type property
+// returns a *AuditAuditRecordType when successful
 func (m *WebhookWebhookPush) GetWebhookWebhookPushType()(*AuditAuditRecordType) {
     return m.webhookWebhookPushType
 }
@@ -583,7 +605,6 @@ func (m *WebhookWebhookPush) SetWebhook(value WebhookWebhookNameUuidable)() {
 func (m *WebhookWebhookPush) SetWebhookWebhookPushType(value *AuditAuditRecordType)() {
     m.webhookWebhookPushType = value
 }
-// WebhookWebhookPushable 
 type WebhookWebhookPushable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

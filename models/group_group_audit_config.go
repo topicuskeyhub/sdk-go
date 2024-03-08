@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupAuditConfig 
 type GroupGroupAuditConfig struct {
     Linkable
     // The months property
     months []Month
 }
-// NewGroupGroupAuditConfig instantiates a new groupGroupAuditConfig and sets the default values.
+// NewGroupGroupAuditConfig instantiates a new GroupGroupAuditConfig and sets the default values.
 func NewGroupGroupAuditConfig()(*GroupGroupAuditConfig) {
     m := &GroupGroupAuditConfig{
         Linkable: *NewLinkable(),
@@ -20,10 +19,12 @@ func NewGroupGroupAuditConfig()(*GroupGroupAuditConfig) {
     return m
 }
 // CreateGroupGroupAuditConfigFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupAuditConfigFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupAuditConfig(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupAuditConfig) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["months"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -45,6 +46,7 @@ func (m *GroupGroupAuditConfig) GetFieldDeserializers()(map[string]func(i878a80d
     return res
 }
 // GetMonths gets the months property value. The months property
+// returns a []Month when successful
 func (m *GroupGroupAuditConfig) GetMonths()([]Month) {
     return m.months
 }
@@ -66,7 +68,6 @@ func (m *GroupGroupAuditConfig) Serialize(writer i878a80d2330e89d26896388a3f487e
 func (m *GroupGroupAuditConfig) SetMonths(value []Month)() {
     m.months = value
 }
-// GroupGroupAuditConfigable 
 type GroupGroupAuditConfigable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

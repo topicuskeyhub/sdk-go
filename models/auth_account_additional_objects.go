@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthAccount_additionalObjects 
 type AuthAccount_additionalObjects struct {
     // The activeLogin property
     activeLogin *bool
@@ -23,7 +22,7 @@ type AuthAccount_additionalObjects struct {
     // The vault property
     vault VaultVaultable
 }
-// NewAuthAccount_additionalObjects instantiates a new authAccount_additionalObjects and sets the default values.
+// NewAuthAccount_additionalObjects instantiates a new AuthAccount_additionalObjects and sets the default values.
 func NewAuthAccount_additionalObjects()(*AuthAccount_additionalObjects) {
     m := &AuthAccount_additionalObjects{
     }
@@ -31,22 +30,27 @@ func NewAuthAccount_additionalObjects()(*AuthAccount_additionalObjects) {
     return m
 }
 // CreateAuthAccount_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthAccount_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuthAccount_additionalObjects(), nil
 }
 // GetActiveLogin gets the activeLogin property value. The activeLogin property
+// returns a *bool when successful
 func (m *AuthAccount_additionalObjects) GetActiveLogin()(*bool) {
     return m.activeLogin
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *AuthAccount_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetAudit gets the audit property value. The audit property
+// returns a AuditInfoable when successful
 func (m *AuthAccount_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthAccount_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["activeLogin"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -122,22 +126,27 @@ func (m *AuthAccount_additionalObjects) GetFieldDeserializers()(map[string]func(
     return res
 }
 // GetGroups gets the groups property value. The groups property
+// returns a GroupAccountGroupLinkableWrapperable when successful
 func (m *AuthAccount_additionalObjects) GetGroups()(GroupAccountGroupLinkableWrapperable) {
     return m.groups
 }
 // GetPendingRecoveryRequests gets the pendingRecoveryRequests property value. The pendingRecoveryRequests property
+// returns a AuthAccountRecoveryStatusable when successful
 func (m *AuthAccount_additionalObjects) GetPendingRecoveryRequests()(AuthAccountRecoveryStatusable) {
     return m.pendingRecoveryRequests
 }
 // GetSettings gets the settings property value. The settings property
+// returns a AuthAccountSettingsable when successful
 func (m *AuthAccount_additionalObjects) GetSettings()(AuthAccountSettingsable) {
     return m.settings
 }
 // GetStoredAttributes gets the storedAttributes property value. The storedAttributes property
+// returns a AuthStoredAccountAttributesable when successful
 func (m *AuthAccount_additionalObjects) GetStoredAttributes()(AuthStoredAccountAttributesable) {
     return m.storedAttributes
 }
 // GetVault gets the vault property value. The vault property
+// returns a VaultVaultable when successful
 func (m *AuthAccount_additionalObjects) GetVault()(VaultVaultable) {
     return m.vault
 }
@@ -219,7 +228,6 @@ func (m *AuthAccount_additionalObjects) SetStoredAttributes(value AuthStoredAcco
 func (m *AuthAccount_additionalObjects) SetVault(value VaultVaultable)() {
     m.vault = value
 }
-// AuthAccount_additionalObjectsable 
 type AuthAccount_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

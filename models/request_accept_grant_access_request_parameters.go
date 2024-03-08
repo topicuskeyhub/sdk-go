@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestAcceptGrantAccessRequestParameters 
 type RequestAcceptGrantAccessRequestParameters struct {
     RequestAcceptModificationRequestParameters
     // The accessDuration property
     accessDuration RequestAcceptGrantAccessRequestParameters_accessDurationable
 }
-// NewRequestAcceptGrantAccessRequestParameters instantiates a new requestAcceptGrantAccessRequestParameters and sets the default values.
+// NewRequestAcceptGrantAccessRequestParameters instantiates a new RequestAcceptGrantAccessRequestParameters and sets the default values.
 func NewRequestAcceptGrantAccessRequestParameters()(*RequestAcceptGrantAccessRequestParameters) {
     m := &RequestAcceptGrantAccessRequestParameters{
         RequestAcceptModificationRequestParameters: *NewRequestAcceptModificationRequestParameters(),
@@ -20,14 +19,17 @@ func NewRequestAcceptGrantAccessRequestParameters()(*RequestAcceptGrantAccessReq
     return m
 }
 // CreateRequestAcceptGrantAccessRequestParametersFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestAcceptGrantAccessRequestParametersFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestAcceptGrantAccessRequestParameters(), nil
 }
 // GetAccessDuration gets the accessDuration property value. The accessDuration property
+// returns a RequestAcceptGrantAccessRequestParameters_accessDurationable when successful
 func (m *RequestAcceptGrantAccessRequestParameters) GetAccessDuration()(RequestAcceptGrantAccessRequestParameters_accessDurationable) {
     return m.accessDuration
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestAcceptGrantAccessRequestParameters) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestAcceptModificationRequestParameters.GetFieldDeserializers()
     res["accessDuration"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -60,7 +62,6 @@ func (m *RequestAcceptGrantAccessRequestParameters) Serialize(writer i878a80d233
 func (m *RequestAcceptGrantAccessRequestParameters) SetAccessDuration(value RequestAcceptGrantAccessRequestParameters_accessDurationable)() {
     m.accessDuration = value
 }
-// RequestAcceptGrantAccessRequestParametersable 
 type RequestAcceptGrantAccessRequestParametersable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestAcceptModificationRequestParametersable

@@ -4,6 +4,7 @@ import (
     "context"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
+    i766b2b9fd35f473ac83ce5175d30585440ef85f6409689238abde6943c665916 "github.com/topicuskeyhub/sdk-go/webhook/item"
 )
 
 // WithWebhookItemRequestBuilder builds and executes requests for operations under \webhook\{webhookid}
@@ -20,7 +21,10 @@ type WithWebhookItemRequestBuilderDeleteRequestConfiguration struct {
 // WithWebhookItemRequestBuilderGetQueryParameters returns the single webhook.
 type WithWebhookItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []i766b2b9fd35f473ac83ce5175d30585440ef85f6409689238abde6943c665916.GetAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // WithWebhookItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithWebhookItemRequestBuilderGetRequestConfiguration struct {
@@ -34,7 +38,10 @@ type WithWebhookItemRequestBuilderGetRequestConfiguration struct {
 // WithWebhookItemRequestBuilderPutQueryParameters updates the webhook identified by the id.
 type WithWebhookItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPutAdditionalQueryParameterType []i766b2b9fd35f473ac83ce5175d30585440ef85f6409689238abde6943c665916.PutAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // WithWebhookItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithWebhookItemRequestBuilderPutRequestConfiguration struct {
@@ -59,14 +66,14 @@ func NewWithWebhookItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7da
     return NewWithWebhookItemRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete removes the specified webhook.
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WithWebhookItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithWebhookItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -75,18 +82,20 @@ func (m *WithWebhookItemRequestBuilder) Delete(ctx context.Context, requestConfi
     return nil
 }
 // Delivery the delivery property
+// returns a *ItemDeliveryRequestBuilder when successful
 func (m *WithWebhookItemRequestBuilder) Delivery()(*ItemDeliveryRequestBuilder) {
     return NewItemDeliveryRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Get returns the single webhook.
+// returns a WebhookWebhookable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WithWebhookItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithWebhookItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateWebhookWebhookFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -98,14 +107,15 @@ func (m *WithWebhookItemRequestBuilder) Get(ctx context.Context, requestConfigur
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable), nil
 }
 // Put updates the webhook identified by the id.
+// returns a WebhookWebhookable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WithWebhookItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, requestConfiguration *WithWebhookItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateWebhookWebhookFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -117,8 +127,9 @@ func (m *WithWebhookItemRequestBuilder) Put(ctx context.Context, body ie2969523f
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable), nil
 }
 // ToDeleteRequestInformation removes the specified webhook.
+// returns a *RequestInformation when successful
 func (m *WithWebhookItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithWebhookItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, "{+baseurl}/webhook/{webhookid}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
@@ -127,6 +138,7 @@ func (m *WithWebhookItemRequestBuilder) ToDeleteRequestInformation(ctx context.C
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single webhook.
+// returns a *RequestInformation when successful
 func (m *WithWebhookItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithWebhookItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -140,6 +152,7 @@ func (m *WithWebhookItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the webhook identified by the id.
+// returns a *RequestInformation when successful
 func (m *WithWebhookItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.WebhookWebhookable, requestConfiguration *WithWebhookItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -157,6 +170,7 @@ func (m *WithWebhookItemRequestBuilder) ToPutRequestInformation(ctx context.Cont
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *WithWebhookItemRequestBuilder when successful
 func (m *WithWebhookItemRequestBuilder) WithUrl(rawUrl string)(*WithWebhookItemRequestBuilder) {
     return NewWithWebhookItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

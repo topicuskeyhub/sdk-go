@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningGroupProvisioningStatus_provisioningDuration 
 type ProvisioningGroupProvisioningStatus_provisioningDuration struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
@@ -13,7 +12,7 @@ type ProvisioningGroupProvisioningStatus_provisioningDuration struct {
     // The seconds property
     seconds *int64
 }
-// NewProvisioningGroupProvisioningStatus_provisioningDuration instantiates a new provisioningGroupProvisioningStatus_provisioningDuration and sets the default values.
+// NewProvisioningGroupProvisioningStatus_provisioningDuration instantiates a new ProvisioningGroupProvisioningStatus_provisioningDuration and sets the default values.
 func NewProvisioningGroupProvisioningStatus_provisioningDuration()(*ProvisioningGroupProvisioningStatus_provisioningDuration) {
     m := &ProvisioningGroupProvisioningStatus_provisioningDuration{
     }
@@ -21,14 +20,17 @@ func NewProvisioningGroupProvisioningStatus_provisioningDuration()(*Provisioning
     return m
 }
 // CreateProvisioningGroupProvisioningStatus_provisioningDurationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningGroupProvisioningStatus_provisioningDurationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningGroupProvisioningStatus_provisioningDuration(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *ProvisioningGroupProvisioningStatus_provisioningDuration) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningGroupProvisioningStatus_provisioningDuration) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["nanos"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -54,10 +56,12 @@ func (m *ProvisioningGroupProvisioningStatus_provisioningDuration) GetFieldDeser
     return res
 }
 // GetNanos gets the nanos property value. The nanos property
+// returns a *int32 when successful
 func (m *ProvisioningGroupProvisioningStatus_provisioningDuration) GetNanos()(*int32) {
     return m.nanos
 }
 // GetSeconds gets the seconds property value. The seconds property
+// returns a *int64 when successful
 func (m *ProvisioningGroupProvisioningStatus_provisioningDuration) GetSeconds()(*int64) {
     return m.seconds
 }
@@ -95,7 +99,6 @@ func (m *ProvisioningGroupProvisioningStatus_provisioningDuration) SetNanos(valu
 func (m *ProvisioningGroupProvisioningStatus_provisioningDuration) SetSeconds(value *int64)() {
     m.seconds = value
 }
-// ProvisioningGroupProvisioningStatus_provisioningDurationable 
 type ProvisioningGroupProvisioningStatus_provisioningDurationable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

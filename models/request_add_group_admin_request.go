@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestAddGroupAdminRequest 
 type RequestAddGroupAdminRequest struct {
     RequestModificationRequest
     // The newAdmin property
@@ -12,7 +11,7 @@ type RequestAddGroupAdminRequest struct {
     // The privateKey property
     privateKey *string
 }
-// NewRequestAddGroupAdminRequest instantiates a new requestAddGroupAdminRequest and sets the default values.
+// NewRequestAddGroupAdminRequest instantiates a new RequestAddGroupAdminRequest and sets the default values.
 func NewRequestAddGroupAdminRequest()(*RequestAddGroupAdminRequest) {
     m := &RequestAddGroupAdminRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -22,10 +21,12 @@ func NewRequestAddGroupAdminRequest()(*RequestAddGroupAdminRequest) {
     return m
 }
 // CreateRequestAddGroupAdminRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestAddGroupAdminRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestAddGroupAdminRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestAddGroupAdminRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["newAdmin"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -51,10 +52,12 @@ func (m *RequestAddGroupAdminRequest) GetFieldDeserializers()(map[string]func(i8
     return res
 }
 // GetNewAdmin gets the newAdmin property value. The newAdmin property
+// returns a AuthAccountPrimerable when successful
 func (m *RequestAddGroupAdminRequest) GetNewAdmin()(AuthAccountPrimerable) {
     return m.newAdmin
 }
 // GetPrivateKey gets the privateKey property value. The privateKey property
+// returns a *string when successful
 func (m *RequestAddGroupAdminRequest) GetPrivateKey()(*string) {
     return m.privateKey
 }
@@ -86,7 +89,6 @@ func (m *RequestAddGroupAdminRequest) SetNewAdmin(value AuthAccountPrimerable)()
 func (m *RequestAddGroupAdminRequest) SetPrivateKey(value *string)() {
     m.privateKey = value
 }
-// RequestAddGroupAdminRequestable 
 type RequestAddGroupAdminRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

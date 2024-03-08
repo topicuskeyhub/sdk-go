@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupAccountNesting 
 type GroupGroupAccountNesting struct {
     NonLinkable
     // The connected property
     connected *bool
 }
-// NewGroupGroupAccountNesting instantiates a new groupGroupAccountNesting and sets the default values.
+// NewGroupGroupAccountNesting instantiates a new GroupGroupAccountNesting and sets the default values.
 func NewGroupGroupAccountNesting()(*GroupGroupAccountNesting) {
     m := &GroupGroupAccountNesting{
         NonLinkable: *NewNonLinkable(),
@@ -20,14 +19,17 @@ func NewGroupGroupAccountNesting()(*GroupGroupAccountNesting) {
     return m
 }
 // CreateGroupGroupAccountNestingFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupAccountNestingFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupAccountNesting(), nil
 }
 // GetConnected gets the connected property value. The connected property
+// returns a *bool when successful
 func (m *GroupGroupAccountNesting) GetConnected()(*bool) {
     return m.connected
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupAccountNesting) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["connected"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -60,7 +62,6 @@ func (m *GroupGroupAccountNesting) Serialize(writer i878a80d2330e89d26896388a3f4
 func (m *GroupGroupAccountNesting) SetConnected(value *bool)() {
     m.connected = value
 }
-// GroupGroupAccountNestingable 
 type GroupGroupAccountNestingable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

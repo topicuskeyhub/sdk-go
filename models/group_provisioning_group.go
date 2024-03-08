@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupProvisioningGroup 
 type GroupProvisioningGroup struct {
     Linkable
     // The activationRequired property
@@ -16,7 +15,7 @@ type GroupProvisioningGroup struct {
     // The groupOnSystem property
     groupOnSystem ProvisioningGroupOnSystemable
 }
-// NewGroupProvisioningGroup instantiates a new groupProvisioningGroup and sets the default values.
+// NewGroupProvisioningGroup instantiates a new GroupProvisioningGroup and sets the default values.
 func NewGroupProvisioningGroup()(*GroupProvisioningGroup) {
     m := &GroupProvisioningGroup{
         Linkable: *NewLinkable(),
@@ -26,18 +25,22 @@ func NewGroupProvisioningGroup()(*GroupProvisioningGroup) {
     return m
 }
 // CreateGroupProvisioningGroupFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupProvisioningGroupFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupProvisioningGroup(), nil
 }
 // GetActivationRequired gets the activationRequired property value. The activationRequired property
+// returns a *bool when successful
 func (m *GroupProvisioningGroup) GetActivationRequired()(*bool) {
     return m.activationRequired
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a GroupProvisioningGroup_additionalObjectsable when successful
 func (m *GroupProvisioningGroup) GetAdditionalObjects()(GroupProvisioningGroup_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupProvisioningGroup) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["activationRequired"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -83,10 +86,12 @@ func (m *GroupProvisioningGroup) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupProvisioningGroup) GetGroup()(GroupGroupPrimerable) {
     return m.group
 }
 // GetGroupOnSystem gets the groupOnSystem property value. The groupOnSystem property
+// returns a ProvisioningGroupOnSystemable when successful
 func (m *GroupProvisioningGroup) GetGroupOnSystem()(ProvisioningGroupOnSystemable) {
     return m.groupOnSystem
 }
@@ -138,7 +143,6 @@ func (m *GroupProvisioningGroup) SetGroup(value GroupGroupPrimerable)() {
 func (m *GroupProvisioningGroup) SetGroupOnSystem(value ProvisioningGroupOnSystemable)() {
     m.groupOnSystem = value
 }
-// GroupProvisioningGroupable 
 type GroupProvisioningGroupable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

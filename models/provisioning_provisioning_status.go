@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisioningStatus 
 type ProvisioningProvisioningStatus struct {
     NonLinkable
     // The groups property
@@ -14,7 +13,7 @@ type ProvisioningProvisioningStatus struct {
     // The restrictedByLicense property
     restrictedByLicense *bool
 }
-// NewProvisioningProvisioningStatus instantiates a new provisioningProvisioningStatus and sets the default values.
+// NewProvisioningProvisioningStatus instantiates a new ProvisioningProvisioningStatus and sets the default values.
 func NewProvisioningProvisioningStatus()(*ProvisioningProvisioningStatus) {
     m := &ProvisioningProvisioningStatus{
         NonLinkable: *NewNonLinkable(),
@@ -24,10 +23,12 @@ func NewProvisioningProvisioningStatus()(*ProvisioningProvisioningStatus) {
     return m
 }
 // CreateProvisioningProvisioningStatusFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisioningStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisioningStatus(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisioningStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["groups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -69,14 +70,17 @@ func (m *ProvisioningProvisioningStatus) GetFieldDeserializers()(map[string]func
     return res
 }
 // GetGroups gets the groups property value. The groups property
+// returns a []ProvisioningGroupProvisioningStatusable when successful
 func (m *ProvisioningProvisioningStatus) GetGroups()([]ProvisioningGroupProvisioningStatusable) {
     return m.groups
 }
 // GetIgnoreErrors gets the ignoreErrors property value. The ignoreErrors property
+// returns a *bool when successful
 func (m *ProvisioningProvisioningStatus) GetIgnoreErrors()(*bool) {
     return m.ignoreErrors
 }
 // GetRestrictedByLicense gets the restrictedByLicense property value. The restrictedByLicense property
+// returns a *bool when successful
 func (m *ProvisioningProvisioningStatus) GetRestrictedByLicense()(*bool) {
     return m.restrictedByLicense
 }
@@ -124,7 +128,6 @@ func (m *ProvisioningProvisioningStatus) SetIgnoreErrors(value *bool)() {
 func (m *ProvisioningProvisioningStatus) SetRestrictedByLicense(value *bool)() {
     m.restrictedByLicense = value
 }
-// ProvisioningProvisioningStatusable 
 type ProvisioningProvisioningStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

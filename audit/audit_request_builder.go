@@ -15,7 +15,10 @@ type AuditRequestBuilder struct {
 // AuditRequestBuilderGetQueryParameters query for all audit records in Topicus KeyHub. The various query parameters can be used to filter the response.
 type AuditRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Only return records after a given date.
     After []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"after"`
     // Return all or no records. This can be useful when composing parameters.
@@ -52,8 +55,13 @@ type AuditRequestBuilderGetQueryParameters struct {
     PerformedByUuid []string `uriparametername:"performedByUuid"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter audit records on the given type(s).
+    // Deprecated: This property is deprecated, use TypeAsAuditAuditRecordType instead
     Type []string `uriparametername:"type"`
+    // Filter audit records on the given type(s).
+    TypeAsAuditAuditRecordType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditAuditRecordType `uriparametername:"type"`
     // Only return audit records that are meant to be displayed to the given account, specified by id.
     VisibleFor []int64 `uriparametername:"visibleFor"`
 }
@@ -68,6 +76,7 @@ type AuditRequestBuilderGetRequestConfiguration struct {
 }
 // ByAuditid gets an item from the github.com/topicuskeyhub/sdk-go.audit.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithAuditItemRequestBuilder when successful
 func (m *AuditRequestBuilder) ByAuditid(auditid string)(*WithAuditItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -79,6 +88,7 @@ func (m *AuditRequestBuilder) ByAuditid(auditid string)(*WithAuditItemRequestBui
     return NewWithAuditItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByAuditidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.audit.item collection
+// returns a *WithAuditItemRequestBuilder when successful
 func (m *AuditRequestBuilder) ByAuditidInt64(auditid int64)(*WithAuditItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -90,7 +100,7 @@ func (m *AuditRequestBuilder) ByAuditidInt64(auditid int64)(*WithAuditItemReques
 // NewAuditRequestBuilderInternal instantiates a new AuditRequestBuilder and sets the default values.
 func NewAuditRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AuditRequestBuilder) {
     m := &AuditRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/audit{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,after*,before*,containing*,includeDaily*,onGroup*,onGroup1*,onOrByAccount*,onOrByClient*,onServiceAccount*,performedByNameSet*,performedByUuid*,type*,visibleFor*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/audit{?additional*,after*,any*,before*,containing*,createdAfter*,createdBefore*,exclude*,id*,includeDaily*,modifiedSince*,onGroup*,onGroup1*,onOrByAccount*,onOrByClient*,onServiceAccount*,performedByNameSet*,performedByUuid*,q*,sort*,type*,visibleFor*}", pathParameters),
     }
     return m
 }
@@ -101,18 +111,20 @@ func NewAuditRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb
     return NewAuditRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Export the export property
+// returns a *ExportRequestBuilder when successful
 func (m *AuditRequestBuilder) Export()(*ExportRequestBuilder) {
     return NewExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Get query for all audit records in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a AuditAuditRecordLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *AuditRequestBuilder) Get(ctx context.Context, requestConfiguration *AuditRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditAuditRecordLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateAuditAuditRecordLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -124,6 +136,7 @@ func (m *AuditRequestBuilder) Get(ctx context.Context, requestConfiguration *Aud
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditAuditRecordLinkableWrapperable), nil
 }
 // ToGetRequestInformation query for all audit records in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *AuditRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *AuditRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -137,6 +150,7 @@ func (m *AuditRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *AuditRequestBuilder when successful
 func (m *AuditRequestBuilder) WithUrl(rawUrl string)(*AuditRequestBuilder) {
     return NewAuditRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

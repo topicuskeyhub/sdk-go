@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthAccountsAuditStats 
 type AuthAccountsAuditStats struct {
     NonLinkable
     // The directoryStats property
@@ -14,7 +13,7 @@ type AuthAccountsAuditStats struct {
     // The validityStats property
     validityStats AuthAccountsAuditStats_validityStatsable
 }
-// NewAuthAccountsAuditStats instantiates a new authAccountsAuditStats and sets the default values.
+// NewAuthAccountsAuditStats instantiates a new AuthAccountsAuditStats and sets the default values.
 func NewAuthAccountsAuditStats()(*AuthAccountsAuditStats) {
     m := &AuthAccountsAuditStats{
         NonLinkable: *NewNonLinkable(),
@@ -24,14 +23,17 @@ func NewAuthAccountsAuditStats()(*AuthAccountsAuditStats) {
     return m
 }
 // CreateAuthAccountsAuditStatsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthAccountsAuditStatsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuthAccountsAuditStats(), nil
 }
 // GetDirectoryStats gets the directoryStats property value. The directoryStats property
+// returns a AuthAccountsAuditStats_directoryStatsable when successful
 func (m *AuthAccountsAuditStats) GetDirectoryStats()(AuthAccountsAuditStats_directoryStatsable) {
     return m.directoryStats
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthAccountsAuditStats) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["directoryStats"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -67,10 +69,12 @@ func (m *AuthAccountsAuditStats) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetTwoFAStats gets the twoFAStats property value. The twoFAStats property
+// returns a AuthAccountsAuditStats_twoFAStatsable when successful
 func (m *AuthAccountsAuditStats) GetTwoFAStats()(AuthAccountsAuditStats_twoFAStatsable) {
     return m.twoFAStats
 }
 // GetValidityStats gets the validityStats property value. The validityStats property
+// returns a AuthAccountsAuditStats_validityStatsable when successful
 func (m *AuthAccountsAuditStats) GetValidityStats()(AuthAccountsAuditStats_validityStatsable) {
     return m.validityStats
 }
@@ -112,7 +116,6 @@ func (m *AuthAccountsAuditStats) SetTwoFAStats(value AuthAccountsAuditStats_twoF
 func (m *AuthAccountsAuditStats) SetValidityStats(value AuthAccountsAuditStats_validityStatsable)() {
     m.validityStats = value
 }
-// AuthAccountsAuditStatsable 
 type AuthAccountsAuditStatsable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

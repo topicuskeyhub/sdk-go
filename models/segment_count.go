@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// SegmentCount 
 type SegmentCount struct {
     NonLinkable
     // The count property
@@ -22,14 +21,17 @@ func NewSegmentCount()(*SegmentCount) {
     return m
 }
 // CreateSegmentCountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateSegmentCountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewSegmentCount(), nil
 }
 // GetCount gets the count property value. The count property
+// returns a *int64 when successful
 func (m *SegmentCount) GetCount()(*int64) {
     return m.count
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *SegmentCount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["count"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -55,6 +57,7 @@ func (m *SegmentCount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *SegmentCount) GetName()(*string) {
     return m.name
 }
@@ -86,7 +89,6 @@ func (m *SegmentCount) SetCount(value *int64)() {
 func (m *SegmentCount) SetName(value *string)() {
     m.name = value
 }
-// SegmentCountable 
 type SegmentCountable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

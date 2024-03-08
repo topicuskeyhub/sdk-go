@@ -22,6 +22,7 @@ func NewVaultRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb
     return NewVaultRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Unlock the unlock property
+// returns a *VaultUnlockRequestBuilder when successful
 func (m *VaultRequestBuilder) Unlock()(*VaultUnlockRequestBuilder) {
     return NewVaultUnlockRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }

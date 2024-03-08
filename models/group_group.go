@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroup 
 type GroupGroup struct {
     GroupGroupPrimer
     // The additionalObjects property
@@ -50,7 +49,7 @@ type GroupGroup struct {
     // The vaultRequiresActivation property
     vaultRequiresActivation *bool
 }
-// NewGroupGroup instantiates a new groupGroup and sets the default values.
+// NewGroupGroup instantiates a new GroupGroup and sets the default values.
 func NewGroupGroup()(*GroupGroup) {
     m := &GroupGroup{
         GroupGroupPrimer: *NewGroupGroupPrimer(),
@@ -60,62 +59,77 @@ func NewGroupGroup()(*GroupGroup) {
     return m
 }
 // CreateGroupGroupFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroup(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a GroupGroup_additionalObjectsable when successful
 func (m *GroupGroup) GetAdditionalObjects()(GroupGroup_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetApplicationAdministration gets the applicationAdministration property value. The applicationAdministration property
+// returns a *bool when successful
 func (m *GroupGroup) GetApplicationAdministration()(*bool) {
     return m.applicationAdministration
 }
 // GetAuditConfig gets the auditConfig property value. The auditConfig property
+// returns a GroupGroupAuditConfigable when successful
 func (m *GroupGroup) GetAuditConfig()(GroupGroupAuditConfigable) {
     return m.auditConfig
 }
 // GetAuditor gets the auditor property value. The auditor property
+// returns a *bool when successful
 func (m *GroupGroup) GetAuditor()(*bool) {
     return m.auditor
 }
 // GetAuditRequested gets the auditRequested property value. The auditRequested property
+// returns a *bool when successful
 func (m *GroupGroup) GetAuditRequested()(*bool) {
     return m.auditRequested
 }
 // GetAuthorizingGroupAuditing gets the authorizingGroupAuditing property value. The authorizingGroupAuditing property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupGroup) GetAuthorizingGroupAuditing()(GroupGroupPrimerable) {
     return m.authorizingGroupAuditing
 }
 // GetAuthorizingGroupDelegation gets the authorizingGroupDelegation property value. The authorizingGroupDelegation property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupGroup) GetAuthorizingGroupDelegation()(GroupGroupPrimerable) {
     return m.authorizingGroupDelegation
 }
 // GetAuthorizingGroupMembership gets the authorizingGroupMembership property value. The authorizingGroupMembership property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupGroup) GetAuthorizingGroupMembership()(GroupGroupPrimerable) {
     return m.authorizingGroupMembership
 }
 // GetAuthorizingGroupProvisioning gets the authorizingGroupProvisioning property value. The authorizingGroupProvisioning property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupGroup) GetAuthorizingGroupProvisioning()(GroupGroupPrimerable) {
     return m.authorizingGroupProvisioning
 }
 // GetAuthorizingGroupTypes gets the authorizingGroupTypes property value. The authorizingGroupTypes property
+// returns a []RequestAuthorizingGroupType when successful
 func (m *GroupGroup) GetAuthorizingGroupTypes()([]RequestAuthorizingGroupType) {
     return m.authorizingGroupTypes
 }
 // GetClassification gets the classification property value. The classification property
+// returns a GroupGroupClassificationPrimerable when successful
 func (m *GroupGroup) GetClassification()(GroupGroupClassificationPrimerable) {
     return m.classification
 }
 // GetDescription gets the description property value. The description property
+// returns a *string when successful
 func (m *GroupGroup) GetDescription()(*string) {
     return m.description
 }
 // GetExtendedAccess gets the extendedAccess property value. The extendedAccess property
+// returns a *GroupGroupExtendedAccess when successful
 func (m *GroupGroup) GetExtendedAccess()(*GroupGroupExtendedAccess) {
     return m.extendedAccess
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroup) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.GroupGroupPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -337,34 +351,42 @@ func (m *GroupGroup) GetFieldDeserializers()(map[string]func(i878a80d2330e89d268
     return res
 }
 // GetHideAuditTrail gets the hideAuditTrail property value. The hideAuditTrail property
+// returns a *bool when successful
 func (m *GroupGroup) GetHideAuditTrail()(*bool) {
     return m.hideAuditTrail
 }
 // GetNestedUnder gets the nestedUnder property value. The nestedUnder property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupGroup) GetNestedUnder()(GroupGroupPrimerable) {
     return m.nestedUnder
 }
 // GetPrivateGroup gets the privateGroup property value. The privateGroup property
+// returns a *bool when successful
 func (m *GroupGroup) GetPrivateGroup()(*bool) {
     return m.privateGroup
 }
 // GetRecordTrail gets the recordTrail property value. The recordTrail property
+// returns a *bool when successful
 func (m *GroupGroup) GetRecordTrail()(*bool) {
     return m.recordTrail
 }
 // GetRotatingPasswordRequired gets the rotatingPasswordRequired property value. The rotatingPasswordRequired property
+// returns a *bool when successful
 func (m *GroupGroup) GetRotatingPasswordRequired()(*bool) {
     return m.rotatingPasswordRequired
 }
 // GetSingleManaged gets the singleManaged property value. The singleManaged property
+// returns a *bool when successful
 func (m *GroupGroup) GetSingleManaged()(*bool) {
     return m.singleManaged
 }
 // GetVaultRecovery gets the vaultRecovery property value. The vaultRecovery property
+// returns a *GroupVaultRecoveryAvailability when successful
 func (m *GroupGroup) GetVaultRecovery()(*GroupVaultRecoveryAvailability) {
     return m.vaultRecovery
 }
 // GetVaultRequiresActivation gets the vaultRequiresActivation property value. The vaultRequiresActivation property
+// returns a *bool when successful
 func (m *GroupGroup) GetVaultRequiresActivation()(*bool) {
     return m.vaultRequiresActivation
 }
@@ -570,7 +592,6 @@ func (m *GroupGroup) SetVaultRecovery(value *GroupVaultRecoveryAvailability)() {
 func (m *GroupGroup) SetVaultRequiresActivation(value *bool)() {
     m.vaultRequiresActivation = value
 }
-// GroupGroupable 
 type GroupGroupable interface {
     GroupGroupPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

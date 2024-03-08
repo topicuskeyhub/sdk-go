@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ClientClientApplication 
 type ClientClientApplication struct {
     ClientClientApplicationPrimer
     // The additionalObjects property
@@ -17,7 +16,7 @@ type ClientClientApplication struct {
     // The technicalAdministrator property
     technicalAdministrator GroupGroupPrimerable
 }
-// NewClientClientApplication instantiates a new clientClientApplication and sets the default values.
+// NewClientClientApplication instantiates a new ClientClientApplication and sets the default values.
 func NewClientClientApplication()(*ClientClientApplication) {
     m := &ClientClientApplication{
         ClientClientApplicationPrimer: *NewClientClientApplicationPrimer(),
@@ -27,6 +26,7 @@ func NewClientClientApplication()(*ClientClientApplication) {
     return m
 }
 // CreateClientClientApplicationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateClientClientApplicationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -53,10 +53,12 @@ func CreateClientClientApplicationFromDiscriminatorValue(parseNode i878a80d2330e
     return NewClientClientApplication(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a ClientClientApplication_additionalObjectsable when successful
 func (m *ClientClientApplication) GetAdditionalObjects()(ClientClientApplication_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientClientApplication) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ClientClientApplicationPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -102,14 +104,17 @@ func (m *ClientClientApplication) GetFieldDeserializers()(map[string]func(i878a8
     return res
 }
 // GetLastModifiedAt gets the lastModifiedAt property value. The lastModifiedAt property
+// returns a *Time when successful
 func (m *ClientClientApplication) GetLastModifiedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.lastModifiedAt
 }
 // GetOwner gets the owner property value. The owner property
+// returns a GroupGroupPrimerable when successful
 func (m *ClientClientApplication) GetOwner()(GroupGroupPrimerable) {
     return m.owner
 }
 // GetTechnicalAdministrator gets the technicalAdministrator property value. The technicalAdministrator property
+// returns a GroupGroupPrimerable when successful
 func (m *ClientClientApplication) GetTechnicalAdministrator()(GroupGroupPrimerable) {
     return m.technicalAdministrator
 }
@@ -155,7 +160,6 @@ func (m *ClientClientApplication) SetOwner(value GroupGroupPrimerable)() {
 func (m *ClientClientApplication) SetTechnicalAdministrator(value GroupGroupPrimerable)() {
     m.technicalAdministrator = value
 }
-// ClientClientApplicationable 
 type ClientClientApplicationable interface {
     ClientClientApplicationPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

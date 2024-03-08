@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NotificationGroupEditRequiredNotification 
 type NotificationGroupEditRequiredNotification struct {
     NotificationNotification
     // The group property
@@ -14,7 +13,7 @@ type NotificationGroupEditRequiredNotification struct {
     // The reason property
     reason *GroupGroupEditRequiredReason
 }
-// NewNotificationGroupEditRequiredNotification instantiates a new notificationGroupEditRequiredNotification and sets the default values.
+// NewNotificationGroupEditRequiredNotification instantiates a new NotificationGroupEditRequiredNotification and sets the default values.
 func NewNotificationGroupEditRequiredNotification()(*NotificationGroupEditRequiredNotification) {
     m := &NotificationGroupEditRequiredNotification{
         NotificationNotification: *NewNotificationNotification(),
@@ -24,10 +23,12 @@ func NewNotificationGroupEditRequiredNotification()(*NotificationGroupEditRequir
     return m
 }
 // CreateNotificationGroupEditRequiredNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNotificationGroupEditRequiredNotificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewNotificationGroupEditRequiredNotification(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationGroupEditRequiredNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
     res["group"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -63,14 +64,17 @@ func (m *NotificationGroupEditRequiredNotification) GetFieldDeserializers()(map[
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupable when successful
 func (m *NotificationGroupEditRequiredNotification) GetGroup()(GroupGroupable) {
     return m.group
 }
 // GetParameters gets the parameters property value. The parameters property
+// returns a NotificationGroupEditRequiredNotification_parametersable when successful
 func (m *NotificationGroupEditRequiredNotification) GetParameters()(NotificationGroupEditRequiredNotification_parametersable) {
     return m.parameters
 }
 // GetReason gets the reason property value. The reason property
+// returns a *GroupGroupEditRequiredReason when successful
 func (m *NotificationGroupEditRequiredNotification) GetReason()(*GroupGroupEditRequiredReason) {
     return m.reason
 }
@@ -113,7 +117,6 @@ func (m *NotificationGroupEditRequiredNotification) SetParameters(value Notifica
 func (m *NotificationGroupEditRequiredNotification) SetReason(value *GroupGroupEditRequiredReason)() {
     m.reason = value
 }
-// NotificationGroupEditRequiredNotificationable 
 type NotificationGroupEditRequiredNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

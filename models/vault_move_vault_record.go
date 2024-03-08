@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultMoveVaultRecord 
 type VaultMoveVaultRecord struct {
     NonLinkable
     // The account property
@@ -16,7 +15,7 @@ type VaultMoveVaultRecord struct {
     // The shareDuration property
     shareDuration VaultMoveVaultRecord_shareDurationable
 }
-// NewVaultMoveVaultRecord instantiates a new vaultMoveVaultRecord and sets the default values.
+// NewVaultMoveVaultRecord instantiates a new VaultMoveVaultRecord and sets the default values.
 func NewVaultMoveVaultRecord()(*VaultMoveVaultRecord) {
     m := &VaultMoveVaultRecord{
         NonLinkable: *NewNonLinkable(),
@@ -26,18 +25,22 @@ func NewVaultMoveVaultRecord()(*VaultMoveVaultRecord) {
     return m
 }
 // CreateVaultMoveVaultRecordFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultMoveVaultRecordFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultMoveVaultRecord(), nil
 }
 // GetAccount gets the account property value. The account property
+// returns a AuthAccountPrimerable when successful
 func (m *VaultMoveVaultRecord) GetAccount()(AuthAccountPrimerable) {
     return m.account
 }
 // GetAction gets the action property value. The action property
+// returns a *VaultMoveVaultRecordAction when successful
 func (m *VaultMoveVaultRecord) GetAction()(*VaultMoveVaultRecordAction) {
     return m.action
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultMoveVaultRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -83,10 +86,12 @@ func (m *VaultMoveVaultRecord) GetFieldDeserializers()(map[string]func(i878a80d2
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupPrimerable when successful
 func (m *VaultMoveVaultRecord) GetGroup()(GroupGroupPrimerable) {
     return m.group
 }
 // GetShareDuration gets the shareDuration property value. The shareDuration property
+// returns a VaultMoveVaultRecord_shareDurationable when successful
 func (m *VaultMoveVaultRecord) GetShareDuration()(VaultMoveVaultRecord_shareDurationable) {
     return m.shareDuration
 }
@@ -139,7 +144,6 @@ func (m *VaultMoveVaultRecord) SetGroup(value GroupGroupPrimerable)() {
 func (m *VaultMoveVaultRecord) SetShareDuration(value VaultMoveVaultRecord_shareDurationable)() {
     m.shareDuration = value
 }
-// VaultMoveVaultRecordable 
 type VaultMoveVaultRecordable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GeneratedSecret 
 type GeneratedSecret struct {
     NonLinkable
     // The generatedSecret property
@@ -24,10 +23,12 @@ func NewGeneratedSecret()(*GeneratedSecret) {
     return m
 }
 // CreateGeneratedSecretFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGeneratedSecretFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGeneratedSecret(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GeneratedSecret) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["generatedSecret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -63,14 +64,17 @@ func (m *GeneratedSecret) GetFieldDeserializers()(map[string]func(i878a80d2330e8
     return res
 }
 // GetGeneratedSecret gets the generatedSecret property value. The generatedSecret property
+// returns a *string when successful
 func (m *GeneratedSecret) GetGeneratedSecret()(*string) {
     return m.generatedSecret
 }
 // GetOldSecret gets the oldSecret property value. The oldSecret property
+// returns a *string when successful
 func (m *GeneratedSecret) GetOldSecret()(*string) {
     return m.oldSecret
 }
 // GetRegenerate gets the regenerate property value. The regenerate property
+// returns a *bool when successful
 func (m *GeneratedSecret) GetRegenerate()(*bool) {
     return m.regenerate
 }
@@ -106,7 +110,6 @@ func (m *GeneratedSecret) SetOldSecret(value *string)() {
 func (m *GeneratedSecret) SetRegenerate(value *bool)() {
     m.regenerate = value
 }
-// GeneratedSecretable 
 type GeneratedSecretable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

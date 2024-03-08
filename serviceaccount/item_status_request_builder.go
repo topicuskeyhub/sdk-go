@@ -17,28 +17,28 @@ type ItemStatusRequestBuilderPutRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewItemStatusRequestBuilderInternal instantiates a new StatusRequestBuilder and sets the default values.
+// NewItemStatusRequestBuilderInternal instantiates a new ItemStatusRequestBuilder and sets the default values.
 func NewItemStatusRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemStatusRequestBuilder) {
     m := &ItemStatusRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/serviceaccount/{serviceaccountid}/status", pathParameters),
     }
     return m
 }
-// NewItemStatusRequestBuilder instantiates a new StatusRequestBuilder and sets the default values.
+// NewItemStatusRequestBuilder instantiates a new ItemStatusRequestBuilder and sets the default values.
 func NewItemStatusRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemStatusRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewItemStatusRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Put updates the status toggle for the service account. 
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemStatusRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountStatusable, requestConfiguration *ItemStatusRequestBuilderPutRequestConfiguration)(error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -47,6 +47,7 @@ func (m *ItemStatusRequestBuilder) Put(ctx context.Context, body ie2969523f41a2f
     return nil
 }
 // ToPutRequestInformation updates the status toggle for the service account. 
+// returns a *RequestInformation when successful
 func (m *ItemStatusRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountStatusable, requestConfiguration *ItemStatusRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -61,6 +62,7 @@ func (m *ItemStatusRequestBuilder) ToPutRequestInformation(ctx context.Context, 
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *ItemStatusRequestBuilder when successful
 func (m *ItemStatusRequestBuilder) WithUrl(rawUrl string)(*ItemStatusRequestBuilder) {
     return NewItemStatusRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

@@ -24,13 +24,19 @@ type VaultrecordRequestBuilderGetQueryParameters struct {
     // Filter the records by account, specified by id. This parameter supports composition with all parameters from the account resource.
     Account []int64 `uriparametername:"account"`
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Filter the records by client, specified by id. This parameter supports composition with all parameters from the client resource.
     Client []int64 `uriparametername:"client"`
     // Filter records on the color.
+    // Deprecated: This property is deprecated, use ColorAsVaultVaultRecordColor instead
     Color []string `uriparametername:"color"`
+    // Filter records on the color.
+    ColorAsVaultVaultRecordColor []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordColor `uriparametername:"color"`
     // Only return records that have been created after the given instant.
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
@@ -65,6 +71,8 @@ type VaultrecordRequestBuilderGetQueryParameters struct {
     Secret []int64 `uriparametername:"secret"`
     // Only return records for which the sharing period has expired at or before the given date.
     ShareExpiresBeforeOrAt []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"shareExpiresBeforeOrAt"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter records on the exact URI.
     Url []string `uriparametername:"url"`
     // Filter records on the exact username.
@@ -85,6 +93,7 @@ type VaultrecordRequestBuilderGetRequestConfiguration struct {
 }
 // ByVaultrecordid gets an item from the github.com/topicuskeyhub/sdk-go.vaultrecord.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithVaultrecordItemRequestBuilder when successful
 func (m *VaultrecordRequestBuilder) ByVaultrecordid(vaultrecordid string)(*WithVaultrecordItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -96,6 +105,7 @@ func (m *VaultrecordRequestBuilder) ByVaultrecordid(vaultrecordid string)(*WithV
     return NewWithVaultrecordItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByVaultrecordidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.vaultrecord.item collection
+// returns a *WithVaultrecordItemRequestBuilder when successful
 func (m *VaultrecordRequestBuilder) ByVaultrecordidInt64(vaultrecordid int64)(*WithVaultrecordItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -107,7 +117,7 @@ func (m *VaultrecordRequestBuilder) ByVaultrecordidInt64(vaultrecordid int64)(*W
 // NewVaultrecordRequestBuilderInternal instantiates a new VaultrecordRequestBuilder and sets the default values.
 func NewVaultrecordRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*VaultrecordRequestBuilder) {
     m := &VaultrecordRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/vaultrecord{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,accessibleByAccount*,accessibleByAccountAsManager*,accessibleByClient*,account*,client*,color*,expireWarningBeforeOrAt*,filename*,group*,hasNoPolicy*,hasParent*,hasValidPolicy*,name*,nameContains*,parent*,secret*,shareExpiresBeforeOrAt*,url*,username*,uuid*,vault*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/vaultrecord{?accessibleByAccount*,accessibleByAccountAsManager*,accessibleByClient*,account*,additional*,any*,client*,color*,createdAfter*,createdBefore*,exclude*,expireWarningBeforeOrAt*,filename*,group*,hasNoPolicy*,hasParent*,hasValidPolicy*,id*,modifiedSince*,name*,nameContains*,parent*,q*,secret*,shareExpiresBeforeOrAt*,sort*,url*,username*,uuid*,vault*}", pathParameters),
     }
     return m
 }
@@ -118,14 +128,15 @@ func NewVaultrecordRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee26
     return NewVaultrecordRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
+// returns a VaultVaultRecordLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *VaultrecordRequestBuilder) Get(ctx context.Context, requestConfiguration *VaultrecordRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateVaultVaultRecordLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -137,6 +148,7 @@ func (m *VaultrecordRequestBuilder) Get(ctx context.Context, requestConfiguratio
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordLinkableWrapperable), nil
 }
 // ToGetRequestInformation query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
+// returns a *RequestInformation when successful
 func (m *VaultrecordRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *VaultrecordRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -150,6 +162,7 @@ func (m *VaultrecordRequestBuilder) ToGetRequestInformation(ctx context.Context,
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *VaultrecordRequestBuilder when successful
 func (m *VaultrecordRequestBuilder) WithUrl(rawUrl string)(*VaultrecordRequestBuilder) {
     return NewVaultrecordRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

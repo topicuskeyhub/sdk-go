@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupAuditingInfo 
 type GroupGroupAuditingInfo struct {
     NonLinkable
     // The auditDueDate property
@@ -24,7 +23,7 @@ type GroupGroupAuditingInfo struct {
     // The nrVaultRecordsWithEndDate property
     nrVaultRecordsWithEndDate *int64
 }
-// NewGroupGroupAuditingInfo instantiates a new groupGroupAuditingInfo and sets the default values.
+// NewGroupGroupAuditingInfo instantiates a new GroupGroupAuditingInfo and sets the default values.
 func NewGroupGroupAuditingInfo()(*GroupGroupAuditingInfo) {
     m := &GroupGroupAuditingInfo{
         NonLinkable: *NewNonLinkable(),
@@ -34,14 +33,17 @@ func NewGroupGroupAuditingInfo()(*GroupGroupAuditingInfo) {
     return m
 }
 // CreateGroupGroupAuditingInfoFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupAuditingInfoFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupAuditingInfo(), nil
 }
 // GetAuditDueDate gets the auditDueDate property value. The auditDueDate property
+// returns a *DateOnly when successful
 func (m *GroupGroupAuditingInfo) GetAuditDueDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.auditDueDate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupAuditingInfo) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["auditDueDate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -127,30 +129,37 @@ func (m *GroupGroupAuditingInfo) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetLastAuditDate gets the lastAuditDate property value. The lastAuditDate property
+// returns a *DateOnly when successful
 func (m *GroupGroupAuditingInfo) GetLastAuditDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.lastAuditDate
 }
 // GetNrAccounts gets the nrAccounts property value. The nrAccounts property
+// returns a *int64 when successful
 func (m *GroupGroupAuditingInfo) GetNrAccounts()(*int64) {
     return m.nrAccounts
 }
 // GetNrDisabledAccounts gets the nrDisabledAccounts property value. The nrDisabledAccounts property
+// returns a *int64 when successful
 func (m *GroupGroupAuditingInfo) GetNrDisabledAccounts()(*int64) {
     return m.nrDisabledAccounts
 }
 // GetNrDisabledManagers gets the nrDisabledManagers property value. The nrDisabledManagers property
+// returns a *int64 when successful
 func (m *GroupGroupAuditingInfo) GetNrDisabledManagers()(*int64) {
     return m.nrDisabledManagers
 }
 // GetNrExpiredVaultRecords gets the nrExpiredVaultRecords property value. The nrExpiredVaultRecords property
+// returns a *int64 when successful
 func (m *GroupGroupAuditingInfo) GetNrExpiredVaultRecords()(*int64) {
     return m.nrExpiredVaultRecords
 }
 // GetNrManagers gets the nrManagers property value. The nrManagers property
+// returns a *int64 when successful
 func (m *GroupGroupAuditingInfo) GetNrManagers()(*int64) {
     return m.nrManagers
 }
 // GetNrVaultRecordsWithEndDate gets the nrVaultRecordsWithEndDate property value. The nrVaultRecordsWithEndDate property
+// returns a *int64 when successful
 func (m *GroupGroupAuditingInfo) GetNrVaultRecordsWithEndDate()(*int64) {
     return m.nrVaultRecordsWithEndDate
 }
@@ -194,7 +203,6 @@ func (m *GroupGroupAuditingInfo) SetNrManagers(value *int64)() {
 func (m *GroupGroupAuditingInfo) SetNrVaultRecordsWithEndDate(value *int64)() {
     m.nrVaultRecordsWithEndDate = value
 }
-// GroupGroupAuditingInfoable 
 type GroupGroupAuditingInfoable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

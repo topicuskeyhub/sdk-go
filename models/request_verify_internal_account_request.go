@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestVerifyInternalAccountRequest 
 type RequestVerifyInternalAccountRequest struct {
     RequestModificationRequest
     // The internalAccountName property
     internalAccountName *string
 }
-// NewRequestVerifyInternalAccountRequest instantiates a new requestVerifyInternalAccountRequest and sets the default values.
+// NewRequestVerifyInternalAccountRequest instantiates a new RequestVerifyInternalAccountRequest and sets the default values.
 func NewRequestVerifyInternalAccountRequest()(*RequestVerifyInternalAccountRequest) {
     m := &RequestVerifyInternalAccountRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -20,10 +19,12 @@ func NewRequestVerifyInternalAccountRequest()(*RequestVerifyInternalAccountReque
     return m
 }
 // CreateRequestVerifyInternalAccountRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestVerifyInternalAccountRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestVerifyInternalAccountRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestVerifyInternalAccountRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["internalAccountName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -39,6 +40,7 @@ func (m *RequestVerifyInternalAccountRequest) GetFieldDeserializers()(map[string
     return res
 }
 // GetInternalAccountName gets the internalAccountName property value. The internalAccountName property
+// returns a *string when successful
 func (m *RequestVerifyInternalAccountRequest) GetInternalAccountName()(*string) {
     return m.internalAccountName
 }
@@ -60,7 +62,6 @@ func (m *RequestVerifyInternalAccountRequest) Serialize(writer i878a80d2330e89d2
 func (m *RequestVerifyInternalAccountRequest) SetInternalAccountName(value *string)() {
     m.internalAccountName = value
 }
-// RequestVerifyInternalAccountRequestable 
 type RequestVerifyInternalAccountRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

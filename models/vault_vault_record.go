@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultVaultRecord 
 type VaultVaultRecord struct {
     VaultVaultRecordPrimer
     // The additionalObjects property
@@ -24,7 +23,7 @@ type VaultVaultRecord struct {
     // The warningPeriod property
     warningPeriod *VaultVaultRecordWarningPeriod
 }
-// NewVaultVaultRecord instantiates a new vaultVaultRecord and sets the default values.
+// NewVaultVaultRecord instantiates a new VaultVaultRecord and sets the default values.
 func NewVaultVaultRecord()(*VaultVaultRecord) {
     m := &VaultVaultRecord{
         VaultVaultRecordPrimer: *NewVaultVaultRecordPrimer(),
@@ -34,22 +33,27 @@ func NewVaultVaultRecord()(*VaultVaultRecord) {
     return m
 }
 // CreateVaultVaultRecordFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultVaultRecordFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVaultRecord(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a VaultVaultRecord_additionalObjectsable when successful
 func (m *VaultVaultRecord) GetAdditionalObjects()(VaultVaultRecord_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetDerived gets the derived property value. The derived property
+// returns a *bool when successful
 func (m *VaultVaultRecord) GetDerived()(*bool) {
     return m.derived
 }
 // GetEndDate gets the endDate property value. The endDate property
+// returns a *DateOnly when successful
 func (m *VaultVaultRecord) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.endDate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVaultRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.VaultVaultRecordPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -141,22 +145,27 @@ func (m *VaultVaultRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e
     return res
 }
 // GetFilename gets the filename property value. The filename property
+// returns a *string when successful
 func (m *VaultVaultRecord) GetFilename()(*string) {
     return m.filename
 }
 // GetTypes gets the types property value. The types property
+// returns a []VaultVaultSecretType when successful
 func (m *VaultVaultRecord) GetTypes()([]VaultVaultSecretType) {
     return m.types
 }
 // GetUrl gets the url property value. The url property
+// returns a *string when successful
 func (m *VaultVaultRecord) GetUrl()(*string) {
     return m.url
 }
 // GetUsername gets the username property value. The username property
+// returns a *string when successful
 func (m *VaultVaultRecord) GetUsername()(*string) {
     return m.username
 }
 // GetWarningPeriod gets the warningPeriod property value. The warningPeriod property
+// returns a *VaultVaultRecordWarningPeriod when successful
 func (m *VaultVaultRecord) GetWarningPeriod()(*VaultVaultRecordWarningPeriod) {
     return m.warningPeriod
 }
@@ -237,7 +246,6 @@ func (m *VaultVaultRecord) SetUsername(value *string)() {
 func (m *VaultVaultRecord) SetWarningPeriod(value *VaultVaultRecordWarningPeriod)() {
     m.warningPeriod = value
 }
-// VaultVaultRecordable 
 type VaultVaultRecordable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     VaultVaultRecordPrimerable

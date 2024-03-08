@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedLDAPDirectory 
 type ProvisioningProvisionedLDAPDirectory struct {
     ProvisioningProvisionedSystem
     // The directory property
@@ -12,7 +11,7 @@ type ProvisioningProvisionedLDAPDirectory struct {
     // The groupDN property
     groupDN *string
 }
-// NewProvisioningProvisionedLDAPDirectory instantiates a new provisioningProvisionedLDAPDirectory and sets the default values.
+// NewProvisioningProvisionedLDAPDirectory instantiates a new ProvisioningProvisionedLDAPDirectory and sets the default values.
 func NewProvisioningProvisionedLDAPDirectory()(*ProvisioningProvisionedLDAPDirectory) {
     m := &ProvisioningProvisionedLDAPDirectory{
         ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
@@ -22,14 +21,17 @@ func NewProvisioningProvisionedLDAPDirectory()(*ProvisioningProvisionedLDAPDirec
     return m
 }
 // CreateProvisioningProvisionedLDAPDirectoryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedLDAPDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedLDAPDirectory(), nil
 }
 // GetDirectory gets the directory property value. The directory property
+// returns a DirectoryAccountDirectoryPrimerable when successful
 func (m *ProvisioningProvisionedLDAPDirectory) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
     return m.directory
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedLDAPDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
     res["directory"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -55,6 +57,7 @@ func (m *ProvisioningProvisionedLDAPDirectory) GetFieldDeserializers()(map[strin
     return res
 }
 // GetGroupDN gets the groupDN property value. The groupDN property
+// returns a *string when successful
 func (m *ProvisioningProvisionedLDAPDirectory) GetGroupDN()(*string) {
     return m.groupDN
 }
@@ -86,7 +89,6 @@ func (m *ProvisioningProvisionedLDAPDirectory) SetDirectory(value DirectoryAccou
 func (m *ProvisioningProvisionedLDAPDirectory) SetGroupDN(value *string)() {
     m.groupDN = value
 }
-// ProvisioningProvisionedLDAPDirectoryable 
 type ProvisioningProvisionedLDAPDirectoryable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable

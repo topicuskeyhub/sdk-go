@@ -23,7 +23,10 @@ type AccountRequestBuilderGetQueryParameters struct {
     // Only return accounts that have been active since the given instant.
     ActiveSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"activeSince"`
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Only return accounts that are or are not KeyHub Administrators.
     Admin []bool `uriparametername:"admin"`
     // Return all or no records. This can be useful when composing parameters.
@@ -57,7 +60,10 @@ type AccountRequestBuilderGetQueryParameters struct {
     // Only return accounts that have not been active since the given instant.
     InactiveSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"inactiveSince"`
     // Only return accounts with the given license role(s).
+    // Deprecated: This property is deprecated, use LicenseRoleAsAuthAccountLicenseRole instead
     LicenseRole []string `uriparametername:"licenseRole"`
+    // Only return accounts with the given license role(s).
+    LicenseRoleAsAuthAccountLicenseRole []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthAccountLicenseRole `uriparametername:"licenseRole"`
     // Only return the keyhub maintenance user.
     MaintenanceAdmin []bool `uriparametername:"maintenanceAdmin"`
     // Only return managers for at least one of the given groups, specified by id.
@@ -78,8 +84,13 @@ type AccountRequestBuilderGetQueryParameters struct {
     ReregistrationRequired []bool `uriparametername:"reregistrationRequired"`
     // Only return accouts that have or don't have rotating password enabled.
     RotatingPasswordEnabled []bool `uriparametername:"rotatingPasswordEnabled"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Only return accounts that match the given 2FA status. Note that {@code APP} only matches the accounts who only have a KeyHub app linked, and similar for {@code TOTP} and {@code WEBAUTHN}. {@code MIXED} matches those who have both one or more WebAuthn keys, and either a KeyHub app or generic Totp app linked.
+    // Deprecated: This property is deprecated, use TwoFactorStatusAsAuthTwoFactorAuthenticationStatus instead
     TwoFactorStatus []string `uriparametername:"twoFactorStatus"`
+    // Only return accounts that match the given 2FA status. Note that {@code APP} only matches the accounts who only have a KeyHub app linked, and similar for {@code TOTP} and {@code WEBAUTHN}. {@code MIXED} matches those who have both one or more WebAuthn keys, and either a KeyHub app or generic Totp app linked.
+    TwoFactorStatusAsAuthTwoFactorAuthenticationStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthTwoFactorAuthenticationStatus `uriparametername:"twoFactorStatus"`
     // Filter accounts on the exact username.
     Username []string `uriparametername:"username"`
     // Search accounts on (part of) the username, display name or uuid.
@@ -89,7 +100,10 @@ type AccountRequestBuilderGetQueryParameters struct {
     // Only return accounts that are valid or invalid in the directory.
     ValidInDirectory []bool `uriparametername:"validInDirectory"`
     // Filter accounts on their validity. NOT_APPLICABLE will be seen as VALID.
+    // Deprecated: This property is deprecated, use ValidityAsAuthAccountValidity instead
     Validity []string `uriparametername:"validity"`
+    // Filter accounts on their validity. NOT_APPLICABLE will be seen as VALID.
+    ValidityAsAuthAccountValidity []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthAccountValidity `uriparametername:"validity"`
     // Only return accounts that are the owner of one of the given vaults, specified by id. This parameter supports composition with all parameters from the vault resource.
     Vault []int64 `uriparametername:"vault"`
 }
@@ -103,11 +117,13 @@ type AccountRequestBuilderGetRequestConfiguration struct {
     QueryParameters *AccountRequestBuilderGetQueryParameters
 }
 // Auditstats the auditstats property
+// returns a *AuditstatsRequestBuilder when successful
 func (m *AccountRequestBuilder) Auditstats()(*AuditstatsRequestBuilder) {
     return NewAuditstatsRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByAccountid gets an item from the github.com/topicuskeyhub/sdk-go.account.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithAccountItemRequestBuilder when successful
 func (m *AccountRequestBuilder) ByAccountid(accountid string)(*WithAccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -119,6 +135,7 @@ func (m *AccountRequestBuilder) ByAccountid(accountid string)(*WithAccountItemRe
     return NewWithAccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByAccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.account.item collection
+// returns a *WithAccountItemRequestBuilder when successful
 func (m *AccountRequestBuilder) ByAccountidInt64(accountid int64)(*WithAccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -130,7 +147,7 @@ func (m *AccountRequestBuilder) ByAccountidInt64(accountid int64)(*WithAccountIt
 // NewAccountRequestBuilderInternal instantiates a new AccountRequestBuilder and sets the default values.
 func NewAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccountRequestBuilder) {
     m := &AccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,admin*,baseOrganizationalUnitAncestorOf*,directory*,directoryOwnedBy*,email*,group*,hasEmail*,hasVault*,hasVaultSecretForGroup*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,reregistrationRequired*,rotatingPasswordEnabled*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account{?activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,additional*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,group*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,q*,reregistrationRequired*,rotatingPasswordEnabled*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
     }
     return m
 }
@@ -141,18 +158,20 @@ func NewAccountRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371
     return NewAccountRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Export the export property
+// returns a *ExportRequestBuilder when successful
 func (m *AccountRequestBuilder) Export()(*ExportRequestBuilder) {
     return NewExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Get query for all accounts in Topicus KeyHub. This will query over all directories and return both active and inactive accounts. The various query parameters can be used to filter the response.
+// returns a AuthAccountLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *AccountRequestBuilder) Get(ctx context.Context, requestConfiguration *AccountRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthAccountLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateAuthAccountLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -164,18 +183,22 @@ func (m *AccountRequestBuilder) Get(ctx context.Context, requestConfiguration *A
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthAccountLinkableWrapperable), nil
 }
 // Me the me property
+// returns a *MeRequestBuilder when successful
 func (m *AccountRequestBuilder) Me()(*MeRequestBuilder) {
     return NewMeRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Provisioning the provisioning property
+// returns a *ProvisioningRequestBuilder when successful
 func (m *AccountRequestBuilder) Provisioning()(*ProvisioningRequestBuilder) {
     return NewProvisioningRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Status the status property
+// returns a *StatusRequestBuilder when successful
 func (m *AccountRequestBuilder) Status()(*StatusRequestBuilder) {
     return NewStatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToGetRequestInformation query for all accounts in Topicus KeyHub. This will query over all directories and return both active and inactive accounts. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *AccountRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *AccountRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -189,10 +212,12 @@ func (m *AccountRequestBuilder) ToGetRequestInformation(ctx context.Context, req
     return requestInfo, nil
 }
 // Vault the vault property
+// returns a *VaultRequestBuilder when successful
 func (m *AccountRequestBuilder) Vault()(*VaultRequestBuilder) {
     return NewVaultRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *AccountRequestBuilder when successful
 func (m *AccountRequestBuilder) WithUrl(rawUrl string)(*AccountRequestBuilder) {
     return NewAccountRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

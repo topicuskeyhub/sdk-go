@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupAccount 
 type GroupGroupAccount struct {
     AuthAccountPrimer
     // The additionalObjects property
@@ -29,7 +28,7 @@ type GroupGroupAccount struct {
     // The visibleForProvisioning property
     visibleForProvisioning *bool
 }
-// NewGroupGroupAccount instantiates a new groupGroupAccount and sets the default values.
+// NewGroupGroupAccount instantiates a new GroupGroupAccount and sets the default values.
 func NewGroupGroupAccount()(*GroupGroupAccount) {
     m := &GroupGroupAccount{
         AuthAccountPrimer: *NewAuthAccountPrimer(),
@@ -39,26 +38,32 @@ func NewGroupGroupAccount()(*GroupGroupAccount) {
     return m
 }
 // CreateGroupGroupAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupAccount(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a GroupGroupAccount_additionalObjectsable when successful
 func (m *GroupGroupAccount) GetAdditionalObjects()(GroupGroupAccount_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetDirectory gets the directory property value. The directory property
+// returns a DirectoryAccountDirectoryPrimerable when successful
 func (m *GroupGroupAccount) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
     return m.directory
 }
 // GetDisconnectedNested gets the disconnectedNested property value. The disconnectedNested property
+// returns a *bool when successful
 func (m *GroupGroupAccount) GetDisconnectedNested()(*bool) {
     return m.disconnectedNested
 }
 // GetEndDate gets the endDate property value. The endDate property
+// returns a *DateOnly when successful
 func (m *GroupGroupAccount) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.endDate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.AuthAccountPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -164,26 +169,32 @@ func (m *GroupGroupAccount) GetFieldDeserializers()(map[string]func(i878a80d2330
     return res
 }
 // GetLastUsed gets the lastUsed property value. The lastUsed property
+// returns a *DateOnly when successful
 func (m *GroupGroupAccount) GetLastUsed()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
     return m.lastUsed
 }
 // GetNested gets the nested property value. The nested property
+// returns a *bool when successful
 func (m *GroupGroupAccount) GetNested()(*bool) {
     return m.nested
 }
 // GetProvisioningEndTime gets the provisioningEndTime property value. The provisioningEndTime property
+// returns a *Time when successful
 func (m *GroupGroupAccount) GetProvisioningEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.provisioningEndTime
 }
 // GetRights gets the rights property value. The rights property
+// returns a *GroupGroupRights when successful
 func (m *GroupGroupAccount) GetRights()(*GroupGroupRights) {
     return m.rights
 }
 // GetTwoFactorStatus gets the twoFactorStatus property value. The twoFactorStatus property
+// returns a *AuthTwoFactorAuthenticationStatus when successful
 func (m *GroupGroupAccount) GetTwoFactorStatus()(*AuthTwoFactorAuthenticationStatus) {
     return m.twoFactorStatus
 }
 // GetVisibleForProvisioning gets the visibleForProvisioning property value. The visibleForProvisioning property
+// returns a *bool when successful
 func (m *GroupGroupAccount) GetVisibleForProvisioning()(*bool) {
     return m.visibleForProvisioning
 }
@@ -267,7 +278,6 @@ func (m *GroupGroupAccount) SetTwoFactorStatus(value *AuthTwoFactorAuthenticatio
 func (m *GroupGroupAccount) SetVisibleForProvisioning(value *bool)() {
     m.visibleForProvisioning = value
 }
-// GroupGroupAccountable 
 type GroupGroupAccountable interface {
     AuthAccountPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

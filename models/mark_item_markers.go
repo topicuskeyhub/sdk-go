@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// MarkItemMarkers 
 type MarkItemMarkers struct {
     NonLinkable
     // The markers property
     markers []MarkItemMarkerable
 }
-// NewMarkItemMarkers instantiates a new markItemMarkers and sets the default values.
+// NewMarkItemMarkers instantiates a new MarkItemMarkers and sets the default values.
 func NewMarkItemMarkers()(*MarkItemMarkers) {
     m := &MarkItemMarkers{
         NonLinkable: *NewNonLinkable(),
@@ -20,10 +19,12 @@ func NewMarkItemMarkers()(*MarkItemMarkers) {
     return m
 }
 // CreateMarkItemMarkersFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateMarkItemMarkersFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewMarkItemMarkers(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *MarkItemMarkers) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["markers"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -45,6 +46,7 @@ func (m *MarkItemMarkers) GetFieldDeserializers()(map[string]func(i878a80d2330e8
     return res
 }
 // GetMarkers gets the markers property value. The markers property
+// returns a []MarkItemMarkerable when successful
 func (m *MarkItemMarkers) GetMarkers()([]MarkItemMarkerable) {
     return m.markers
 }
@@ -72,7 +74,6 @@ func (m *MarkItemMarkers) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0
 func (m *MarkItemMarkers) SetMarkers(value []MarkItemMarkerable)() {
     m.markers = value
 }
-// MarkItemMarkersable 
 type MarkItemMarkersable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultVaultRecovery 
 type VaultVaultRecovery struct {
     NonLinkable
     // The account property
@@ -12,7 +11,7 @@ type VaultVaultRecovery struct {
     // The privateKey property
     privateKey *string
 }
-// NewVaultVaultRecovery instantiates a new vaultVaultRecovery and sets the default values.
+// NewVaultVaultRecovery instantiates a new VaultVaultRecovery and sets the default values.
 func NewVaultVaultRecovery()(*VaultVaultRecovery) {
     m := &VaultVaultRecovery{
         NonLinkable: *NewNonLinkable(),
@@ -22,14 +21,17 @@ func NewVaultVaultRecovery()(*VaultVaultRecovery) {
     return m
 }
 // CreateVaultVaultRecoveryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultVaultRecoveryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVaultRecovery(), nil
 }
 // GetAccount gets the account property value. The account property
+// returns a AuthAccountPrimerable when successful
 func (m *VaultVaultRecovery) GetAccount()(AuthAccountPrimerable) {
     return m.account
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVaultRecovery) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -55,6 +57,7 @@ func (m *VaultVaultRecovery) GetFieldDeserializers()(map[string]func(i878a80d233
     return res
 }
 // GetPrivateKey gets the privateKey property value. The privateKey property
+// returns a *string when successful
 func (m *VaultVaultRecovery) GetPrivateKey()(*string) {
     return m.privateKey
 }
@@ -86,7 +89,6 @@ func (m *VaultVaultRecovery) SetAccount(value AuthAccountPrimerable)() {
 func (m *VaultVaultRecovery) SetPrivateKey(value *string)() {
     m.privateKey = value
 }
-// VaultVaultRecoveryable 
 type VaultVaultRecoveryable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

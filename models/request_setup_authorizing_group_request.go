@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestSetupAuthorizingGroupRequest 
 type RequestSetupAuthorizingGroupRequest struct {
     RequestModificationRequest
     // The authorizingGroupType property
@@ -14,7 +13,7 @@ type RequestSetupAuthorizingGroupRequest struct {
     // The requestingGroup property
     requestingGroup GroupGroupPrimerable
 }
-// NewRequestSetupAuthorizingGroupRequest instantiates a new requestSetupAuthorizingGroupRequest and sets the default values.
+// NewRequestSetupAuthorizingGroupRequest instantiates a new RequestSetupAuthorizingGroupRequest and sets the default values.
 func NewRequestSetupAuthorizingGroupRequest()(*RequestSetupAuthorizingGroupRequest) {
     m := &RequestSetupAuthorizingGroupRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -24,18 +23,22 @@ func NewRequestSetupAuthorizingGroupRequest()(*RequestSetupAuthorizingGroupReque
     return m
 }
 // CreateRequestSetupAuthorizingGroupRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestSetupAuthorizingGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestSetupAuthorizingGroupRequest(), nil
 }
 // GetAuthorizingGroupType gets the authorizingGroupType property value. The authorizingGroupType property
+// returns a *RequestAuthorizingGroupType when successful
 func (m *RequestSetupAuthorizingGroupRequest) GetAuthorizingGroupType()(*RequestAuthorizingGroupType) {
     return m.authorizingGroupType
 }
 // GetConnect gets the connect property value. The connect property
+// returns a *bool when successful
 func (m *RequestSetupAuthorizingGroupRequest) GetConnect()(*bool) {
     return m.connect
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestSetupAuthorizingGroupRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["authorizingGroupType"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -71,6 +74,7 @@ func (m *RequestSetupAuthorizingGroupRequest) GetFieldDeserializers()(map[string
     return res
 }
 // GetRequestingGroup gets the requestingGroup property value. The requestingGroup property
+// returns a GroupGroupPrimerable when successful
 func (m *RequestSetupAuthorizingGroupRequest) GetRequestingGroup()(GroupGroupPrimerable) {
     return m.requestingGroup
 }
@@ -113,7 +117,6 @@ func (m *RequestSetupAuthorizingGroupRequest) SetConnect(value *bool)() {
 func (m *RequestSetupAuthorizingGroupRequest) SetRequestingGroup(value GroupGroupPrimerable)() {
     m.requestingGroup = value
 }
-// RequestSetupAuthorizingGroupRequestable 
 type RequestSetupAuthorizingGroupRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

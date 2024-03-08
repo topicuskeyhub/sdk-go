@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// DirectoryAccountDirectoryStatusReport 
 type DirectoryAccountDirectoryStatusReport struct {
     NonLinkable
     // The accounts property
@@ -14,7 +13,7 @@ type DirectoryAccountDirectoryStatusReport struct {
     // The status property
     status *DirectoryAccountDirectoryStatus
 }
-// NewDirectoryAccountDirectoryStatusReport instantiates a new directoryAccountDirectoryStatusReport and sets the default values.
+// NewDirectoryAccountDirectoryStatusReport instantiates a new DirectoryAccountDirectoryStatusReport and sets the default values.
 func NewDirectoryAccountDirectoryStatusReport()(*DirectoryAccountDirectoryStatusReport) {
     m := &DirectoryAccountDirectoryStatusReport{
         NonLinkable: *NewNonLinkable(),
@@ -24,14 +23,17 @@ func NewDirectoryAccountDirectoryStatusReport()(*DirectoryAccountDirectoryStatus
     return m
 }
 // CreateDirectoryAccountDirectoryStatusReportFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateDirectoryAccountDirectoryStatusReportFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewDirectoryAccountDirectoryStatusReport(), nil
 }
 // GetAccounts gets the accounts property value. The accounts property
+// returns a *int64 when successful
 func (m *DirectoryAccountDirectoryStatusReport) GetAccounts()(*int64) {
     return m.accounts
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *DirectoryAccountDirectoryStatusReport) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["accounts"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -67,10 +69,12 @@ func (m *DirectoryAccountDirectoryStatusReport) GetFieldDeserializers()(map[stri
     return res
 }
 // GetReason gets the reason property value. The reason property
+// returns a *string when successful
 func (m *DirectoryAccountDirectoryStatusReport) GetReason()(*string) {
     return m.reason
 }
 // GetStatus gets the status property value. The status property
+// returns a *DirectoryAccountDirectoryStatus when successful
 func (m *DirectoryAccountDirectoryStatusReport) GetStatus()(*DirectoryAccountDirectoryStatus) {
     return m.status
 }
@@ -101,7 +105,6 @@ func (m *DirectoryAccountDirectoryStatusReport) SetReason(value *string)() {
 func (m *DirectoryAccountDirectoryStatusReport) SetStatus(value *DirectoryAccountDirectoryStatus)() {
     m.status = value
 }
-// DirectoryAccountDirectoryStatusReportable 
 type DirectoryAccountDirectoryStatusReportable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

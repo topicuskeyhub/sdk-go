@@ -31,14 +31,15 @@ func NewSegmentsRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee26337
     return NewSegmentsRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get returns the segments and counts of the groups. Groups will not be returned, but the counts will be filtered with the specified query parameters.
+// returns a GroupGroupSegmentedLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *SegmentsRequestBuilder) Get(ctx context.Context, requestConfiguration *SegmentsRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupSegmentedLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateGroupGroupSegmentedLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -50,6 +51,7 @@ func (m *SegmentsRequestBuilder) Get(ctx context.Context, requestConfiguration *
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupSegmentedLinkableWrapperable), nil
 }
 // ToGetRequestInformation returns the segments and counts of the groups. Groups will not be returned, but the counts will be filtered with the specified query parameters.
+// returns a *RequestInformation when successful
 func (m *SegmentsRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *SegmentsRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -60,6 +62,7 @@ func (m *SegmentsRequestBuilder) ToGetRequestInformation(ctx context.Context, re
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *SegmentsRequestBuilder when successful
 func (m *SegmentsRequestBuilder) WithUrl(rawUrl string)(*SegmentsRequestBuilder) {
     return NewSegmentsRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

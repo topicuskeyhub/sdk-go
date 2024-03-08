@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultVaultUnlockResponse 
 type VaultVaultUnlockResponse struct {
     NonLinkable
     // The expiresAt property
@@ -13,7 +12,7 @@ type VaultVaultUnlockResponse struct {
     // The sessionPassword property
     sessionPassword *string
 }
-// NewVaultVaultUnlockResponse instantiates a new vaultVaultUnlockResponse and sets the default values.
+// NewVaultVaultUnlockResponse instantiates a new VaultVaultUnlockResponse and sets the default values.
 func NewVaultVaultUnlockResponse()(*VaultVaultUnlockResponse) {
     m := &VaultVaultUnlockResponse{
         NonLinkable: *NewNonLinkable(),
@@ -23,14 +22,17 @@ func NewVaultVaultUnlockResponse()(*VaultVaultUnlockResponse) {
     return m
 }
 // CreateVaultVaultUnlockResponseFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultVaultUnlockResponseFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVaultUnlockResponse(), nil
 }
 // GetExpiresAt gets the expiresAt property value. The expiresAt property
+// returns a *Time when successful
 func (m *VaultVaultUnlockResponse) GetExpiresAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.expiresAt
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVaultUnlockResponse) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["expiresAt"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -56,6 +58,7 @@ func (m *VaultVaultUnlockResponse) GetFieldDeserializers()(map[string]func(i878a
     return res
 }
 // GetSessionPassword gets the sessionPassword property value. The sessionPassword property
+// returns a *string when successful
 func (m *VaultVaultUnlockResponse) GetSessionPassword()(*string) {
     return m.sessionPassword
 }
@@ -87,7 +90,6 @@ func (m *VaultVaultUnlockResponse) SetExpiresAt(value *i336074805fc853987abe6f7f
 func (m *VaultVaultUnlockResponse) SetSessionPassword(value *string)() {
     m.sessionPassword = value
 }
-// VaultVaultUnlockResponseable 
 type VaultVaultUnlockResponseable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

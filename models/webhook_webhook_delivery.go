@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// WebhookWebhookDelivery 
 type WebhookWebhookDelivery struct {
     Linkable
     // The additionalObjects property
@@ -25,7 +24,7 @@ type WebhookWebhookDelivery struct {
     // The triggerTime property
     triggerTime *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 }
-// NewWebhookWebhookDelivery instantiates a new webhookWebhookDelivery and sets the default values.
+// NewWebhookWebhookDelivery instantiates a new WebhookWebhookDelivery and sets the default values.
 func NewWebhookWebhookDelivery()(*WebhookWebhookDelivery) {
     m := &WebhookWebhookDelivery{
         Linkable: *NewLinkable(),
@@ -35,14 +34,17 @@ func NewWebhookWebhookDelivery()(*WebhookWebhookDelivery) {
     return m
 }
 // CreateWebhookWebhookDeliveryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateWebhookWebhookDeliveryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewWebhookWebhookDelivery(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a WebhookWebhookDelivery_additionalObjectsable when successful
 func (m *WebhookWebhookDelivery) GetAdditionalObjects()(WebhookWebhookDelivery_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *WebhookWebhookDelivery) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -128,30 +130,37 @@ func (m *WebhookWebhookDelivery) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetPayload gets the payload property value. The payload property
+// returns a WebhookWebhookPushable when successful
 func (m *WebhookWebhookDelivery) GetPayload()(WebhookWebhookPushable) {
     return m.payload
 }
 // GetReponseHeaders gets the reponseHeaders property value. The reponseHeaders property
+// returns a *string when successful
 func (m *WebhookWebhookDelivery) GetReponseHeaders()(*string) {
     return m.reponseHeaders
 }
 // GetRequestHeaders gets the requestHeaders property value. The requestHeaders property
+// returns a *string when successful
 func (m *WebhookWebhookDelivery) GetRequestHeaders()(*string) {
     return m.requestHeaders
 }
 // GetResponse gets the response property value. The response property
+// returns a *string when successful
 func (m *WebhookWebhookDelivery) GetResponse()(*string) {
     return m.response
 }
 // GetStatus gets the status property value. The status property
+// returns a *int32 when successful
 func (m *WebhookWebhookDelivery) GetStatus()(*int32) {
     return m.status
 }
 // GetTime gets the time property value. The time property
+// returns a *int32 when successful
 func (m *WebhookWebhookDelivery) GetTime()(*int32) {
     return m.time
 }
 // GetTriggerTime gets the triggerTime property value. The triggerTime property
+// returns a *Time when successful
 func (m *WebhookWebhookDelivery) GetTriggerTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.triggerTime
 }
@@ -243,7 +252,6 @@ func (m *WebhookWebhookDelivery) SetTime(value *int32)() {
 func (m *WebhookWebhookDelivery) SetTriggerTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.triggerTime = value
 }
-// WebhookWebhookDeliveryable 
 type WebhookWebhookDeliveryable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

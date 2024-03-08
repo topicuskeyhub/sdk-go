@@ -381,6 +381,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -845,6 +858,19 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/authInternalAccountStatus"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -1903,6 +1929,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -2453,6 +2492,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -2811,6 +2863,19 @@
               "items": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -3806,6 +3871,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -4624,6 +4702,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -4842,6 +4933,19 @@
             "name": "uuid",
             "in": "query",
             "description": "Filter results on one or more UUIDs.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -5494,6 +5598,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -6081,6 +6198,19 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/clientOAuth2ClientPermissionType"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -6801,6 +6931,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -7488,6 +7631,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -8159,6 +8315,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -8826,6 +8995,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -9430,6 +9612,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -9607,6 +9802,19 @@
               "items": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -10108,6 +10316,19 @@
               "type": "array",
               "items": {
                 "type": "boolean"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -10646,6 +10867,19 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/auditGroupAuditStatus"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -11378,9 +11612,35 @@
             }
           },
           {
+            "name": "hasAuditUnderReview",
+            "in": "query",
+            "description": "Only return groups that have or do not have an audit that is currently under review.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "boolean"
+              }
+            }
+          },
+          {
             "name": "hasAuditing",
             "in": "query",
             "description": "Only return groups that have or do not have periodic auditing setup.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "boolean"
+              }
+            }
+          },
+          {
+            "name": "hasClientPermissions",
+            "in": "query",
+            "description": "Only return groups that have or do not have given permissions to OAuth2 clients.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -11812,6 +12072,19 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/groupGroupVisibility"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -12903,6 +13176,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -13618,6 +13904,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -14231,6 +14530,20 @@
             }
           },
           {
+            "name": "groupsOverlapWith",
+            "in": "query",
+            "description": "Filter requests for multiple groups if they contain any of the given groups.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
             "name": "internalAccount",
             "in": "query",
             "description": "Only return VerifyInternalAccountRequest for the given internal account(s), specified by id. This parameter supports composition with all parameters from the internal account resource.",
@@ -14327,6 +14640,20 @@
             "name": "organizationalUnit",
             "in": "query",
             "description": "Filter requests on the given organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "ownerGroup",
+            "in": "query",
+            "description": "Only return CreateGroupOnSystemRequest with the given owner group(s), specified by id. This parameter supports composition with all parameters from the grouop resource.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -14484,6 +14811,19 @@
               "items": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -14721,6 +15061,51 @@
         }
       }
     },
+    "/request/report": {
+      "post": {
+        "tags": [
+          "miscellaneous"
+        ],
+        "operationId": "report_request_report",
+        "requestBody": {
+          "content": {
+            "application/vnd.topicus.keyhub+json;version=69": {
+              "schema": {
+                "$ref": "#/components/schemas/requestModificationRequest"
+              }
+            },
+            "application/vnd.topicus.keyhub+xml;version=69": {
+              "schema": {
+                "$ref": "#/components/schemas/requestModificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/vnd.topicus.keyhub+json;version=69": {
+                "schema": {
+                  "$ref": "#/components/schemas/requestModificationRequestReport"
+                }
+              },
+              "application/vnd.topicus.keyhub+xml;version=69": {
+                "schema": {
+                  "$ref": "#/components/schemas/requestModificationRequestReport"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/organizationalunit/{organizationalunitid}/account": {
       "get": {
         "tags": [
@@ -14882,6 +15267,19 @@
               "items": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -15355,6 +15753,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -15711,6 +16122,19 @@
             "name": "name",
             "in": "query",
             "description": "Filter number sequences on the exact name.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -16209,6 +16633,19 @@
               "items": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -16790,6 +17227,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -17342,6 +17792,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -17804,6 +18267,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -18226,6 +18702,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -18477,7 +18966,7 @@
           {
             "name": "organizationalUnitForEnforcement",
             "in": "query",
-            "description": "Filter service accounts on their  organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.",
+            "description": "Filter service accounts on their organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -18544,6 +19033,34 @@
             }
           },
           {
+            "name": "systemContentAdministrators",
+            "in": "query",
+            "description": "Filter the service accounts on the content administration group of a provisioned system, specified by id.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "systemOwners",
+            "in": "query",
+            "description": "Filter the service accounts on the owning group of a provisioned system, specified by id.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
             "name": "technicalAdministrator",
             "in": "query",
             "description": "Filter the service accounts on groups that perform technical administration for them, specified by id. This parameter supports composition with all parameters from the group resource.",
@@ -18574,6 +19091,19 @@
             "name": "uuid",
             "in": "query",
             "description": "Filter results on one or more UUIDs.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -19132,6 +19662,19 @@
               "items": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
             }
           },
@@ -19745,6 +20288,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -20134,6 +20690,19 @@
             "name": "uuid",
             "in": "query",
             "description": "Filter results on one or more UUIDs.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -20606,6 +21175,19 @@
             }
           },
           {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "Range",
             "in": "header",
             "schema": {
@@ -20963,6 +21545,7 @@
             "request.JoinGroupRequest": "#/components/schemas/requestJoinGroupRequest",
             "request.JoinVaultRequest": "#/components/schemas/requestJoinVaultRequest",
             "request.ModificationRequest": "#/components/schemas/requestModificationRequest",
+            "request.MoveGroupsRequest": "#/components/schemas/requestMoveGroupsRequest",
             "request.PasswordResetRequest": "#/components/schemas/requestPasswordResetRequest",
             "request.RemoveGroupRequest": "#/components/schemas/requestRemoveGroupRequest",
             "request.RemoveOrganizationalUnitRequest": "#/components/schemas/requestRemoveOrganizationalUnitRequest",
@@ -21079,6 +21662,10 @@
             "request.AcceptGrantAccessRequestParameters": "#/components/schemas/requestAcceptGrantAccessRequestParameters",
             "request.AcceptJoinGroupRequestParameters": "#/components/schemas/requestAcceptJoinGroupRequestParameters",
             "request.AcceptModificationRequestParameters": "#/components/schemas/requestAcceptModificationRequestParameters",
+            "request.ModificationRequestReport": "#/components/schemas/requestModificationRequestReport",
+            "request.ModificationRequestReportChangeDetails": "#/components/schemas/requestModificationRequestReportChangeDetails",
+            "request.ModificationRequestReportErrorDetails": "#/components/schemas/requestModificationRequestReportErrorDetails",
+            "request.ModificationRequestReportGroupChangeDetails": "#/components/schemas/requestModificationRequestReportGroupChangeDetails",
             "request.PasswordResetRequestStatus": "#/components/schemas/requestPasswordResetRequestStatus",
             "serviceaccount.ServiceAccountStatus": "#/components/schemas/serviceaccountServiceAccountStatus",
             "serviceaccount.ServiceAccountsAuditStats": "#/components/schemas/serviceaccountServiceAccountsAuditStats",
@@ -21342,6 +21929,7 @@
         "enum": [
           "ACCOUNT_2FA_DISABLED",
           "ACCOUNT_2FA_ENABLED",
+          "ACCOUNT_ACTIVATION_CODE_USED",
           "ACCOUNT_ADDED_TO_GROUP",
           "ACCOUNT_ADDED_TO_ORGANIZATIONAL_UNIT",
           "ACCOUNT_CREATED",
@@ -21443,6 +22031,7 @@
           "GROUP_ON_SYSTEM_DEPROVISIONED",
           "GROUP_ON_SYSTEM_PROVISIONED",
           "GROUP_ON_SYSTEM_REMOVED",
+          "GROUP_MOVED",
           "GROUP_REMOVED",
           "INTERNAL_ACCOUNT_ACTIVATED",
           "INTERNAL_ACCOUNT_CREATED",
@@ -21456,6 +22045,9 @@
           "JOIN_VAULT_DECLINED",
           "JOIN_VAULT_REQUESTED",
           "LICENSE_KEY_UPLOADED",
+          "MOVE_GROUPS_ACCEPTED",
+          "MOVE_GROUPS_DECLINED",
+          "MOVE_GROUPS_REQUESTED",
           "ORGANIZATIONAL_UNIT_CREATED",
           "ORGANIZATIONAL_UNIT_MODIFIED",
           "ORGANIZATIONAL_UNIT_REMOVED",
@@ -23129,6 +23721,7 @@
               },
               "useClientCredentials": {
                 "type": "boolean",
+                "readOnly": true,
                 "x-tkh-default": false
               },
               "profile": {
@@ -28577,6 +29170,7 @@
               "mapping": {
                 "request.AbstractOrganizationalUnitModificationRequest": "#/components/schemas/requestAbstractOrganizationalUnitModificationRequest",
                 "request.CreateGroupRequest": "#/components/schemas/requestCreateGroupRequest",
+                "request.MoveGroupsRequest": "#/components/schemas/requestMoveGroupsRequest",
                 "request.RemoveOrganizationalUnitRequest": "#/components/schemas/requestRemoveOrganizationalUnitRequest",
                 "request.TransferOrganizationalUnitOwnershipRequest": "#/components/schemas/requestTransferOrganizationalUnitOwnershipRequest"
               }
@@ -28815,6 +29409,7 @@
               "activationRequired",
               "groupOnSystemType",
               "nameInSystem",
+              "owner",
               "system"
             ],
             "type": "object",
@@ -28828,6 +29423,9 @@
               "activationRequired": {
                 "type": "boolean",
                 "x-tkh-default": true
+              },
+              "owner": {
+                "$ref": "#/components/schemas/groupGroupPrimer"
               },
               "$type": {
                 "type": "string",
@@ -29411,6 +30009,7 @@
                 "request.JoinGroupRequest": "#/components/schemas/requestJoinGroupRequest",
                 "request.JoinVaultRequest": "#/components/schemas/requestJoinVaultRequest",
                 "request.ModificationRequest": "#/components/schemas/requestModificationRequest",
+                "request.MoveGroupsRequest": "#/components/schemas/requestMoveGroupsRequest",
                 "request.PasswordResetRequest": "#/components/schemas/requestPasswordResetRequest",
                 "request.RemoveGroupRequest": "#/components/schemas/requestRemoveGroupRequest",
                 "request.RemoveOrganizationalUnitRequest": "#/components/schemas/requestRemoveOrganizationalUnitRequest",
@@ -29449,6 +30048,182 @@
         },
         "title": "requestModificationRequestLinkableWrapper"
       },
+      "requestModificationRequestReport": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NonLinkable",
+            "title": "requestModificationRequestReport"
+          },
+          {
+            "title": "requestModificationRequestReport",
+            "required": [
+              "$type"
+            ],
+            "type": "object",
+            "properties": {
+              "conclusion": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/requestModificationRequestReportConclusion"
+                  },
+                  {
+                    "x-tkh-default": "OK"
+                  }
+                ]
+              },
+              "errorDetails": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/requestModificationRequestReportErrorDetails"
+                }
+              },
+              "groupChangeDetails": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/requestModificationRequestReportGroupChangeDetails"
+                }
+              },
+              "$type": {
+                "type": "string",
+                "default": "request.ModificationRequestReport"
+              }
+            },
+            "x-tkh-discriminator": "request.ModificationRequestReport"
+          }
+        ],
+        "title": "requestModificationRequestReport"
+      },
+      "requestModificationRequestReportChange": {
+        "type": "string",
+        "enum": [
+          "ACCOUNT_REMOVED_FROM_GROUP",
+          "MODIFICATION_REQUEST_CANCELLED",
+          "PROVISIONING_GROUP_REMOVED",
+          "SERVICE_ACCOUNT_GROUP_REMOVED"
+        ],
+        "title": "requestModificationRequestReportChange"
+      },
+      "requestModificationRequestReportChangeDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NonLinkable",
+            "title": "requestModificationRequestReportChangeDetails"
+          },
+          {
+            "title": "requestModificationRequestReportChangeDetails",
+            "required": [
+              "$type"
+            ],
+            "type": "object",
+            "properties": {
+              "change": {
+                "$ref": "#/components/schemas/requestModificationRequestReportChange"
+              },
+              "objectNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "$type": {
+                "type": "string",
+                "default": "request.ModificationRequestReportChangeDetails"
+              }
+            },
+            "x-tkh-discriminator": "request.ModificationRequestReportChangeDetails"
+          }
+        ],
+        "title": "requestModificationRequestReportChangeDetails"
+      },
+      "requestModificationRequestReportConclusion": {
+        "type": "string",
+        "enum": [
+          "OK",
+          "CANNOT_BE_EXECUTED"
+        ],
+        "title": "requestModificationRequestReportConclusion"
+      },
+      "requestModificationRequestReportError": {
+        "type": "string",
+        "enum": [
+          "ADMIN_GROUP_CANNOT_BE_MOVED",
+          "AUDITOR_GROUP_CANNOT_BE_MOVED",
+          "GROUP_FULFILLS_GLOBAL_ROLE",
+          "GROUP_OWNS_OR_HELPDESKS_DIRECTORY",
+          "GROUP_OWNS_OR_ADMINS_SYSTEM",
+          "GROUP_OWNS_OU",
+          "GROUP_PART_OF_NESTING_TREE",
+          "MANAGER_CANNOT_BE_MOVED",
+          "MULTIPLE_OUS",
+          "ONE_MOVEABLE_VAULT_ACCESS_OF_MULTIPLE_MEMBERS",
+          "ZERO_MOVEABLE_VAULT_ACCESS_MEMBERS"
+        ],
+        "title": "requestModificationRequestReportError"
+      },
+      "requestModificationRequestReportErrorDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NonLinkable",
+            "title": "requestModificationRequestReportErrorDetails"
+          },
+          {
+            "title": "requestModificationRequestReportErrorDetails",
+            "required": [
+              "$type"
+            ],
+            "type": "object",
+            "properties": {
+              "error": {
+                "$ref": "#/components/schemas/requestModificationRequestReportError"
+              },
+              "groupNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "$type": {
+                "type": "string",
+                "default": "request.ModificationRequestReportErrorDetails"
+              }
+            },
+            "x-tkh-discriminator": "request.ModificationRequestReportErrorDetails"
+          }
+        ],
+        "title": "requestModificationRequestReportErrorDetails"
+      },
+      "requestModificationRequestReportGroupChangeDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NonLinkable",
+            "title": "requestModificationRequestReportGroupChangeDetails"
+          },
+          {
+            "title": "requestModificationRequestReportGroupChangeDetails",
+            "required": [
+              "$type"
+            ],
+            "type": "object",
+            "properties": {
+              "groupName": {
+                "type": "string"
+              },
+              "changeDetails": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/requestModificationRequestReportChangeDetails"
+                }
+              },
+              "$type": {
+                "type": "string",
+                "default": "request.ModificationRequestReportGroupChangeDetails"
+              }
+            },
+            "x-tkh-discriminator": "request.ModificationRequestReportGroupChangeDetails"
+          }
+        ],
+        "title": "requestModificationRequestReportGroupChangeDetails"
+      },
       "requestModificationRequestStatus": {
         "type": "string",
         "enum": [
@@ -29478,6 +30253,7 @@
           "GRANT_SERVICE_ACCOUNT_GROUP",
           "JOIN_GROUP",
           "JOIN_VAULT",
+          "MOVE_GROUPS",
           "REMOVE_GROUP",
           "REMOVE_ORGANIZATIONAL_UNIT",
           "REMOVE_PROVISIONED_SYSTEM",
@@ -29499,6 +30275,41 @@
           "VERIFY_INTERNAL_ACCOUNT"
         ],
         "title": "requestModificationRequestType"
+      },
+      "requestMoveGroupsRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/requestAbstractOrganizationalUnitModificationRequest",
+            "title": "requestMoveGroupsRequest"
+          },
+          {
+            "title": "requestMoveGroupsRequest",
+            "required": [
+              "$type",
+              "organizationalUnit"
+            ],
+            "type": "object",
+            "properties": {
+              "groups": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/groupGroupPrimer"
+                }
+              },
+              "$type": {
+                "type": "string",
+                "default": "request.MoveGroupsRequest"
+              }
+            },
+            "x-tkh-writescope": {
+              "requestAbstractOrganizationalUnitModificationRequest": true,
+              "requestModificationRequest": true,
+              "requestMoveGroupsRequest": true
+            },
+            "x-tkh-discriminator": "request.MoveGroupsRequest"
+          }
+        ],
+        "title": "requestMoveGroupsRequest"
       },
       "requestPasswordResetEmailType": {
         "type": "string",

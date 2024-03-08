@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedAzureTenant 
 type ProvisioningProvisionedAzureTenant struct {
     ProvisioningProvisionedSystem
     // The clientId property
@@ -16,7 +15,7 @@ type ProvisioningProvisionedAzureTenant struct {
     // The tenant property
     tenant *string
 }
-// NewProvisioningProvisionedAzureTenant instantiates a new provisioningProvisionedAzureTenant and sets the default values.
+// NewProvisioningProvisionedAzureTenant instantiates a new ProvisioningProvisionedAzureTenant and sets the default values.
 func NewProvisioningProvisionedAzureTenant()(*ProvisioningProvisionedAzureTenant) {
     m := &ProvisioningProvisionedAzureTenant{
         ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
@@ -26,18 +25,22 @@ func NewProvisioningProvisionedAzureTenant()(*ProvisioningProvisionedAzureTenant
     return m
 }
 // CreateProvisioningProvisionedAzureTenantFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedAzureTenantFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedAzureTenant(), nil
 }
 // GetClientId gets the clientId property value. The clientId property
+// returns a *string when successful
 func (m *ProvisioningProvisionedAzureTenant) GetClientId()(*string) {
     return m.clientId
 }
 // GetClientSecret gets the clientSecret property value. The clientSecret property
+// returns a *string when successful
 func (m *ProvisioningProvisionedAzureTenant) GetClientSecret()(*string) {
     return m.clientSecret
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedAzureTenant) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
     res["clientId"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -83,10 +86,12 @@ func (m *ProvisioningProvisionedAzureTenant) GetFieldDeserializers()(map[string]
     return res
 }
 // GetIdpDomain gets the idpDomain property value. The idpDomain property
+// returns a *string when successful
 func (m *ProvisioningProvisionedAzureTenant) GetIdpDomain()(*string) {
     return m.idpDomain
 }
 // GetTenant gets the tenant property value. The tenant property
+// returns a *string when successful
 func (m *ProvisioningProvisionedAzureTenant) GetTenant()(*string) {
     return m.tenant
 }
@@ -138,7 +143,6 @@ func (m *ProvisioningProvisionedAzureTenant) SetIdpDomain(value *string)() {
 func (m *ProvisioningProvisionedAzureTenant) SetTenant(value *string)() {
     m.tenant = value
 }
-// ProvisioningProvisionedAzureTenantable 
 type ProvisioningProvisionedAzureTenantable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable

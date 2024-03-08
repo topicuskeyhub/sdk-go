@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// LicenseKeyHubLicenseInfo 
 type LicenseKeyHubLicenseInfo struct {
     NonLinkable
     // The currentLicenseStatus property
@@ -39,7 +38,7 @@ type LicenseKeyHubLicenseInfo struct {
     // The version property
     version *int32
 }
-// NewLicenseKeyHubLicenseInfo instantiates a new licenseKeyHubLicenseInfo and sets the default values.
+// NewLicenseKeyHubLicenseInfo instantiates a new LicenseKeyHubLicenseInfo and sets the default values.
 func NewLicenseKeyHubLicenseInfo()(*LicenseKeyHubLicenseInfo) {
     m := &LicenseKeyHubLicenseInfo{
         NonLinkable: *NewNonLinkable(),
@@ -49,34 +48,42 @@ func NewLicenseKeyHubLicenseInfo()(*LicenseKeyHubLicenseInfo) {
     return m
 }
 // CreateLicenseKeyHubLicenseInfoFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateLicenseKeyHubLicenseInfoFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewLicenseKeyHubLicenseInfo(), nil
 }
 // GetCurrentLicenseStatus gets the currentLicenseStatus property value. The currentLicenseStatus property
+// returns a *LicenseKeyHubLicenseInfoLicenseStatus when successful
 func (m *LicenseKeyHubLicenseInfo) GetCurrentLicenseStatus()(*LicenseKeyHubLicenseInfoLicenseStatus) {
     return m.currentLicenseStatus
 }
 // GetCustomerCompany gets the customerCompany property value. The customerCompany property
+// returns a *string when successful
 func (m *LicenseKeyHubLicenseInfo) GetCustomerCompany()(*string) {
     return m.customerCompany
 }
 // GetCustomerContact gets the customerContact property value. The customerContact property
+// returns a *string when successful
 func (m *LicenseKeyHubLicenseInfo) GetCustomerContact()(*string) {
     return m.customerContact
 }
 // GetCustomerDomains gets the customerDomains property value. The customerDomains property
+// returns a []string when successful
 func (m *LicenseKeyHubLicenseInfo) GetCustomerDomains()([]string) {
     return m.customerDomains
 }
 // GetExpirationTime gets the expirationTime property value. The expirationTime property
+// returns a *Time when successful
 func (m *LicenseKeyHubLicenseInfo) GetExpirationTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.expirationTime
 }
 // GetFeatures gets the features property value. The features property
+// returns a []LicenseLicenseFeature when successful
 func (m *LicenseKeyHubLicenseInfo) GetFeatures()([]LicenseLicenseFeature) {
     return m.features
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LicenseKeyHubLicenseInfo) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["currentLicenseStatus"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -244,38 +251,47 @@ func (m *LicenseKeyHubLicenseInfo) GetFieldDeserializers()(map[string]func(i878a
     return res
 }
 // GetIssueTime gets the issueTime property value. The issueTime property
+// returns a *Time when successful
 func (m *LicenseKeyHubLicenseInfo) GetIssueTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.issueTime
 }
 // GetKeyHubDomain gets the keyHubDomain property value. The keyHubDomain property
+// returns a *string when successful
 func (m *LicenseKeyHubLicenseInfo) GetKeyHubDomain()(*string) {
     return m.keyHubDomain
 }
 // GetLicenseKey gets the licenseKey property value. The licenseKey property
+// returns a *string when successful
 func (m *LicenseKeyHubLicenseInfo) GetLicenseKey()(*string) {
     return m.licenseKey
 }
 // GetNotBeforeTime gets the notBeforeTime property value. The notBeforeTime property
+// returns a *Time when successful
 func (m *LicenseKeyHubLicenseInfo) GetNotBeforeTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.notBeforeTime
 }
 // GetUsersHardLimit gets the usersHardLimit property value. The usersHardLimit property
+// returns a *int32 when successful
 func (m *LicenseKeyHubLicenseInfo) GetUsersHardLimit()(*int32) {
     return m.usersHardLimit
 }
 // GetUsersProLimit gets the usersProLimit property value. The usersProLimit property
+// returns a *int32 when successful
 func (m *LicenseKeyHubLicenseInfo) GetUsersProLimit()(*int32) {
     return m.usersProLimit
 }
 // GetUsersSoftLimit gets the usersSoftLimit property value. The usersSoftLimit property
+// returns a *int32 when successful
 func (m *LicenseKeyHubLicenseInfo) GetUsersSoftLimit()(*int32) {
     return m.usersSoftLimit
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *LicenseKeyHubLicenseInfo) GetUuid()(*string) {
     return m.uuid
 }
 // GetVersion gets the version property value. The version property
+// returns a *int32 when successful
 func (m *LicenseKeyHubLicenseInfo) GetVersion()(*int32) {
     return m.version
 }
@@ -438,7 +454,6 @@ func (m *LicenseKeyHubLicenseInfo) SetUuid(value *string)() {
 func (m *LicenseKeyHubLicenseInfo) SetVersion(value *int32)() {
     m.version = value
 }
-// LicenseKeyHubLicenseInfoable 
 type LicenseKeyHubLicenseInfoable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

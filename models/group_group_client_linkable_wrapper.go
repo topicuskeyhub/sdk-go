@@ -4,14 +4,13 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupClientLinkableWrapper 
 type GroupGroupClientLinkableWrapper struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The items property
     items []GroupGroupClientable
 }
-// NewGroupGroupClientLinkableWrapper instantiates a new groupGroupClientLinkableWrapper and sets the default values.
+// NewGroupGroupClientLinkableWrapper instantiates a new GroupGroupClientLinkableWrapper and sets the default values.
 func NewGroupGroupClientLinkableWrapper()(*GroupGroupClientLinkableWrapper) {
     m := &GroupGroupClientLinkableWrapper{
     }
@@ -19,14 +18,17 @@ func NewGroupGroupClientLinkableWrapper()(*GroupGroupClientLinkableWrapper) {
     return m
 }
 // CreateGroupGroupClientLinkableWrapperFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupClientLinkableWrapperFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupClientLinkableWrapper(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *GroupGroupClientLinkableWrapper) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupClientLinkableWrapper) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["items"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -48,6 +50,7 @@ func (m *GroupGroupClientLinkableWrapper) GetFieldDeserializers()(map[string]fun
     return res
 }
 // GetItems gets the items property value. The items property
+// returns a []GroupGroupClientable when successful
 func (m *GroupGroupClientLinkableWrapper) GetItems()([]GroupGroupClientable) {
     return m.items
 }
@@ -81,7 +84,6 @@ func (m *GroupGroupClientLinkableWrapper) SetAdditionalData(value map[string]any
 func (m *GroupGroupClientLinkableWrapper) SetItems(value []GroupGroupClientable)() {
     m.items = value
 }
-// GroupGroupClientLinkableWrapperable 
 type GroupGroupClientLinkableWrapperable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

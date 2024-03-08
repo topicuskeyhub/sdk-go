@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupInfo 
 type GroupGroupInfo struct {
     NonLinkable
     // The nrAccounts property
@@ -20,7 +19,7 @@ type GroupGroupInfo struct {
     // The nrVaultRecords property
     nrVaultRecords *int32
 }
-// NewGroupGroupInfo instantiates a new groupGroupInfo and sets the default values.
+// NewGroupGroupInfo instantiates a new GroupGroupInfo and sets the default values.
 func NewGroupGroupInfo()(*GroupGroupInfo) {
     m := &GroupGroupInfo{
         NonLinkable: *NewNonLinkable(),
@@ -30,10 +29,12 @@ func NewGroupGroupInfo()(*GroupGroupInfo) {
     return m
 }
 // CreateGroupGroupInfoFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupInfoFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupInfo(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupInfo) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["nrAccounts"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -99,26 +100,32 @@ func (m *GroupGroupInfo) GetFieldDeserializers()(map[string]func(i878a80d2330e89
     return res
 }
 // GetNrAccounts gets the nrAccounts property value. The nrAccounts property
+// returns a *int32 when successful
 func (m *GroupGroupInfo) GetNrAccounts()(*int32) {
     return m.nrAccounts
 }
 // GetNrAccountsWithVault gets the nrAccountsWithVault property value. The nrAccountsWithVault property
+// returns a *int32 when successful
 func (m *GroupGroupInfo) GetNrAccountsWithVault()(*int32) {
     return m.nrAccountsWithVault
 }
 // GetNrAudits gets the nrAudits property value. The nrAudits property
+// returns a *int32 when successful
 func (m *GroupGroupInfo) GetNrAudits()(*int32) {
     return m.nrAudits
 }
 // GetNrClients gets the nrClients property value. The nrClients property
+// returns a *int32 when successful
 func (m *GroupGroupInfo) GetNrClients()(*int32) {
     return m.nrClients
 }
 // GetNrProvisionedSystems gets the nrProvisionedSystems property value. The nrProvisionedSystems property
+// returns a *int32 when successful
 func (m *GroupGroupInfo) GetNrProvisionedSystems()(*int32) {
     return m.nrProvisionedSystems
 }
 // GetNrVaultRecords gets the nrVaultRecords property value. The nrVaultRecords property
+// returns a *int32 when successful
 func (m *GroupGroupInfo) GetNrVaultRecords()(*int32) {
     return m.nrVaultRecords
 }
@@ -154,7 +161,6 @@ func (m *GroupGroupInfo) SetNrProvisionedSystems(value *int32)() {
 func (m *GroupGroupInfo) SetNrVaultRecords(value *int32)() {
     m.nrVaultRecords = value
 }
-// GroupGroupInfoable 
 type GroupGroupInfoable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

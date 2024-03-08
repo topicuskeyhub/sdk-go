@@ -4,14 +4,13 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// WebhookWebhookDeliveryLinkableWrapper 
 type WebhookWebhookDeliveryLinkableWrapper struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The items property
     items []WebhookWebhookDeliveryable
 }
-// NewWebhookWebhookDeliveryLinkableWrapper instantiates a new webhookWebhookDeliveryLinkableWrapper and sets the default values.
+// NewWebhookWebhookDeliveryLinkableWrapper instantiates a new WebhookWebhookDeliveryLinkableWrapper and sets the default values.
 func NewWebhookWebhookDeliveryLinkableWrapper()(*WebhookWebhookDeliveryLinkableWrapper) {
     m := &WebhookWebhookDeliveryLinkableWrapper{
     }
@@ -19,14 +18,17 @@ func NewWebhookWebhookDeliveryLinkableWrapper()(*WebhookWebhookDeliveryLinkableW
     return m
 }
 // CreateWebhookWebhookDeliveryLinkableWrapperFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateWebhookWebhookDeliveryLinkableWrapperFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewWebhookWebhookDeliveryLinkableWrapper(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *WebhookWebhookDeliveryLinkableWrapper) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *WebhookWebhookDeliveryLinkableWrapper) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["items"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -48,6 +50,7 @@ func (m *WebhookWebhookDeliveryLinkableWrapper) GetFieldDeserializers()(map[stri
     return res
 }
 // GetItems gets the items property value. The items property
+// returns a []WebhookWebhookDeliveryable when successful
 func (m *WebhookWebhookDeliveryLinkableWrapper) GetItems()([]WebhookWebhookDeliveryable) {
     return m.items
 }
@@ -81,7 +84,6 @@ func (m *WebhookWebhookDeliveryLinkableWrapper) SetAdditionalData(value map[stri
 func (m *WebhookWebhookDeliveryLinkableWrapper) SetItems(value []WebhookWebhookDeliveryable)() {
     m.items = value
 }
-// WebhookWebhookDeliveryLinkableWrapperable 
 type WebhookWebhookDeliveryLinkableWrapperable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

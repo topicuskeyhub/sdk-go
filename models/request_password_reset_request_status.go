@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestPasswordResetRequestStatus 
 type RequestPasswordResetRequestStatus struct {
     NonLinkable
     // The cooldownEnd property
@@ -17,7 +16,7 @@ type RequestPasswordResetRequestStatus struct {
     // The resetViaMail property
     resetViaMail *RequestPasswordResetEmailType
 }
-// NewRequestPasswordResetRequestStatus instantiates a new requestPasswordResetRequestStatus and sets the default values.
+// NewRequestPasswordResetRequestStatus instantiates a new RequestPasswordResetRequestStatus and sets the default values.
 func NewRequestPasswordResetRequestStatus()(*RequestPasswordResetRequestStatus) {
     m := &RequestPasswordResetRequestStatus{
         NonLinkable: *NewNonLinkable(),
@@ -27,14 +26,17 @@ func NewRequestPasswordResetRequestStatus()(*RequestPasswordResetRequestStatus) 
     return m
 }
 // CreateRequestPasswordResetRequestStatusFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestPasswordResetRequestStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestPasswordResetRequestStatus(), nil
 }
 // GetCooldownEnd gets the cooldownEnd property value. The cooldownEnd property
+// returns a *Time when successful
 func (m *RequestPasswordResetRequestStatus) GetCooldownEnd()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.cooldownEnd
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestPasswordResetRequestStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["cooldownEnd"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -86,14 +88,17 @@ func (m *RequestPasswordResetRequestStatus) GetFieldDeserializers()(map[string]f
     return res
 }
 // GetManagers gets the managers property value. The managers property
+// returns a []string when successful
 func (m *RequestPasswordResetRequestStatus) GetManagers()([]string) {
     return m.managers
 }
 // GetNrAccepted gets the nrAccepted property value. The nrAccepted property
+// returns a *int64 when successful
 func (m *RequestPasswordResetRequestStatus) GetNrAccepted()(*int64) {
     return m.nrAccepted
 }
 // GetResetViaMail gets the resetViaMail property value. The resetViaMail property
+// returns a *RequestPasswordResetEmailType when successful
 func (m *RequestPasswordResetRequestStatus) GetResetViaMail()(*RequestPasswordResetEmailType) {
     return m.resetViaMail
 }
@@ -146,7 +151,6 @@ func (m *RequestPasswordResetRequestStatus) SetNrAccepted(value *int64)() {
 func (m *RequestPasswordResetRequestStatus) SetResetViaMail(value *RequestPasswordResetEmailType)() {
     m.resetViaMail = value
 }
-// RequestPasswordResetRequestStatusable 
 type RequestPasswordResetRequestStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

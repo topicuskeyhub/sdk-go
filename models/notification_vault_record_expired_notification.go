@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NotificationVaultRecordExpiredNotification 
 type NotificationVaultRecordExpiredNotification struct {
     NotificationNotification
     // The record property
     record VaultVaultRecordable
 }
-// NewNotificationVaultRecordExpiredNotification instantiates a new notificationVaultRecordExpiredNotification and sets the default values.
+// NewNotificationVaultRecordExpiredNotification instantiates a new NotificationVaultRecordExpiredNotification and sets the default values.
 func NewNotificationVaultRecordExpiredNotification()(*NotificationVaultRecordExpiredNotification) {
     m := &NotificationVaultRecordExpiredNotification{
         NotificationNotification: *NewNotificationNotification(),
@@ -20,10 +19,12 @@ func NewNotificationVaultRecordExpiredNotification()(*NotificationVaultRecordExp
     return m
 }
 // CreateNotificationVaultRecordExpiredNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNotificationVaultRecordExpiredNotificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewNotificationVaultRecordExpiredNotification(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationVaultRecordExpiredNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
     res["record"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -39,6 +40,7 @@ func (m *NotificationVaultRecordExpiredNotification) GetFieldDeserializers()(map
     return res
 }
 // GetRecord gets the record property value. The record property
+// returns a VaultVaultRecordable when successful
 func (m *NotificationVaultRecordExpiredNotification) GetRecord()(VaultVaultRecordable) {
     return m.record
 }
@@ -60,7 +62,6 @@ func (m *NotificationVaultRecordExpiredNotification) Serialize(writer i878a80d23
 func (m *NotificationVaultRecordExpiredNotification) SetRecord(value VaultVaultRecordable)() {
     m.record = value
 }
-// NotificationVaultRecordExpiredNotificationable 
 type NotificationVaultRecordExpiredNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

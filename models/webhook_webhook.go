@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// WebhookWebhook 
 type WebhookWebhook struct {
     Linkable
     // The account property
@@ -52,7 +51,7 @@ type WebhookWebhook struct {
     // The verbosePayloads property
     verbosePayloads *bool
 }
-// NewWebhookWebhook instantiates a new webhookWebhook and sets the default values.
+// NewWebhookWebhook instantiates a new WebhookWebhook and sets the default values.
 func NewWebhookWebhook()(*WebhookWebhook) {
     m := &WebhookWebhook{
         Linkable: *NewLinkable(),
@@ -62,62 +61,77 @@ func NewWebhookWebhook()(*WebhookWebhook) {
     return m
 }
 // CreateWebhookWebhookFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateWebhookWebhookFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewWebhookWebhook(), nil
 }
 // GetAccount gets the account property value. The account property
+// returns a AuthAccountPrimerable when successful
 func (m *WebhookWebhook) GetAccount()(AuthAccountPrimerable) {
     return m.account
 }
 // GetActive gets the active property value. The active property
+// returns a *bool when successful
 func (m *WebhookWebhook) GetActive()(*bool) {
     return m.active
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a WebhookWebhook_additionalObjectsable when successful
 func (m *WebhookWebhook) GetAdditionalObjects()(WebhookWebhook_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetAllTypes gets the allTypes property value. The allTypes property
+// returns a *bool when successful
 func (m *WebhookWebhook) GetAllTypes()(*bool) {
     return m.allTypes
 }
 // GetAuthenticationScheme gets the authenticationScheme property value. The authenticationScheme property
+// returns a *HttpAuthenticationScheme when successful
 func (m *WebhookWebhook) GetAuthenticationScheme()(*HttpAuthenticationScheme) {
     return m.authenticationScheme
 }
 // GetBasicAuthPassword gets the basicAuthPassword property value. The basicAuthPassword property
+// returns a *string when successful
 func (m *WebhookWebhook) GetBasicAuthPassword()(*string) {
     return m.basicAuthPassword
 }
 // GetBasicAuthUsername gets the basicAuthUsername property value. The basicAuthUsername property
+// returns a *string when successful
 func (m *WebhookWebhook) GetBasicAuthUsername()(*string) {
     return m.basicAuthUsername
 }
 // GetBearerToken gets the bearerToken property value. The bearerToken property
+// returns a *string when successful
 func (m *WebhookWebhook) GetBearerToken()(*string) {
     return m.bearerToken
 }
 // GetClient gets the client property value. The client property
+// returns a ClientClientApplicationPrimerable when successful
 func (m *WebhookWebhook) GetClient()(ClientClientApplicationPrimerable) {
     return m.client
 }
 // GetClientCertificate gets the clientCertificate property value. The clientCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *WebhookWebhook) GetClientCertificate()(CertificateCertificatePrimerable) {
     return m.clientCertificate
 }
 // GetCustomHeaderName gets the customHeaderName property value. The customHeaderName property
+// returns a *string when successful
 func (m *WebhookWebhook) GetCustomHeaderName()(*string) {
     return m.customHeaderName
 }
 // GetCustomHeaderValue gets the customHeaderValue property value. The customHeaderValue property
+// returns a *string when successful
 func (m *WebhookWebhook) GetCustomHeaderValue()(*string) {
     return m.customHeaderValue
 }
 // GetDirectory gets the directory property value. The directory property
+// returns a DirectoryAccountDirectoryPrimerable when successful
 func (m *WebhookWebhook) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
     return m.directory
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *WebhookWebhook) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -349,38 +363,47 @@ func (m *WebhookWebhook) GetFieldDeserializers()(map[string]func(i878a80d2330e89
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupPrimerable when successful
 func (m *WebhookWebhook) GetGroup()(GroupGroupPrimerable) {
     return m.group
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *WebhookWebhook) GetName()(*string) {
     return m.name
 }
 // GetSystem gets the system property value. The system property
+// returns a ProvisioningProvisionedSystemPrimerable when successful
 func (m *WebhookWebhook) GetSystem()(ProvisioningProvisionedSystemPrimerable) {
     return m.system
 }
 // GetTls gets the tls property value. The tls property
+// returns a *TLSLevel when successful
 func (m *WebhookWebhook) GetTls()(*TLSLevel) {
     return m.tls
 }
 // GetTrustedCertificate gets the trustedCertificate property value. The trustedCertificate property
+// returns a CertificateCertificatePrimerable when successful
 func (m *WebhookWebhook) GetTrustedCertificate()(CertificateCertificatePrimerable) {
     return m.trustedCertificate
 }
 // GetTypes gets the types property value. The types property
+// returns a []AuditAuditRecordType when successful
 func (m *WebhookWebhook) GetTypes()([]AuditAuditRecordType) {
     return m.types
 }
 // GetUrl gets the url property value. The url property
+// returns a *string when successful
 func (m *WebhookWebhook) GetUrl()(*string) {
     return m.url
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *WebhookWebhook) GetUuid()(*string) {
     return m.uuid
 }
 // GetVerbosePayloads gets the verbosePayloads property value. The verbosePayloads property
+// returns a *bool when successful
 func (m *WebhookWebhook) GetVerbosePayloads()(*bool) {
     return m.verbosePayloads
 }
@@ -608,7 +631,6 @@ func (m *WebhookWebhook) SetUuid(value *string)() {
 func (m *WebhookWebhook) SetVerbosePayloads(value *bool)() {
     m.verbosePayloads = value
 }
-// WebhookWebhookable 
 type WebhookWebhookable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

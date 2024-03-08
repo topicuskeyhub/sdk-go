@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestPasswordResetRequest 
 type RequestPasswordResetRequest struct {
     RequestModificationRequest
     // The newVaultAndDirectoryPassword property
@@ -14,7 +13,7 @@ type RequestPasswordResetRequest struct {
     // The unsyncedPassword property
     unsyncedPassword *bool
 }
-// NewRequestPasswordResetRequest instantiates a new requestPasswordResetRequest and sets the default values.
+// NewRequestPasswordResetRequest instantiates a new RequestPasswordResetRequest and sets the default values.
 func NewRequestPasswordResetRequest()(*RequestPasswordResetRequest) {
     m := &RequestPasswordResetRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -24,10 +23,12 @@ func NewRequestPasswordResetRequest()(*RequestPasswordResetRequest) {
     return m
 }
 // CreateRequestPasswordResetRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestPasswordResetRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestPasswordResetRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestPasswordResetRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["newVaultAndDirectoryPassword"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -63,14 +64,17 @@ func (m *RequestPasswordResetRequest) GetFieldDeserializers()(map[string]func(i8
     return res
 }
 // GetNewVaultAndDirectoryPassword gets the newVaultAndDirectoryPassword property value. The newVaultAndDirectoryPassword property
+// returns a *string when successful
 func (m *RequestPasswordResetRequest) GetNewVaultAndDirectoryPassword()(*string) {
     return m.newVaultAndDirectoryPassword
 }
 // GetNewVaultPassword gets the newVaultPassword property value. The newVaultPassword property
+// returns a *string when successful
 func (m *RequestPasswordResetRequest) GetNewVaultPassword()(*string) {
     return m.newVaultPassword
 }
 // GetUnsyncedPassword gets the unsyncedPassword property value. The unsyncedPassword property
+// returns a *bool when successful
 func (m *RequestPasswordResetRequest) GetUnsyncedPassword()(*bool) {
     return m.unsyncedPassword
 }
@@ -112,7 +116,6 @@ func (m *RequestPasswordResetRequest) SetNewVaultPassword(value *string)() {
 func (m *RequestPasswordResetRequest) SetUnsyncedPassword(value *bool)() {
     m.unsyncedPassword = value
 }
-// RequestPasswordResetRequestable 
 type RequestPasswordResetRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

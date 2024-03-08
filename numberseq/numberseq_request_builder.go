@@ -15,7 +15,10 @@ type NumberseqRequestBuilder struct {
 // NumberseqRequestBuilderGetQueryParameters query for all provision number sequences in Topicus KeyHub. The various query parameters can be used to filter the response.
 type NumberseqRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Only return records that have been created after the given instant.
@@ -32,6 +35,8 @@ type NumberseqRequestBuilderGetQueryParameters struct {
     Name []string `uriparametername:"name"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
 }
 // NumberseqRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type NumberseqRequestBuilderGetRequestConfiguration struct {
@@ -45,7 +50,10 @@ type NumberseqRequestBuilderGetRequestConfiguration struct {
 // NumberseqRequestBuilderPostQueryParameters creates one or more new provision number sequences and returns the newly created sequences.
 type NumberseqRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // NumberseqRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type NumberseqRequestBuilderPostRequestConfiguration struct {
@@ -58,6 +66,7 @@ type NumberseqRequestBuilderPostRequestConfiguration struct {
 }
 // ByNumberseqid gets an item from the github.com/topicuskeyhub/sdk-go.numberseq.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithNumberseqItemRequestBuilder when successful
 func (m *NumberseqRequestBuilder) ByNumberseqid(numberseqid string)(*WithNumberseqItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -69,6 +78,7 @@ func (m *NumberseqRequestBuilder) ByNumberseqid(numberseqid string)(*WithNumbers
     return NewWithNumberseqItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByNumberseqidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.numberseq.item collection
+// returns a *WithNumberseqItemRequestBuilder when successful
 func (m *NumberseqRequestBuilder) ByNumberseqidInt64(numberseqid int64)(*WithNumberseqItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -80,7 +90,7 @@ func (m *NumberseqRequestBuilder) ByNumberseqidInt64(numberseqid int64)(*WithNum
 // NewNumberseqRequestBuilderInternal instantiates a new NumberseqRequestBuilder and sets the default values.
 func NewNumberseqRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*NumberseqRequestBuilder) {
     m := &NumberseqRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/numberseq{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,name*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/numberseq{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,name*,q*,sort*}", pathParameters),
     }
     return m
 }
@@ -91,14 +101,15 @@ func NewNumberseqRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee2633
     return NewNumberseqRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get query for all provision number sequences in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a ProvisioningProvisionNumberSequenceLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *NumberseqRequestBuilder) Get(ctx context.Context, requestConfiguration *NumberseqRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProvisioningProvisionNumberSequenceLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -110,14 +121,15 @@ func (m *NumberseqRequestBuilder) Get(ctx context.Context, requestConfiguration 
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceLinkableWrapperable), nil
 }
 // Post creates one or more new provision number sequences and returns the newly created sequences.
+// returns a ProvisioningProvisionNumberSequenceLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *NumberseqRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceLinkableWrapperable, requestConfiguration *NumberseqRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProvisioningProvisionNumberSequenceLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -129,6 +141,7 @@ func (m *NumberseqRequestBuilder) Post(ctx context.Context, body ie2969523f41a2f
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceLinkableWrapperable), nil
 }
 // ToGetRequestInformation query for all provision number sequences in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *NumberseqRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *NumberseqRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -142,8 +155,9 @@ func (m *NumberseqRequestBuilder) ToGetRequestInformation(ctx context.Context, r
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new provision number sequences and returns the newly created sequences.
+// returns a *RequestInformation when successful
 func (m *NumberseqRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionNumberSequenceLinkableWrapperable, requestConfiguration *NumberseqRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/numberseq{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -159,6 +173,7 @@ func (m *NumberseqRequestBuilder) ToPostRequestInformation(ctx context.Context, 
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *NumberseqRequestBuilder when successful
 func (m *NumberseqRequestBuilder) WithUrl(rawUrl string)(*NumberseqRequestBuilder) {
     return NewNumberseqRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

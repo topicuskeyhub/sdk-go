@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// OrganizationOrganizationalUnitPrimer 
 type OrganizationOrganizationalUnitPrimer struct {
     Linkable
     // The name property
@@ -12,7 +11,7 @@ type OrganizationOrganizationalUnitPrimer struct {
     // The uuid property
     uuid *string
 }
-// NewOrganizationOrganizationalUnitPrimer instantiates a new organizationOrganizationalUnitPrimer and sets the default values.
+// NewOrganizationOrganizationalUnitPrimer instantiates a new OrganizationOrganizationalUnitPrimer and sets the default values.
 func NewOrganizationOrganizationalUnitPrimer()(*OrganizationOrganizationalUnitPrimer) {
     m := &OrganizationOrganizationalUnitPrimer{
         Linkable: *NewLinkable(),
@@ -22,6 +21,7 @@ func NewOrganizationOrganizationalUnitPrimer()(*OrganizationOrganizationalUnitPr
     return m
 }
 // CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -46,6 +46,7 @@ func CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue(parseNode 
     return NewOrganizationOrganizationalUnitPrimer(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *OrganizationOrganizationalUnitPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -71,10 +72,12 @@ func (m *OrganizationOrganizationalUnitPrimer) GetFieldDeserializers()(map[strin
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *OrganizationOrganizationalUnitPrimer) GetName()(*string) {
     return m.name
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *OrganizationOrganizationalUnitPrimer) GetUuid()(*string) {
     return m.uuid
 }
@@ -100,7 +103,6 @@ func (m *OrganizationOrganizationalUnitPrimer) SetName(value *string)() {
 func (m *OrganizationOrganizationalUnitPrimer) SetUuid(value *string)() {
     m.uuid = value
 }
-// OrganizationOrganizationalUnitPrimerable 
 type OrganizationOrganizationalUnitPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

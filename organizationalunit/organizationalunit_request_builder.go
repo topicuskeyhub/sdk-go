@@ -15,7 +15,10 @@ type OrganizationalunitRequestBuilder struct {
 // OrganizationalunitRequestBuilderGetQueryParameters query for all organizational units in Topicus KeyHub. The various query parameters can be used to filter the response.
 type OrganizationalunitRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Only return the organizational units that are equal to or an ancestor of the given unit(s), specified by id.
     AncestorOfOrEqualTo []int64 `uriparametername:"ancestorOfOrEqualTo"`
     // Return all or no records. This can be useful when composing parameters.
@@ -46,6 +49,8 @@ type OrganizationalunitRequestBuilderGetQueryParameters struct {
     Q []string `uriparametername:"q"`
     // Only return organizational units that are or are not the root of the organizational tree.
     Root []bool `uriparametername:"root"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter results on one or more UUIDs.
     Uuid []string `uriparametername:"uuid"`
 }
@@ -61,7 +66,10 @@ type OrganizationalunitRequestBuilderGetRequestConfiguration struct {
 // OrganizationalunitRequestBuilderPostQueryParameters creates one or more new organizational units and returns the newly created units.
 type OrganizationalunitRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // OrganizationalunitRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type OrganizationalunitRequestBuilderPostRequestConfiguration struct {
@@ -74,6 +82,7 @@ type OrganizationalunitRequestBuilderPostRequestConfiguration struct {
 }
 // ByOrganizationalunitid gets an item from the github.com/topicuskeyhub/sdk-go.organizationalunit.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithOrganizationalunitItemRequestBuilder when successful
 func (m *OrganizationalunitRequestBuilder) ByOrganizationalunitid(organizationalunitid string)(*WithOrganizationalunitItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -85,6 +94,7 @@ func (m *OrganizationalunitRequestBuilder) ByOrganizationalunitid(organizational
     return NewWithOrganizationalunitItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByOrganizationalunitidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.organizationalunit.item collection
+// returns a *WithOrganizationalunitItemRequestBuilder when successful
 func (m *OrganizationalunitRequestBuilder) ByOrganizationalunitidInt64(organizationalunitid int64)(*WithOrganizationalunitItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -96,7 +106,7 @@ func (m *OrganizationalunitRequestBuilder) ByOrganizationalunitidInt64(organizat
 // NewOrganizationalunitRequestBuilderInternal instantiates a new OrganizationalunitRequestBuilder and sets the default values.
 func NewOrganizationalunitRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*OrganizationalunitRequestBuilder) {
     m := &OrganizationalunitRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,ancestorOfOrEqualTo*,connectedToAccount*,descendantOfOrEqualTo*,name*,nameContains*,ownedBy*,parent*,root*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit{?additional*,ancestorOfOrEqualTo*,any*,connectedToAccount*,createdAfter*,createdBefore*,descendantOfOrEqualTo*,exclude*,id*,modifiedSince*,name*,nameContains*,ownedBy*,parent*,q*,root*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -107,14 +117,15 @@ func NewOrganizationalunitRequestBuilder(rawUrl string, requestAdapter i2ae4187f
     return NewOrganizationalunitRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get query for all organizational units in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a OrganizationOrganizationalUnitLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *OrganizationalunitRequestBuilder) Get(ctx context.Context, requestConfiguration *OrganizationalunitRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateOrganizationOrganizationalUnitLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -126,14 +137,15 @@ func (m *OrganizationalunitRequestBuilder) Get(ctx context.Context, requestConfi
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitLinkableWrapperable), nil
 }
 // Post creates one or more new organizational units and returns the newly created units.
+// returns a OrganizationOrganizationalUnitLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *OrganizationalunitRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitLinkableWrapperable, requestConfiguration *OrganizationalunitRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateOrganizationOrganizationalUnitLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -145,6 +157,7 @@ func (m *OrganizationalunitRequestBuilder) Post(ctx context.Context, body ie2969
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitLinkableWrapperable), nil
 }
 // ToGetRequestInformation query for all organizational units in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *OrganizationalunitRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *OrganizationalunitRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -158,8 +171,9 @@ func (m *OrganizationalunitRequestBuilder) ToGetRequestInformation(ctx context.C
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new organizational units and returns the newly created units.
+// returns a *RequestInformation when successful
 func (m *OrganizationalunitRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitLinkableWrapperable, requestConfiguration *OrganizationalunitRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/organizationalunit{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -175,6 +189,7 @@ func (m *OrganizationalunitRequestBuilder) ToPostRequestInformation(ctx context.
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *OrganizationalunitRequestBuilder when successful
 func (m *OrganizationalunitRequestBuilder) WithUrl(rawUrl string)(*OrganizationalunitRequestBuilder) {
     return NewOrganizationalunitRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

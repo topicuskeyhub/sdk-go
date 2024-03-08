@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NotificationModificationRequestNotification 
 type NotificationModificationRequestNotification struct {
     NotificationNotification
     // The admins property
@@ -14,7 +13,7 @@ type NotificationModificationRequestNotification struct {
     // The request property
     request RequestModificationRequestable
 }
-// NewNotificationModificationRequestNotification instantiates a new notificationModificationRequestNotification and sets the default values.
+// NewNotificationModificationRequestNotification instantiates a new NotificationModificationRequestNotification and sets the default values.
 func NewNotificationModificationRequestNotification()(*NotificationModificationRequestNotification) {
     m := &NotificationModificationRequestNotification{
         NotificationNotification: *NewNotificationNotification(),
@@ -24,14 +23,17 @@ func NewNotificationModificationRequestNotification()(*NotificationModificationR
     return m
 }
 // CreateNotificationModificationRequestNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNotificationModificationRequestNotificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewNotificationModificationRequestNotification(), nil
 }
 // GetAdmins gets the admins property value. The admins property
+// returns a []string when successful
 func (m *NotificationModificationRequestNotification) GetAdmins()([]string) {
     return m.admins
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationModificationRequestNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
     res["admins"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -79,10 +81,12 @@ func (m *NotificationModificationRequestNotification) GetFieldDeserializers()(ma
     return res
 }
 // GetGroups gets the groups property value. The groups property
+// returns a []string when successful
 func (m *NotificationModificationRequestNotification) GetGroups()([]string) {
     return m.groups
 }
 // GetRequest gets the request property value. The request property
+// returns a RequestModificationRequestable when successful
 func (m *NotificationModificationRequestNotification) GetRequest()(RequestModificationRequestable) {
     return m.request
 }
@@ -124,7 +128,6 @@ func (m *NotificationModificationRequestNotification) SetGroups(value []string)(
 func (m *NotificationModificationRequestNotification) SetRequest(value RequestModificationRequestable)() {
     m.request = value
 }
-// NotificationModificationRequestNotificationable 
 type NotificationModificationRequestNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

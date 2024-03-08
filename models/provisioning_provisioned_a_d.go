@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedAD 
 type ProvisioningProvisionedAD struct {
     ProvisioningAbstractProvisionedLDAP
     // The samAccountNameScheme property
     samAccountNameScheme *ProvisioningADSamAccountNameScheme
 }
-// NewProvisioningProvisionedAD instantiates a new provisioningProvisionedAD and sets the default values.
+// NewProvisioningProvisionedAD instantiates a new ProvisioningProvisionedAD and sets the default values.
 func NewProvisioningProvisionedAD()(*ProvisioningProvisionedAD) {
     m := &ProvisioningProvisionedAD{
         ProvisioningAbstractProvisionedLDAP: *NewProvisioningAbstractProvisionedLDAP(),
@@ -20,10 +19,12 @@ func NewProvisioningProvisionedAD()(*ProvisioningProvisionedAD) {
     return m
 }
 // CreateProvisioningProvisionedADFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedADFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedAD(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedAD) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningAbstractProvisionedLDAP.GetFieldDeserializers()
     res["samAccountNameScheme"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -39,6 +40,7 @@ func (m *ProvisioningProvisionedAD) GetFieldDeserializers()(map[string]func(i878
     return res
 }
 // GetSamAccountNameScheme gets the samAccountNameScheme property value. The samAccountNameScheme property
+// returns a *ProvisioningADSamAccountNameScheme when successful
 func (m *ProvisioningProvisionedAD) GetSamAccountNameScheme()(*ProvisioningADSamAccountNameScheme) {
     return m.samAccountNameScheme
 }
@@ -61,7 +63,6 @@ func (m *ProvisioningProvisionedAD) Serialize(writer i878a80d2330e89d26896388a3f
 func (m *ProvisioningProvisionedAD) SetSamAccountNameScheme(value *ProvisioningADSamAccountNameScheme)() {
     m.samAccountNameScheme = value
 }
-// ProvisioningProvisionedADable 
 type ProvisioningProvisionedADable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningAbstractProvisionedLDAPable

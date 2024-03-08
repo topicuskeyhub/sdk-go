@@ -4,6 +4,7 @@ import (
     "context"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
+    i7f0d53038484bbd4864cdbebe350954b6a5210645c7578c166f717eabb2ddf63 "github.com/topicuskeyhub/sdk-go/serviceaccount/item"
 )
 
 // WithServiceaccountItemRequestBuilder builds and executes requests for operations under \serviceaccount\{serviceaccountid}
@@ -20,7 +21,10 @@ type WithServiceaccountItemRequestBuilderDeleteRequestConfiguration struct {
 // WithServiceaccountItemRequestBuilderGetQueryParameters returns the service account identified by the id.
 type WithServiceaccountItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []i7f0d53038484bbd4864cdbebe350954b6a5210645c7578c166f717eabb2ddf63.GetAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // WithServiceaccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithServiceaccountItemRequestBuilderGetRequestConfiguration struct {
@@ -34,7 +38,10 @@ type WithServiceaccountItemRequestBuilderGetRequestConfiguration struct {
 // WithServiceaccountItemRequestBuilderPutQueryParameters updates the service account identified by the id.
 type WithServiceaccountItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPutAdditionalQueryParameterType []i7f0d53038484bbd4864cdbebe350954b6a5210645c7578c166f717eabb2ddf63.PutAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // WithServiceaccountItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithServiceaccountItemRequestBuilderPutRequestConfiguration struct {
@@ -58,14 +65,14 @@ func NewWithServiceaccountItemRequestBuilder(rawUrl string, requestAdapter i2ae4
     urlParams["request-raw-url"] = rawUrl
     return NewWithServiceaccountItemRequestBuilderInternal(urlParams, requestAdapter)
 }
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WithServiceaccountItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithServiceaccountItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -74,14 +81,15 @@ func (m *WithServiceaccountItemRequestBuilder) Delete(ctx context.Context, reque
     return nil
 }
 // Get returns the service account identified by the id.
+// returns a ServiceaccountServiceAccountable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WithServiceaccountItemRequestBuilder) Get(ctx context.Context, requestConfiguration *WithServiceaccountItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateServiceaccountServiceAccountFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -93,18 +101,20 @@ func (m *WithServiceaccountItemRequestBuilder) Get(ctx context.Context, requestC
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable), nil
 }
 // Group the group property
+// returns a *ItemGroupRequestBuilder when successful
 func (m *WithServiceaccountItemRequestBuilder) Group()(*ItemGroupRequestBuilder) {
     return NewItemGroupRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Put updates the service account identified by the id.
+// returns a ServiceaccountServiceAccountable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WithServiceaccountItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable, requestConfiguration *WithServiceaccountItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable, error) {
     requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateServiceaccountServiceAccountFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -116,11 +126,13 @@ func (m *WithServiceaccountItemRequestBuilder) Put(ctx context.Context, body ie2
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable), nil
 }
 // Status the status property
+// returns a *ItemStatusRequestBuilder when successful
 func (m *WithServiceaccountItemRequestBuilder) Status()(*ItemStatusRequestBuilder) {
     return NewItemStatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// returns a *RequestInformation when successful
 func (m *WithServiceaccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithServiceaccountItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, "{+baseurl}/serviceaccount/{serviceaccountid}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
@@ -129,6 +141,7 @@ func (m *WithServiceaccountItemRequestBuilder) ToDeleteRequestInformation(ctx co
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the service account identified by the id.
+// returns a *RequestInformation when successful
 func (m *WithServiceaccountItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithServiceaccountItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -142,6 +155,7 @@ func (m *WithServiceaccountItemRequestBuilder) ToGetRequestInformation(ctx conte
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the service account identified by the id.
+// returns a *RequestInformation when successful
 func (m *WithServiceaccountItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountable, requestConfiguration *WithServiceaccountItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -159,6 +173,7 @@ func (m *WithServiceaccountItemRequestBuilder) ToPutRequestInformation(ctx conte
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *WithServiceaccountItemRequestBuilder when successful
 func (m *WithServiceaccountItemRequestBuilder) WithUrl(rawUrl string)(*WithServiceaccountItemRequestBuilder) {
     return NewWithServiceaccountItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

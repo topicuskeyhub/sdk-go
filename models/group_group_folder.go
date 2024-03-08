@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupFolder 
 type GroupGroupFolder struct {
     Linkable
     // The additionalObjects property
@@ -12,7 +11,7 @@ type GroupGroupFolder struct {
     // The name property
     name *string
 }
-// NewGroupGroupFolder instantiates a new groupGroupFolder and sets the default values.
+// NewGroupGroupFolder instantiates a new GroupGroupFolder and sets the default values.
 func NewGroupGroupFolder()(*GroupGroupFolder) {
     m := &GroupGroupFolder{
         Linkable: *NewLinkable(),
@@ -22,14 +21,17 @@ func NewGroupGroupFolder()(*GroupGroupFolder) {
     return m
 }
 // CreateGroupGroupFolderFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupFolderFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupFolder(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a GroupGroupFolder_additionalObjectsable when successful
 func (m *GroupGroupFolder) GetAdditionalObjects()(GroupGroupFolder_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupFolder) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -55,6 +57,7 @@ func (m *GroupGroupFolder) GetFieldDeserializers()(map[string]func(i878a80d2330e
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *GroupGroupFolder) GetName()(*string) {
     return m.name
 }
@@ -86,7 +89,6 @@ func (m *GroupGroupFolder) SetAdditionalObjects(value GroupGroupFolder_additiona
 func (m *GroupGroupFolder) SetName(value *string)() {
     m.name = value
 }
-// GroupGroupFolderable 
 type GroupGroupFolderable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

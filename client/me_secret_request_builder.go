@@ -17,28 +17,29 @@ type MeSecretRequestBuilderPostRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewMeSecretRequestBuilderInternal instantiates a new SecretRequestBuilder and sets the default values.
+// NewMeSecretRequestBuilderInternal instantiates a new MeSecretRequestBuilder and sets the default values.
 func NewMeSecretRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*MeSecretRequestBuilder) {
     m := &MeSecretRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/me/secret", pathParameters),
     }
     return m
 }
-// NewMeSecretRequestBuilder instantiates a new SecretRequestBuilder and sets the default values.
+// NewMeSecretRequestBuilder instantiates a new MeSecretRequestBuilder and sets the default values.
 func NewMeSecretRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*MeSecretRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewMeSecretRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Post the given secret will be verified and a new secret generated and returned.
+// returns a []byte when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *MeSecretRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GeneratedSecretable, requestConfiguration *MeSecretRequestBuilderPostRequestConfiguration)([]byte, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.SendPrimitive(ctx, requestInfo, "[]byte", errorMapping)
     if err != nil {
@@ -50,6 +51,7 @@ func (m *MeSecretRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fa
     return res.([]byte), nil
 }
 // ToPostRequestInformation the given secret will be verified and a new secret generated and returned.
+// returns a *RequestInformation when successful
 func (m *MeSecretRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GeneratedSecretable, requestConfiguration *MeSecretRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -64,6 +66,7 @@ func (m *MeSecretRequestBuilder) ToPostRequestInformation(ctx context.Context, b
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *MeSecretRequestBuilder when successful
 func (m *MeSecretRequestBuilder) WithUrl(rawUrl string)(*MeSecretRequestBuilder) {
     return NewMeSecretRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

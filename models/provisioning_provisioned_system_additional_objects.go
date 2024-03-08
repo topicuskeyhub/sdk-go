@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedSystem_additionalObjects 
 type ProvisioningProvisionedSystem_additionalObjects struct {
     // The account property
     account ProvisioningProvisionedAccountable
@@ -25,7 +24,7 @@ type ProvisioningProvisionedSystem_additionalObjects struct {
     // The supportedGroupTypes property
     supportedGroupTypes ProvisioningGroupOnSystemTypesable
 }
-// NewProvisioningProvisionedSystem_additionalObjects instantiates a new provisioningProvisionedSystem_additionalObjects and sets the default values.
+// NewProvisioningProvisionedSystem_additionalObjects instantiates a new ProvisioningProvisionedSystem_additionalObjects and sets the default values.
 func NewProvisioningProvisionedSystem_additionalObjects()(*ProvisioningProvisionedSystem_additionalObjects) {
     m := &ProvisioningProvisionedSystem_additionalObjects{
     }
@@ -33,22 +32,27 @@ func NewProvisioningProvisionedSystem_additionalObjects()(*ProvisioningProvision
     return m
 }
 // CreateProvisioningProvisionedSystem_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedSystem_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedSystem_additionalObjects(), nil
 }
 // GetAccount gets the account property value. The account property
+// returns a ProvisioningProvisionedAccountable when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetAccount()(ProvisioningProvisionedAccountable) {
     return m.account
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetAudit gets the audit property value. The audit property
+// returns a AuditInfoable when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -134,26 +138,32 @@ func (m *ProvisioningProvisionedSystem_additionalObjects) GetFieldDeserializers(
     return res
 }
 // GetIssuedPermissions gets the issuedPermissions property value. The issuedPermissions property
+// returns a ClientOAuth2ClientPermissionWithClientLinkableWrapperable when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetIssuedPermissions()(ClientOAuth2ClientPermissionWithClientLinkableWrapperable) {
     return m.issuedPermissions
 }
 // GetLoginName gets the loginName property value. The loginName property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetLoginName()(*string) {
     return m.loginName
 }
 // GetManagementPermissions gets the managementPermissions property value. The managementPermissions property
+// returns a ProvisioningProvisioningManagementPermissionsable when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetManagementPermissions()(ProvisioningProvisioningManagementPermissionsable) {
     return m.managementPermissions
 }
 // GetMarkers gets the markers property value. The markers property
+// returns a MarkItemMarkersable when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetMarkers()(MarkItemMarkersable) {
     return m.markers
 }
 // GetStatistics gets the statistics property value. The statistics property
+// returns a ProvisioningCircuitBreakerStatisticsable when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetStatistics()(ProvisioningCircuitBreakerStatisticsable) {
     return m.statistics
 }
 // GetSupportedGroupTypes gets the supportedGroupTypes property value. The supportedGroupTypes property
+// returns a ProvisioningGroupOnSystemTypesable when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetSupportedGroupTypes()(ProvisioningGroupOnSystemTypesable) {
     return m.supportedGroupTypes
 }
@@ -245,7 +255,6 @@ func (m *ProvisioningProvisionedSystem_additionalObjects) SetStatistics(value Pr
 func (m *ProvisioningProvisionedSystem_additionalObjects) SetSupportedGroupTypes(value ProvisioningGroupOnSystemTypesable)() {
     m.supportedGroupTypes = value
 }
-// ProvisioningProvisionedSystem_additionalObjectsable 
 type ProvisioningProvisionedSystem_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

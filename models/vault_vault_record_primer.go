@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultVaultRecordPrimer 
 type VaultVaultRecordPrimer struct {
     Linkable
     // The color property
@@ -17,7 +16,7 @@ type VaultVaultRecordPrimer struct {
     // The uuid property
     uuid *string
 }
-// NewVaultVaultRecordPrimer instantiates a new vaultVaultRecordPrimer and sets the default values.
+// NewVaultVaultRecordPrimer instantiates a new VaultVaultRecordPrimer and sets the default values.
 func NewVaultVaultRecordPrimer()(*VaultVaultRecordPrimer) {
     m := &VaultVaultRecordPrimer{
         Linkable: *NewLinkable(),
@@ -27,6 +26,7 @@ func NewVaultVaultRecordPrimer()(*VaultVaultRecordPrimer) {
     return m
 }
 // CreateVaultVaultRecordPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultVaultRecordPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -49,10 +49,12 @@ func CreateVaultVaultRecordPrimerFromDiscriminatorValue(parseNode i878a80d2330e8
     return NewVaultVaultRecordPrimer(), nil
 }
 // GetColor gets the color property value. The color property
+// returns a *VaultVaultRecordColor when successful
 func (m *VaultVaultRecordPrimer) GetColor()(*VaultVaultRecordColor) {
     return m.color
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVaultRecordPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["color"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -98,14 +100,17 @@ func (m *VaultVaultRecordPrimer) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *VaultVaultRecordPrimer) GetName()(*string) {
     return m.name
 }
 // GetShareEndTime gets the shareEndTime property value. The shareEndTime property
+// returns a *Time when successful
 func (m *VaultVaultRecordPrimer) GetShareEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.shareEndTime
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *VaultVaultRecordPrimer) GetUuid()(*string) {
     return m.uuid
 }
@@ -146,7 +151,6 @@ func (m *VaultVaultRecordPrimer) SetShareEndTime(value *i336074805fc853987abe6f7
 func (m *VaultVaultRecordPrimer) SetUuid(value *string)() {
     m.uuid = value
 }
-// VaultVaultRecordPrimerable 
 type VaultVaultRecordPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

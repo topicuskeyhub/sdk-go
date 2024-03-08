@@ -32,18 +32,22 @@ type KeyHubClient struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
 // Account the account property
+// returns a *AccountRequestBuilder when successful
 func (m *KeyHubClient) Account()(*ib269aad83a59eeaa00948e8e0cf61b0f8955fcb99e4910b745aa70768d6d63c4.AccountRequestBuilder) {
     return ib269aad83a59eeaa00948e8e0cf61b0f8955fcb99e4910b745aa70768d6d63c4.NewAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Audit the audit property
+// returns a *AuditRequestBuilder when successful
 func (m *KeyHubClient) Audit()(*i9a416ff0973cadc86a9386e3f28ad7c475076105c80d51f978001646d6a93eb8.AuditRequestBuilder) {
     return i9a416ff0973cadc86a9386e3f28ad7c475076105c80d51f978001646d6a93eb8.NewAuditRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Certificate the certificate property
+// returns a *CertificateRequestBuilder when successful
 func (m *KeyHubClient) Certificate()(*ia4ccd640f04375f8459d703d9bd3e36f5d6a57b48d83c18fcc686ac92a251806.CertificateRequestBuilder) {
     return ia4ccd640f04375f8459d703d9bd3e36f5d6a57b48d83c18fcc686ac92a251806.NewCertificateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Client the client property
+// returns a *ClientRequestBuilder when successful
 func (m *KeyHubClient) Client()(*ifdfb91cbbf9b2d09fc5fb9b2405c3a72348d071234970eca4305212177f72cf2.ClientRequestBuilder) {
     return ifdfb91cbbf9b2d09fc5fb9b2405c3a72348d071234970eca4305212177f72cf2.NewClientRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
@@ -61,70 +65,87 @@ func NewKeyHubClient(requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa52
     return m
 }
 // Deletedvaultholder the deletedvaultholder property
+// returns a *DeletedvaultholderRequestBuilder when successful
 func (m *KeyHubClient) Deletedvaultholder()(*i9acdc2253f5a58228075fc1e46bdd8aca4f69569179560e0bf2e87d0811bfc18.DeletedvaultholderRequestBuilder) {
     return i9acdc2253f5a58228075fc1e46bdd8aca4f69569179560e0bf2e87d0811bfc18.NewDeletedvaultholderRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Directory the directory property
+// returns a *DirectoryRequestBuilder when successful
 func (m *KeyHubClient) Directory()(*ib7bf253b601139c5fca70bba4f4843e6731e3522bee75715df4b77d2107eff28.DirectoryRequestBuilder) {
     return ib7bf253b601139c5fca70bba4f4843e6731e3522bee75715df4b77d2107eff28.NewDirectoryRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Export the export property
+// returns a *ExportRequestBuilder when successful
 func (m *KeyHubClient) Export()(*ie19695769860c2ce81c94e08d7b1cdbbd24da28301e01a4408a5565b07ee913d.ExportRequestBuilder) {
     return ie19695769860c2ce81c94e08d7b1cdbbd24da28301e01a4408a5565b07ee913d.NewExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Group the group property
+// returns a *GroupRequestBuilder when successful
 func (m *KeyHubClient) Group()(*i6f1edc8cb6d249770cb1634d5c07b8945f2349df7d873c8e22898a5bfd8123aa.GroupRequestBuilder) {
     return i6f1edc8cb6d249770cb1634d5c07b8945f2349df7d873c8e22898a5bfd8123aa.NewGroupRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Groupclassification the groupclassification property
+// returns a *GroupclassificationRequestBuilder when successful
 func (m *KeyHubClient) Groupclassification()(*i3786de14b5891e0b6237ed5a04286048bb7ccab8227911414f7bb8f1e165a7c0.GroupclassificationRequestBuilder) {
     return i3786de14b5891e0b6237ed5a04286048bb7ccab8227911414f7bb8f1e165a7c0.NewGroupclassificationRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Groupclient the groupclient property
+// returns a *GroupclientRequestBuilder when successful
 func (m *KeyHubClient) Groupclient()(*i4f6f8a97ade4bcd9f00e48fb22660ba2cb3b474e860f677cfc37ab0f9b6d8370.GroupclientRequestBuilder) {
     return i4f6f8a97ade4bcd9f00e48fb22660ba2cb3b474e860f677cfc37ab0f9b6d8370.NewGroupclientRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Groupfolder the groupfolder property
+// returns a *GroupfolderRequestBuilder when successful
 func (m *KeyHubClient) Groupfolder()(*i43af1840a4616958e60c4cbee17a55c9c7345f03d798c4b93f71ba6ea8a8fed7.GroupfolderRequestBuilder) {
     return i43af1840a4616958e60c4cbee17a55c9c7345f03d798c4b93f71ba6ea8a8fed7.NewGroupfolderRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Info the info property
+// returns a *InfoRequestBuilder when successful
 func (m *KeyHubClient) Info()(*ia9c84b329cdbc7e9961b248161459b4dfb0d53b98e1b471cd7c10b6d027a90d3.InfoRequestBuilder) {
     return ia9c84b329cdbc7e9961b248161459b4dfb0d53b98e1b471cd7c10b6d027a90d3.NewInfoRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Launchpadtile the launchpadtile property
+// returns a *LaunchpadtileRequestBuilder when successful
 func (m *KeyHubClient) Launchpadtile()(*i385775f507ab02e04cf3e40e8696ee406fb1371e877539b6dfbde0c8e4b123b2.LaunchpadtileRequestBuilder) {
     return i385775f507ab02e04cf3e40e8696ee406fb1371e877539b6dfbde0c8e4b123b2.NewLaunchpadtileRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Numberseq the numberseq property
+// returns a *NumberseqRequestBuilder when successful
 func (m *KeyHubClient) Numberseq()(*i98ee0f07cd6158c2879ae08ef6a731b5a05b3610b774bf729ac7c7bf7d1efa2c.NumberseqRequestBuilder) {
     return i98ee0f07cd6158c2879ae08ef6a731b5a05b3610b774bf729ac7c7bf7d1efa2c.NewNumberseqRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Organizationalunit the organizationalunit property
+// returns a *OrganizationalunitRequestBuilder when successful
 func (m *KeyHubClient) Organizationalunit()(*ifb310ad74101a00ed1acdc17b384ce2e8964f5a38f9d9302b22aaaa28ff4d3e4.OrganizationalunitRequestBuilder) {
     return ifb310ad74101a00ed1acdc17b384ce2e8964f5a38f9d9302b22aaaa28ff4d3e4.NewOrganizationalunitRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Provisioninggroup the provisioninggroup property
+// returns a *ProvisioninggroupRequestBuilder when successful
 func (m *KeyHubClient) Provisioninggroup()(*i29b864faf50a3a1afdf661366bb4234f149662638d0e3841e35acccd9352cf20.ProvisioninggroupRequestBuilder) {
     return i29b864faf50a3a1afdf661366bb4234f149662638d0e3841e35acccd9352cf20.NewProvisioninggroupRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Request the request property
+// returns a *RequestRequestBuilder when successful
 func (m *KeyHubClient) Request()(*i4e9df38273eb83f44b000e660fb1ceeb2fdcb7939eb1e594bf0e1c6dd130c8e2.RequestRequestBuilder) {
     return i4e9df38273eb83f44b000e660fb1ceeb2fdcb7939eb1e594bf0e1c6dd130c8e2.NewRequestRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Serviceaccount the serviceaccount property
+// returns a *ServiceaccountRequestBuilder when successful
 func (m *KeyHubClient) Serviceaccount()(*i25381d874a7e3097702763676eb8a598478a75d07191e3563cf4ef48e5ac1fc6.ServiceaccountRequestBuilder) {
     return i25381d874a7e3097702763676eb8a598478a75d07191e3563cf4ef48e5ac1fc6.NewServiceaccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // System the system property
+// returns a *SystemRequestBuilder when successful
 func (m *KeyHubClient) System()(*ibdde25a8196c6c3406e5b0b02de36d833849b28ee37dca06694dc2ec8a725bdc.SystemRequestBuilder) {
     return ibdde25a8196c6c3406e5b0b02de36d833849b28ee37dca06694dc2ec8a725bdc.NewSystemRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Vaultrecord the vaultrecord property
+// returns a *VaultrecordRequestBuilder when successful
 func (m *KeyHubClient) Vaultrecord()(*i9c60bc0bc864eda4e8fcd5447d4e572d9b6ba65365f60dea8e1097309b0531da.VaultrecordRequestBuilder) {
     return i9c60bc0bc864eda4e8fcd5447d4e572d9b6ba65365f60dea8e1097309b0531da.NewVaultrecordRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Webhook the webhook property
+// returns a *WebhookRequestBuilder when successful
 func (m *KeyHubClient) Webhook()(*i7f1810e47506a1087d42711bae10d2eacb3eb432b8e9e68ef97ff738e3bb6945.WebhookRequestBuilder) {
     return i7f1810e47506a1087d42711bae10d2eacb3eb432b8e9e68ef97ff738e3bb6945.NewWebhookRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }

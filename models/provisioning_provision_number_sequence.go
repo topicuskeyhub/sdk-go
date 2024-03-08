@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionNumberSequence 
 type ProvisioningProvisionNumberSequence struct {
     Linkable
     // The accountCount property
@@ -16,7 +15,7 @@ type ProvisioningProvisionNumberSequence struct {
     // The nextUID property
     nextUID *int64
 }
-// NewProvisioningProvisionNumberSequence instantiates a new provisioningProvisionNumberSequence and sets the default values.
+// NewProvisioningProvisionNumberSequence instantiates a new ProvisioningProvisionNumberSequence and sets the default values.
 func NewProvisioningProvisionNumberSequence()(*ProvisioningProvisionNumberSequence) {
     m := &ProvisioningProvisionNumberSequence{
         Linkable: *NewLinkable(),
@@ -26,18 +25,22 @@ func NewProvisioningProvisionNumberSequence()(*ProvisioningProvisionNumberSequen
     return m
 }
 // CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionNumberSequence(), nil
 }
 // GetAccountCount gets the accountCount property value. The accountCount property
+// returns a *int32 when successful
 func (m *ProvisioningProvisionNumberSequence) GetAccountCount()(*int32) {
     return m.accountCount
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a ProvisioningProvisionNumberSequence_additionalObjectsable when successful
 func (m *ProvisioningProvisionNumberSequence) GetAdditionalObjects()(ProvisioningProvisionNumberSequence_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionNumberSequence) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["accountCount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -83,10 +86,12 @@ func (m *ProvisioningProvisionNumberSequence) GetFieldDeserializers()(map[string
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *ProvisioningProvisionNumberSequence) GetName()(*string) {
     return m.name
 }
 // GetNextUID gets the nextUID property value. The nextUID property
+// returns a *int64 when successful
 func (m *ProvisioningProvisionNumberSequence) GetNextUID()(*int64) {
     return m.nextUID
 }
@@ -132,7 +137,6 @@ func (m *ProvisioningProvisionNumberSequence) SetName(value *string)() {
 func (m *ProvisioningProvisionNumberSequence) SetNextUID(value *int64)() {
     m.nextUID = value
 }
-// ProvisioningProvisionNumberSequenceable 
 type ProvisioningProvisionNumberSequenceable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

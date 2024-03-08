@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroup_additionalObjects 
 type GroupGroup_additionalObjects struct {
     // The accounts property
     accounts GroupGroupAccountLinkableWrapperable
@@ -63,7 +62,7 @@ type GroupGroup_additionalObjects struct {
     // The webhooks property
     webhooks WebhookWebhookLinkableWrapperable
 }
-// NewGroupGroup_additionalObjects instantiates a new groupGroup_additionalObjects and sets the default values.
+// NewGroupGroup_additionalObjects instantiates a new GroupGroup_additionalObjects and sets the default values.
 func NewGroupGroup_additionalObjects()(*GroupGroup_additionalObjects) {
     m := &GroupGroup_additionalObjects{
     }
@@ -71,50 +70,62 @@ func NewGroupGroup_additionalObjects()(*GroupGroup_additionalObjects) {
     return m
 }
 // CreateGroupGroup_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroup_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroup_additionalObjects(), nil
 }
 // GetAccounts gets the accounts property value. The accounts property
+// returns a GroupGroupAccountLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetAccounts()(GroupGroupAccountLinkableWrapperable) {
     return m.accounts
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *GroupGroup_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetAdministeredClients gets the administeredClients property value. The administeredClients property
+// returns a ClientClientApplicationLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetAdministeredClients()(ClientClientApplicationLinkableWrapperable) {
     return m.administeredClients
 }
 // GetAdministeredSystems gets the administeredSystems property value. The administeredSystems property
+// returns a ProvisioningProvisionedSystemLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetAdministeredSystems()(ProvisioningProvisionedSystemLinkableWrapperable) {
     return m.administeredSystems
 }
 // GetAdmins gets the admins property value. The admins property
+// returns a GroupGroupAccountLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetAdmins()(GroupGroupAccountLinkableWrapperable) {
     return m.admins
 }
 // GetAudit gets the audit property value. The audit property
+// returns a AuditInfoable when successful
 func (m *GroupGroup_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetAuthorizedGroups gets the authorizedGroups property value. The authorizedGroups property
+// returns a GroupAuthorizedGroupsWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetAuthorizedGroups()(GroupAuthorizedGroupsWrapperable) {
     return m.authorizedGroups
 }
 // GetClientPermissions gets the clientPermissions property value. The clientPermissions property
+// returns a ClientOAuth2ClientPermissionWithClientLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetClientPermissions()(ClientOAuth2ClientPermissionWithClientLinkableWrapperable) {
     return m.clientPermissions
 }
 // GetClients gets the clients property value. The clients property
+// returns a GroupGroupClientLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetClients()(GroupGroupClientLinkableWrapperable) {
     return m.clients
 }
 // GetContentAdministeredSystems gets the contentAdministeredSystems property value. The contentAdministeredSystems property
+// returns a ProvisioningProvisionedSystemLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetContentAdministeredSystems()(ProvisioningProvisionedSystemLinkableWrapperable) {
     return m.contentAdministeredSystems
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["accounts"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -390,74 +401,92 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i
     return res
 }
 // GetGroupauditinginfo gets the groupauditinginfo property value. The groupauditinginfo property
+// returns a GroupGroupAuditingInfoable when successful
 func (m *GroupGroup_additionalObjects) GetGroupauditinginfo()(GroupGroupAuditingInfoable) {
     return m.groupauditinginfo
 }
 // GetGroupinfo gets the groupinfo property value. The groupinfo property
+// returns a GroupGroupInfoable when successful
 func (m *GroupGroup_additionalObjects) GetGroupinfo()(GroupGroupInfoable) {
     return m.groupinfo
 }
 // GetHelpdesk gets the helpdesk property value. The helpdesk property
+// returns a DirectoryAccountDirectorySummaryLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetHelpdesk()(DirectoryAccountDirectorySummaryLinkableWrapperable) {
     return m.helpdesk
 }
 // GetMarkers gets the markers property value. The markers property
+// returns a MarkItemMarkersable when successful
 func (m *GroupGroup_additionalObjects) GetMarkers()(MarkItemMarkersable) {
     return m.markers
 }
 // GetMyaccount gets the myaccount property value. The myaccount property
+// returns a GroupGroupAccountable when successful
 func (m *GroupGroup_additionalObjects) GetMyaccount()(GroupGroupAccountable) {
     return m.myaccount
 }
 // GetMydelegatedaccount gets the mydelegatedaccount property value. The mydelegatedaccount property
+// returns a GroupGroupAccountable when successful
 func (m *GroupGroup_additionalObjects) GetMydelegatedaccount()(GroupGroupAccountable) {
     return m.mydelegatedaccount
 }
 // GetNestedGroups gets the nestedGroups property value. The nestedGroups property
+// returns a GroupGroupPrimerLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetNestedGroups()(GroupGroupPrimerLinkableWrapperable) {
     return m.nestedGroups
 }
 // GetOwnedClients gets the ownedClients property value. The ownedClients property
+// returns a ClientClientApplicationLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetOwnedClients()(ClientClientApplicationLinkableWrapperable) {
     return m.ownedClients
 }
 // GetOwnedDirectories gets the ownedDirectories property value. The ownedDirectories property
+// returns a DirectoryAccountDirectoryLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetOwnedDirectories()(DirectoryAccountDirectoryLinkableWrapperable) {
     return m.ownedDirectories
 }
 // GetOwnedGroupsOnSystem gets the ownedGroupsOnSystem property value. The ownedGroupsOnSystem property
+// returns a ProvisioningOwnedGroupOnSystemsWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetOwnedGroupsOnSystem()(ProvisioningOwnedGroupOnSystemsWrapperable) {
     return m.ownedGroupsOnSystem
 }
 // GetOwnedOrganizationalUnits gets the ownedOrganizationalUnits property value. The ownedOrganizationalUnits property
+// returns a OrganizationOrganizationalUnitLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetOwnedOrganizationalUnits()(OrganizationOrganizationalUnitLinkableWrapperable) {
     return m.ownedOrganizationalUnits
 }
 // GetOwnedSystems gets the ownedSystems property value. The ownedSystems property
+// returns a ProvisioningProvisionedSystemLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetOwnedSystems()(ProvisioningProvisionedSystemLinkableWrapperable) {
     return m.ownedSystems
 }
 // GetRecentAudits gets the recentAudits property value. The recentAudits property
+// returns a AuditGroupAuditLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetRecentAudits()(AuditGroupAuditLinkableWrapperable) {
     return m.recentAudits
 }
 // GetRequeststatus gets the requeststatus property value. The requeststatus property
+// returns a *GroupGroupRequestStatus when successful
 func (m *GroupGroup_additionalObjects) GetRequeststatus()(*GroupGroupRequestStatus) {
     return m.requeststatus
 }
 // GetServiceAccounts gets the serviceAccounts property value. The serviceAccounts property
+// returns a ServiceaccountServiceAccountLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetServiceAccounts()(ServiceaccountServiceAccountLinkableWrapperable) {
     return m.serviceAccounts
 }
 // GetSystems gets the systems property value. The systems property
+// returns a GroupProvisioningGroupLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetSystems()(GroupProvisioningGroupLinkableWrapperable) {
     return m.systems
 }
 // GetVault gets the vault property value. The vault property
+// returns a VaultVaultable when successful
 func (m *GroupGroup_additionalObjects) GetVault()(VaultVaultable) {
     return m.vault
 }
 // GetWebhooks gets the webhooks property value. The webhooks property
+// returns a WebhookWebhookLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetWebhooks()(WebhookWebhookLinkableWrapperable) {
     return m.webhooks
 }
@@ -746,7 +775,6 @@ func (m *GroupGroup_additionalObjects) SetVault(value VaultVaultable)() {
 func (m *GroupGroup_additionalObjects) SetWebhooks(value WebhookWebhookLinkableWrapperable)() {
     m.webhooks = value
 }
-// GroupGroup_additionalObjectsable 
 type GroupGroup_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

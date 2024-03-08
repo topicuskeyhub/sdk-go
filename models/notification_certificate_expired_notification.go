@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// NotificationCertificateExpiredNotification 
 type NotificationCertificateExpiredNotification struct {
     NotificationNotification
     // The certificate property
@@ -23,7 +22,7 @@ type NotificationCertificateExpiredNotification struct {
     // The webhook property
     webhook WebhookWebhookable
 }
-// NewNotificationCertificateExpiredNotification instantiates a new notificationCertificateExpiredNotification and sets the default values.
+// NewNotificationCertificateExpiredNotification instantiates a new NotificationCertificateExpiredNotification and sets the default values.
 func NewNotificationCertificateExpiredNotification()(*NotificationCertificateExpiredNotification) {
     m := &NotificationCertificateExpiredNotification{
         NotificationNotification: *NewNotificationNotification(),
@@ -33,22 +32,27 @@ func NewNotificationCertificateExpiredNotification()(*NotificationCertificateExp
     return m
 }
 // CreateNotificationCertificateExpiredNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateNotificationCertificateExpiredNotificationFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewNotificationCertificateExpiredNotification(), nil
 }
 // GetCertificate gets the certificate property value. The certificate property
+// returns a CertificateCertificateable when successful
 func (m *NotificationCertificateExpiredNotification) GetCertificate()(CertificateCertificateable) {
     return m.certificate
 }
 // GetDirectory gets the directory property value. The directory property
+// returns a DirectoryLDAPDirectoryable when successful
 func (m *NotificationCertificateExpiredNotification) GetDirectory()(DirectoryLDAPDirectoryable) {
     return m.directory
 }
 // GetExpiration gets the expiration property value. The expiration property
+// returns a *Time when successful
 func (m *NotificationCertificateExpiredNotification) GetExpiration()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.expiration
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationCertificateExpiredNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
     res["certificate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -124,18 +128,22 @@ func (m *NotificationCertificateExpiredNotification) GetFieldDeserializers()(map
     return res
 }
 // GetLdapClient gets the ldapClient property value. The ldapClient property
+// returns a ClientLdapClientable when successful
 func (m *NotificationCertificateExpiredNotification) GetLdapClient()(ClientLdapClientable) {
     return m.ldapClient
 }
 // GetSystem gets the system property value. The system property
+// returns a ProvisioningProvisionedSystemable when successful
 func (m *NotificationCertificateExpiredNotification) GetSystem()(ProvisioningProvisionedSystemable) {
     return m.system
 }
 // GetUsage gets the usage property value. The usage property
+// returns a *NotificationCertificateUsage when successful
 func (m *NotificationCertificateExpiredNotification) GetUsage()(*NotificationCertificateUsage) {
     return m.usage
 }
 // GetWebhook gets the webhook property value. The webhook property
+// returns a WebhookWebhookable when successful
 func (m *NotificationCertificateExpiredNotification) GetWebhook()(WebhookWebhookable) {
     return m.webhook
 }
@@ -218,7 +226,6 @@ func (m *NotificationCertificateExpiredNotification) SetUsage(value *Notificatio
 func (m *NotificationCertificateExpiredNotification) SetWebhook(value WebhookWebhookable)() {
     m.webhook = value
 }
-// NotificationCertificateExpiredNotificationable 
 type NotificationCertificateExpiredNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ErrorReport 
 type ErrorReport struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ApiError
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -36,38 +35,47 @@ func NewErrorReport()(*ErrorReport) {
     return m
 }
 // CreateErrorReportFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateErrorReportFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewErrorReport(), nil
 }
 // Error the primary error message.
+// returns a string when successful
 func (m *ErrorReport) Error()(string) {
     return m.ApiError.Error()
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *ErrorReport) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetApplicationError gets the applicationError property value. The applicationError property
+// returns a *string when successful
 func (m *ErrorReport) GetApplicationError()(*string) {
     return m.applicationError
 }
 // GetApplicationErrorParameters gets the applicationErrorParameters property value. The applicationErrorParameters property
+// returns a ErrorReport_applicationErrorParametersable when successful
 func (m *ErrorReport) GetApplicationErrorParameters()(ErrorReport_applicationErrorParametersable) {
     return m.applicationErrorParameters
 }
 // GetCode gets the code property value. The code property
+// returns a *int32 when successful
 func (m *ErrorReport) GetCode()(*int32) {
     return m.code
 }
 // GetErrorDetails gets the errorDetails property value. The errorDetails property
+// returns a []string when successful
 func (m *ErrorReport) GetErrorDetails()([]string) {
     return m.errorDetails
 }
 // GetException gets the exception property value. The exception property
+// returns a *string when successful
 func (m *ErrorReport) GetException()(*string) {
     return m.exception
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ErrorReport) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["applicationError"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -165,14 +173,17 @@ func (m *ErrorReport) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26
     return res
 }
 // GetMessage gets the message property value. The message property
+// returns a *string when successful
 func (m *ErrorReport) GetMessage()(*string) {
     return m.message
 }
 // GetReason gets the reason property value. The reason property
+// returns a *string when successful
 func (m *ErrorReport) GetReason()(*string) {
     return m.reason
 }
 // GetStacktrace gets the stacktrace property value. The stacktrace property
+// returns a []string when successful
 func (m *ErrorReport) GetStacktrace()([]string) {
     return m.stacktrace
 }
@@ -270,7 +281,6 @@ func (m *ErrorReport) SetReason(value *string)() {
 func (m *ErrorReport) SetStacktrace(value []string)() {
     m.stacktrace = value
 }
-// ErrorReportable 
 type ErrorReportable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

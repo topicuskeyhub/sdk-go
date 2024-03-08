@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// Linkable 
 type Linkable struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
@@ -23,6 +22,7 @@ func NewLinkable()(*Linkable) {
     return m
 }
 // CreateLinkableFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -196,6 +196,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestJoinVaultRequest(), nil
                     case "request.ModificationRequest":
                         return NewRequestModificationRequest(), nil
+                    case "request.MoveGroupsRequest":
+                        return NewRequestMoveGroupsRequest(), nil
                     case "request.PasswordResetRequest":
                         return NewRequestPasswordResetRequest(), nil
                     case "request.RemoveGroupRequest":
@@ -259,10 +261,12 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
     return NewLinkable(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *Linkable) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *Linkable) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["links"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -310,14 +314,17 @@ func (m *Linkable) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896
     return res
 }
 // GetLinks gets the links property value. The links property
+// returns a []RestLinkable when successful
 func (m *Linkable) GetLinks()([]RestLinkable) {
     return m.links
 }
 // GetPermissions gets the permissions property value. The permissions property
+// returns a []AuthPermissionable when successful
 func (m *Linkable) GetPermissions()([]AuthPermissionable) {
     return m.permissions
 }
 // GetTypeEscaped gets the $type property value. The Type property
+// returns a *string when successful
 func (m *Linkable) GetTypeEscaped()(*string) {
     return m.typeEscaped
 }
@@ -377,7 +384,6 @@ func (m *Linkable) SetPermissions(value []AuthPermissionable)() {
 func (m *Linkable) SetTypeEscaped(value *string)() {
     m.typeEscaped = value
 }
-// Linkableable 
 type Linkableable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

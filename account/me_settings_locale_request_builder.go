@@ -17,28 +17,28 @@ type MeSettingsLocaleRequestBuilderPostRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewMeSettingsLocaleRequestBuilderInternal instantiates a new LocaleRequestBuilder and sets the default values.
+// NewMeSettingsLocaleRequestBuilderInternal instantiates a new MeSettingsLocaleRequestBuilder and sets the default values.
 func NewMeSettingsLocaleRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*MeSettingsLocaleRequestBuilder) {
     m := &MeSettingsLocaleRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/me/settings/locale", pathParameters),
     }
     return m
 }
-// NewMeSettingsLocaleRequestBuilder instantiates a new LocaleRequestBuilder and sets the default values.
+// NewMeSettingsLocaleRequestBuilder instantiates a new MeSettingsLocaleRequestBuilder and sets the default values.
 func NewMeSettingsLocaleRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*MeSettingsLocaleRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewMeSettingsLocaleRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Post updates the locale for the current user.
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *MeSettingsLocaleRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthAccountChangeLocaleable, requestConfiguration *MeSettingsLocaleRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -47,6 +47,7 @@ func (m *MeSettingsLocaleRequestBuilder) Post(ctx context.Context, body ie296952
     return nil
 }
 // ToPostRequestInformation updates the locale for the current user.
+// returns a *RequestInformation when successful
 func (m *MeSettingsLocaleRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthAccountChangeLocaleable, requestConfiguration *MeSettingsLocaleRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -61,6 +62,7 @@ func (m *MeSettingsLocaleRequestBuilder) ToPostRequestInformation(ctx context.Co
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *MeSettingsLocaleRequestBuilder when successful
 func (m *MeSettingsLocaleRequestBuilder) WithUrl(rawUrl string)(*MeSettingsLocaleRequestBuilder) {
     return NewMeSettingsLocaleRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

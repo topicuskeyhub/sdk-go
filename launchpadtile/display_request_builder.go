@@ -12,11 +12,8 @@ type DisplayRequestBuilder struct {
 }
 // DisplayRequestBuilderGetQueryParameters query tiles for display on the launchpad. This returns a normalized view over the tiles, per group. A single tile can be returned multiple times if access is given via multiple groups.
 type DisplayRequestBuilderGetQueryParameters struct {
-    // 
     Filter *string `uriparametername:"filter"`
-    // 
     Group *int64 `uriparametername:"group"`
-    // 
     ModifiedSince *string `uriparametername:"modifiedSince"`
 }
 // DisplayRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
@@ -31,7 +28,7 @@ type DisplayRequestBuilderGetRequestConfiguration struct {
 // NewDisplayRequestBuilderInternal instantiates a new DisplayRequestBuilder and sets the default values.
 func NewDisplayRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*DisplayRequestBuilder) {
     m := &DisplayRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/launchpadtile/display{?modifiedSince*,filter*,group*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/launchpadtile/display{?filter*,group*,modifiedSince*}", pathParameters),
     }
     return m
 }
@@ -42,14 +39,15 @@ func NewDisplayRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371
     return NewDisplayRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get query tiles for display on the launchpad. This returns a normalized view over the tiles, per group. A single tile can be returned multiple times if access is given via multiple groups.
+// returns a LaunchpadDisplayedLaunchpadTilesable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *DisplayRequestBuilder) Get(ctx context.Context, requestConfiguration *DisplayRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.LaunchpadDisplayedLaunchpadTilesable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateLaunchpadDisplayedLaunchpadTilesFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -61,6 +59,7 @@ func (m *DisplayRequestBuilder) Get(ctx context.Context, requestConfiguration *D
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.LaunchpadDisplayedLaunchpadTilesable), nil
 }
 // ToGetRequestInformation query tiles for display on the launchpad. This returns a normalized view over the tiles, per group. A single tile can be returned multiple times if access is given via multiple groups.
+// returns a *RequestInformation when successful
 func (m *DisplayRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *DisplayRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -74,6 +73,7 @@ func (m *DisplayRequestBuilder) ToGetRequestInformation(ctx context.Context, req
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *DisplayRequestBuilder when successful
 func (m *DisplayRequestBuilder) WithUrl(rawUrl string)(*DisplayRequestBuilder) {
     return NewDisplayRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

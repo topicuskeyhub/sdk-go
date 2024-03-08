@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// CertificateCertificatePrimer 
 type CertificateCertificatePrimer struct {
     Linkable
     // The alias property
@@ -27,7 +26,7 @@ type CertificateCertificatePrimer struct {
     // The uuid property
     uuid *string
 }
-// NewCertificateCertificatePrimer instantiates a new certificateCertificatePrimer and sets the default values.
+// NewCertificateCertificatePrimer instantiates a new CertificateCertificatePrimer and sets the default values.
 func NewCertificateCertificatePrimer()(*CertificateCertificatePrimer) {
     m := &CertificateCertificatePrimer{
         Linkable: *NewLinkable(),
@@ -37,6 +36,7 @@ func NewCertificateCertificatePrimer()(*CertificateCertificatePrimer) {
     return m
 }
 // CreateCertificateCertificatePrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateCertificateCertificatePrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -59,22 +59,27 @@ func CreateCertificateCertificatePrimerFromDiscriminatorValue(parseNode i878a80d
     return NewCertificateCertificatePrimer(), nil
 }
 // GetAlias gets the alias property value. The alias property
+// returns a *string when successful
 func (m *CertificateCertificatePrimer) GetAlias()(*string) {
     return m.alias
 }
 // GetCertificateCertificatePrimerType gets the type property value. The type property
+// returns a *CertificateCertificateType when successful
 func (m *CertificateCertificatePrimer) GetCertificateCertificatePrimerType()(*CertificateCertificateType) {
     return m.certificateCertificatePrimerType
 }
 // GetCertificateData gets the certificateData property value. The certificateData property
+// returns a *string when successful
 func (m *CertificateCertificatePrimer) GetCertificateData()(*string) {
     return m.certificateData
 }
 // GetExpiration gets the expiration property value. The expiration property
+// returns a *Time when successful
 func (m *CertificateCertificatePrimer) GetExpiration()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.expiration
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *CertificateCertificatePrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["alias"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -170,22 +175,27 @@ func (m *CertificateCertificatePrimer) GetFieldDeserializers()(map[string]func(i
     return res
 }
 // GetFingerprintSha1 gets the fingerprintSha1 property value. The fingerprintSha1 property
+// returns a *string when successful
 func (m *CertificateCertificatePrimer) GetFingerprintSha1()(*string) {
     return m.fingerprintSha1
 }
 // GetFingerprintSha256 gets the fingerprintSha256 property value. The fingerprintSha256 property
+// returns a *string when successful
 func (m *CertificateCertificatePrimer) GetFingerprintSha256()(*string) {
     return m.fingerprintSha256
 }
 // GetGlobal gets the global property value. The global property
+// returns a *bool when successful
 func (m *CertificateCertificatePrimer) GetGlobal()(*bool) {
     return m.global
 }
 // GetSubjectDN gets the subjectDN property value. The subjectDN property
+// returns a *string when successful
 func (m *CertificateCertificatePrimer) GetSubjectDN()(*string) {
     return m.subjectDN
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *CertificateCertificatePrimer) GetUuid()(*string) {
     return m.uuid
 }
@@ -258,7 +268,6 @@ func (m *CertificateCertificatePrimer) SetSubjectDN(value *string)() {
 func (m *CertificateCertificatePrimer) SetUuid(value *string)() {
     m.uuid = value
 }
-// CertificateCertificatePrimerable 
 type CertificateCertificatePrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

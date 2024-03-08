@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestSetupNestedGroupRequest 
 type RequestSetupNestedGroupRequest struct {
     RequestModificationRequest
     // The accountAction property
@@ -14,7 +13,7 @@ type RequestSetupNestedGroupRequest struct {
     // The requestingGroup property
     requestingGroup GroupGroupPrimerable
 }
-// NewRequestSetupNestedGroupRequest instantiates a new requestSetupNestedGroupRequest and sets the default values.
+// NewRequestSetupNestedGroupRequest instantiates a new RequestSetupNestedGroupRequest and sets the default values.
 func NewRequestSetupNestedGroupRequest()(*RequestSetupNestedGroupRequest) {
     m := &RequestSetupNestedGroupRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -24,18 +23,22 @@ func NewRequestSetupNestedGroupRequest()(*RequestSetupNestedGroupRequest) {
     return m
 }
 // CreateRequestSetupNestedGroupRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestSetupNestedGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestSetupNestedGroupRequest(), nil
 }
 // GetAccountAction gets the accountAction property value. The accountAction property
+// returns a *RequestGroupNestAccountAction when successful
 func (m *RequestSetupNestedGroupRequest) GetAccountAction()(*RequestGroupNestAccountAction) {
     return m.accountAction
 }
 // GetConnect gets the connect property value. The connect property
+// returns a *bool when successful
 func (m *RequestSetupNestedGroupRequest) GetConnect()(*bool) {
     return m.connect
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestSetupNestedGroupRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["accountAction"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -71,6 +74,7 @@ func (m *RequestSetupNestedGroupRequest) GetFieldDeserializers()(map[string]func
     return res
 }
 // GetRequestingGroup gets the requestingGroup property value. The requestingGroup property
+// returns a GroupGroupPrimerable when successful
 func (m *RequestSetupNestedGroupRequest) GetRequestingGroup()(GroupGroupPrimerable) {
     return m.requestingGroup
 }
@@ -113,7 +117,6 @@ func (m *RequestSetupNestedGroupRequest) SetConnect(value *bool)() {
 func (m *RequestSetupNestedGroupRequest) SetRequestingGroup(value GroupGroupPrimerable)() {
     m.requestingGroup = value
 }
-// RequestSetupNestedGroupRequestable 
 type RequestSetupNestedGroupRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ClientClientApplication_additionalObjects 
 type ClientClientApplication_additionalObjects struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
@@ -23,7 +22,7 @@ type ClientClientApplication_additionalObjects struct {
     // The vaultRecordCount property
     vaultRecordCount *int32
 }
-// NewClientClientApplication_additionalObjects instantiates a new clientClientApplication_additionalObjects and sets the default values.
+// NewClientClientApplication_additionalObjects instantiates a new ClientClientApplication_additionalObjects and sets the default values.
 func NewClientClientApplication_additionalObjects()(*ClientClientApplication_additionalObjects) {
     m := &ClientClientApplication_additionalObjects{
     }
@@ -31,22 +30,27 @@ func NewClientClientApplication_additionalObjects()(*ClientClientApplication_add
     return m
 }
 // CreateClientClientApplication_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateClientClientApplication_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewClientClientApplication_additionalObjects(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *ClientClientApplication_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetAudit gets the audit property value. The audit property
+// returns a AuditInfoable when successful
 func (m *ClientClientApplication_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetDeleteTile gets the deleteTile property value. The deleteTile property
+// returns a *bool when successful
 func (m *ClientClientApplication_additionalObjects) GetDeleteTile()(*bool) {
     return m.deleteTile
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -122,22 +126,27 @@ func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[
     return res
 }
 // GetGroupclients gets the groupclients property value. The groupclients property
+// returns a GroupGroupClientLinkableWrapperable when successful
 func (m *ClientClientApplication_additionalObjects) GetGroupclients()(GroupGroupClientLinkableWrapperable) {
     return m.groupclients
 }
 // GetGroups gets the groups property value. The groups property
+// returns a GroupGroupLinkableWrapperable when successful
 func (m *ClientClientApplication_additionalObjects) GetGroups()(GroupGroupLinkableWrapperable) {
     return m.groups
 }
 // GetSecret gets the secret property value. The secret property
+// returns a GeneratedSecretable when successful
 func (m *ClientClientApplication_additionalObjects) GetSecret()(GeneratedSecretable) {
     return m.secret
 }
 // GetTile gets the tile property value. The tile property
+// returns a LaunchpadSsoApplicationLaunchpadTileable when successful
 func (m *ClientClientApplication_additionalObjects) GetTile()(LaunchpadSsoApplicationLaunchpadTileable) {
     return m.tile
 }
 // GetVaultRecordCount gets the vaultRecordCount property value. The vaultRecordCount property
+// returns a *int32 when successful
 func (m *ClientClientApplication_additionalObjects) GetVaultRecordCount()(*int32) {
     return m.vaultRecordCount
 }
@@ -219,7 +228,6 @@ func (m *ClientClientApplication_additionalObjects) SetTile(value LaunchpadSsoAp
 func (m *ClientClientApplication_additionalObjects) SetVaultRecordCount(value *int32)() {
     m.vaultRecordCount = value
 }
-// ClientClientApplication_additionalObjectsable 
 type ClientClientApplication_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

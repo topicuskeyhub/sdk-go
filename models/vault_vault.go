@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultVault 
 type VaultVault struct {
     Linkable
     // The accessAvailable property
@@ -14,7 +13,7 @@ type VaultVault struct {
     // The records property
     records []VaultVaultRecordable
 }
-// NewVaultVault instantiates a new vaultVault and sets the default values.
+// NewVaultVault instantiates a new VaultVault and sets the default values.
 func NewVaultVault()(*VaultVault) {
     m := &VaultVault{
         Linkable: *NewLinkable(),
@@ -24,14 +23,17 @@ func NewVaultVault()(*VaultVault) {
     return m
 }
 // CreateVaultVaultFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultVaultFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVault(), nil
 }
 // GetAccessAvailable gets the accessAvailable property value. The accessAvailable property
+// returns a *bool when successful
 func (m *VaultVault) GetAccessAvailable()(*bool) {
     return m.accessAvailable
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVault) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["accessAvailable"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -73,10 +75,12 @@ func (m *VaultVault) GetFieldDeserializers()(map[string]func(i878a80d2330e89d268
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *VaultVault) GetName()(*string) {
     return m.name
 }
 // GetRecords gets the records property value. The records property
+// returns a []VaultVaultRecordable when successful
 func (m *VaultVault) GetRecords()([]VaultVaultRecordable) {
     return m.records
 }
@@ -124,7 +128,6 @@ func (m *VaultVault) SetName(value *string)() {
 func (m *VaultVault) SetRecords(value []VaultVaultRecordable)() {
     m.records = value
 }
-// VaultVaultable 
 type VaultVaultable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

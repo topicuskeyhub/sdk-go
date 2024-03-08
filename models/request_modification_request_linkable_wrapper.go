@@ -4,14 +4,13 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestModificationRequestLinkableWrapper 
 type RequestModificationRequestLinkableWrapper struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The items property
     items []RequestModificationRequestable
 }
-// NewRequestModificationRequestLinkableWrapper instantiates a new requestModificationRequestLinkableWrapper and sets the default values.
+// NewRequestModificationRequestLinkableWrapper instantiates a new RequestModificationRequestLinkableWrapper and sets the default values.
 func NewRequestModificationRequestLinkableWrapper()(*RequestModificationRequestLinkableWrapper) {
     m := &RequestModificationRequestLinkableWrapper{
     }
@@ -19,14 +18,17 @@ func NewRequestModificationRequestLinkableWrapper()(*RequestModificationRequestL
     return m
 }
 // CreateRequestModificationRequestLinkableWrapperFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestModificationRequestLinkableWrapperFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestModificationRequestLinkableWrapper(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *RequestModificationRequestLinkableWrapper) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestModificationRequestLinkableWrapper) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["items"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -48,6 +50,7 @@ func (m *RequestModificationRequestLinkableWrapper) GetFieldDeserializers()(map[
     return res
 }
 // GetItems gets the items property value. The items property
+// returns a []RequestModificationRequestable when successful
 func (m *RequestModificationRequestLinkableWrapper) GetItems()([]RequestModificationRequestable) {
     return m.items
 }
@@ -81,7 +84,6 @@ func (m *RequestModificationRequestLinkableWrapper) SetAdditionalData(value map[
 func (m *RequestModificationRequestLinkableWrapper) SetItems(value []RequestModificationRequestable)() {
     m.items = value
 }
-// RequestModificationRequestLinkableWrapperable 
 type RequestModificationRequestLinkableWrapperable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

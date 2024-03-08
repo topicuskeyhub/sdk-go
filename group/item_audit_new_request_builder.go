@@ -17,28 +17,29 @@ type ItemAuditNewRequestBuilderGetRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewItemAuditNewRequestBuilderInternal instantiates a new NewRequestBuilder and sets the default values.
+// NewItemAuditNewRequestBuilderInternal instantiates a new ItemAuditNewRequestBuilder and sets the default values.
 func NewItemAuditNewRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAuditNewRequestBuilder) {
     m := &ItemAuditNewRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/audit/new", pathParameters),
     }
     return m
 }
-// NewItemAuditNewRequestBuilder instantiates a new NewRequestBuilder and sets the default values.
+// NewItemAuditNewRequestBuilder instantiates a new ItemAuditNewRequestBuilder and sets the default values.
 func NewItemAuditNewRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAuditNewRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewItemAuditNewRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get returns a template of a complete audit for the group. The template can then be filled in and posted to actually create the audit.
+// returns a AuditGroupAuditable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemAuditNewRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemAuditNewRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateAuditGroupAuditFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -50,6 +51,7 @@ func (m *ItemAuditNewRequestBuilder) Get(ctx context.Context, requestConfigurati
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditable), nil
 }
 // ToGetRequestInformation returns a template of a complete audit for the group. The template can then be filled in and posted to actually create the audit.
+// returns a *RequestInformation when successful
 func (m *ItemAuditNewRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemAuditNewRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -60,6 +62,7 @@ func (m *ItemAuditNewRequestBuilder) ToGetRequestInformation(ctx context.Context
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *ItemAuditNewRequestBuilder when successful
 func (m *ItemAuditNewRequestBuilder) WithUrl(rawUrl string)(*ItemAuditNewRequestBuilder) {
     return NewItemAuditNewRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

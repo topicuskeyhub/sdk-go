@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisioningManagementPermissions 
 type ProvisioningProvisioningManagementPermissions struct {
     NonLinkable
     // The createNewGroupsAllowed property
@@ -14,7 +13,7 @@ type ProvisioningProvisioningManagementPermissions struct {
     // The reuseExistingGroupsAllowed property
     reuseExistingGroupsAllowed *bool
 }
-// NewProvisioningProvisioningManagementPermissions instantiates a new provisioningProvisioningManagementPermissions and sets the default values.
+// NewProvisioningProvisioningManagementPermissions instantiates a new ProvisioningProvisioningManagementPermissions and sets the default values.
 func NewProvisioningProvisioningManagementPermissions()(*ProvisioningProvisioningManagementPermissions) {
     m := &ProvisioningProvisioningManagementPermissions{
         NonLinkable: *NewNonLinkable(),
@@ -24,18 +23,22 @@ func NewProvisioningProvisioningManagementPermissions()(*ProvisioningProvisionin
     return m
 }
 // CreateProvisioningProvisioningManagementPermissionsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisioningManagementPermissionsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisioningManagementPermissions(), nil
 }
 // GetCreateNewGroupsAllowed gets the createNewGroupsAllowed property value. The createNewGroupsAllowed property
+// returns a *bool when successful
 func (m *ProvisioningProvisioningManagementPermissions) GetCreateNewGroupsAllowed()(*bool) {
     return m.createNewGroupsAllowed
 }
 // GetCreateServiceAccountsAllowed gets the createServiceAccountsAllowed property value. The createServiceAccountsAllowed property
+// returns a *bool when successful
 func (m *ProvisioningProvisioningManagementPermissions) GetCreateServiceAccountsAllowed()(*bool) {
     return m.createServiceAccountsAllowed
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisioningManagementPermissions) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["createNewGroupsAllowed"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -71,6 +74,7 @@ func (m *ProvisioningProvisioningManagementPermissions) GetFieldDeserializers()(
     return res
 }
 // GetReuseExistingGroupsAllowed gets the reuseExistingGroupsAllowed property value. The reuseExistingGroupsAllowed property
+// returns a *bool when successful
 func (m *ProvisioningProvisioningManagementPermissions) GetReuseExistingGroupsAllowed()(*bool) {
     return m.reuseExistingGroupsAllowed
 }
@@ -94,7 +98,6 @@ func (m *ProvisioningProvisioningManagementPermissions) SetCreateServiceAccounts
 func (m *ProvisioningProvisioningManagementPermissions) SetReuseExistingGroupsAllowed(value *bool)() {
     m.reuseExistingGroupsAllowed = value
 }
-// ProvisioningProvisioningManagementPermissionsable 
 type ProvisioningProvisioningManagementPermissionsable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

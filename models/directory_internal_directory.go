@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// DirectoryInternalDirectory 
 type DirectoryInternalDirectory struct {
     DirectoryAccountDirectory
     // The owner property
     owner GroupGroupPrimerable
 }
-// NewDirectoryInternalDirectory instantiates a new directoryInternalDirectory and sets the default values.
+// NewDirectoryInternalDirectory instantiates a new DirectoryInternalDirectory and sets the default values.
 func NewDirectoryInternalDirectory()(*DirectoryInternalDirectory) {
     m := &DirectoryInternalDirectory{
         DirectoryAccountDirectory: *NewDirectoryAccountDirectory(),
@@ -20,10 +19,12 @@ func NewDirectoryInternalDirectory()(*DirectoryInternalDirectory) {
     return m
 }
 // CreateDirectoryInternalDirectoryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateDirectoryInternalDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewDirectoryInternalDirectory(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *DirectoryInternalDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.DirectoryAccountDirectory.GetFieldDeserializers()
     res["owner"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -39,6 +40,7 @@ func (m *DirectoryInternalDirectory) GetFieldDeserializers()(map[string]func(i87
     return res
 }
 // GetOwner gets the owner property value. The owner property
+// returns a GroupGroupPrimerable when successful
 func (m *DirectoryInternalDirectory) GetOwner()(GroupGroupPrimerable) {
     return m.owner
 }
@@ -60,7 +62,6 @@ func (m *DirectoryInternalDirectory) Serialize(writer i878a80d2330e89d26896388a3
 func (m *DirectoryInternalDirectory) SetOwner(value GroupGroupPrimerable)() {
     m.owner = value
 }
-// DirectoryInternalDirectoryable 
 type DirectoryInternalDirectoryable interface {
     DirectoryAccountDirectoryable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

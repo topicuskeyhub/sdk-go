@@ -6,6 +6,7 @@ import (
     i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274 "strconv"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
+    i6417d36a288b76423463d0f8dd4559268aaf96de022c467db7f4a74fa6664418 "github.com/topicuskeyhub/sdk-go/group/item/audit"
 )
 
 // ItemAuditRequestBuilder builds and executes requests for operations under \group\{groupid}\audit
@@ -15,7 +16,10 @@ type ItemAuditRequestBuilder struct {
 // ItemAuditRequestBuilderGetQueryParameters queries over all audits for a group. The various query parameters can be used to filter the response.
 type ItemAuditRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []i6417d36a288b76423463d0f8dd4559268aaf96de022c467db7f4a74fa6664418.GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Only return audits created after a given date.
     After []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"after"`
     // Return all or no records. This can be useful when composing parameters.
@@ -36,8 +40,13 @@ type ItemAuditRequestBuilderGetQueryParameters struct {
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Only return audits with a given status.
+    // Deprecated: This property is deprecated, use StatusAsAuditGroupAuditStatus instead
     Status []string `uriparametername:"status"`
+    // Only return audits with a given status.
+    StatusAsAuditGroupAuditStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditStatus `uriparametername:"status"`
 }
 // ItemAuditRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAuditRequestBuilderGetRequestConfiguration struct {
@@ -51,7 +60,10 @@ type ItemAuditRequestBuilderGetRequestConfiguration struct {
 // ItemAuditRequestBuilderPostQueryParameters creates one or more new new audits for a group and returns the newly created memberships. Fetch a template for an audit via the 'new' resource.
 type ItemAuditRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []i6417d36a288b76423463d0f8dd4559268aaf96de022c467db7f4a74fa6664418.PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // ItemAuditRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAuditRequestBuilderPostRequestConfiguration struct {
@@ -64,6 +76,7 @@ type ItemAuditRequestBuilderPostRequestConfiguration struct {
 }
 // ByAuditid gets an item from the github.com/topicuskeyhub/sdk-go.group.item.audit.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *ItemAuditWithAuditItemRequestBuilder when successful
 func (m *ItemAuditRequestBuilder) ByAuditid(auditid string)(*ItemAuditWithAuditItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -75,6 +88,7 @@ func (m *ItemAuditRequestBuilder) ByAuditid(auditid string)(*ItemAuditWithAuditI
     return NewItemAuditWithAuditItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByAuditidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.group.item.audit.item collection
+// returns a *ItemAuditWithAuditItemRequestBuilder when successful
 func (m *ItemAuditRequestBuilder) ByAuditidInt64(auditid int64)(*ItemAuditWithAuditItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -83,28 +97,29 @@ func (m *ItemAuditRequestBuilder) ByAuditidInt64(auditid int64)(*ItemAuditWithAu
     urlTplParams["auditid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(auditid, 10)
     return NewItemAuditWithAuditItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// NewItemAuditRequestBuilderInternal instantiates a new AuditRequestBuilder and sets the default values.
+// NewItemAuditRequestBuilderInternal instantiates a new ItemAuditRequestBuilder and sets the default values.
 func NewItemAuditRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAuditRequestBuilder) {
     m := &ItemAuditRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/audit{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,after*,group*,lastForGroups*,status*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/audit{?additional*,after*,any*,createdAfter*,createdBefore*,exclude*,group*,id*,lastForGroups*,modifiedSince*,q*,sort*,status*}", pathParameters),
     }
     return m
 }
-// NewItemAuditRequestBuilder instantiates a new AuditRequestBuilder and sets the default values.
+// NewItemAuditRequestBuilder instantiates a new ItemAuditRequestBuilder and sets the default values.
 func NewItemAuditRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAuditRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewItemAuditRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get queries over all audits for a group. The various query parameters can be used to filter the response.
+// returns a AuditGroupAuditLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemAuditRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemAuditRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateAuditGroupAuditLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -116,18 +131,20 @@ func (m *ItemAuditRequestBuilder) Get(ctx context.Context, requestConfiguration 
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditLinkableWrapperable), nil
 }
 // New the new property
+// returns a *ItemAuditNewRequestBuilder when successful
 func (m *ItemAuditRequestBuilder) New()(*ItemAuditNewRequestBuilder) {
     return NewItemAuditNewRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Post creates one or more new new audits for a group and returns the newly created memberships. Fetch a template for an audit via the 'new' resource.
+// returns a AuditGroupAuditLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemAuditRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditLinkableWrapperable, requestConfiguration *ItemAuditRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateAuditGroupAuditLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -139,6 +156,7 @@ func (m *ItemAuditRequestBuilder) Post(ctx context.Context, body ie2969523f41a2f
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditLinkableWrapperable), nil
 }
 // ToGetRequestInformation queries over all audits for a group. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *ItemAuditRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemAuditRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -152,8 +170,9 @@ func (m *ItemAuditRequestBuilder) ToGetRequestInformation(ctx context.Context, r
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new new audits for a group and returns the newly created memberships. Fetch a template for an audit via the 'new' resource.
+// returns a *RequestInformation when successful
 func (m *ItemAuditRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditGroupAuditLinkableWrapperable, requestConfiguration *ItemAuditRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/group/{groupid}/audit{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -169,6 +188,7 @@ func (m *ItemAuditRequestBuilder) ToPostRequestInformation(ctx context.Context, 
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *ItemAuditRequestBuilder when successful
 func (m *ItemAuditRequestBuilder) WithUrl(rawUrl string)(*ItemAuditRequestBuilder) {
     return NewItemAuditRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

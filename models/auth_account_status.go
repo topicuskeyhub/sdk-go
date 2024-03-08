@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthAccountStatus 
 type AuthAccountStatus struct {
     NonLinkable
     // The accountEnabled property
@@ -20,7 +19,7 @@ type AuthAccountStatus struct {
     // The twoFactorAuthenticationEnabled property
     twoFactorAuthenticationEnabled *bool
 }
-// NewAuthAccountStatus instantiates a new authAccountStatus and sets the default values.
+// NewAuthAccountStatus instantiates a new AuthAccountStatus and sets the default values.
 func NewAuthAccountStatus()(*AuthAccountStatus) {
     m := &AuthAccountStatus{
         NonLinkable: *NewNonLinkable(),
@@ -30,22 +29,27 @@ func NewAuthAccountStatus()(*AuthAccountStatus) {
     return m
 }
 // CreateAuthAccountStatusFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthAccountStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuthAccountStatus(), nil
 }
 // GetAccountEnabled gets the accountEnabled property value. The accountEnabled property
+// returns a *bool when successful
 func (m *AuthAccountStatus) GetAccountEnabled()(*bool) {
     return m.accountEnabled
 }
 // GetCanRequestGroups gets the canRequestGroups property value. The canRequestGroups property
+// returns a *bool when successful
 func (m *AuthAccountStatus) GetCanRequestGroups()(*bool) {
     return m.canRequestGroups
 }
 // GetDeclineRecoveryRequests gets the declineRecoveryRequests property value. The declineRecoveryRequests property
+// returns a *bool when successful
 func (m *AuthAccountStatus) GetDeclineRecoveryRequests()(*bool) {
     return m.declineRecoveryRequests
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthAccountStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["accountEnabled"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -111,14 +115,17 @@ func (m *AuthAccountStatus) GetFieldDeserializers()(map[string]func(i878a80d2330
     return res
 }
 // GetLicenseRole gets the licenseRole property value. The licenseRole property
+// returns a *AuthAccountLicenseRole when successful
 func (m *AuthAccountStatus) GetLicenseRole()(*AuthAccountLicenseRole) {
     return m.licenseRole
 }
 // GetReregistrationRequired gets the reregistrationRequired property value. The reregistrationRequired property
+// returns a *bool when successful
 func (m *AuthAccountStatus) GetReregistrationRequired()(*bool) {
     return m.reregistrationRequired
 }
 // GetTwoFactorAuthenticationEnabled gets the twoFactorAuthenticationEnabled property value. The twoFactorAuthenticationEnabled property
+// returns a *bool when successful
 func (m *AuthAccountStatus) GetTwoFactorAuthenticationEnabled()(*bool) {
     return m.twoFactorAuthenticationEnabled
 }
@@ -191,7 +198,6 @@ func (m *AuthAccountStatus) SetReregistrationRequired(value *bool)() {
 func (m *AuthAccountStatus) SetTwoFactorAuthenticationEnabled(value *bool)() {
     m.twoFactorAuthenticationEnabled = value
 }
-// AuthAccountStatusable 
 type AuthAccountStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

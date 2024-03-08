@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestGrantGroupOnSystemRequest 
 type RequestGrantGroupOnSystemRequest struct {
     RequestModificationRequest
     // The activationRequired property
@@ -12,7 +11,7 @@ type RequestGrantGroupOnSystemRequest struct {
     // The groupOnSystem property
     groupOnSystem ProvisioningGroupOnSystemable
 }
-// NewRequestGrantGroupOnSystemRequest instantiates a new requestGrantGroupOnSystemRequest and sets the default values.
+// NewRequestGrantGroupOnSystemRequest instantiates a new RequestGrantGroupOnSystemRequest and sets the default values.
 func NewRequestGrantGroupOnSystemRequest()(*RequestGrantGroupOnSystemRequest) {
     m := &RequestGrantGroupOnSystemRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -22,14 +21,17 @@ func NewRequestGrantGroupOnSystemRequest()(*RequestGrantGroupOnSystemRequest) {
     return m
 }
 // CreateRequestGrantGroupOnSystemRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestGrantGroupOnSystemRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestGrantGroupOnSystemRequest(), nil
 }
 // GetActivationRequired gets the activationRequired property value. The activationRequired property
+// returns a *bool when successful
 func (m *RequestGrantGroupOnSystemRequest) GetActivationRequired()(*bool) {
     return m.activationRequired
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestGrantGroupOnSystemRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["activationRequired"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -55,6 +57,7 @@ func (m *RequestGrantGroupOnSystemRequest) GetFieldDeserializers()(map[string]fu
     return res
 }
 // GetGroupOnSystem gets the groupOnSystem property value. The groupOnSystem property
+// returns a ProvisioningGroupOnSystemable when successful
 func (m *RequestGrantGroupOnSystemRequest) GetGroupOnSystem()(ProvisioningGroupOnSystemable) {
     return m.groupOnSystem
 }
@@ -86,7 +89,6 @@ func (m *RequestGrantGroupOnSystemRequest) SetActivationRequired(value *bool)() 
 func (m *RequestGrantGroupOnSystemRequest) SetGroupOnSystem(value ProvisioningGroupOnSystemable)() {
     m.groupOnSystem = value
 }
-// RequestGrantGroupOnSystemRequestable 
 type RequestGrantGroupOnSystemRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

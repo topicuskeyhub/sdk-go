@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupAdminMail 
 type GroupGroupAdminMail struct {
     NonLinkable
     // The body property
     body *string
 }
-// NewGroupGroupAdminMail instantiates a new groupGroupAdminMail and sets the default values.
+// NewGroupGroupAdminMail instantiates a new GroupGroupAdminMail and sets the default values.
 func NewGroupGroupAdminMail()(*GroupGroupAdminMail) {
     m := &GroupGroupAdminMail{
         NonLinkable: *NewNonLinkable(),
@@ -20,14 +19,17 @@ func NewGroupGroupAdminMail()(*GroupGroupAdminMail) {
     return m
 }
 // CreateGroupGroupAdminMailFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupAdminMailFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupAdminMail(), nil
 }
 // GetBody gets the body property value. The body property
+// returns a *string when successful
 func (m *GroupGroupAdminMail) GetBody()(*string) {
     return m.body
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupAdminMail) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["body"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -60,7 +62,6 @@ func (m *GroupGroupAdminMail) Serialize(writer i878a80d2330e89d26896388a3f487eef
 func (m *GroupGroupAdminMail) SetBody(value *string)() {
     m.body = value
 }
-// GroupGroupAdminMailable 
 type GroupGroupAdminMailable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthInternalAccount_additionalObjects 
 type AuthInternalAccount_additionalObjects struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
@@ -13,7 +12,7 @@ type AuthInternalAccount_additionalObjects struct {
     // The reason property
     reason *string
 }
-// NewAuthInternalAccount_additionalObjects instantiates a new authInternalAccount_additionalObjects and sets the default values.
+// NewAuthInternalAccount_additionalObjects instantiates a new AuthInternalAccount_additionalObjects and sets the default values.
 func NewAuthInternalAccount_additionalObjects()(*AuthInternalAccount_additionalObjects) {
     m := &AuthInternalAccount_additionalObjects{
     }
@@ -21,18 +20,22 @@ func NewAuthInternalAccount_additionalObjects()(*AuthInternalAccount_additionalO
     return m
 }
 // CreateAuthInternalAccount_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthInternalAccount_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuthInternalAccount_additionalObjects(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *AuthInternalAccount_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetAudit gets the audit property value. The audit property
+// returns a AuditInfoable when successful
 func (m *AuthInternalAccount_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthInternalAccount_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -58,6 +61,7 @@ func (m *AuthInternalAccount_additionalObjects) GetFieldDeserializers()(map[stri
     return res
 }
 // GetReason gets the reason property value. The reason property
+// returns a *string when successful
 func (m *AuthInternalAccount_additionalObjects) GetReason()(*string) {
     return m.reason
 }
@@ -95,7 +99,6 @@ func (m *AuthInternalAccount_additionalObjects) SetAudit(value AuditInfoable)() 
 func (m *AuthInternalAccount_additionalObjects) SetReason(value *string)() {
     m.reason = value
 }
-// AuthInternalAccount_additionalObjectsable 
 type AuthInternalAccount_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

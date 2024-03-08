@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// DirectoryAccountDirectory 
 type DirectoryAccountDirectory struct {
     DirectoryAccountDirectoryPrimer
     // The additionalObjects property
@@ -22,7 +21,7 @@ type DirectoryAccountDirectory struct {
     // The usernameCustomizable property
     usernameCustomizable *bool
 }
-// NewDirectoryAccountDirectory instantiates a new directoryAccountDirectory and sets the default values.
+// NewDirectoryAccountDirectory instantiates a new DirectoryAccountDirectory and sets the default values.
 func NewDirectoryAccountDirectory()(*DirectoryAccountDirectory) {
     m := &DirectoryAccountDirectory{
         DirectoryAccountDirectoryPrimer: *NewDirectoryAccountDirectoryPrimer(),
@@ -32,6 +31,7 @@ func NewDirectoryAccountDirectory()(*DirectoryAccountDirectory) {
     return m
 }
 // CreateDirectoryAccountDirectoryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateDirectoryAccountDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -60,18 +60,22 @@ func CreateDirectoryAccountDirectoryFromDiscriminatorValue(parseNode i878a80d233
     return NewDirectoryAccountDirectory(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a DirectoryAccountDirectory_additionalObjectsable when successful
 func (m *DirectoryAccountDirectory) GetAdditionalObjects()(DirectoryAccountDirectory_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetBaseOrganizationalUnit gets the baseOrganizationalUnit property value. The baseOrganizationalUnit property
+// returns a OrganizationOrganizationalUnitPrimerable when successful
 func (m *DirectoryAccountDirectory) GetBaseOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable) {
     return m.baseOrganizationalUnit
 }
 // GetDefaultDirectory gets the defaultDirectory property value. The defaultDirectory property
+// returns a *bool when successful
 func (m *DirectoryAccountDirectory) GetDefaultDirectory()(*bool) {
     return m.defaultDirectory
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *DirectoryAccountDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.DirectoryAccountDirectoryPrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -147,18 +151,22 @@ func (m *DirectoryAccountDirectory) GetFieldDeserializers()(map[string]func(i878
     return res
 }
 // GetHelpdeskGroup gets the helpdeskGroup property value. The helpdeskGroup property
+// returns a GroupGroupPrimerable when successful
 func (m *DirectoryAccountDirectory) GetHelpdeskGroup()(GroupGroupPrimerable) {
     return m.helpdeskGroup
 }
 // GetRestrict2fa gets the restrict2fa property value. The restrict2fa property
+// returns a *bool when successful
 func (m *DirectoryAccountDirectory) GetRestrict2fa()(*bool) {
     return m.restrict2fa
 }
 // GetRotatingPassword gets the rotatingPassword property value. The rotatingPassword property
+// returns a *DirectoryDirectoryRotatingPassword when successful
 func (m *DirectoryAccountDirectory) GetRotatingPassword()(*DirectoryDirectoryRotatingPassword) {
     return m.rotatingPassword
 }
 // GetUsernameCustomizable gets the usernameCustomizable property value. The usernameCustomizable property
+// returns a *bool when successful
 func (m *DirectoryAccountDirectory) GetUsernameCustomizable()(*bool) {
     return m.usernameCustomizable
 }
@@ -241,7 +249,6 @@ func (m *DirectoryAccountDirectory) SetRotatingPassword(value *DirectoryDirector
 func (m *DirectoryAccountDirectory) SetUsernameCustomizable(value *bool)() {
     m.usernameCustomizable = value
 }
-// DirectoryAccountDirectoryable 
 type DirectoryAccountDirectoryable interface {
     DirectoryAccountDirectoryPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -9,6 +9,7 @@ type StatusRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
 // Bulk the bulk property
+// returns a *StatusBulkRequestBuilder when successful
 func (m *StatusRequestBuilder) Bulk()(*StatusBulkRequestBuilder) {
     return NewStatusBulkRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }

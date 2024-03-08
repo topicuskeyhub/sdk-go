@@ -22,6 +22,7 @@ func NewGroupRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb
     return NewGroupRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Export the export property
+// returns a *GroupExportRequestBuilder when successful
 func (m *GroupRequestBuilder) Export()(*GroupExportRequestBuilder) {
     return NewGroupExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }

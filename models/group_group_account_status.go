@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupAccountStatus 
 type GroupGroupAccountStatus struct {
     NonLinkable
     // The folder property
@@ -12,7 +11,7 @@ type GroupGroupAccountStatus struct {
     // The visibleForProvisioning property
     visibleForProvisioning *bool
 }
-// NewGroupGroupAccountStatus instantiates a new groupGroupAccountStatus and sets the default values.
+// NewGroupGroupAccountStatus instantiates a new GroupGroupAccountStatus and sets the default values.
 func NewGroupGroupAccountStatus()(*GroupGroupAccountStatus) {
     m := &GroupGroupAccountStatus{
         NonLinkable: *NewNonLinkable(),
@@ -22,10 +21,12 @@ func NewGroupGroupAccountStatus()(*GroupGroupAccountStatus) {
     return m
 }
 // CreateGroupGroupAccountStatusFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupAccountStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupAccountStatus(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupAccountStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["folder"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -51,10 +52,12 @@ func (m *GroupGroupAccountStatus) GetFieldDeserializers()(map[string]func(i878a8
     return res
 }
 // GetFolder gets the folder property value. The folder property
+// returns a GroupGroupFolderable when successful
 func (m *GroupGroupAccountStatus) GetFolder()(GroupGroupFolderable) {
     return m.folder
 }
 // GetVisibleForProvisioning gets the visibleForProvisioning property value. The visibleForProvisioning property
+// returns a *bool when successful
 func (m *GroupGroupAccountStatus) GetVisibleForProvisioning()(*bool) {
     return m.visibleForProvisioning
 }
@@ -86,7 +89,6 @@ func (m *GroupGroupAccountStatus) SetFolder(value GroupGroupFolderable)() {
 func (m *GroupGroupAccountStatus) SetVisibleForProvisioning(value *bool)() {
     m.visibleForProvisioning = value
 }
-// GroupGroupAccountStatusable 
 type GroupGroupAccountStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

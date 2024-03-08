@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestRemoveProvisionedSystemRequest 
 type RequestRemoveProvisionedSystemRequest struct {
     RequestAbstractProvisionedSystemModificationRequest
     // The systemName property
     systemName *string
 }
-// NewRequestRemoveProvisionedSystemRequest instantiates a new requestRemoveProvisionedSystemRequest and sets the default values.
+// NewRequestRemoveProvisionedSystemRequest instantiates a new RequestRemoveProvisionedSystemRequest and sets the default values.
 func NewRequestRemoveProvisionedSystemRequest()(*RequestRemoveProvisionedSystemRequest) {
     m := &RequestRemoveProvisionedSystemRequest{
         RequestAbstractProvisionedSystemModificationRequest: *NewRequestAbstractProvisionedSystemModificationRequest(),
@@ -20,10 +19,12 @@ func NewRequestRemoveProvisionedSystemRequest()(*RequestRemoveProvisionedSystemR
     return m
 }
 // CreateRequestRemoveProvisionedSystemRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestRemoveProvisionedSystemRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestRemoveProvisionedSystemRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestRemoveProvisionedSystemRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestAbstractProvisionedSystemModificationRequest.GetFieldDeserializers()
     res["systemName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -39,6 +40,7 @@ func (m *RequestRemoveProvisionedSystemRequest) GetFieldDeserializers()(map[stri
     return res
 }
 // GetSystemName gets the systemName property value. The systemName property
+// returns a *string when successful
 func (m *RequestRemoveProvisionedSystemRequest) GetSystemName()(*string) {
     return m.systemName
 }
@@ -60,7 +62,6 @@ func (m *RequestRemoveProvisionedSystemRequest) Serialize(writer i878a80d2330e89
 func (m *RequestRemoveProvisionedSystemRequest) SetSystemName(value *string)() {
     m.systemName = value
 }
-// RequestRemoveProvisionedSystemRequestable 
 type RequestRemoveProvisionedSystemRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestAbstractProvisionedSystemModificationRequestable

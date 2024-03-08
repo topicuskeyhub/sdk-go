@@ -15,9 +15,15 @@ type DirectoryRequestBuilder struct {
 // DirectoryRequestBuilderGetQueryParameters query for all directories in Topicus KeyHub. The various query parameters can be used to filter the response.
 type DirectoryRequestBuilderGetQueryParameters struct {
     // Only return directories that are or are not active. Defaults to true.
+    // Deprecated: This property is deprecated, use ActiveAsBooleanEnum instead
     Active []string `uriparametername:"active"`
+    // Only return directories that are or are not active. Defaults to true.
+    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum `uriparametername:"active"`
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Filter the directories on the given base organizational unit, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
@@ -37,7 +43,10 @@ type DirectoryRequestBuilderGetQueryParameters struct {
     // Filter the results on the given ids.
     Id []int64 `uriparametername:"id"`
     // Only return directories that are not used for source directory provisioning for the given types of linked systems.
+    // Deprecated: This property is deprecated, use IsNotProvisionedDirectoryAsProvisioningProvisionedSystemType instead
     IsNotProvisionedDirectory []string `uriparametername:"isNotProvisionedDirectory"`
+    // Only return directories that are not used for source directory provisioning for the given types of linked systems.
+    IsNotProvisionedDirectoryAsProvisioningProvisionedSystemType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemType `uriparametername:"isNotProvisionedDirectory"`
     // Only return directories that are or are not the built-in maintenance directory.
     MaintenanceDirectory []bool `uriparametername:"maintenanceDirectory"`
     // Only return records that have been modified since the given instant.
@@ -51,13 +60,21 @@ type DirectoryRequestBuilderGetQueryParameters struct {
     // Filter directories on the start of the name.
     NameStartsWith []string `uriparametername:"nameStartsWith"`
     // Only return OIDC directories for the given vendor(s).
+    // Deprecated: This property is deprecated, use OidcVenderAsDirectoryOIDCVendor instead
     OidcVender []string `uriparametername:"oidcVender"`
+    // Only return OIDC directories for the given vendor(s).
+    OidcVenderAsDirectoryOIDCVendor []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryOIDCVendor `uriparametername:"oidcVender"`
     // Only return internal directories for the given owner(s), specified by id. This parameter supports composition with all parameters from the group resource.
     OwnedBy []int64 `uriparametername:"ownedBy"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter LDAP directories on TLS setting(s) used.
+    // Deprecated: This property is deprecated, use TlsAsTLSLevel instead
     Tls []string `uriparametername:"tls"`
+    // Filter LDAP directories on TLS setting(s) used.
+    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel `uriparametername:"tls"`
     // Only return directories of the given type(s).
     Type []string `uriparametername:"type"`
     // Filter results on one or more UUIDs.
@@ -75,7 +92,10 @@ type DirectoryRequestBuilderGetRequestConfiguration struct {
 // DirectoryRequestBuilderPostQueryParameters creates one or more new directories and returns the newly created directories.
 type DirectoryRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // DirectoryRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type DirectoryRequestBuilderPostRequestConfiguration struct {
@@ -88,6 +108,7 @@ type DirectoryRequestBuilderPostRequestConfiguration struct {
 }
 // ByDirectoryid gets an item from the github.com/topicuskeyhub/sdk-go.directory.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithDirectoryItemRequestBuilder when successful
 func (m *DirectoryRequestBuilder) ByDirectoryid(directoryid string)(*WithDirectoryItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -99,6 +120,7 @@ func (m *DirectoryRequestBuilder) ByDirectoryid(directoryid string)(*WithDirecto
     return NewWithDirectoryItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByDirectoryidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.directory.item collection
+// returns a *WithDirectoryItemRequestBuilder when successful
 func (m *DirectoryRequestBuilder) ByDirectoryidInt64(directoryid int64)(*WithDirectoryItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -110,7 +132,7 @@ func (m *DirectoryRequestBuilder) ByDirectoryidInt64(directoryid int64)(*WithDir
 // NewDirectoryRequestBuilderInternal instantiates a new DirectoryRequestBuilder and sets the default values.
 func NewDirectoryRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*DirectoryRequestBuilder) {
     m := &DirectoryRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,active*,baseOrganizationalUnit*,defaultDirectory*,expiredCertificate*,helpdeskGroup*,isNotProvisionedDirectory*,maintenanceDirectory*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,oidcVender*,ownedBy*,tls*,type*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory{?active*,additional*,any*,baseOrganizationalUnit*,createdAfter*,createdBefore*,defaultDirectory*,exclude*,expiredCertificate*,helpdeskGroup*,id*,isNotProvisionedDirectory*,maintenanceDirectory*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,oidcVender*,ownedBy*,q*,sort*,tls*,type*,uuid*}", pathParameters),
     }
     return m
 }
@@ -121,14 +143,15 @@ func NewDirectoryRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee2633
     return NewDirectoryRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get query for all directories in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a DirectoryAccountDirectoryLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *DirectoryRequestBuilder) Get(ctx context.Context, requestConfiguration *DirectoryRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryAccountDirectoryLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateDirectoryAccountDirectoryLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -140,14 +163,15 @@ func (m *DirectoryRequestBuilder) Get(ctx context.Context, requestConfiguration 
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryAccountDirectoryLinkableWrapperable), nil
 }
 // Post creates one or more new directories and returns the newly created directories.
+// returns a DirectoryAccountDirectoryLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *DirectoryRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryAccountDirectoryLinkableWrapperable, requestConfiguration *DirectoryRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryAccountDirectoryLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateDirectoryAccountDirectoryLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -159,6 +183,7 @@ func (m *DirectoryRequestBuilder) Post(ctx context.Context, body ie2969523f41a2f
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryAccountDirectoryLinkableWrapperable), nil
 }
 // ToGetRequestInformation query for all directories in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *DirectoryRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *DirectoryRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -172,8 +197,9 @@ func (m *DirectoryRequestBuilder) ToGetRequestInformation(ctx context.Context, r
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new directories and returns the newly created directories.
+// returns a *RequestInformation when successful
 func (m *DirectoryRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryAccountDirectoryLinkableWrapperable, requestConfiguration *DirectoryRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/directory{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -189,6 +215,7 @@ func (m *DirectoryRequestBuilder) ToPostRequestInformation(ctx context.Context, 
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *DirectoryRequestBuilder when successful
 func (m *DirectoryRequestBuilder) WithUrl(rawUrl string)(*DirectoryRequestBuilder) {
     return NewDirectoryRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

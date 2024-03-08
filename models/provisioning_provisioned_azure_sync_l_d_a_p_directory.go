@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedAzureSyncLDAPDirectory 
 type ProvisioningProvisionedAzureSyncLDAPDirectory struct {
     ProvisioningProvisionedSystem
     // The clientId property
@@ -16,7 +15,7 @@ type ProvisioningProvisionedAzureSyncLDAPDirectory struct {
     // The tenant property
     tenant *string
 }
-// NewProvisioningProvisionedAzureSyncLDAPDirectory instantiates a new provisioningProvisionedAzureSyncLDAPDirectory and sets the default values.
+// NewProvisioningProvisionedAzureSyncLDAPDirectory instantiates a new ProvisioningProvisionedAzureSyncLDAPDirectory and sets the default values.
 func NewProvisioningProvisionedAzureSyncLDAPDirectory()(*ProvisioningProvisionedAzureSyncLDAPDirectory) {
     m := &ProvisioningProvisionedAzureSyncLDAPDirectory{
         ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
@@ -26,22 +25,27 @@ func NewProvisioningProvisionedAzureSyncLDAPDirectory()(*ProvisioningProvisioned
     return m
 }
 // CreateProvisioningProvisionedAzureSyncLDAPDirectoryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedAzureSyncLDAPDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedAzureSyncLDAPDirectory(), nil
 }
 // GetClientId gets the clientId property value. The clientId property
+// returns a *string when successful
 func (m *ProvisioningProvisionedAzureSyncLDAPDirectory) GetClientId()(*string) {
     return m.clientId
 }
 // GetClientSecret gets the clientSecret property value. The clientSecret property
+// returns a *string when successful
 func (m *ProvisioningProvisionedAzureSyncLDAPDirectory) GetClientSecret()(*string) {
     return m.clientSecret
 }
 // GetDirectory gets the directory property value. The directory property
+// returns a DirectoryAccountDirectoryPrimerable when successful
 func (m *ProvisioningProvisionedAzureSyncLDAPDirectory) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
     return m.directory
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedAzureSyncLDAPDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
     res["clientId"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -87,6 +91,7 @@ func (m *ProvisioningProvisionedAzureSyncLDAPDirectory) GetFieldDeserializers()(
     return res
 }
 // GetTenant gets the tenant property value. The tenant property
+// returns a *string when successful
 func (m *ProvisioningProvisionedAzureSyncLDAPDirectory) GetTenant()(*string) {
     return m.tenant
 }
@@ -138,7 +143,6 @@ func (m *ProvisioningProvisionedAzureSyncLDAPDirectory) SetDirectory(value Direc
 func (m *ProvisioningProvisionedAzureSyncLDAPDirectory) SetTenant(value *string)() {
     m.tenant = value
 }
-// ProvisioningProvisionedAzureSyncLDAPDirectoryable 
 type ProvisioningProvisionedAzureSyncLDAPDirectoryable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable

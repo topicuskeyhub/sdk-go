@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestAbstractOrganizationalUnitModificationRequest 
 type RequestAbstractOrganizationalUnitModificationRequest struct {
     RequestModificationRequest
     // The organizationalUnit property
     organizationalUnit OrganizationOrganizationalUnitPrimerable
 }
-// NewRequestAbstractOrganizationalUnitModificationRequest instantiates a new requestAbstractOrganizationalUnitModificationRequest and sets the default values.
+// NewRequestAbstractOrganizationalUnitModificationRequest instantiates a new RequestAbstractOrganizationalUnitModificationRequest and sets the default values.
 func NewRequestAbstractOrganizationalUnitModificationRequest()(*RequestAbstractOrganizationalUnitModificationRequest) {
     m := &RequestAbstractOrganizationalUnitModificationRequest{
         RequestModificationRequest: *NewRequestModificationRequest(),
@@ -20,6 +19,7 @@ func NewRequestAbstractOrganizationalUnitModificationRequest()(*RequestAbstractO
     return m
 }
 // CreateRequestAbstractOrganizationalUnitModificationRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestAbstractOrganizationalUnitModificationRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -35,6 +35,8 @@ func CreateRequestAbstractOrganizationalUnitModificationRequestFromDiscriminator
                 switch *mappingValue {
                     case "request.CreateGroupRequest":
                         return NewRequestCreateGroupRequest(), nil
+                    case "request.MoveGroupsRequest":
+                        return NewRequestMoveGroupsRequest(), nil
                     case "request.RemoveOrganizationalUnitRequest":
                         return NewRequestRemoveOrganizationalUnitRequest(), nil
                     case "request.TransferOrganizationalUnitOwnershipRequest":
@@ -46,6 +48,7 @@ func CreateRequestAbstractOrganizationalUnitModificationRequestFromDiscriminator
     return NewRequestAbstractOrganizationalUnitModificationRequest(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestAbstractOrganizationalUnitModificationRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
     res["organizationalUnit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -61,6 +64,7 @@ func (m *RequestAbstractOrganizationalUnitModificationRequest) GetFieldDeseriali
     return res
 }
 // GetOrganizationalUnit gets the organizationalUnit property value. The organizationalUnit property
+// returns a OrganizationOrganizationalUnitPrimerable when successful
 func (m *RequestAbstractOrganizationalUnitModificationRequest) GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable) {
     return m.organizationalUnit
 }
@@ -82,7 +86,6 @@ func (m *RequestAbstractOrganizationalUnitModificationRequest) Serialize(writer 
 func (m *RequestAbstractOrganizationalUnitModificationRequest) SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)() {
     m.organizationalUnit = value
 }
-// RequestAbstractOrganizationalUnitModificationRequestable 
 type RequestAbstractOrganizationalUnitModificationRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable

@@ -2,7 +2,6 @@ package models
 import (
     "errors"
 )
-// 
 type AuthAccountValidity int
 
 const (

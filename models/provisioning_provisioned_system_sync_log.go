@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedSystemSyncLog 
 type ProvisioningProvisionedSystemSyncLog struct {
     Linkable
     // The additionalObjects property
@@ -19,7 +18,7 @@ type ProvisioningProvisionedSystemSyncLog struct {
     // The modifications property
     modifications *int32
 }
-// NewProvisioningProvisionedSystemSyncLog instantiates a new provisioningProvisionedSystemSyncLog and sets the default values.
+// NewProvisioningProvisionedSystemSyncLog instantiates a new ProvisioningProvisionedSystemSyncLog and sets the default values.
 func NewProvisioningProvisionedSystemSyncLog()(*ProvisioningProvisionedSystemSyncLog) {
     m := &ProvisioningProvisionedSystemSyncLog{
         Linkable: *NewLinkable(),
@@ -29,22 +28,27 @@ func NewProvisioningProvisionedSystemSyncLog()(*ProvisioningProvisionedSystemSyn
     return m
 }
 // CreateProvisioningProvisionedSystemSyncLogFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedSystemSyncLogFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedSystemSyncLog(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a ProvisioningProvisionedSystemSyncLog_additionalObjectsable when successful
 func (m *ProvisioningProvisionedSystemSyncLog) GetAdditionalObjects()(ProvisioningProvisionedSystemSyncLog_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetCreatedAt gets the createdAt property value. The createdAt property
+// returns a *Time when successful
 func (m *ProvisioningProvisionedSystemSyncLog) GetCreatedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.createdAt
 }
 // GetErrors gets the errors property value. The errors property
+// returns a *int32 when successful
 func (m *ProvisioningProvisionedSystemSyncLog) GetErrors()(*int32) {
     return m.errors
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedSystemSyncLog) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -100,10 +104,12 @@ func (m *ProvisioningProvisionedSystemSyncLog) GetFieldDeserializers()(map[strin
     return res
 }
 // GetLog gets the log property value. The log property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSystemSyncLog) GetLog()(*string) {
     return m.log
 }
 // GetModifications gets the modifications property value. The modifications property
+// returns a *int32 when successful
 func (m *ProvisioningProvisionedSystemSyncLog) GetModifications()(*int32) {
     return m.modifications
 }
@@ -141,7 +147,6 @@ func (m *ProvisioningProvisionedSystemSyncLog) SetLog(value *string)() {
 func (m *ProvisioningProvisionedSystemSyncLog) SetModifications(value *int32)() {
     m.modifications = value
 }
-// ProvisioningProvisionedSystemSyncLogable 
 type ProvisioningProvisionedSystemSyncLogable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningGroupProvisioningStatus 
 type ProvisioningGroupProvisioningStatus struct {
     NonLinkable
     // The folder property
@@ -23,7 +22,7 @@ type ProvisioningGroupProvisioningStatus struct {
     // The visibleOnDashboard property
     visibleOnDashboard *bool
 }
-// NewProvisioningGroupProvisioningStatus instantiates a new provisioningGroupProvisioningStatus and sets the default values.
+// NewProvisioningGroupProvisioningStatus instantiates a new ProvisioningGroupProvisioningStatus and sets the default values.
 func NewProvisioningGroupProvisioningStatus()(*ProvisioningGroupProvisioningStatus) {
     m := &ProvisioningGroupProvisioningStatus{
         NonLinkable: *NewNonLinkable(),
@@ -33,10 +32,12 @@ func NewProvisioningGroupProvisioningStatus()(*ProvisioningGroupProvisioningStat
     return m
 }
 // CreateProvisioningGroupProvisioningStatusFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningGroupProvisioningStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningGroupProvisioningStatus(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningGroupProvisioningStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["folder"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -112,30 +113,37 @@ func (m *ProvisioningGroupProvisioningStatus) GetFieldDeserializers()(map[string
     return res
 }
 // GetFolder gets the folder property value. The folder property
+// returns a GroupGroupFolderable when successful
 func (m *ProvisioningGroupProvisioningStatus) GetFolder()(GroupGroupFolderable) {
     return m.folder
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupable when successful
 func (m *ProvisioningGroupProvisioningStatus) GetGroup()(GroupGroupable) {
     return m.group
 }
 // GetProvisioningDuration gets the provisioningDuration property value. The provisioningDuration property
+// returns a ProvisioningGroupProvisioningStatus_provisioningDurationable when successful
 func (m *ProvisioningGroupProvisioningStatus) GetProvisioningDuration()(ProvisioningGroupProvisioningStatus_provisioningDurationable) {
     return m.provisioningDuration
 }
 // GetProvisioningEndTime gets the provisioningEndTime property value. The provisioningEndTime property
+// returns a *Time when successful
 func (m *ProvisioningGroupProvisioningStatus) GetProvisioningEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.provisioningEndTime
 }
 // GetProvisioningPermissionEndTime gets the provisioningPermissionEndTime property value. The provisioningPermissionEndTime property
+// returns a *Time when successful
 func (m *ProvisioningGroupProvisioningStatus) GetProvisioningPermissionEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.provisioningPermissionEndTime
 }
 // GetStatusReport gets the statusReport property value. The statusReport property
+// returns a ProvisioningAccountProvisioningStatusReportable when successful
 func (m *ProvisioningGroupProvisioningStatus) GetStatusReport()(ProvisioningAccountProvisioningStatusReportable) {
     return m.statusReport
 }
 // GetVisibleOnDashboard gets the visibleOnDashboard property value. The visibleOnDashboard property
+// returns a *bool when successful
 func (m *ProvisioningGroupProvisioningStatus) GetVisibleOnDashboard()(*bool) {
     return m.visibleOnDashboard
 }
@@ -217,7 +225,6 @@ func (m *ProvisioningGroupProvisioningStatus) SetStatusReport(value Provisioning
 func (m *ProvisioningGroupProvisioningStatus) SetVisibleOnDashboard(value *bool)() {
     m.visibleOnDashboard = value
 }
-// ProvisioningGroupProvisioningStatusable 
 type ProvisioningGroupProvisioningStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

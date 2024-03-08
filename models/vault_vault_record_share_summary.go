@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultVaultRecordShareSummary 
 type VaultVaultRecordShareSummary struct {
     NonLinkable
     // The children property
@@ -12,7 +11,7 @@ type VaultVaultRecordShareSummary struct {
     // The parent property
     parent VaultVaultRecordShareable
 }
-// NewVaultVaultRecordShareSummary instantiates a new vaultVaultRecordShareSummary and sets the default values.
+// NewVaultVaultRecordShareSummary instantiates a new VaultVaultRecordShareSummary and sets the default values.
 func NewVaultVaultRecordShareSummary()(*VaultVaultRecordShareSummary) {
     m := &VaultVaultRecordShareSummary{
         NonLinkable: *NewNonLinkable(),
@@ -22,14 +21,17 @@ func NewVaultVaultRecordShareSummary()(*VaultVaultRecordShareSummary) {
     return m
 }
 // CreateVaultVaultRecordShareSummaryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultVaultRecordShareSummaryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVaultRecordShareSummary(), nil
 }
 // GetChildren gets the children property value. The children property
+// returns a []VaultVaultRecordShareable when successful
 func (m *VaultVaultRecordShareSummary) GetChildren()([]VaultVaultRecordShareable) {
     return m.children
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVaultRecordShareSummary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["children"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -61,6 +63,7 @@ func (m *VaultVaultRecordShareSummary) GetFieldDeserializers()(map[string]func(i
     return res
 }
 // GetParent gets the parent property value. The parent property
+// returns a VaultVaultRecordShareable when successful
 func (m *VaultVaultRecordShareSummary) GetParent()(VaultVaultRecordShareable) {
     return m.parent
 }
@@ -98,7 +101,6 @@ func (m *VaultVaultRecordShareSummary) SetChildren(value []VaultVaultRecordShare
 func (m *VaultVaultRecordShareSummary) SetParent(value VaultVaultRecordShareable)() {
     m.parent = value
 }
-// VaultVaultRecordShareSummaryable 
 type VaultVaultRecordShareSummaryable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

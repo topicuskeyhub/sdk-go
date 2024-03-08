@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuditAuditRecord 
 type AuditAuditRecord struct {
     Linkable
     // The additionalObjects property
@@ -49,7 +48,7 @@ type AuditAuditRecord struct {
     // The securityLevel property
     securityLevel *AuthSecurityLevel
 }
-// NewAuditAuditRecord instantiates a new auditAuditRecord and sets the default values.
+// NewAuditAuditRecord instantiates a new AuditAuditRecord and sets the default values.
 func NewAuditAuditRecord()(*AuditAuditRecord) {
     m := &AuditAuditRecord{
         Linkable: *NewLinkable(),
@@ -59,22 +58,27 @@ func NewAuditAuditRecord()(*AuditAuditRecord) {
     return m
 }
 // CreateAuditAuditRecordFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuditAuditRecordFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuditAuditRecord(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a AuditAuditRecord_additionalObjectsable when successful
 func (m *AuditAuditRecord) GetAdditionalObjects()(AuditAuditRecord_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetAuditAuditRecordType gets the type property value. The type property
+// returns a *AuditAuditRecordType when successful
 func (m *AuditAuditRecord) GetAuditAuditRecordType()(*AuditAuditRecordType) {
     return m.auditAuditRecordType
 }
 // GetDateTime gets the dateTime property value. The dateTime property
+// returns a *Time when successful
 func (m *AuditAuditRecord) GetDateTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.dateTime
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuditAuditRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -280,70 +284,87 @@ func (m *AuditAuditRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e
     return res
 }
 // GetOnAccount gets the onAccount property value. The onAccount property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnAccount()(*string) {
     return m.onAccount
 }
 // GetOnCertificate gets the onCertificate property value. The onCertificate property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnCertificate()(*string) {
     return m.onCertificate
 }
 // GetOnClient gets the onClient property value. The onClient property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnClient()(*string) {
     return m.onClient
 }
 // GetOnDirectory gets the onDirectory property value. The onDirectory property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnDirectory()(*string) {
     return m.onDirectory
 }
 // GetOnGroup gets the onGroup property value. The onGroup property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnGroup()(*string) {
     return m.onGroup
 }
 // GetOnGroup2 gets the onGroup2 property value. The onGroup2 property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnGroup2()(*string) {
     return m.onGroup2
 }
 // GetOnGroupClassification gets the onGroupClassification property value. The onGroupClassification property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnGroupClassification()(*string) {
     return m.onGroupClassification
 }
 // GetOnOrganizationalUnit gets the onOrganizationalUnit property value. The onOrganizationalUnit property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnOrganizationalUnit()(*string) {
     return m.onOrganizationalUnit
 }
 // GetOnServiceAccount gets the onServiceAccount property value. The onServiceAccount property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnServiceAccount()(*string) {
     return m.onServiceAccount
 }
 // GetOnSystem gets the onSystem property value. The onSystem property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnSystem()(*string) {
     return m.onSystem
 }
 // GetOnVaultRecord gets the onVaultRecord property value. The onVaultRecord property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnVaultRecord()(*string) {
     return m.onVaultRecord
 }
 // GetOnWebhook gets the onWebhook property value. The onWebhook property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetOnWebhook()(*string) {
     return m.onWebhook
 }
 // GetParameter1 gets the parameter1 property value. The parameter1 property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetParameter1()(*string) {
     return m.parameter1
 }
 // GetParameter2 gets the parameter2 property value. The parameter2 property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetParameter2()(*string) {
     return m.parameter2
 }
 // GetParameter3 gets the parameter3 property value. The parameter3 property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetParameter3()(*string) {
     return m.parameter3
 }
 // GetPerformedBy gets the performedBy property value. The performedBy property
+// returns a *string when successful
 func (m *AuditAuditRecord) GetPerformedBy()(*string) {
     return m.performedBy
 }
 // GetSecurityLevel gets the securityLevel property value. The securityLevel property
+// returns a *AuthSecurityLevel when successful
 func (m *AuditAuditRecord) GetSecurityLevel()(*AuthSecurityLevel) {
     return m.securityLevel
 }
@@ -455,7 +476,6 @@ func (m *AuditAuditRecord) SetPerformedBy(value *string)() {
 func (m *AuditAuditRecord) SetSecurityLevel(value *AuthSecurityLevel)() {
     m.securityLevel = value
 }
-// AuditAuditRecordable 
 type AuditAuditRecordable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

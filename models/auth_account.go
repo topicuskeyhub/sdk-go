@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuthAccount 
 type AuthAccount struct {
     AuthAccountPrimer
     // The accountPermissions property
@@ -47,7 +46,7 @@ type AuthAccount struct {
     // The validInDirectory property
     validInDirectory *bool
 }
-// NewAuthAccount instantiates a new authAccount and sets the default values.
+// NewAuthAccount instantiates a new AuthAccount and sets the default values.
 func NewAuthAccount()(*AuthAccount) {
     m := &AuthAccount{
         AuthAccountPrimer: *NewAuthAccountPrimer(),
@@ -57,6 +56,7 @@ func NewAuthAccount()(*AuthAccount) {
     return m
 }
 // CreateAuthAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuthAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -79,46 +79,57 @@ func CreateAuthAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
     return NewAuthAccount(), nil
 }
 // GetAccountPermissions gets the accountPermissions property value. The accountPermissions property
+// returns a []AuthPermissionable when successful
 func (m *AuthAccount) GetAccountPermissions()([]AuthPermissionable) {
     return m.accountPermissions
 }
 // GetActive gets the active property value. The active property
+// returns a *bool when successful
 func (m *AuthAccount) GetActive()(*bool) {
     return m.active
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a AuthAccount_additionalObjectsable when successful
 func (m *AuthAccount) GetAdditionalObjects()(AuthAccount_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetCanRequestGroups gets the canRequestGroups property value. The canRequestGroups property
+// returns a *bool when successful
 func (m *AuthAccount) GetCanRequestGroups()(*bool) {
     return m.canRequestGroups
 }
 // GetDirectory gets the directory property value. The directory property
+// returns a DirectoryAccountDirectoryPrimerable when successful
 func (m *AuthAccount) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
     return m.directory
 }
 // GetDirectoryName gets the directoryName property value. The directoryName property
+// returns a *string when successful
 func (m *AuthAccount) GetDirectoryName()(*string) {
     return m.directoryName
 }
 // GetDirectoryPasswordChangeRequired gets the directoryPasswordChangeRequired property value. The directoryPasswordChangeRequired property
+// returns a *bool when successful
 func (m *AuthAccount) GetDirectoryPasswordChangeRequired()(*bool) {
     return m.directoryPasswordChangeRequired
 }
 // GetDirectoryRotatingPassword gets the directoryRotatingPassword property value. The directoryRotatingPassword property
+// returns a *DirectoryDirectoryRotatingPassword when successful
 func (m *AuthAccount) GetDirectoryRotatingPassword()(*DirectoryDirectoryRotatingPassword) {
     return m.directoryRotatingPassword
 }
 // GetDirectoryType gets the directoryType property value. The directoryType property
+// returns a *DirectoryAccountDirectoryType when successful
 func (m *AuthAccount) GetDirectoryType()(*DirectoryAccountDirectoryType) {
     return m.directoryType
 }
 // GetEmail gets the email property value. The email property
+// returns a *string when successful
 func (m *AuthAccount) GetEmail()(*string) {
     return m.email
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.AuthAccountPrimer.GetFieldDeserializers()
     res["accountPermissions"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -320,38 +331,47 @@ func (m *AuthAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26
     return res
 }
 // GetIdInDirectory gets the idInDirectory property value. The idInDirectory property
+// returns a *string when successful
 func (m *AuthAccount) GetIdInDirectory()(*string) {
     return m.idInDirectory
 }
 // GetKeyHubPasswordChangeRequired gets the keyHubPasswordChangeRequired property value. The keyHubPasswordChangeRequired property
+// returns a *bool when successful
 func (m *AuthAccount) GetKeyHubPasswordChangeRequired()(*bool) {
     return m.keyHubPasswordChangeRequired
 }
 // GetLastModifiedAt gets the lastModifiedAt property value. The lastModifiedAt property
+// returns a *Time when successful
 func (m *AuthAccount) GetLastModifiedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.lastModifiedAt
 }
 // GetLicenseRole gets the licenseRole property value. The licenseRole property
+// returns a *AuthAccountLicenseRole when successful
 func (m *AuthAccount) GetLicenseRole()(*AuthAccountLicenseRole) {
     return m.licenseRole
 }
 // GetLocale gets the locale property value. The locale property
+// returns a *string when successful
 func (m *AuthAccount) GetLocale()(*string) {
     return m.locale
 }
 // GetReregistrationRequired gets the reregistrationRequired property value. The reregistrationRequired property
+// returns a *bool when successful
 func (m *AuthAccount) GetReregistrationRequired()(*bool) {
     return m.reregistrationRequired
 }
 // GetTokenPasswordEnabled gets the tokenPasswordEnabled property value. The tokenPasswordEnabled property
+// returns a *bool when successful
 func (m *AuthAccount) GetTokenPasswordEnabled()(*bool) {
     return m.tokenPasswordEnabled
 }
 // GetTwoFactorStatus gets the twoFactorStatus property value. The twoFactorStatus property
+// returns a *AuthTwoFactorAuthenticationStatus when successful
 func (m *AuthAccount) GetTwoFactorStatus()(*AuthTwoFactorAuthenticationStatus) {
     return m.twoFactorStatus
 }
 // GetValidInDirectory gets the validInDirectory property value. The validInDirectory property
+// returns a *bool when successful
 func (m *AuthAccount) GetValidInDirectory()(*bool) {
     return m.validInDirectory
 }
@@ -479,7 +499,6 @@ func (m *AuthAccount) SetTwoFactorStatus(value *AuthTwoFactorAuthenticationStatu
 func (m *AuthAccount) SetValidInDirectory(value *bool)() {
     m.validInDirectory = value
 }
-// AuthAccountable 
 type AuthAccountable interface {
     AuthAccountPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

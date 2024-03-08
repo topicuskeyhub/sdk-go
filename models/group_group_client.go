@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupClient 
 type GroupGroupClient struct {
     Linkable
     // The activationRequired property
@@ -20,7 +19,7 @@ type GroupGroupClient struct {
     // The technicalAdministrator property
     technicalAdministrator GroupGroupPrimerable
 }
-// NewGroupGroupClient instantiates a new groupGroupClient and sets the default values.
+// NewGroupGroupClient instantiates a new GroupGroupClient and sets the default values.
 func NewGroupGroupClient()(*GroupGroupClient) {
     m := &GroupGroupClient{
         Linkable: *NewLinkable(),
@@ -30,22 +29,27 @@ func NewGroupGroupClient()(*GroupGroupClient) {
     return m
 }
 // CreateGroupGroupClientFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupClientFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupClient(), nil
 }
 // GetActivationRequired gets the activationRequired property value. The activationRequired property
+// returns a *bool when successful
 func (m *GroupGroupClient) GetActivationRequired()(*bool) {
     return m.activationRequired
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a GroupGroupClient_additionalObjectsable when successful
 func (m *GroupGroupClient) GetAdditionalObjects()(GroupGroupClient_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetClient gets the client property value. The client property
+// returns a ClientClientApplicationPrimerable when successful
 func (m *GroupGroupClient) GetClient()(ClientClientApplicationPrimerable) {
     return m.client
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupClient) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["activationRequired"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -111,14 +115,17 @@ func (m *GroupGroupClient) GetFieldDeserializers()(map[string]func(i878a80d2330e
     return res
 }
 // GetGroup gets the group property value. The group property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupGroupClient) GetGroup()(GroupGroupPrimerable) {
     return m.group
 }
 // GetOwner gets the owner property value. The owner property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupGroupClient) GetOwner()(GroupGroupPrimerable) {
     return m.owner
 }
 // GetTechnicalAdministrator gets the technicalAdministrator property value. The technicalAdministrator property
+// returns a GroupGroupPrimerable when successful
 func (m *GroupGroupClient) GetTechnicalAdministrator()(GroupGroupPrimerable) {
     return m.technicalAdministrator
 }
@@ -190,7 +197,6 @@ func (m *GroupGroupClient) SetOwner(value GroupGroupPrimerable)() {
 func (m *GroupGroupClient) SetTechnicalAdministrator(value GroupGroupPrimerable)() {
     m.technicalAdministrator = value
 }
-// GroupGroupClientable 
 type GroupGroupClientable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

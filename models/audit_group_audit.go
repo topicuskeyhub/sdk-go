@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// AuditGroupAudit 
 type AuditGroupAudit struct {
     Linkable
     // The accounts property
@@ -35,7 +34,7 @@ type AuditGroupAudit struct {
     // The submittedBy property
     submittedBy *string
 }
-// NewAuditGroupAudit instantiates a new auditGroupAudit and sets the default values.
+// NewAuditGroupAudit instantiates a new AuditGroupAudit and sets the default values.
 func NewAuditGroupAudit()(*AuditGroupAudit) {
     m := &AuditGroupAudit{
         Linkable: *NewLinkable(),
@@ -45,30 +44,37 @@ func NewAuditGroupAudit()(*AuditGroupAudit) {
     return m
 }
 // CreateAuditGroupAuditFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateAuditGroupAuditFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewAuditGroupAudit(), nil
 }
 // GetAccounts gets the accounts property value. The accounts property
+// returns a []AuditGroupAuditAccountable when successful
 func (m *AuditGroupAudit) GetAccounts()([]AuditGroupAuditAccountable) {
     return m.accounts
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a AuditGroupAudit_additionalObjectsable when successful
 func (m *AuditGroupAudit) GetAdditionalObjects()(AuditGroupAudit_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetComment gets the comment property value. The comment property
+// returns a *string when successful
 func (m *AuditGroupAudit) GetComment()(*string) {
     return m.comment
 }
 // GetCreatedAt gets the createdAt property value. The createdAt property
+// returns a *Time when successful
 func (m *AuditGroupAudit) GetCreatedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.createdAt
 }
 // GetCreatedBy gets the createdBy property value. The createdBy property
+// returns a *string when successful
 func (m *AuditGroupAudit) GetCreatedBy()(*string) {
     return m.createdBy
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuditGroupAudit) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["accounts"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -216,34 +222,42 @@ func (m *AuditGroupAudit) GetFieldDeserializers()(map[string]func(i878a80d2330e8
     return res
 }
 // GetGroupName gets the groupName property value. The groupName property
+// returns a *string when successful
 func (m *AuditGroupAudit) GetGroupName()(*string) {
     return m.groupName
 }
 // GetNameOnAudit gets the nameOnAudit property value. The nameOnAudit property
+// returns a *string when successful
 func (m *AuditGroupAudit) GetNameOnAudit()(*string) {
     return m.nameOnAudit
 }
 // GetNestedGroups gets the nestedGroups property value. The nestedGroups property
+// returns a []AuditNestedGroupAuditable when successful
 func (m *AuditGroupAudit) GetNestedGroups()([]AuditNestedGroupAuditable) {
     return m.nestedGroups
 }
 // GetReviewedAt gets the reviewedAt property value. The reviewedAt property
+// returns a *Time when successful
 func (m *AuditGroupAudit) GetReviewedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.reviewedAt
 }
 // GetReviewedBy gets the reviewedBy property value. The reviewedBy property
+// returns a *string when successful
 func (m *AuditGroupAudit) GetReviewedBy()(*string) {
     return m.reviewedBy
 }
 // GetStatus gets the status property value. The status property
+// returns a *AuditGroupAuditStatus when successful
 func (m *AuditGroupAudit) GetStatus()(*AuditGroupAuditStatus) {
     return m.status
 }
 // GetSubmittedAt gets the submittedAt property value. The submittedAt property
+// returns a *Time when successful
 func (m *AuditGroupAudit) GetSubmittedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.submittedAt
 }
 // GetSubmittedBy gets the submittedBy property value. The submittedBy property
+// returns a *string when successful
 func (m *AuditGroupAudit) GetSubmittedBy()(*string) {
     return m.submittedBy
 }
@@ -350,7 +364,6 @@ func (m *AuditGroupAudit) SetSubmittedAt(value *i336074805fc853987abe6f7fe3ad97a
 func (m *AuditGroupAudit) SetSubmittedBy(value *string)() {
     m.submittedBy = value
 }
-// AuditGroupAuditable 
 type AuditGroupAuditable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

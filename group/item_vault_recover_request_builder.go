@@ -17,28 +17,28 @@ type ItemVaultRecoverRequestBuilderPostRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewItemVaultRecoverRequestBuilderInternal instantiates a new RecoverRequestBuilder and sets the default values.
+// NewItemVaultRecoverRequestBuilderInternal instantiates a new ItemVaultRecoverRequestBuilder and sets the default values.
 func NewItemVaultRecoverRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecoverRequestBuilder) {
     m := &ItemVaultRecoverRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/vault/recover", pathParameters),
     }
     return m
 }
-// NewItemVaultRecoverRequestBuilder instantiates a new RecoverRequestBuilder and sets the default values.
+// NewItemVaultRecoverRequestBuilder instantiates a new ItemVaultRecoverRequestBuilder and sets the default values.
 func NewItemVaultRecoverRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecoverRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewItemVaultRecoverRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Post recover access to a vault for a given account.
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemVaultRecoverRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecoveryable, requestConfiguration *ItemVaultRecoverRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -47,6 +47,7 @@ func (m *ItemVaultRecoverRequestBuilder) Post(ctx context.Context, body ie296952
     return nil
 }
 // ToPostRequestInformation recover access to a vault for a given account.
+// returns a *RequestInformation when successful
 func (m *ItemVaultRecoverRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecoveryable, requestConfiguration *ItemVaultRecoverRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -61,6 +62,7 @@ func (m *ItemVaultRecoverRequestBuilder) ToPostRequestInformation(ctx context.Co
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *ItemVaultRecoverRequestBuilder when successful
 func (m *ItemVaultRecoverRequestBuilder) WithUrl(rawUrl string)(*ItemVaultRecoverRequestBuilder) {
     return NewItemVaultRecoverRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

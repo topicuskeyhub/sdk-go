@@ -4,11 +4,10 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// RequestAcceptModificationRequestParameters 
 type RequestAcceptModificationRequestParameters struct {
     NonLinkable
 }
-// NewRequestAcceptModificationRequestParameters instantiates a new requestAcceptModificationRequestParameters and sets the default values.
+// NewRequestAcceptModificationRequestParameters instantiates a new RequestAcceptModificationRequestParameters and sets the default values.
 func NewRequestAcceptModificationRequestParameters()(*RequestAcceptModificationRequestParameters) {
     m := &RequestAcceptModificationRequestParameters{
         NonLinkable: *NewNonLinkable(),
@@ -18,6 +17,7 @@ func NewRequestAcceptModificationRequestParameters()(*RequestAcceptModificationR
     return m
 }
 // CreateRequestAcceptModificationRequestParametersFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateRequestAcceptModificationRequestParametersFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -44,6 +44,7 @@ func CreateRequestAcceptModificationRequestParametersFromDiscriminatorValue(pars
     return NewRequestAcceptModificationRequestParameters(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestAcceptModificationRequestParameters) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     return res
@@ -56,7 +57,6 @@ func (m *RequestAcceptModificationRequestParameters) Serialize(writer i878a80d23
     }
     return nil
 }
-// RequestAcceptModificationRequestParametersable 
 type RequestAcceptModificationRequestParametersable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

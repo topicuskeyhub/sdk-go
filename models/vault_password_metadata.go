@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// VaultPasswordMetadata 
 type VaultPasswordMetadata struct {
     NonLinkable
     // The dictionary property
@@ -26,7 +25,7 @@ type VaultPasswordMetadata struct {
     // The upperCount property
     upperCount *int32
 }
-// NewVaultPasswordMetadata instantiates a new vaultPasswordMetadata and sets the default values.
+// NewVaultPasswordMetadata instantiates a new VaultPasswordMetadata and sets the default values.
 func NewVaultPasswordMetadata()(*VaultPasswordMetadata) {
     m := &VaultPasswordMetadata{
         NonLinkable: *NewNonLinkable(),
@@ -36,18 +35,22 @@ func NewVaultPasswordMetadata()(*VaultPasswordMetadata) {
     return m
 }
 // CreateVaultPasswordMetadataFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateVaultPasswordMetadataFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultPasswordMetadata(), nil
 }
 // GetDictionary gets the dictionary property value. The dictionary property
+// returns a *bool when successful
 func (m *VaultPasswordMetadata) GetDictionary()(*bool) {
     return m.dictionary
 }
 // GetDuplicate gets the duplicate property value. The duplicate property
+// returns a *bool when successful
 func (m *VaultPasswordMetadata) GetDuplicate()(*bool) {
     return m.duplicate
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultPasswordMetadata) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["dictionary"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -143,30 +146,37 @@ func (m *VaultPasswordMetadata) GetFieldDeserializers()(map[string]func(i878a80d
     return res
 }
 // GetHash gets the hash property value. The hash property
+// returns a *string when successful
 func (m *VaultPasswordMetadata) GetHash()(*string) {
     return m.hash
 }
 // GetLength gets the length property value. The length property
+// returns a *int32 when successful
 func (m *VaultPasswordMetadata) GetLength()(*int32) {
     return m.length
 }
 // GetLowerCount gets the lowerCount property value. The lowerCount property
+// returns a *int32 when successful
 func (m *VaultPasswordMetadata) GetLowerCount()(*int32) {
     return m.lowerCount
 }
 // GetNumberCount gets the numberCount property value. The numberCount property
+// returns a *int32 when successful
 func (m *VaultPasswordMetadata) GetNumberCount()(*int32) {
     return m.numberCount
 }
 // GetSpecialCount gets the specialCount property value. The specialCount property
+// returns a *int32 when successful
 func (m *VaultPasswordMetadata) GetSpecialCount()(*int32) {
     return m.specialCount
 }
 // GetStrength gets the strength property value. The strength property
+// returns a *int32 when successful
 func (m *VaultPasswordMetadata) GetStrength()(*int32) {
     return m.strength
 }
 // GetUpperCount gets the upperCount property value. The upperCount property
+// returns a *int32 when successful
 func (m *VaultPasswordMetadata) GetUpperCount()(*int32) {
     return m.upperCount
 }
@@ -214,7 +224,6 @@ func (m *VaultPasswordMetadata) SetStrength(value *int32)() {
 func (m *VaultPasswordMetadata) SetUpperCount(value *int32)() {
     m.upperCount = value
 }
-// VaultPasswordMetadataable 
 type VaultPasswordMetadataable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

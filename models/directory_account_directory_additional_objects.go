@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// DirectoryAccountDirectory_additionalObjects 
 type DirectoryAccountDirectory_additionalObjects struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
@@ -15,7 +14,7 @@ type DirectoryAccountDirectory_additionalObjects struct {
     // The status property
     status DirectoryAccountDirectoryStatusReportable
 }
-// NewDirectoryAccountDirectory_additionalObjects instantiates a new directoryAccountDirectory_additionalObjects and sets the default values.
+// NewDirectoryAccountDirectory_additionalObjects instantiates a new DirectoryAccountDirectory_additionalObjects and sets the default values.
 func NewDirectoryAccountDirectory_additionalObjects()(*DirectoryAccountDirectory_additionalObjects) {
     m := &DirectoryAccountDirectory_additionalObjects{
     }
@@ -23,18 +22,22 @@ func NewDirectoryAccountDirectory_additionalObjects()(*DirectoryAccountDirectory
     return m
 }
 // CreateDirectoryAccountDirectory_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateDirectoryAccountDirectory_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewDirectoryAccountDirectory_additionalObjects(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+// returns a map[string]any when successful
 func (m *DirectoryAccountDirectory_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetAudit gets the audit property value. The audit property
+// returns a AuditInfoable when successful
 func (m *DirectoryAccountDirectory_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *DirectoryAccountDirectory_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -70,10 +73,12 @@ func (m *DirectoryAccountDirectory_additionalObjects) GetFieldDeserializers()(ma
     return res
 }
 // GetMarkers gets the markers property value. The markers property
+// returns a MarkItemMarkersable when successful
 func (m *DirectoryAccountDirectory_additionalObjects) GetMarkers()(MarkItemMarkersable) {
     return m.markers
 }
 // GetStatus gets the status property value. The status property
+// returns a DirectoryAccountDirectoryStatusReportable when successful
 func (m *DirectoryAccountDirectory_additionalObjects) GetStatus()(DirectoryAccountDirectoryStatusReportable) {
     return m.status
 }
@@ -121,7 +126,6 @@ func (m *DirectoryAccountDirectory_additionalObjects) SetMarkers(value MarkItemM
 func (m *DirectoryAccountDirectory_additionalObjects) SetStatus(value DirectoryAccountDirectoryStatusReportable)() {
     m.status = value
 }
-// DirectoryAccountDirectory_additionalObjectsable 
 type DirectoryAccountDirectory_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

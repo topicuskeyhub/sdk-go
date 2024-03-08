@@ -2,11 +2,10 @@ package models
 import (
     "errors"
 )
-// 
 type ProvisioningProvisionedSCIMVendor int
 
 const (
-    DEFAULTESCAPED_PROVISIONINGPROVISIONEDSCIMVENDOR ProvisioningProvisionedSCIMVendor = iota
+    DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR ProvisioningProvisionedSCIMVendor = iota
     AWS_PROVISIONINGPROVISIONEDSCIMVENDOR
     KEYSTONE_PROVISIONINGPROVISIONEDSCIMVENDOR
 )
@@ -15,10 +14,10 @@ func (i ProvisioningProvisionedSCIMVendor) String() string {
     return []string{"DEFAULT", "AWS", "KEYSTONE"}[i]
 }
 func ParseProvisioningProvisionedSCIMVendor(v string) (any, error) {
-    result := DEFAULTESCAPED_PROVISIONINGPROVISIONEDSCIMVENDOR
+    result := DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR
     switch v {
         case "DEFAULT":
-            result = DEFAULTESCAPED_PROVISIONINGPROVISIONEDSCIMVENDOR
+            result = DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR
         case "AWS":
             result = AWS_PROVISIONINGPROVISIONEDSCIMVENDOR
         case "KEYSTONE":

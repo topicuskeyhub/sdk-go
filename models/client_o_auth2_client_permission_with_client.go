@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ClientOAuth2ClientPermissionWithClient 
 type ClientOAuth2ClientPermissionWithClient struct {
     ClientOAuth2ClientPermission
     // The client property
     client ClientOAuth2Clientable
 }
-// NewClientOAuth2ClientPermissionWithClient instantiates a new clientOAuth2ClientPermissionWithClient and sets the default values.
+// NewClientOAuth2ClientPermissionWithClient instantiates a new ClientOAuth2ClientPermissionWithClient and sets the default values.
 func NewClientOAuth2ClientPermissionWithClient()(*ClientOAuth2ClientPermissionWithClient) {
     m := &ClientOAuth2ClientPermissionWithClient{
         ClientOAuth2ClientPermission: *NewClientOAuth2ClientPermission(),
@@ -20,14 +19,17 @@ func NewClientOAuth2ClientPermissionWithClient()(*ClientOAuth2ClientPermissionWi
     return m
 }
 // CreateClientOAuth2ClientPermissionWithClientFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateClientOAuth2ClientPermissionWithClientFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewClientOAuth2ClientPermissionWithClient(), nil
 }
 // GetClient gets the client property value. The client property
+// returns a ClientOAuth2Clientable when successful
 func (m *ClientOAuth2ClientPermissionWithClient) GetClient()(ClientOAuth2Clientable) {
     return m.client
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientOAuth2ClientPermissionWithClient) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ClientOAuth2ClientPermission.GetFieldDeserializers()
     res["client"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -60,7 +62,6 @@ func (m *ClientOAuth2ClientPermissionWithClient) Serialize(writer i878a80d2330e8
 func (m *ClientOAuth2ClientPermissionWithClient) SetClient(value ClientOAuth2Clientable)() {
     m.client = value
 }
-// ClientOAuth2ClientPermissionWithClientable 
 type ClientOAuth2ClientPermissionWithClientable interface {
     ClientOAuth2ClientPermissionable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

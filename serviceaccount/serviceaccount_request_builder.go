@@ -15,9 +15,15 @@ type ServiceaccountRequestBuilder struct {
 // ServiceaccountRequestBuilderGetQueryParameters query for all service accounts in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ServiceaccountRequestBuilderGetQueryParameters struct {
     // Only return active or inactive service accounts.
+    // Deprecated: This property is deprecated, use ActiveAsBooleanEnum instead
     Active []string `uriparametername:"active"`
+    // Only return active or inactive service accounts.
+    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum `uriparametername:"active"`
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Only return records that have been created after the given instant.
@@ -42,18 +48,27 @@ type ServiceaccountRequestBuilderGetQueryParameters struct {
     NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
     // Only return service accounts for which the name starts with the given prefix.
     NameStartsWith []string `uriparametername:"nameStartsWith"`
-    // Filter service accounts on their  organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
+    // Filter service accounts on their organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
     OrganizationalUnitForEnforcement []int64 `uriparametername:"organizationalUnitForEnforcement"`
     // Filter the service accounts by the password shared in the vault, specified by id. This parameter supports composition with all parameters from the vault record resource.
     Password []int64 `uriparametername:"password"`
     // Only return service accounts with the given password rotation scheme.
+    // Deprecated: This property is deprecated, use PasswordRotationAsServiceaccountPasswordRotationScheme instead
     PasswordRotation []string `uriparametername:"passwordRotation"`
+    // Only return service accounts with the given password rotation scheme.
+    PasswordRotationAsServiceaccountPasswordRotationScheme []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountPasswordRotationScheme `uriparametername:"passwordRotation"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
     // Filter the service accounts on active requests for group on systems owned by any of the given groups, specified by id.
     RequestedGroupOnSystemOwners []int64 `uriparametername:"requestedGroupOnSystemOwners"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter the service accounts by provisioned systems, specified by id. This parameter supports composition with all parameters from the provisioned system resource.
     System []int64 `uriparametername:"system"`
+    // Filter the service accounts on the content administration group of a provisioned system, specified by id.
+    SystemContentAdministrators []int64 `uriparametername:"systemContentAdministrators"`
+    // Filter the service accounts on the owning group of a provisioned system, specified by id.
+    SystemOwners []int64 `uriparametername:"systemOwners"`
     // Filter the service accounts on groups that perform technical administration for them, specified by id. This parameter supports composition with all parameters from the group resource.
     TechnicalAdministrator []int64 `uriparametername:"technicalAdministrator"`
     // Filter service accounts on the exact username.
@@ -73,7 +88,10 @@ type ServiceaccountRequestBuilderGetRequestConfiguration struct {
 // ServiceaccountRequestBuilderPostQueryParameters creates one or more new service accounts and returns the newly created service accounts.
 type ServiceaccountRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // ServiceaccountRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ServiceaccountRequestBuilderPostRequestConfiguration struct {
@@ -85,11 +103,13 @@ type ServiceaccountRequestBuilderPostRequestConfiguration struct {
     QueryParameters *ServiceaccountRequestBuilderPostQueryParameters
 }
 // Auditstats the auditstats property
+// returns a *AuditstatsRequestBuilder when successful
 func (m *ServiceaccountRequestBuilder) Auditstats()(*AuditstatsRequestBuilder) {
     return NewAuditstatsRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByServiceaccountid gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithServiceaccountItemRequestBuilder when successful
 func (m *ServiceaccountRequestBuilder) ByServiceaccountid(serviceaccountid string)(*WithServiceaccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -101,6 +121,7 @@ func (m *ServiceaccountRequestBuilder) ByServiceaccountid(serviceaccountid strin
     return NewWithServiceaccountItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByServiceaccountidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.serviceaccount.item collection
+// returns a *WithServiceaccountItemRequestBuilder when successful
 func (m *ServiceaccountRequestBuilder) ByServiceaccountidInt64(serviceaccountid int64)(*WithServiceaccountItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -112,7 +133,7 @@ func (m *ServiceaccountRequestBuilder) ByServiceaccountidInt64(serviceaccountid 
 // NewServiceaccountRequestBuilderInternal instantiates a new ServiceaccountRequestBuilder and sets the default values.
 func NewServiceaccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ServiceaccountRequestBuilder) {
     m := &ServiceaccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/serviceaccount{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,active*,groupOnSystem*,groupOnSystemOwners*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,organizationalUnitForEnforcement*,password*,passwordRotation*,requestedGroupOnSystemOwners*,system*,technicalAdministrator*,username*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/serviceaccount{?active*,additional*,any*,createdAfter*,createdBefore*,exclude*,groupOnSystem*,groupOnSystemOwners*,id*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,organizationalUnitForEnforcement*,password*,passwordRotation*,q*,requestedGroupOnSystemOwners*,sort*,system*,systemContentAdministrators*,systemOwners*,technicalAdministrator*,username*,uuid*}", pathParameters),
     }
     return m
 }
@@ -123,18 +144,20 @@ func NewServiceaccountRequestBuilder(rawUrl string, requestAdapter i2ae4187f7dae
     return NewServiceaccountRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Export the export property
+// returns a *ExportRequestBuilder when successful
 func (m *ServiceaccountRequestBuilder) Export()(*ExportRequestBuilder) {
     return NewExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Get query for all service accounts in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a ServiceaccountServiceAccountLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ServiceaccountRequestBuilder) Get(ctx context.Context, requestConfiguration *ServiceaccountRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateServiceaccountServiceAccountLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -146,18 +169,20 @@ func (m *ServiceaccountRequestBuilder) Get(ctx context.Context, requestConfigura
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountLinkableWrapperable), nil
 }
 // Group the group property
+// returns a *GroupRequestBuilder when successful
 func (m *ServiceaccountRequestBuilder) Group()(*GroupRequestBuilder) {
     return NewGroupRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Post creates one or more new service accounts and returns the newly created service accounts.
+// returns a ServiceaccountServiceAccountLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ServiceaccountRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountLinkableWrapperable, requestConfiguration *ServiceaccountRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateServiceaccountServiceAccountLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -169,6 +194,7 @@ func (m *ServiceaccountRequestBuilder) Post(ctx context.Context, body ie2969523f
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountLinkableWrapperable), nil
 }
 // ToGetRequestInformation query for all service accounts in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *ServiceaccountRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ServiceaccountRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -182,8 +208,9 @@ func (m *ServiceaccountRequestBuilder) ToGetRequestInformation(ctx context.Conte
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new service accounts and returns the newly created service accounts.
+// returns a *RequestInformation when successful
 func (m *ServiceaccountRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ServiceaccountServiceAccountLinkableWrapperable, requestConfiguration *ServiceaccountRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/serviceaccount{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -199,6 +226,7 @@ func (m *ServiceaccountRequestBuilder) ToPostRequestInformation(ctx context.Cont
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *ServiceaccountRequestBuilder when successful
 func (m *ServiceaccountRequestBuilder) WithUrl(rawUrl string)(*ServiceaccountRequestBuilder) {
     return NewServiceaccountRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

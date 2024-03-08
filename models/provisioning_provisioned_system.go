@@ -5,7 +5,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningProvisionedSystem 
 type ProvisioningProvisionedSystem struct {
     ProvisioningProvisionedSystemPrimer
     // The accountCount property
@@ -33,7 +32,7 @@ type ProvisioningProvisionedSystem struct {
     // The usernamePrefix property
     usernamePrefix *string
 }
-// NewProvisioningProvisionedSystem instantiates a new provisioningProvisionedSystem and sets the default values.
+// NewProvisioningProvisionedSystem instantiates a new ProvisioningProvisionedSystem and sets the default values.
 func NewProvisioningProvisionedSystem()(*ProvisioningProvisionedSystem) {
     m := &ProvisioningProvisionedSystem{
         ProvisioningProvisionedSystemPrimer: *NewProvisioningProvisionedSystemPrimer(),
@@ -43,6 +42,7 @@ func NewProvisioningProvisionedSystem()(*ProvisioningProvisionedSystem) {
     return m
 }
 // CreateProvisioningProvisionedSystemFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningProvisionedSystemFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -83,22 +83,27 @@ func CreateProvisioningProvisionedSystemFromDiscriminatorValue(parseNode i878a80
     return NewProvisioningProvisionedSystem(), nil
 }
 // GetAccountCount gets the accountCount property value. The accountCount property
+// returns a *int32 when successful
 func (m *ProvisioningProvisionedSystem) GetAccountCount()(*int32) {
     return m.accountCount
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a ProvisioningProvisionedSystem_additionalObjectsable when successful
 func (m *ProvisioningProvisionedSystem) GetAdditionalObjects()(ProvisioningProvisionedSystem_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetContentAdministrator gets the contentAdministrator property value. The contentAdministrator property
+// returns a GroupGroupPrimerable when successful
 func (m *ProvisioningProvisionedSystem) GetContentAdministrator()(GroupGroupPrimerable) {
     return m.contentAdministrator
 }
 // GetExternalUuid gets the externalUuid property value. The externalUuid property
+// returns a *UUID when successful
 func (m *ProvisioningProvisionedSystem) GetExternalUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
     return m.externalUuid
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystemPrimer.GetFieldDeserializers()
     res["accountCount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -224,34 +229,42 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
     return res
 }
 // GetOwner gets the owner property value. The owner property
+// returns a GroupGroupPrimerable when successful
 func (m *ProvisioningProvisionedSystem) GetOwner()(GroupGroupPrimerable) {
     return m.owner
 }
 // GetSelfServiceExistingGroups gets the selfServiceExistingGroups property value. The selfServiceExistingGroups property
+// returns a *bool when successful
 func (m *ProvisioningProvisionedSystem) GetSelfServiceExistingGroups()(*bool) {
     return m.selfServiceExistingGroups
 }
 // GetSelfServiceNewGroups gets the selfServiceNewGroups property value. The selfServiceNewGroups property
+// returns a *bool when successful
 func (m *ProvisioningProvisionedSystem) GetSelfServiceNewGroups()(*bool) {
     return m.selfServiceNewGroups
 }
 // GetSelfServiceNewNamespaces gets the selfServiceNewNamespaces property value. The selfServiceNewNamespaces property
+// returns a *bool when successful
 func (m *ProvisioningProvisionedSystem) GetSelfServiceNewNamespaces()(*bool) {
     return m.selfServiceNewNamespaces
 }
 // GetSelfServiceServiceAccounts gets the selfServiceServiceAccounts property value. The selfServiceServiceAccounts property
+// returns a *bool when successful
 func (m *ProvisioningProvisionedSystem) GetSelfServiceServiceAccounts()(*bool) {
     return m.selfServiceServiceAccounts
 }
 // GetShouldDestroyUnknownAccounts gets the shouldDestroyUnknownAccounts property value. The shouldDestroyUnknownAccounts property
+// returns a *bool when successful
 func (m *ProvisioningProvisionedSystem) GetShouldDestroyUnknownAccounts()(*bool) {
     return m.shouldDestroyUnknownAccounts
 }
 // GetTechnicalAdministrator gets the technicalAdministrator property value. The technicalAdministrator property
+// returns a GroupGroupPrimerable when successful
 func (m *ProvisioningProvisionedSystem) GetTechnicalAdministrator()(GroupGroupPrimerable) {
     return m.technicalAdministrator
 }
 // GetUsernamePrefix gets the usernamePrefix property value. The usernamePrefix property
+// returns a *string when successful
 func (m *ProvisioningProvisionedSystem) GetUsernamePrefix()(*string) {
     return m.usernamePrefix
 }
@@ -371,7 +384,6 @@ func (m *ProvisioningProvisionedSystem) SetTechnicalAdministrator(value GroupGro
 func (m *ProvisioningProvisionedSystem) SetUsernamePrefix(value *string)() {
     m.usernamePrefix = value
 }
-// ProvisioningProvisionedSystemable 
 type ProvisioningProvisionedSystemable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemPrimerable

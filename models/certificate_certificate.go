@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// CertificateCertificate 
 type CertificateCertificate struct {
     CertificateCertificatePrimer
     // The additionalObjects property
@@ -12,7 +11,7 @@ type CertificateCertificate struct {
     // The keyData property
     keyData *string
 }
-// NewCertificateCertificate instantiates a new certificateCertificate and sets the default values.
+// NewCertificateCertificate instantiates a new CertificateCertificate and sets the default values.
 func NewCertificateCertificate()(*CertificateCertificate) {
     m := &CertificateCertificate{
         CertificateCertificatePrimer: *NewCertificateCertificatePrimer(),
@@ -22,14 +21,17 @@ func NewCertificateCertificate()(*CertificateCertificate) {
     return m
 }
 // CreateCertificateCertificateFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateCertificateCertificateFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewCertificateCertificate(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
+// returns a CertificateCertificate_additionalObjectsable when successful
 func (m *CertificateCertificate) GetAdditionalObjects()(CertificateCertificate_additionalObjectsable) {
     return m.additionalObjects
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *CertificateCertificate) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.CertificateCertificatePrimer.GetFieldDeserializers()
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -55,6 +57,7 @@ func (m *CertificateCertificate) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetKeyData gets the keyData property value. The keyData property
+// returns a *string when successful
 func (m *CertificateCertificate) GetKeyData()(*string) {
     return m.keyData
 }
@@ -86,7 +89,6 @@ func (m *CertificateCertificate) SetAdditionalObjects(value CertificateCertifica
 func (m *CertificateCertificate) SetKeyData(value *string)() {
     m.keyData = value
 }
-// CertificateCertificateable 
 type CertificateCertificateable interface {
     CertificateCertificatePrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

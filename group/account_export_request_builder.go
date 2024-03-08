@@ -17,28 +17,28 @@ type AccountExportRequestBuilderPostRequestConfiguration struct {
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
-// NewAccountExportRequestBuilderInternal instantiates a new ExportRequestBuilder and sets the default values.
+// NewAccountExportRequestBuilderInternal instantiates a new AccountExportRequestBuilder and sets the default values.
 func NewAccountExportRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccountExportRequestBuilder) {
     m := &AccountExportRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/account/export", pathParameters),
     }
     return m
 }
-// NewAccountExportRequestBuilder instantiates a new ExportRequestBuilder and sets the default values.
+// NewAccountExportRequestBuilder instantiates a new AccountExportRequestBuilder and sets the default values.
 func NewAccountExportRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccountExportRequestBuilder) {
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewAccountExportRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Post prepares an export of groupaccounts using the filtering on groups specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *AccountExportRequestBuilder) Post(ctx context.Context, requestConfiguration *AccountExportRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
@@ -47,6 +47,7 @@ func (m *AccountExportRequestBuilder) Post(ctx context.Context, requestConfigura
     return nil
 }
 // ToPostRequestInformation prepares an export of groupaccounts using the filtering on groups specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.
+// returns a *RequestInformation when successful
 func (m *AccountExportRequestBuilder) ToPostRequestInformation(ctx context.Context, requestConfiguration *AccountExportRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -57,6 +58,7 @@ func (m *AccountExportRequestBuilder) ToPostRequestInformation(ctx context.Conte
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *AccountExportRequestBuilder when successful
 func (m *AccountExportRequestBuilder) WithUrl(rawUrl string)(*AccountExportRequestBuilder) {
     return NewAccountExportRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

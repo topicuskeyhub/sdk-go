@@ -15,7 +15,10 @@ type ClientRequestBuilder struct {
 // ClientRequestBuilderGetQueryParameters query for all clients in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ClientRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Filter clients on the client ids.
@@ -52,6 +55,8 @@ type ClientRequestBuilderGetQueryParameters struct {
     Q []string `uriparametername:"q"`
     // Filter the clients by the secret shared in a vault, specified by id. This parameter supports composition with all parameters from the vault resource.
     SharedSecret []int64 `uriparametername:"sharedSecret"`
+    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+    Sort []string `uriparametername:"sort"`
     // Filter the clients for which the given group is technical administrator, specified by id. This parameter supports composition with all parameters from the group resource.
     TechnicalAdministrator []int64 `uriparametername:"technicalAdministrator"`
     // Only return clients of the given type(s).
@@ -81,7 +86,10 @@ type ClientRequestBuilderGetRequestConfiguration struct {
 // ClientRequestBuilderPostQueryParameters creates one or more new clients and returns the newly created clients.
 type ClientRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
+    // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
+    // Request additional information to be returned for every record.
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
 }
 // ClientRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ClientRequestBuilderPostRequestConfiguration struct {
@@ -94,6 +102,7 @@ type ClientRequestBuilderPostRequestConfiguration struct {
 }
 // ByClientid gets an item from the github.com/topicuskeyhub/sdk-go.client.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
+// returns a *WithClientItemRequestBuilder when successful
 func (m *ClientRequestBuilder) ByClientid(clientid string)(*WithClientItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -105,6 +114,7 @@ func (m *ClientRequestBuilder) ByClientid(clientid string)(*WithClientItemReques
     return NewWithClientItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByClientidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.client.item collection
+// returns a *WithClientItemRequestBuilder when successful
 func (m *ClientRequestBuilder) ByClientidInt64(clientid int64)(*WithClientItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
@@ -116,7 +126,7 @@ func (m *ClientRequestBuilder) ByClientidInt64(clientid int64)(*WithClientItemRe
 // NewClientRequestBuilderInternal instantiates a new ClientRequestBuilder and sets the default values.
 func NewClientRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ClientRequestBuilder) {
     m := &ClientRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,clientId*,expiredCertificate*,group*,isProvisionedInternalLDAP*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,ownedBy*,sharedSecret*,technicalAdministrator*,type*,useClientCredentials*,uuid*,vault*,withPermission*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client{?additional*,any*,clientId*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,group*,id*,isProvisionedInternalLDAP*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,ownedBy*,q*,sharedSecret*,sort*,technicalAdministrator*,type*,useClientCredentials*,uuid*,vault*,withPermission*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
     }
     return m
 }
@@ -127,14 +137,15 @@ func NewClientRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371c
     return NewClientRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get query for all clients in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a ClientClientApplicationLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ClientRequestBuilder) Get(ctx context.Context, requestConfiguration *ClientRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientClientApplicationLinkableWrapperable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateClientClientApplicationLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -146,18 +157,20 @@ func (m *ClientRequestBuilder) Get(ctx context.Context, requestConfiguration *Cl
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientClientApplicationLinkableWrapperable), nil
 }
 // Me the me property
+// returns a *MeRequestBuilder when successful
 func (m *ClientRequestBuilder) Me()(*MeRequestBuilder) {
     return NewMeRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Post creates one or more new clients and returns the newly created clients.
+// returns a ClientClientApplicationLinkableWrapperable when successful
+// returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ClientRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientClientApplicationLinkableWrapperable, requestConfiguration *ClientRequestBuilderPostRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientClientApplicationLinkableWrapperable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "4XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-        "5XX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
     res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateClientClientApplicationLinkableWrapperFromDiscriminatorValue, errorMapping)
     if err != nil {
@@ -169,6 +182,7 @@ func (m *ClientRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientClientApplicationLinkableWrapperable), nil
 }
 // ToGetRequestInformation query for all clients in Topicus KeyHub. The various query parameters can be used to filter the response.
+// returns a *RequestInformation when successful
 func (m *ClientRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ClientRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
@@ -182,8 +196,9 @@ func (m *ClientRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new clients and returns the newly created clients.
+// returns a *RequestInformation when successful
 func (m *ClientRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientClientApplicationLinkableWrapperable, requestConfiguration *ClientRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/client{?additional*}", m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -199,10 +214,12 @@ func (m *ClientRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
     return requestInfo, nil
 }
 // Vault the vault property
+// returns a *VaultRequestBuilder when successful
 func (m *ClientRequestBuilder) Vault()(*VaultRequestBuilder) {
     return NewVaultRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+// returns a *ClientRequestBuilder when successful
 func (m *ClientRequestBuilder) WithUrl(rawUrl string)(*ClientRequestBuilder) {
     return NewClientRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

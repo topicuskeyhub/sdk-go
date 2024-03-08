@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ClientClientApplicationPrimer 
 type ClientClientApplicationPrimer struct {
     Linkable
     // The type property
@@ -20,7 +19,7 @@ type ClientClientApplicationPrimer struct {
     // The uuid property
     uuid *string
 }
-// NewClientClientApplicationPrimer instantiates a new clientClientApplicationPrimer and sets the default values.
+// NewClientClientApplicationPrimer instantiates a new ClientClientApplicationPrimer and sets the default values.
 func NewClientClientApplicationPrimer()(*ClientClientApplicationPrimer) {
     m := &ClientClientApplicationPrimer{
         Linkable: *NewLinkable(),
@@ -30,6 +29,7 @@ func NewClientClientApplicationPrimer()(*ClientClientApplicationPrimer) {
     return m
 }
 // CreateClientClientApplicationPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateClientClientApplicationPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -58,14 +58,17 @@ func CreateClientClientApplicationPrimerFromDiscriminatorValue(parseNode i878a80
     return NewClientClientApplicationPrimer(), nil
 }
 // GetClientClientApplicationPrimerType gets the type property value. The type property
+// returns a *ClientClientApplicationType when successful
 func (m *ClientClientApplicationPrimer) GetClientClientApplicationPrimerType()(*ClientClientApplicationType) {
     return m.clientClientApplicationPrimerType
 }
 // GetClientId gets the clientId property value. The clientId property
+// returns a *string when successful
 func (m *ClientClientApplicationPrimer) GetClientId()(*string) {
     return m.clientId
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientClientApplicationPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["type"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -137,18 +140,22 @@ func (m *ClientClientApplicationPrimer) GetFieldDeserializers()(map[string]func(
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *ClientClientApplicationPrimer) GetName()(*string) {
     return m.name
 }
 // GetScopes gets the scopes property value. The scopes property
+// returns a []string when successful
 func (m *ClientClientApplicationPrimer) GetScopes()([]string) {
     return m.scopes
 }
 // GetSsoApplication gets the ssoApplication property value. The ssoApplication property
+// returns a *bool when successful
 func (m *ClientClientApplicationPrimer) GetSsoApplication()(*bool) {
     return m.ssoApplication
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *ClientClientApplicationPrimer) GetUuid()(*string) {
     return m.uuid
 }
@@ -209,7 +216,6 @@ func (m *ClientClientApplicationPrimer) SetSsoApplication(value *bool)() {
 func (m *ClientClientApplicationPrimer) SetUuid(value *string)() {
     m.uuid = value
 }
-// ClientClientApplicationPrimerable 
 type ClientClientApplicationPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

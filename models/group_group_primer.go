@@ -4,7 +4,6 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// GroupGroupPrimer 
 type GroupGroupPrimer struct {
     Linkable
     // The admin property
@@ -16,7 +15,7 @@ type GroupGroupPrimer struct {
     // The uuid property
     uuid *string
 }
-// NewGroupGroupPrimer instantiates a new groupGroupPrimer and sets the default values.
+// NewGroupGroupPrimer instantiates a new GroupGroupPrimer and sets the default values.
 func NewGroupGroupPrimer()(*GroupGroupPrimer) {
     m := &GroupGroupPrimer{
         Linkable: *NewLinkable(),
@@ -26,6 +25,7 @@ func NewGroupGroupPrimer()(*GroupGroupPrimer) {
     return m
 }
 // CreateGroupGroupPrimerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateGroupGroupPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     if parseNode != nil {
         mappingValueNode, err := parseNode.GetChildNode("$type")
@@ -50,10 +50,12 @@ func CreateGroupGroupPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d2689
     return NewGroupGroupPrimer(), nil
 }
 // GetAdmin gets the admin property value. The admin property
+// returns a *bool when successful
 func (m *GroupGroupPrimer) GetAdmin()(*bool) {
     return m.admin
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["admin"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -99,14 +101,17 @@ func (m *GroupGroupPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e
     return res
 }
 // GetName gets the name property value. The name property
+// returns a *string when successful
 func (m *GroupGroupPrimer) GetName()(*string) {
     return m.name
 }
 // GetOrganizationalUnit gets the organizationalUnit property value. The organizationalUnit property
+// returns a OrganizationOrganizationalUnitPrimerable when successful
 func (m *GroupGroupPrimer) GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable) {
     return m.organizationalUnit
 }
 // GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
 func (m *GroupGroupPrimer) GetUuid()(*string) {
     return m.uuid
 }
@@ -146,7 +151,6 @@ func (m *GroupGroupPrimer) SetOrganizationalUnit(value OrganizationOrganizationa
 func (m *GroupGroupPrimer) SetUuid(value *string)() {
     m.uuid = value
 }
-// GroupGroupPrimerable 
 type GroupGroupPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable

@@ -4,13 +4,12 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-// ProvisioningOwnedGroupOnSystemsWrapper 
 type ProvisioningOwnedGroupOnSystemsWrapper struct {
     ProvisioningGroupOnSystemLinkableWrapper
     // The unlinkedCount property
     unlinkedCount *int64
 }
-// NewProvisioningOwnedGroupOnSystemsWrapper instantiates a new provisioningOwnedGroupOnSystemsWrapper and sets the default values.
+// NewProvisioningOwnedGroupOnSystemsWrapper instantiates a new ProvisioningOwnedGroupOnSystemsWrapper and sets the default values.
 func NewProvisioningOwnedGroupOnSystemsWrapper()(*ProvisioningOwnedGroupOnSystemsWrapper) {
     m := &ProvisioningOwnedGroupOnSystemsWrapper{
         ProvisioningGroupOnSystemLinkableWrapper: *NewProvisioningGroupOnSystemLinkableWrapper(),
@@ -18,10 +17,12 @@ func NewProvisioningOwnedGroupOnSystemsWrapper()(*ProvisioningOwnedGroupOnSystem
     return m
 }
 // CreateProvisioningOwnedGroupOnSystemsWrapperFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// returns a Parsable when successful
 func CreateProvisioningOwnedGroupOnSystemsWrapperFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningOwnedGroupOnSystemsWrapper(), nil
 }
 // GetFieldDeserializers the deserialization information for the current model
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningOwnedGroupOnSystemsWrapper) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningGroupOnSystemLinkableWrapper.GetFieldDeserializers()
     res["unlinkedCount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -37,6 +38,7 @@ func (m *ProvisioningOwnedGroupOnSystemsWrapper) GetFieldDeserializers()(map[str
     return res
 }
 // GetUnlinkedCount gets the unlinkedCount property value. The unlinkedCount property
+// returns a *int64 when successful
 func (m *ProvisioningOwnedGroupOnSystemsWrapper) GetUnlinkedCount()(*int64) {
     return m.unlinkedCount
 }
@@ -52,7 +54,6 @@ func (m *ProvisioningOwnedGroupOnSystemsWrapper) Serialize(writer i878a80d2330e8
 func (m *ProvisioningOwnedGroupOnSystemsWrapper) SetUnlinkedCount(value *int64)() {
     m.unlinkedCount = value
 }
-// ProvisioningOwnedGroupOnSystemsWrapperable 
 type ProvisioningOwnedGroupOnSystemsWrapperable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningGroupOnSystemLinkableWrapperable
