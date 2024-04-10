@@ -42,11 +42,9 @@ func (p *KeyHubAccessTokenProvider) GetAuthorizationToken(ctx context.Context, u
 	if err != nil {
 		return "", err
 	}
-	if p.vaultSession == "" {
-		vault := token.Extra("vaultSession")
-		if vault != nil {
-			p.vaultSession = fmt.Sprintf("%v", vault)
-		}
+	vault := token.Extra("vaultSession")
+	if vault != nil {
+		p.vaultSession = fmt.Sprintf("%v", vault)
 	}
 	return token.AccessToken, nil
 }
