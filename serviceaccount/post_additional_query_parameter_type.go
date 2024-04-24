@@ -8,10 +8,11 @@ const (
     AUDIT_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
     GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
     SECRET_POSTADDITIONALQUERYPARAMETERTYPE
+    SUPPORTEDFEATURES_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"audit", "groups", "secret"}[i]
+    return []string{"audit", "groups", "secret", "supportedFeatures"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
@@ -22,6 +23,8 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
             result = GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
         case "secret":
             result = SECRET_POSTADDITIONALQUERYPARAMETERTYPE
+        case "supportedFeatures":
+            result = SUPPORTEDFEATURES_POSTADDITIONALQUERYPARAMETERTYPE
         default:
             return 0, errors.New("Unknown PostAdditionalQueryParameterType value: " + v)
     }

@@ -13,6 +13,8 @@ type AuditAuditRecord struct {
     auditAuditRecordType *AuditAuditRecordType
     // The dateTime property
     dateTime *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    // The onAccessProfile property
+    onAccessProfile *string
     // The onAccount property
     onAccount *string
     // The onCertificate property
@@ -108,6 +110,16 @@ func (m *AuditAuditRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e
         }
         if val != nil {
             m.SetDateTime(val)
+        }
+        return nil
+    }
+    res["onAccessProfile"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOnAccessProfile(val)
         }
         return nil
     }
@@ -283,6 +295,11 @@ func (m *AuditAuditRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e
     }
     return res
 }
+// GetOnAccessProfile gets the onAccessProfile property value. The onAccessProfile property
+// returns a *string when successful
+func (m *AuditAuditRecord) GetOnAccessProfile()(*string) {
+    return m.onAccessProfile
+}
 // GetOnAccount gets the onAccount property value. The onAccount property
 // returns a *string when successful
 func (m *AuditAuditRecord) GetOnAccount()(*string) {
@@ -408,6 +425,10 @@ func (m *AuditAuditRecord) SetAuditAuditRecordType(value *AuditAuditRecordType)(
 func (m *AuditAuditRecord) SetDateTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.dateTime = value
 }
+// SetOnAccessProfile sets the onAccessProfile property value. The onAccessProfile property
+func (m *AuditAuditRecord) SetOnAccessProfile(value *string)() {
+    m.onAccessProfile = value
+}
 // SetOnAccount sets the onAccount property value. The onAccount property
 func (m *AuditAuditRecord) SetOnAccount(value *string)() {
     m.onAccount = value
@@ -482,6 +503,7 @@ type AuditAuditRecordable interface {
     GetAdditionalObjects()(AuditAuditRecord_additionalObjectsable)
     GetAuditAuditRecordType()(*AuditAuditRecordType)
     GetDateTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
+    GetOnAccessProfile()(*string)
     GetOnAccount()(*string)
     GetOnCertificate()(*string)
     GetOnClient()(*string)
@@ -502,6 +524,7 @@ type AuditAuditRecordable interface {
     SetAdditionalObjects(value AuditAuditRecord_additionalObjectsable)()
     SetAuditAuditRecordType(value *AuditAuditRecordType)()
     SetDateTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
+    SetOnAccessProfile(value *string)()
     SetOnAccount(value *string)()
     SetOnCertificate(value *string)()
     SetOnClient(value *string)()

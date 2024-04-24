@@ -7,10 +7,11 @@ type PutAdditionalQueryParameterType int
 const (
     AUDIT_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
     CREATEASPARENTOF_PUTADDITIONALQUERYPARAMETERTYPE
+    SETTINGS_PUTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"audit", "createAsParentOf"}[i]
+    return []string{"audit", "createAsParentOf", "settings"}[i]
 }
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
@@ -19,6 +20,8 @@ func ParsePutAdditionalQueryParameterType(v string) (any, error) {
             result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
         case "createAsParentOf":
             result = CREATEASPARENTOF_PUTADDITIONALQUERYPARAMETERTYPE
+        case "settings":
+            result = SETTINGS_PUTADDITIONALQUERYPARAMETERTYPE
         default:
             return 0, errors.New("Unknown PutAdditionalQueryParameterType value: " + v)
     }

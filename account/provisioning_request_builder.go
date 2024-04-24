@@ -10,9 +10,10 @@ import (
 type ProvisioningRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ProvisioningRequestBuilderGetQueryParameters returns the status of provisioning for the current user. The groups are filtered by the specified filter.
+// ProvisioningRequestBuilderGetQueryParameters returns the status of provisioning for the current user. The groups are filtered by the specified filter or group UUID.
 type ProvisioningRequestBuilderGetQueryParameters struct {
     Filter *string `uriparametername:"filter"`
+    GroupUuid *string `uriparametername:"groupUuid"`
 }
 // ProvisioningRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioningRequestBuilderGetRequestConfiguration struct {
@@ -39,7 +40,7 @@ type ProvisioningRequestBuilderPutRequestConfiguration struct {
 // NewProvisioningRequestBuilderInternal instantiates a new ProvisioningRequestBuilder and sets the default values.
 func NewProvisioningRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProvisioningRequestBuilder) {
     m := &ProvisioningRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/provisioning{?filter*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/provisioning{?filter*,groupUuid*}", pathParameters),
     }
     return m
 }
@@ -49,7 +50,7 @@ func NewProvisioningRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee2
     urlParams["request-raw-url"] = rawUrl
     return NewProvisioningRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Get returns the status of provisioning for the current user. The groups are filtered by the specified filter.
+// Get returns the status of provisioning for the current user. The groups are filtered by the specified filter or group UUID.
 // returns a ProvisioningProvisioningStatusable when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ProvisioningRequestBuilder) Get(ctx context.Context, requestConfiguration *ProvisioningRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisioningStatusable, error) {
@@ -94,7 +95,7 @@ func (m *ProvisioningRequestBuilder) Put(ctx context.Context, body ie2969523f41a
 func (m *ProvisioningRequestBuilder) Rotatepwd()(*ProvisioningRotatepwdRequestBuilder) {
     return NewProvisioningRotatepwdRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// ToGetRequestInformation returns the status of provisioning for the current user. The groups are filtered by the specified filter.
+// ToGetRequestInformation returns the status of provisioning for the current user. The groups are filtered by the specified filter or group UUID.
 // returns a *RequestInformation when successful
 func (m *ProvisioningRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ProvisioningRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
@@ -105,7 +106,7 @@ func (m *ProvisioningRequestBuilder) ToGetRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
     return requestInfo, nil
 }
 // Tokenpwd the tokenpwd property
@@ -124,8 +125,8 @@ func (m *ProvisioningRequestBuilder) ToPutRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=69", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=70", body)
     if err != nil {
         return nil, err
     }

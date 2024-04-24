@@ -7,10 +7,11 @@ type GetAdditionalQueryParameterType int
 const (
     AUDIT_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
     CREATEASPARENTOF_GETADDITIONALQUERYPARAMETERTYPE
+    SETTINGS_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"audit", "createAsParentOf"}[i]
+    return []string{"audit", "createAsParentOf", "settings"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_GETADDITIONALQUERYPARAMETERTYPE
@@ -19,6 +20,8 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
         case "createAsParentOf":
             result = CREATEASPARENTOF_GETADDITIONALQUERYPARAMETERTYPE
+        case "settings":
+            result = SETTINGS_GETADDITIONALQUERYPARAMETERTYPE
         default:
             return 0, errors.New("Unknown GetAdditionalQueryParameterType value: " + v)
     }

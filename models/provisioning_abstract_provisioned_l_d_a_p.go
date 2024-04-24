@@ -30,8 +30,8 @@ type ProvisioningAbstractProvisionedLDAP struct {
     port *int32
     // The serviceAccountDN property
     serviceAccountDN *string
-    // The sshPublicKeySupported property
-    sshPublicKeySupported *bool
+    // The sshPublicKeySupport property
+    sshPublicKeySupport *ProvisioningLDAPSshPublicKeySupport
     // The tls property
     tls *TLSLevel
     // The trustedCertificate property
@@ -232,13 +232,13 @@ func (m *ProvisioningAbstractProvisionedLDAP) GetFieldDeserializers()(map[string
         }
         return nil
     }
-    res["sshPublicKeySupported"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
+    res["sshPublicKeySupport"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetEnumValue(ParseProvisioningLDAPSshPublicKeySupport)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetSshPublicKeySupported(val)
+            m.SetSshPublicKeySupport(val.(*ProvisioningLDAPSshPublicKeySupport))
         }
         return nil
     }
@@ -299,10 +299,10 @@ func (m *ProvisioningAbstractProvisionedLDAP) GetPort()(*int32) {
 func (m *ProvisioningAbstractProvisionedLDAP) GetServiceAccountDN()(*string) {
     return m.serviceAccountDN
 }
-// GetSshPublicKeySupported gets the sshPublicKeySupported property value. The sshPublicKeySupported property
-// returns a *bool when successful
-func (m *ProvisioningAbstractProvisionedLDAP) GetSshPublicKeySupported()(*bool) {
-    return m.sshPublicKeySupported
+// GetSshPublicKeySupport gets the sshPublicKeySupport property value. The sshPublicKeySupport property
+// returns a *ProvisioningLDAPSshPublicKeySupport when successful
+func (m *ProvisioningAbstractProvisionedLDAP) GetSshPublicKeySupport()(*ProvisioningLDAPSshPublicKeySupport) {
+    return m.sshPublicKeySupport
 }
 // GetTls gets the tls property value. The tls property
 // returns a *TLSLevel when successful
@@ -397,8 +397,9 @@ func (m *ProvisioningAbstractProvisionedLDAP) Serialize(writer i878a80d2330e89d2
             return err
         }
     }
-    {
-        err = writer.WriteBoolValue("sshPublicKeySupported", m.GetSshPublicKeySupported())
+    if m.GetSshPublicKeySupport() != nil {
+        cast := (*m.GetSshPublicKeySupport()).String()
+        err = writer.WriteStringValue("sshPublicKeySupport", &cast)
         if err != nil {
             return err
         }
@@ -472,9 +473,9 @@ func (m *ProvisioningAbstractProvisionedLDAP) SetPort(value *int32)() {
 func (m *ProvisioningAbstractProvisionedLDAP) SetServiceAccountDN(value *string)() {
     m.serviceAccountDN = value
 }
-// SetSshPublicKeySupported sets the sshPublicKeySupported property value. The sshPublicKeySupported property
-func (m *ProvisioningAbstractProvisionedLDAP) SetSshPublicKeySupported(value *bool)() {
-    m.sshPublicKeySupported = value
+// SetSshPublicKeySupport sets the sshPublicKeySupport property value. The sshPublicKeySupport property
+func (m *ProvisioningAbstractProvisionedLDAP) SetSshPublicKeySupport(value *ProvisioningLDAPSshPublicKeySupport)() {
+    m.sshPublicKeySupport = value
 }
 // SetTls sets the tls property value. The tls property
 func (m *ProvisioningAbstractProvisionedLDAP) SetTls(value *TLSLevel)() {
@@ -503,7 +504,7 @@ type ProvisioningAbstractProvisionedLDAPable interface {
     GetObjectClasses()(*string)
     GetPort()(*int32)
     GetServiceAccountDN()(*string)
-    GetSshPublicKeySupported()(*bool)
+    GetSshPublicKeySupport()(*ProvisioningLDAPSshPublicKeySupport)
     GetTls()(*TLSLevel)
     GetTrustedCertificate()(CertificateCertificatePrimerable)
     GetUserDN()(*string)
@@ -519,7 +520,7 @@ type ProvisioningAbstractProvisionedLDAPable interface {
     SetObjectClasses(value *string)()
     SetPort(value *int32)()
     SetServiceAccountDN(value *string)()
-    SetSshPublicKeySupported(value *bool)()
+    SetSshPublicKeySupport(value *ProvisioningLDAPSshPublicKeySupport)()
     SetTls(value *TLSLevel)()
     SetTrustedCertificate(value CertificateCertificatePrimerable)()
     SetUserDN(value *string)()

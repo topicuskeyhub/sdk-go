@@ -49,6 +49,8 @@ type ProvisioninggroupRequestBuilderGetQueryParameters struct {
     SystemAdminGroup []int64 `uriparametername:"systemAdminGroup"`
     // Only return provisioning groups for which one of the given groups is content administrator for its group on system, specified by id. This parameter supports composition with all parameters from the groups resource.
     SystemContentAdminGroup []int64 `uriparametername:"systemContentAdminGroup"`
+    // Only return provisioning groups for which one of the given groups is the owner of its provisioned system, specified by id. This parameter supports composition with all parameters from the groups resource.
+    SystemOwnerGroup []int64 `uriparametername:"systemOwnerGroup"`
 }
 // ProvisioninggroupRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioninggroupRequestBuilderGetRequestConfiguration struct {
@@ -85,7 +87,7 @@ func (m *ProvisioninggroupRequestBuilder) ByProvisioninggroupidInt64(provisionin
 // NewProvisioninggroupRequestBuilderInternal instantiates a new ProvisioninggroupRequestBuilder and sets the default values.
 func NewProvisioninggroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProvisioninggroupRequestBuilder) {
     m := &ProvisioninggroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/provisioninggroup{?activationRequired*,additional*,any*,createdAfter*,createdBefore*,exclude*,group*,groupOnSystem*,groupOnSystemOwnerGroup*,id*,modifiedSince*,q*,sort*,system*,systemAdminGroup*,systemContentAdminGroup*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/provisioninggroup{?activationRequired*,additional*,any*,createdAfter*,createdBefore*,exclude*,group*,groupOnSystem*,groupOnSystemOwnerGroup*,id*,modifiedSince*,q*,sort*,system*,systemAdminGroup*,systemContentAdminGroup*,systemOwnerGroup*}", pathParameters),
     }
     return m
 }
@@ -126,7 +128,7 @@ func (m *ProvisioninggroupRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

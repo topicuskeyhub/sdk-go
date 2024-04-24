@@ -5,6 +5,8 @@ import (
 )
 
 type VaultVaultRecord_additionalObjects struct {
+    // The activationStatus property
+    activationStatus VaultVaultActivationStatusable
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The audit property
@@ -38,6 +40,11 @@ func NewVaultVaultRecord_additionalObjects()(*VaultVaultRecord_additionalObjects
 func CreateVaultVaultRecord_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewVaultVaultRecord_additionalObjects(), nil
 }
+// GetActivationStatus gets the activationStatus property value. The activationStatus property
+// returns a VaultVaultActivationStatusable when successful
+func (m *VaultVaultRecord_additionalObjects) GetActivationStatus()(VaultVaultActivationStatusable) {
+    return m.activationStatus
+}
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 // returns a map[string]any when successful
 func (m *VaultVaultRecord_additionalObjects) GetAdditionalData()(map[string]any) {
@@ -57,6 +64,16 @@ func (m *VaultVaultRecord_additionalObjects) GetDeleteTile()(*bool) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *VaultVaultRecord_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
+    res["activationStatus"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateVaultVaultActivationStatusFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetActivationStatus(val.(VaultVaultActivationStatusable))
+        }
+        return nil
+    }
     res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateAuditInfoFromDiscriminatorValue)
         if err != nil {
@@ -187,6 +204,12 @@ func (m *VaultVaultRecord_additionalObjects) GetVaultholder()(VaultVaultHolderab
 // Serialize serializes information the current object
 func (m *VaultVaultRecord_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     {
+        err := writer.WriteObjectValue("activationStatus", m.GetActivationStatus())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteObjectValue("audit", m.GetAudit())
         if err != nil {
             return err
@@ -248,6 +271,10 @@ func (m *VaultVaultRecord_additionalObjects) Serialize(writer i878a80d2330e89d26
     }
     return nil
 }
+// SetActivationStatus sets the activationStatus property value. The activationStatus property
+func (m *VaultVaultRecord_additionalObjects) SetActivationStatus(value VaultVaultActivationStatusable)() {
+    m.activationStatus = value
+}
 // SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *VaultVaultRecord_additionalObjects) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
@@ -291,6 +318,7 @@ func (m *VaultVaultRecord_additionalObjects) SetVaultholder(value VaultVaultHold
 type VaultVaultRecord_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetActivationStatus()(VaultVaultActivationStatusable)
     GetAudit()(AuditInfoable)
     GetDeleteTile()(*bool)
     GetParent()(VaultVaultRecordPrimerable)
@@ -300,6 +328,7 @@ type VaultVaultRecord_additionalObjectsable interface {
     GetShareSummary()(VaultVaultRecordShareSummaryable)
     GetTile()(LaunchpadVaultRecordLaunchpadTileable)
     GetVaultholder()(VaultVaultHolderable)
+    SetActivationStatus(value VaultVaultActivationStatusable)()
     SetAudit(value AuditInfoable)()
     SetDeleteTile(value *bool)()
     SetParent(value VaultVaultRecordPrimerable)()

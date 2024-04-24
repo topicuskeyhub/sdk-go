@@ -156,7 +156,7 @@ func (m *ItemAccountRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
     return requestInfo, nil
 }
 // ToPostRequestInformation adds one or more accounts to the organizational unit and returns the newly created memberships.
@@ -170,8 +170,8 @@ func (m *ItemAccountRequestBuilder) ToPostRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=69", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=70", body)
     if err != nil {
         return nil, err
     }

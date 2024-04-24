@@ -8,8 +8,10 @@ type RequestModificationRequestReportChangeDetails struct {
     NonLinkable
     // The change property
     change *RequestModificationRequestReportChange
-    // The objectNames property
-    objectNames []string
+    // The objectName property
+    objectName *string
+    // The subjectName property
+    subjectName *string
 }
 // NewRequestModificationRequestReportChangeDetails instantiates a new RequestModificationRequestReportChangeDetails and sets the default values.
 func NewRequestModificationRequestReportChangeDetails()(*RequestModificationRequestReportChangeDetails) {
@@ -44,28 +46,37 @@ func (m *RequestModificationRequestReportChangeDetails) GetFieldDeserializers()(
         }
         return nil
     }
-    res["objectNames"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfPrimitiveValues("string")
+    res["objectName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
         if err != nil {
             return err
         }
         if val != nil {
-            res := make([]string, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = *(v.(*string))
-                }
-            }
-            m.SetObjectNames(res)
+            m.SetObjectName(val)
+        }
+        return nil
+    }
+    res["subjectName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetSubjectName(val)
         }
         return nil
     }
     return res
 }
-// GetObjectNames gets the objectNames property value. The objectNames property
-// returns a []string when successful
-func (m *RequestModificationRequestReportChangeDetails) GetObjectNames()([]string) {
-    return m.objectNames
+// GetObjectName gets the objectName property value. The objectName property
+// returns a *string when successful
+func (m *RequestModificationRequestReportChangeDetails) GetObjectName()(*string) {
+    return m.objectName
+}
+// GetSubjectName gets the subjectName property value. The subjectName property
+// returns a *string when successful
+func (m *RequestModificationRequestReportChangeDetails) GetSubjectName()(*string) {
+    return m.subjectName
 }
 // Serialize serializes information the current object
 func (m *RequestModificationRequestReportChangeDetails) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -80,8 +91,14 @@ func (m *RequestModificationRequestReportChangeDetails) Serialize(writer i878a80
             return err
         }
     }
-    if m.GetObjectNames() != nil {
-        err = writer.WriteCollectionOfStringValues("objectNames", m.GetObjectNames())
+    {
+        err = writer.WriteStringValue("objectName", m.GetObjectName())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteStringValue("subjectName", m.GetSubjectName())
         if err != nil {
             return err
         }
@@ -92,15 +109,21 @@ func (m *RequestModificationRequestReportChangeDetails) Serialize(writer i878a80
 func (m *RequestModificationRequestReportChangeDetails) SetChange(value *RequestModificationRequestReportChange)() {
     m.change = value
 }
-// SetObjectNames sets the objectNames property value. The objectNames property
-func (m *RequestModificationRequestReportChangeDetails) SetObjectNames(value []string)() {
-    m.objectNames = value
+// SetObjectName sets the objectName property value. The objectName property
+func (m *RequestModificationRequestReportChangeDetails) SetObjectName(value *string)() {
+    m.objectName = value
+}
+// SetSubjectName sets the subjectName property value. The subjectName property
+func (m *RequestModificationRequestReportChangeDetails) SetSubjectName(value *string)() {
+    m.subjectName = value
 }
 type RequestModificationRequestReportChangeDetailsable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetChange()(*RequestModificationRequestReportChange)
-    GetObjectNames()([]string)
+    GetObjectName()(*string)
+    GetSubjectName()(*string)
     SetChange(value *RequestModificationRequestReportChange)()
-    SetObjectNames(value []string)()
+    SetObjectName(value *string)()
+    SetSubjectName(value *string)()
 }

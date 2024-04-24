@@ -11,6 +11,8 @@ type ProvisioningProvisionedSystem struct {
     accountCount *int32
     // The additionalObjects property
     additionalObjects ProvisioningProvisionedSystem_additionalObjectsable
+    // The cleanupPeriod property
+    cleanupPeriod ProvisioningProvisionedSystem_cleanupPeriodable
     // The contentAdministrator property
     contentAdministrator GroupGroupPrimerable
     // The externalUuid property
@@ -92,6 +94,11 @@ func (m *ProvisioningProvisionedSystem) GetAccountCount()(*int32) {
 func (m *ProvisioningProvisionedSystem) GetAdditionalObjects()(ProvisioningProvisionedSystem_additionalObjectsable) {
     return m.additionalObjects
 }
+// GetCleanupPeriod gets the cleanupPeriod property value. The cleanupPeriod property
+// returns a ProvisioningProvisionedSystem_cleanupPeriodable when successful
+func (m *ProvisioningProvisionedSystem) GetCleanupPeriod()(ProvisioningProvisionedSystem_cleanupPeriodable) {
+    return m.cleanupPeriod
+}
 // GetContentAdministrator gets the contentAdministrator property value. The contentAdministrator property
 // returns a GroupGroupPrimerable when successful
 func (m *ProvisioningProvisionedSystem) GetContentAdministrator()(GroupGroupPrimerable) {
@@ -123,6 +130,16 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
         }
         if val != nil {
             m.SetAdditionalObjects(val.(ProvisioningProvisionedSystem_additionalObjectsable))
+        }
+        return nil
+    }
+    res["cleanupPeriod"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProvisioningProvisionedSystem_cleanupPeriodFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetCleanupPeriod(val.(ProvisioningProvisionedSystem_cleanupPeriodable))
         }
         return nil
     }
@@ -281,6 +298,12 @@ func (m *ProvisioningProvisionedSystem) Serialize(writer i878a80d2330e89d2689638
         }
     }
     {
+        err = writer.WriteObjectValue("cleanupPeriod", m.GetCleanupPeriod())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("contentAdministrator", m.GetContentAdministrator())
         if err != nil {
             return err
@@ -344,6 +367,10 @@ func (m *ProvisioningProvisionedSystem) SetAccountCount(value *int32)() {
 func (m *ProvisioningProvisionedSystem) SetAdditionalObjects(value ProvisioningProvisionedSystem_additionalObjectsable)() {
     m.additionalObjects = value
 }
+// SetCleanupPeriod sets the cleanupPeriod property value. The cleanupPeriod property
+func (m *ProvisioningProvisionedSystem) SetCleanupPeriod(value ProvisioningProvisionedSystem_cleanupPeriodable)() {
+    m.cleanupPeriod = value
+}
 // SetContentAdministrator sets the contentAdministrator property value. The contentAdministrator property
 func (m *ProvisioningProvisionedSystem) SetContentAdministrator(value GroupGroupPrimerable)() {
     m.contentAdministrator = value
@@ -389,6 +416,7 @@ type ProvisioningProvisionedSystemable interface {
     ProvisioningProvisionedSystemPrimerable
     GetAccountCount()(*int32)
     GetAdditionalObjects()(ProvisioningProvisionedSystem_additionalObjectsable)
+    GetCleanupPeriod()(ProvisioningProvisionedSystem_cleanupPeriodable)
     GetContentAdministrator()(GroupGroupPrimerable)
     GetExternalUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
     GetOwner()(GroupGroupPrimerable)
@@ -401,6 +429,7 @@ type ProvisioningProvisionedSystemable interface {
     GetUsernamePrefix()(*string)
     SetAccountCount(value *int32)()
     SetAdditionalObjects(value ProvisioningProvisionedSystem_additionalObjectsable)()
+    SetCleanupPeriod(value ProvisioningProvisionedSystem_cleanupPeriodable)()
     SetContentAdministrator(value GroupGroupPrimerable)()
     SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
     SetOwner(value GroupGroupPrimerable)()

@@ -7,6 +7,8 @@ import (
 
 type WebhookWebhookPush struct {
     NonLinkable
+    // The accessProfile property
+    accessProfile WebhookWebhookNameUuidable
     // The account property
     account WebhookWebhookNameUuidable
     // The byParty property
@@ -64,6 +66,11 @@ func NewWebhookWebhookPush()(*WebhookWebhookPush) {
 func CreateWebhookWebhookPushFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewWebhookWebhookPush(), nil
 }
+// GetAccessProfile gets the accessProfile property value. The accessProfile property
+// returns a WebhookWebhookNameUuidable when successful
+func (m *WebhookWebhookPush) GetAccessProfile()(WebhookWebhookNameUuidable) {
+    return m.accessProfile
+}
 // GetAccount gets the account property value. The account property
 // returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetAccount()(WebhookWebhookNameUuidable) {
@@ -93,6 +100,16 @@ func (m *WebhookWebhookPush) GetDirectory()(WebhookWebhookNameUuidable) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *WebhookWebhookPush) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
+    res["accessProfile"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAccessProfile(val.(WebhookWebhookNameUuidable))
+        }
+        return nil
+    }
     res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
         if err != nil {
@@ -392,6 +409,12 @@ func (m *WebhookWebhookPush) Serialize(writer i878a80d2330e89d26896388a3f487eef2
         return err
     }
     {
+        err = writer.WriteObjectValue("accessProfile", m.GetAccessProfile())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("account", m.GetAccount())
         if err != nil {
             return err
@@ -521,6 +544,10 @@ func (m *WebhookWebhookPush) Serialize(writer i878a80d2330e89d26896388a3f487eef2
     }
     return nil
 }
+// SetAccessProfile sets the accessProfile property value. The accessProfile property
+func (m *WebhookWebhookPush) SetAccessProfile(value WebhookWebhookNameUuidable)() {
+    m.accessProfile = value
+}
 // SetAccount sets the account property value. The account property
 func (m *WebhookWebhookPush) SetAccount(value WebhookWebhookNameUuidable)() {
     m.account = value
@@ -608,6 +635,7 @@ func (m *WebhookWebhookPush) SetWebhookWebhookPushType(value *AuditAuditRecordTy
 type WebhookWebhookPushable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAccessProfile()(WebhookWebhookNameUuidable)
     GetAccount()(WebhookWebhookNameUuidable)
     GetByParty()(WebhookWebhookNameUuidable)
     GetCertificate()(WebhookWebhookNameUuidable)
@@ -629,6 +657,7 @@ type WebhookWebhookPushable interface {
     GetVaultRecord()(WebhookWebhookNameUuidable)
     GetWebhook()(WebhookWebhookNameUuidable)
     GetWebhookWebhookPushType()(*AuditAuditRecordType)
+    SetAccessProfile(value WebhookWebhookNameUuidable)()
     SetAccount(value WebhookWebhookNameUuidable)()
     SetByParty(value WebhookWebhookNameUuidable)()
     SetCertificate(value WebhookWebhookNameUuidable)()

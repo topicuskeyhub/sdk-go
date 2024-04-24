@@ -13,10 +13,12 @@ const (
     COMPLIANCE_PLUS_LICENSELICENSEFEATURE
     OFFLINE_MODE_LICENSELICENSEFEATURE
     SERVICE_ACCOUNTS_LICENSELICENSEFEATURE
+    ILM_LICENSELICENSEFEATURE
+    SCIM_LICENSELICENSEFEATURE
 )
 
 func (i LicenseLicenseFeature) String() string {
-    return []string{"CLUSTER_HA", "CLUSTER_HA_ENTERPRISE", "WORKFLOWS", "NESTED_GROUPS", "ENTERPRISE_ORGANISATION", "COMPLIANCE_PLUS", "OFFLINE_MODE", "SERVICE_ACCOUNTS"}[i]
+    return []string{"CLUSTER_HA", "CLUSTER_HA_ENTERPRISE", "WORKFLOWS", "NESTED_GROUPS", "ENTERPRISE_ORGANISATION", "COMPLIANCE_PLUS", "OFFLINE_MODE", "SERVICE_ACCOUNTS", "ILM", "SCIM"}[i]
 }
 func ParseLicenseLicenseFeature(v string) (any, error) {
     result := CLUSTER_HA_LICENSELICENSEFEATURE
@@ -37,6 +39,10 @@ func ParseLicenseLicenseFeature(v string) (any, error) {
             result = OFFLINE_MODE_LICENSELICENSEFEATURE
         case "SERVICE_ACCOUNTS":
             result = SERVICE_ACCOUNTS_LICENSELICENSEFEATURE
+        case "ILM":
+            result = ILM_LICENSELICENSEFEATURE
+        case "SCIM":
+            result = SCIM_LICENSELICENSEFEATURE
         default:
             return 0, errors.New("Unknown LicenseLicenseFeature value: " + v)
     }

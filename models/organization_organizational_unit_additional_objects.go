@@ -11,6 +11,8 @@ type OrganizationOrganizationalUnit_additionalObjects struct {
     audit AuditInfoable
     // The createAsParentOf property
     createAsParentOf OrganizationOrganizationalUnitPrimerLinkableWrapperable
+    // The settings property
+    settings OrganizationOrganizationalUnitSettingsable
 }
 // NewOrganizationOrganizationalUnit_additionalObjects instantiates a new OrganizationOrganizationalUnit_additionalObjects and sets the default values.
 func NewOrganizationOrganizationalUnit_additionalObjects()(*OrganizationOrganizationalUnit_additionalObjects) {
@@ -63,7 +65,22 @@ func (m *OrganizationOrganizationalUnit_additionalObjects) GetFieldDeserializers
         }
         return nil
     }
+    res["settings"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnitSettingsFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetSettings(val.(OrganizationOrganizationalUnitSettingsable))
+        }
+        return nil
+    }
     return res
+}
+// GetSettings gets the settings property value. The settings property
+// returns a OrganizationOrganizationalUnitSettingsable when successful
+func (m *OrganizationOrganizationalUnit_additionalObjects) GetSettings()(OrganizationOrganizationalUnitSettingsable) {
+    return m.settings
 }
 // Serialize serializes information the current object
 func (m *OrganizationOrganizationalUnit_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -75,6 +92,12 @@ func (m *OrganizationOrganizationalUnit_additionalObjects) Serialize(writer i878
     }
     {
         err := writer.WriteObjectValue("createAsParentOf", m.GetCreateAsParentOf())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("settings", m.GetSettings())
         if err != nil {
             return err
         }
@@ -99,11 +122,17 @@ func (m *OrganizationOrganizationalUnit_additionalObjects) SetAudit(value AuditI
 func (m *OrganizationOrganizationalUnit_additionalObjects) SetCreateAsParentOf(value OrganizationOrganizationalUnitPrimerLinkableWrapperable)() {
     m.createAsParentOf = value
 }
+// SetSettings sets the settings property value. The settings property
+func (m *OrganizationOrganizationalUnit_additionalObjects) SetSettings(value OrganizationOrganizationalUnitSettingsable)() {
+    m.settings = value
+}
 type OrganizationOrganizationalUnit_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAudit()(AuditInfoable)
     GetCreateAsParentOf()(OrganizationOrganizationalUnitPrimerLinkableWrapperable)
+    GetSettings()(OrganizationOrganizationalUnitSettingsable)
     SetAudit(value AuditInfoable)()
     SetCreateAsParentOf(value OrganizationOrganizationalUnitPrimerLinkableWrapperable)()
+    SetSettings(value OrganizationOrganizationalUnitSettingsable)()
 }

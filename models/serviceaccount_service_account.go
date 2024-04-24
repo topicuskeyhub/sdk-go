@@ -14,6 +14,8 @@ type ServiceaccountServiceAccount struct {
     password VaultVaultRecordPrimerable
     // The passwordRotation property
     passwordRotation *ServiceaccountPasswordRotationScheme
+    // The sshPublicKey property
+    sshPublicKey *string
     // The technicalAdministrator property
     technicalAdministrator GroupGroupPrimerable
 }
@@ -85,6 +87,16 @@ func (m *ServiceaccountServiceAccount) GetFieldDeserializers()(map[string]func(i
         }
         return nil
     }
+    res["sshPublicKey"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetSshPublicKey(val)
+        }
+        return nil
+    }
     res["technicalAdministrator"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
         if err != nil {
@@ -106,6 +118,11 @@ func (m *ServiceaccountServiceAccount) GetPassword()(VaultVaultRecordPrimerable)
 // returns a *ServiceaccountPasswordRotationScheme when successful
 func (m *ServiceaccountServiceAccount) GetPasswordRotation()(*ServiceaccountPasswordRotationScheme) {
     return m.passwordRotation
+}
+// GetSshPublicKey gets the sshPublicKey property value. The sshPublicKey property
+// returns a *string when successful
+func (m *ServiceaccountServiceAccount) GetSshPublicKey()(*string) {
+    return m.sshPublicKey
 }
 // GetTechnicalAdministrator gets the technicalAdministrator property value. The technicalAdministrator property
 // returns a GroupGroupPrimerable when successful
@@ -144,6 +161,12 @@ func (m *ServiceaccountServiceAccount) Serialize(writer i878a80d2330e89d26896388
         }
     }
     {
+        err = writer.WriteStringValue("sshPublicKey", m.GetSshPublicKey())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("technicalAdministrator", m.GetTechnicalAdministrator())
         if err != nil {
             return err
@@ -167,6 +190,10 @@ func (m *ServiceaccountServiceAccount) SetPassword(value VaultVaultRecordPrimera
 func (m *ServiceaccountServiceAccount) SetPasswordRotation(value *ServiceaccountPasswordRotationScheme)() {
     m.passwordRotation = value
 }
+// SetSshPublicKey sets the sshPublicKey property value. The sshPublicKey property
+func (m *ServiceaccountServiceAccount) SetSshPublicKey(value *string)() {
+    m.sshPublicKey = value
+}
 // SetTechnicalAdministrator sets the technicalAdministrator property value. The technicalAdministrator property
 func (m *ServiceaccountServiceAccount) SetTechnicalAdministrator(value GroupGroupPrimerable)() {
     m.technicalAdministrator = value
@@ -178,10 +205,12 @@ type ServiceaccountServiceAccountable interface {
     GetDescription()(*string)
     GetPassword()(VaultVaultRecordPrimerable)
     GetPasswordRotation()(*ServiceaccountPasswordRotationScheme)
+    GetSshPublicKey()(*string)
     GetTechnicalAdministrator()(GroupGroupPrimerable)
     SetAdditionalObjects(value ServiceaccountServiceAccount_additionalObjectsable)()
     SetDescription(value *string)()
     SetPassword(value VaultVaultRecordPrimerable)()
     SetPasswordRotation(value *ServiceaccountPasswordRotationScheme)()
+    SetSshPublicKey(value *string)()
     SetTechnicalAdministrator(value GroupGroupPrimerable)()
 }

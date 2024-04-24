@@ -7,6 +7,7 @@ import (
     i29b864faf50a3a1afdf661366bb4234f149662638d0e3841e35acccd9352cf20 "github.com/topicuskeyhub/sdk-go/provisioninggroup"
     i3786de14b5891e0b6237ed5a04286048bb7ccab8227911414f7bb8f1e165a7c0 "github.com/topicuskeyhub/sdk-go/groupclassification"
     i385775f507ab02e04cf3e40e8696ee406fb1371e877539b6dfbde0c8e4b123b2 "github.com/topicuskeyhub/sdk-go/launchpadtile"
+    i3e244f19958aced6afc8c02a477435c3f0af5f60044658105a73a312fcf20b03 "github.com/topicuskeyhub/sdk-go/profile"
     i43af1840a4616958e60c4cbee17a55c9c7345f03d798c4b93f71ba6ea8a8fed7 "github.com/topicuskeyhub/sdk-go/groupfolder"
     i4e9df38273eb83f44b000e660fb1ceeb2fdcb7939eb1e594bf0e1c6dd130c8e2 "github.com/topicuskeyhub/sdk-go/request"
     i4f6f8a97ade4bcd9f00e48fb22660ba2cb3b474e860f677cfc37ab0f9b6d8370 "github.com/topicuskeyhub/sdk-go/groupclient"
@@ -118,6 +119,11 @@ func (m *KeyHubClient) Numberseq()(*i98ee0f07cd6158c2879ae08ef6a731b5a05b3610b77
 // returns a *OrganizationalunitRequestBuilder when successful
 func (m *KeyHubClient) Organizationalunit()(*ifb310ad74101a00ed1acdc17b384ce2e8964f5a38f9d9302b22aaaa28ff4d3e4.OrganizationalunitRequestBuilder) {
     return ifb310ad74101a00ed1acdc17b384ce2e8964f5a38f9d9302b22aaaa28ff4d3e4.NewOrganizationalunitRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Profile the profile property
+// returns a *ProfileRequestBuilder when successful
+func (m *KeyHubClient) Profile()(*i3e244f19958aced6afc8c02a477435c3f0af5f60044658105a73a312fcf20b03.ProfileRequestBuilder) {
+    return i3e244f19958aced6afc8c02a477435c3f0af5f60044658105a73a312fcf20b03.NewProfileRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Provisioninggroup the provisioninggroup property
 // returns a *ProvisioninggroupRequestBuilder when successful

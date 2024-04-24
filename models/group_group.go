@@ -38,6 +38,8 @@ type GroupGroup struct {
     nestedUnder GroupGroupPrimerable
     // The privateGroup property
     privateGroup *bool
+    // The profileAdministration property
+    profileAdministration *bool
     // The recordTrail property
     recordTrail *bool
     // The rotatingPasswordRequired property
@@ -298,6 +300,16 @@ func (m *GroupGroup) GetFieldDeserializers()(map[string]func(i878a80d2330e89d268
         }
         return nil
     }
+    res["profileAdministration"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetProfileAdministration(val)
+        }
+        return nil
+    }
     res["recordTrail"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -364,6 +376,11 @@ func (m *GroupGroup) GetNestedUnder()(GroupGroupPrimerable) {
 // returns a *bool when successful
 func (m *GroupGroup) GetPrivateGroup()(*bool) {
     return m.privateGroup
+}
+// GetProfileAdministration gets the profileAdministration property value. The profileAdministration property
+// returns a *bool when successful
+func (m *GroupGroup) GetProfileAdministration()(*bool) {
+    return m.profileAdministration
 }
 // GetRecordTrail gets the recordTrail property value. The recordTrail property
 // returns a *bool when successful
@@ -476,6 +493,12 @@ func (m *GroupGroup) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c
         }
     }
     {
+        err = writer.WriteBoolValue("profileAdministration", m.GetProfileAdministration())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteBoolValue("recordTrail", m.GetRecordTrail())
         if err != nil {
             return err
@@ -572,6 +595,10 @@ func (m *GroupGroup) SetNestedUnder(value GroupGroupPrimerable)() {
 func (m *GroupGroup) SetPrivateGroup(value *bool)() {
     m.privateGroup = value
 }
+// SetProfileAdministration sets the profileAdministration property value. The profileAdministration property
+func (m *GroupGroup) SetProfileAdministration(value *bool)() {
+    m.profileAdministration = value
+}
 // SetRecordTrail sets the recordTrail property value. The recordTrail property
 func (m *GroupGroup) SetRecordTrail(value *bool)() {
     m.recordTrail = value
@@ -611,6 +638,7 @@ type GroupGroupable interface {
     GetHideAuditTrail()(*bool)
     GetNestedUnder()(GroupGroupPrimerable)
     GetPrivateGroup()(*bool)
+    GetProfileAdministration()(*bool)
     GetRecordTrail()(*bool)
     GetRotatingPasswordRequired()(*bool)
     GetSingleManaged()(*bool)
@@ -632,6 +660,7 @@ type GroupGroupable interface {
     SetHideAuditTrail(value *bool)()
     SetNestedUnder(value GroupGroupPrimerable)()
     SetPrivateGroup(value *bool)()
+    SetProfileAdministration(value *bool)()
     SetRecordTrail(value *bool)()
     SetRotatingPasswordRequired(value *bool)()
     SetSingleManaged(value *bool)()

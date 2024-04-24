@@ -122,6 +122,10 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewOrganizationOrganizationalUnitAccount(), nil
                     case "organization.OrganizationalUnitPrimer":
                         return NewOrganizationOrganizationalUnitPrimer(), nil
+                    case "profile.AccessProfile":
+                        return NewProfileAccessProfile(), nil
+                    case "profile.AccessProfilePrimer":
+                        return NewProfileAccessProfilePrimer(), nil
                     case "provisioning.AbstractProvisionedLDAP":
                         return NewProvisioningAbstractProvisionedLDAP(), nil
                     case "provisioning.GroupOnSystem":
@@ -174,6 +178,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestCreateServiceAccountRequest(), nil
                     case "request.Disable2FARequest":
                         return NewRequestDisable2FARequest(), nil
+                    case "request.EnableProfileAdministrationRequest":
+                        return NewRequestEnableProfileAdministrationRequest(), nil
                     case "request.EnableTechnicalAdministrationRequest":
                         return NewRequestEnableTechnicalAdministrationRequest(), nil
                     case "request.ExtendAccessRequest":
@@ -214,6 +220,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestSetupAuthorizingGroupRequest(), nil
                     case "request.SetupNestedGroupRequest":
                         return NewRequestSetupNestedGroupRequest(), nil
+                    case "request.TransferAccessProfileOwnershipRequest":
+                        return NewRequestTransferAccessProfileOwnershipRequest(), nil
                     case "request.TransferApplicationAdministrationRequest":
                         return NewRequestTransferApplicationAdministrationRequest(), nil
                     case "request.TransferApplicationOwnershipRequest":

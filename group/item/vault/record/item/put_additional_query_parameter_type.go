@@ -5,7 +5,8 @@ import (
 type PutAdditionalQueryParameterType int
 
 const (
-    AUDIT_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
+    ACTIVATIONSTATUS_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
+    AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
     DELETETILE_PUTADDITIONALQUERYPARAMETERTYPE
     PARENT_PUTADDITIONALQUERYPARAMETERTYPE
     PASSWORDMETADATA_PUTADDITIONALQUERYPARAMETERTYPE
@@ -17,11 +18,13 @@ const (
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"audit", "deleteTile", "parent", "passwordMetadata", "secret", "shareSummary", "shares", "tile", "vaultholder"}[i]
+    return []string{"activationStatus", "audit", "deleteTile", "parent", "passwordMetadata", "secret", "shareSummary", "shares", "tile", "vaultholder"}[i]
 }
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+    result := ACTIVATIONSTATUS_PUTADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "activationStatus":
+            result = ACTIVATIONSTATUS_PUTADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
         case "deleteTile":

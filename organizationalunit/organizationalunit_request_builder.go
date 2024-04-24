@@ -29,8 +29,12 @@ type OrganizationalunitRequestBuilderGetQueryParameters struct {
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
     CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    // Filter the organizational units for which the given group is create group approve group, specified by id. This parameter supports composition with all parameters from the group resource.
+    CreateGroupApproveGroup []int64 `uriparametername:"createGroupApproveGroup"`
     // Only return the organizational units that are equal to or a descendant of the given unit(s), specified by id.
     DescendantOfOrEqualTo []int64 `uriparametername:"descendantOfOrEqualTo"`
+    // Filter the organizational units for which the given group is enable tech admin approve group, specified by id. This parameter supports composition with all parameters from the group resource.
+    EnableTechAdminApproveGroup []int64 `uriparametername:"enableTechAdminApproveGroup"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
     // Filter the results on the given ids.
@@ -47,6 +51,8 @@ type OrganizationalunitRequestBuilderGetQueryParameters struct {
     Parent []int64 `uriparametername:"parent"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
+    // Filter the organizational units for which the given group is remove group approve group, specified by id. This parameter supports composition with all parameters from the group resource.
+    RemoveGroupApproveGroup []int64 `uriparametername:"removeGroupApproveGroup"`
     // Only return organizational units that are or are not the root of the organizational tree.
     Root []bool `uriparametername:"root"`
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
@@ -106,7 +112,7 @@ func (m *OrganizationalunitRequestBuilder) ByOrganizationalunitidInt64(organizat
 // NewOrganizationalunitRequestBuilderInternal instantiates a new OrganizationalunitRequestBuilder and sets the default values.
 func NewOrganizationalunitRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*OrganizationalunitRequestBuilder) {
     m := &OrganizationalunitRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit{?additional*,ancestorOfOrEqualTo*,any*,connectedToAccount*,createdAfter*,createdBefore*,descendantOfOrEqualTo*,exclude*,id*,modifiedSince*,name*,nameContains*,ownedBy*,parent*,q*,root*,sort*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit{?additional*,ancestorOfOrEqualTo*,any*,connectedToAccount*,createGroupApproveGroup*,createdAfter*,createdBefore*,descendantOfOrEqualTo*,enableTechAdminApproveGroup*,exclude*,id*,modifiedSince*,name*,nameContains*,ownedBy*,parent*,q*,removeGroupApproveGroup*,root*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -167,7 +173,7 @@ func (m *OrganizationalunitRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new organizational units and returns the newly created units.
@@ -181,8 +187,8 @@ func (m *OrganizationalunitRequestBuilder) ToPostRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=69")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=69", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=70", body)
     if err != nil {
         return nil, err
     }

@@ -108,6 +108,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewNotificationUpdateAvailableNotification(), nil
                     case "notification.VaultRecordExpiredNotification":
                         return NewNotificationVaultRecordExpiredNotification(), nil
+                    case "organization.OrganizationalUnitSettings":
+                        return NewOrganizationOrganizationalUnitSettings(), nil
                     case "provisioning.AccountProvisioningStatus":
                         return NewProvisioningAccountProvisioningStatus(), nil
                     case "provisioning.AccountProvisioningStatusReport":
@@ -148,6 +150,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewServiceaccountServiceAccountsAuditStats(), nil
                     case "serviceaccount.ServiceAccountStatus":
                         return NewServiceaccountServiceAccountStatus(), nil
+                    case "serviceaccount.ServiceAccountSupportedFeatures":
+                        return NewServiceaccountServiceAccountSupportedFeatures(), nil
                     case "simple.StringValue":
                         return NewSimpleStringValue(), nil
                     case "simple.VersionInfo":
@@ -158,6 +162,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewVaultMoveVaultRecord(), nil
                     case "vault.PasswordMetadata":
                         return NewVaultPasswordMetadata(), nil
+                    case "vault.VaultActivationStatus":
+                        return NewVaultVaultActivationStatus(), nil
                     case "vault.VaultRecordSecrets":
                         return NewVaultVaultRecordSecrets(), nil
                     case "vault.VaultRecordShare":

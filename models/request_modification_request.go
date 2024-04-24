@@ -65,6 +65,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestCreateServiceAccountRequest(), nil
                     case "request.Disable2FARequest":
                         return NewRequestDisable2FARequest(), nil
+                    case "request.EnableProfileAdministrationRequest":
+                        return NewRequestEnableProfileAdministrationRequest(), nil
                     case "request.EnableTechnicalAdministrationRequest":
                         return NewRequestEnableTechnicalAdministrationRequest(), nil
                     case "request.ExtendAccessRequest":
@@ -103,6 +105,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestSetupAuthorizingGroupRequest(), nil
                     case "request.SetupNestedGroupRequest":
                         return NewRequestSetupNestedGroupRequest(), nil
+                    case "request.TransferAccessProfileOwnershipRequest":
+                        return NewRequestTransferAccessProfileOwnershipRequest(), nil
                     case "request.TransferApplicationAdministrationRequest":
                         return NewRequestTransferApplicationAdministrationRequest(), nil
                     case "request.TransferApplicationOwnershipRequest":

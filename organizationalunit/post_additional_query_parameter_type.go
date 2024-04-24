@@ -7,10 +7,11 @@ type PostAdditionalQueryParameterType int
 const (
     AUDIT_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
     CREATEASPARENTOF_POSTADDITIONALQUERYPARAMETERTYPE
+    SETTINGS_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"audit", "createAsParentOf"}[i]
+    return []string{"audit", "createAsParentOf", "settings"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
@@ -19,6 +20,8 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
             result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
         case "createAsParentOf":
             result = CREATEASPARENTOF_POSTADDITIONALQUERYPARAMETERTYPE
+        case "settings":
+            result = SETTINGS_POSTADDITIONALQUERYPARAMETERTYPE
         default:
             return 0, errors.New("Unknown PostAdditionalQueryParameterType value: " + v)
     }

@@ -13,6 +13,8 @@ type ServiceaccountServiceAccount_additionalObjects struct {
     groups ServiceaccountServiceAccountGroupLinkableWrapperable
     // The secret property
     secret GeneratedSecretable
+    // The supportedFeatures property
+    supportedFeatures ServiceaccountServiceAccountSupportedFeaturesable
 }
 // NewServiceaccountServiceAccount_additionalObjects instantiates a new ServiceaccountServiceAccount_additionalObjects and sets the default values.
 func NewServiceaccountServiceAccount_additionalObjects()(*ServiceaccountServiceAccount_additionalObjects) {
@@ -70,6 +72,16 @@ func (m *ServiceaccountServiceAccount_additionalObjects) GetFieldDeserializers()
         }
         return nil
     }
+    res["supportedFeatures"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateServiceaccountServiceAccountSupportedFeaturesFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetSupportedFeatures(val.(ServiceaccountServiceAccountSupportedFeaturesable))
+        }
+        return nil
+    }
     return res
 }
 // GetGroups gets the groups property value. The groups property
@@ -81,6 +93,11 @@ func (m *ServiceaccountServiceAccount_additionalObjects) GetGroups()(Serviceacco
 // returns a GeneratedSecretable when successful
 func (m *ServiceaccountServiceAccount_additionalObjects) GetSecret()(GeneratedSecretable) {
     return m.secret
+}
+// GetSupportedFeatures gets the supportedFeatures property value. The supportedFeatures property
+// returns a ServiceaccountServiceAccountSupportedFeaturesable when successful
+func (m *ServiceaccountServiceAccount_additionalObjects) GetSupportedFeatures()(ServiceaccountServiceAccountSupportedFeaturesable) {
+    return m.supportedFeatures
 }
 // Serialize serializes information the current object
 func (m *ServiceaccountServiceAccount_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -98,6 +115,12 @@ func (m *ServiceaccountServiceAccount_additionalObjects) Serialize(writer i878a8
     }
     {
         err := writer.WriteObjectValue("secret", m.GetSecret())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("supportedFeatures", m.GetSupportedFeatures())
         if err != nil {
             return err
         }
@@ -126,13 +149,19 @@ func (m *ServiceaccountServiceAccount_additionalObjects) SetGroups(value Service
 func (m *ServiceaccountServiceAccount_additionalObjects) SetSecret(value GeneratedSecretable)() {
     m.secret = value
 }
+// SetSupportedFeatures sets the supportedFeatures property value. The supportedFeatures property
+func (m *ServiceaccountServiceAccount_additionalObjects) SetSupportedFeatures(value ServiceaccountServiceAccountSupportedFeaturesable)() {
+    m.supportedFeatures = value
+}
 type ServiceaccountServiceAccount_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAudit()(AuditInfoable)
     GetGroups()(ServiceaccountServiceAccountGroupLinkableWrapperable)
     GetSecret()(GeneratedSecretable)
+    GetSupportedFeatures()(ServiceaccountServiceAccountSupportedFeaturesable)
     SetAudit(value AuditInfoable)()
     SetGroups(value ServiceaccountServiceAccountGroupLinkableWrapperable)()
     SetSecret(value GeneratedSecretable)()
+    SetSupportedFeatures(value ServiceaccountServiceAccountSupportedFeaturesable)()
 }

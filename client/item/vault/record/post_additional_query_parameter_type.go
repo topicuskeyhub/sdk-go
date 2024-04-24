@@ -5,7 +5,8 @@ import (
 type PostAdditionalQueryParameterType int
 
 const (
-    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+    ACTIVATIONSTATUS_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
     DELETETILE_POSTADDITIONALQUERYPARAMETERTYPE
     PARENT_POSTADDITIONALQUERYPARAMETERTYPE
     PASSWORDMETADATA_POSTADDITIONALQUERYPARAMETERTYPE
@@ -17,11 +18,13 @@ const (
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"audit", "deleteTile", "parent", "passwordMetadata", "secret", "shareSummary", "shares", "tile", "vaultholder"}[i]
+    return []string{"activationStatus", "audit", "deleteTile", "parent", "passwordMetadata", "secret", "shareSummary", "shares", "tile", "vaultholder"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+    result := ACTIVATIONSTATUS_POSTADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "activationStatus":
+            result = ACTIVATIONSTATUS_POSTADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
         case "deleteTile":
