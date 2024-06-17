@@ -2,9 +2,9 @@
 
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/topicuskeyhub/sdk-go/)](https://pkg.go.dev/github.com/topicuskeyhub/sdk-go/)
 
-> **Note:** The version number of the SDK must match the version of your Topicus KeyHub installation. An older version of the SDK might work on a newer version of Topicus KeyHub via the provided backwards compatibility layer, but a newer of the SDK will not work on an older version of Topicus KeyHub.
+> **Note:** The version number of the SDK must match the version of your Topicus KeyHub installation. An older version of the SDK might work on a newer version of Topicus KeyHub via the provided backwards compatibility layer, but a newer version of the SDK will not work on an older version of Topicus KeyHub.
 >
-> **Note:** The GO SDK is current considered in alpha status. It's API might change in future version, it is largely untested and at the moment only supports the client credentials grant.
+> **Note:** The GO SDK is current considered in alpha status. Its API might change in future versions, it is largely untested and at the moment only supports the client credentials grant.
 
 ## 1. Installation
 
