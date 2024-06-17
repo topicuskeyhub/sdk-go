@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuditAuditRequiredSourceType int
 
 const (
@@ -23,7 +20,7 @@ func ParseAuditAuditRequiredSourceType(v string) (any, error) {
         case "REQUESTED":
             result = REQUESTED_AUDITAUDITREQUIREDSOURCETYPE
         default:
-            return 0, errors.New("Unknown AuditAuditRequiredSourceType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

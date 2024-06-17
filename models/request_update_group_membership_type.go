@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type RequestUpdateGroupMembershipType int
 
 const (
@@ -23,7 +20,7 @@ func ParseRequestUpdateGroupMembershipType(v string) (any, error) {
         case "REMOVE":
             result = REMOVE_REQUESTUPDATEGROUPMEMBERSHIPTYPE
         default:
-            return 0, errors.New("Unknown RequestUpdateGroupMembershipType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

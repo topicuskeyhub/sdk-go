@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuthAccountLicenseRole int
 
 const (
@@ -20,7 +17,7 @@ func ParseAuthAccountLicenseRole(v string) (any, error) {
         case "PRO":
             result = PRO_AUTHACCOUNTLICENSEROLE
         default:
-            return 0, errors.New("Unknown AuthAccountLicenseRole value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

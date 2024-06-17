@@ -82,6 +82,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewDirectoryMaintenanceDirectory(), nil
                     case "directory.OIDCDirectory":
                         return NewDirectoryOIDCDirectory(), nil
+                    case "directory.PendingAccountsDirectory":
+                        return NewDirectoryPendingAccountsDirectory(), nil
                     case "group.AccountGroup":
                         return NewGroupAccountGroup(), nil
                     case "group.Group":
@@ -124,6 +126,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewOrganizationOrganizationalUnitPrimer(), nil
                     case "profile.AccessProfile":
                         return NewProfileAccessProfile(), nil
+                    case "profile.AccessProfileAccount":
+                        return NewProfileAccessProfileAccount(), nil
                     case "profile.AccessProfilePrimer":
                         return NewProfileAccessProfilePrimer(), nil
                     case "provisioning.AbstractProvisionedLDAP":
@@ -226,8 +230,6 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestTransferApplicationAdministrationRequest(), nil
                     case "request.TransferApplicationOwnershipRequest":
                         return NewRequestTransferApplicationOwnershipRequest(), nil
-                    case "request.TransferAuditorGroupRequest":
-                        return NewRequestTransferAuditorGroupRequest(), nil
                     case "request.TransferGroupOnSystemOwnershipRequest":
                         return NewRequestTransferGroupOnSystemOwnershipRequest(), nil
                     case "request.TransferOrganizationalUnitOwnershipRequest":

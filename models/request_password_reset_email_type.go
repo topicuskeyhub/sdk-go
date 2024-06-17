@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type RequestPasswordResetEmailType int
 
 const (
@@ -23,7 +20,7 @@ func ParseRequestPasswordResetEmailType(v string) (any, error) {
         case "EXTERNAL":
             result = EXTERNAL_REQUESTPASSWORDRESETEMAILTYPE
         default:
-            return 0, errors.New("Unknown RequestPasswordResetEmailType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

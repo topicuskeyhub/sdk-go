@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type DirectoryDirectoryRotatingPassword int
 
 const (
@@ -23,7 +20,7 @@ func ParseDirectoryDirectoryRotatingPassword(v string) (any, error) {
         case "ALWAYS_ON":
             result = ALWAYS_ON_DIRECTORYDIRECTORYROTATINGPASSWORD
         default:
-            return 0, errors.New("Unknown DirectoryDirectoryRotatingPassword value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

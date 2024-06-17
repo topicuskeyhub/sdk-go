@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ClientClientApplicationType int
 
 const (
@@ -23,7 +20,7 @@ func ParseClientClientApplicationType(v string) (any, error) {
         case "LDAP":
             result = LDAP_CLIENTCLIENTAPPLICATIONTYPE
         default:
-            return 0, errors.New("Unknown ClientClientApplicationType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

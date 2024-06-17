@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type VaultVaultHolderType int
 
 const (
@@ -23,7 +20,7 @@ func ParseVaultVaultHolderType(v string) (any, error) {
         case "GROUP":
             result = GROUP_VAULTVAULTHOLDERTYPE
         default:
-            return 0, errors.New("Unknown VaultVaultHolderType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

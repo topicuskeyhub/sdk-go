@@ -6,7 +6,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemVaultRandomRequestBuilder builds and executes requests for operations under \deletedvaultholder\{deletedvaultholderid-id}\vault\random
+// ItemVaultRandomRequestBuilder builds and executes requests for operations under \deletedvaultholder\{deletedvaultholder-id}\vault\random
 type ItemVaultRandomRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -26,7 +26,7 @@ type ItemVaultRandomRequestBuilderGetRequestConfiguration struct {
 // NewItemVaultRandomRequestBuilderInternal instantiates a new ItemVaultRandomRequestBuilder and sets the default values.
 func NewItemVaultRandomRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRandomRequestBuilder) {
     m := &ItemVaultRandomRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/deletedvaultholder/{deletedvaultholderid%2Did}/vault/random{?length*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/deletedvaultholder/{deletedvaultholder%2Did}/vault/random{?length*}", pathParameters),
     }
     return m
 }
@@ -67,7 +67,7 @@ func (m *ItemVaultRandomRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type RequestModificationRequestReportChange int
 
 const (
@@ -32,7 +29,7 @@ func ParseRequestModificationRequestReportChange(v string) (any, error) {
         case "SERVICE_ACCOUNT_GROUP_REMOVED_OWNER":
             result = SERVICE_ACCOUNT_GROUP_REMOVED_OWNER_REQUESTMODIFICATIONREQUESTREPORTCHANGE
         default:
-            return 0, errors.New("Unknown RequestModificationRequestReportChange value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

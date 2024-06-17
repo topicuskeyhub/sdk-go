@@ -12,6 +12,8 @@ func NewNotificationNotification()(*NotificationNotification) {
     m := &NotificationNotification{
         NonLinkable: *NewNonLinkable(),
     }
+    typeEscapedValue := "notification.Notification"
+    m.SetTypeEscaped(&typeEscapedValue)
     return m
 }
 // CreateNotificationNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value

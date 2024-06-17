@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type GroupGroupExtendedAccess int
 
 const (
@@ -26,7 +23,7 @@ func ParseGroupGroupExtendedAccess(v string) (any, error) {
         case "TWO_WEEKS_NO_CONFIRM":
             result = TWO_WEEKS_NO_CONFIRM_GROUPGROUPEXTENDEDACCESS
         default:
-            return 0, errors.New("Unknown GroupGroupExtendedAccess value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

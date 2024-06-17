@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type GroupGroupAuditingStatus int
 
 const (
@@ -23,7 +20,7 @@ func ParseGroupGroupAuditingStatus(v string) (any, error) {
         case "OVERDUE":
             result = OVERDUE_GROUPGROUPAUDITINGSTATUS
         default:
-            return 0, errors.New("Unknown GroupGroupAuditingStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

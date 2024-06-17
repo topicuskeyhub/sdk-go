@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuditAuditAccountAction int
 
 const (
@@ -29,7 +26,7 @@ func ParseAuditAuditAccountAction(v string) (any, error) {
         case "CONNECT_NESTED":
             result = CONNECT_NESTED_AUDITAUDITACCOUNTACTION
         default:
-            return 0, errors.New("Unknown AuditAuditAccountAction value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

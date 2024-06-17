@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuditGroupAuditStatus int
 
 const (
@@ -26,7 +23,7 @@ func ParseAuditGroupAuditStatus(v string) (any, error) {
         case "FINAL":
             result = FINAL_AUDITGROUPAUDITSTATUS
         default:
-            return 0, errors.New("Unknown AuditGroupAuditStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

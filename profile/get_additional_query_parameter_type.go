@@ -1,23 +1,23 @@
 package profile
-import (
-    "errors"
-)
 type GetAdditionalQueryParameterType int
 
 const (
-    AUDIT_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    AUDIT_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"audit"}[i]
+    return []string{"accounts", "audit"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+    result := ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "accounts":
+            result = ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
         default:
-            return 0, errors.New("Unknown GetAdditionalQueryParameterType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -14,6 +14,8 @@ type AccountRequestBuilder struct {
 }
 // AccountRequestBuilderGetQueryParameters query for all accounts in Topicus KeyHub. This will query over all directories and return both active and inactive accounts. The various query parameters can be used to filter the response.
 type AccountRequestBuilderGetQueryParameters struct {
+    // Filter the accounts by membership of access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
+    AccessProfile []int64 `uriparametername:"accessProfile"`
     // Only return accounts with the given activation code(s).
     ActivationCode []string `uriparametername:"activationCode"`
     // Only return accounts that have an activation deadline that expires at or after the given instant.
@@ -45,6 +47,8 @@ type AccountRequestBuilderGetQueryParameters struct {
     Email []string `uriparametername:"email"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
+    // Filter the accounts by their registered external ids. This parameter supports composition with all parameters from the 'external id' resource.
+    ExternalId []int64 `uriparametername:"externalId"`
     // Filter the accounts by membership of groups, specified by id. This parameter supports composition with all parameters from the group resource.
     Group []int64 `uriparametername:"group"`
     // Only return accounts that have or don't have an e-mail address.
@@ -76,6 +80,8 @@ type AccountRequestBuilderGetQueryParameters struct {
     NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
     // Only return accounts for which the username starts with one of the given values.
     NameStartsWith []string `uriparametername:"nameStartsWith"`
+    // Filter the accounts that are not a member of the given access profiles, specified by id. 
+    NotInAccessProfile []int64 `uriparametername:"notInAccessProfile"`
     // Filter the accounts that are not a member of the given groups, specified by id. 
     NotInGroup []int64 `uriparametername:"notInGroup"`
     // Filter records on a complex CQL query.
@@ -147,7 +153,7 @@ func (m *AccountRequestBuilder) ByAccountidInt64(accountid int64)(*WithAccountIt
 // NewAccountRequestBuilderInternal instantiates a new AccountRequestBuilder and sets the default values.
 func NewAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccountRequestBuilder) {
     m := &AccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account{?activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,additional*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,group*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,q*,reregistrationRequired*,rotatingPasswordEnabled*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account{?accessProfile*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,additional*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,externalId*,group*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notInAccessProfile*,notInGroup*,q*,reregistrationRequired*,rotatingPasswordEnabled*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
     }
     return m
 }
@@ -208,7 +214,7 @@ func (m *AccountRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
     return requestInfo, nil
 }
 // Vault the vault property

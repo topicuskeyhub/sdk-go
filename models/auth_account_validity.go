@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuthAccountValidity int
 
 const (
@@ -32,7 +29,7 @@ func ParseAuthAccountValidity(v string) (any, error) {
         case "INVALID_IN_DIRECTORY":
             result = INVALID_IN_DIRECTORY_AUTHACCOUNTVALIDITY
         default:
-            return 0, errors.New("Unknown AuthAccountValidity value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

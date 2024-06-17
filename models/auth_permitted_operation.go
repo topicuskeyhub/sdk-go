@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuthPermittedOperation int
 
 const (
@@ -26,7 +23,7 @@ func ParseAuthPermittedOperation(v string) (any, error) {
         case "DELETE":
             result = DELETE_AUTHPERMITTEDOPERATION
         default:
-            return 0, errors.New("Unknown AuthPermittedOperation value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

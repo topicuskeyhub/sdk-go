@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type BooleanEnum int
 
 const (
@@ -23,7 +20,7 @@ func ParseBooleanEnum(v string) (any, error) {
         case "BOTH":
             result = BOTH_BOOLEANENUM
         default:
-            return 0, errors.New("Unknown BooleanEnum value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

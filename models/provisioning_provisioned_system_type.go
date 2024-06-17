@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ProvisioningProvisionedSystemType int
 
 const (
@@ -41,7 +38,7 @@ func ParseProvisioningProvisionedSystemType(v string) (any, error) {
         case "PROVISIONED_NAMESPACE":
             result = PROVISIONED_NAMESPACE_PROVISIONINGPROVISIONEDSYSTEMTYPE
         default:
-            return 0, errors.New("Unknown ProvisioningProvisionedSystemType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -49,6 +49,8 @@ type VaultrecordRequestBuilderGetQueryParameters struct {
     Filename []string `uriparametername:"filename"`
     // Filter the records by group, specified by id. This parameter supports composition with all parameters from the group resource.
     Group []int64 `uriparametername:"group"`
+    // Filter the records by organizational unit of the group, specified by id. This parameter supports composition with all parameters from the client resource.
+    GroupOrganizationalUnit []int64 `uriparametername:"groupOrganizationalUnit"`
     // Only return records that have or do not have an expiration policy set.
     HasNoPolicy []bool `uriparametername:"hasNoPolicy"`
     // Filter records that are shared (have a parent record)
@@ -117,7 +119,7 @@ func (m *VaultrecordRequestBuilder) ByVaultrecordidInt64(vaultrecordid int64)(*W
 // NewVaultrecordRequestBuilderInternal instantiates a new VaultrecordRequestBuilder and sets the default values.
 func NewVaultrecordRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*VaultrecordRequestBuilder) {
     m := &VaultrecordRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/vaultrecord{?accessibleByAccount*,accessibleByAccountAsManager*,accessibleByClient*,account*,additional*,any*,client*,color*,createdAfter*,createdBefore*,exclude*,expireWarningBeforeOrAt*,filename*,group*,hasNoPolicy*,hasParent*,hasValidPolicy*,id*,modifiedSince*,name*,nameContains*,parent*,q*,secret*,shareExpiresBeforeOrAt*,sort*,url*,username*,uuid*,vault*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/vaultrecord{?accessibleByAccount*,accessibleByAccountAsManager*,accessibleByClient*,account*,additional*,any*,client*,color*,createdAfter*,createdBefore*,exclude*,expireWarningBeforeOrAt*,filename*,group*,groupOrganizationalUnit*,hasNoPolicy*,hasParent*,hasValidPolicy*,id*,modifiedSince*,name*,nameContains*,parent*,q*,secret*,shareExpiresBeforeOrAt*,sort*,url*,username*,uuid*,vault*}", pathParameters),
     }
     return m
 }
@@ -158,7 +160,7 @@ func (m *VaultrecordRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

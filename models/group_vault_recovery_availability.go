@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type GroupVaultRecoveryAvailability int
 
 const (
@@ -23,7 +20,7 @@ func ParseGroupVaultRecoveryAvailability(v string) (any, error) {
         case "FULL":
             result = FULL_GROUPVAULTRECOVERYAVAILABILITY
         default:
-            return 0, errors.New("Unknown GroupVaultRecoveryAvailability value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuthPasswordMode int
 
 const (
@@ -26,7 +23,7 @@ func ParseAuthPasswordMode(v string) (any, error) {
         case "TWO_PASSWORDS":
             result = TWO_PASSWORDS_AUTHPASSWORDMODE
         default:
-            return 0, errors.New("Unknown AuthPasswordMode value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

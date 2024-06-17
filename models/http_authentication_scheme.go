@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type HttpAuthenticationScheme int
 
 const (
@@ -26,7 +23,7 @@ func ParseHttpAuthenticationScheme(v string) (any, error) {
         case "CUSTOM":
             result = CUSTOM_HTTPAUTHENTICATIONSCHEME
         default:
-            return 0, errors.New("Unknown HttpAuthenticationScheme value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

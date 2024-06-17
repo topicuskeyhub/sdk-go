@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type LaunchpadLaunchpadTileType int
 
 const (
@@ -23,7 +20,7 @@ func ParseLaunchpadLaunchpadTileType(v string) (any, error) {
         case "VAULT_RECORD":
             result = VAULT_RECORD_LAUNCHPADLAUNCHPADTILETYPE
         default:
-            return 0, errors.New("Unknown LaunchpadLaunchpadTileType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

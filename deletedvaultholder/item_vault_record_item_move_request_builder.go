@@ -6,7 +6,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemVaultRecordItemMoveRequestBuilder builds and executes requests for operations under \deletedvaultholder\{deletedvaultholderid-id}\vault\record\{recordid}\move
+// ItemVaultRecordItemMoveRequestBuilder builds and executes requests for operations under \deletedvaultholder\{deletedvaultholder-id}\vault\record\{recordid}\move
 type ItemVaultRecordItemMoveRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -20,7 +20,7 @@ type ItemVaultRecordItemMoveRequestBuilderPostRequestConfiguration struct {
 // NewItemVaultRecordItemMoveRequestBuilderInternal instantiates a new ItemVaultRecordItemMoveRequestBuilder and sets the default values.
 func NewItemVaultRecordItemMoveRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecordItemMoveRequestBuilder) {
     m := &ItemVaultRecordItemMoveRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/deletedvaultholder/{deletedvaultholderid%2Did}/vault/record/{recordid}/move", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/deletedvaultholder/{deletedvaultholder%2Did}/vault/record/{recordid}/move", pathParameters),
     }
     return m
 }
@@ -54,8 +54,8 @@ func (m *ItemVaultRecordItemMoveRequestBuilder) ToPostRequestInformation(ctx con
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=70", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=71", body)
     if err != nil {
         return nil, err
     }

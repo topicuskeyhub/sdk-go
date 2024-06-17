@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type MarkItemMarkerLevel int
 
 const (
@@ -20,7 +17,7 @@ func ParseMarkItemMarkerLevel(v string) (any, error) {
         case "WARNING":
             result = WARNING_MARKITEMMARKERLEVEL
         default:
-            return 0, errors.New("Unknown MarkItemMarkerLevel value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

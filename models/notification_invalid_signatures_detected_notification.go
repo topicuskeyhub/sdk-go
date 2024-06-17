@@ -12,6 +12,8 @@ func NewNotificationInvalidSignaturesDetectedNotification()(*NotificationInvalid
     m := &NotificationInvalidSignaturesDetectedNotification{
         NotificationNotification: *NewNotificationNotification(),
     }
+    typeEscapedValue := "notification.InvalidSignaturesDetectedNotification"
+    m.SetTypeEscaped(&typeEscapedValue)
     return m
 }
 // CreateNotificationInvalidSignaturesDetectedNotificationFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value

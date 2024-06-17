@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type VaultVaultRecordColor int
 
 const (
@@ -47,7 +44,7 @@ func ParseVaultVaultRecordColor(v string) (any, error) {
         case "ARTICHOKE":
             result = ARTICHOKE_VAULTVAULTRECORDCOLOR
         default:
-            return 0, errors.New("Unknown VaultVaultRecordColor value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

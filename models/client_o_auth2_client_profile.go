@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ClientOAuth2ClientProfile int
 
 const (
@@ -35,7 +32,7 @@ func ParseClientOAuth2ClientProfile(v string) (any, error) {
         case "CONFIDENTIAL_NATIVE_APPLICATION":
             result = CONFIDENTIAL_NATIVE_APPLICATION_CLIENTOAUTH2CLIENTPROFILE
         default:
-            return 0, errors.New("Unknown ClientOAuth2ClientProfile value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

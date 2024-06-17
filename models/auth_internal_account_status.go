@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuthInternalAccountStatus int
 
 const (
@@ -29,7 +26,7 @@ func ParseAuthInternalAccountStatus(v string) (any, error) {
         case "ACTIVATED":
             result = ACTIVATED_AUTHINTERNALACCOUNTSTATUS
         default:
-            return 0, errors.New("Unknown AuthInternalAccountStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

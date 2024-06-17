@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type GroupGroupRequestStatus int
 
 const (
@@ -23,7 +20,7 @@ func ParseGroupGroupRequestStatus(v string) (any, error) {
         case "AVAILABLE":
             result = AVAILABLE_GROUPGROUPREQUESTSTATUS
         default:
-            return 0, errors.New("Unknown GroupGroupRequestStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

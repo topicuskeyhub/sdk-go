@@ -53,6 +53,8 @@ func CreateDirectoryAccountDirectoryFromDiscriminatorValue(parseNode i878a80d233
                         return NewDirectoryMaintenanceDirectory(), nil
                     case "directory.OIDCDirectory":
                         return NewDirectoryOIDCDirectory(), nil
+                    case "directory.PendingAccountsDirectory":
+                        return NewDirectoryPendingAccountsDirectory(), nil
                 }
             }
         }

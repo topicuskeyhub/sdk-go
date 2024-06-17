@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type VaultAccountVaultStatus int
 
 const (
@@ -26,7 +23,7 @@ func ParseVaultAccountVaultStatus(v string) (any, error) {
         case "UNLOCKED":
             result = UNLOCKED_VAULTACCOUNTVAULTSTATUS
         default:
-            return 0, errors.New("Unknown VaultAccountVaultStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

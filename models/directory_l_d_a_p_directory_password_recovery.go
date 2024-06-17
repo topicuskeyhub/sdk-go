@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type DirectoryLDAPDirectoryPasswordRecovery int
 
 const (
@@ -26,7 +23,7 @@ func ParseDirectoryLDAPDirectoryPasswordRecovery(v string) (any, error) {
         case "VERIFY_MAIL_AND_2FA":
             result = VERIFY_MAIL_AND_2FA_DIRECTORYLDAPDIRECTORYPASSWORDRECOVERY
         default:
-            return 0, errors.New("Unknown DirectoryLDAPDirectoryPasswordRecovery value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

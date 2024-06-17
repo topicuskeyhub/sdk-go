@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuthTwoFactorAuthenticationStatus int
 
 const (
@@ -32,7 +29,7 @@ func ParseAuthTwoFactorAuthenticationStatus(v string) (any, error) {
         case "MIXED":
             result = MIXED_AUTHTWOFACTORAUTHENTICATIONSTATUS
         default:
-            return 0, errors.New("Unknown AuthTwoFactorAuthenticationStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

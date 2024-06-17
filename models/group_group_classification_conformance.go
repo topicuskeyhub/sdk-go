@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type GroupGroupClassificationConformance int
 
 const (
@@ -23,7 +20,7 @@ func ParseGroupGroupClassificationConformance(v string) (any, error) {
         case "UNMATCHED_CRITERIA":
             result = UNMATCHED_CRITERIA_GROUPGROUPCLASSIFICATIONCONFORMANCE
         default:
-            return 0, errors.New("Unknown GroupGroupClassificationConformance value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

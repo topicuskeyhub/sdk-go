@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type GroupGroupRights int
 
 const (
@@ -20,7 +17,7 @@ func ParseGroupGroupRights(v string) (any, error) {
         case "NORMAL":
             result = NORMAL_GROUPGROUPRIGHTS
         default:
-            return 0, errors.New("Unknown GroupGroupRights value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

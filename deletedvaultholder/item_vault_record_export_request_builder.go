@@ -6,7 +6,7 @@ import (
     ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
-// ItemVaultRecordExportRequestBuilder builds and executes requests for operations under \deletedvaultholder\{deletedvaultholderid-id}\vault\record\export
+// ItemVaultRecordExportRequestBuilder builds and executes requests for operations under \deletedvaultholder\{deletedvaultholder-id}\vault\record\export
 type ItemVaultRecordExportRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
@@ -20,7 +20,7 @@ type ItemVaultRecordExportRequestBuilderPostRequestConfiguration struct {
 // NewItemVaultRecordExportRequestBuilderInternal instantiates a new ItemVaultRecordExportRequestBuilder and sets the default values.
 func NewItemVaultRecordExportRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVaultRecordExportRequestBuilder) {
     m := &ItemVaultRecordExportRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/deletedvaultholder/{deletedvaultholderid%2Did}/vault/record/export", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/deletedvaultholder/{deletedvaultholder%2Did}/vault/record/export", pathParameters),
     }
     return m
 }
@@ -54,7 +54,7 @@ func (m *ItemVaultRecordExportRequestBuilder) ToPostRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

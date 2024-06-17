@@ -1,23 +1,23 @@
 package profile
-import (
-    "errors"
-)
 type PostAdditionalQueryParameterType int
 
 const (
-    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+    ACCOUNTS_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"audit"}[i]
+    return []string{"accounts", "audit"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+    result := ACCOUNTS_POSTADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "accounts":
+            result = ACCOUNTS_POSTADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
         default:
-            return 0, errors.New("Unknown PostAdditionalQueryParameterType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

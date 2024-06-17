@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ProvisioningLDAPPasswordHashingScheme int
 
 const (
@@ -20,7 +17,7 @@ func ParseProvisioningLDAPPasswordHashingScheme(v string) (any, error) {
         case "PBKDF2":
             result = PBKDF2_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
         default:
-            return 0, errors.New("Unknown ProvisioningLDAPPasswordHashingScheme value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -1,7 +1,4 @@
 package system
-import (
-    "errors"
-)
 type GetAdditionalQueryParameterType int
 
 const (
@@ -38,7 +35,7 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
         case "supportedGroupTypes":
             result = SUPPORTEDGROUPTYPES_GETADDITIONALQUERYPARAMETERTYPE
         default:
-            return 0, errors.New("Unknown GetAdditionalQueryParameterType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

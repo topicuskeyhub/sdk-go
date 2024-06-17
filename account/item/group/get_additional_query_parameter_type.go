@@ -1,7 +1,4 @@
 package group
-import (
-    "errors"
-)
 type GetAdditionalQueryParameterType int
 
 const (
@@ -20,7 +17,7 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
         case "vault":
             result = VAULT_GETADDITIONALQUERYPARAMETERTYPE
         default:
-            return 0, errors.New("Unknown GetAdditionalQueryParameterType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type TLSLevel int
 
 const (
@@ -32,7 +29,7 @@ func ParseTLSLevel(v string) (any, error) {
         case "UNSECURE":
             result = UNSECURE_TLSLEVEL
         default:
-            return 0, errors.New("Unknown TLSLevel value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

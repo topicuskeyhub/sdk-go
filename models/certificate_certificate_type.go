@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type CertificateCertificateType int
 
 const (
@@ -20,7 +17,7 @@ func ParseCertificateCertificateType(v string) (any, error) {
         case "PRIVATE_KEY_PAIR":
             result = PRIVATE_KEY_PAIR_CERTIFICATECERTIFICATETYPE
         default:
-            return 0, errors.New("Unknown CertificateCertificateType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

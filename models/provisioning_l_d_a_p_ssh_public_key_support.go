@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ProvisioningLDAPSshPublicKeySupport int
 
 const (
@@ -23,7 +20,7 @@ func ParseProvisioningLDAPSshPublicKeySupport(v string) (any, error) {
         case "ALT_SECURITY_IDENTITIES":
             result = ALT_SECURITY_IDENTITIES_PROVISIONINGLDAPSSHPUBLICKEYSUPPORT
         default:
-            return 0, errors.New("Unknown ProvisioningLDAPSshPublicKeySupport value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

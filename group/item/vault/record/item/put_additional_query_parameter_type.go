@@ -1,7 +1,4 @@
 package item
-import (
-    "errors"
-)
 type PutAdditionalQueryParameterType int
 
 const (
@@ -44,7 +41,7 @@ func ParsePutAdditionalQueryParameterType(v string) (any, error) {
         case "vaultholder":
             result = VAULTHOLDER_PUTADDITIONALQUERYPARAMETERTYPE
         default:
-            return 0, errors.New("Unknown PutAdditionalQueryParameterType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

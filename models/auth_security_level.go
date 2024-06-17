@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuthSecurityLevel int
 
 const (
@@ -23,7 +20,7 @@ func ParseAuthSecurityLevel(v string) (any, error) {
         case "HIGH":
             result = HIGH_AUTHSECURITYLEVEL
         default:
-            return 0, errors.New("Unknown AuthSecurityLevel value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

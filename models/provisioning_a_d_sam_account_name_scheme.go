@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ProvisioningADSamAccountNameScheme int
 
 const (
@@ -29,7 +26,7 @@ func ParseProvisioningADSamAccountNameScheme(v string) (any, error) {
         case "USERNAME":
             result = USERNAME_PROVISIONINGADSAMACCOUNTNAMESCHEME
         default:
-            return 0, errors.New("Unknown ProvisioningADSamAccountNameScheme value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

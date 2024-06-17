@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type LicenseKeyHubLicenseInfoLicenseStatus int
 
 const (
@@ -44,7 +41,7 @@ func ParseLicenseKeyHubLicenseInfoLicenseStatus(v string) (any, error) {
         case "FEATURE_IN_USE":
             result = FEATURE_IN_USE_LICENSEKEYHUBLICENSEINFOLICENSESTATUS
         default:
-            return 0, errors.New("Unknown LicenseKeyHubLicenseInfoLicenseStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

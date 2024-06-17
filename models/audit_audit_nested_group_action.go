@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuditAuditNestedGroupAction int
 
 const (
@@ -23,7 +20,7 @@ func ParseAuditAuditNestedGroupAction(v string) (any, error) {
         case "MISMATCH":
             result = MISMATCH_AUDITAUDITNESTEDGROUPACTION
         default:
-            return 0, errors.New("Unknown AuditAuditNestedGroupAction value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

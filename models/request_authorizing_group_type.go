@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type RequestAuthorizingGroupType int
 
 const (
@@ -26,7 +23,7 @@ func ParseRequestAuthorizingGroupType(v string) (any, error) {
         case "AUDITING":
             result = AUDITING_REQUESTAUTHORIZINGGROUPTYPE
         default:
-            return 0, errors.New("Unknown RequestAuthorizingGroupType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

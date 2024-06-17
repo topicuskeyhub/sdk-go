@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ProvisioningAccountProvisioningResult int
 
 const (
@@ -23,7 +20,7 @@ func ParseProvisioningAccountProvisioningResult(v string) (any, error) {
         case "ERROR":
             result = ERROR_PROVISIONINGACCOUNTPROVISIONINGRESULT
         default:
-            return 0, errors.New("Unknown ProvisioningAccountProvisioningResult value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

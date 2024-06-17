@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ProvisioningCircuitBreakerState int
 
 const (
@@ -23,7 +20,7 @@ func ParseProvisioningCircuitBreakerState(v string) (any, error) {
         case "HALF_OPEN":
             result = HALF_OPEN_PROVISIONINGCIRCUITBREAKERSTATE
         default:
-            return 0, errors.New("Unknown ProvisioningCircuitBreakerState value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type GroupGroupEditRequiredReason int
 
 const (
@@ -47,7 +44,7 @@ func ParseGroupGroupEditRequiredReason(v string) (any, error) {
         case "CRITERIA_UNSATISFIED_MINIMUM_NR_MANAGERS":
             result = CRITERIA_UNSATISFIED_MINIMUM_NR_MANAGERS_GROUPGROUPEDITREQUIREDREASON
         default:
-            return 0, errors.New("Unknown GroupGroupEditRequiredReason value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type NotificationCertificateUsage int
 
 const (
@@ -41,7 +38,7 @@ func ParseNotificationCertificateUsage(v string) (any, error) {
         case "KEYHUB":
             result = KEYHUB_NOTIFICATIONCERTIFICATEUSAGE
         default:
-            return 0, errors.New("Unknown NotificationCertificateUsage value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

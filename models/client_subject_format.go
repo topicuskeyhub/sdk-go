@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ClientSubjectFormat int
 
 const (
@@ -26,7 +23,7 @@ func ParseClientSubjectFormat(v string) (any, error) {
         case "EMAIL":
             result = EMAIL_CLIENTSUBJECTFORMAT
         default:
-            return 0, errors.New("Unknown ClientSubjectFormat value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

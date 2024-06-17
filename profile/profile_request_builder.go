@@ -21,6 +21,8 @@ type ProfileRequestBuilderGetQueryParameters struct {
     AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
+    // Filter the access profiles by membership of accounts, specified by id. This parameter supports composition with all parameters from the account resource.
+    ContainsAccount []int64 `uriparametername:"containsAccount"`
     // Only return records that have been created after the given instant.
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
@@ -72,33 +74,33 @@ type ProfileRequestBuilderPostRequestConfiguration struct {
     // Request query parameters
     QueryParameters *ProfileRequestBuilderPostQueryParameters
 }
-// ByProfileid gets an item from the github.com/topicuskeyhub/sdk-go.profile.item collection
+// ByAccessprofileId gets an item from the github.com/topicuskeyhub/sdk-go.profile.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-// returns a *WithProfileItemRequestBuilder when successful
-func (m *ProfileRequestBuilder) ByProfileid(profileid string)(*WithProfileItemRequestBuilder) {
+// returns a *AccessprofileItemRequestBuilder when successful
+func (m *ProfileRequestBuilder) ByAccessprofileId(accessprofileId string)(*AccessprofileItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if profileid != "" {
-        urlTplParams["profileid"] = profileid
+    if accessprofileId != "" {
+        urlTplParams["accessprofile%2Did"] = accessprofileId
     }
-    return NewWithProfileItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewAccessprofileItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByProfileidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.profile.item collection
-// returns a *WithProfileItemRequestBuilder when successful
-func (m *ProfileRequestBuilder) ByProfileidInt64(profileid int64)(*WithProfileItemRequestBuilder) {
+// ByAccessprofileIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.profile.item collection
+// returns a *AccessprofileItemRequestBuilder when successful
+func (m *ProfileRequestBuilder) ByAccessprofileIdInt64(accessprofileId int64)(*AccessprofileItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["profileid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(profileid, 10)
-    return NewWithProfileItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["accessprofile%2Did"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(accessprofileId, 10)
+    return NewAccessprofileItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewProfileRequestBuilderInternal instantiates a new ProfileRequestBuilder and sets the default values.
 func NewProfileRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProfileRequestBuilder) {
     m := &ProfileRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,name*,nameContains*,organizationalUnit*,ownedBy*,q*,sort*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile{?additional*,any*,containsAccount*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,name*,nameContains*,organizationalUnit*,ownedBy*,q*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -159,13 +161,13 @@ func (m *ProfileRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new access profiles and returns the newly created access profiles.
 // returns a *RequestInformation when successful
 func (m *ProfileRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLinkableWrapperable, requestConfiguration *ProfileRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/profile{?additional*}", m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -173,8 +175,8 @@ func (m *ProfileRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=70", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=71", body)
     if err != nil {
         return nil, err
     }

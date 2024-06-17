@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type VaultVaultSecretType int
 
 const (
@@ -26,7 +23,7 @@ func ParseVaultVaultSecretType(v string) (any, error) {
         case "COMMENT":
             result = COMMENT_VAULTVAULTSECRETTYPE
         default:
-            return 0, errors.New("Unknown VaultVaultSecretType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

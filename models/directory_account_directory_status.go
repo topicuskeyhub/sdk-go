@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type DirectoryAccountDirectoryStatus int
 
 const (
@@ -32,7 +29,7 @@ func ParseDirectoryAccountDirectoryStatus(v string) (any, error) {
         case "DISABLED":
             result = DISABLED_DIRECTORYACCOUNTDIRECTORYSTATUS
         default:
-            return 0, errors.New("Unknown DirectoryAccountDirectoryStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

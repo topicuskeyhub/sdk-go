@@ -1,23 +1,23 @@
 package item
-import (
-    "errors"
-)
 type PutAdditionalQueryParameterType int
 
 const (
-    AUDIT_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
+    ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
+    AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"audit"}[i]
+    return []string{"accounts", "audit"}[i]
 }
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+    result := ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "accounts":
+            result = ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
         default:
-            return 0, errors.New("Unknown PutAdditionalQueryParameterType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

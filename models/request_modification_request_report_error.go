@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type RequestModificationRequestReportError int
 
 const (
@@ -47,7 +44,7 @@ func ParseRequestModificationRequestReportError(v string) (any, error) {
         case "ZERO_MOVEABLE_VAULT_ACCESS_MEMBERS":
             result = ZERO_MOVEABLE_VAULT_ACCESS_MEMBERS_REQUESTMODIFICATIONREQUESTREPORTERROR
         default:
-            return 0, errors.New("Unknown RequestModificationRequestReportError value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -111,8 +111,6 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestTransferApplicationAdministrationRequest(), nil
                     case "request.TransferApplicationOwnershipRequest":
                         return NewRequestTransferApplicationOwnershipRequest(), nil
-                    case "request.TransferAuditorGroupRequest":
-                        return NewRequestTransferAuditorGroupRequest(), nil
                     case "request.TransferGroupOnSystemOwnershipRequest":
                         return NewRequestTransferGroupOnSystemOwnershipRequest(), nil
                     case "request.TransferOrganizationalUnitOwnershipRequest":

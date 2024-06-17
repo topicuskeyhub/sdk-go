@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type RequestModificationRequestReportConclusion int
 
 const (
@@ -20,7 +17,7 @@ func ParseRequestModificationRequestReportConclusion(v string) (any, error) {
         case "CANNOT_BE_EXECUTED":
             result = CANNOT_BE_EXECUTED_REQUESTMODIFICATIONREQUESTREPORTCONCLUSION
         default:
-            return 0, errors.New("Unknown RequestModificationRequestReportConclusion value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

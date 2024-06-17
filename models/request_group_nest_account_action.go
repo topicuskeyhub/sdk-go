@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type RequestGroupNestAccountAction int
 
 const (
@@ -23,7 +20,7 @@ func ParseRequestGroupNestAccountAction(v string) (any, error) {
         case "RETAIN":
             result = RETAIN_REQUESTGROUPNESTACCOUNTACTION
         default:
-            return 0, errors.New("Unknown RequestGroupNestAccountAction value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

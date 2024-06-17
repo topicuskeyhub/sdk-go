@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type LicenseLicenseFeature int
 
 const (
@@ -44,7 +41,7 @@ func ParseLicenseLicenseFeature(v string) (any, error) {
         case "SCIM":
             result = SCIM_LICENSELICENSEFEATURE
         default:
-            return 0, errors.New("Unknown LicenseLicenseFeature value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

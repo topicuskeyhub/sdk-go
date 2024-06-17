@@ -1,7 +1,4 @@
 package numberseq
-import (
-    "errors"
-)
 type PostAdditionalQueryParameterType int
 
 const (
@@ -20,7 +17,7 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
         case "systems":
             result = SYSTEMS_POSTADDITIONALQUERYPARAMETERTYPE
         default:
-            return 0, errors.New("Unknown PostAdditionalQueryParameterType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

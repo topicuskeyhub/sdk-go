@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type DirectoryLDAPDialect int
 
 const (
@@ -20,7 +17,7 @@ func ParseDirectoryLDAPDialect(v string) (any, error) {
         case "OPENLDAP":
             result = OPENLDAP_DIRECTORYLDAPDIALECT
         default:
-            return 0, errors.New("Unknown DirectoryLDAPDialect value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

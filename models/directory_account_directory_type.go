@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type DirectoryAccountDirectoryType int
 
 const (
@@ -9,10 +6,11 @@ const (
     LDAP_DIRECTORYACCOUNTDIRECTORYTYPE
     INTERNAL_DIRECTORYACCOUNTDIRECTORYTYPE
     OIDC_DIRECTORYACCOUNTDIRECTORYTYPE
+    PENDING_ACCOUNTS_DIRECTORYACCOUNTDIRECTORYTYPE
 )
 
 func (i DirectoryAccountDirectoryType) String() string {
-    return []string{"MAINTENANCE", "LDAP", "INTERNAL", "OIDC"}[i]
+    return []string{"MAINTENANCE", "LDAP", "INTERNAL", "OIDC", "PENDING_ACCOUNTS"}[i]
 }
 func ParseDirectoryAccountDirectoryType(v string) (any, error) {
     result := MAINTENANCE_DIRECTORYACCOUNTDIRECTORYTYPE
@@ -25,8 +23,10 @@ func ParseDirectoryAccountDirectoryType(v string) (any, error) {
             result = INTERNAL_DIRECTORYACCOUNTDIRECTORYTYPE
         case "OIDC":
             result = OIDC_DIRECTORYACCOUNTDIRECTORYTYPE
+        case "PENDING_ACCOUNTS":
+            result = PENDING_ACCOUNTS_DIRECTORYACCOUNTDIRECTORYTYPE
         default:
-            return 0, errors.New("Unknown DirectoryAccountDirectoryType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

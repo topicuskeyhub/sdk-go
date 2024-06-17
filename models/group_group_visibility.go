@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type GroupGroupVisibility int
 
 const (
@@ -23,7 +20,7 @@ func ParseGroupGroupVisibility(v string) (any, error) {
         case "PUBLIC_OR_MEMBER":
             result = PUBLIC_OR_MEMBER_GROUPGROUPVISIBILITY
         default:
-            return 0, errors.New("Unknown GroupGroupVisibility value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

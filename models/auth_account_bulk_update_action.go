@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type AuthAccountBulkUpdateAction int
 
 const (
@@ -23,7 +20,7 @@ func ParseAuthAccountBulkUpdateAction(v string) (any, error) {
         case "MARK_FOR_RENAME":
             result = MARK_FOR_RENAME_AUTHACCOUNTBULKUPDATEACTION
         default:
-            return 0, errors.New("Unknown AuthAccountBulkUpdateAction value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

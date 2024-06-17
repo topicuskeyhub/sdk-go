@@ -50,6 +50,8 @@ func CreateAuthAccountPrimerFromDiscriminatorValue(parseNode i878a80d2330e89d268
                         return NewGroupGroupAccount(), nil
                     case "organization.OrganizationalUnitAccount":
                         return NewOrganizationOrganizationalUnitAccount(), nil
+                    case "profile.AccessProfileAccount":
+                        return NewProfileAccessProfileAccount(), nil
                     case "provisioning.ProvisionedAccount":
                         return NewProvisioningProvisionedAccount(), nil
                 }

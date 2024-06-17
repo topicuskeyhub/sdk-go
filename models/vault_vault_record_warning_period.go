@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type VaultVaultRecordWarningPeriod int
 
 const (
@@ -35,7 +32,7 @@ func ParseVaultVaultRecordWarningPeriod(v string) (any, error) {
         case "NEVER":
             result = NEVER_VAULTVAULTRECORDWARNINGPERIOD
         default:
-            return 0, errors.New("Unknown VaultVaultRecordWarningPeriod value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

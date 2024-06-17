@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ServiceaccountPasswordRotationScheme int
 
 const (
@@ -23,7 +20,7 @@ func ParseServiceaccountPasswordRotationScheme(v string) (any, error) {
         case "DAILY":
             result = DAILY_SERVICEACCOUNTPASSWORDROTATIONSCHEME
         default:
-            return 0, errors.New("Unknown ServiceaccountPasswordRotationScheme value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

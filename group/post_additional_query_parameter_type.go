@@ -1,7 +1,4 @@
 package group
-import (
-    "errors"
-)
 type PostAdditionalQueryParameterType int
 
 const (
@@ -98,7 +95,7 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
         case "webhooks":
             result = WEBHOOKS_POSTADDITIONALQUERYPARAMETERTYPE
         default:
-            return 0, errors.New("Unknown PostAdditionalQueryParameterType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

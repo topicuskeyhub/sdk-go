@@ -12,8 +12,6 @@ type GroupGroup struct {
     applicationAdministration *bool
     // The auditConfig property
     auditConfig GroupGroupAuditConfigable
-    // The auditor property
-    auditor *bool
     // The auditRequested property
     auditRequested *bool
     // The authorizingGroupAuditing property
@@ -79,11 +77,6 @@ func (m *GroupGroup) GetApplicationAdministration()(*bool) {
 // returns a GroupGroupAuditConfigable when successful
 func (m *GroupGroup) GetAuditConfig()(GroupGroupAuditConfigable) {
     return m.auditConfig
-}
-// GetAuditor gets the auditor property value. The auditor property
-// returns a *bool when successful
-func (m *GroupGroup) GetAuditor()(*bool) {
-    return m.auditor
 }
 // GetAuditRequested gets the auditRequested property value. The auditRequested property
 // returns a *bool when successful
@@ -161,16 +154,6 @@ func (m *GroupGroup) GetFieldDeserializers()(map[string]func(i878a80d2330e89d268
         }
         if val != nil {
             m.SetAuditConfig(val.(GroupGroupAuditConfigable))
-        }
-        return nil
-    }
-    res["auditor"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAuditor(val)
         }
         return nil
     }
@@ -543,10 +526,6 @@ func (m *GroupGroup) SetApplicationAdministration(value *bool)() {
 func (m *GroupGroup) SetAuditConfig(value GroupGroupAuditConfigable)() {
     m.auditConfig = value
 }
-// SetAuditor sets the auditor property value. The auditor property
-func (m *GroupGroup) SetAuditor(value *bool)() {
-    m.auditor = value
-}
 // SetAuditRequested sets the auditRequested property value. The auditRequested property
 func (m *GroupGroup) SetAuditRequested(value *bool)() {
     m.auditRequested = value
@@ -625,7 +604,6 @@ type GroupGroupable interface {
     GetAdditionalObjects()(GroupGroup_additionalObjectsable)
     GetApplicationAdministration()(*bool)
     GetAuditConfig()(GroupGroupAuditConfigable)
-    GetAuditor()(*bool)
     GetAuditRequested()(*bool)
     GetAuthorizingGroupAuditing()(GroupGroupPrimerable)
     GetAuthorizingGroupDelegation()(GroupGroupPrimerable)
@@ -647,7 +625,6 @@ type GroupGroupable interface {
     SetAdditionalObjects(value GroupGroup_additionalObjectsable)()
     SetApplicationAdministration(value *bool)()
     SetAuditConfig(value GroupGroupAuditConfigable)()
-    SetAuditor(value *bool)()
     SetAuditRequested(value *bool)()
     SetAuthorizingGroupAuditing(value GroupGroupPrimerable)()
     SetAuthorizingGroupDelegation(value GroupGroupPrimerable)()

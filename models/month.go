@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type Month int
 
 const (
@@ -50,7 +47,7 @@ func ParseMonth(v string) (any, error) {
         case "DECEMBER":
             result = DECEMBER_MONTH
         default:
-            return 0, errors.New("Unknown Month value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

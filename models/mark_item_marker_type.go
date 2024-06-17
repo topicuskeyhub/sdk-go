@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type MarkItemMarkerType int
 
 const (
@@ -65,7 +62,7 @@ func ParseMarkItemMarkerType(v string) (any, error) {
         case "GROUP_CRITERIA_UNSATISFIED_MINIMUM_NR_MANAGERS":
             result = GROUP_CRITERIA_UNSATISFIED_MINIMUM_NR_MANAGERS_MARKITEMMARKERTYPE
         default:
-            return 0, errors.New("Unknown MarkItemMarkerType value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type RequestModificationRequestStatus int
 
 const (
@@ -26,7 +23,7 @@ func ParseRequestModificationRequestStatus(v string) (any, error) {
         case "CANCELLED":
             result = CANCELLED_REQUESTMODIFICATIONREQUESTSTATUS
         default:
-            return 0, errors.New("Unknown RequestModificationRequestStatus value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

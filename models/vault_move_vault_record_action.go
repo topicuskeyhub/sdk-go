@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type VaultMoveVaultRecordAction int
 
 const (
@@ -23,7 +20,7 @@ func ParseVaultMoveVaultRecordAction(v string) (any, error) {
         case "SHARE":
             result = SHARE_VAULTMOVEVAULTRECORDACTION
         default:
-            return 0, errors.New("Unknown VaultMoveVaultRecordAction value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

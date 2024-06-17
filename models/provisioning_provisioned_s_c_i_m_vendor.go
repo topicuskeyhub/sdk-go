@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type ProvisioningProvisionedSCIMVendor int
 
 const (
@@ -23,7 +20,7 @@ func ParseProvisioningProvisionedSCIMVendor(v string) (any, error) {
         case "KEYSTONE":
             result = KEYSTONE_PROVISIONINGPROVISIONEDSCIMVENDOR
         default:
-            return 0, errors.New("Unknown ProvisioningProvisionedSCIMVendor value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

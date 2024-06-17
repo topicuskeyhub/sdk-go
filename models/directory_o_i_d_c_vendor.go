@@ -1,7 +1,4 @@
 package models
-import (
-    "errors"
-)
 type DirectoryOIDCVendor int
 
 const (
@@ -23,7 +20,7 @@ func ParseDirectoryOIDCVendor(v string) (any, error) {
         case "AZURE_AD":
             result = AZURE_AD_DIRECTORYOIDCVENDOR
         default:
-            return 0, errors.New("Unknown DirectoryOIDCVendor value: " + v)
+            return nil, nil
     }
     return &result, nil
 }

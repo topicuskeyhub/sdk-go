@@ -14,6 +14,8 @@ type OrganizationalunitRequestBuilder struct {
 }
 // OrganizationalunitRequestBuilderGetQueryParameters query for all organizational units in Topicus KeyHub. The various query parameters can be used to filter the response.
 type OrganizationalunitRequestBuilderGetQueryParameters struct {
+    // Filter the organizational units for which the given account is auditor, either directly or inherited from one of the parent units, specified by id.
+    AccountIsAuditor []int64 `uriparametername:"accountIsAuditor"`
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
@@ -23,6 +25,8 @@ type OrganizationalunitRequestBuilderGetQueryParameters struct {
     AncestorOfOrEqualTo []int64 `uriparametername:"ancestorOfOrEqualTo"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
+    // Filter the organizational units for which the given group is auditor group, specified by id. This parameter supports composition with all parameters from the group resource.
+    AuditorGroup []int64 `uriparametername:"auditorGroup"`
     // Filter the organizational units by accounts, specified by id. This parameter supports composition with all parameters from the account resource.
     ConnectedToAccount []int64 `uriparametername:"connectedToAccount"`
     // Only return records that have been created after the given instant.
@@ -51,6 +55,8 @@ type OrganizationalunitRequestBuilderGetQueryParameters struct {
     Parent []int64 `uriparametername:"parent"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
+    // Filter the organizational units for which the given group is recovery fallback group, specified by id. This parameter supports composition with all parameters from the group resource.
+    RecoveryFallbackGroup []int64 `uriparametername:"recoveryFallbackGroup"`
     // Filter the organizational units for which the given group is remove group approve group, specified by id. This parameter supports composition with all parameters from the group resource.
     RemoveGroupApproveGroup []int64 `uriparametername:"removeGroupApproveGroup"`
     // Only return organizational units that are or are not the root of the organizational tree.
@@ -112,7 +118,7 @@ func (m *OrganizationalunitRequestBuilder) ByOrganizationalunitidInt64(organizat
 // NewOrganizationalunitRequestBuilderInternal instantiates a new OrganizationalunitRequestBuilder and sets the default values.
 func NewOrganizationalunitRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*OrganizationalunitRequestBuilder) {
     m := &OrganizationalunitRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit{?additional*,ancestorOfOrEqualTo*,any*,connectedToAccount*,createGroupApproveGroup*,createdAfter*,createdBefore*,descendantOfOrEqualTo*,enableTechAdminApproveGroup*,exclude*,id*,modifiedSince*,name*,nameContains*,ownedBy*,parent*,q*,removeGroupApproveGroup*,root*,sort*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit{?accountIsAuditor*,additional*,ancestorOfOrEqualTo*,any*,auditorGroup*,connectedToAccount*,createGroupApproveGroup*,createdAfter*,createdBefore*,descendantOfOrEqualTo*,enableTechAdminApproveGroup*,exclude*,id*,modifiedSince*,name*,nameContains*,ownedBy*,parent*,q*,recoveryFallbackGroup*,removeGroupApproveGroup*,root*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -173,13 +179,13 @@ func (m *OrganizationalunitRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new organizational units and returns the newly created units.
 // returns a *RequestInformation when successful
 func (m *OrganizationalunitRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitLinkableWrapperable, requestConfiguration *OrganizationalunitRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, "{+baseurl}/organizationalunit{?additional*}", m.BaseRequestBuilder.PathParameters)
+    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         if requestConfiguration.QueryParameters != nil {
             requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
@@ -187,8 +193,8 @@ func (m *OrganizationalunitRequestBuilder) ToPostRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=70")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=70", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=71", body)
     if err != nil {
         return nil, err
     }
