@@ -2,17 +2,20 @@ package group
 type PostAdditionalQueryParameterType int
 
 const (
-    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+    ACCESSPROFILEPROVISIONING_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
     PROVGROUPS_POSTADDITIONALQUERYPARAMETERTYPE
     SERVICEACCOUNTS_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"audit", "provgroups", "serviceAccounts"}[i]
+    return []string{"accessProfileProvisioning", "audit", "provgroups", "serviceAccounts"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+    result := ACCESSPROFILEPROVISIONING_POSTADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "accessProfileProvisioning":
+            result = ACCESSPROFILEPROVISIONING_POSTADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
         case "provgroups":

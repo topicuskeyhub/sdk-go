@@ -5,7 +5,7 @@ import (
 )
 
 type RequestGrantGroupOnSystemRequestRequest struct {
-    RequestModificationRequest
+    RequestAbstractAccessProfileModificationRequest
     // The activationRequired property
     activationRequired *bool
     // The groupOnSystem property
@@ -14,7 +14,7 @@ type RequestGrantGroupOnSystemRequestRequest struct {
 // NewRequestGrantGroupOnSystemRequestRequest instantiates a new RequestGrantGroupOnSystemRequestRequest and sets the default values.
 func NewRequestGrantGroupOnSystemRequestRequest()(*RequestGrantGroupOnSystemRequestRequest) {
     m := &RequestGrantGroupOnSystemRequestRequest{
-        RequestModificationRequest: *NewRequestModificationRequest(),
+        RequestAbstractAccessProfileModificationRequest: *NewRequestAbstractAccessProfileModificationRequest(),
     }
     typeEscapedValue := "request.GrantGroupOnSystemRequestRequest"
     m.SetTypeEscaped(&typeEscapedValue)
@@ -33,7 +33,7 @@ func (m *RequestGrantGroupOnSystemRequestRequest) GetActivationRequired()(*bool)
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestGrantGroupOnSystemRequestRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.RequestModificationRequest.GetFieldDeserializers()
+    res := m.RequestAbstractAccessProfileModificationRequest.GetFieldDeserializers()
     res["activationRequired"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -63,7 +63,7 @@ func (m *RequestGrantGroupOnSystemRequestRequest) GetGroupOnSystem()(Provisionin
 }
 // Serialize serializes information the current object
 func (m *RequestGrantGroupOnSystemRequestRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.RequestModificationRequest.Serialize(writer)
+    err := m.RequestAbstractAccessProfileModificationRequest.Serialize(writer)
     if err != nil {
         return err
     }
@@ -91,7 +91,7 @@ func (m *RequestGrantGroupOnSystemRequestRequest) SetGroupOnSystem(value Provisi
 }
 type RequestGrantGroupOnSystemRequestRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    RequestModificationRequestable
+    RequestAbstractAccessProfileModificationRequestable
     GetActivationRequired()(*bool)
     GetGroupOnSystem()(ProvisioningGroupOnSystemable)
     SetActivationRequired(value *bool)()

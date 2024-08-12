@@ -14,7 +14,7 @@ import (
 type ItemVaultRecordRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// ItemVaultRecordRequestBuilderGetQueryParameters query for vault records in a specific vault. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
+// ItemVaultRecordRequestBuilderGetQueryParameters query for vault records in a specific vault. The various query parameters can be used to filter the response. It is not possible to access secrets with a query that returns multiple results. Secrets can only be read one by one.
 type ItemVaultRecordRequestBuilderGetQueryParameters struct {
     // Filter records that accessible by the given account(s), specified by id.
     AccessibleByAccount []int64 `uriparametername:"accessibleByAccount"`
@@ -152,7 +152,7 @@ func NewItemVaultRecordRequestBuilder(rawUrl string, requestAdapter i2ae4187f7da
 func (m *ItemVaultRecordRequestBuilder) Export()(*ItemVaultRecordExportRequestBuilder) {
     return NewItemVaultRecordExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// Get query for vault records in a specific vault. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
+// Get query for vault records in a specific vault. The various query parameters can be used to filter the response. It is not possible to access secrets with a query that returns multiple results. Secrets can only be read one by one.
 // returns a VaultVaultRecordLinkableWrapperable when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemVaultRecordRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemVaultRecordRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordLinkableWrapperable, error) {
@@ -192,7 +192,7 @@ func (m *ItemVaultRecordRequestBuilder) Post(ctx context.Context, body ie2969523
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordLinkableWrapperable), nil
 }
-// ToGetRequestInformation query for vault records in a specific vault. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
+// ToGetRequestInformation query for vault records in a specific vault. The various query parameters can be used to filter the response. It is not possible to access secrets with a query that returns multiple results. Secrets can only be read one by one.
 // returns a *RequestInformation when successful
 func (m *ItemVaultRecordRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemVaultRecordRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
@@ -203,7 +203,7 @@ func (m *ItemVaultRecordRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new vault records and returns the newly created records. Secrets are specified via the additional object secret. It is required to specify the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
@@ -217,8 +217,8 @@ func (m *ItemVaultRecordRequestBuilder) ToPostRequestInformation(ctx context.Con
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=71", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=72", body)
     if err != nil {
         return nil, err
     }

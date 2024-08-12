@@ -4,10 +4,11 @@ type GetAdditionalQueryParameterType int
 const (
     ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
     AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+    PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "audit"}[i]
+    return []string{"accounts", "audit", "provisioning"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
@@ -16,6 +17,8 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
             result = ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+        case "provisioning":
+            result = PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
         default:
             return nil, nil
     }

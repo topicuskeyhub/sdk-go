@@ -17,6 +17,8 @@ type ItemOrganizationalunitRequestBuilder struct {
 type ItemOrganizationalunitRequestBuilderGetQueryParameters struct {
     // Filter the organizational units-accounts by accounts, specified by id. This parameter supports composition with all parameters from the account resource.
     Account []int64 `uriparametername:"account"`
+    // Filter the organizational units-accounts by groups owning the internal directory of the accounts, specified by id.
+    AccountDirectoryOwnedBy []int64 `uriparametername:"accountDirectoryOwnedBy"`
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
@@ -78,7 +80,7 @@ func (m *ItemOrganizationalunitRequestBuilder) ByOrganizationalunitidInt64(organ
 // NewItemOrganizationalunitRequestBuilderInternal instantiates a new ItemOrganizationalunitRequestBuilder and sets the default values.
 func NewItemOrganizationalunitRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemOrganizationalunitRequestBuilder) {
     m := &ItemOrganizationalunitRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/organizationalunit{?account*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,organizationalUnit*,organizationalUnitOwnedBy*,q*,sort*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/organizationalunit{?account*,accountDirectoryOwnedBy*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,organizationalUnit*,organizationalUnitOwnedBy*,q*,sort*}", pathParameters),
     }
     return m
 }
@@ -119,7 +121,7 @@ func (m *ItemOrganizationalunitRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

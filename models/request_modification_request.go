@@ -47,6 +47,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
             }
             if mappingValue != nil {
                 switch *mappingValue {
+                    case "request.AbstractAccessProfileModificationRequest":
+                        return NewRequestAbstractAccessProfileModificationRequest(), nil
                     case "request.AbstractApplicationModificationRequest":
                         return NewRequestAbstractApplicationModificationRequest(), nil
                     case "request.AbstractOrganizationalUnitModificationRequest":

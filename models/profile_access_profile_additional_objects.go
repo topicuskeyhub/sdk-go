@@ -11,6 +11,8 @@ type ProfileAccessProfile_additionalObjects struct {
     additionalData map[string]any
     // The audit property
     audit AuditInfoable
+    // The provisioning property
+    provisioning ProfileAccessProfileProvisioningLinkableWrapperable
 }
 // NewProfileAccessProfile_additionalObjects instantiates a new ProfileAccessProfile_additionalObjects and sets the default values.
 func NewProfileAccessProfile_additionalObjects()(*ProfileAccessProfile_additionalObjects) {
@@ -63,7 +65,22 @@ func (m *ProfileAccessProfile_additionalObjects) GetFieldDeserializers()(map[str
         }
         return nil
     }
+    res["provisioning"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProfileAccessProfileProvisioningLinkableWrapperFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetProvisioning(val.(ProfileAccessProfileProvisioningLinkableWrapperable))
+        }
+        return nil
+    }
     return res
+}
+// GetProvisioning gets the provisioning property value. The provisioning property
+// returns a ProfileAccessProfileProvisioningLinkableWrapperable when successful
+func (m *ProfileAccessProfile_additionalObjects) GetProvisioning()(ProfileAccessProfileProvisioningLinkableWrapperable) {
+    return m.provisioning
 }
 // Serialize serializes information the current object
 func (m *ProfileAccessProfile_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -75,6 +92,12 @@ func (m *ProfileAccessProfile_additionalObjects) Serialize(writer i878a80d2330e8
     }
     {
         err := writer.WriteObjectValue("audit", m.GetAudit())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("provisioning", m.GetProvisioning())
         if err != nil {
             return err
         }
@@ -99,11 +122,17 @@ func (m *ProfileAccessProfile_additionalObjects) SetAdditionalData(value map[str
 func (m *ProfileAccessProfile_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
+// SetProvisioning sets the provisioning property value. The provisioning property
+func (m *ProfileAccessProfile_additionalObjects) SetProvisioning(value ProfileAccessProfileProvisioningLinkableWrapperable)() {
+    m.provisioning = value
+}
 type ProfileAccessProfile_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAccounts()(ProfileAccessProfileAccountLinkableWrapperable)
     GetAudit()(AuditInfoable)
+    GetProvisioning()(ProfileAccessProfileProvisioningLinkableWrapperable)
     SetAccounts(value ProfileAccessProfileAccountLinkableWrapperable)()
     SetAudit(value AuditInfoable)()
+    SetProvisioning(value ProfileAccessProfileProvisioningLinkableWrapperable)()
 }

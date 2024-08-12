@@ -6,6 +6,8 @@ import (
 
 type RequestCreateGroupOnSystemRequest struct {
     RequestAbstractProvisionedSystemModificationRequest
+    // The accessProfile property
+    accessProfile ProfileAccessProfilePrimerable
     // The activationRequired property
     activationRequired *bool
     // The groupOnSystemType property
@@ -29,6 +31,11 @@ func NewRequestCreateGroupOnSystemRequest()(*RequestCreateGroupOnSystemRequest) 
 func CreateRequestCreateGroupOnSystemRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestCreateGroupOnSystemRequest(), nil
 }
+// GetAccessProfile gets the accessProfile property value. The accessProfile property
+// returns a ProfileAccessProfilePrimerable when successful
+func (m *RequestCreateGroupOnSystemRequest) GetAccessProfile()(ProfileAccessProfilePrimerable) {
+    return m.accessProfile
+}
 // GetActivationRequired gets the activationRequired property value. The activationRequired property
 // returns a *bool when successful
 func (m *RequestCreateGroupOnSystemRequest) GetActivationRequired()(*bool) {
@@ -38,6 +45,16 @@ func (m *RequestCreateGroupOnSystemRequest) GetActivationRequired()(*bool) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestCreateGroupOnSystemRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestAbstractProvisionedSystemModificationRequest.GetFieldDeserializers()
+    res["accessProfile"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProfileAccessProfilePrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAccessProfile(val.(ProfileAccessProfilePrimerable))
+        }
+        return nil
+    }
     res["activationRequired"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -102,6 +119,12 @@ func (m *RequestCreateGroupOnSystemRequest) Serialize(writer i878a80d2330e89d268
         return err
     }
     {
+        err = writer.WriteObjectValue("accessProfile", m.GetAccessProfile())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteBoolValue("activationRequired", m.GetActivationRequired())
         if err != nil {
             return err
@@ -128,6 +151,10 @@ func (m *RequestCreateGroupOnSystemRequest) Serialize(writer i878a80d2330e89d268
     }
     return nil
 }
+// SetAccessProfile sets the accessProfile property value. The accessProfile property
+func (m *RequestCreateGroupOnSystemRequest) SetAccessProfile(value ProfileAccessProfilePrimerable)() {
+    m.accessProfile = value
+}
 // SetActivationRequired sets the activationRequired property value. The activationRequired property
 func (m *RequestCreateGroupOnSystemRequest) SetActivationRequired(value *bool)() {
     m.activationRequired = value
@@ -147,10 +174,12 @@ func (m *RequestCreateGroupOnSystemRequest) SetOwner(value GroupGroupPrimerable)
 type RequestCreateGroupOnSystemRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestAbstractProvisionedSystemModificationRequestable
+    GetAccessProfile()(ProfileAccessProfilePrimerable)
     GetActivationRequired()(*bool)
     GetGroupOnSystemType()(*ProvisioningGroupOnSystemType)
     GetNameInSystem()(*string)
     GetOwner()(GroupGroupPrimerable)
+    SetAccessProfile(value ProfileAccessProfilePrimerable)()
     SetActivationRequired(value *bool)()
     SetGroupOnSystemType(value *ProvisioningGroupOnSystemType)()
     SetNameInSystem(value *string)()

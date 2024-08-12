@@ -45,6 +45,8 @@ type ItemAccountRequestBuilderGetQueryParameters struct {
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Only return group memberships that are or are not nested.
     Nested []bool `uriparametername:"nested"`
+    // Filter group memberships on the given organizational unit of the group, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
+    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
     // Filter group memberships on the given rights.
@@ -111,7 +113,7 @@ func (m *ItemAccountRequestBuilder) ByAccountidInt64(accountid int64)(*ItemAccou
 // NewItemAccountRequestBuilderInternal instantiates a new ItemAccountRequestBuilder and sets the default values.
 func NewItemAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountRequestBuilder) {
     m := &ItemAccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/account{?account*,additional*,any*,applicableForActivation*,createdAfter*,createdBefore*,exclude*,expiredAt*,group*,groupNameContains*,id*,modifiedSince*,nested*,q*,rights*,signature*,sort*,vaultAccess*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/{groupid}/account{?account*,additional*,any*,applicableForActivation*,createdAfter*,createdBefore*,exclude*,expiredAt*,group*,groupNameContains*,id*,modifiedSince*,nested*,organizationalUnit*,q*,rights*,signature*,sort*,vaultAccess*}", pathParameters),
     }
     return m
 }
@@ -172,7 +174,7 @@ func (m *ItemAccountRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new memberships for a group and returns the newly created memberships.
@@ -186,8 +188,8 @@ func (m *ItemAccountRequestBuilder) ToPostRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=71", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=72", body)
     if err != nil {
         return nil, err
     }

@@ -4,10 +4,11 @@ type PutAdditionalQueryParameterType int
 const (
     ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
     AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+    PROVISIONING_PUTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "audit"}[i]
+    return []string{"accounts", "audit", "provisioning"}[i]
 }
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
     result := ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE
@@ -16,6 +17,8 @@ func ParsePutAdditionalQueryParameterType(v string) (any, error) {
             result = ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+        case "provisioning":
+            result = PROVISIONING_PUTADDITIONALQUERYPARAMETERTYPE
         default:
             return nil, nil
     }

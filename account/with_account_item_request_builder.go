@@ -107,7 +107,7 @@ func (m *WithAccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the account identified by the id.
@@ -121,7 +121,7 @@ func (m *WithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
     return requestInfo, nil
 }
 // Validate the validate property

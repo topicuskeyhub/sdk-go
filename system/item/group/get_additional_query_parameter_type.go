@@ -2,17 +2,20 @@ package group
 type GetAdditionalQueryParameterType int
 
 const (
-    AUDIT_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    ACCESSPROFILEPROVISIONING_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    AUDIT_GETADDITIONALQUERYPARAMETERTYPE
     PROVGROUPS_GETADDITIONALQUERYPARAMETERTYPE
     SERVICEACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"audit", "provgroups", "serviceAccounts"}[i]
+    return []string{"accessProfileProvisioning", "audit", "provgroups", "serviceAccounts"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+    result := ACCESSPROFILEPROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "accessProfileProvisioning":
+            result = ACCESSPROFILEPROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
         case "provgroups":

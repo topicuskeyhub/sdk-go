@@ -12,6 +12,7 @@ import (
     i4e9df38273eb83f44b000e660fb1ceeb2fdcb7939eb1e594bf0e1c6dd130c8e2 "github.com/topicuskeyhub/sdk-go/request"
     i4f6f8a97ade4bcd9f00e48fb22660ba2cb3b474e860f677cfc37ab0f9b6d8370 "github.com/topicuskeyhub/sdk-go/groupclient"
     i6f1edc8cb6d249770cb1634d5c07b8945f2349df7d873c8e22898a5bfd8123aa "github.com/topicuskeyhub/sdk-go/group"
+    i7bdff1f6c6d048a157c7731fd2951237edafe6d60ef09e4370339bc038988788 "github.com/topicuskeyhub/sdk-go/profileprovisioning"
     i7f1810e47506a1087d42711bae10d2eacb3eb432b8e9e68ef97ff738e3bb6945 "github.com/topicuskeyhub/sdk-go/webhook"
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
     i98ee0f07cd6158c2879ae08ef6a731b5a05b3610b774bf729ac7c7bf7d1efa2c "github.com/topicuskeyhub/sdk-go/numberseq"
@@ -124,6 +125,11 @@ func (m *KeyHubClient) Organizationalunit()(*ifb310ad74101a00ed1acdc17b384ce2e89
 // returns a *ProfileRequestBuilder when successful
 func (m *KeyHubClient) Profile()(*i3e244f19958aced6afc8c02a477435c3f0af5f60044658105a73a312fcf20b03.ProfileRequestBuilder) {
     return i3e244f19958aced6afc8c02a477435c3f0af5f60044658105a73a312fcf20b03.NewProfileRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Profileprovisioning the profileprovisioning property
+// returns a *ProfileprovisioningRequestBuilder when successful
+func (m *KeyHubClient) Profileprovisioning()(*i7bdff1f6c6d048a157c7731fd2951237edafe6d60ef09e4370339bc038988788.ProfileprovisioningRequestBuilder) {
+    return i7bdff1f6c6d048a157c7731fd2951237edafe6d60ef09e4370339bc038988788.NewProfileprovisioningRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Provisioninggroup the provisioninggroup property
 // returns a *ProvisioninggroupRequestBuilder when successful

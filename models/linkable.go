@@ -130,6 +130,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProfileAccessProfileAccount(), nil
                     case "profile.AccessProfilePrimer":
                         return NewProfileAccessProfilePrimer(), nil
+                    case "profile.AccessProfileProvisioning":
+                        return NewProfileAccessProfileProvisioning(), nil
                     case "provisioning.AbstractProvisionedLDAP":
                         return NewProvisioningAbstractProvisionedLDAP(), nil
                     case "provisioning.GroupOnSystem":
@@ -164,6 +166,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProvisioningProvisionedSystemSyncLog(), nil
                     case "provisioning.ProvisionNumberSequence":
                         return NewProvisioningProvisionNumberSequence(), nil
+                    case "request.AbstractAccessProfileModificationRequest":
+                        return NewRequestAbstractAccessProfileModificationRequest(), nil
                     case "request.AbstractApplicationModificationRequest":
                         return NewRequestAbstractApplicationModificationRequest(), nil
                     case "request.AbstractOrganizationalUnitModificationRequest":

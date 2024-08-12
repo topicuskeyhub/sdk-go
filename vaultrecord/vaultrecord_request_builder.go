@@ -13,7 +13,7 @@ import (
 type VaultrecordRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
-// VaultrecordRequestBuilderGetQueryParameters query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
+// VaultrecordRequestBuilderGetQueryParameters query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query that returns multiple results. Secrets can only be read one by one.
 type VaultrecordRequestBuilderGetQueryParameters struct {
     // Filter records that accessible by the given account(s), specified by id.
     AccessibleByAccount []int64 `uriparametername:"accessibleByAccount"`
@@ -129,7 +129,7 @@ func NewVaultrecordRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee26
     urlParams["request-raw-url"] = rawUrl
     return NewVaultrecordRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Get query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
+// Get query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query that returns multiple results. Secrets can only be read one by one.
 // returns a VaultVaultRecordLinkableWrapperable when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *VaultrecordRequestBuilder) Get(ctx context.Context, requestConfiguration *VaultrecordRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordLinkableWrapperable, error) {
@@ -149,7 +149,7 @@ func (m *VaultrecordRequestBuilder) Get(ctx context.Context, requestConfiguratio
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordLinkableWrapperable), nil
 }
-// ToGetRequestInformation query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query. Secrets can only be read one by one.
+// ToGetRequestInformation query for vault records over all vaults the user can access. The various query parameters can be used to filter the response. It is not possible to access secrets with a query that returns multiple results. Secrets can only be read one by one.
 // returns a *RequestInformation when successful
 func (m *VaultrecordRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *VaultrecordRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
@@ -160,7 +160,7 @@ func (m *VaultrecordRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

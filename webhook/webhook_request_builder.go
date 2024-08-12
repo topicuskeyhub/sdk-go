@@ -28,13 +28,13 @@ type WebhookRequestBuilderGetQueryParameters struct {
     AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
-    // Filter webhooks on the given groups performing technical adminstration for the system or client for the webhooks, specified by id.
+    // Filter webhooks on the given groups performing technical administration for the client for the webhooks, specified by id.
     AppAdminGroup []int64 `uriparametername:"appAdminGroup"`
-    // Filter webhooks on the given groups with ownership for the client, system or directory for the webhooks, specified by id.
+    // Filter the webhooks by groups owning the client, specified by id.
     AppOwnerGroup []int64 `uriparametername:"appOwnerGroup"`
     // Filter webhooks on the given clients, specified by id.
     Client []int64 `uriparametername:"client"`
-    // Filter webhooks on the given groups performing content adminstration for the system for the webhooks, specified by id.
+    // Filter webhooks on the given groups performing content administration for the system for the webhooks, specified by id.
     ContentAdminGroup []int64 `uriparametername:"contentAdminGroup"`
     // Only return records that have been created after the given instant.
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
@@ -42,6 +42,8 @@ type WebhookRequestBuilderGetQueryParameters struct {
     CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter webhooks on the given directories, specified by id.
     Directory []int64 `uriparametername:"directory"`
+    // Filter the webhooks by groups owning the internal directory, specified by id.
+    DirectoryOwnerGroup []int64 `uriparametername:"directoryOwnerGroup"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
     // Only return webhooks that use certificates that are expired at the given instant.
@@ -66,6 +68,10 @@ type WebhookRequestBuilderGetQueryParameters struct {
     Sort []string `uriparametername:"sort"`
     // Filter webhooks on the given systems, specified by id.
     System []int64 `uriparametername:"system"`
+    // Filter webhooks on the given groups performing technical administration for the system for the webhooks, specified by id.
+    SystemAdminGroup []int64 `uriparametername:"systemAdminGroup"`
+    // Filter the webhooks by groups owning the provisioned system, specified by id.
+    SystemOwnerGroup []int64 `uriparametername:"systemOwnerGroup"`
     // Filter results on the given TLS mode(s).
     // Deprecated: This property is deprecated, use TlsAsTLSLevel instead
     Tls []string `uriparametername:"tls"`
@@ -133,7 +139,7 @@ func (m *WebhookRequestBuilder) ByWebhookidInt64(webhookid int64)(*WithWebhookIt
 // NewWebhookRequestBuilderInternal instantiates a new WebhookRequestBuilder and sets the default values.
 func NewWebhookRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WebhookRequestBuilder) {
     m := &WebhookRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook{?account*,active*,additional*,any*,appAdminGroup*,appOwnerGroup*,client*,contentAdminGroup*,createdAfter*,createdBefore*,directory*,exclude*,expiredCertificate*,global*,group*,id*,modifiedSince*,nameContains*,q*,serviceAccount*,serviceAccountNotNull*,sort*,system*,tls*,type*,url*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook{?account*,active*,additional*,any*,appAdminGroup*,appOwnerGroup*,client*,contentAdminGroup*,createdAfter*,createdBefore*,directory*,directoryOwnerGroup*,exclude*,expiredCertificate*,global*,group*,id*,modifiedSince*,nameContains*,q*,serviceAccount*,serviceAccountNotNull*,sort*,system*,systemAdminGroup*,systemOwnerGroup*,tls*,type*,url*,uuid*}", pathParameters),
     }
     return m
 }
@@ -194,7 +200,7 @@ func (m *WebhookRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new webhooks and returns the newly created webhooks.
@@ -208,8 +214,8 @@ func (m *WebhookRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=71")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=71", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=72", body)
     if err != nil {
         return nil, err
     }
