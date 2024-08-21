@@ -216,7 +216,7 @@ func (m *AccountRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
     return requestInfo, nil
 }
 // Vault the vault property

@@ -13,14 +13,8 @@ type AuthInternalAccount struct {
     activationDeadline *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The company property
     company *string
-    // The firstName property
-    firstName *string
-    // The lastName property
-    lastName *string
     // The status property
     status *AuthInternalAccountStatus
-    // The telephone property
-    telephone *string
 }
 // NewAuthInternalAccount instantiates a new AuthInternalAccount and sets the default values.
 func NewAuthInternalAccount()(*AuthInternalAccount) {
@@ -85,26 +79,6 @@ func (m *AuthInternalAccount) GetFieldDeserializers()(map[string]func(i878a80d23
         }
         return nil
     }
-    res["firstName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetFirstName(val)
-        }
-        return nil
-    }
-    res["lastName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetLastName(val)
-        }
-        return nil
-    }
     res["status"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetEnumValue(ParseAuthInternalAccountStatus)
         if err != nil {
@@ -115,37 +89,12 @@ func (m *AuthInternalAccount) GetFieldDeserializers()(map[string]func(i878a80d23
         }
         return nil
     }
-    res["telephone"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetTelephone(val)
-        }
-        return nil
-    }
     return res
-}
-// GetFirstName gets the firstName property value. The firstName property
-// returns a *string when successful
-func (m *AuthInternalAccount) GetFirstName()(*string) {
-    return m.firstName
-}
-// GetLastName gets the lastName property value. The lastName property
-// returns a *string when successful
-func (m *AuthInternalAccount) GetLastName()(*string) {
-    return m.lastName
 }
 // GetStatus gets the status property value. The status property
 // returns a *AuthInternalAccountStatus when successful
 func (m *AuthInternalAccount) GetStatus()(*AuthInternalAccountStatus) {
     return m.status
-}
-// GetTelephone gets the telephone property value. The telephone property
-// returns a *string when successful
-func (m *AuthInternalAccount) GetTelephone()(*string) {
-    return m.telephone
 }
 // Serialize serializes information the current object
 func (m *AuthInternalAccount) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -159,27 +108,9 @@ func (m *AuthInternalAccount) Serialize(writer i878a80d2330e89d26896388a3f487eef
             return err
         }
     }
-    {
-        err = writer.WriteStringValue("firstName", m.GetFirstName())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("lastName", m.GetLastName())
-        if err != nil {
-            return err
-        }
-    }
     if m.GetStatus() != nil {
         cast := (*m.GetStatus()).String()
         err = writer.WriteStringValue("status", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("telephone", m.GetTelephone())
         if err != nil {
             return err
         }
@@ -198,21 +129,9 @@ func (m *AuthInternalAccount) SetActivationDeadline(value *i336074805fc853987abe
 func (m *AuthInternalAccount) SetCompany(value *string)() {
     m.company = value
 }
-// SetFirstName sets the firstName property value. The firstName property
-func (m *AuthInternalAccount) SetFirstName(value *string)() {
-    m.firstName = value
-}
-// SetLastName sets the lastName property value. The lastName property
-func (m *AuthInternalAccount) SetLastName(value *string)() {
-    m.lastName = value
-}
 // SetStatus sets the status property value. The status property
 func (m *AuthInternalAccount) SetStatus(value *AuthInternalAccountStatus)() {
     m.status = value
-}
-// SetTelephone sets the telephone property value. The telephone property
-func (m *AuthInternalAccount) SetTelephone(value *string)() {
-    m.telephone = value
 }
 type AuthInternalAccountable interface {
     AuthAccountable
@@ -220,15 +139,9 @@ type AuthInternalAccountable interface {
     GetActivationCode()(*string)
     GetActivationDeadline()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetCompany()(*string)
-    GetFirstName()(*string)
-    GetLastName()(*string)
     GetStatus()(*AuthInternalAccountStatus)
-    GetTelephone()(*string)
     SetActivationCode(value *string)()
     SetActivationDeadline(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetCompany(value *string)()
-    SetFirstName(value *string)()
-    SetLastName(value *string)()
     SetStatus(value *AuthInternalAccountStatus)()
-    SetTelephone(value *string)()
 }

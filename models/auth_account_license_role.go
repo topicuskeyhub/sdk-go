@@ -2,16 +2,19 @@ package models
 type AuthAccountLicenseRole int
 
 const (
-    BUSINESS_AUTHACCOUNTLICENSEROLE AuthAccountLicenseRole = iota
+    IGA_AUTHACCOUNTLICENSEROLE AuthAccountLicenseRole = iota
+    BUSINESS_AUTHACCOUNTLICENSEROLE
     PRO_AUTHACCOUNTLICENSEROLE
 )
 
 func (i AuthAccountLicenseRole) String() string {
-    return []string{"BUSINESS", "PRO"}[i]
+    return []string{"IGA", "BUSINESS", "PRO"}[i]
 }
 func ParseAuthAccountLicenseRole(v string) (any, error) {
-    result := BUSINESS_AUTHACCOUNTLICENSEROLE
+    result := IGA_AUTHACCOUNTLICENSEROLE
     switch v {
+        case "IGA":
+            result = IGA_AUTHACCOUNTLICENSEROLE
         case "BUSINESS":
             result = BUSINESS_AUTHACCOUNTLICENSEROLE
         case "PRO":

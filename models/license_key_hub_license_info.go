@@ -27,6 +27,8 @@ type LicenseKeyHubLicenseInfo struct {
     licenseKey *string
     // The notBeforeTime property
     notBeforeTime *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    // The usersBusinessLimit property
+    usersBusinessLimit *int32
     // The usersHardLimit property
     usersHardLimit *int32
     // The usersProLimit property
@@ -198,6 +200,16 @@ func (m *LicenseKeyHubLicenseInfo) GetFieldDeserializers()(map[string]func(i878a
         }
         return nil
     }
+    res["usersBusinessLimit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt32Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetUsersBusinessLimit(val)
+        }
+        return nil
+    }
     res["usersHardLimit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetInt32Value()
         if err != nil {
@@ -269,6 +281,11 @@ func (m *LicenseKeyHubLicenseInfo) GetLicenseKey()(*string) {
 // returns a *Time when successful
 func (m *LicenseKeyHubLicenseInfo) GetNotBeforeTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.notBeforeTime
+}
+// GetUsersBusinessLimit gets the usersBusinessLimit property value. The usersBusinessLimit property
+// returns a *int32 when successful
+func (m *LicenseKeyHubLicenseInfo) GetUsersBusinessLimit()(*int32) {
+    return m.usersBusinessLimit
 }
 // GetUsersHardLimit gets the usersHardLimit property value. The usersHardLimit property
 // returns a *int32 when successful
@@ -363,6 +380,12 @@ func (m *LicenseKeyHubLicenseInfo) Serialize(writer i878a80d2330e89d26896388a3f4
         }
     }
     {
+        err = writer.WriteInt32Value("usersBusinessLimit", m.GetUsersBusinessLimit())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteInt32Value("usersHardLimit", m.GetUsersHardLimit())
         if err != nil {
             return err
@@ -434,6 +457,10 @@ func (m *LicenseKeyHubLicenseInfo) SetLicenseKey(value *string)() {
 func (m *LicenseKeyHubLicenseInfo) SetNotBeforeTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.notBeforeTime = value
 }
+// SetUsersBusinessLimit sets the usersBusinessLimit property value. The usersBusinessLimit property
+func (m *LicenseKeyHubLicenseInfo) SetUsersBusinessLimit(value *int32)() {
+    m.usersBusinessLimit = value
+}
 // SetUsersHardLimit sets the usersHardLimit property value. The usersHardLimit property
 func (m *LicenseKeyHubLicenseInfo) SetUsersHardLimit(value *int32)() {
     m.usersHardLimit = value
@@ -467,6 +494,7 @@ type LicenseKeyHubLicenseInfoable interface {
     GetKeyHubDomain()(*string)
     GetLicenseKey()(*string)
     GetNotBeforeTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
+    GetUsersBusinessLimit()(*int32)
     GetUsersHardLimit()(*int32)
     GetUsersProLimit()(*int32)
     GetUsersSoftLimit()(*int32)
@@ -482,6 +510,7 @@ type LicenseKeyHubLicenseInfoable interface {
     SetKeyHubDomain(value *string)()
     SetLicenseKey(value *string)()
     SetNotBeforeTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
+    SetUsersBusinessLimit(value *int32)()
     SetUsersHardLimit(value *int32)()
     SetUsersProLimit(value *int32)()
     SetUsersSoftLimit(value *int32)()

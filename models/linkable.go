@@ -104,6 +104,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewGroupGroupPrimer(), nil
                     case "group.ProvisioningGroup":
                         return NewGroupProvisioningGroup(), nil
+                    case "identity.Identity":
+                        return NewIdentityIdentity(), nil
                     case "launchpad.DisplayedLaunchpadTile":
                         return NewLaunchpadDisplayedLaunchpadTile(), nil
                     case "launchpad.LaunchpadTile":

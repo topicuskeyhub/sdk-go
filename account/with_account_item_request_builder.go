@@ -89,6 +89,11 @@ func (m *WithAccountItemRequestBuilder) Get(ctx context.Context, requestConfigur
 func (m *WithAccountItemRequestBuilder) Group()(*ItemGroupRequestBuilder) {
     return NewItemGroupRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// Identity the identity property
+// returns a *ItemIdentityRequestBuilder when successful
+func (m *WithAccountItemRequestBuilder) Identity()(*ItemIdentityRequestBuilder) {
+    return NewItemIdentityRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Organizationalunit the organizationalunit property
 // returns a *ItemOrganizationalunitRequestBuilder when successful
 func (m *WithAccountItemRequestBuilder) Organizationalunit()(*ItemOrganizationalunitRequestBuilder) {
@@ -107,7 +112,7 @@ func (m *WithAccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the account identified by the id.
@@ -121,7 +126,7 @@ func (m *WithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=72")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
     return requestInfo, nil
 }
 // Validate the validate property

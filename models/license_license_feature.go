@@ -12,10 +12,11 @@ const (
     SERVICE_ACCOUNTS_LICENSELICENSEFEATURE
     ILM_LICENSELICENSEFEATURE
     SCIM_LICENSELICENSEFEATURE
+    GROUP_ACTIVATION_LICENSELICENSEFEATURE
 )
 
 func (i LicenseLicenseFeature) String() string {
-    return []string{"CLUSTER_HA", "CLUSTER_HA_ENTERPRISE", "WORKFLOWS", "NESTED_GROUPS", "ENTERPRISE_ORGANISATION", "COMPLIANCE_PLUS", "OFFLINE_MODE", "SERVICE_ACCOUNTS", "ILM", "SCIM"}[i]
+    return []string{"CLUSTER_HA", "CLUSTER_HA_ENTERPRISE", "WORKFLOWS", "NESTED_GROUPS", "ENTERPRISE_ORGANISATION", "COMPLIANCE_PLUS", "OFFLINE_MODE", "SERVICE_ACCOUNTS", "ILM", "SCIM", "GROUP_ACTIVATION"}[i]
 }
 func ParseLicenseLicenseFeature(v string) (any, error) {
     result := CLUSTER_HA_LICENSELICENSEFEATURE
@@ -40,6 +41,8 @@ func ParseLicenseLicenseFeature(v string) (any, error) {
             result = ILM_LICENSELICENSEFEATURE
         case "SCIM":
             result = SCIM_LICENSELICENSEFEATURE
+        case "GROUP_ACTIVATION":
+            result = GROUP_ACTIVATION_LICENSELICENSEFEATURE
         default:
             return nil, nil
     }
