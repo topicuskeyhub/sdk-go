@@ -122,12 +122,6 @@ func (m *ProvisioningGroupOnSystemPrimer) Serialize(writer i878a80d2330e89d26896
         return err
     }
     {
-        err = writer.WriteStringValue("displayName", m.GetDisplayName())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err = writer.WriteStringValue("nameInSystem", m.GetNameInSystem())
         if err != nil {
             return err

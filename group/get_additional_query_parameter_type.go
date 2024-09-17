@@ -11,6 +11,7 @@ const (
     CLIENTPERMISSIONS_GETADDITIONALQUERYPARAMETERTYPE
     CLIENTS_GETADDITIONALQUERYPARAMETERTYPE
     CONTENTADMINISTEREDSYSTEMS_GETADDITIONALQUERYPARAMETERTYPE
+    GROUPACCESSINFO_GETADDITIONALQUERYPARAMETERTYPE
     GROUPAUDITINGINFO_GETADDITIONALQUERYPARAMETERTYPE
     GROUPINFO_GETADDITIONALQUERYPARAMETERTYPE
     HELPDESK_GETADDITIONALQUERYPARAMETERTYPE
@@ -33,7 +34,7 @@ const (
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
+    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
@@ -56,6 +57,8 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
             result = CLIENTS_GETADDITIONALQUERYPARAMETERTYPE
         case "contentAdministeredSystems":
             result = CONTENTADMINISTEREDSYSTEMS_GETADDITIONALQUERYPARAMETERTYPE
+        case "groupAccessInfo":
+            result = GROUPACCESSINFO_GETADDITIONALQUERYPARAMETERTYPE
         case "groupauditinginfo":
             result = GROUPAUDITINGINFO_GETADDITIONALQUERYPARAMETERTYPE
         case "groupinfo":

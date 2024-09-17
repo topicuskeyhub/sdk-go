@@ -58,6 +58,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewDirectoryAccountDirectoryStatusReport(), nil
                     case "GeneratedSecret":
                         return NewGeneratedSecret(), nil
+                    case "group.GroupAccessInfo":
+                        return NewGroupGroupAccessInfo(), nil
                     case "group.GroupAccountNesting":
                         return NewGroupGroupAccountNesting(), nil
                     case "group.GroupAccountStatus":

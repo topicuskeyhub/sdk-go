@@ -17,6 +17,8 @@ type ProvisioningProvisionedSystem struct {
     contentAdministrator GroupGroupPrimerable
     // The externalUuid property
     externalUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+    // The groupOnSystemProvisioning property
+    groupOnSystemProvisioning *ProvisioningGroupOnSystemProvisioning
     // The owner property
     owner GroupGroupPrimerable
     // The selfServiceExistingGroups property
@@ -163,6 +165,16 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
         }
         return nil
     }
+    res["groupOnSystemProvisioning"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetEnumValue(ParseProvisioningGroupOnSystemProvisioning)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGroupOnSystemProvisioning(val.(*ProvisioningGroupOnSystemProvisioning))
+        }
+        return nil
+    }
     res["owner"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
         if err != nil {
@@ -245,6 +257,11 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
     }
     return res
 }
+// GetGroupOnSystemProvisioning gets the groupOnSystemProvisioning property value. The groupOnSystemProvisioning property
+// returns a *ProvisioningGroupOnSystemProvisioning when successful
+func (m *ProvisioningProvisionedSystem) GetGroupOnSystemProvisioning()(*ProvisioningGroupOnSystemProvisioning) {
+    return m.groupOnSystemProvisioning
+}
 // GetOwner gets the owner property value. The owner property
 // returns a GroupGroupPrimerable when successful
 func (m *ProvisioningProvisionedSystem) GetOwner()(GroupGroupPrimerable) {
@@ -305,6 +322,13 @@ func (m *ProvisioningProvisionedSystem) Serialize(writer i878a80d2330e89d2689638
     }
     {
         err = writer.WriteObjectValue("contentAdministrator", m.GetContentAdministrator())
+        if err != nil {
+            return err
+        }
+    }
+    if m.GetGroupOnSystemProvisioning() != nil {
+        cast := (*m.GetGroupOnSystemProvisioning()).String()
+        err = writer.WriteStringValue("groupOnSystemProvisioning", &cast)
         if err != nil {
             return err
         }
@@ -379,6 +403,10 @@ func (m *ProvisioningProvisionedSystem) SetContentAdministrator(value GroupGroup
 func (m *ProvisioningProvisionedSystem) SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
     m.externalUuid = value
 }
+// SetGroupOnSystemProvisioning sets the groupOnSystemProvisioning property value. The groupOnSystemProvisioning property
+func (m *ProvisioningProvisionedSystem) SetGroupOnSystemProvisioning(value *ProvisioningGroupOnSystemProvisioning)() {
+    m.groupOnSystemProvisioning = value
+}
 // SetOwner sets the owner property value. The owner property
 func (m *ProvisioningProvisionedSystem) SetOwner(value GroupGroupPrimerable)() {
     m.owner = value
@@ -419,6 +447,7 @@ type ProvisioningProvisionedSystemable interface {
     GetCleanupPeriod()(ProvisioningProvisionedSystem_cleanupPeriodable)
     GetContentAdministrator()(GroupGroupPrimerable)
     GetExternalUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+    GetGroupOnSystemProvisioning()(*ProvisioningGroupOnSystemProvisioning)
     GetOwner()(GroupGroupPrimerable)
     GetSelfServiceExistingGroups()(*bool)
     GetSelfServiceNewGroups()(*bool)
@@ -432,6 +461,7 @@ type ProvisioningProvisionedSystemable interface {
     SetCleanupPeriod(value ProvisioningProvisionedSystem_cleanupPeriodable)()
     SetContentAdministrator(value GroupGroupPrimerable)()
     SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
+    SetGroupOnSystemProvisioning(value *ProvisioningGroupOnSystemProvisioning)()
     SetOwner(value GroupGroupPrimerable)()
     SetSelfServiceExistingGroups(value *bool)()
     SetSelfServiceNewGroups(value *bool)()

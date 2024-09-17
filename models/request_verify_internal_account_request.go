@@ -6,6 +6,8 @@ import (
 
 type RequestVerifyInternalAccountRequest struct {
     RequestModificationRequest
+    // The directory property
+    directory DirectoryAccountDirectoryPrimerable
     // The internalAccountName property
     internalAccountName *string
 }
@@ -23,10 +25,25 @@ func NewRequestVerifyInternalAccountRequest()(*RequestVerifyInternalAccountReque
 func CreateRequestVerifyInternalAccountRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestVerifyInternalAccountRequest(), nil
 }
+// GetDirectory gets the directory property value. The directory property
+// returns a DirectoryAccountDirectoryPrimerable when successful
+func (m *RequestVerifyInternalAccountRequest) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
+    return m.directory
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestVerifyInternalAccountRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.RequestModificationRequest.GetFieldDeserializers()
+    res["directory"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateDirectoryAccountDirectoryPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetDirectory(val.(DirectoryAccountDirectoryPrimerable))
+        }
+        return nil
+    }
     res["internalAccountName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -51,12 +68,22 @@ func (m *RequestVerifyInternalAccountRequest) Serialize(writer i878a80d2330e89d2
         return err
     }
     {
+        err = writer.WriteObjectValue("directory", m.GetDirectory())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("internalAccountName", m.GetInternalAccountName())
         if err != nil {
             return err
         }
     }
     return nil
+}
+// SetDirectory sets the directory property value. The directory property
+func (m *RequestVerifyInternalAccountRequest) SetDirectory(value DirectoryAccountDirectoryPrimerable)() {
+    m.directory = value
 }
 // SetInternalAccountName sets the internalAccountName property value. The internalAccountName property
 func (m *RequestVerifyInternalAccountRequest) SetInternalAccountName(value *string)() {
@@ -65,6 +92,8 @@ func (m *RequestVerifyInternalAccountRequest) SetInternalAccountName(value *stri
 type RequestVerifyInternalAccountRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestModificationRequestable
+    GetDirectory()(DirectoryAccountDirectoryPrimerable)
     GetInternalAccountName()(*string)
+    SetDirectory(value DirectoryAccountDirectoryPrimerable)()
     SetInternalAccountName(value *string)()
 }

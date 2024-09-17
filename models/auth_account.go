@@ -27,6 +27,8 @@ type AuthAccount struct {
     directoryType *DirectoryAccountDirectoryType
     // The email property
     email *string
+    // The identity property
+    identity IdentityIdentityable
     // The idInDirectory property
     idInDirectory *string
     // The keyHubPasswordChangeRequired property
@@ -238,6 +240,16 @@ func (m *AuthAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26
         }
         return nil
     }
+    res["identity"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateIdentityIdentityFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetIdentity(val.(IdentityIdentityable))
+        }
+        return nil
+    }
     res["idInDirectory"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -330,6 +342,11 @@ func (m *AuthAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26
     }
     return res
 }
+// GetIdentity gets the identity property value. The identity property
+// returns a IdentityIdentityable when successful
+func (m *AuthAccount) GetIdentity()(IdentityIdentityable) {
+    return m.identity
+}
 // GetIdInDirectory gets the idInDirectory property value. The idInDirectory property
 // returns a *string when successful
 func (m *AuthAccount) GetIdInDirectory()(*string) {
@@ -407,6 +424,12 @@ func (m *AuthAccount) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6
             return err
         }
     }
+    {
+        err = writer.WriteObjectValue("identity", m.GetIdentity())
+        if err != nil {
+            return err
+        }
+    }
     if m.GetLicenseRole() != nil {
         cast := (*m.GetLicenseRole()).String()
         err = writer.WriteStringValue("licenseRole", &cast)
@@ -463,6 +486,10 @@ func (m *AuthAccount) SetDirectoryType(value *DirectoryAccountDirectoryType)() {
 func (m *AuthAccount) SetEmail(value *string)() {
     m.email = value
 }
+// SetIdentity sets the identity property value. The identity property
+func (m *AuthAccount) SetIdentity(value IdentityIdentityable)() {
+    m.identity = value
+}
 // SetIdInDirectory sets the idInDirectory property value. The idInDirectory property
 func (m *AuthAccount) SetIdInDirectory(value *string)() {
     m.idInDirectory = value
@@ -512,6 +539,7 @@ type AuthAccountable interface {
     GetDirectoryRotatingPassword()(*DirectoryDirectoryRotatingPassword)
     GetDirectoryType()(*DirectoryAccountDirectoryType)
     GetEmail()(*string)
+    GetIdentity()(IdentityIdentityable)
     GetIdInDirectory()(*string)
     GetKeyHubPasswordChangeRequired()(*bool)
     GetLastModifiedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
@@ -531,6 +559,7 @@ type AuthAccountable interface {
     SetDirectoryRotatingPassword(value *DirectoryDirectoryRotatingPassword)()
     SetDirectoryType(value *DirectoryAccountDirectoryType)()
     SetEmail(value *string)()
+    SetIdentity(value IdentityIdentityable)()
     SetIdInDirectory(value *string)()
     SetKeyHubPasswordChangeRequired(value *bool)()
     SetLastModifiedAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()

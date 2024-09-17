@@ -10,6 +10,8 @@ type ProvisioningGroupOnSystem struct {
     additionalObjects ProvisioningGroupOnSystem_additionalObjectsable
     // The owner property
     owner GroupGroupPrimerable
+    // The provisioningEnabled property
+    provisioningEnabled *bool
     // The system property
     system ProvisioningProvisionedSystemPrimerable
 }
@@ -56,6 +58,16 @@ func (m *ProvisioningGroupOnSystem) GetFieldDeserializers()(map[string]func(i878
         }
         return nil
     }
+    res["provisioningEnabled"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetProvisioningEnabled(val)
+        }
+        return nil
+    }
     res["system"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue)
         if err != nil {
@@ -72,6 +84,11 @@ func (m *ProvisioningGroupOnSystem) GetFieldDeserializers()(map[string]func(i878
 // returns a GroupGroupPrimerable when successful
 func (m *ProvisioningGroupOnSystem) GetOwner()(GroupGroupPrimerable) {
     return m.owner
+}
+// GetProvisioningEnabled gets the provisioningEnabled property value. The provisioningEnabled property
+// returns a *bool when successful
+func (m *ProvisioningGroupOnSystem) GetProvisioningEnabled()(*bool) {
+    return m.provisioningEnabled
 }
 // GetSystem gets the system property value. The system property
 // returns a ProvisioningProvisionedSystemPrimerable when successful
@@ -97,6 +114,12 @@ func (m *ProvisioningGroupOnSystem) Serialize(writer i878a80d2330e89d26896388a3f
         }
     }
     {
+        err = writer.WriteBoolValue("provisioningEnabled", m.GetProvisioningEnabled())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("system", m.GetSystem())
         if err != nil {
             return err
@@ -112,6 +135,10 @@ func (m *ProvisioningGroupOnSystem) SetAdditionalObjects(value ProvisioningGroup
 func (m *ProvisioningGroupOnSystem) SetOwner(value GroupGroupPrimerable)() {
     m.owner = value
 }
+// SetProvisioningEnabled sets the provisioningEnabled property value. The provisioningEnabled property
+func (m *ProvisioningGroupOnSystem) SetProvisioningEnabled(value *bool)() {
+    m.provisioningEnabled = value
+}
 // SetSystem sets the system property value. The system property
 func (m *ProvisioningGroupOnSystem) SetSystem(value ProvisioningProvisionedSystemPrimerable)() {
     m.system = value
@@ -121,8 +148,10 @@ type ProvisioningGroupOnSystemable interface {
     ProvisioningGroupOnSystemPrimerable
     GetAdditionalObjects()(ProvisioningGroupOnSystem_additionalObjectsable)
     GetOwner()(GroupGroupPrimerable)
+    GetProvisioningEnabled()(*bool)
     GetSystem()(ProvisioningProvisionedSystemPrimerable)
     SetAdditionalObjects(value ProvisioningGroupOnSystem_additionalObjectsable)()
     SetOwner(value GroupGroupPrimerable)()
+    SetProvisioningEnabled(value *bool)()
     SetSystem(value ProvisioningProvisionedSystemPrimerable)()
 }
