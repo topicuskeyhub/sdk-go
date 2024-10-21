@@ -120,12 +120,12 @@ func NewKeyHubRequestAdapterForDeviceCode(client *nethttp.Client, issuer string,
 
 	response, err := DeviceAuth(ctx, &oauth2Conf)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 	fmt.Printf("please enter code %s at %s\n", response.UserCode, response.VerificationURIComplete)
 	token, err := oauth2Conf.DeviceAccessToken(ctx, response)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	tokenSource := oauth2Conf.TokenSource(ctx, token)
