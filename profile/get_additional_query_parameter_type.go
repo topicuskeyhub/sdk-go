@@ -2,19 +2,19 @@ package profile
 type GetAdditionalQueryParameterType int
 
 const (
-    ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    ACCOUNTSWITHATTRIBUTES_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
     AUDIT_GETADDITIONALQUERYPARAMETERTYPE
     PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "audit", "provisioning"}[i]
+    return []string{"accountsWithAttributes", "audit", "provisioning"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
-    result := ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
+    result := ACCOUNTSWITHATTRIBUTES_GETADDITIONALQUERYPARAMETERTYPE
     switch v {
-        case "accounts":
-            result = ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
+        case "accountsWithAttributes":
+            result = ACCOUNTSWITHATTRIBUTES_GETADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
         case "provisioning":

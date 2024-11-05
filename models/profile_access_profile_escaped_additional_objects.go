@@ -5,8 +5,8 @@ import (
 )
 
 type ProfileAccessProfile_additionalObjects struct {
-    // The accounts property
-    accounts ProfileAccessProfileAccountLinkableWrapperable
+    // The accountsWithAttributes property
+    accountsWithAttributes ProfileAccessProfileAccountWithAttributesLinkableWrapperable
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The audit property
@@ -26,10 +26,10 @@ func NewProfileAccessProfile_additionalObjects()(*ProfileAccessProfile_additiona
 func CreateProfileAccessProfile_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProfileAccessProfile_additionalObjects(), nil
 }
-// GetAccounts gets the accounts property value. The accounts property
-// returns a ProfileAccessProfileAccountLinkableWrapperable when successful
-func (m *ProfileAccessProfile_additionalObjects) GetAccounts()(ProfileAccessProfileAccountLinkableWrapperable) {
-    return m.accounts
+// GetAccountsWithAttributes gets the accountsWithAttributes property value. The accountsWithAttributes property
+// returns a ProfileAccessProfileAccountWithAttributesLinkableWrapperable when successful
+func (m *ProfileAccessProfile_additionalObjects) GetAccountsWithAttributes()(ProfileAccessProfileAccountWithAttributesLinkableWrapperable) {
+    return m.accountsWithAttributes
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 // returns a map[string]any when successful
@@ -45,13 +45,13 @@ func (m *ProfileAccessProfile_additionalObjects) GetAudit()(AuditInfoable) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProfileAccessProfile_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
-    res["accounts"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProfileAccessProfileAccountLinkableWrapperFromDiscriminatorValue)
+    res["accountsWithAttributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProfileAccessProfileAccountWithAttributesLinkableWrapperFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAccounts(val.(ProfileAccessProfileAccountLinkableWrapperable))
+            m.SetAccountsWithAttributes(val.(ProfileAccessProfileAccountWithAttributesLinkableWrapperable))
         }
         return nil
     }
@@ -85,7 +85,7 @@ func (m *ProfileAccessProfile_additionalObjects) GetProvisioning()(ProfileAccess
 // Serialize serializes information the current object
 func (m *ProfileAccessProfile_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     {
-        err := writer.WriteObjectValue("accounts", m.GetAccounts())
+        err := writer.WriteObjectValue("accountsWithAttributes", m.GetAccountsWithAttributes())
         if err != nil {
             return err
         }
@@ -110,9 +110,9 @@ func (m *ProfileAccessProfile_additionalObjects) Serialize(writer i878a80d2330e8
     }
     return nil
 }
-// SetAccounts sets the accounts property value. The accounts property
-func (m *ProfileAccessProfile_additionalObjects) SetAccounts(value ProfileAccessProfileAccountLinkableWrapperable)() {
-    m.accounts = value
+// SetAccountsWithAttributes sets the accountsWithAttributes property value. The accountsWithAttributes property
+func (m *ProfileAccessProfile_additionalObjects) SetAccountsWithAttributes(value ProfileAccessProfileAccountWithAttributesLinkableWrapperable)() {
+    m.accountsWithAttributes = value
 }
 // SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *ProfileAccessProfile_additionalObjects) SetAdditionalData(value map[string]any)() {
@@ -129,10 +129,10 @@ func (m *ProfileAccessProfile_additionalObjects) SetProvisioning(value ProfileAc
 type ProfileAccessProfile_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAccounts()(ProfileAccessProfileAccountLinkableWrapperable)
+    GetAccountsWithAttributes()(ProfileAccessProfileAccountWithAttributesLinkableWrapperable)
     GetAudit()(AuditInfoable)
     GetProvisioning()(ProfileAccessProfileProvisioningLinkableWrapperable)
-    SetAccounts(value ProfileAccessProfileAccountLinkableWrapperable)()
+    SetAccountsWithAttributes(value ProfileAccessProfileAccountWithAttributesLinkableWrapperable)()
     SetAudit(value AuditInfoable)()
     SetProvisioning(value ProfileAccessProfileProvisioningLinkableWrapperable)()
 }

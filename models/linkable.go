@@ -50,6 +50,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewAuthAccountPrimer(), nil
                     case "auth.InternalAccount":
                         return NewAuthInternalAccount(), nil
+                    case "auth.StoredUserSession":
+                        return NewAuthStoredUserSession(), nil
                     case "certificate.Certificate":
                         return NewCertificateCertificate(), nil
                     case "certificate.CertificatePrimer":
@@ -130,6 +132,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProfileAccessProfile(), nil
                     case "profile.AccessProfileAccount":
                         return NewProfileAccessProfileAccount(), nil
+                    case "profile.AccessProfileAccountWithAttributes":
+                        return NewProfileAccessProfileAccountWithAttributes(), nil
                     case "profile.AccessProfilePrimer":
                         return NewProfileAccessProfilePrimer(), nil
                     case "profile.AccessProfileProvisioning":
@@ -210,6 +214,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestJoinGroupRequest(), nil
                     case "request.JoinVaultRequest":
                         return NewRequestJoinVaultRequest(), nil
+                    case "request.LinkDirectoryToAccessProfileRequest":
+                        return NewRequestLinkDirectoryToAccessProfileRequest(), nil
                     case "request.ModificationRequest":
                         return NewRequestModificationRequest(), nil
                     case "request.MoveGroupsRequest":
@@ -250,6 +256,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestTransferServiceAccountAdministrationRequest(), nil
                     case "request.UpdateGroupMembershipRequest":
                         return NewRequestUpdateGroupMembershipRequest(), nil
+                    case "request.UpdateLicenseRequest":
+                        return NewRequestUpdateLicenseRequest(), nil
                     case "request.VerifyInternalAccountRequest":
                         return NewRequestVerifyInternalAccountRequest(), nil
                     case "serviceaccount.ServiceAccount":

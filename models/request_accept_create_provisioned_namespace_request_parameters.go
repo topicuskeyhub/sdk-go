@@ -10,6 +10,8 @@ type RequestAcceptCreateProvisionedNamespaceRequestParameters struct {
     groupDN *string
     // The serviceAccountDN property
     serviceAccountDN *string
+    // The updatedName property
+    updatedName *string
 }
 // NewRequestAcceptCreateProvisionedNamespaceRequestParameters instantiates a new RequestAcceptCreateProvisionedNamespaceRequestParameters and sets the default values.
 func NewRequestAcceptCreateProvisionedNamespaceRequestParameters()(*RequestAcceptCreateProvisionedNamespaceRequestParameters) {
@@ -49,6 +51,16 @@ func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) GetFieldDeser
         }
         return nil
     }
+    res["updatedName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetUpdatedName(val)
+        }
+        return nil
+    }
     return res
 }
 // GetGroupDN gets the groupDN property value. The groupDN property
@@ -60,6 +72,11 @@ func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) GetGroupDN()(
 // returns a *string when successful
 func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) GetServiceAccountDN()(*string) {
     return m.serviceAccountDN
+}
+// GetUpdatedName gets the updatedName property value. The updatedName property
+// returns a *string when successful
+func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) GetUpdatedName()(*string) {
+    return m.updatedName
 }
 // Serialize serializes information the current object
 func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -79,6 +96,12 @@ func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) Serialize(wri
             return err
         }
     }
+    {
+        err = writer.WriteStringValue("updatedName", m.GetUpdatedName())
+        if err != nil {
+            return err
+        }
+    }
     return nil
 }
 // SetGroupDN sets the groupDN property value. The groupDN property
@@ -89,11 +112,17 @@ func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) SetGroupDN(va
 func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) SetServiceAccountDN(value *string)() {
     m.serviceAccountDN = value
 }
+// SetUpdatedName sets the updatedName property value. The updatedName property
+func (m *RequestAcceptCreateProvisionedNamespaceRequestParameters) SetUpdatedName(value *string)() {
+    m.updatedName = value
+}
 type RequestAcceptCreateProvisionedNamespaceRequestParametersable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestAcceptModificationRequestParametersable
     GetGroupDN()(*string)
     GetServiceAccountDN()(*string)
+    GetUpdatedName()(*string)
     SetGroupDN(value *string)()
     SetServiceAccountDN(value *string)()
+    SetUpdatedName(value *string)()
 }

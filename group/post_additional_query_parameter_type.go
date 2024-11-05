@@ -11,6 +11,7 @@ const (
     CLIENTPERMISSIONS_POSTADDITIONALQUERYPARAMETERTYPE
     CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
     CONTENTADMINISTEREDSYSTEMS_POSTADDITIONALQUERYPARAMETERTYPE
+    GLOBALROLES_POSTADDITIONALQUERYPARAMETERTYPE
     GROUPACCESSINFO_POSTADDITIONALQUERYPARAMETERTYPE
     GROUPAUDITINGINFO_POSTADDITIONALQUERYPARAMETERTYPE
     GROUPINFO_POSTADDITIONALQUERYPARAMETERTYPE
@@ -34,7 +35,7 @@ const (
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
+    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
     result := ACCOUNTS_POSTADDITIONALQUERYPARAMETERTYPE
@@ -57,6 +58,8 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
             result = CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
         case "contentAdministeredSystems":
             result = CONTENTADMINISTEREDSYSTEMS_POSTADDITIONALQUERYPARAMETERTYPE
+        case "globalRoles":
+            result = GLOBALROLES_POSTADDITIONALQUERYPARAMETERTYPE
         case "groupAccessInfo":
             result = GROUPACCESSINFO_POSTADDITIONALQUERYPARAMETERTYPE
         case "groupauditinginfo":

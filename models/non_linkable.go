@@ -72,6 +72,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewGroupGroupClassificationInfo(), nil
                     case "group.GroupClassificationUpdate":
                         return NewGroupGroupClassificationUpdate(), nil
+                    case "group.GroupGlobalRoleInfo":
+                        return NewGroupGroupGlobalRoleInfo(), nil
                     case "group.GroupInfo":
                         return NewGroupGroupInfo(), nil
                     case "group.GroupsAuditStats":
@@ -112,6 +114,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewNotificationVaultRecordExpiredNotification(), nil
                     case "organization.OrganizationalUnitSettings":
                         return NewOrganizationOrganizationalUnitSettings(), nil
+                    case "profile.AccessProfileAccountAttributeRuleStatus":
+                        return NewProfileAccessProfileAccountAttributeRuleStatus(), nil
                     case "provisioning.AccountProvisioningStatus":
                         return NewProvisioningAccountProvisioningStatus(), nil
                     case "provisioning.AccountProvisioningStatusReport":
@@ -128,8 +132,14 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewProvisioningProvisioningStatus(), nil
                     case "provisioning.TokenPassword":
                         return NewProvisioningTokenPassword(), nil
+                    case "request.AcceptCreateGroupOnSystemRequestParameters":
+                        return NewRequestAcceptCreateGroupOnSystemRequestParameters(), nil
+                    case "request.AcceptCreateGroupRequestParameters":
+                        return NewRequestAcceptCreateGroupRequestParameters(), nil
                     case "request.AcceptCreateProvisionedNamespaceRequestParameters":
                         return NewRequestAcceptCreateProvisionedNamespaceRequestParameters(), nil
+                    case "request.AcceptCreateServiceAccountRequestParameters":
+                        return NewRequestAcceptCreateServiceAccountRequestParameters(), nil
                     case "request.AcceptGrantAccessRequestParameters":
                         return NewRequestAcceptGrantAccessRequestParameters(), nil
                     case "request.AcceptJoinGroupRequestParameters":
@@ -142,8 +152,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewRequestModificationRequestReportChangeDetails(), nil
                     case "request.ModificationRequestReportErrorDetails":
                         return NewRequestModificationRequestReportErrorDetails(), nil
-                    case "request.ModificationRequestReportGroupChangeDetails":
-                        return NewRequestModificationRequestReportGroupChangeDetails(), nil
+                    case "request.ModificationRequestReportObjectChangeDetails":
+                        return NewRequestModificationRequestReportObjectChangeDetails(), nil
                     case "request.PasswordResetRequestStatus":
                         return NewRequestPasswordResetRequestStatus(), nil
                     case "SegmentCount":

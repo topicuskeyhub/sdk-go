@@ -25,6 +25,8 @@ type GroupGroup_additionalObjects struct {
     clients GroupGroupClientLinkableWrapperable
     // The contentAdministeredSystems property
     contentAdministeredSystems ProvisioningProvisionedSystemLinkableWrapperable
+    // The globalRoles property
+    globalRoles GroupGroupGlobalRoleInfoable
     // The groupAccessInfo property
     groupAccessInfo GroupGroupAccessInfoable
     // The groupauditinginfo property
@@ -220,6 +222,16 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i
         }
         return nil
     }
+    res["globalRoles"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateGroupGroupGlobalRoleInfoFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGlobalRoles(val.(GroupGroupGlobalRoleInfoable))
+        }
+        return nil
+    }
     res["groupAccessInfo"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateGroupGroupAccessInfoFromDiscriminatorValue)
         if err != nil {
@@ -412,6 +424,11 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i
     }
     return res
 }
+// GetGlobalRoles gets the globalRoles property value. The globalRoles property
+// returns a GroupGroupGlobalRoleInfoable when successful
+func (m *GroupGroup_additionalObjects) GetGlobalRoles()(GroupGroupGlobalRoleInfoable) {
+    return m.globalRoles
+}
 // GetGroupAccessInfo gets the groupAccessInfo property value. The groupAccessInfo property
 // returns a GroupGroupAccessInfoable when successful
 func (m *GroupGroup_additionalObjects) GetGroupAccessInfo()(GroupGroupAccessInfoable) {
@@ -559,6 +576,12 @@ func (m *GroupGroup_additionalObjects) Serialize(writer i878a80d2330e89d26896388
     }
     {
         err := writer.WriteObjectValue("contentAdministeredSystems", m.GetContentAdministeredSystems())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("globalRoles", m.GetGlobalRoles())
         if err != nil {
             return err
         }
@@ -726,6 +749,10 @@ func (m *GroupGroup_additionalObjects) SetClients(value GroupGroupClientLinkable
 func (m *GroupGroup_additionalObjects) SetContentAdministeredSystems(value ProvisioningProvisionedSystemLinkableWrapperable)() {
     m.contentAdministeredSystems = value
 }
+// SetGlobalRoles sets the globalRoles property value. The globalRoles property
+func (m *GroupGroup_additionalObjects) SetGlobalRoles(value GroupGroupGlobalRoleInfoable)() {
+    m.globalRoles = value
+}
 // SetGroupAccessInfo sets the groupAccessInfo property value. The groupAccessInfo property
 func (m *GroupGroup_additionalObjects) SetGroupAccessInfo(value GroupGroupAccessInfoable)() {
     m.groupAccessInfo = value
@@ -814,6 +841,7 @@ type GroupGroup_additionalObjectsable interface {
     GetClientPermissions()(ClientOAuth2ClientPermissionWithClientLinkableWrapperable)
     GetClients()(GroupGroupClientLinkableWrapperable)
     GetContentAdministeredSystems()(ProvisioningProvisionedSystemLinkableWrapperable)
+    GetGlobalRoles()(GroupGroupGlobalRoleInfoable)
     GetGroupAccessInfo()(GroupGroupAccessInfoable)
     GetGroupauditinginfo()(GroupGroupAuditingInfoable)
     GetGroupinfo()(GroupGroupInfoable)
@@ -842,6 +870,7 @@ type GroupGroup_additionalObjectsable interface {
     SetClientPermissions(value ClientOAuth2ClientPermissionWithClientLinkableWrapperable)()
     SetClients(value GroupGroupClientLinkableWrapperable)()
     SetContentAdministeredSystems(value ProvisioningProvisionedSystemLinkableWrapperable)()
+    SetGlobalRoles(value GroupGroupGlobalRoleInfoable)()
     SetGroupAccessInfo(value GroupGroupAccessInfoable)()
     SetGroupauditinginfo(value GroupGroupAuditingInfoable)()
     SetGroupinfo(value GroupGroupInfoable)()

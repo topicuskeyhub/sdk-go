@@ -65,6 +65,11 @@ func NewWithServiceaccountItemRequestBuilder(rawUrl string, requestAdapter i2ae4
     urlParams["request-raw-url"] = rawUrl
     return NewWithServiceaccountItemRequestBuilderInternal(urlParams, requestAdapter)
 }
+// Deactivate the deactivate property
+// returns a *ItemDeactivateRequestBuilder when successful
+func (m *WithServiceaccountItemRequestBuilder) Deactivate()(*ItemDeactivateRequestBuilder) {
+    return NewItemDeactivateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WithServiceaccountItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithServiceaccountItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
@@ -137,7 +142,7 @@ func (m *WithServiceaccountItemRequestBuilder) ToDeleteRequestInformation(ctx co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the service account identified by the id.
@@ -151,7 +156,7 @@ func (m *WithServiceaccountItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the service account identified by the id.
@@ -165,8 +170,8 @@ func (m *WithServiceaccountItemRequestBuilder) ToPutRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=73", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=74", body)
     if err != nil {
         return nil, err
     }

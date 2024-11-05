@@ -11,12 +11,19 @@ import (
 type ItemGroupWithGroupItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+// ItemGroupWithGroupItemRequestBuilderDeleteQueryParameters deletes the group on system identified by the id. If 'system=true' is passed as query parameter, the group is also removed from the system.
+type ItemGroupWithGroupItemRequestBuilderDeleteQueryParameters struct {
+    // When false, the group will not be removed from the system.
+    System *bool `uriparametername:"system"`
+}
 // ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+    // Request query parameters
+    QueryParameters *ItemGroupWithGroupItemRequestBuilderDeleteQueryParameters
 }
 // ItemGroupWithGroupItemRequestBuilderGetQueryParameters returns the group on system identified by the id.
 type ItemGroupWithGroupItemRequestBuilderGetQueryParameters struct {
@@ -55,7 +62,7 @@ type ItemGroupWithGroupItemRequestBuilderPutRequestConfiguration struct {
 // NewItemGroupWithGroupItemRequestBuilderInternal instantiates a new ItemGroupWithGroupItemRequestBuilder and sets the default values.
 func NewItemGroupWithGroupItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupWithGroupItemRequestBuilder) {
     m := &ItemGroupWithGroupItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/group/{groupid}{?additional*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/group/{groupid}{?additional*,system*}", pathParameters),
     }
     return m
 }
@@ -126,10 +133,13 @@ func (m *ItemGroupWithGroupItemRequestBuilder) Put(ctx context.Context, body ie2
 func (m *ItemGroupWithGroupItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
+        if requestConfiguration.QueryParameters != nil {
+            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+        }
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the group on system identified by the id.
@@ -143,7 +153,7 @@ func (m *ItemGroupWithGroupItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the group on system identified by the id.
@@ -157,8 +167,8 @@ func (m *ItemGroupWithGroupItemRequestBuilder) ToPutRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=73", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=74", body)
     if err != nil {
         return nil, err
     }

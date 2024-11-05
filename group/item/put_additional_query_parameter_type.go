@@ -11,6 +11,7 @@ const (
     CLIENTPERMISSIONS_PUTADDITIONALQUERYPARAMETERTYPE
     CLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
     CONTENTADMINISTEREDSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
+    GLOBALROLES_PUTADDITIONALQUERYPARAMETERTYPE
     GROUPACCESSINFO_PUTADDITIONALQUERYPARAMETERTYPE
     GROUPAUDITINGINFO_PUTADDITIONALQUERYPARAMETERTYPE
     GROUPINFO_PUTADDITIONALQUERYPARAMETERTYPE
@@ -34,7 +35,7 @@ const (
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
+    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
 }
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
     result := ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE
@@ -57,6 +58,8 @@ func ParsePutAdditionalQueryParameterType(v string) (any, error) {
             result = CLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
         case "contentAdministeredSystems":
             result = CONTENTADMINISTEREDSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
+        case "globalRoles":
+            result = GLOBALROLES_PUTADDITIONALQUERYPARAMETERTYPE
         case "groupAccessInfo":
             result = GROUPACCESSINFO_PUTADDITIONALQUERYPARAMETERTYPE
         case "groupauditinginfo":

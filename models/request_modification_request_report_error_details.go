@@ -8,8 +8,8 @@ type RequestModificationRequestReportErrorDetails struct {
     NonLinkable
     // The error property
     error *RequestModificationRequestReportError
-    // The groupNames property
-    groupNames []string
+    // The names property
+    names []string
 }
 // NewRequestModificationRequestReportErrorDetails instantiates a new RequestModificationRequestReportErrorDetails and sets the default values.
 func NewRequestModificationRequestReportErrorDetails()(*RequestModificationRequestReportErrorDetails) {
@@ -44,7 +44,7 @@ func (m *RequestModificationRequestReportErrorDetails) GetFieldDeserializers()(m
         }
         return nil
     }
-    res["groupNames"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+    res["names"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetCollectionOfPrimitiveValues("string")
         if err != nil {
             return err
@@ -56,16 +56,16 @@ func (m *RequestModificationRequestReportErrorDetails) GetFieldDeserializers()(m
                     res[i] = *(v.(*string))
                 }
             }
-            m.SetGroupNames(res)
+            m.SetNames(res)
         }
         return nil
     }
     return res
 }
-// GetGroupNames gets the groupNames property value. The groupNames property
+// GetNames gets the names property value. The names property
 // returns a []string when successful
-func (m *RequestModificationRequestReportErrorDetails) GetGroupNames()([]string) {
-    return m.groupNames
+func (m *RequestModificationRequestReportErrorDetails) GetNames()([]string) {
+    return m.names
 }
 // Serialize serializes information the current object
 func (m *RequestModificationRequestReportErrorDetails) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -80,8 +80,8 @@ func (m *RequestModificationRequestReportErrorDetails) Serialize(writer i878a80d
             return err
         }
     }
-    if m.GetGroupNames() != nil {
-        err = writer.WriteCollectionOfStringValues("groupNames", m.GetGroupNames())
+    if m.GetNames() != nil {
+        err = writer.WriteCollectionOfStringValues("names", m.GetNames())
         if err != nil {
             return err
         }
@@ -92,15 +92,15 @@ func (m *RequestModificationRequestReportErrorDetails) Serialize(writer i878a80d
 func (m *RequestModificationRequestReportErrorDetails) SetError(value *RequestModificationRequestReportError)() {
     m.error = value
 }
-// SetGroupNames sets the groupNames property value. The groupNames property
-func (m *RequestModificationRequestReportErrorDetails) SetGroupNames(value []string)() {
-    m.groupNames = value
+// SetNames sets the names property value. The names property
+func (m *RequestModificationRequestReportErrorDetails) SetNames(value []string)() {
+    m.names = value
 }
 type RequestModificationRequestReportErrorDetailsable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetError()(*RequestModificationRequestReportError)
-    GetGroupNames()([]string)
+    GetNames()([]string)
     SetError(value *RequestModificationRequestReportError)()
-    SetGroupNames(value []string)()
+    SetNames(value []string)()
 }

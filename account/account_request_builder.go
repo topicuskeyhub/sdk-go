@@ -200,6 +200,11 @@ func (m *AccountRequestBuilder) Me()(*MeRequestBuilder) {
 func (m *AccountRequestBuilder) Provisioning()(*ProvisioningRequestBuilder) {
     return NewProvisioningRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// Session the session property
+// returns a *SessionRequestBuilder when successful
+func (m *AccountRequestBuilder) Session()(*SessionRequestBuilder) {
+    return NewSessionRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Status the status property
 // returns a *StatusRequestBuilder when successful
 func (m *AccountRequestBuilder) Status()(*StatusRequestBuilder) {
@@ -216,7 +221,7 @@ func (m *AccountRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
     return requestInfo, nil
 }
 // Vault the vault property

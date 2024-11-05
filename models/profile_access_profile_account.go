@@ -23,6 +23,24 @@ func NewProfileAccessProfileAccount()(*ProfileAccessProfileAccount) {
 // CreateProfileAccessProfileAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
 func CreateProfileAccessProfileAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+    if parseNode != nil {
+        mappingValueNode, err := parseNode.GetChildNode("$type")
+        if err != nil {
+            return nil, err
+        }
+        if mappingValueNode != nil {
+            mappingValue, err := mappingValueNode.GetStringValue()
+            if err != nil {
+                return nil, err
+            }
+            if mappingValue != nil {
+                switch *mappingValue {
+                    case "profile.AccessProfileAccountWithAttributes":
+                        return NewProfileAccessProfileAccountWithAttributes(), nil
+                }
+            }
+        }
+    }
     return NewProfileAccessProfileAccount(), nil
 }
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property

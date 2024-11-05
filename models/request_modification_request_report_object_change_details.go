@@ -4,35 +4,35 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-type RequestModificationRequestReportGroupChangeDetails struct {
+type RequestModificationRequestReportObjectChangeDetails struct {
     NonLinkable
     // The changeDetails property
     changeDetails []RequestModificationRequestReportChangeDetailsable
-    // The groupName property
-    groupName *string
+    // The name property
+    name *string
 }
-// NewRequestModificationRequestReportGroupChangeDetails instantiates a new RequestModificationRequestReportGroupChangeDetails and sets the default values.
-func NewRequestModificationRequestReportGroupChangeDetails()(*RequestModificationRequestReportGroupChangeDetails) {
-    m := &RequestModificationRequestReportGroupChangeDetails{
+// NewRequestModificationRequestReportObjectChangeDetails instantiates a new RequestModificationRequestReportObjectChangeDetails and sets the default values.
+func NewRequestModificationRequestReportObjectChangeDetails()(*RequestModificationRequestReportObjectChangeDetails) {
+    m := &RequestModificationRequestReportObjectChangeDetails{
         NonLinkable: *NewNonLinkable(),
     }
-    typeEscapedValue := "request.ModificationRequestReportGroupChangeDetails"
+    typeEscapedValue := "request.ModificationRequestReportObjectChangeDetails"
     m.SetTypeEscaped(&typeEscapedValue)
     return m
 }
-// CreateRequestModificationRequestReportGroupChangeDetailsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// CreateRequestModificationRequestReportObjectChangeDetailsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateRequestModificationRequestReportGroupChangeDetailsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewRequestModificationRequestReportGroupChangeDetails(), nil
+func CreateRequestModificationRequestReportObjectChangeDetailsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+    return NewRequestModificationRequestReportObjectChangeDetails(), nil
 }
 // GetChangeDetails gets the changeDetails property value. The changeDetails property
 // returns a []RequestModificationRequestReportChangeDetailsable when successful
-func (m *RequestModificationRequestReportGroupChangeDetails) GetChangeDetails()([]RequestModificationRequestReportChangeDetailsable) {
+func (m *RequestModificationRequestReportObjectChangeDetails) GetChangeDetails()([]RequestModificationRequestReportChangeDetailsable) {
     return m.changeDetails
 }
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *RequestModificationRequestReportGroupChangeDetails) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
+func (m *RequestModificationRequestReportObjectChangeDetails) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
     res["changeDetails"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetCollectionOfObjectValues(CreateRequestModificationRequestReportChangeDetailsFromDiscriminatorValue)
@@ -50,25 +50,25 @@ func (m *RequestModificationRequestReportGroupChangeDetails) GetFieldDeserialize
         }
         return nil
     }
-    res["groupName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+    res["name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetGroupName(val)
+            m.SetName(val)
         }
         return nil
     }
     return res
 }
-// GetGroupName gets the groupName property value. The groupName property
+// GetName gets the name property value. The name property
 // returns a *string when successful
-func (m *RequestModificationRequestReportGroupChangeDetails) GetGroupName()(*string) {
-    return m.groupName
+func (m *RequestModificationRequestReportObjectChangeDetails) GetName()(*string) {
+    return m.name
 }
 // Serialize serializes information the current object
-func (m *RequestModificationRequestReportGroupChangeDetails) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
+func (m *RequestModificationRequestReportObjectChangeDetails) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     err := m.NonLinkable.Serialize(writer)
     if err != nil {
         return err
@@ -86,7 +86,7 @@ func (m *RequestModificationRequestReportGroupChangeDetails) Serialize(writer i8
         }
     }
     {
-        err = writer.WriteStringValue("groupName", m.GetGroupName())
+        err = writer.WriteStringValue("name", m.GetName())
         if err != nil {
             return err
         }
@@ -94,18 +94,18 @@ func (m *RequestModificationRequestReportGroupChangeDetails) Serialize(writer i8
     return nil
 }
 // SetChangeDetails sets the changeDetails property value. The changeDetails property
-func (m *RequestModificationRequestReportGroupChangeDetails) SetChangeDetails(value []RequestModificationRequestReportChangeDetailsable)() {
+func (m *RequestModificationRequestReportObjectChangeDetails) SetChangeDetails(value []RequestModificationRequestReportChangeDetailsable)() {
     m.changeDetails = value
 }
-// SetGroupName sets the groupName property value. The groupName property
-func (m *RequestModificationRequestReportGroupChangeDetails) SetGroupName(value *string)() {
-    m.groupName = value
+// SetName sets the name property value. The name property
+func (m *RequestModificationRequestReportObjectChangeDetails) SetName(value *string)() {
+    m.name = value
 }
-type RequestModificationRequestReportGroupChangeDetailsable interface {
+type RequestModificationRequestReportObjectChangeDetailsable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetChangeDetails()([]RequestModificationRequestReportChangeDetailsable)
-    GetGroupName()(*string)
+    GetName()(*string)
     SetChangeDetails(value []RequestModificationRequestReportChangeDetailsable)()
-    SetGroupName(value *string)()
+    SetName(value *string)()
 }

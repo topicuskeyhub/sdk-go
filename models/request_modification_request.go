@@ -89,6 +89,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestJoinGroupRequest(), nil
                     case "request.JoinVaultRequest":
                         return NewRequestJoinVaultRequest(), nil
+                    case "request.LinkDirectoryToAccessProfileRequest":
+                        return NewRequestLinkDirectoryToAccessProfileRequest(), nil
                     case "request.MoveGroupsRequest":
                         return NewRequestMoveGroupsRequest(), nil
                     case "request.PasswordResetRequest":
@@ -127,6 +129,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestTransferServiceAccountAdministrationRequest(), nil
                     case "request.UpdateGroupMembershipRequest":
                         return NewRequestUpdateGroupMembershipRequest(), nil
+                    case "request.UpdateLicenseRequest":
+                        return NewRequestUpdateLicenseRequest(), nil
                     case "request.VerifyInternalAccountRequest":
                         return NewRequestVerifyInternalAccountRequest(), nil
                 }

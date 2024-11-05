@@ -37,6 +37,8 @@ func CreateRequestAbstractAccessProfileModificationRequestFromDiscriminatorValue
                         return NewRequestGrantGroupOnSystemRequest(), nil
                     case "request.GrantGroupOnSystemRequestRequest":
                         return NewRequestGrantGroupOnSystemRequestRequest(), nil
+                    case "request.LinkDirectoryToAccessProfileRequest":
+                        return NewRequestLinkDirectoryToAccessProfileRequest(), nil
                     case "request.TransferAccessProfileOwnershipRequest":
                         return NewRequestTransferAccessProfileOwnershipRequest(), nil
                 }

@@ -50,6 +50,11 @@ type AccessprofileItemRequestBuilderPutRequestConfiguration struct {
 func (m *AccessprofileItemRequestBuilder) Account()(*ItemAccountRequestBuilder) {
     return NewItemAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// Attributes the attributes property
+// returns a *ItemAttributesRequestBuilder when successful
+func (m *AccessprofileItemRequestBuilder) Attributes()(*ItemAttributesRequestBuilder) {
+    return NewItemAttributesRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // NewAccessprofileItemRequestBuilderInternal instantiates a new AccessprofileItemRequestBuilder and sets the default values.
 func NewAccessprofileItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccessprofileItemRequestBuilder) {
     m := &AccessprofileItemRequestBuilder{
@@ -114,7 +119,7 @@ func (m *AccessprofileItemRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the access profile identified by the id.
@@ -128,8 +133,8 @@ func (m *AccessprofileItemRequestBuilder) ToPutRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=73")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=73", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=74", body)
     if err != nil {
         return nil, err
     }
