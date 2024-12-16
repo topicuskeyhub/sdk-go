@@ -7,5 +7,5 @@ unzip linux-x64.zip
 cd ..
 find . -type f -name "*.go" -print0 | xargs -0 grep -Z -L "not-generated" | xargs -0 rm -f
 find . -type d -empty -delete
-tmp/kiota update -o .
+env KIOTA_Generation:MaxDegreeOfParallelism=1 tmp/kiota update -o .
 rm -rf tmp
