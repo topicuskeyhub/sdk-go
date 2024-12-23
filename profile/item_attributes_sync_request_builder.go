@@ -12,7 +12,9 @@ type ItemAttributesSyncRequestBuilder struct {
 }
 type ItemAttributesSyncRequestBuilderPostQueryParameters struct {
     Account *int64 `uriparametername:"account"`
-    Write *bool `uriparametername:"write"`
+    // Deprecated: This property is deprecated, use OperationAsIdentityAccountAttributeUpdateOperation instead
+    Operation *string `uriparametername:"operation"`
+    OperationAsIdentityAccountAttributeUpdateOperation *ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeUpdateOperation `uriparametername:"operation"`
 }
 // ItemAttributesSyncRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAttributesSyncRequestBuilderPostRequestConfiguration struct {
@@ -26,7 +28,7 @@ type ItemAttributesSyncRequestBuilderPostRequestConfiguration struct {
 // NewItemAttributesSyncRequestBuilderInternal instantiates a new ItemAttributesSyncRequestBuilder and sets the default values.
 func NewItemAttributesSyncRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAttributesSyncRequestBuilder) {
     m := &ItemAttributesSyncRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/attributes/sync{?account*,write*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/attributes/sync{?account*,operation*}", pathParameters),
     }
     return m
 }
@@ -65,7 +67,7 @@ func (m *ItemAttributesSyncRequestBuilder) ToPostRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74, application/vnd.topicus.keyhub+xml;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75, application/vnd.topicus.keyhub+xml;version=75")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

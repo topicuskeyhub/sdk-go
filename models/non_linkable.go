@@ -78,6 +78,10 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewGroupGroupInfo(), nil
                     case "group.GroupsAuditStats":
                         return NewGroupGroupsAuditStats(), nil
+                    case "identity.AccountAttributeValueSelection":
+                        return NewIdentityAccountAttributeValueSelection(), nil
+                    case "identity.AccountAttributeValueSummary":
+                        return NewIdentityAccountAttributeValueSummary(), nil
                     case "launchpad.DisplayedLaunchpadTiles":
                         return NewLaunchpadDisplayedLaunchpadTiles(), nil
                     case "license.KeyHubLicenseInfo":
@@ -114,8 +118,6 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewNotificationVaultRecordExpiredNotification(), nil
                     case "organization.OrganizationalUnitSettings":
                         return NewOrganizationOrganizationalUnitSettings(), nil
-                    case "profile.AccessProfileAccountAttributeRuleStatus":
-                        return NewProfileAccessProfileAccountAttributeRuleStatus(), nil
                     case "provisioning.AccountProvisioningStatus":
                         return NewProvisioningAccountProvisioningStatus(), nil
                     case "provisioning.AccountProvisioningStatusReport":

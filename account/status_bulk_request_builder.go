@@ -45,6 +45,8 @@ type StatusBulkRequestBuilderPutQueryParameters struct {
     ExternalId []int64 `uriparametername:"externalId"`
     // Filter the accounts by membership of groups, specified by id. This parameter supports composition with all parameters from the group resource.
     Group []int64 `uriparametername:"group"`
+    // Only return accounts that have or have not ever been active.
+    HasBeenActive []bool `uriparametername:"hasBeenActive"`
     // Only return accounts that have or don't have an e-mail address.
     HasEmail []bool `uriparametername:"hasEmail"`
     // Only return accouts that have or don't have their vaults setup.
@@ -121,7 +123,7 @@ type StatusBulkRequestBuilderPutRequestConfiguration struct {
 // NewStatusBulkRequestBuilderInternal instantiates a new StatusBulkRequestBuilder and sets the default values.
 func NewStatusBulkRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*StatusBulkRequestBuilder) {
     m := &StatusBulkRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/status/bulk{?accessProfile*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,externalId*,group*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notInAccessProfile*,notInGroup*,owningClient*,q*,reregistrationRequired*,rotatingPasswordEnabled*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/status/bulk{?accessProfile*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,externalId*,group*,hasBeenActive*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notInAccessProfile*,notInGroup*,owningClient*,q*,reregistrationRequired*,rotatingPasswordEnabled*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
     }
     return m
 }
@@ -158,8 +160,8 @@ func (m *StatusBulkRequestBuilder) ToPutRequestInformation(ctx context.Context, 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=74", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=75", body)
     if err != nil {
         return nil, err
     }

@@ -8,8 +8,6 @@ type ProfileAccessProfile struct {
     ProfileAccessProfilePrimer
     // The additionalObjects property
     additionalObjects ProfileAccessProfile_additionalObjectsable
-    // The attributeRules property
-    attributeRules ProfileAccessProfile_attributeRulesable
     // The description property
     description *string
     // The directory property
@@ -36,11 +34,6 @@ func CreateProfileAccessProfileFromDiscriminatorValue(parseNode i878a80d2330e89d
 func (m *ProfileAccessProfile) GetAdditionalObjects()(ProfileAccessProfile_additionalObjectsable) {
     return m.additionalObjects
 }
-// GetAttributeRules gets the attributeRules property value. The attributeRules property
-// returns a ProfileAccessProfile_attributeRulesable when successful
-func (m *ProfileAccessProfile) GetAttributeRules()(ProfileAccessProfile_attributeRulesable) {
-    return m.attributeRules
-}
 // GetDescription gets the description property value. The description property
 // returns a *string when successful
 func (m *ProfileAccessProfile) GetDescription()(*string) {
@@ -62,16 +55,6 @@ func (m *ProfileAccessProfile) GetFieldDeserializers()(map[string]func(i878a80d2
         }
         if val != nil {
             m.SetAdditionalObjects(val.(ProfileAccessProfile_additionalObjectsable))
-        }
-        return nil
-    }
-    res["attributeRules"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProfileAccessProfile_attributeRulesFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAttributeRules(val.(ProfileAccessProfile_attributeRulesable))
         }
         return nil
     }
@@ -125,12 +108,6 @@ func (m *ProfileAccessProfile) Serialize(writer i878a80d2330e89d26896388a3f487ee
         }
     }
     {
-        err = writer.WriteObjectValue("attributeRules", m.GetAttributeRules())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err = writer.WriteStringValue("description", m.GetDescription())
         if err != nil {
             return err
@@ -154,10 +131,6 @@ func (m *ProfileAccessProfile) Serialize(writer i878a80d2330e89d26896388a3f487ee
 func (m *ProfileAccessProfile) SetAdditionalObjects(value ProfileAccessProfile_additionalObjectsable)() {
     m.additionalObjects = value
 }
-// SetAttributeRules sets the attributeRules property value. The attributeRules property
-func (m *ProfileAccessProfile) SetAttributeRules(value ProfileAccessProfile_attributeRulesable)() {
-    m.attributeRules = value
-}
 // SetDescription sets the description property value. The description property
 func (m *ProfileAccessProfile) SetDescription(value *string)() {
     m.description = value
@@ -174,12 +147,10 @@ type ProfileAccessProfileable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProfileAccessProfilePrimerable
     GetAdditionalObjects()(ProfileAccessProfile_additionalObjectsable)
-    GetAttributeRules()(ProfileAccessProfile_attributeRulesable)
     GetDescription()(*string)
     GetDirectory()(DirectoryAccountDirectoryPrimerable)
     GetOwner()(GroupGroupPrimerable)
     SetAdditionalObjects(value ProfileAccessProfile_additionalObjectsable)()
-    SetAttributeRules(value ProfileAccessProfile_attributeRulesable)()
     SetDescription(value *string)()
     SetDirectory(value DirectoryAccountDirectoryPrimerable)()
     SetOwner(value GroupGroupPrimerable)()

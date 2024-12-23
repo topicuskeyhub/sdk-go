@@ -7,7 +7,7 @@ import (
 type ProfileAccessProfileAccountWithAttributes struct {
     ProfileAccessProfileAccount
     // The attributes property
-    attributes []ProfileAccessProfileAccountAttributeRuleStatusable
+    attributes []IdentityAccountAttributeValueSummaryable
 }
 // NewProfileAccessProfileAccountWithAttributes instantiates a new ProfileAccessProfileAccountWithAttributes and sets the default values.
 func NewProfileAccessProfileAccountWithAttributes()(*ProfileAccessProfileAccountWithAttributes) {
@@ -24,8 +24,8 @@ func CreateProfileAccessProfileAccountWithAttributesFromDiscriminatorValue(parse
     return NewProfileAccessProfileAccountWithAttributes(), nil
 }
 // GetAttributes gets the attributes property value. The attributes property
-// returns a []ProfileAccessProfileAccountAttributeRuleStatusable when successful
-func (m *ProfileAccessProfileAccountWithAttributes) GetAttributes()([]ProfileAccessProfileAccountAttributeRuleStatusable) {
+// returns a []IdentityAccountAttributeValueSummaryable when successful
+func (m *ProfileAccessProfileAccountWithAttributes) GetAttributes()([]IdentityAccountAttributeValueSummaryable) {
     return m.attributes
 }
 // GetFieldDeserializers the deserialization information for the current model
@@ -33,15 +33,15 @@ func (m *ProfileAccessProfileAccountWithAttributes) GetAttributes()([]ProfileAcc
 func (m *ProfileAccessProfileAccountWithAttributes) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProfileAccessProfileAccount.GetFieldDeserializers()
     res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(CreateProfileAccessProfileAccountAttributeRuleStatusFromDiscriminatorValue)
+        val, err := n.GetCollectionOfObjectValues(CreateIdentityAccountAttributeValueSummaryFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            res := make([]ProfileAccessProfileAccountAttributeRuleStatusable, len(val))
+            res := make([]IdentityAccountAttributeValueSummaryable, len(val))
             for i, v := range val {
                 if v != nil {
-                    res[i] = v.(ProfileAccessProfileAccountAttributeRuleStatusable)
+                    res[i] = v.(IdentityAccountAttributeValueSummaryable)
                 }
             }
             m.SetAttributes(res)
@@ -59,12 +59,12 @@ func (m *ProfileAccessProfileAccountWithAttributes) Serialize(writer i878a80d233
     return nil
 }
 // SetAttributes sets the attributes property value. The attributes property
-func (m *ProfileAccessProfileAccountWithAttributes) SetAttributes(value []ProfileAccessProfileAccountAttributeRuleStatusable)() {
+func (m *ProfileAccessProfileAccountWithAttributes) SetAttributes(value []IdentityAccountAttributeValueSummaryable)() {
     m.attributes = value
 }
 type ProfileAccessProfileAccountWithAttributesable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProfileAccessProfileAccountable
-    GetAttributes()([]ProfileAccessProfileAccountAttributeRuleStatusable)
-    SetAttributes(value []ProfileAccessProfileAccountAttributeRuleStatusable)()
+    GetAttributes()([]IdentityAccountAttributeValueSummaryable)
+    SetAttributes(value []IdentityAccountAttributeValueSummaryable)()
 }

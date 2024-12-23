@@ -34,8 +34,6 @@ type ItemInternalaccountRequestBuilderGetQueryParameters struct {
     DirectoryOwnerGroup []int64 `uriparametername:"directoryOwnerGroup"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
-    // Only return internal accounts that have or have not been active.
-    HasBeenActive []bool `uriparametername:"hasBeenActive"`
     // Filter the results on the given ids.
     Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
@@ -104,7 +102,7 @@ func (m *ItemInternalaccountRequestBuilder) ByInternalaccountidInt64(internalacc
 // NewItemInternalaccountRequestBuilderInternal instantiates a new ItemInternalaccountRequestBuilder and sets the default values.
 func NewItemInternalaccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountRequestBuilder) {
     m := &ItemInternalaccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount{?account*,additional*,any*,createdAfter*,createdBefore*,directory*,directoryOwnerGroup*,exclude*,hasBeenActive*,id*,modifiedSince*,organizationalUnit*,q*,sort*,status*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount{?account*,additional*,any*,createdAfter*,createdBefore*,directory*,directoryOwnerGroup*,exclude*,id*,modifiedSince*,organizationalUnit*,q*,sort*,status*}", pathParameters),
     }
     return m
 }
@@ -165,7 +163,7 @@ func (m *ItemInternalaccountRequestBuilder) ToGetRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new internal accounts within a directory and returns the newly created accounts.
@@ -179,8 +177,8 @@ func (m *ItemInternalaccountRequestBuilder) ToPostRequestInformation(ctx context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=74", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=75", body)
     if err != nil {
         return nil, err
     }

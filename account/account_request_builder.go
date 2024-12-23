@@ -51,6 +51,8 @@ type AccountRequestBuilderGetQueryParameters struct {
     ExternalId []int64 `uriparametername:"externalId"`
     // Filter the accounts by membership of groups, specified by id. This parameter supports composition with all parameters from the group resource.
     Group []int64 `uriparametername:"group"`
+    // Only return accounts that have or have not ever been active.
+    HasBeenActive []bool `uriparametername:"hasBeenActive"`
     // Only return accounts that have or don't have an e-mail address.
     HasEmail []bool `uriparametername:"hasEmail"`
     // Only return accouts that have or don't have their vaults setup.
@@ -155,7 +157,7 @@ func (m *AccountRequestBuilder) ByAccountidInt64(accountid int64)(*WithAccountIt
 // NewAccountRequestBuilderInternal instantiates a new AccountRequestBuilder and sets the default values.
 func NewAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccountRequestBuilder) {
     m := &AccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account{?accessProfile*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,additional*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,externalId*,group*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notInAccessProfile*,notInGroup*,owningClient*,q*,reregistrationRequired*,rotatingPasswordEnabled*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account{?accessProfile*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,additional*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,externalId*,group*,hasBeenActive*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notInAccessProfile*,notInGroup*,owningClient*,q*,reregistrationRequired*,rotatingPasswordEnabled*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
     }
     return m
 }
@@ -221,7 +223,7 @@ func (m *AccountRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
     return requestInfo, nil
 }
 // Vault the vault property

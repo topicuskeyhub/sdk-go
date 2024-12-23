@@ -15,6 +15,8 @@ type ItemGroupRequestBuilder struct {
 }
 // ItemGroupRequestBuilderGetQueryParameters query for all groups on systems within a provisioned system in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ItemGroupRequestBuilderGetQueryParameters struct {
+    // Only return groups on system that have an access profile provisioning link with one of the given access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
+    AccessProfile []int64 `uriparametername:"accessProfile"`
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
@@ -122,7 +124,7 @@ func (m *ItemGroupRequestBuilder) ByGroupidInt64(groupid int64)(*ItemGroupWithGr
 // NewItemGroupRequestBuilderInternal instantiates a new ItemGroupRequestBuilder and sets the default values.
 func NewItemGroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupRequestBuilder) {
     m := &ItemGroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/group{?additional*,adminnedBy*,any*,contentAdminnedBy*,createdAfter*,createdBefore*,exclude*,group*,id*,modifiedSince*,nameContains*,nameInSystem*,notLinkedToGroup*,notLinkedToServiceAccount*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,q*,sort*,system*,systemForEnforcement*,systemOwnedBy*,tier2OwnedBy*,type*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/group{?accessProfile*,additional*,adminnedBy*,any*,contentAdminnedBy*,createdAfter*,createdBefore*,exclude*,group*,id*,modifiedSince*,nameContains*,nameInSystem*,notLinkedToGroup*,notLinkedToServiceAccount*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,q*,sort*,system*,systemForEnforcement*,systemOwnedBy*,tier2OwnedBy*,type*}", pathParameters),
     }
     return m
 }
@@ -183,7 +185,7 @@ func (m *ItemGroupRequestBuilder) ToGetRequestInformation(ctx context.Context, r
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new groups on systems and returns the newly created groups on systems. The groups will also be provisioned to the targeted provisioned system. By default, for every group on system, a provisioning group will be created granting the owner access to the newly created group. It is also possible to specify the provisioning groups to be created via the 'provgroups' addionalObjects property.
@@ -197,8 +199,8 @@ func (m *ItemGroupRequestBuilder) ToPostRequestInformation(ctx context.Context, 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=74", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=75", body)
     if err != nil {
         return nil, err
     }

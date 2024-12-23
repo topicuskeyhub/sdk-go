@@ -50,6 +50,11 @@ type AccessprofileItemRequestBuilderPutRequestConfiguration struct {
 func (m *AccessprofileItemRequestBuilder) Account()(*ItemAccountRequestBuilder) {
     return NewItemAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// Attributerule the attributerule property
+// returns a *ItemAttributeruleRequestBuilder when successful
+func (m *AccessprofileItemRequestBuilder) Attributerule()(*ItemAttributeruleRequestBuilder) {
+    return NewItemAttributeruleRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Attributes the attributes property
 // returns a *ItemAttributesRequestBuilder when successful
 func (m *AccessprofileItemRequestBuilder) Attributes()(*ItemAttributesRequestBuilder) {
@@ -119,7 +124,7 @@ func (m *AccessprofileItemRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the access profile identified by the id.
@@ -133,8 +138,8 @@ func (m *AccessprofileItemRequestBuilder) ToPutRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=74", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=75", body)
     if err != nil {
         return nil, err
     }

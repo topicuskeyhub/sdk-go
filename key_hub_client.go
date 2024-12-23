@@ -4,6 +4,7 @@ import (
     i25911dc319edd61cbac496af7eab5ef20b6069a42515e22ec6a9bc97bf598488 "github.com/microsoft/kiota-serialization-json-go"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
     i25381d874a7e3097702763676eb8a598478a75d07191e3563cf4ef48e5ac1fc6 "github.com/topicuskeyhub/sdk-go/serviceaccount"
+    i2723009f4c6d8fd5e485063fcc0bee42cfe179ceb9cf9fe17be2627381af8db9 "github.com/topicuskeyhub/sdk-go/attributedef"
     i29b864faf50a3a1afdf661366bb4234f149662638d0e3841e35acccd9352cf20 "github.com/topicuskeyhub/sdk-go/provisioninggroup"
     i3786de14b5891e0b6237ed5a04286048bb7ccab8227911414f7bb8f1e165a7c0 "github.com/topicuskeyhub/sdk-go/groupclassification"
     i385775f507ab02e04cf3e40e8696ee406fb1371e877539b6dfbde0c8e4b123b2 "github.com/topicuskeyhub/sdk-go/launchpadtile"
@@ -37,6 +38,11 @@ type KeyHubClient struct {
 // returns a *AccountRequestBuilder when successful
 func (m *KeyHubClient) Account()(*ib269aad83a59eeaa00948e8e0cf61b0f8955fcb99e4910b745aa70768d6d63c4.AccountRequestBuilder) {
     return ib269aad83a59eeaa00948e8e0cf61b0f8955fcb99e4910b745aa70768d6d63c4.NewAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Attributedef the attributedef property
+// returns a *AttributedefRequestBuilder when successful
+func (m *KeyHubClient) Attributedef()(*i2723009f4c6d8fd5e485063fcc0bee42cfe179ceb9cf9fe17be2627381af8db9.AttributedefRequestBuilder) {
+    return i2723009f4c6d8fd5e485063fcc0bee42cfe179ceb9cf9fe17be2627381af8db9.NewAttributedefRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Audit the audit property
 // returns a *AuditRequestBuilder when successful

@@ -9,6 +9,8 @@ type ProfileAccessProfile_additionalObjects struct {
     accountsWithAttributes ProfileAccessProfileAccountWithAttributesLinkableWrapperable
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
+    // The attributeRules property
+    attributeRules IdentityAccountAttributeRuleLinkableWrapperable
     // The audit property
     audit AuditInfoable
     // The provisioning property
@@ -36,6 +38,11 @@ func (m *ProfileAccessProfile_additionalObjects) GetAccountsWithAttributes()(Pro
 func (m *ProfileAccessProfile_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
+// GetAttributeRules gets the attributeRules property value. The attributeRules property
+// returns a IdentityAccountAttributeRuleLinkableWrapperable when successful
+func (m *ProfileAccessProfile_additionalObjects) GetAttributeRules()(IdentityAccountAttributeRuleLinkableWrapperable) {
+    return m.attributeRules
+}
 // GetAudit gets the audit property value. The audit property
 // returns a AuditInfoable when successful
 func (m *ProfileAccessProfile_additionalObjects) GetAudit()(AuditInfoable) {
@@ -52,6 +59,16 @@ func (m *ProfileAccessProfile_additionalObjects) GetFieldDeserializers()(map[str
         }
         if val != nil {
             m.SetAccountsWithAttributes(val.(ProfileAccessProfileAccountWithAttributesLinkableWrapperable))
+        }
+        return nil
+    }
+    res["attributeRules"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateIdentityAccountAttributeRuleLinkableWrapperFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAttributeRules(val.(IdentityAccountAttributeRuleLinkableWrapperable))
         }
         return nil
     }
@@ -91,6 +108,12 @@ func (m *ProfileAccessProfile_additionalObjects) Serialize(writer i878a80d2330e8
         }
     }
     {
+        err := writer.WriteObjectValue("attributeRules", m.GetAttributeRules())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteObjectValue("audit", m.GetAudit())
         if err != nil {
             return err
@@ -118,6 +141,10 @@ func (m *ProfileAccessProfile_additionalObjects) SetAccountsWithAttributes(value
 func (m *ProfileAccessProfile_additionalObjects) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
 }
+// SetAttributeRules sets the attributeRules property value. The attributeRules property
+func (m *ProfileAccessProfile_additionalObjects) SetAttributeRules(value IdentityAccountAttributeRuleLinkableWrapperable)() {
+    m.attributeRules = value
+}
 // SetAudit sets the audit property value. The audit property
 func (m *ProfileAccessProfile_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
@@ -130,9 +157,11 @@ type ProfileAccessProfile_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAccountsWithAttributes()(ProfileAccessProfileAccountWithAttributesLinkableWrapperable)
+    GetAttributeRules()(IdentityAccountAttributeRuleLinkableWrapperable)
     GetAudit()(AuditInfoable)
     GetProvisioning()(ProfileAccessProfileProvisioningLinkableWrapperable)
     SetAccountsWithAttributes(value ProfileAccessProfileAccountWithAttributesLinkableWrapperable)()
+    SetAttributeRules(value IdentityAccountAttributeRuleLinkableWrapperable)()
     SetAudit(value AuditInfoable)()
     SetProvisioning(value ProfileAccessProfileProvisioningLinkableWrapperable)()
 }

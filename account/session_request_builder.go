@@ -50,24 +50,20 @@ func NewSessionRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371
     return NewSessionRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Delete ends all sessions for the current user except the current session. Access tokens issued for these sessions will be revoked.
-// returns a []byte when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
-func (m *SessionRequestBuilder) Delete(ctx context.Context, requestConfiguration *SessionRequestBuilderDeleteRequestConfiguration)([]byte, error) {
+func (m *SessionRequestBuilder) Delete(ctx context.Context, requestConfiguration *SessionRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
     if err != nil {
-        return nil, err
+        return err
     }
     errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
         "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.SendPrimitive(ctx, requestInfo, "[]byte", errorMapping)
+    err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
     if err != nil {
-        return nil, err
+        return err
     }
-    if res == nil {
-        return nil, nil
-    }
-    return res.([]byte), nil
+    return nil
 }
 // Get returns a list of active sessions for the current user.
 // returns a AuthStoredUserSessionLinkableWrapperable when successful
@@ -97,7 +93,7 @@ func (m *SessionRequestBuilder) ToDeleteRequestInformation(ctx context.Context, 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74, application/vnd.topicus.keyhub+xml;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns a list of active sessions for the current user.
@@ -108,7 +104,7 @@ func (m *SessionRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

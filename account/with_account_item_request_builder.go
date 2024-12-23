@@ -35,6 +35,11 @@ type WithAccountItemRequestBuilderGetRequestConfiguration struct {
     // Request query parameters
     QueryParameters *WithAccountItemRequestBuilderGetQueryParameters
 }
+// Attributevalue the attributevalue property
+// returns a *ItemAttributevalueRequestBuilder when successful
+func (m *WithAccountItemRequestBuilder) Attributevalue()(*ItemAttributevalueRequestBuilder) {
+    return NewItemAttributevalueRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // NewWithAccountItemRequestBuilderInternal instantiates a new WithAccountItemRequestBuilder and sets the default values.
 func NewWithAccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithAccountItemRequestBuilder) {
     m := &WithAccountItemRequestBuilder{
@@ -112,7 +117,7 @@ func (m *WithAccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the account identified by the id.
@@ -126,7 +131,7 @@ func (m *WithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=74")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
     return requestInfo, nil
 }
 // Validate the validate property

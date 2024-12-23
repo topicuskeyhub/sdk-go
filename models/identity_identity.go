@@ -6,10 +6,14 @@ import (
 
 type IdentityIdentity struct {
     Linkable
-    // The firstName property
-    firstName *string
-    // The lastName property
-    lastName *string
+    // The displayName property
+    displayName *string
+    // The familyName property
+    familyName *string
+    // The givenName property
+    givenName *string
+    // The middleName property
+    middleName *string
     // The telephone property
     telephone *string
 }
@@ -27,27 +31,57 @@ func NewIdentityIdentity()(*IdentityIdentity) {
 func CreateIdentityIdentityFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewIdentityIdentity(), nil
 }
+// GetDisplayName gets the displayName property value. The displayName property
+// returns a *string when successful
+func (m *IdentityIdentity) GetDisplayName()(*string) {
+    return m.displayName
+}
+// GetFamilyName gets the familyName property value. The familyName property
+// returns a *string when successful
+func (m *IdentityIdentity) GetFamilyName()(*string) {
+    return m.familyName
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *IdentityIdentity) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
-    res["firstName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+    res["displayName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetFirstName(val)
+            m.SetDisplayName(val)
         }
         return nil
     }
-    res["lastName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+    res["familyName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetLastName(val)
+            m.SetFamilyName(val)
+        }
+        return nil
+    }
+    res["givenName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGivenName(val)
+        }
+        return nil
+    }
+    res["middleName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetMiddleName(val)
         }
         return nil
     }
@@ -63,15 +97,15 @@ func (m *IdentityIdentity) GetFieldDeserializers()(map[string]func(i878a80d2330e
     }
     return res
 }
-// GetFirstName gets the firstName property value. The firstName property
+// GetGivenName gets the givenName property value. The givenName property
 // returns a *string when successful
-func (m *IdentityIdentity) GetFirstName()(*string) {
-    return m.firstName
+func (m *IdentityIdentity) GetGivenName()(*string) {
+    return m.givenName
 }
-// GetLastName gets the lastName property value. The lastName property
+// GetMiddleName gets the middleName property value. The middleName property
 // returns a *string when successful
-func (m *IdentityIdentity) GetLastName()(*string) {
-    return m.lastName
+func (m *IdentityIdentity) GetMiddleName()(*string) {
+    return m.middleName
 }
 // GetTelephone gets the telephone property value. The telephone property
 // returns a *string when successful
@@ -85,13 +119,25 @@ func (m *IdentityIdentity) Serialize(writer i878a80d2330e89d26896388a3f487eef27b
         return err
     }
     {
-        err = writer.WriteStringValue("firstName", m.GetFirstName())
+        err = writer.WriteStringValue("displayName", m.GetDisplayName())
         if err != nil {
             return err
         }
     }
     {
-        err = writer.WriteStringValue("lastName", m.GetLastName())
+        err = writer.WriteStringValue("familyName", m.GetFamilyName())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteStringValue("givenName", m.GetGivenName())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteStringValue("middleName", m.GetMiddleName())
         if err != nil {
             return err
         }
@@ -104,13 +150,21 @@ func (m *IdentityIdentity) Serialize(writer i878a80d2330e89d26896388a3f487eef27b
     }
     return nil
 }
-// SetFirstName sets the firstName property value. The firstName property
-func (m *IdentityIdentity) SetFirstName(value *string)() {
-    m.firstName = value
+// SetDisplayName sets the displayName property value. The displayName property
+func (m *IdentityIdentity) SetDisplayName(value *string)() {
+    m.displayName = value
 }
-// SetLastName sets the lastName property value. The lastName property
-func (m *IdentityIdentity) SetLastName(value *string)() {
-    m.lastName = value
+// SetFamilyName sets the familyName property value. The familyName property
+func (m *IdentityIdentity) SetFamilyName(value *string)() {
+    m.familyName = value
+}
+// SetGivenName sets the givenName property value. The givenName property
+func (m *IdentityIdentity) SetGivenName(value *string)() {
+    m.givenName = value
+}
+// SetMiddleName sets the middleName property value. The middleName property
+func (m *IdentityIdentity) SetMiddleName(value *string)() {
+    m.middleName = value
 }
 // SetTelephone sets the telephone property value. The telephone property
 func (m *IdentityIdentity) SetTelephone(value *string)() {
@@ -119,10 +173,14 @@ func (m *IdentityIdentity) SetTelephone(value *string)() {
 type IdentityIdentityable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetFirstName()(*string)
-    GetLastName()(*string)
+    GetDisplayName()(*string)
+    GetFamilyName()(*string)
+    GetGivenName()(*string)
+    GetMiddleName()(*string)
     GetTelephone()(*string)
-    SetFirstName(value *string)()
-    SetLastName(value *string)()
+    SetDisplayName(value *string)()
+    SetFamilyName(value *string)()
+    SetGivenName(value *string)()
+    SetMiddleName(value *string)()
     SetTelephone(value *string)()
 }
