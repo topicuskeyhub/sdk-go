@@ -5,12 +5,12 @@ import (
 )
 
 type RequestJoinGroupRequest struct {
-    RequestModificationRequest
+    RequestAbstractAccessProfileModificationRequest
 }
 // NewRequestJoinGroupRequest instantiates a new RequestJoinGroupRequest and sets the default values.
 func NewRequestJoinGroupRequest()(*RequestJoinGroupRequest) {
     m := &RequestJoinGroupRequest{
-        RequestModificationRequest: *NewRequestModificationRequest(),
+        RequestAbstractAccessProfileModificationRequest: *NewRequestAbstractAccessProfileModificationRequest(),
     }
     typeEscapedValue := "request.JoinGroupRequest"
     m.SetTypeEscaped(&typeEscapedValue)
@@ -24,12 +24,12 @@ func CreateRequestJoinGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestJoinGroupRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.RequestModificationRequest.GetFieldDeserializers()
+    res := m.RequestAbstractAccessProfileModificationRequest.GetFieldDeserializers()
     return res
 }
 // Serialize serializes information the current object
 func (m *RequestJoinGroupRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.RequestModificationRequest.Serialize(writer)
+    err := m.RequestAbstractAccessProfileModificationRequest.Serialize(writer)
     if err != nil {
         return err
     }
@@ -37,5 +37,5 @@ func (m *RequestJoinGroupRequest) Serialize(writer i878a80d2330e89d26896388a3f48
 }
 type RequestJoinGroupRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    RequestModificationRequestable
+    RequestAbstractAccessProfileModificationRequestable
 }

@@ -26,7 +26,7 @@ type VaultVaultRecord_additionalObjects struct {
     // The tile property
     tile LaunchpadVaultRecordLaunchpadTileable
     // The vaultholder property
-    vaultholder VaultVaultHolderable
+    vaultholder Linkableable
 }
 // NewVaultVaultRecord_additionalObjects instantiates a new VaultVaultRecord_additionalObjects and sets the default values.
 func NewVaultVaultRecord_additionalObjects()(*VaultVaultRecord_additionalObjects) {
@@ -155,12 +155,12 @@ func (m *VaultVaultRecord_additionalObjects) GetFieldDeserializers()(map[string]
         return nil
     }
     res["vaultholder"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateVaultVaultHolderFromDiscriminatorValue)
+        val, err := n.GetObjectValue(CreateLinkableFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetVaultholder(val.(VaultVaultHolderable))
+            m.SetVaultholder(val.(Linkableable))
         }
         return nil
     }
@@ -197,8 +197,8 @@ func (m *VaultVaultRecord_additionalObjects) GetTile()(LaunchpadVaultRecordLaunc
     return m.tile
 }
 // GetVaultholder gets the vaultholder property value. The vaultholder property
-// returns a VaultVaultHolderable when successful
-func (m *VaultVaultRecord_additionalObjects) GetVaultholder()(VaultVaultHolderable) {
+// returns a Linkableable when successful
+func (m *VaultVaultRecord_additionalObjects) GetVaultholder()(Linkableable) {
     return m.vaultholder
 }
 // Serialize serializes information the current object
@@ -312,7 +312,7 @@ func (m *VaultVaultRecord_additionalObjects) SetTile(value LaunchpadVaultRecordL
     m.tile = value
 }
 // SetVaultholder sets the vaultholder property value. The vaultholder property
-func (m *VaultVaultRecord_additionalObjects) SetVaultholder(value VaultVaultHolderable)() {
+func (m *VaultVaultRecord_additionalObjects) SetVaultholder(value Linkableable)() {
     m.vaultholder = value
 }
 type VaultVaultRecord_additionalObjectsable interface {
@@ -327,7 +327,7 @@ type VaultVaultRecord_additionalObjectsable interface {
     GetShares()(VaultVaultRecordPrimerLinkableWrapperable)
     GetShareSummary()(VaultVaultRecordShareSummaryable)
     GetTile()(LaunchpadVaultRecordLaunchpadTileable)
-    GetVaultholder()(VaultVaultHolderable)
+    GetVaultholder()(Linkableable)
     SetActivationStatus(value VaultVaultActivationStatusable)()
     SetAudit(value AuditInfoable)()
     SetDeleteTile(value *bool)()
@@ -337,5 +337,5 @@ type VaultVaultRecord_additionalObjectsable interface {
     SetShares(value VaultVaultRecordPrimerLinkableWrapperable)()
     SetShareSummary(value VaultVaultRecordShareSummaryable)()
     SetTile(value LaunchpadVaultRecordLaunchpadTileable)()
-    SetVaultholder(value VaultVaultHolderable)()
+    SetVaultholder(value Linkableable)()
 }

@@ -6,6 +6,8 @@ import (
 
 type ProvisioningProvisioningStatus struct {
     NonLinkable
+    // The allLoaded property
+    allLoaded *bool
     // The groups property
     groups []ProvisioningGroupProvisioningStatusable
     // The ignoreErrors property
@@ -27,10 +29,25 @@ func NewProvisioningProvisioningStatus()(*ProvisioningProvisioningStatus) {
 func CreateProvisioningProvisioningStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisioningStatus(), nil
 }
+// GetAllLoaded gets the allLoaded property value. The allLoaded property
+// returns a *bool when successful
+func (m *ProvisioningProvisioningStatus) GetAllLoaded()(*bool) {
+    return m.allLoaded
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisioningStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
+    res["allLoaded"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAllLoaded(val)
+        }
+        return nil
+    }
     res["groups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetCollectionOfObjectValues(CreateProvisioningGroupProvisioningStatusFromDiscriminatorValue)
         if err != nil {
@@ -90,6 +107,12 @@ func (m *ProvisioningProvisioningStatus) Serialize(writer i878a80d2330e89d268963
     if err != nil {
         return err
     }
+    {
+        err = writer.WriteBoolValue("allLoaded", m.GetAllLoaded())
+        if err != nil {
+            return err
+        }
+    }
     if m.GetGroups() != nil {
         cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetGroups()))
         for i, v := range m.GetGroups() {
@@ -116,6 +139,10 @@ func (m *ProvisioningProvisioningStatus) Serialize(writer i878a80d2330e89d268963
     }
     return nil
 }
+// SetAllLoaded sets the allLoaded property value. The allLoaded property
+func (m *ProvisioningProvisioningStatus) SetAllLoaded(value *bool)() {
+    m.allLoaded = value
+}
 // SetGroups sets the groups property value. The groups property
 func (m *ProvisioningProvisioningStatus) SetGroups(value []ProvisioningGroupProvisioningStatusable)() {
     m.groups = value
@@ -131,9 +158,11 @@ func (m *ProvisioningProvisioningStatus) SetRestrictedByLicense(value *bool)() {
 type ProvisioningProvisioningStatusable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAllLoaded()(*bool)
     GetGroups()([]ProvisioningGroupProvisioningStatusable)
     GetIgnoreErrors()(*bool)
     GetRestrictedByLicense()(*bool)
+    SetAllLoaded(value *bool)()
     SetGroups(value []ProvisioningGroupProvisioningStatusable)()
     SetIgnoreErrors(value *bool)()
     SetRestrictedByLicense(value *bool)()

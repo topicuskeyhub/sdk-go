@@ -33,10 +33,14 @@ func CreateRequestAbstractAccessProfileModificationRequestFromDiscriminatorValue
             }
             if mappingValue != nil {
                 switch *mappingValue {
+                    case "request.AddGroupToAccessProfileRequest":
+                        return NewRequestAddGroupToAccessProfileRequest(), nil
                     case "request.GrantGroupOnSystemRequest":
                         return NewRequestGrantGroupOnSystemRequest(), nil
                     case "request.GrantGroupOnSystemRequestRequest":
                         return NewRequestGrantGroupOnSystemRequestRequest(), nil
+                    case "request.JoinGroupRequest":
+                        return NewRequestJoinGroupRequest(), nil
                     case "request.LinkDirectoryToAccessProfileRequest":
                         return NewRequestLinkDirectoryToAccessProfileRequest(), nil
                     case "request.TransferAccessProfileOwnershipRequest":

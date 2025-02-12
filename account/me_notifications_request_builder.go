@@ -12,6 +12,7 @@ type MeNotificationsRequestBuilder struct {
 }
 // MeNotificationsRequestBuilderGetQueryParameters returns the notifications to be displayed on the dashboard of the user. At most 50 notifications are returned.
 type MeNotificationsRequestBuilderGetQueryParameters struct {
+    Lang *string `uriparametername:"lang"`
     RequestMailKey *string `uriparametername:"requestMailKey"`
     RequestsToRetainIds []int64 `uriparametername:"requestsToRetainIds"`
 }
@@ -27,7 +28,7 @@ type MeNotificationsRequestBuilderGetRequestConfiguration struct {
 // NewMeNotificationsRequestBuilderInternal instantiates a new MeNotificationsRequestBuilder and sets the default values.
 func NewMeNotificationsRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*MeNotificationsRequestBuilder) {
     m := &MeNotificationsRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/me/notifications{?requestMailKey*,requestsToRetainIds*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/me/notifications{?lang*,requestMailKey*,requestsToRetainIds*}", pathParameters),
     }
     return m
 }
@@ -68,7 +69,7 @@ func (m *MeNotificationsRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

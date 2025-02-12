@@ -6,13 +6,14 @@ const (
     DELETETILE_GETADDITIONALQUERYPARAMETERTYPE
     GROUPCLIENTS_GETADDITIONALQUERYPARAMETERTYPE
     GROUPS_GETADDITIONALQUERYPARAMETERTYPE
+    ORGANIZATIONALUNITS_GETADDITIONALQUERYPARAMETERTYPE
     SECRET_GETADDITIONALQUERYPARAMETERTYPE
     TILE_GETADDITIONALQUERYPARAMETERTYPE
     VAULTRECORDCOUNT_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"audit", "deleteTile", "groupclients", "groups", "secret", "tile", "vaultRecordCount"}[i]
+    return []string{"audit", "deleteTile", "groupclients", "groups", "organizationalUnits", "secret", "tile", "vaultRecordCount"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_GETADDITIONALQUERYPARAMETERTYPE
@@ -25,6 +26,8 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
             result = GROUPCLIENTS_GETADDITIONALQUERYPARAMETERTYPE
         case "groups":
             result = GROUPS_GETADDITIONALQUERYPARAMETERTYPE
+        case "organizationalUnits":
+            result = ORGANIZATIONALUNITS_GETADDITIONALQUERYPARAMETERTYPE
         case "secret":
             result = SECRET_GETADDITIONALQUERYPARAMETERTYPE
         case "tile":

@@ -57,6 +57,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestAbstractProvisionedSystemModificationRequest(), nil
                     case "request.AddGroupAdminRequest":
                         return NewRequestAddGroupAdminRequest(), nil
+                    case "request.AddGroupToAccessProfileRequest":
+                        return NewRequestAddGroupToAccessProfileRequest(), nil
                     case "request.CreateGroupOnSystemRequest":
                         return NewRequestCreateGroupOnSystemRequest(), nil
                     case "request.CreateGroupRequest":

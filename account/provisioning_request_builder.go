@@ -14,6 +14,7 @@ type ProvisioningRequestBuilder struct {
 type ProvisioningRequestBuilderGetQueryParameters struct {
     Filter *string `uriparametername:"filter"`
     GroupUuid *string `uriparametername:"groupUuid"`
+    LoadAll *bool `uriparametername:"loadAll"`
 }
 // ProvisioningRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioningRequestBuilderGetRequestConfiguration struct {
@@ -40,7 +41,7 @@ type ProvisioningRequestBuilderPutRequestConfiguration struct {
 // NewProvisioningRequestBuilderInternal instantiates a new ProvisioningRequestBuilder and sets the default values.
 func NewProvisioningRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProvisioningRequestBuilder) {
     m := &ProvisioningRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/provisioning{?filter*,groupUuid*,reason*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/provisioning{?filter*,groupUuid*,loadAll*,reason*}", pathParameters),
     }
     return m
 }
@@ -106,7 +107,7 @@ func (m *ProvisioningRequestBuilder) ToGetRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
     return requestInfo, nil
 }
 // Tokenpwd the tokenpwd property
@@ -125,8 +126,8 @@ func (m *ProvisioningRequestBuilder) ToPutRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=75", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=76", body)
     if err != nil {
         return nil, err
     }

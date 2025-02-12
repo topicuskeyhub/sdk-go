@@ -13,6 +13,8 @@ type ProfileAccessProfile_additionalObjects struct {
     attributeRules IdentityAccountAttributeRuleLinkableWrapperable
     // The audit property
     audit AuditInfoable
+    // The groups property
+    groups ProfileAccessProfileGroupLinkableWrapperable
     // The provisioning property
     provisioning ProfileAccessProfileProvisioningLinkableWrapperable
 }
@@ -82,6 +84,16 @@ func (m *ProfileAccessProfile_additionalObjects) GetFieldDeserializers()(map[str
         }
         return nil
     }
+    res["groups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProfileAccessProfileGroupLinkableWrapperFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGroups(val.(ProfileAccessProfileGroupLinkableWrapperable))
+        }
+        return nil
+    }
     res["provisioning"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateProfileAccessProfileProvisioningLinkableWrapperFromDiscriminatorValue)
         if err != nil {
@@ -93,6 +105,11 @@ func (m *ProfileAccessProfile_additionalObjects) GetFieldDeserializers()(map[str
         return nil
     }
     return res
+}
+// GetGroups gets the groups property value. The groups property
+// returns a ProfileAccessProfileGroupLinkableWrapperable when successful
+func (m *ProfileAccessProfile_additionalObjects) GetGroups()(ProfileAccessProfileGroupLinkableWrapperable) {
+    return m.groups
 }
 // GetProvisioning gets the provisioning property value. The provisioning property
 // returns a ProfileAccessProfileProvisioningLinkableWrapperable when successful
@@ -115,6 +132,12 @@ func (m *ProfileAccessProfile_additionalObjects) Serialize(writer i878a80d2330e8
     }
     {
         err := writer.WriteObjectValue("audit", m.GetAudit())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("groups", m.GetGroups())
         if err != nil {
             return err
         }
@@ -149,6 +172,10 @@ func (m *ProfileAccessProfile_additionalObjects) SetAttributeRules(value Identit
 func (m *ProfileAccessProfile_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
+// SetGroups sets the groups property value. The groups property
+func (m *ProfileAccessProfile_additionalObjects) SetGroups(value ProfileAccessProfileGroupLinkableWrapperable)() {
+    m.groups = value
+}
 // SetProvisioning sets the provisioning property value. The provisioning property
 func (m *ProfileAccessProfile_additionalObjects) SetProvisioning(value ProfileAccessProfileProvisioningLinkableWrapperable)() {
     m.provisioning = value
@@ -159,9 +186,11 @@ type ProfileAccessProfile_additionalObjectsable interface {
     GetAccountsWithAttributes()(ProfileAccessProfileAccountWithAttributesLinkableWrapperable)
     GetAttributeRules()(IdentityAccountAttributeRuleLinkableWrapperable)
     GetAudit()(AuditInfoable)
+    GetGroups()(ProfileAccessProfileGroupLinkableWrapperable)
     GetProvisioning()(ProfileAccessProfileProvisioningLinkableWrapperable)
     SetAccountsWithAttributes(value ProfileAccessProfileAccountWithAttributesLinkableWrapperable)()
     SetAttributeRules(value IdentityAccountAttributeRuleLinkableWrapperable)()
     SetAudit(value AuditInfoable)()
+    SetGroups(value ProfileAccessProfileGroupLinkableWrapperable)()
     SetProvisioning(value ProfileAccessProfileProvisioningLinkableWrapperable)()
 }

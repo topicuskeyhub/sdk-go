@@ -6,6 +6,8 @@ import (
 
 type GroupGroupGlobalRoleInfo struct {
     NonLinkable
+    // The auditorGroupFor property
+    auditorGroupFor []OrganizationOrganizationalUnitPrimerable
     // The createGroupApproveGroupFor property
     createGroupApproveGroupFor []OrganizationOrganizationalUnitPrimerable
     // The enableTechAdminApproveGroupFor property
@@ -29,6 +31,11 @@ func NewGroupGroupGlobalRoleInfo()(*GroupGroupGlobalRoleInfo) {
 func CreateGroupGroupGlobalRoleInfoFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewGroupGroupGlobalRoleInfo(), nil
 }
+// GetAuditorGroupFor gets the auditorGroupFor property value. The auditorGroupFor property
+// returns a []OrganizationOrganizationalUnitPrimerable when successful
+func (m *GroupGroupGlobalRoleInfo) GetAuditorGroupFor()([]OrganizationOrganizationalUnitPrimerable) {
+    return m.auditorGroupFor
+}
 // GetCreateGroupApproveGroupFor gets the createGroupApproveGroupFor property value. The createGroupApproveGroupFor property
 // returns a []OrganizationOrganizationalUnitPrimerable when successful
 func (m *GroupGroupGlobalRoleInfo) GetCreateGroupApproveGroupFor()([]OrganizationOrganizationalUnitPrimerable) {
@@ -43,6 +50,22 @@ func (m *GroupGroupGlobalRoleInfo) GetEnableTechAdminApproveGroupFor()([]Organiz
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroupGlobalRoleInfo) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
+    res["auditorGroupFor"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]OrganizationOrganizationalUnitPrimerable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(OrganizationOrganizationalUnitPrimerable)
+                }
+            }
+            m.SetAuditorGroupFor(res)
+        }
+        return nil
+    }
     res["createGroupApproveGroupFor"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetCollectionOfObjectValues(CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue)
         if err != nil {
@@ -125,6 +148,18 @@ func (m *GroupGroupGlobalRoleInfo) Serialize(writer i878a80d2330e89d26896388a3f4
     if err != nil {
         return err
     }
+    if m.GetAuditorGroupFor() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAuditorGroupFor()))
+        for i, v := range m.GetAuditorGroupFor() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("auditorGroupFor", cast)
+        if err != nil {
+            return err
+        }
+    }
     if m.GetCreateGroupApproveGroupFor() != nil {
         cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetCreateGroupApproveGroupFor()))
         for i, v := range m.GetCreateGroupApproveGroupFor() {
@@ -175,6 +210,10 @@ func (m *GroupGroupGlobalRoleInfo) Serialize(writer i878a80d2330e89d26896388a3f4
     }
     return nil
 }
+// SetAuditorGroupFor sets the auditorGroupFor property value. The auditorGroupFor property
+func (m *GroupGroupGlobalRoleInfo) SetAuditorGroupFor(value []OrganizationOrganizationalUnitPrimerable)() {
+    m.auditorGroupFor = value
+}
 // SetCreateGroupApproveGroupFor sets the createGroupApproveGroupFor property value. The createGroupApproveGroupFor property
 func (m *GroupGroupGlobalRoleInfo) SetCreateGroupApproveGroupFor(value []OrganizationOrganizationalUnitPrimerable)() {
     m.createGroupApproveGroupFor = value
@@ -194,10 +233,12 @@ func (m *GroupGroupGlobalRoleInfo) SetRemoveGroupApproveGroupFor(value []Organiz
 type GroupGroupGlobalRoleInfoable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAuditorGroupFor()([]OrganizationOrganizationalUnitPrimerable)
     GetCreateGroupApproveGroupFor()([]OrganizationOrganizationalUnitPrimerable)
     GetEnableTechAdminApproveGroupFor()([]OrganizationOrganizationalUnitPrimerable)
     GetRecoveryFallbackGroupFor()([]OrganizationOrganizationalUnitPrimerable)
     GetRemoveGroupApproveGroupFor()([]OrganizationOrganizationalUnitPrimerable)
+    SetAuditorGroupFor(value []OrganizationOrganizationalUnitPrimerable)()
     SetCreateGroupApproveGroupFor(value []OrganizationOrganizationalUnitPrimerable)()
     SetEnableTechAdminApproveGroupFor(value []OrganizationOrganizationalUnitPrimerable)()
     SetRecoveryFallbackGroupFor(value []OrganizationOrganizationalUnitPrimerable)()

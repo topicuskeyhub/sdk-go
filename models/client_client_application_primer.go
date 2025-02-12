@@ -51,6 +51,8 @@ func CreateClientClientApplicationPrimerFromDiscriminatorValue(parseNode i878a80
                         return NewClientOAuth2Client(), nil
                     case "client.Saml2Client":
                         return NewClientSaml2Client(), nil
+                    case "organization.OrganizationalUnitClientApplication":
+                        return NewOrganizationOrganizationalUnitClientApplication(), nil
                 }
             }
         }

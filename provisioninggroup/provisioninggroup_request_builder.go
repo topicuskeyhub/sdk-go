@@ -39,6 +39,8 @@ type ProvisioninggroupRequestBuilderGetQueryParameters struct {
     Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    // Filter provisioning groups on organizational units of the group on system, specified by id.
+    OrganizationalUnitForEnforcement []int64 `uriparametername:"organizationalUnitForEnforcement"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
@@ -87,7 +89,7 @@ func (m *ProvisioninggroupRequestBuilder) ByProvisioninggroupidInt64(provisionin
 // NewProvisioninggroupRequestBuilderInternal instantiates a new ProvisioninggroupRequestBuilder and sets the default values.
 func NewProvisioninggroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProvisioninggroupRequestBuilder) {
     m := &ProvisioninggroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/provisioninggroup{?activationRequired*,additional*,any*,createdAfter*,createdBefore*,exclude*,group*,groupOnSystem*,groupOnSystemOwnerGroup*,id*,modifiedSince*,q*,sort*,system*,systemAdminGroup*,systemContentAdminGroup*,systemOwnerGroup*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/provisioninggroup{?activationRequired*,additional*,any*,createdAfter*,createdBefore*,exclude*,group*,groupOnSystem*,groupOnSystemOwnerGroup*,id*,modifiedSince*,organizationalUnitForEnforcement*,q*,sort*,system*,systemAdminGroup*,systemContentAdminGroup*,systemOwnerGroup*}", pathParameters),
     }
     return m
 }
@@ -128,7 +130,7 @@ func (m *ProvisioninggroupRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

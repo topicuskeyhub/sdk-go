@@ -37,6 +37,8 @@ func CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue(parseNode 
                 switch *mappingValue {
                     case "organization.AccountOrganizationalUnit":
                         return NewOrganizationAccountOrganizationalUnit(), nil
+                    case "organization.ClientApplicationOrganizationalUnit":
+                        return NewOrganizationClientApplicationOrganizationalUnit(), nil
                     case "organization.OrganizationalUnit":
                         return NewOrganizationOrganizationalUnit(), nil
                 }

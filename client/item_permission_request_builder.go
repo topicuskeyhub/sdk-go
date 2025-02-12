@@ -24,6 +24,10 @@ type ItemPermissionRequestBuilderGetQueryParameters struct {
     Any []bool `uriparametername:"any"`
     // Filter permissions on the clients to which they are given, specified by id. This parameter supports composition with all parameters from the client resource.
     Client []int64 `uriparametername:"client"`
+    // Filter permissions on the administrator groups of the clients to which they are given, specified by id. This parameter supports composition with all parameters from the client resource.
+    ClientAdministratorGroup []int64 `uriparametername:"clientAdministratorGroup"`
+    // Filter permissions on the owner groups of the clients to which they are given, specified by id. This parameter supports composition with all parameters from the client resource.
+    ClientOwnerGroup []int64 `uriparametername:"clientOwnerGroup"`
     // Only return records that have been created after the given instant.
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
@@ -34,6 +38,12 @@ type ItemPermissionRequestBuilderGetQueryParameters struct {
     ForGroup []int64 `uriparametername:"forGroup"`
     // Filter permissions on the systems to which they apply, specified by id. This parameter supports composition with all parameters from the system resource.
     ForSystem []int64 `uriparametername:"forSystem"`
+    // Filter permissions on the content administrator groups of the systems to which they apply, specified by id. This parameter supports composition with all parameters from the group resource.
+    ForSystemContentAdministratorGroup []int64 `uriparametername:"forSystemContentAdministratorGroup"`
+    // Filter permissions on the owner groups of the systems to which they apply, specified by id. This parameter supports composition with all parameters from the group resource.
+    ForSystemOwnerGroup []int64 `uriparametername:"forSystemOwnerGroup"`
+    // Filter permissions on the technical administrator groups of the systems to which they apply, specified by id. This parameter supports composition with all parameters from the group resource.
+    ForSystemTechnicalAdministratorGroup []int64 `uriparametername:"forSystemTechnicalAdministratorGroup"`
     // Filter the results on the given ids.
     Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
@@ -47,6 +57,10 @@ type ItemPermissionRequestBuilderGetQueryParameters struct {
     Value []string `uriparametername:"value"`
     // Filter permissions on the permission type(s).
     ValueAsClientOAuth2ClientPermissionType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientOAuth2ClientPermissionType `uriparametername:"value"`
+    // Filter the clients for the permissions with permissions for the given groups, either directly or via provisionedsystem ownership, specified by id.
+    WithPermissionForOwningGroup []int64 `uriparametername:"withPermissionForOwningGroup"`
+    // Filter the clients for the permissions with active requests for permissions for the given groups, either directly or via provisionedsystem ownership, specified by id.
+    WithRequestedPermissionForOwningGroup []int64 `uriparametername:"withRequestedPermissionForOwningGroup"`
 }
 // ItemPermissionRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemPermissionRequestBuilderGetRequestConfiguration struct {
@@ -83,7 +97,7 @@ func (m *ItemPermissionRequestBuilder) ByPermissionidInt64(permissionid int64)(*
 // NewItemPermissionRequestBuilderInternal instantiates a new ItemPermissionRequestBuilder and sets the default values.
 func NewItemPermissionRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemPermissionRequestBuilder) {
     m := &ItemPermissionRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/{clientid}/permission{?additional*,any*,client*,createdAfter*,createdBefore*,exclude*,forGroup*,forSystem*,id*,modifiedSince*,q*,sort*,value*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/{clientid}/permission{?additional*,any*,client*,clientAdministratorGroup*,clientOwnerGroup*,createdAfter*,createdBefore*,exclude*,forGroup*,forSystem*,forSystemContentAdministratorGroup*,forSystemOwnerGroup*,forSystemTechnicalAdministratorGroup*,id*,modifiedSince*,q*,sort*,value*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
     }
     return m
 }
@@ -124,7 +138,7 @@ func (m *ItemPermissionRequestBuilder) ToGetRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

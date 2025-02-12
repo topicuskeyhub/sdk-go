@@ -129,7 +129,7 @@ func (m *WithProvisioninggroupItemRequestBuilder) ToDeleteRequestInformation(ctx
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the provisioning group identified by the id.
@@ -143,7 +143,7 @@ func (m *WithProvisioninggroupItemRequestBuilder) ToGetRequestInformation(ctx co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the provisioning group identified by the id.
@@ -157,8 +157,8 @@ func (m *WithProvisioninggroupItemRequestBuilder) ToPutRequestInformation(ctx co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=75", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=76", body)
     if err != nil {
         return nil, err
     }

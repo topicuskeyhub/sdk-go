@@ -6,6 +6,8 @@ import (
 
 type NotificationNotification struct {
     NonLinkable
+    // The inPlainText property
+    inPlainText *string
 }
 // NewNotificationNotification instantiates a new NotificationNotification and sets the default values.
 func NewNotificationNotification()(*NotificationNotification) {
@@ -63,7 +65,22 @@ func CreateNotificationNotificationFromDiscriminatorValue(parseNode i878a80d2330
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
+    res["inPlainText"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetInPlainText(val)
+        }
+        return nil
+    }
     return res
+}
+// GetInPlainText gets the inPlainText property value. The inPlainText property
+// returns a *string when successful
+func (m *NotificationNotification) GetInPlainText()(*string) {
+    return m.inPlainText
 }
 // Serialize serializes information the current object
 func (m *NotificationNotification) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -71,9 +88,21 @@ func (m *NotificationNotification) Serialize(writer i878a80d2330e89d26896388a3f4
     if err != nil {
         return err
     }
+    {
+        err = writer.WriteStringValue("inPlainText", m.GetInPlainText())
+        if err != nil {
+            return err
+        }
+    }
     return nil
+}
+// SetInPlainText sets the inPlainText property value. The inPlainText property
+func (m *NotificationNotification) SetInPlainText(value *string)() {
+    m.inPlainText = value
 }
 type NotificationNotificationable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetInPlainText()(*string)
+    SetInPlainText(value *string)()
 }

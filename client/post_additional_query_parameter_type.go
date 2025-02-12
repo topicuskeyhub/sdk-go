@@ -6,13 +6,14 @@ const (
     DELETETILE_POSTADDITIONALQUERYPARAMETERTYPE
     GROUPCLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
     GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
+    ORGANIZATIONALUNITS_POSTADDITIONALQUERYPARAMETERTYPE
     SECRET_POSTADDITIONALQUERYPARAMETERTYPE
     TILE_POSTADDITIONALQUERYPARAMETERTYPE
     VAULTRECORDCOUNT_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"audit", "deleteTile", "groupclients", "groups", "secret", "tile", "vaultRecordCount"}[i]
+    return []string{"audit", "deleteTile", "groupclients", "groups", "organizationalUnits", "secret", "tile", "vaultRecordCount"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
@@ -25,6 +26,8 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
             result = GROUPCLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
         case "groups":
             result = GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
+        case "organizationalUnits":
+            result = ORGANIZATIONALUNITS_POSTADDITIONALQUERYPARAMETERTYPE
         case "secret":
             result = SECRET_POSTADDITIONALQUERYPARAMETERTYPE
         case "tile":

@@ -21,6 +21,7 @@ const (
     MYDELEGATEDACCOUNT_POSTADDITIONALQUERYPARAMETERTYPE
     NESTEDGROUPS_POSTADDITIONALQUERYPARAMETERTYPE
     ONLYLINKEDGOS_POSTADDITIONALQUERYPARAMETERTYPE
+    OWNEDACCESSPROFILES_POSTADDITIONALQUERYPARAMETERTYPE
     OWNEDCLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
     OWNEDDIRECTORIES_POSTADDITIONALQUERYPARAMETERTYPE
     OWNEDGROUPSONSYSTEM_POSTADDITIONALQUERYPARAMETERTYPE
@@ -35,7 +36,7 @@ const (
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
+    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedAccessProfiles", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
     result := ACCOUNTS_POSTADDITIONALQUERYPARAMETERTYPE
@@ -78,6 +79,8 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
             result = NESTEDGROUPS_POSTADDITIONALQUERYPARAMETERTYPE
         case "onlyLinkedGOS":
             result = ONLYLINKEDGOS_POSTADDITIONALQUERYPARAMETERTYPE
+        case "ownedAccessProfiles":
+            result = OWNEDACCESSPROFILES_POSTADDITIONALQUERYPARAMETERTYPE
         case "ownedClients":
             result = OWNEDCLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
         case "ownedDirectories":

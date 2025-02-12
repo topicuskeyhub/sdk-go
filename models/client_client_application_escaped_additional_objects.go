@@ -15,6 +15,8 @@ type ClientClientApplication_additionalObjects struct {
     groupclients GroupGroupClientLinkableWrapperable
     // The groups property
     groups GroupGroupLinkableWrapperable
+    // The organizationalUnits property
+    organizationalUnits OrganizationClientApplicationOrganizationalUnitLinkableWrapperable
     // The secret property
     secret GeneratedSecretable
     // The tile property
@@ -93,6 +95,16 @@ func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[
         }
         return nil
     }
+    res["organizationalUnits"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateOrganizationClientApplicationOrganizationalUnitLinkableWrapperFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOrganizationalUnits(val.(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable))
+        }
+        return nil
+    }
     res["secret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateGeneratedSecretFromDiscriminatorValue)
         if err != nil {
@@ -135,6 +147,11 @@ func (m *ClientClientApplication_additionalObjects) GetGroupclients()(GroupGroup
 func (m *ClientClientApplication_additionalObjects) GetGroups()(GroupGroupLinkableWrapperable) {
     return m.groups
 }
+// GetOrganizationalUnits gets the organizationalUnits property value. The organizationalUnits property
+// returns a OrganizationClientApplicationOrganizationalUnitLinkableWrapperable when successful
+func (m *ClientClientApplication_additionalObjects) GetOrganizationalUnits()(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable) {
+    return m.organizationalUnits
+}
 // GetSecret gets the secret property value. The secret property
 // returns a GeneratedSecretable when successful
 func (m *ClientClientApplication_additionalObjects) GetSecret()(GeneratedSecretable) {
@@ -172,6 +189,12 @@ func (m *ClientClientApplication_additionalObjects) Serialize(writer i878a80d233
     }
     {
         err := writer.WriteObjectValue("groups", m.GetGroups())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("organizationalUnits", m.GetOrganizationalUnits())
         if err != nil {
             return err
         }
@@ -216,6 +239,10 @@ func (m *ClientClientApplication_additionalObjects) SetGroupclients(value GroupG
 func (m *ClientClientApplication_additionalObjects) SetGroups(value GroupGroupLinkableWrapperable)() {
     m.groups = value
 }
+// SetOrganizationalUnits sets the organizationalUnits property value. The organizationalUnits property
+func (m *ClientClientApplication_additionalObjects) SetOrganizationalUnits(value OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)() {
+    m.organizationalUnits = value
+}
 // SetSecret sets the secret property value. The secret property
 func (m *ClientClientApplication_additionalObjects) SetSecret(value GeneratedSecretable)() {
     m.secret = value
@@ -235,6 +262,7 @@ type ClientClientApplication_additionalObjectsable interface {
     GetDeleteTile()(*bool)
     GetGroupclients()(GroupGroupClientLinkableWrapperable)
     GetGroups()(GroupGroupLinkableWrapperable)
+    GetOrganizationalUnits()(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)
     GetSecret()(GeneratedSecretable)
     GetTile()(LaunchpadSsoApplicationLaunchpadTileable)
     GetVaultRecordCount()(*int32)
@@ -242,6 +270,7 @@ type ClientClientApplication_additionalObjectsable interface {
     SetDeleteTile(value *bool)()
     SetGroupclients(value GroupGroupClientLinkableWrapperable)()
     SetGroups(value GroupGroupLinkableWrapperable)()
+    SetOrganizationalUnits(value OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)()
     SetSecret(value GeneratedSecretable)()
     SetTile(value LaunchpadSsoApplicationLaunchpadTileable)()
     SetVaultRecordCount(value *int32)()

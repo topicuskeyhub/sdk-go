@@ -52,6 +52,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewAuthInternalAccount(), nil
                     case "auth.StoredUserSession":
                         return NewAuthStoredUserSession(), nil
+                    case "auth.WebAuthnKey":
+                        return NewAuthWebAuthnKey(), nil
                     case "certificate.Certificate":
                         return NewCertificateCertificate(), nil
                     case "certificate.CertificatePrimer":
@@ -60,6 +62,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewClientClientApplication(), nil
                     case "client.ClientApplicationPrimer":
                         return NewClientClientApplicationPrimer(), nil
+                    case "client.ClientConsent":
+                        return NewClientClientConsent(), nil
                     case "client.LdapClient":
                         return NewClientLdapClient(), nil
                     case "client.OAuth2Client":
@@ -128,10 +132,14 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewLaunchpadVaultRecordLaunchpadTile(), nil
                     case "organization.AccountOrganizationalUnit":
                         return NewOrganizationAccountOrganizationalUnit(), nil
+                    case "organization.ClientApplicationOrganizationalUnit":
+                        return NewOrganizationClientApplicationOrganizationalUnit(), nil
                     case "organization.OrganizationalUnit":
                         return NewOrganizationOrganizationalUnit(), nil
                     case "organization.OrganizationalUnitAccount":
                         return NewOrganizationOrganizationalUnitAccount(), nil
+                    case "organization.OrganizationalUnitClientApplication":
+                        return NewOrganizationOrganizationalUnitClientApplication(), nil
                     case "organization.OrganizationalUnitPrimer":
                         return NewOrganizationOrganizationalUnitPrimer(), nil
                     case "profile.AccessProfile":
@@ -140,6 +148,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProfileAccessProfileAccount(), nil
                     case "profile.AccessProfileAccountWithAttributes":
                         return NewProfileAccessProfileAccountWithAttributes(), nil
+                    case "profile.AccessProfileGroup":
+                        return NewProfileAccessProfileGroup(), nil
                     case "profile.AccessProfilePrimer":
                         return NewProfileAccessProfilePrimer(), nil
                     case "profile.AccessProfileProvisioning":
@@ -188,6 +198,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestAbstractProvisionedSystemModificationRequest(), nil
                     case "request.AddGroupAdminRequest":
                         return NewRequestAddGroupAdminRequest(), nil
+                    case "request.AddGroupToAccessProfileRequest":
+                        return NewRequestAddGroupToAccessProfileRequest(), nil
                     case "request.CreateGroupOnSystemRequest":
                         return NewRequestCreateGroupOnSystemRequest(), nil
                     case "request.CreateGroupRequest":

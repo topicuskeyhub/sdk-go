@@ -50,6 +50,11 @@ type WithOrganizationalunitItemRequestBuilderPutRequestConfiguration struct {
 func (m *WithOrganizationalunitItemRequestBuilder) Account()(*ItemAccountRequestBuilder) {
     return NewItemAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// Client the client property
+// returns a *ItemClientRequestBuilder when successful
+func (m *WithOrganizationalunitItemRequestBuilder) Client()(*ItemClientRequestBuilder) {
+    return NewItemClientRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // NewWithOrganizationalunitItemRequestBuilderInternal instantiates a new WithOrganizationalunitItemRequestBuilder and sets the default values.
 func NewWithOrganizationalunitItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithOrganizationalunitItemRequestBuilder) {
     m := &WithOrganizationalunitItemRequestBuilder{
@@ -114,7 +119,7 @@ func (m *WithOrganizationalunitItemRequestBuilder) ToGetRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the organizational unit identified by the id.
@@ -128,8 +133,8 @@ func (m *WithOrganizationalunitItemRequestBuilder) ToPutRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=75", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=76", body)
     if err != nil {
         return nil, err
     }

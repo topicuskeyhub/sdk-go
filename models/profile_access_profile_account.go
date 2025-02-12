@@ -6,6 +6,8 @@ import (
 
 type ProfileAccessProfileAccount struct {
     AuthAccountPrimer
+    // The activation property
+    activation *ProfileAccessProfileAccountActivation
     // The additionalObjects property
     additionalObjects ProfileAccessProfileAccount_additionalObjectsable
     // The manual property
@@ -43,6 +45,11 @@ func CreateProfileAccessProfileAccountFromDiscriminatorValue(parseNode i878a80d2
     }
     return NewProfileAccessProfileAccount(), nil
 }
+// GetActivation gets the activation property value. The activation property
+// returns a *ProfileAccessProfileAccountActivation when successful
+func (m *ProfileAccessProfileAccount) GetActivation()(*ProfileAccessProfileAccountActivation) {
+    return m.activation
+}
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a ProfileAccessProfileAccount_additionalObjectsable when successful
 func (m *ProfileAccessProfileAccount) GetAdditionalObjects()(ProfileAccessProfileAccount_additionalObjectsable) {
@@ -52,6 +59,16 @@ func (m *ProfileAccessProfileAccount) GetAdditionalObjects()(ProfileAccessProfil
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProfileAccessProfileAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.AuthAccountPrimer.GetFieldDeserializers()
+    res["activation"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetEnumValue(ParseProfileAccessProfileAccountActivation)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetActivation(val.(*ProfileAccessProfileAccountActivation))
+        }
+        return nil
+    }
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateProfileAccessProfileAccount_additionalObjectsFromDiscriminatorValue)
         if err != nil {
@@ -85,6 +102,13 @@ func (m *ProfileAccessProfileAccount) Serialize(writer i878a80d2330e89d26896388a
     if err != nil {
         return err
     }
+    if m.GetActivation() != nil {
+        cast := (*m.GetActivation()).String()
+        err = writer.WriteStringValue("activation", &cast)
+        if err != nil {
+            return err
+        }
+    }
     {
         err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
         if err != nil {
@@ -99,6 +123,10 @@ func (m *ProfileAccessProfileAccount) Serialize(writer i878a80d2330e89d26896388a
     }
     return nil
 }
+// SetActivation sets the activation property value. The activation property
+func (m *ProfileAccessProfileAccount) SetActivation(value *ProfileAccessProfileAccountActivation)() {
+    m.activation = value
+}
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
 func (m *ProfileAccessProfileAccount) SetAdditionalObjects(value ProfileAccessProfileAccount_additionalObjectsable)() {
     m.additionalObjects = value
@@ -110,8 +138,10 @@ func (m *ProfileAccessProfileAccount) SetManual(value *bool)() {
 type ProfileAccessProfileAccountable interface {
     AuthAccountPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetActivation()(*ProfileAccessProfileAccountActivation)
     GetAdditionalObjects()(ProfileAccessProfileAccount_additionalObjectsable)
     GetManual()(*bool)
+    SetActivation(value *ProfileAccessProfileAccountActivation)()
     SetAdditionalObjects(value ProfileAccessProfileAccount_additionalObjectsable)()
     SetManual(value *bool)()
 }

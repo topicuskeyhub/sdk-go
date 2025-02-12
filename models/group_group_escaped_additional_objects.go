@@ -43,6 +43,8 @@ type GroupGroup_additionalObjects struct {
     mydelegatedaccount GroupGroupAccountable
     // The nestedGroups property
     nestedGroups GroupGroupPrimerLinkableWrapperable
+    // The ownedAccessProfiles property
+    ownedAccessProfiles ProfileAccessProfileLinkableWrapperable
     // The ownedClients property
     ownedClients ClientClientApplicationLinkableWrapperable
     // The ownedDirectories property
@@ -312,6 +314,16 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i
         }
         return nil
     }
+    res["ownedAccessProfiles"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProfileAccessProfileLinkableWrapperFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOwnedAccessProfiles(val.(ProfileAccessProfileLinkableWrapperable))
+        }
+        return nil
+    }
     res["ownedClients"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateClientClientApplicationLinkableWrapperFromDiscriminatorValue)
         if err != nil {
@@ -468,6 +480,11 @@ func (m *GroupGroup_additionalObjects) GetMydelegatedaccount()(GroupGroupAccount
 // returns a GroupGroupPrimerLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetNestedGroups()(GroupGroupPrimerLinkableWrapperable) {
     return m.nestedGroups
+}
+// GetOwnedAccessProfiles gets the ownedAccessProfiles property value. The ownedAccessProfiles property
+// returns a ProfileAccessProfileLinkableWrapperable when successful
+func (m *GroupGroup_additionalObjects) GetOwnedAccessProfiles()(ProfileAccessProfileLinkableWrapperable) {
+    return m.ownedAccessProfiles
 }
 // GetOwnedClients gets the ownedClients property value. The ownedClients property
 // returns a ClientClientApplicationLinkableWrapperable when successful
@@ -635,6 +652,12 @@ func (m *GroupGroup_additionalObjects) Serialize(writer i878a80d2330e89d26896388
         }
     }
     {
+        err := writer.WriteObjectValue("ownedAccessProfiles", m.GetOwnedAccessProfiles())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteObjectValue("ownedClients", m.GetOwnedClients())
         if err != nil {
             return err
@@ -785,6 +808,10 @@ func (m *GroupGroup_additionalObjects) SetMydelegatedaccount(value GroupGroupAcc
 func (m *GroupGroup_additionalObjects) SetNestedGroups(value GroupGroupPrimerLinkableWrapperable)() {
     m.nestedGroups = value
 }
+// SetOwnedAccessProfiles sets the ownedAccessProfiles property value. The ownedAccessProfiles property
+func (m *GroupGroup_additionalObjects) SetOwnedAccessProfiles(value ProfileAccessProfileLinkableWrapperable)() {
+    m.ownedAccessProfiles = value
+}
 // SetOwnedClients sets the ownedClients property value. The ownedClients property
 func (m *GroupGroup_additionalObjects) SetOwnedClients(value ClientClientApplicationLinkableWrapperable)() {
     m.ownedClients = value
@@ -850,6 +877,7 @@ type GroupGroup_additionalObjectsable interface {
     GetMyaccount()(GroupGroupAccountable)
     GetMydelegatedaccount()(GroupGroupAccountable)
     GetNestedGroups()(GroupGroupPrimerLinkableWrapperable)
+    GetOwnedAccessProfiles()(ProfileAccessProfileLinkableWrapperable)
     GetOwnedClients()(ClientClientApplicationLinkableWrapperable)
     GetOwnedDirectories()(DirectoryAccountDirectoryLinkableWrapperable)
     GetOwnedGroupsOnSystem()(ProvisioningOwnedGroupOnSystemsWrapperable)
@@ -879,6 +907,7 @@ type GroupGroup_additionalObjectsable interface {
     SetMyaccount(value GroupGroupAccountable)()
     SetMydelegatedaccount(value GroupGroupAccountable)()
     SetNestedGroups(value GroupGroupPrimerLinkableWrapperable)()
+    SetOwnedAccessProfiles(value ProfileAccessProfileLinkableWrapperable)()
     SetOwnedClients(value ClientClientApplicationLinkableWrapperable)()
     SetOwnedDirectories(value DirectoryAccountDirectoryLinkableWrapperable)()
     SetOwnedGroupsOnSystem(value ProvisioningOwnedGroupOnSystemsWrapperable)()

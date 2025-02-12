@@ -28,8 +28,6 @@ type ItemAccountRequestBuilderGetQueryParameters struct {
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
     CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
-    // Only return provisioned accounts that are or are not destroyed.
-    Destroyed []bool `uriparametername:"destroyed"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
     // Filter the results on the given ids.
@@ -40,6 +38,11 @@ type ItemAccountRequestBuilderGetQueryParameters struct {
     Q []string `uriparametername:"q"`
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
     Sort []string `uriparametername:"sort"`
+    // Only return provisioned accounts with the given statusses.
+    // Deprecated: This property is deprecated, use StatusAsPProvisionedAccountStatus instead
+    Status []string `uriparametername:"status"`
+    // Only return provisioned accounts with the given statusses.
+    StatusAsPProvisionedAccountStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.PProvisionedAccountStatus `uriparametername:"status"`
     // Only return provisioned accounts for one of the given systems, specified by id. This parameter supports composition with all parameters from the systems resource.
     System []int64 `uriparametername:"system"`
 }
@@ -78,7 +81,7 @@ func (m *ItemAccountRequestBuilder) ByAccountidInt64(accountid int64)(*ItemAccou
 // NewItemAccountRequestBuilderInternal instantiates a new ItemAccountRequestBuilder and sets the default values.
 func NewItemAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountRequestBuilder) {
     m := &ItemAccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/account{?account*,additional*,any*,createdAfter*,createdBefore*,destroyed*,exclude*,id*,modifiedSince*,q*,sort*,system*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/account{?account*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,sort*,status*,system*}", pathParameters),
     }
     return m
 }
@@ -119,7 +122,7 @@ func (m *ItemAccountRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=75")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

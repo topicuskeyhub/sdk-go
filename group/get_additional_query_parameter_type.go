@@ -21,6 +21,7 @@ const (
     MYDELEGATEDACCOUNT_GETADDITIONALQUERYPARAMETERTYPE
     NESTEDGROUPS_GETADDITIONALQUERYPARAMETERTYPE
     ONLYLINKEDGOS_GETADDITIONALQUERYPARAMETERTYPE
+    OWNEDACCESSPROFILES_GETADDITIONALQUERYPARAMETERTYPE
     OWNEDCLIENTS_GETADDITIONALQUERYPARAMETERTYPE
     OWNEDDIRECTORIES_GETADDITIONALQUERYPARAMETERTYPE
     OWNEDGROUPSONSYSTEM_GETADDITIONALQUERYPARAMETERTYPE
@@ -35,7 +36,7 @@ const (
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
+    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedAccessProfiles", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := ACCOUNTS_GETADDITIONALQUERYPARAMETERTYPE
@@ -78,6 +79,8 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
             result = NESTEDGROUPS_GETADDITIONALQUERYPARAMETERTYPE
         case "onlyLinkedGOS":
             result = ONLYLINKEDGOS_GETADDITIONALQUERYPARAMETERTYPE
+        case "ownedAccessProfiles":
+            result = OWNEDACCESSPROFILES_GETADDITIONALQUERYPARAMETERTYPE
         case "ownedClients":
             result = OWNEDCLIENTS_GETADDITIONALQUERYPARAMETERTYPE
         case "ownedDirectories":

@@ -6,6 +6,8 @@ import (
 
 type NotificationProvisionConfigRequiredNotification struct {
     NotificationNotification
+    // The keyhubPassword property
+    keyhubPassword *bool
     // The systems property
     systems []ProvisioningProvisionedSystemPrimerable
 }
@@ -27,6 +29,16 @@ func CreateNotificationProvisionConfigRequiredNotificationFromDiscriminatorValue
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *NotificationProvisionConfigRequiredNotification) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NotificationNotification.GetFieldDeserializers()
+    res["keyhubPassword"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetKeyhubPassword(val)
+        }
+        return nil
+    }
     res["systems"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetCollectionOfObjectValues(CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue)
         if err != nil {
@@ -45,6 +57,11 @@ func (m *NotificationProvisionConfigRequiredNotification) GetFieldDeserializers(
     }
     return res
 }
+// GetKeyhubPassword gets the keyhubPassword property value. The keyhubPassword property
+// returns a *bool when successful
+func (m *NotificationProvisionConfigRequiredNotification) GetKeyhubPassword()(*bool) {
+    return m.keyhubPassword
+}
 // GetSystems gets the systems property value. The systems property
 // returns a []ProvisioningProvisionedSystemPrimerable when successful
 func (m *NotificationProvisionConfigRequiredNotification) GetSystems()([]ProvisioningProvisionedSystemPrimerable) {
@@ -55,6 +72,12 @@ func (m *NotificationProvisionConfigRequiredNotification) Serialize(writer i878a
     err := m.NotificationNotification.Serialize(writer)
     if err != nil {
         return err
+    }
+    {
+        err = writer.WriteBoolValue("keyhubPassword", m.GetKeyhubPassword())
+        if err != nil {
+            return err
+        }
     }
     if m.GetSystems() != nil {
         cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetSystems()))
@@ -70,6 +93,10 @@ func (m *NotificationProvisionConfigRequiredNotification) Serialize(writer i878a
     }
     return nil
 }
+// SetKeyhubPassword sets the keyhubPassword property value. The keyhubPassword property
+func (m *NotificationProvisionConfigRequiredNotification) SetKeyhubPassword(value *bool)() {
+    m.keyhubPassword = value
+}
 // SetSystems sets the systems property value. The systems property
 func (m *NotificationProvisionConfigRequiredNotification) SetSystems(value []ProvisioningProvisionedSystemPrimerable)() {
     m.systems = value
@@ -77,6 +104,8 @@ func (m *NotificationProvisionConfigRequiredNotification) SetSystems(value []Pro
 type NotificationProvisionConfigRequiredNotificationable interface {
     NotificationNotificationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetKeyhubPassword()(*bool)
     GetSystems()([]ProvisioningProvisionedSystemPrimerable)
+    SetKeyhubPassword(value *bool)()
     SetSystems(value []ProvisioningProvisionedSystemPrimerable)()
 }
