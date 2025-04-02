@@ -17,7 +17,7 @@ type LaunchpadLaunchpadTile struct {
     // The type property
     launchpadLaunchpadTileType *LaunchpadLaunchpadTileType
     // The logo property
-    logo *string
+    logo []byte
     // The vaultRecord property
     vaultRecord VaultVaultRecordPrimerable
 }
@@ -122,7 +122,7 @@ func (m *LaunchpadLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80
         return nil
     }
     res["logo"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+        val, err := n.GetByteArrayValue()
         if err != nil {
             return err
         }
@@ -159,8 +159,8 @@ func (m *LaunchpadLaunchpadTile) GetLaunchpadLaunchpadTileType()(*LaunchpadLaunc
     return m.launchpadLaunchpadTileType
 }
 // GetLogo gets the logo property value. The logo property
-// returns a *string when successful
-func (m *LaunchpadLaunchpadTile) GetLogo()(*string) {
+// returns a []byte when successful
+func (m *LaunchpadLaunchpadTile) GetLogo()([]byte) {
     return m.logo
 }
 // GetVaultRecord gets the vaultRecord property value. The vaultRecord property
@@ -206,7 +206,7 @@ func (m *LaunchpadLaunchpadTile) Serialize(writer i878a80d2330e89d26896388a3f487
         }
     }
     {
-        err = writer.WriteStringValue("logo", m.GetLogo())
+        err = writer.WriteByteArrayValue("logo", m.GetLogo())
         if err != nil {
             return err
         }
@@ -240,7 +240,7 @@ func (m *LaunchpadLaunchpadTile) SetLaunchpadLaunchpadTileType(value *LaunchpadL
     m.launchpadLaunchpadTileType = value
 }
 // SetLogo sets the logo property value. The logo property
-func (m *LaunchpadLaunchpadTile) SetLogo(value *string)() {
+func (m *LaunchpadLaunchpadTile) SetLogo(value []byte)() {
     m.logo = value
 }
 // SetVaultRecord sets the vaultRecord property value. The vaultRecord property
@@ -255,13 +255,13 @@ type LaunchpadLaunchpadTileable interface {
     GetGroup()(GroupGroupPrimerable)
     GetIdenticonCode()(*int32)
     GetLaunchpadLaunchpadTileType()(*LaunchpadLaunchpadTileType)
-    GetLogo()(*string)
+    GetLogo()([]byte)
     GetVaultRecord()(VaultVaultRecordPrimerable)
     SetAdditionalObjects(value LaunchpadLaunchpadTile_additionalObjectsable)()
     SetApplication(value ClientClientApplicationPrimerable)()
     SetGroup(value GroupGroupPrimerable)()
     SetIdenticonCode(value *int32)()
     SetLaunchpadLaunchpadTileType(value *LaunchpadLaunchpadTileType)()
-    SetLogo(value *string)()
+    SetLogo(value []byte)()
     SetVaultRecord(value VaultVaultRecordPrimerable)()
 }

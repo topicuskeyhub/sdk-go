@@ -15,6 +15,7 @@ import (
     i6f1edc8cb6d249770cb1634d5c07b8945f2349df7d873c8e22898a5bfd8123aa "github.com/topicuskeyhub/sdk-go/group"
     i7bdff1f6c6d048a157c7731fd2951237edafe6d60ef09e4370339bc038988788 "github.com/topicuskeyhub/sdk-go/profileprovisioning"
     i7f1810e47506a1087d42711bae10d2eacb3eb432b8e9e68ef97ff738e3bb6945 "github.com/topicuskeyhub/sdk-go/webhook"
+    i8203ffcf188d76703152f9ce625e3b250b0df75b66364a0f3589cc6d00ce0e8e "github.com/topicuskeyhub/sdk-go/identitysource"
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
     i98ee0f07cd6158c2879ae08ef6a731b5a05b3610b774bf729ac7c7bf7d1efa2c "github.com/topicuskeyhub/sdk-go/numberseq"
     i9a416ff0973cadc86a9386e3f28ad7c475076105c80d51f978001646d6a93eb8 "github.com/topicuskeyhub/sdk-go/audit"
@@ -27,6 +28,7 @@ import (
     ib9e126576b99f2c17a06c406abda14d8d7ddf2bc7cedbe82bfb3ddc25089b20b "github.com/topicuskeyhub/sdk-go/profilegroup"
     ibdde25a8196c6c3406e5b0b02de36d833849b28ee37dca06694dc2ec8a725bdc "github.com/topicuskeyhub/sdk-go/system"
     ie19695769860c2ce81c94e08d7b1cdbbd24da28301e01a4408a5565b07ee913d "github.com/topicuskeyhub/sdk-go/export"
+    ifab6d67ca1d33e6497e3a4d4c835c8791b47bb5edc3b29f1c4577d91259fe6a1 "github.com/topicuskeyhub/sdk-go/accessprofileclient"
     ifb310ad74101a00ed1acdc17b384ce2e8964f5a38f9d9302b22aaaa28ff4d3e4 "github.com/topicuskeyhub/sdk-go/organizationalunit"
     ifdfb91cbbf9b2d09fc5fb9b2405c3a72348d071234970eca4305212177f72cf2 "github.com/topicuskeyhub/sdk-go/client"
 )
@@ -34,6 +36,11 @@ import (
 // KeyHubClient the main entry point of the SDK, exposes the configuration and the fluent API.
 type KeyHubClient struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
+}
+// Accessprofileclient the accessprofileclient property
+// returns a *AccessprofileclientRequestBuilder when successful
+func (m *KeyHubClient) Accessprofileclient()(*ifab6d67ca1d33e6497e3a4d4c835c8791b47bb5edc3b29f1c4577d91259fe6a1.AccessprofileclientRequestBuilder) {
+    return ifab6d67ca1d33e6497e3a4d4c835c8791b47bb5edc3b29f1c4577d91259fe6a1.NewAccessprofileclientRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Account the account property
 // returns a *AccountRequestBuilder when successful
@@ -107,6 +114,11 @@ func (m *KeyHubClient) Groupclient()(*i4f6f8a97ade4bcd9f00e48fb22660ba2cb3b474e8
 // returns a *GroupfolderRequestBuilder when successful
 func (m *KeyHubClient) Groupfolder()(*i43af1840a4616958e60c4cbee17a55c9c7345f03d798c4b93f71ba6ea8a8fed7.GroupfolderRequestBuilder) {
     return i43af1840a4616958e60c4cbee17a55c9c7345f03d798c4b93f71ba6ea8a8fed7.NewGroupfolderRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Identitysource the identitysource property
+// returns a *IdentitysourceRequestBuilder when successful
+func (m *KeyHubClient) Identitysource()(*i8203ffcf188d76703152f9ce625e3b250b0df75b66364a0f3589cc6d00ce0e8e.IdentitysourceRequestBuilder) {
+    return i8203ffcf188d76703152f9ce625e3b250b0df75b66364a0f3589cc6d00ce0e8e.NewIdentitysourceRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Info the info property
 // returns a *InfoRequestBuilder when successful

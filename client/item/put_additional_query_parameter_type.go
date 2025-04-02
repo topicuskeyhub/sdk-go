@@ -2,7 +2,8 @@ package item
 type PutAdditionalQueryParameterType int
 
 const (
-    AUDIT_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
+    ACCESSPROFILECLIENTS_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
+    AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
     DELETETILE_PUTADDITIONALQUERYPARAMETERTYPE
     GROUPCLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
     GROUPS_PUTADDITIONALQUERYPARAMETERTYPE
@@ -13,11 +14,13 @@ const (
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"audit", "deleteTile", "groupclients", "groups", "organizationalUnits", "secret", "tile", "vaultRecordCount"}[i]
+    return []string{"accessprofileclients", "audit", "deleteTile", "groupclients", "groups", "organizationalUnits", "secret", "tile", "vaultRecordCount"}[i]
 }
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+    result := ACCESSPROFILECLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "accessprofileclients":
+            result = ACCESSPROFILECLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
         case "deleteTile":

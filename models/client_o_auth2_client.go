@@ -14,6 +14,8 @@ type ClientOAuth2Client struct {
     callbackURI *string
     // The debugMode property
     debugMode *bool
+    // The forIdentitySource property
+    forIdentitySource *bool
     // The idTokenClaims property
     idTokenClaims *string
     // The initiateLoginURI property
@@ -115,6 +117,16 @@ func (m *ClientOAuth2Client) GetFieldDeserializers()(map[string]func(i878a80d233
         }
         return nil
     }
+    res["forIdentitySource"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetForIdentitySource(val)
+        }
+        return nil
+    }
     res["idTokenClaims"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -196,6 +208,11 @@ func (m *ClientOAuth2Client) GetFieldDeserializers()(map[string]func(i878a80d233
         return nil
     }
     return res
+}
+// GetForIdentitySource gets the forIdentitySource property value. The forIdentitySource property
+// returns a *bool when successful
+func (m *ClientOAuth2Client) GetForIdentitySource()(*bool) {
+    return m.forIdentitySource
 }
 // GetIdTokenClaims gets the idTokenClaims property value. The idTokenClaims property
 // returns a *string when successful
@@ -322,6 +339,10 @@ func (m *ClientOAuth2Client) SetCallbackURI(value *string)() {
 func (m *ClientOAuth2Client) SetDebugMode(value *bool)() {
     m.debugMode = value
 }
+// SetForIdentitySource sets the forIdentitySource property value. The forIdentitySource property
+func (m *ClientOAuth2Client) SetForIdentitySource(value *bool)() {
+    m.forIdentitySource = value
+}
 // SetIdTokenClaims sets the idTokenClaims property value. The idTokenClaims property
 func (m *ClientOAuth2Client) SetIdTokenClaims(value *string)() {
     m.idTokenClaims = value
@@ -361,6 +382,7 @@ type ClientOAuth2Clientable interface {
     GetAttributes()(ClientOAuth2Client_attributesable)
     GetCallbackURI()(*string)
     GetDebugMode()(*bool)
+    GetForIdentitySource()(*bool)
     GetIdTokenClaims()(*string)
     GetInitiateLoginURI()(*string)
     GetProfile()(*ClientOAuth2ClientProfile)
@@ -373,6 +395,7 @@ type ClientOAuth2Clientable interface {
     SetAttributes(value ClientOAuth2Client_attributesable)()
     SetCallbackURI(value *string)()
     SetDebugMode(value *bool)()
+    SetForIdentitySource(value *bool)()
     SetIdTokenClaims(value *string)()
     SetInitiateLoginURI(value *string)()
     SetProfile(value *ClientOAuth2ClientProfile)()

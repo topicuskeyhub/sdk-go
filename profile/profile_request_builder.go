@@ -29,8 +29,12 @@ type ProfileRequestBuilderGetQueryParameters struct {
     CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the access profiles on the directory they are linked to,specified by id. This parameter supports composition with all parameters from the account directory resource.
     Directory []int64 `uriparametername:"directory"`
+    // Filter the access profiles by clients not connected to them, specified by id.
+    DoesNotContainClient []int64 `uriparametername:"doesNotContainClient"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
+    // Filter the access profiles by having a match rule or not.
+    HasMatchRule []bool `uriparametername:"hasMatchRule"`
     // Filter the results on the given ids.
     Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
@@ -106,7 +110,7 @@ func (m *ProfileRequestBuilder) ByAccessprofileIdInt64(accessprofileId int64)(*A
 // NewProfileRequestBuilderInternal instantiates a new ProfileRequestBuilder and sets the default values.
 func NewProfileRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ProfileRequestBuilder) {
     m := &ProfileRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile{?additional*,any*,containsAccount*,createdAfter*,createdBefore*,directory*,exclude*,id*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,organizationalUnit*,ownedBy*,q*,sort*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile{?additional*,any*,containsAccount*,createdAfter*,createdBefore*,directory*,doesNotContainClient*,exclude*,hasMatchRule*,id*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,organizationalUnit*,ownedBy*,q*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -167,7 +171,7 @@ func (m *ProfileRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new access profiles and returns the newly created access profiles.
@@ -181,8 +185,8 @@ func (m *ProfileRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=76", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=77", body)
     if err != nil {
         return nil, err
     }

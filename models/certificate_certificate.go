@@ -9,7 +9,7 @@ type CertificateCertificate struct {
     // The additionalObjects property
     additionalObjects CertificateCertificate_additionalObjectsable
     // The keyData property
-    keyData *string
+    keyData []byte
 }
 // NewCertificateCertificate instantiates a new CertificateCertificate and sets the default values.
 func NewCertificateCertificate()(*CertificateCertificate) {
@@ -45,7 +45,7 @@ func (m *CertificateCertificate) GetFieldDeserializers()(map[string]func(i878a80
         return nil
     }
     res["keyData"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+        val, err := n.GetByteArrayValue()
         if err != nil {
             return err
         }
@@ -57,8 +57,8 @@ func (m *CertificateCertificate) GetFieldDeserializers()(map[string]func(i878a80
     return res
 }
 // GetKeyData gets the keyData property value. The keyData property
-// returns a *string when successful
-func (m *CertificateCertificate) GetKeyData()(*string) {
+// returns a []byte when successful
+func (m *CertificateCertificate) GetKeyData()([]byte) {
     return m.keyData
 }
 // Serialize serializes information the current object
@@ -74,7 +74,7 @@ func (m *CertificateCertificate) Serialize(writer i878a80d2330e89d26896388a3f487
         }
     }
     {
-        err = writer.WriteStringValue("keyData", m.GetKeyData())
+        err = writer.WriteByteArrayValue("keyData", m.GetKeyData())
         if err != nil {
             return err
         }
@@ -86,14 +86,14 @@ func (m *CertificateCertificate) SetAdditionalObjects(value CertificateCertifica
     m.additionalObjects = value
 }
 // SetKeyData sets the keyData property value. The keyData property
-func (m *CertificateCertificate) SetKeyData(value *string)() {
+func (m *CertificateCertificate) SetKeyData(value []byte)() {
     m.keyData = value
 }
 type CertificateCertificateable interface {
     CertificateCertificatePrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAdditionalObjects()(CertificateCertificate_additionalObjectsable)
-    GetKeyData()(*string)
+    GetKeyData()([]byte)
     SetAdditionalObjects(value CertificateCertificate_additionalObjectsable)()
-    SetKeyData(value *string)()
+    SetKeyData(value []byte)()
 }

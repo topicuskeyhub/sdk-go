@@ -118,6 +118,12 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewIdentityAccountAttributeValue(), nil
                     case "identity.Identity":
                         return NewIdentityIdentity(), nil
+                    case "identitysource.AFASIdentitySource":
+                        return NewIdentitysourceAFASIdentitySource(), nil
+                    case "identitysource.IdentitySource":
+                        return NewIdentitysourceIdentitySource(), nil
+                    case "identitysource.IdentitySourcePrimer":
+                        return NewIdentitysourceIdentitySourcePrimer(), nil
                     case "launchpad.DisplayedLaunchpadTile":
                         return NewLaunchpadDisplayedLaunchpadTile(), nil
                     case "launchpad.LaunchpadTile":
@@ -148,6 +154,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProfileAccessProfileAccount(), nil
                     case "profile.AccessProfileAccountWithAttributes":
                         return NewProfileAccessProfileAccountWithAttributes(), nil
+                    case "profile.AccessProfileClient":
+                        return NewProfileAccessProfileClient(), nil
                     case "profile.AccessProfileGroup":
                         return NewProfileAccessProfileGroup(), nil
                     case "profile.AccessProfilePrimer":

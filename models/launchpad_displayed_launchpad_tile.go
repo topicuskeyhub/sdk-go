@@ -11,7 +11,7 @@ type LaunchpadDisplayedLaunchpadTile struct {
     // The identiconCode property
     identiconCode *int32
     // The logo property
-    logo *string
+    logo []byte
     // The tile property
     tile LaunchpadLaunchpadTilePrimerable
     // The title property
@@ -58,7 +58,7 @@ func (m *LaunchpadDisplayedLaunchpadTile) GetFieldDeserializers()(map[string]fun
         return nil
     }
     res["logo"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+        val, err := n.GetByteArrayValue()
         if err != nil {
             return err
         }
@@ -110,8 +110,8 @@ func (m *LaunchpadDisplayedLaunchpadTile) GetIdenticonCode()(*int32) {
     return m.identiconCode
 }
 // GetLogo gets the logo property value. The logo property
-// returns a *string when successful
-func (m *LaunchpadDisplayedLaunchpadTile) GetLogo()(*string) {
+// returns a []byte when successful
+func (m *LaunchpadDisplayedLaunchpadTile) GetLogo()([]byte) {
     return m.logo
 }
 // GetTile gets the tile property value. The tile property
@@ -148,7 +148,7 @@ func (m *LaunchpadDisplayedLaunchpadTile) Serialize(writer i878a80d2330e89d26896
         }
     }
     {
-        err = writer.WriteStringValue("logo", m.GetLogo())
+        err = writer.WriteByteArrayValue("logo", m.GetLogo())
         if err != nil {
             return err
         }
@@ -182,7 +182,7 @@ func (m *LaunchpadDisplayedLaunchpadTile) SetIdenticonCode(value *int32)() {
     m.identiconCode = value
 }
 // SetLogo sets the logo property value. The logo property
-func (m *LaunchpadDisplayedLaunchpadTile) SetLogo(value *string)() {
+func (m *LaunchpadDisplayedLaunchpadTile) SetLogo(value []byte)() {
     m.logo = value
 }
 // SetTile sets the tile property value. The tile property
@@ -202,13 +202,13 @@ type LaunchpadDisplayedLaunchpadTileable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetGroup()(GroupGroupPrimerable)
     GetIdenticonCode()(*int32)
-    GetLogo()(*string)
+    GetLogo()([]byte)
     GetTile()(LaunchpadLaunchpadTilePrimerable)
     GetTitle()(*string)
     GetUri()(*string)
     SetGroup(value GroupGroupPrimerable)()
     SetIdenticonCode(value *int32)()
-    SetLogo(value *string)()
+    SetLogo(value []byte)()
     SetTile(value LaunchpadLaunchpadTilePrimerable)()
     SetTitle(value *string)()
     SetUri(value *string)()

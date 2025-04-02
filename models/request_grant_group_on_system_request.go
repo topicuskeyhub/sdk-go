@@ -10,6 +10,8 @@ type RequestGrantGroupOnSystemRequest struct {
     activationRequired *bool
     // The groupOnSystem property
     groupOnSystem ProvisioningGroupOnSystemable
+    // The originalRequester property
+    originalRequester AuthAccountPrimerable
 }
 // NewRequestGrantGroupOnSystemRequest instantiates a new RequestGrantGroupOnSystemRequest and sets the default values.
 func NewRequestGrantGroupOnSystemRequest()(*RequestGrantGroupOnSystemRequest) {
@@ -54,12 +56,27 @@ func (m *RequestGrantGroupOnSystemRequest) GetFieldDeserializers()(map[string]fu
         }
         return nil
     }
+    res["originalRequester"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateAuthAccountPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOriginalRequester(val.(AuthAccountPrimerable))
+        }
+        return nil
+    }
     return res
 }
 // GetGroupOnSystem gets the groupOnSystem property value. The groupOnSystem property
 // returns a ProvisioningGroupOnSystemable when successful
 func (m *RequestGrantGroupOnSystemRequest) GetGroupOnSystem()(ProvisioningGroupOnSystemable) {
     return m.groupOnSystem
+}
+// GetOriginalRequester gets the originalRequester property value. The originalRequester property
+// returns a AuthAccountPrimerable when successful
+func (m *RequestGrantGroupOnSystemRequest) GetOriginalRequester()(AuthAccountPrimerable) {
+    return m.originalRequester
 }
 // Serialize serializes information the current object
 func (m *RequestGrantGroupOnSystemRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -79,6 +96,12 @@ func (m *RequestGrantGroupOnSystemRequest) Serialize(writer i878a80d2330e89d2689
             return err
         }
     }
+    {
+        err = writer.WriteObjectValue("originalRequester", m.GetOriginalRequester())
+        if err != nil {
+            return err
+        }
+    }
     return nil
 }
 // SetActivationRequired sets the activationRequired property value. The activationRequired property
@@ -89,11 +112,17 @@ func (m *RequestGrantGroupOnSystemRequest) SetActivationRequired(value *bool)() 
 func (m *RequestGrantGroupOnSystemRequest) SetGroupOnSystem(value ProvisioningGroupOnSystemable)() {
     m.groupOnSystem = value
 }
+// SetOriginalRequester sets the originalRequester property value. The originalRequester property
+func (m *RequestGrantGroupOnSystemRequest) SetOriginalRequester(value AuthAccountPrimerable)() {
+    m.originalRequester = value
+}
 type RequestGrantGroupOnSystemRequestable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     RequestAbstractAccessProfileModificationRequestable
     GetActivationRequired()(*bool)
     GetGroupOnSystem()(ProvisioningGroupOnSystemable)
+    GetOriginalRequester()(AuthAccountPrimerable)
     SetActivationRequired(value *bool)()
     SetGroupOnSystem(value ProvisioningGroupOnSystemable)()
+    SetOriginalRequester(value AuthAccountPrimerable)()
 }

@@ -25,6 +25,8 @@ type WebhookWebhookPush struct {
     group2 WebhookWebhookNameUuidable
     // The groupClassification property
     groupClassification WebhookWebhookNameUuidable
+    // The identitySource property
+    identitySource WebhookWebhookNameUuidable
     // The modificationRequest property
     modificationRequest WebhookWebhookNameUuidable
     // The organizationalUnit property
@@ -190,6 +192,16 @@ func (m *WebhookWebhookPush) GetFieldDeserializers()(map[string]func(i878a80d233
         }
         return nil
     }
+    res["identitySource"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetIdentitySource(val.(WebhookWebhookNameUuidable))
+        }
+        return nil
+    }
     res["modificationRequest"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
         if err != nil {
@@ -337,6 +349,11 @@ func (m *WebhookWebhookPush) GetGroup2()(WebhookWebhookNameUuidable) {
 func (m *WebhookWebhookPush) GetGroupClassification()(WebhookWebhookNameUuidable) {
     return m.groupClassification
 }
+// GetIdentitySource gets the identitySource property value. The identitySource property
+// returns a WebhookWebhookNameUuidable when successful
+func (m *WebhookWebhookPush) GetIdentitySource()(WebhookWebhookNameUuidable) {
+    return m.identitySource
+}
 // GetModificationRequest gets the modificationRequest property value. The modificationRequest property
 // returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetModificationRequest()(WebhookWebhookNameUuidable) {
@@ -463,6 +480,12 @@ func (m *WebhookWebhookPush) Serialize(writer i878a80d2330e89d26896388a3f487eef2
         }
     }
     {
+        err = writer.WriteObjectValue("identitySource", m.GetIdentitySource())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("modificationRequest", m.GetModificationRequest())
         if err != nil {
             return err
@@ -580,6 +603,10 @@ func (m *WebhookWebhookPush) SetGroup2(value WebhookWebhookNameUuidable)() {
 func (m *WebhookWebhookPush) SetGroupClassification(value WebhookWebhookNameUuidable)() {
     m.groupClassification = value
 }
+// SetIdentitySource sets the identitySource property value. The identitySource property
+func (m *WebhookWebhookPush) SetIdentitySource(value WebhookWebhookNameUuidable)() {
+    m.identitySource = value
+}
 // SetModificationRequest sets the modificationRequest property value. The modificationRequest property
 func (m *WebhookWebhookPush) SetModificationRequest(value WebhookWebhookNameUuidable)() {
     m.modificationRequest = value
@@ -644,6 +671,7 @@ type WebhookWebhookPushable interface {
     GetGroup()(WebhookWebhookNameUuidable)
     GetGroup2()(WebhookWebhookNameUuidable)
     GetGroupClassification()(WebhookWebhookNameUuidable)
+    GetIdentitySource()(WebhookWebhookNameUuidable)
     GetModificationRequest()(WebhookWebhookNameUuidable)
     GetOrganizationalUnit()(WebhookWebhookNameUuidable)
     GetParameter1()(*string)
@@ -666,6 +694,7 @@ type WebhookWebhookPushable interface {
     SetGroup(value WebhookWebhookNameUuidable)()
     SetGroup2(value WebhookWebhookNameUuidable)()
     SetGroupClassification(value WebhookWebhookNameUuidable)()
+    SetIdentitySource(value WebhookWebhookNameUuidable)()
     SetModificationRequest(value WebhookWebhookNameUuidable)()
     SetOrganizationalUnit(value WebhookWebhookNameUuidable)()
     SetParameter1(value *string)()

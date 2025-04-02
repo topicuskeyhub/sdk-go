@@ -4,33 +4,50 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-type ServiceaccountServiceAccountPrimerLinkableWrapper struct {
+type ServiceaccountServiceAccountPrimerLinkableWrapperWithCount struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
+    // The count property
+    count *int64
     // The items property
     items []ServiceaccountServiceAccountPrimerable
 }
-// NewServiceaccountServiceAccountPrimerLinkableWrapper instantiates a new ServiceaccountServiceAccountPrimerLinkableWrapper and sets the default values.
-func NewServiceaccountServiceAccountPrimerLinkableWrapper()(*ServiceaccountServiceAccountPrimerLinkableWrapper) {
-    m := &ServiceaccountServiceAccountPrimerLinkableWrapper{
+// NewServiceaccountServiceAccountPrimerLinkableWrapperWithCount instantiates a new ServiceaccountServiceAccountPrimerLinkableWrapperWithCount and sets the default values.
+func NewServiceaccountServiceAccountPrimerLinkableWrapperWithCount()(*ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) {
+    m := &ServiceaccountServiceAccountPrimerLinkableWrapperWithCount{
     }
     m.SetAdditionalData(make(map[string]any))
     return m
 }
-// CreateServiceaccountServiceAccountPrimerLinkableWrapperFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// CreateServiceaccountServiceAccountPrimerLinkableWrapperWithCountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateServiceaccountServiceAccountPrimerLinkableWrapperFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewServiceaccountServiceAccountPrimerLinkableWrapper(), nil
+func CreateServiceaccountServiceAccountPrimerLinkableWrapperWithCountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+    return NewServiceaccountServiceAccountPrimerLinkableWrapperWithCount(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 // returns a map[string]any when successful
-func (m *ServiceaccountServiceAccountPrimerLinkableWrapper) GetAdditionalData()(map[string]any) {
+func (m *ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) GetAdditionalData()(map[string]any) {
     return m.additionalData
+}
+// GetCount gets the count property value. The count property
+// returns a *int64 when successful
+func (m *ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) GetCount()(*int64) {
+    return m.count
 }
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ServiceaccountServiceAccountPrimerLinkableWrapper) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
+func (m *ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
+    res["count"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetCount(val)
+        }
+        return nil
+    }
     res["items"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetCollectionOfObjectValues(CreateServiceaccountServiceAccountPrimerFromDiscriminatorValue)
         if err != nil {
@@ -51,11 +68,11 @@ func (m *ServiceaccountServiceAccountPrimerLinkableWrapper) GetFieldDeserializer
 }
 // GetItems gets the items property value. The items property
 // returns a []ServiceaccountServiceAccountPrimerable when successful
-func (m *ServiceaccountServiceAccountPrimerLinkableWrapper) GetItems()([]ServiceaccountServiceAccountPrimerable) {
+func (m *ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) GetItems()([]ServiceaccountServiceAccountPrimerable) {
     return m.items
 }
 // Serialize serializes information the current object
-func (m *ServiceaccountServiceAccountPrimerLinkableWrapper) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
+func (m *ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     if m.GetItems() != nil {
         cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetItems()))
         for i, v := range m.GetItems() {
@@ -77,16 +94,22 @@ func (m *ServiceaccountServiceAccountPrimerLinkableWrapper) Serialize(writer i87
     return nil
 }
 // SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-func (m *ServiceaccountServiceAccountPrimerLinkableWrapper) SetAdditionalData(value map[string]any)() {
+func (m *ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
 }
+// SetCount sets the count property value. The count property
+func (m *ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) SetCount(value *int64)() {
+    m.count = value
+}
 // SetItems sets the items property value. The items property
-func (m *ServiceaccountServiceAccountPrimerLinkableWrapper) SetItems(value []ServiceaccountServiceAccountPrimerable)() {
+func (m *ServiceaccountServiceAccountPrimerLinkableWrapperWithCount) SetItems(value []ServiceaccountServiceAccountPrimerable)() {
     m.items = value
 }
-type ServiceaccountServiceAccountPrimerLinkableWrapperable interface {
+type ServiceaccountServiceAccountPrimerLinkableWrapperWithCountable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetCount()(*int64)
     GetItems()([]ServiceaccountServiceAccountPrimerable)
+    SetCount(value *int64)()
     SetItems(value []ServiceaccountServiceAccountPrimerable)()
 }

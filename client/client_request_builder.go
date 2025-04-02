@@ -14,6 +14,8 @@ type ClientRequestBuilder struct {
 }
 // ClientRequestBuilderGetQueryParameters query for all clients in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ClientRequestBuilderGetQueryParameters struct {
+    // Filter the SSO applications connected to access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
+    AccessProfile []int64 `uriparametername:"accessProfile"`
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
@@ -41,6 +43,8 @@ type ClientRequestBuilderGetQueryParameters struct {
     IsProvisionedInternalLDAP []bool `uriparametername:"isProvisionedInternalLDAP"`
     // Filter client applications on direct connections to organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
     MemberOfOrganizationalUnit []int64 `uriparametername:"memberOfOrganizationalUnit"`
+    // Filter client applications on connections to organizational units by being part of the owner group, specified by id. This parameter supports composition with all parameters from the group resource.
+    MemberOfOrganizationalUnitOwnedBy []int64 `uriparametername:"memberOfOrganizationalUnitOwnedBy"`
     // Only return records that have been modified since the given instant.
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter clients on the exact name.
@@ -51,6 +55,8 @@ type ClientRequestBuilderGetQueryParameters struct {
     NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
     // Only return clients for which the name starts with one of the given values.
     NameStartsWith []string `uriparametername:"nameStartsWith"`
+    // Filter the SSO applications not connected to access profiles, specified by id.
+    NotInAccessProfile []int64 `uriparametername:"notInAccessProfile"`
     // Filter the SSO applications not connected to groups, specified by id.
     NotInGroup []int64 `uriparametername:"notInGroup"`
     // Filter clients on organizational units, specified by id. This parameter is automatically set and primarily used for security permission enforcement.
@@ -132,7 +138,7 @@ func (m *ClientRequestBuilder) ByClientidInt64(clientid int64)(*WithClientItemRe
 // NewClientRequestBuilderInternal instantiates a new ClientRequestBuilder and sets the default values.
 func NewClientRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ClientRequestBuilder) {
     m := &ClientRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client{?additional*,any*,baseOrganizationalUnitAncestorOf*,clientId*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,group*,id*,isProvisionedInternalLDAP*,memberOfOrganizationalUnit*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,organizationalUnitForEnforcement*,ownedBy*,q*,sharedSecret*,sort*,technicalAdministrator*,type*,useClientCredentials*,uuid*,vault*,withPermission*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client{?accessProfile*,additional*,any*,baseOrganizationalUnitAncestorOf*,clientId*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,group*,id*,isProvisionedInternalLDAP*,memberOfOrganizationalUnit*,memberOfOrganizationalUnitOwnedBy*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInAccessProfile*,notInGroup*,organizationalUnitForEnforcement*,ownedBy*,q*,sharedSecret*,sort*,technicalAdministrator*,type*,useClientCredentials*,uuid*,vault*,withPermission*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
     }
     return m
 }
@@ -198,7 +204,7 @@ func (m *ClientRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new clients and returns the newly created clients.
@@ -212,8 +218,8 @@ func (m *ClientRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=76")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=76", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=77", body)
     if err != nil {
         return nil, err
     }

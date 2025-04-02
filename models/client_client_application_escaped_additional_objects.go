@@ -5,6 +5,8 @@ import (
 )
 
 type ClientClientApplication_additionalObjects struct {
+    // The accessprofileclients property
+    accessprofileclients ProfileAccessProfileClientLinkableWrapperable
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The audit property
@@ -36,6 +38,11 @@ func NewClientClientApplication_additionalObjects()(*ClientClientApplication_add
 func CreateClientClientApplication_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewClientClientApplication_additionalObjects(), nil
 }
+// GetAccessprofileclients gets the accessprofileclients property value. The accessprofileclients property
+// returns a ProfileAccessProfileClientLinkableWrapperable when successful
+func (m *ClientClientApplication_additionalObjects) GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperable) {
+    return m.accessprofileclients
+}
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 // returns a map[string]any when successful
 func (m *ClientClientApplication_additionalObjects) GetAdditionalData()(map[string]any) {
@@ -55,6 +62,16 @@ func (m *ClientClientApplication_additionalObjects) GetDeleteTile()(*bool) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
+    res["accessprofileclients"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProfileAccessProfileClientLinkableWrapperFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAccessprofileclients(val.(ProfileAccessProfileClientLinkableWrapperable))
+        }
+        return nil
+    }
     res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateAuditInfoFromDiscriminatorValue)
         if err != nil {
@@ -170,6 +187,12 @@ func (m *ClientClientApplication_additionalObjects) GetVaultRecordCount()(*int32
 // Serialize serializes information the current object
 func (m *ClientClientApplication_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     {
+        err := writer.WriteObjectValue("accessprofileclients", m.GetAccessprofileclients())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteObjectValue("audit", m.GetAudit())
         if err != nil {
             return err
@@ -219,6 +242,10 @@ func (m *ClientClientApplication_additionalObjects) Serialize(writer i878a80d233
     }
     return nil
 }
+// SetAccessprofileclients sets the accessprofileclients property value. The accessprofileclients property
+func (m *ClientClientApplication_additionalObjects) SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperable)() {
+    m.accessprofileclients = value
+}
 // SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 func (m *ClientClientApplication_additionalObjects) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
@@ -258,6 +285,7 @@ func (m *ClientClientApplication_additionalObjects) SetVaultRecordCount(value *i
 type ClientClientApplication_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperable)
     GetAudit()(AuditInfoable)
     GetDeleteTile()(*bool)
     GetGroupclients()(GroupGroupClientLinkableWrapperable)
@@ -266,6 +294,7 @@ type ClientClientApplication_additionalObjectsable interface {
     GetSecret()(GeneratedSecretable)
     GetTile()(LaunchpadSsoApplicationLaunchpadTileable)
     GetVaultRecordCount()(*int32)
+    SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperable)()
     SetAudit(value AuditInfoable)()
     SetDeleteTile(value *bool)()
     SetGroupclients(value GroupGroupClientLinkableWrapperable)()

@@ -33,8 +33,6 @@ func CreateRequestAbstractApplicationModificationRequestFromDiscriminatorValue(p
             }
             if mappingValue != nil {
                 switch *mappingValue {
-                    case "request.GrantApplicationRequest":
-                        return NewRequestGrantApplicationRequest(), nil
                     case "request.GrantClientPermissionRequest":
                         return NewRequestGrantClientPermissionRequest(), nil
                     case "request.TransferApplicationAdministrationRequest":

@@ -2,7 +2,8 @@ package client
 type GetAdditionalQueryParameterType int
 
 const (
-    AUDIT_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    ACCESSPROFILECLIENTS_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    AUDIT_GETADDITIONALQUERYPARAMETERTYPE
     DELETETILE_GETADDITIONALQUERYPARAMETERTYPE
     GROUPCLIENTS_GETADDITIONALQUERYPARAMETERTYPE
     GROUPS_GETADDITIONALQUERYPARAMETERTYPE
@@ -13,11 +14,13 @@ const (
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"audit", "deleteTile", "groupclients", "groups", "organizationalUnits", "secret", "tile", "vaultRecordCount"}[i]
+    return []string{"accessprofileclients", "audit", "deleteTile", "groupclients", "groups", "organizationalUnits", "secret", "tile", "vaultRecordCount"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+    result := ACCESSPROFILECLIENTS_GETADDITIONALQUERYPARAMETERTYPE
     switch v {
+        case "accessprofileclients":
+            result = ACCESSPROFILECLIENTS_GETADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
         case "deleteTile":

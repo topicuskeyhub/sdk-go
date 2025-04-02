@@ -2,23 +2,23 @@ package models
 type VaultMoveVaultRecordAction int
 
 const (
-    MOVE_VAULTMOVEVAULTRECORDACTION VaultMoveVaultRecordAction = iota
+    SHARE_VAULTMOVEVAULTRECORDACTION VaultMoveVaultRecordAction = iota
     COPY_VAULTMOVEVAULTRECORDACTION
-    SHARE_VAULTMOVEVAULTRECORDACTION
+    MOVE_VAULTMOVEVAULTRECORDACTION
 )
 
 func (i VaultMoveVaultRecordAction) String() string {
-    return []string{"MOVE", "COPY", "SHARE"}[i]
+    return []string{"SHARE", "COPY", "MOVE"}[i]
 }
 func ParseVaultMoveVaultRecordAction(v string) (any, error) {
-    result := MOVE_VAULTMOVEVAULTRECORDACTION
+    result := SHARE_VAULTMOVEVAULTRECORDACTION
     switch v {
-        case "MOVE":
-            result = MOVE_VAULTMOVEVAULTRECORDACTION
-        case "COPY":
-            result = COPY_VAULTMOVEVAULTRECORDACTION
         case "SHARE":
             result = SHARE_VAULTMOVEVAULTRECORDACTION
+        case "COPY":
+            result = COPY_VAULTMOVEVAULTRECORDACTION
+        case "MOVE":
+            result = MOVE_VAULTMOVEVAULTRECORDACTION
         default:
             return nil, nil
     }

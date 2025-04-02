@@ -12,7 +12,7 @@ type CertificateCertificatePrimer struct {
     // The type property
     certificateCertificatePrimerType *CertificateCertificateType
     // The certificateData property
-    certificateData *string
+    certificateData []byte
     // The expiration property
     expiration *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The fingerprintSha1 property
@@ -69,8 +69,8 @@ func (m *CertificateCertificatePrimer) GetCertificateCertificatePrimerType()(*Ce
     return m.certificateCertificatePrimerType
 }
 // GetCertificateData gets the certificateData property value. The certificateData property
-// returns a *string when successful
-func (m *CertificateCertificatePrimer) GetCertificateData()(*string) {
+// returns a []byte when successful
+func (m *CertificateCertificatePrimer) GetCertificateData()([]byte) {
     return m.certificateData
 }
 // GetExpiration gets the expiration property value. The expiration property
@@ -103,7 +103,7 @@ func (m *CertificateCertificatePrimer) GetFieldDeserializers()(map[string]func(i
         return nil
     }
     res["certificateData"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+        val, err := n.GetByteArrayValue()
         if err != nil {
             return err
         }
@@ -219,7 +219,7 @@ func (m *CertificateCertificatePrimer) Serialize(writer i878a80d2330e89d26896388
         }
     }
     {
-        err = writer.WriteStringValue("certificateData", m.GetCertificateData())
+        err = writer.WriteByteArrayValue("certificateData", m.GetCertificateData())
         if err != nil {
             return err
         }
@@ -241,7 +241,7 @@ func (m *CertificateCertificatePrimer) SetCertificateCertificatePrimerType(value
     m.certificateCertificatePrimerType = value
 }
 // SetCertificateData sets the certificateData property value. The certificateData property
-func (m *CertificateCertificatePrimer) SetCertificateData(value *string)() {
+func (m *CertificateCertificatePrimer) SetCertificateData(value []byte)() {
     m.certificateData = value
 }
 // SetExpiration sets the expiration property value. The expiration property
@@ -273,7 +273,7 @@ type CertificateCertificatePrimerable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAlias()(*string)
     GetCertificateCertificatePrimerType()(*CertificateCertificateType)
-    GetCertificateData()(*string)
+    GetCertificateData()([]byte)
     GetExpiration()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetFingerprintSha1()(*string)
     GetFingerprintSha256()(*string)
@@ -282,7 +282,7 @@ type CertificateCertificatePrimerable interface {
     GetUuid()(*string)
     SetAlias(value *string)()
     SetCertificateCertificatePrimerType(value *CertificateCertificateType)()
-    SetCertificateData(value *string)()
+    SetCertificateData(value []byte)()
     SetExpiration(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetFingerprintSha1(value *string)()
     SetFingerprintSha256(value *string)()
