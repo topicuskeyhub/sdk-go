@@ -9,7 +9,18 @@ go get -u
 go mod tidy
 ```
 
-### 1.2 KeyHub OpenAPI spec
+Also check https://github.com/microsoft/kiota/releases and update `generate.sh` to download the latest kiota version.
+
+### 1.2 Commit the results
+
+```Shell
+git add .
+git commit -m "Upgrade dependencies"
+git push
+```
+
+
+### 1.3 KeyHub OpenAPI spec
 
 Use the keyhub-openapi-transformer-cli to download and preprocess the openapi spec from a running KeyHub instance
 
@@ -23,7 +34,7 @@ Regenerate the SDK
 go generate .
 ```
 
-### 1.3 Commit the results
+### 1.4 Commit the results
 
 ```Shell
 git add .
