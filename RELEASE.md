@@ -25,7 +25,7 @@ git push
 Use the keyhub-openapi-transformer-cli to download and preprocess the openapi spec from a running KeyHub instance
 
 ```Shell
-transform --in https://<KEYHUB_HOSTNAME>/keyhub/rest/v1/openapi.json --out /path/to/sdk-go --target go
+transform --in https://<KEYHUB_HOSTNAME>/keyhub/rest/v1/openapi.json --out /path/to/sdk-go/openapi.json --target go
 ```
 
 Regenerate the SDK
