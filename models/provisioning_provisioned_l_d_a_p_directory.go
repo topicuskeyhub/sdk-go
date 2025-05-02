@@ -12,6 +12,8 @@ type ProvisioningProvisionedLDAPDirectory struct {
     directory DirectoryAccountDirectoryPrimerable
     // The gid property
     gid *int64
+    // The gidNumbering property
+    gidNumbering ProvisioningProvisionNumberSequenceable
     // The groupDN property
     groupDN *string
     // The hashingScheme property
@@ -81,6 +83,16 @@ func (m *ProvisioningProvisionedLDAPDirectory) GetFieldDeserializers()(map[strin
         }
         return nil
     }
+    res["gidNumbering"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGidNumbering(val.(ProvisioningProvisionNumberSequenceable))
+        }
+        return nil
+    }
     res["groupDN"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -138,6 +150,11 @@ func (m *ProvisioningProvisionedLDAPDirectory) GetFieldDeserializers()(map[strin
 func (m *ProvisioningProvisionedLDAPDirectory) GetGid()(*int64) {
     return m.gid
 }
+// GetGidNumbering gets the gidNumbering property value. The gidNumbering property
+// returns a ProvisioningProvisionNumberSequenceable when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetGidNumbering()(ProvisioningProvisionNumberSequenceable) {
+    return m.gidNumbering
+}
 // GetGroupDN gets the groupDN property value. The groupDN property
 // returns a *string when successful
 func (m *ProvisioningProvisionedLDAPDirectory) GetGroupDN()(*string) {
@@ -183,6 +200,12 @@ func (m *ProvisioningProvisionedLDAPDirectory) Serialize(writer i878a80d2330e89d
     }
     {
         err = writer.WriteInt64Value("gid", m.GetGid())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteObjectValue("gidNumbering", m.GetGidNumbering())
         if err != nil {
             return err
         }
@@ -234,6 +257,10 @@ func (m *ProvisioningProvisionedLDAPDirectory) SetDirectory(value DirectoryAccou
 func (m *ProvisioningProvisionedLDAPDirectory) SetGid(value *int64)() {
     m.gid = value
 }
+// SetGidNumbering sets the gidNumbering property value. The gidNumbering property
+func (m *ProvisioningProvisionedLDAPDirectory) SetGidNumbering(value ProvisioningProvisionNumberSequenceable)() {
+    m.gidNumbering = value
+}
 // SetGroupDN sets the groupDN property value. The groupDN property
 func (m *ProvisioningProvisionedLDAPDirectory) SetGroupDN(value *string)() {
     m.groupDN = value
@@ -260,6 +287,7 @@ type ProvisioningProvisionedLDAPDirectoryable interface {
     GetAccountsWritable()(*bool)
     GetDirectory()(DirectoryAccountDirectoryPrimerable)
     GetGid()(*int64)
+    GetGidNumbering()(ProvisioningProvisionNumberSequenceable)
     GetGroupDN()(*string)
     GetHashingScheme()(*ProvisioningLDAPPasswordHashingScheme)
     GetNumbering()(ProvisioningProvisionNumberSequenceable)
@@ -268,6 +296,7 @@ type ProvisioningProvisionedLDAPDirectoryable interface {
     SetAccountsWritable(value *bool)()
     SetDirectory(value DirectoryAccountDirectoryPrimerable)()
     SetGid(value *int64)()
+    SetGidNumbering(value ProvisioningProvisionNumberSequenceable)()
     SetGroupDN(value *string)()
     SetHashingScheme(value *ProvisioningLDAPPasswordHashingScheme)()
     SetNumbering(value ProvisioningProvisionNumberSequenceable)()

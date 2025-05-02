@@ -13,7 +13,7 @@ type VaultMoveVaultRecord struct {
     // The group property
     group GroupGroupPrimerable
     // The shareDuration property
-    shareDuration VaultMoveVaultRecord_shareDurationable
+    shareDuration *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration
 }
 // NewVaultMoveVaultRecord instantiates a new VaultMoveVaultRecord and sets the default values.
 func NewVaultMoveVaultRecord()(*VaultMoveVaultRecord) {
@@ -74,12 +74,12 @@ func (m *VaultMoveVaultRecord) GetFieldDeserializers()(map[string]func(i878a80d2
         return nil
     }
     res["shareDuration"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateVaultMoveVaultRecord_shareDurationFromDiscriminatorValue)
+        val, err := n.GetISODurationValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetShareDuration(val.(VaultMoveVaultRecord_shareDurationable))
+            m.SetShareDuration(val)
         }
         return nil
     }
@@ -91,8 +91,8 @@ func (m *VaultMoveVaultRecord) GetGroup()(GroupGroupPrimerable) {
     return m.group
 }
 // GetShareDuration gets the shareDuration property value. The shareDuration property
-// returns a VaultMoveVaultRecord_shareDurationable when successful
-func (m *VaultMoveVaultRecord) GetShareDuration()(VaultMoveVaultRecord_shareDurationable) {
+// returns a *ISODuration when successful
+func (m *VaultMoveVaultRecord) GetShareDuration()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration) {
     return m.shareDuration
 }
 // Serialize serializes information the current object
@@ -121,7 +121,7 @@ func (m *VaultMoveVaultRecord) Serialize(writer i878a80d2330e89d26896388a3f487ee
         }
     }
     {
-        err = writer.WriteObjectValue("shareDuration", m.GetShareDuration())
+        err = writer.WriteISODurationValue("shareDuration", m.GetShareDuration())
         if err != nil {
             return err
         }
@@ -141,7 +141,7 @@ func (m *VaultMoveVaultRecord) SetGroup(value GroupGroupPrimerable)() {
     m.group = value
 }
 // SetShareDuration sets the shareDuration property value. The shareDuration property
-func (m *VaultMoveVaultRecord) SetShareDuration(value VaultMoveVaultRecord_shareDurationable)() {
+func (m *VaultMoveVaultRecord) SetShareDuration(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)() {
     m.shareDuration = value
 }
 type VaultMoveVaultRecordable interface {
@@ -150,9 +150,9 @@ type VaultMoveVaultRecordable interface {
     GetAccount()(AuthAccountPrimerable)
     GetAction()(*VaultMoveVaultRecordAction)
     GetGroup()(GroupGroupPrimerable)
-    GetShareDuration()(VaultMoveVaultRecord_shareDurationable)
+    GetShareDuration()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)
     SetAccount(value AuthAccountPrimerable)()
     SetAction(value *VaultMoveVaultRecordAction)()
     SetGroup(value GroupGroupPrimerable)()
-    SetShareDuration(value VaultMoveVaultRecord_shareDurationable)()
+    SetShareDuration(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)()
 }

@@ -49,7 +49,7 @@ type ExportRequestBuilderPostQueryParameters struct {
     HasBeenActive []bool `uriparametername:"hasBeenActive"`
     // Only return accounts that have or don't have an e-mail address.
     HasEmail []bool `uriparametername:"hasEmail"`
-    // Only return accouts that have or don't have their vaults setup.
+    // Only return accounts that have or don't have their vaults setup.
     HasVault []bool `uriparametername:"hasVault"`
     // Only return accounts that have access to the vault for at least one of the given groups, specified by id.
     HasVaultSecretForGroup []int64 `uriparametername:"hasVaultSecretForGroup"`
@@ -88,7 +88,7 @@ type ExportRequestBuilderPostQueryParameters struct {
     Q []string `uriparametername:"q"`
     // Only return account that do or do not require reregistration.
     ReregistrationRequired []bool `uriparametername:"reregistrationRequired"`
-    // Only return accouts that have or don't have rotating password enabled.
+    // Only return accounts that have or don't have rotating password enabled.
     RotatingPasswordEnabled []bool `uriparametername:"rotatingPasswordEnabled"`
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
     Sort []string `uriparametername:"sort"`
@@ -162,7 +162,7 @@ func (m *ExportRequestBuilder) ToPostRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

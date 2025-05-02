@@ -75,7 +75,7 @@ type SystemRequestBuilderGetQueryParameters struct {
     NameStartsWith []string `uriparametername:"nameStartsWith"`
     // Filter the systems on not having a provisioning group for a group on system on the returned systems, specified by id.
     NotInGroup []int64 `uriparametername:"notInGroup"`
-    // Filter provisioned LDAPs on the numbering used, specified by id. This parameter supports composition with all parameters from the numberseq resource.
+    // Filter provisioned LDAPs on the numbering used (uid or gid), specified by id.
     Numbering []int64 `uriparametername:"numbering"`
     // Filter systems on organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
     OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
@@ -222,7 +222,7 @@ func (m *SystemRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new provisioned systems and returns the newly created systems.
@@ -236,8 +236,8 @@ func (m *SystemRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=77", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=78", body)
     if err != nil {
         return nil, err
     }

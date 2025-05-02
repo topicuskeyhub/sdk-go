@@ -121,6 +121,11 @@ func (m *WithIdentitysourceItemRequestBuilder) Put(ctx context.Context, body ie2
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentitysourceIdentitySourceable), nil
 }
+// Sync the sync property
+// returns a *ItemSyncRequestBuilder when successful
+func (m *WithIdentitysourceItemRequestBuilder) Sync()(*ItemSyncRequestBuilder) {
+    return NewItemSyncRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // ToDeleteRequestInformation permanently removes the identity source identified by the id. This cannot be undone.
 // returns a *RequestInformation when successful
 func (m *WithIdentitysourceItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithIdentitysourceItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
@@ -129,7 +134,7 @@ func (m *WithIdentitysourceItemRequestBuilder) ToDeleteRequestInformation(ctx co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the identity source identified by the id.
@@ -143,7 +148,7 @@ func (m *WithIdentitysourceItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the identity source identified by the id.
@@ -157,8 +162,8 @@ func (m *WithIdentitysourceItemRequestBuilder) ToPutRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=77", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=78", body)
     if err != nil {
         return nil, err
     }
