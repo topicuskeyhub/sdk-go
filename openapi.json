@@ -45402,7 +45402,7 @@
                 "x-tkh-sensitive": true
               },
               "totpKey": {
-                "pattern": "[A-Z0-9\\s]{4,}",
+                "pattern": "^$|[A-Z0-9\\s]{4,}",
                 "type": "string",
                 "writeOnly": true,
                 "x-tkh-sensitive": true
