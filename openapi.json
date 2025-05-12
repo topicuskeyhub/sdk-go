@@ -32364,12 +32364,10 @@
               },
               "oldSecret": {
                 "type": "string",
-                "writeOnly": true,
                 "x-tkh-sensitive": true
               },
               "regenerate": {
-                "type": "boolean",
-                "writeOnly": true
+                "type": "boolean"
               },
               "$type": {
                 "type": "string",
@@ -34638,7 +34636,14 @@
                 "type": "object",
                 "properties": {
                   "secret": {
-                    "$ref": "#/components/schemas/GeneratedSecret"
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/GeneratedSecret"
+                      },
+                      {
+                        "x-tkh-backend-determines-default": true
+                      }
+                    ]
                   },
                   "groups": {
                     "allOf": [
@@ -44426,7 +44431,14 @@
                 "type": "object",
                 "properties": {
                   "secret": {
-                    "$ref": "#/components/schemas/GeneratedSecret"
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/GeneratedSecret"
+                      },
+                      {
+                        "x-tkh-backend-determines-default": true
+                      }
+                    ]
                   },
                   "groups": {
                     "allOf": [
