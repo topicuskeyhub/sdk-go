@@ -14,6 +14,10 @@ type IdentityIdentity struct {
     givenName *string
     // The middleName property
     middleName *string
+    // The privateEmail property
+    privateEmail *string
+    // The privateTelephone property
+    privateTelephone *string
     // The telephone property
     telephone *string
 }
@@ -85,6 +89,26 @@ func (m *IdentityIdentity) GetFieldDeserializers()(map[string]func(i878a80d2330e
         }
         return nil
     }
+    res["privateEmail"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetPrivateEmail(val)
+        }
+        return nil
+    }
+    res["privateTelephone"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetPrivateTelephone(val)
+        }
+        return nil
+    }
     res["telephone"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -106,6 +130,16 @@ func (m *IdentityIdentity) GetGivenName()(*string) {
 // returns a *string when successful
 func (m *IdentityIdentity) GetMiddleName()(*string) {
     return m.middleName
+}
+// GetPrivateEmail gets the privateEmail property value. The privateEmail property
+// returns a *string when successful
+func (m *IdentityIdentity) GetPrivateEmail()(*string) {
+    return m.privateEmail
+}
+// GetPrivateTelephone gets the privateTelephone property value. The privateTelephone property
+// returns a *string when successful
+func (m *IdentityIdentity) GetPrivateTelephone()(*string) {
+    return m.privateTelephone
 }
 // GetTelephone gets the telephone property value. The telephone property
 // returns a *string when successful
@@ -143,6 +177,18 @@ func (m *IdentityIdentity) Serialize(writer i878a80d2330e89d26896388a3f487eef27b
         }
     }
     {
+        err = writer.WriteStringValue("privateEmail", m.GetPrivateEmail())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteStringValue("privateTelephone", m.GetPrivateTelephone())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("telephone", m.GetTelephone())
         if err != nil {
             return err
@@ -166,6 +212,14 @@ func (m *IdentityIdentity) SetGivenName(value *string)() {
 func (m *IdentityIdentity) SetMiddleName(value *string)() {
     m.middleName = value
 }
+// SetPrivateEmail sets the privateEmail property value. The privateEmail property
+func (m *IdentityIdentity) SetPrivateEmail(value *string)() {
+    m.privateEmail = value
+}
+// SetPrivateTelephone sets the privateTelephone property value. The privateTelephone property
+func (m *IdentityIdentity) SetPrivateTelephone(value *string)() {
+    m.privateTelephone = value
+}
 // SetTelephone sets the telephone property value. The telephone property
 func (m *IdentityIdentity) SetTelephone(value *string)() {
     m.telephone = value
@@ -177,10 +231,14 @@ type IdentityIdentityable interface {
     GetFamilyName()(*string)
     GetGivenName()(*string)
     GetMiddleName()(*string)
+    GetPrivateEmail()(*string)
+    GetPrivateTelephone()(*string)
     GetTelephone()(*string)
     SetDisplayName(value *string)()
     SetFamilyName(value *string)()
     SetGivenName(value *string)()
     SetMiddleName(value *string)()
+    SetPrivateEmail(value *string)()
+    SetPrivateTelephone(value *string)()
     SetTelephone(value *string)()
 }

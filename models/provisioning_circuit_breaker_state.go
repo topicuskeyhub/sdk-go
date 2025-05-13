@@ -5,10 +5,11 @@ const (
     CLOSED_PROVISIONINGCIRCUITBREAKERSTATE ProvisioningCircuitBreakerState = iota
     OPEN_PROVISIONINGCIRCUITBREAKERSTATE
     HALF_OPEN_PROVISIONINGCIRCUITBREAKERSTATE
+    FORCED_OPEN_PROVISIONINGCIRCUITBREAKERSTATE
 )
 
 func (i ProvisioningCircuitBreakerState) String() string {
-    return []string{"CLOSED", "OPEN", "HALF_OPEN"}[i]
+    return []string{"CLOSED", "OPEN", "HALF_OPEN", "FORCED_OPEN"}[i]
 }
 func ParseProvisioningCircuitBreakerState(v string) (any, error) {
     result := CLOSED_PROVISIONINGCIRCUITBREAKERSTATE
@@ -19,6 +20,8 @@ func ParseProvisioningCircuitBreakerState(v string) (any, error) {
             result = OPEN_PROVISIONINGCIRCUITBREAKERSTATE
         case "HALF_OPEN":
             result = HALF_OPEN_PROVISIONINGCIRCUITBREAKERSTATE
+        case "FORCED_OPEN":
+            result = FORCED_OPEN_PROVISIONINGCIRCUITBREAKERSTATE
         default:
             return nil, nil
     }

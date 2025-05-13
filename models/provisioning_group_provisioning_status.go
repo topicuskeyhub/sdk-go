@@ -12,7 +12,7 @@ type ProvisioningGroupProvisioningStatus struct {
     // The group property
     group GroupGroupable
     // The provisioningDuration property
-    provisioningDuration ProvisioningGroupProvisioningStatus_provisioningDurationable
+    provisioningDuration *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration
     // The provisioningEndTime property
     provisioningEndTime *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The provisioningPermissionEndTime property
@@ -61,12 +61,12 @@ func (m *ProvisioningGroupProvisioningStatus) GetFieldDeserializers()(map[string
         return nil
     }
     res["provisioningDuration"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProvisioningGroupProvisioningStatus_provisioningDurationFromDiscriminatorValue)
+        val, err := n.GetISODurationValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetProvisioningDuration(val.(ProvisioningGroupProvisioningStatus_provisioningDurationable))
+            m.SetProvisioningDuration(val)
         }
         return nil
     }
@@ -123,8 +123,8 @@ func (m *ProvisioningGroupProvisioningStatus) GetGroup()(GroupGroupable) {
     return m.group
 }
 // GetProvisioningDuration gets the provisioningDuration property value. The provisioningDuration property
-// returns a ProvisioningGroupProvisioningStatus_provisioningDurationable when successful
-func (m *ProvisioningGroupProvisioningStatus) GetProvisioningDuration()(ProvisioningGroupProvisioningStatus_provisioningDurationable) {
+// returns a *ISODuration when successful
+func (m *ProvisioningGroupProvisioningStatus) GetProvisioningDuration()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration) {
     return m.provisioningDuration
 }
 // GetProvisioningEndTime gets the provisioningEndTime property value. The provisioningEndTime property
@@ -166,31 +166,13 @@ func (m *ProvisioningGroupProvisioningStatus) Serialize(writer i878a80d2330e89d2
         }
     }
     {
-        err = writer.WriteObjectValue("provisioningDuration", m.GetProvisioningDuration())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err = writer.WriteTimeValue("provisioningEndTime", m.GetProvisioningEndTime())
         if err != nil {
             return err
         }
     }
     {
-        err = writer.WriteTimeValue("provisioningPermissionEndTime", m.GetProvisioningPermissionEndTime())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err = writer.WriteObjectValue("statusReport", m.GetStatusReport())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("visibleOnDashboard", m.GetVisibleOnDashboard())
         if err != nil {
             return err
         }
@@ -206,7 +188,7 @@ func (m *ProvisioningGroupProvisioningStatus) SetGroup(value GroupGroupable)() {
     m.group = value
 }
 // SetProvisioningDuration sets the provisioningDuration property value. The provisioningDuration property
-func (m *ProvisioningGroupProvisioningStatus) SetProvisioningDuration(value ProvisioningGroupProvisioningStatus_provisioningDurationable)() {
+func (m *ProvisioningGroupProvisioningStatus) SetProvisioningDuration(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)() {
     m.provisioningDuration = value
 }
 // SetProvisioningEndTime sets the provisioningEndTime property value. The provisioningEndTime property
@@ -230,14 +212,14 @@ type ProvisioningGroupProvisioningStatusable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetFolder()(GroupGroupFolderable)
     GetGroup()(GroupGroupable)
-    GetProvisioningDuration()(ProvisioningGroupProvisioningStatus_provisioningDurationable)
+    GetProvisioningDuration()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)
     GetProvisioningEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetProvisioningPermissionEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetStatusReport()(ProvisioningAccountProvisioningStatusReportable)
     GetVisibleOnDashboard()(*bool)
     SetFolder(value GroupGroupFolderable)()
     SetGroup(value GroupGroupable)()
-    SetProvisioningDuration(value ProvisioningGroupProvisioningStatus_provisioningDurationable)()
+    SetProvisioningDuration(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)()
     SetProvisioningEndTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetProvisioningPermissionEndTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetStatusReport(value ProvisioningAccountProvisioningStatusReportable)()

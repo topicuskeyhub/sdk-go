@@ -134,7 +134,7 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToDeleteRequestInformation
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the vault record identified by the id. When the 'secret' additonal object is requested, the 'topicus-Vault-session' header must be specified.
@@ -148,7 +148,7 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToGetRequestInformation(ct
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the vault record identified by the id. To update the secrets, the 'secret' additional object must be used, in addition to specifying the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
@@ -162,8 +162,8 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToPutRequestInformation(ct
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=77", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=78", body)
     if err != nil {
         return nil, err
     }

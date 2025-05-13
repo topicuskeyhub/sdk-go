@@ -14,8 +14,8 @@ type VaultVaultRecordSecrets struct {
     password *string
     // The totp property
     totp *string
-    // The writeTotp property
-    writeTotp *bool
+    // The totpKey property
+    totpKey *string
 }
 // NewVaultVaultRecordSecrets instantiates a new VaultVaultRecordSecrets and sets the default values.
 func NewVaultVaultRecordSecrets()(*VaultVaultRecordSecrets) {
@@ -80,13 +80,13 @@ func (m *VaultVaultRecordSecrets) GetFieldDeserializers()(map[string]func(i878a8
         }
         return nil
     }
-    res["writeTotp"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
+    res["totpKey"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetWriteTotp(val)
+            m.SetTotpKey(val)
         }
         return nil
     }
@@ -107,10 +107,10 @@ func (m *VaultVaultRecordSecrets) GetPassword()(*string) {
 func (m *VaultVaultRecordSecrets) GetTotp()(*string) {
     return m.totp
 }
-// GetWriteTotp gets the writeTotp property value. The writeTotp property
-// returns a *bool when successful
-func (m *VaultVaultRecordSecrets) GetWriteTotp()(*bool) {
-    return m.writeTotp
+// GetTotpKey gets the totpKey property value. The totpKey property
+// returns a *string when successful
+func (m *VaultVaultRecordSecrets) GetTotpKey()(*string) {
+    return m.totpKey
 }
 // Serialize serializes information the current object
 func (m *VaultVaultRecordSecrets) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -137,13 +137,7 @@ func (m *VaultVaultRecordSecrets) Serialize(writer i878a80d2330e89d26896388a3f48
         }
     }
     {
-        err = writer.WriteStringValue("totp", m.GetTotp())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("writeTotp", m.GetWriteTotp())
+        err = writer.WriteStringValue("totpKey", m.GetTotpKey())
         if err != nil {
             return err
         }
@@ -166,9 +160,9 @@ func (m *VaultVaultRecordSecrets) SetPassword(value *string)() {
 func (m *VaultVaultRecordSecrets) SetTotp(value *string)() {
     m.totp = value
 }
-// SetWriteTotp sets the writeTotp property value. The writeTotp property
-func (m *VaultVaultRecordSecrets) SetWriteTotp(value *bool)() {
-    m.writeTotp = value
+// SetTotpKey sets the totpKey property value. The totpKey property
+func (m *VaultVaultRecordSecrets) SetTotpKey(value *string)() {
+    m.totpKey = value
 }
 type VaultVaultRecordSecretsable interface {
     NonLinkableable
@@ -177,10 +171,10 @@ type VaultVaultRecordSecretsable interface {
     GetFile()(*string)
     GetPassword()(*string)
     GetTotp()(*string)
-    GetWriteTotp()(*bool)
+    GetTotpKey()(*string)
     SetComment(value *string)()
     SetFile(value *string)()
     SetPassword(value *string)()
     SetTotp(value *string)()
-    SetWriteTotp(value *bool)()
+    SetTotpKey(value *string)()
 }

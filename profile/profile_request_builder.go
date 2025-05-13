@@ -171,7 +171,7 @@ func (m *ProfileRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new access profiles and returns the newly created access profiles.
@@ -185,8 +185,8 @@ func (m *ProfileRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=77")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=77", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=78", body)
     if err != nil {
         return nil, err
     }
