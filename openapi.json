@@ -4522,6 +4522,19 @@
             }
           },
           {
+            "name": "value",
+            "in": "query",
+            "description": "Filter attribute values on the given actual value(s).",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "sort",
             "in": "query",
             "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
@@ -5846,7 +5859,7 @@
           {
             "name": "applicableForActivation",
             "in": "query",
-            "description": "Only return group memberships that can or cannot be activated.",
+            "description": "Only return group memberships that can or cannot be activated by the current user.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -16815,7 +16828,7 @@
           {
             "name": "applicableForActivation",
             "in": "query",
-            "description": "Only return group memberships that can or cannot be activated.",
+            "description": "Only return group memberships that can or cannot be activated by the current user.",
             "style": "form",
             "explode": true,
             "schema": {
@@ -17253,6 +17266,47 @@
         }
       }
     },
+    "/group/{groupid}/account/{accountid}/activation": {
+      "delete": {
+        "tags": [
+          "group"
+        ],
+        "summary": "Revokes the permission to activate the group",
+        "description": "Revokes the permission to activate the group.",
+        "operationId": "revokeActivationPermission_group_account_activation",
+        "parameters": [
+          {
+            "name": "accountid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "groupid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Permission revoked"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
     "/group/{groupid}/account/{accountid}/nesting": {
       "put": {
         "tags": [
@@ -17542,8 +17596,8 @@
         "tags": [
           "group"
         ],
-        "summary": "Creates one or more new audits for a group",
-        "description": "Creates one or more new new audits for a group and returns the newly created memberships. Fetch a template for an audit via the 'new' resource.",
+        "summary": "Create an audit for a group",
+        "description": "Creates an audit for a group and returns the newly created memberships. Fetch a template for an audit via the 'new' resource.",
         "operationId": "create_group_audit",
         "parameters": [
           {
@@ -17616,8 +17670,8 @@
         "tags": [
           "group"
         ],
-        "summary": "Read a single audits for a group",
-        "description": "Returns the single audits for the group.",
+        "summary": "Read a single audit for a group",
+        "description": "Returns a single audit for the group.",
         "operationId": "get_group_audit",
         "parameters": [
           {
@@ -17683,8 +17737,8 @@
         "tags": [
           "group"
         ],
-        "summary": "Update a audits for a group",
-        "description": "Updates the audits for a group identified by the id. Only audits in draft can be updated.",
+        "summary": "Update an audit for a group",
+        "description": "Updates the audit for a group identified by the id. Only audits in draft can be updated.",
         "operationId": "update_group_audit",
         "parameters": [
           {
@@ -17766,9 +17820,9 @@
         "tags": [
           "group"
         ],
-        "summary": "Start a new audit",
-        "description": "Returns a template of a complete audit for the group. The template can then be filled in and posted to actually create the audit.",
-        "operationId": "getNewAudit_group_audit_new",
+        "summary": "Start a new audit or fetch a saved draft",
+        "description": "Returns a template of a complete audit for the group or an earlier saved draft. The template or draft can then be filled in and posted to actually create the audit.",
+        "operationId": "getNewOrDraftAudit_group_audit_new",
         "parameters": [
           {
             "name": "groupid",
@@ -17794,6 +17848,42 @@
                   "$ref": "#/components/schemas/auditGroupAudit"
                 }
               }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          },
+          "5XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/group/{groupid}/audit/nextGroup": {
+      "get": {
+        "tags": [
+          "group"
+        ],
+        "summary": "Retrieve the next group requiring an audit",
+        "description": "Returns the next group that requires an audit or a 404 Not Found if there are none.Groups you directly manage are prioritised above groups you are delegated manager of.",
+        "operationId": "getNextGroup_group_audit_nextGroup",
+        "parameters": [
+          {
+            "name": "groupid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/vnd.topicus.keyhub+json;version=78": {},
+              "application/vnd.topicus.keyhub+xml;version=78": {}
             }
           },
           "4XX": {
@@ -32422,22 +32512,23 @@
         "properties": {
           "links": {
             "type": "array",
+            "x-tkh-immutable": true,
             "items": {
               "$ref": "#/components/schemas/RestLink"
-            },
-            "x-tkh-immutable": true
+            }
           },
           "permissions": {
             "type": "array",
+            "x-tkh-immutable": true,
             "items": {
               "$ref": "#/components/schemas/authPermission"
-            },
-            "x-tkh-immutable": true
+            }
           },
           "$type": {
             "type": "string"
           }
         },
+        "x-tkh-discriminator": "Linkable",
         "discriminator": {
           "propertyName": "$type",
           "mapping": {
@@ -32578,7 +32669,6 @@
             "webhook.WebhookDelivery": "#/components/schemas/webhookWebhookDelivery"
           }
         },
-        "x-tkh-discriminator": "Linkable",
         "title": "Linkable"
       },
       "Month": {
@@ -32609,6 +32699,7 @@
             "type": "string"
           }
         },
+        "x-tkh-discriminator": "NonLinkable",
         "discriminator": {
           "propertyName": "$type",
           "mapping": {
@@ -32696,7 +32787,6 @@
             "webhook.WebhookPush": "#/components/schemas/webhookWebhookPush"
           }
         },
-        "x-tkh-discriminator": "NonLinkable",
         "title": "NonLinkable"
       },
       "PProvisionedAccountStatus": {
@@ -32985,6 +33075,7 @@
           "ACCOUNT_PROVISIONED",
           "ACCOUNT_PROVISIONING_DESTROYED",
           "ACCOUNT_PROVISIONING_INITED",
+          "ACCOUNT_PROVISIONING_MOVED",
           "ACCOUNT_PROVISIONING_SETUP",
           "ACCOUNT_REMOVED",
           "ACCOUNT_REMOVED_FROM_ACCESS_PROFILE",
@@ -33672,14 +33763,14 @@
                 }
               }
             },
+            "x-tkh-discriminator": "auth.Account",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "auth.Account": "#/components/schemas/authAccount",
                 "auth.InternalAccount": "#/components/schemas/authInternalAccount"
               }
-            },
-            "x-tkh-discriminator": "auth.Account"
+            }
           }
         ],
         "title": "authAccount"
@@ -33832,6 +33923,7 @@
                 "default": "auth.AccountPrimer"
               }
             },
+            "x-tkh-discriminator": "auth.AccountPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -33844,8 +33936,7 @@
                 "profile.AccessProfileAccountWithAttributes": "#/components/schemas/profileAccessProfileAccountWithAttributes",
                 "provisioning.ProvisionedAccount": "#/components/schemas/provisioningProvisionedAccount"
               }
-            },
-            "x-tkh-discriminator": "auth.AccountPrimer"
+            }
           }
         ],
         "title": "authAccountPrimer"
@@ -34567,14 +34658,14 @@
                 "default": "certificate.CertificatePrimer"
               }
             },
+            "x-tkh-discriminator": "certificate.CertificatePrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "certificate.Certificate": "#/components/schemas/certificateCertificate",
                 "certificate.CertificatePrimer": "#/components/schemas/certificateCertificatePrimer"
               }
-            },
-            "x-tkh-discriminator": "certificate.CertificatePrimer"
+            }
           }
         ],
         "title": "certificateCertificatePrimer"
@@ -34710,6 +34801,7 @@
                 }
               }
             },
+            "x-tkh-discriminator": "client.ClientApplication",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -34718,8 +34810,7 @@
                 "client.OAuth2Client": "#/components/schemas/clientOAuth2Client",
                 "client.Saml2Client": "#/components/schemas/clientSaml2Client"
               }
-            },
-            "x-tkh-discriminator": "client.ClientApplication"
+            }
           }
         ],
         "title": "clientClientApplication"
@@ -34783,10 +34874,10 @@
               },
               "scopes": {
                 "type": "array",
+                "x-tkh-backend-determines-default": true,
                 "items": {
                   "type": "string"
-                },
-                "x-tkh-backend-determines-default": true
+                }
               },
               "ssoApplication": {
                 "type": "boolean",
@@ -34799,6 +34890,7 @@
                 "default": "client.ClientApplicationPrimer"
               }
             },
+            "x-tkh-discriminator": "client.ClientApplicationPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -34809,8 +34901,7 @@
                 "client.Saml2Client": "#/components/schemas/clientSaml2Client",
                 "organization.OrganizationalUnitClientApplication": "#/components/schemas/organizationOrganizationalUnitClientApplication"
               }
-            },
-            "x-tkh-discriminator": "client.ClientApplicationPrimer"
+            }
           }
         ],
         "title": "clientClientApplicationPrimer"
@@ -35086,17 +35177,17 @@
                 }
               }
             },
+            "x-tkh-writescope": {
+              "clientOAuth2ClientPermission": true
+            },
+            "x-tkh-discriminator": "client.OAuth2ClientPermission",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "client.OAuth2ClientPermission": "#/components/schemas/clientOAuth2ClientPermission",
                 "client.OAuth2ClientPermissionWithClient": "#/components/schemas/clientOAuth2ClientPermissionWithClient"
               }
-            },
-            "x-tkh-writescope": {
-              "clientOAuth2ClientPermission": true
-            },
-            "x-tkh-discriminator": "client.OAuth2ClientPermission"
+            }
           }
         ],
         "title": "clientOAuth2ClientPermission"
@@ -35331,6 +35422,7 @@
                 }
               }
             },
+            "x-tkh-discriminator": "directory.AccountDirectory",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -35341,8 +35433,7 @@
                 "directory.OIDCDirectory": "#/components/schemas/directoryOIDCDirectory",
                 "directory.PendingAccountsDirectory": "#/components/schemas/directoryPendingAccountsDirectory"
               }
-            },
-            "x-tkh-discriminator": "directory.AccountDirectory"
+            }
           }
         ],
         "title": "directoryAccountDirectory"
@@ -35414,6 +35505,7 @@
                 "default": "directory.AccountDirectoryPrimer"
               }
             },
+            "x-tkh-discriminator": "directory.AccountDirectoryPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -35425,8 +35517,7 @@
                 "directory.OIDCDirectory": "#/components/schemas/directoryOIDCDirectory",
                 "directory.PendingAccountsDirectory": "#/components/schemas/directoryPendingAccountsDirectory"
               }
-            },
-            "x-tkh-discriminator": "directory.AccountDirectoryPrimer"
+            }
           }
         ],
         "title": "directoryAccountDirectoryPrimer"
@@ -35968,6 +36059,7 @@
         "title": "groupAccountGroupLinkableWrapper"
       },
       "groupAccountGroupsWrapper": {
+        "x-tkh-discriminator": "group.AccountGroupsWrapper",
         "allOf": [
           {
             "$ref": "#/components/schemas/groupAccountGroupLinkableWrapper",
@@ -35991,10 +36083,10 @@
             "title": "groupAccountGroupsWrapper"
           }
         ],
-        "x-tkh-discriminator": "group.AccountGroupsWrapper",
         "title": "groupAccountGroupsWrapper"
       },
       "groupAuthorizedGroupsWrapper": {
+        "x-tkh-discriminator": "group.AuthorizedGroupsWrapper",
         "allOf": [
           {
             "$ref": "#/components/schemas/groupGroupLinkableWrapper",
@@ -36017,7 +36109,6 @@
             "title": "groupAuthorizedGroupsWrapper"
           }
         ],
-        "x-tkh-discriminator": "group.AuthorizedGroupsWrapper",
         "title": "groupAuthorizedGroupsWrapper"
       },
       "groupGroup": {
@@ -36566,6 +36657,11 @@
                 "format": "date-time",
                 "readOnly": true
               },
+              "provisioningPermissionEndTime": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
               "visibleForProvisioning": {
                 "type": "boolean",
                 "readOnly": true,
@@ -36747,10 +36843,10 @@
               "months": {
                 "uniqueItems": true,
                 "type": "array",
+                "x-tkh-backend-determines-default": true,
                 "items": {
                   "$ref": "#/components/schemas/Month"
-                },
-                "x-tkh-backend-determines-default": true
+                }
               },
               "$type": {
                 "type": "string",
@@ -37047,14 +37143,14 @@
                 "default": "group.GroupClassificationPrimer"
               }
             },
+            "x-tkh-discriminator": "group.GroupClassificationPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "group.GroupClassification": "#/components/schemas/groupGroupClassification",
                 "group.GroupClassificationPrimer": "#/components/schemas/groupGroupClassificationPrimer"
               }
-            },
-            "x-tkh-discriminator": "group.GroupClassificationPrimer"
+            }
           }
         ],
         "title": "groupGroupClassificationPrimer"
@@ -37455,6 +37551,7 @@
                 "default": "group.GroupPrimer"
               }
             },
+            "x-tkh-discriminator": "group.GroupPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -37462,8 +37559,7 @@
                 "group.Group": "#/components/schemas/groupGroup",
                 "group.GroupPrimer": "#/components/schemas/groupGroupPrimer"
               }
-            },
-            "x-tkh-discriminator": "group.GroupPrimer"
+            }
           }
         ],
         "title": "groupGroupPrimer"
@@ -38258,14 +38354,14 @@
                 }
               }
             },
+            "x-tkh-discriminator": "identitysource.IdentitySource",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "identitysource.AFASIdentitySource": "#/components/schemas/identitysourceAFASIdentitySource",
                 "identitysource.IdentitySource": "#/components/schemas/identitysourceIdentitySource"
               }
-            },
-            "x-tkh-discriminator": "identitysource.IdentitySource"
+            }
           }
         ],
         "title": "identitysourceIdentitySource"
@@ -38329,6 +38425,7 @@
                 "default": "identitysource.IdentitySourcePrimer"
               }
             },
+            "x-tkh-discriminator": "identitysource.IdentitySourcePrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -38336,8 +38433,7 @@
                 "identitysource.IdentitySource": "#/components/schemas/identitysourceIdentitySource",
                 "identitysource.IdentitySourcePrimer": "#/components/schemas/identitysourceIdentitySourcePrimer"
               }
-            },
-            "x-tkh-discriminator": "identitysource.IdentitySourcePrimer"
+            }
           }
         ],
         "title": "identitysourceIdentitySourcePrimer"
@@ -38487,6 +38583,7 @@
                 }
               }
             },
+            "x-tkh-discriminator": "launchpad.LaunchpadTile",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -38495,8 +38592,7 @@
                 "launchpad.SsoApplicationLaunchpadTile": "#/components/schemas/launchpadSsoApplicationLaunchpadTile",
                 "launchpad.VaultRecordLaunchpadTile": "#/components/schemas/launchpadVaultRecordLaunchpadTile"
               }
-            },
-            "x-tkh-discriminator": "launchpad.LaunchpadTile"
+            }
           }
         ],
         "title": "launchpadLaunchpadTile"
@@ -38531,6 +38627,7 @@
                 "default": "launchpad.LaunchpadTilePrimer"
               }
             },
+            "x-tkh-discriminator": "launchpad.LaunchpadTilePrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -38540,8 +38637,7 @@
                 "launchpad.SsoApplicationLaunchpadTile": "#/components/schemas/launchpadSsoApplicationLaunchpadTile",
                 "launchpad.VaultRecordLaunchpadTile": "#/components/schemas/launchpadVaultRecordLaunchpadTile"
               }
-            },
-            "x-tkh-discriminator": "launchpad.LaunchpadTilePrimer"
+            }
           }
         ],
         "title": "launchpadLaunchpadTilePrimer"
@@ -39138,6 +39234,7 @@
                 "default": "notification.Notification"
               }
             },
+            "x-tkh-discriminator": "notification.Notification",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -39154,8 +39251,7 @@
                 "notification.UpdateAvailableNotification": "#/components/schemas/notificationUpdateAvailableNotification",
                 "notification.VaultRecordExpiredNotification": "#/components/schemas/notificationVaultRecordExpiredNotification"
               }
-            },
-            "x-tkh-discriminator": "notification.Notification"
+            }
           }
         ],
         "title": "notificationNotification"
@@ -39695,6 +39791,7 @@
                 "default": "organization.OrganizationalUnitPrimer"
               }
             },
+            "x-tkh-discriminator": "organization.OrganizationalUnitPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -39703,8 +39800,7 @@
                 "organization.OrganizationalUnit": "#/components/schemas/organizationOrganizationalUnit",
                 "organization.OrganizationalUnitPrimer": "#/components/schemas/organizationOrganizationalUnitPrimer"
               }
-            },
-            "x-tkh-discriminator": "organization.OrganizationalUnitPrimer"
+            }
           }
         ],
         "title": "organizationOrganizationalUnitPrimer"
@@ -39928,18 +40024,18 @@
                 }
               }
             },
+            "x-tkh-writescope": {
+              "authAccountPrimer": false,
+              "profileAccessProfileAccount": true
+            },
+            "x-tkh-discriminator": "profile.AccessProfileAccount",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "profile.AccessProfileAccount": "#/components/schemas/profileAccessProfileAccount",
                 "profile.AccessProfileAccountWithAttributes": "#/components/schemas/profileAccessProfileAccountWithAttributes"
               }
-            },
-            "x-tkh-writescope": {
-              "authAccountPrimer": false,
-              "profileAccessProfileAccount": true
-            },
-            "x-tkh-discriminator": "profile.AccessProfileAccount"
+            }
           }
         ],
         "title": "profileAccessProfileAccount"
@@ -40213,14 +40309,14 @@
                 "default": "profile.AccessProfilePrimer"
               }
             },
+            "x-tkh-discriminator": "profile.AccessProfilePrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "profile.AccessProfile": "#/components/schemas/profileAccessProfile",
                 "profile.AccessProfilePrimer": "#/components/schemas/profileAccessProfilePrimer"
               }
-            },
-            "x-tkh-discriminator": "profile.AccessProfilePrimer"
+            }
           }
         ],
         "title": "profileAccessProfilePrimer"
@@ -40437,6 +40533,7 @@
                 "default": "provisioning.AbstractProvisionedLDAP"
               }
             },
+            "x-tkh-discriminator": "provisioning.AbstractProvisionedLDAP",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -40444,8 +40541,7 @@
                 "provisioning.ProvisionedAD": "#/components/schemas/provisioningProvisionedAD",
                 "provisioning.ProvisionedLDAP": "#/components/schemas/provisioningProvisionedLDAP"
               }
-            },
-            "x-tkh-discriminator": "provisioning.AbstractProvisionedLDAP"
+            }
           }
         ],
         "title": "provisioningAbstractProvisionedLDAP"
@@ -40740,6 +40836,7 @@
                 "default": "provisioning.GroupOnSystemPrimer"
               }
             },
+            "x-tkh-discriminator": "provisioning.GroupOnSystemPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -40747,8 +40844,7 @@
                 "provisioning.GroupOnSystemPrimer": "#/components/schemas/provisioningGroupOnSystemPrimer",
                 "serviceaccount.ServiceAccountGroup": "#/components/schemas/serviceaccountServiceAccountGroup"
               }
-            },
-            "x-tkh-discriminator": "provisioning.GroupOnSystemPrimer"
+            }
           }
         ],
         "title": "provisioningGroupOnSystemPrimer"
@@ -40903,6 +40999,7 @@
         "title": "provisioningLDAPSshPublicKeySupport"
       },
       "provisioningOwnedGroupOnSystemsWrapper": {
+        "x-tkh-discriminator": "provisioning.OwnedGroupOnSystemsWrapper",
         "allOf": [
           {
             "$ref": "#/components/schemas/provisioningGroupOnSystemLinkableWrapper",
@@ -40925,7 +41022,6 @@
             "title": "provisioningOwnedGroupOnSystemsWrapper"
           }
         ],
-        "x-tkh-discriminator": "provisioning.OwnedGroupOnSystemsWrapper",
         "title": "provisioningOwnedGroupOnSystemsWrapper"
       },
       "provisioningProvisionNumberSequence": {
@@ -41551,19 +41647,15 @@
                 ]
               },
               "basicAuthUsername": {
-                "maxLength": 512,
+                "maxLength": 255,
                 "minLength": 0,
                 "type": "string"
               },
               "basicAuthPassword": {
-                "maxLength": 512,
-                "minLength": 0,
                 "type": "string",
                 "x-tkh-sensitive": true
               },
               "bearerToken": {
-                "maxLength": 1024,
-                "minLength": 0,
                 "type": "string",
                 "x-tkh-sensitive": true
               },
@@ -41573,8 +41665,6 @@
                 "type": "string"
               },
               "customHeaderValue": {
-                "maxLength": 1024,
-                "minLength": 0,
                 "type": "string",
                 "x-tkh-sensitive": true
               },
@@ -41804,6 +41894,7 @@
                 }
               }
             },
+            "x-tkh-discriminator": "provisioning.ProvisionedSystem",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -41819,8 +41910,7 @@
                 "provisioning.ProvisionedSCIM": "#/components/schemas/provisioningProvisionedSCIM",
                 "provisioning.ProvisionedSystem": "#/components/schemas/provisioningProvisionedSystem"
               }
-            },
-            "x-tkh-discriminator": "provisioning.ProvisionedSystem"
+            }
           }
         ],
         "title": "provisioningProvisionedSystem"
@@ -41913,6 +42003,7 @@
                 "default": "provisioning.ProvisionedSystemPrimer"
               }
             },
+            "x-tkh-discriminator": "provisioning.ProvisionedSystemPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -41929,8 +42020,7 @@
                 "provisioning.ProvisionedSystem": "#/components/schemas/provisioningProvisionedSystem",
                 "provisioning.ProvisionedSystemPrimer": "#/components/schemas/provisioningProvisionedSystemPrimer"
               }
-            },
-            "x-tkh-discriminator": "provisioning.ProvisionedSystemPrimer"
+            }
           }
         ],
         "title": "provisioningProvisionedSystemPrimer"
@@ -42178,6 +42268,7 @@
                 "default": "request.AbstractAccessProfileModificationRequest"
               }
             },
+            "x-tkh-discriminator": "request.AbstractAccessProfileModificationRequest",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -42190,8 +42281,7 @@
                 "request.LinkDirectoryToAccessProfileRequest": "#/components/schemas/requestLinkDirectoryToAccessProfileRequest",
                 "request.TransferAccessProfileOwnershipRequest": "#/components/schemas/requestTransferAccessProfileOwnershipRequest"
               }
-            },
-            "x-tkh-discriminator": "request.AbstractAccessProfileModificationRequest"
+            }
           }
         ],
         "title": "requestAbstractAccessProfileModificationRequest"
@@ -42218,6 +42308,7 @@
                 "default": "request.AbstractApplicationModificationRequest"
               }
             },
+            "x-tkh-discriminator": "request.AbstractApplicationModificationRequest",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -42226,8 +42317,7 @@
                 "request.TransferApplicationAdministrationRequest": "#/components/schemas/requestTransferApplicationAdministrationRequest",
                 "request.TransferApplicationOwnershipRequest": "#/components/schemas/requestTransferApplicationOwnershipRequest"
               }
-            },
-            "x-tkh-discriminator": "request.AbstractApplicationModificationRequest"
+            }
           }
         ],
         "title": "requestAbstractApplicationModificationRequest"
@@ -42254,6 +42344,7 @@
                 "default": "request.AbstractOrganizationalUnitModificationRequest"
               }
             },
+            "x-tkh-discriminator": "request.AbstractOrganizationalUnitModificationRequest",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -42263,8 +42354,7 @@
                 "request.RemoveOrganizationalUnitRequest": "#/components/schemas/requestRemoveOrganizationalUnitRequest",
                 "request.TransferOrganizationalUnitOwnershipRequest": "#/components/schemas/requestTransferOrganizationalUnitOwnershipRequest"
               }
-            },
-            "x-tkh-discriminator": "request.AbstractOrganizationalUnitModificationRequest"
+            }
           }
         ],
         "title": "requestAbstractOrganizationalUnitModificationRequest"
@@ -42291,6 +42381,7 @@
                 "default": "request.AbstractProvisionedSystemModificationRequest"
               }
             },
+            "x-tkh-discriminator": "request.AbstractProvisionedSystemModificationRequest",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -42303,8 +42394,7 @@
                 "request.TransferProvisionedSystemContentAdministrationRequest": "#/components/schemas/requestTransferProvisionedSystemContentAdministrationRequest",
                 "request.TransferProvisionedSystemOwnershipRequest": "#/components/schemas/requestTransferProvisionedSystemOwnershipRequest"
               }
-            },
-            "x-tkh-discriminator": "request.AbstractProvisionedSystemModificationRequest"
+            }
           }
         ],
         "title": "requestAbstractProvisionedSystemModificationRequest"
@@ -42509,6 +42599,7 @@
                 "default": "request.AcceptModificationRequestParameters"
               }
             },
+            "x-tkh-discriminator": "request.AcceptModificationRequestParameters",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -42520,8 +42611,7 @@
                 "request.AcceptJoinGroupRequestParameters": "#/components/schemas/requestAcceptJoinGroupRequestParameters",
                 "request.AcceptModificationRequestParameters": "#/components/schemas/requestAcceptModificationRequestParameters"
               }
-            },
-            "x-tkh-discriminator": "request.AcceptModificationRequestParameters"
+            }
           }
         ],
         "title": "requestAcceptModificationRequestParameters"
@@ -43275,6 +43365,7 @@
                 }
               }
             },
+            "x-tkh-discriminator": "request.ModificationRequest",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
@@ -43324,8 +43415,7 @@
                 "request.UpdateLicenseRequest": "#/components/schemas/requestUpdateLicenseRequest",
                 "request.VerifyInternalAccountRequest": "#/components/schemas/requestVerifyInternalAccountRequest"
               }
-            },
-            "x-tkh-discriminator": "request.ModificationRequest"
+            }
           }
         ],
         "title": "requestModificationRequest"
@@ -43605,6 +43695,7 @@
             "title": "requestMoveGroupsRequest",
             "required": [
               "$type",
+              "groupCount",
               "organizationalUnit"
             ],
             "type": "object",
@@ -43614,6 +43705,12 @@
                 "items": {
                   "$ref": "#/components/schemas/groupGroupPrimer"
                 }
+              },
+              "groupCount": {
+                "type": "integer",
+                "format": "int32",
+                "readOnly": true,
+                "x-tkh-default": 0
               },
               "$type": {
                 "type": "string",
@@ -44603,14 +44700,14 @@
                 "default": "serviceaccount.ServiceAccountPrimer"
               }
             },
+            "x-tkh-discriminator": "serviceaccount.ServiceAccountPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "serviceaccount.ServiceAccount": "#/components/schemas/serviceaccountServiceAccount",
                 "serviceaccount.ServiceAccountPrimer": "#/components/schemas/serviceaccountServiceAccountPrimer"
               }
-            },
-            "x-tkh-discriminator": "serviceaccount.ServiceAccountPrimer"
+            }
           }
         ],
         "title": "serviceaccountServiceAccountPrimer"
@@ -45364,14 +45461,14 @@
                 "default": "vault.VaultRecordPrimer"
               }
             },
+            "x-tkh-discriminator": "vault.VaultRecordPrimer",
             "discriminator": {
               "propertyName": "$type",
               "mapping": {
                 "vault.VaultRecord": "#/components/schemas/vaultVaultRecord",
                 "vault.VaultRecordPrimer": "#/components/schemas/vaultVaultRecordPrimer"
               }
-            },
-            "x-tkh-discriminator": "vault.VaultRecordPrimer"
+            }
           }
         ],
         "title": "vaultVaultRecordPrimer"
@@ -45399,7 +45496,8 @@
             "title": "vaultVaultRecordSecrets",
             "required": [
               "$type",
-              "set",
+              "setForReading",
+              "setForWriting",
               "writeTotp"
             ],
             "type": "object",
@@ -45675,19 +45773,15 @@
                 ]
               },
               "basicAuthUsername": {
-                "maxLength": 512,
+                "maxLength": 255,
                 "minLength": 0,
                 "type": "string"
               },
               "basicAuthPassword": {
-                "maxLength": 512,
-                "minLength": 0,
                 "type": "string",
                 "x-tkh-sensitive": true
               },
               "bearerToken": {
-                "maxLength": 255,
-                "minLength": 0,
                 "type": "string",
                 "x-tkh-sensitive": true
               },
@@ -45697,8 +45791,6 @@
                 "type": "string"
               },
               "customHeaderValue": {
-                "maxLength": 1024,
-                "minLength": 0,
                 "type": "string",
                 "x-tkh-sensitive": true
               },
