@@ -48,6 +48,8 @@ func CreateRequestAbstractAccessProfileModificationRequestFromDiscriminatorValue
                         return NewRequestJoinGroupRequest(), nil
                     case "request.LinkDirectoryToAccessProfileRequest":
                         return NewRequestLinkDirectoryToAccessProfileRequest(), nil
+                    case "request.RemoveAccessProfileRequest":
+                        return NewRequestRemoveAccessProfileRequest(), nil
                     case "request.TransferAccessProfileOwnershipRequest":
                         return NewRequestTransferAccessProfileOwnershipRequest(), nil
                 }

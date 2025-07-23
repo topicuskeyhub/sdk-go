@@ -251,6 +251,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestMoveGroupsRequest(), nil
                     case "request.PasswordResetRequest":
                         return NewRequestPasswordResetRequest(), nil
+                    case "request.RemoveAccessProfileRequest":
+                        return NewRequestRemoveAccessProfileRequest(), nil
                     case "request.RemoveGroupRequest":
                         return NewRequestRemoveGroupRequest(), nil
                     case "request.RemoveOrganizationalUnitRequest":

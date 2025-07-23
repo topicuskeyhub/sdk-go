@@ -100,6 +100,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestMoveGroupsRequest(), nil
                     case "request.PasswordResetRequest":
                         return NewRequestPasswordResetRequest(), nil
+                    case "request.RemoveAccessProfileRequest":
+                        return NewRequestRemoveAccessProfileRequest(), nil
                     case "request.RemoveGroupRequest":
                         return NewRequestRemoveGroupRequest(), nil
                     case "request.RemoveOrganizationalUnitRequest":

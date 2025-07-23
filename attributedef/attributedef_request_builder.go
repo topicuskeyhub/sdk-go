@@ -39,10 +39,16 @@ type AttributedefRequestBuilderGetQueryParameters struct {
     Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    // Filter account attribute definitions on the exact name.
+    Name []string `uriparametername:"name"`
+    // Filter account attribute definitions on (part of) the name.
+    NameContains []string `uriparametername:"nameContains"`
     // Only return account attributes for which the given access profiles do not have an attribute rule, specified by id.
     NoRuleForAccessProfile []int64 `uriparametername:"noRuleForAccessProfile"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
+    // Only return account attribute definitions that are or are not required.
+    Required []bool `uriparametername:"required"`
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
     Sort []string `uriparametername:"sort"`
     // Filter account attribute definitions on the given system definition(s).
@@ -50,6 +56,8 @@ type AttributedefRequestBuilderGetQueryParameters struct {
     SystemDefinition []string `uriparametername:"systemDefinition"`
     // Filter account attribute definitions on the given system definition(s).
     SystemDefinitionAsIdentityAccountAttributeSystemDefinition []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeSystemDefinition `uriparametername:"systemDefinition"`
+    // Only return account attribute definitions that are or are not unique.
+    Unique []bool `uriparametername:"unique"`
 }
 // AttributedefRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AttributedefRequestBuilderGetRequestConfiguration struct {
@@ -103,7 +111,7 @@ func (m *AttributedefRequestBuilder) ByAttributedefidInt64(attributedefid int64)
 // NewAttributedefRequestBuilderInternal instantiates a new AttributedefRequestBuilder and sets the default values.
 func NewAttributedefRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AttributedefRequestBuilder) {
     m := &AttributedefRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,createdAfter*,createdBefore*,exclude*,format*,id*,modifiedSince*,noRuleForAccessProfile*,q*,sort*,systemDefinition*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,createdAfter*,createdBefore*,exclude*,format*,id*,modifiedSince*,name*,nameContains*,noRuleForAccessProfile*,q*,required*,sort*,systemDefinition*,unique*}", pathParameters),
     }
     return m
 }
@@ -164,7 +172,7 @@ func (m *AttributedefRequestBuilder) ToGetRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new account attribute definitions and returns the newly created account attribute definitions.
@@ -178,8 +186,8 @@ func (m *AttributedefRequestBuilder) ToPostRequestInformation(ctx context.Contex
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=78", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=79", body)
     if err != nil {
         return nil, err
     }

@@ -11,6 +11,8 @@ type ProvisioningProvisionedLDAPDirectory struct {
     ProvisioningProvisionedSystem
     // The accountsWritable property
     accountsWritable *bool
+    // The attributes property
+    attributes []MiscAttributeCustomizationable
     // The directory property
     directory DirectoryAccountDirectoryPrimerable
     // The gid property
@@ -23,6 +25,8 @@ type ProvisioningProvisionedLDAPDirectory struct {
     hashingScheme *ProvisioningLDAPPasswordHashingScheme
     // The numbering property
     numbering ProvisioningProvisionNumberSequenceable
+    // The objectClasses property
+    objectClasses *string
     // The samAccountNameScheme property
     samAccountNameScheme *ProvisioningADSamAccountNameScheme
     // The sshPublicKeySupport property
@@ -47,6 +51,11 @@ func CreateProvisioningProvisionedLDAPDirectoryFromDiscriminatorValue(parseNode 
 func (m *ProvisioningProvisionedLDAPDirectory) GetAccountsWritable()(*bool) {
     return m.accountsWritable
 }
+// GetAttributes gets the attributes property value. The attributes property
+// returns a []MiscAttributeCustomizationable when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetAttributes()([]MiscAttributeCustomizationable) {
+    return m.attributes
+}
 // GetDirectory gets the directory property value. The directory property
 // returns a DirectoryAccountDirectoryPrimerable when successful
 func (m *ProvisioningProvisionedLDAPDirectory) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
@@ -63,6 +72,22 @@ func (m *ProvisioningProvisionedLDAPDirectory) GetFieldDeserializers()(map[strin
         }
         if val != nil {
             m.SetAccountsWritable(val)
+        }
+        return nil
+    }
+    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
         }
         return nil
     }
@@ -126,6 +151,16 @@ func (m *ProvisioningProvisionedLDAPDirectory) GetFieldDeserializers()(map[strin
         }
         return nil
     }
+    res["objectClasses"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetObjectClasses(val)
+        }
+        return nil
+    }
     res["samAccountNameScheme"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetEnumValue(ParseProvisioningADSamAccountNameScheme)
         if err != nil {
@@ -173,6 +208,11 @@ func (m *ProvisioningProvisionedLDAPDirectory) GetHashingScheme()(*ProvisioningL
 func (m *ProvisioningProvisionedLDAPDirectory) GetNumbering()(ProvisioningProvisionNumberSequenceable) {
     return m.numbering
 }
+// GetObjectClasses gets the objectClasses property value. The objectClasses property
+// returns a *string when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetObjectClasses()(*string) {
+    return m.objectClasses
+}
 // GetSamAccountNameScheme gets the samAccountNameScheme property value. The samAccountNameScheme property
 // returns a *ProvisioningADSamAccountNameScheme when successful
 func (m *ProvisioningProvisionedLDAPDirectory) GetSamAccountNameScheme()(*ProvisioningADSamAccountNameScheme) {
@@ -191,6 +231,18 @@ func (m *ProvisioningProvisionedLDAPDirectory) Serialize(writer i878a80d2330e89d
     }
     {
         err = writer.WriteBoolValue("accountsWritable", m.GetAccountsWritable())
+        if err != nil {
+            return err
+        }
+    }
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
         if err != nil {
             return err
         }
@@ -232,6 +284,12 @@ func (m *ProvisioningProvisionedLDAPDirectory) Serialize(writer i878a80d2330e89d
             return err
         }
     }
+    {
+        err = writer.WriteStringValue("objectClasses", m.GetObjectClasses())
+        if err != nil {
+            return err
+        }
+    }
     if m.GetSamAccountNameScheme() != nil {
         cast := (*m.GetSamAccountNameScheme()).String()
         err = writer.WriteStringValue("samAccountNameScheme", &cast)
@@ -251,6 +309,10 @@ func (m *ProvisioningProvisionedLDAPDirectory) Serialize(writer i878a80d2330e89d
 // SetAccountsWritable sets the accountsWritable property value. The accountsWritable property
 func (m *ProvisioningProvisionedLDAPDirectory) SetAccountsWritable(value *bool)() {
     m.accountsWritable = value
+}
+// SetAttributes sets the attributes property value. The attributes property
+func (m *ProvisioningProvisionedLDAPDirectory) SetAttributes(value []MiscAttributeCustomizationable)() {
+    m.attributes = value
 }
 // SetDirectory sets the directory property value. The directory property
 func (m *ProvisioningProvisionedLDAPDirectory) SetDirectory(value DirectoryAccountDirectoryPrimerable)() {
@@ -276,6 +338,10 @@ func (m *ProvisioningProvisionedLDAPDirectory) SetHashingScheme(value *Provision
 func (m *ProvisioningProvisionedLDAPDirectory) SetNumbering(value ProvisioningProvisionNumberSequenceable)() {
     m.numbering = value
 }
+// SetObjectClasses sets the objectClasses property value. The objectClasses property
+func (m *ProvisioningProvisionedLDAPDirectory) SetObjectClasses(value *string)() {
+    m.objectClasses = value
+}
 // SetSamAccountNameScheme sets the samAccountNameScheme property value. The samAccountNameScheme property
 func (m *ProvisioningProvisionedLDAPDirectory) SetSamAccountNameScheme(value *ProvisioningADSamAccountNameScheme)() {
     m.samAccountNameScheme = value
@@ -288,21 +354,25 @@ type ProvisioningProvisionedLDAPDirectoryable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable
     GetAccountsWritable()(*bool)
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetDirectory()(DirectoryAccountDirectoryPrimerable)
     GetGid()(*int64)
     GetGidNumbering()(ProvisioningProvisionNumberSequenceable)
     GetGroupDN()(*string)
     GetHashingScheme()(*ProvisioningLDAPPasswordHashingScheme)
     GetNumbering()(ProvisioningProvisionNumberSequenceable)
+    GetObjectClasses()(*string)
     GetSamAccountNameScheme()(*ProvisioningADSamAccountNameScheme)
     GetSshPublicKeySupport()(*ProvisioningLDAPSshPublicKeySupport)
     SetAccountsWritable(value *bool)()
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetDirectory(value DirectoryAccountDirectoryPrimerable)()
     SetGid(value *int64)()
     SetGidNumbering(value ProvisioningProvisionNumberSequenceable)()
     SetGroupDN(value *string)()
     SetHashingScheme(value *ProvisioningLDAPPasswordHashingScheme)()
     SetNumbering(value ProvisioningProvisionNumberSequenceable)()
+    SetObjectClasses(value *string)()
     SetSamAccountNameScheme(value *ProvisioningADSamAccountNameScheme)()
     SetSshPublicKeySupport(value *ProvisioningLDAPSshPublicKeySupport)()
 }

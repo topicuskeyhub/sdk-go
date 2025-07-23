@@ -10,12 +10,13 @@ const (
     TELEPHONE_IDENTITYACCOUNTATTRIBUTEFORMAT
     NUMBER_IDENTITYACCOUNTATTRIBUTEFORMAT
     DATE_IDENTITYACCOUNTATTRIBUTEFORMAT
+    DATETIME_IDENTITYACCOUNTATTRIBUTEFORMAT
     BOOLEAN_IDENTITYACCOUNTATTRIBUTEFORMAT
     TEXT_IDENTITYACCOUNTATTRIBUTEFORMAT
 )
 
 func (i IdentityAccountAttributeFormat) String() string {
-    return []string{"INTERNAL", "EMAIL", "TELEPHONE", "NUMBER", "DATE", "BOOLEAN", "TEXT"}[i]
+    return []string{"INTERNAL", "EMAIL", "TELEPHONE", "NUMBER", "DATE", "DATETIME", "BOOLEAN", "TEXT"}[i]
 }
 func ParseIdentityAccountAttributeFormat(v string) (any, error) {
     result := INTERNAL_IDENTITYACCOUNTATTRIBUTEFORMAT
@@ -30,6 +31,8 @@ func ParseIdentityAccountAttributeFormat(v string) (any, error) {
             result = NUMBER_IDENTITYACCOUNTATTRIBUTEFORMAT
         case "DATE":
             result = DATE_IDENTITYACCOUNTATTRIBUTEFORMAT
+        case "DATETIME":
+            result = DATETIME_IDENTITYACCOUNTATTRIBUTEFORMAT
         case "BOOLEAN":
             result = BOOLEAN_IDENTITYACCOUNTATTRIBUTEFORMAT
         case "TEXT":

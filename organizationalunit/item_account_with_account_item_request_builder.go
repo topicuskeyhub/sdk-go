@@ -95,6 +95,7 @@ func (m *ItemAccountWithAccountItemRequestBuilder) ToDeleteRequestInformation(ct
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single account member of the organizational unit.
@@ -108,7 +109,7 @@ func (m *ItemAccountWithAccountItemRequestBuilder) ToGetRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

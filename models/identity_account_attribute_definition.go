@@ -13,10 +13,16 @@ type IdentityAccountAttributeDefinition struct {
     additionalObjects IdentityAccountAttributeDefinition_additionalObjectsable
     // The format property
     format *IdentityAccountAttributeFormat
+    // The list property
+    list *bool
     // The name property
     name *string
+    // The required property
+    required *bool
     // The systemDefinition property
     systemDefinition *IdentityAccountAttributeSystemDefinition
+    // The unique property
+    unique *bool
 }
 // NewIdentityAccountAttributeDefinition instantiates a new IdentityAccountAttributeDefinition and sets the default values.
 func NewIdentityAccountAttributeDefinition()(*IdentityAccountAttributeDefinition) {
@@ -61,6 +67,16 @@ func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers()(map[string]
         }
         return nil
     }
+    res["list"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetList(val)
+        }
+        return nil
+    }
     res["name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -68,6 +84,16 @@ func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers()(map[string]
         }
         if val != nil {
             m.SetName(val)
+        }
+        return nil
+    }
+    res["required"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetRequired(val)
         }
         return nil
     }
@@ -81,6 +107,16 @@ func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers()(map[string]
         }
         return nil
     }
+    res["unique"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetUnique(val)
+        }
+        return nil
+    }
     return res
 }
 // GetFormat gets the format property value. The format property
@@ -88,15 +124,30 @@ func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers()(map[string]
 func (m *IdentityAccountAttributeDefinition) GetFormat()(*IdentityAccountAttributeFormat) {
     return m.format
 }
+// GetList gets the list property value. The list property
+// returns a *bool when successful
+func (m *IdentityAccountAttributeDefinition) GetList()(*bool) {
+    return m.list
+}
 // GetName gets the name property value. The name property
 // returns a *string when successful
 func (m *IdentityAccountAttributeDefinition) GetName()(*string) {
     return m.name
 }
+// GetRequired gets the required property value. The required property
+// returns a *bool when successful
+func (m *IdentityAccountAttributeDefinition) GetRequired()(*bool) {
+    return m.required
+}
 // GetSystemDefinition gets the systemDefinition property value. The systemDefinition property
 // returns a *IdentityAccountAttributeSystemDefinition when successful
 func (m *IdentityAccountAttributeDefinition) GetSystemDefinition()(*IdentityAccountAttributeSystemDefinition) {
     return m.systemDefinition
+}
+// GetUnique gets the unique property value. The unique property
+// returns a *bool when successful
+func (m *IdentityAccountAttributeDefinition) GetUnique()(*bool) {
+    return m.unique
 }
 // Serialize serializes information the current object
 func (m *IdentityAccountAttributeDefinition) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -118,7 +169,19 @@ func (m *IdentityAccountAttributeDefinition) Serialize(writer i878a80d2330e89d26
         }
     }
     {
+        err = writer.WriteBoolValue("list", m.GetList())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("name", m.GetName())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteBoolValue("required", m.GetRequired())
         if err != nil {
             return err
         }
@@ -126,6 +189,12 @@ func (m *IdentityAccountAttributeDefinition) Serialize(writer i878a80d2330e89d26
     if m.GetSystemDefinition() != nil {
         cast := (*m.GetSystemDefinition()).String()
         err = writer.WriteStringValue("systemDefinition", &cast)
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteBoolValue("unique", m.GetUnique())
         if err != nil {
             return err
         }
@@ -140,23 +209,41 @@ func (m *IdentityAccountAttributeDefinition) SetAdditionalObjects(value Identity
 func (m *IdentityAccountAttributeDefinition) SetFormat(value *IdentityAccountAttributeFormat)() {
     m.format = value
 }
+// SetList sets the list property value. The list property
+func (m *IdentityAccountAttributeDefinition) SetList(value *bool)() {
+    m.list = value
+}
 // SetName sets the name property value. The name property
 func (m *IdentityAccountAttributeDefinition) SetName(value *string)() {
     m.name = value
 }
+// SetRequired sets the required property value. The required property
+func (m *IdentityAccountAttributeDefinition) SetRequired(value *bool)() {
+    m.required = value
+}
 // SetSystemDefinition sets the systemDefinition property value. The systemDefinition property
 func (m *IdentityAccountAttributeDefinition) SetSystemDefinition(value *IdentityAccountAttributeSystemDefinition)() {
     m.systemDefinition = value
+}
+// SetUnique sets the unique property value. The unique property
+func (m *IdentityAccountAttributeDefinition) SetUnique(value *bool)() {
+    m.unique = value
 }
 type IdentityAccountAttributeDefinitionable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAdditionalObjects()(IdentityAccountAttributeDefinition_additionalObjectsable)
     GetFormat()(*IdentityAccountAttributeFormat)
+    GetList()(*bool)
     GetName()(*string)
+    GetRequired()(*bool)
     GetSystemDefinition()(*IdentityAccountAttributeSystemDefinition)
+    GetUnique()(*bool)
     SetAdditionalObjects(value IdentityAccountAttributeDefinition_additionalObjectsable)()
     SetFormat(value *IdentityAccountAttributeFormat)()
+    SetList(value *bool)()
     SetName(value *string)()
+    SetRequired(value *bool)()
     SetSystemDefinition(value *IdentityAccountAttributeSystemDefinition)()
+    SetUnique(value *bool)()
 }

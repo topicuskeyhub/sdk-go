@@ -21,7 +21,7 @@ type GroupGroup_additionalObjects struct {
     // The audit property
     audit AuditInfoable
     // The authorizedGroups property
-    authorizedGroups GroupAuthorizedGroupsWrapperable
+    authorizedGroups GroupGroupLinkableWrapperWithCountable
     // The clientPermissions property
     clientPermissions ClientOAuth2ClientPermissionWithClientLinkableWrapperable
     // The clients property
@@ -114,8 +114,8 @@ func (m *GroupGroup_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
 // GetAuthorizedGroups gets the authorizedGroups property value. The authorizedGroups property
-// returns a GroupAuthorizedGroupsWrapperable when successful
-func (m *GroupGroup_additionalObjects) GetAuthorizedGroups()(GroupAuthorizedGroupsWrapperable) {
+// returns a GroupGroupLinkableWrapperWithCountable when successful
+func (m *GroupGroup_additionalObjects) GetAuthorizedGroups()(GroupGroupLinkableWrapperWithCountable) {
     return m.authorizedGroups
 }
 // GetClientPermissions gets the clientPermissions property value. The clientPermissions property
@@ -188,12 +188,12 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i
         return nil
     }
     res["authorizedGroups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupAuthorizedGroupsWrapperFromDiscriminatorValue)
+        val, err := n.GetObjectValue(CreateGroupGroupLinkableWrapperWithCountFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAuthorizedGroups(val.(GroupAuthorizedGroupsWrapperable))
+            m.SetAuthorizedGroups(val.(GroupGroupLinkableWrapperWithCountable))
         }
         return nil
     }
@@ -760,7 +760,7 @@ func (m *GroupGroup_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
 // SetAuthorizedGroups sets the authorizedGroups property value. The authorizedGroups property
-func (m *GroupGroup_additionalObjects) SetAuthorizedGroups(value GroupAuthorizedGroupsWrapperable)() {
+func (m *GroupGroup_additionalObjects) SetAuthorizedGroups(value GroupGroupLinkableWrapperWithCountable)() {
     m.authorizedGroups = value
 }
 // SetClientPermissions sets the clientPermissions property value. The clientPermissions property
@@ -867,7 +867,7 @@ type GroupGroup_additionalObjectsable interface {
     GetAdministeredSystems()(ProvisioningProvisionedSystemLinkableWrapperable)
     GetAdmins()(GroupGroupAccountLinkableWrapperable)
     GetAudit()(AuditInfoable)
-    GetAuthorizedGroups()(GroupAuthorizedGroupsWrapperable)
+    GetAuthorizedGroups()(GroupGroupLinkableWrapperWithCountable)
     GetClientPermissions()(ClientOAuth2ClientPermissionWithClientLinkableWrapperable)
     GetClients()(GroupGroupClientLinkableWrapperable)
     GetContentAdministeredSystems()(ProvisioningProvisionedSystemLinkableWrapperable)
@@ -897,7 +897,7 @@ type GroupGroup_additionalObjectsable interface {
     SetAdministeredSystems(value ProvisioningProvisionedSystemLinkableWrapperable)()
     SetAdmins(value GroupGroupAccountLinkableWrapperable)()
     SetAudit(value AuditInfoable)()
-    SetAuthorizedGroups(value GroupAuthorizedGroupsWrapperable)()
+    SetAuthorizedGroups(value GroupGroupLinkableWrapperWithCountable)()
     SetClientPermissions(value ClientOAuth2ClientPermissionWithClientLinkableWrapperable)()
     SetClients(value GroupGroupClientLinkableWrapperable)()
     SetContentAdministeredSystems(value ProvisioningProvisionedSystemLinkableWrapperable)()

@@ -93,6 +93,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewMarkItemMarker(), nil
                     case "mark.ItemMarkers":
                         return NewMarkItemMarkers(), nil
+                    case "misc.AttributeCustomization":
+                        return NewMiscAttributeCustomization(), nil
                     case "notification.CertificateExpiredNotification":
                         return NewNotificationCertificateExpiredNotification(), nil
                     case "notification.GroupAuditRequiredNotification":

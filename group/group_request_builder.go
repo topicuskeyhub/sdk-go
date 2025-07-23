@@ -300,7 +300,7 @@ func (m *GroupRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new groups and returns the newly created groups. It is required to specify the first admin via the admins additional object.
@@ -314,8 +314,8 @@ func (m *GroupRequestBuilder) ToPostRequestInformation(ctx context.Context, body
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=78", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=79", body)
     if err != nil {
         return nil, err
     }

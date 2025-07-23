@@ -15,7 +15,7 @@ type AuthAccount_additionalObjects struct {
     // The audit property
     audit AuditInfoable
     // The groups property
-    groups GroupAccountGroupsWrapperable
+    groups GroupAccountGroupLinkableWrapperWithCountable
     // The pendingRecoveryRequests property
     pendingRecoveryRequests AuthAccountRecoveryStatusable
     // The settings property
@@ -77,12 +77,12 @@ func (m *AuthAccount_additionalObjects) GetFieldDeserializers()(map[string]func(
         return nil
     }
     res["groups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupAccountGroupsWrapperFromDiscriminatorValue)
+        val, err := n.GetObjectValue(CreateGroupAccountGroupLinkableWrapperWithCountFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetGroups(val.(GroupAccountGroupsWrapperable))
+            m.SetGroups(val.(GroupAccountGroupLinkableWrapperWithCountable))
         }
         return nil
     }
@@ -129,8 +129,8 @@ func (m *AuthAccount_additionalObjects) GetFieldDeserializers()(map[string]func(
     return res
 }
 // GetGroups gets the groups property value. The groups property
-// returns a GroupAccountGroupsWrapperable when successful
-func (m *AuthAccount_additionalObjects) GetGroups()(GroupAccountGroupsWrapperable) {
+// returns a GroupAccountGroupLinkableWrapperWithCountable when successful
+func (m *AuthAccount_additionalObjects) GetGroups()(GroupAccountGroupLinkableWrapperWithCountable) {
     return m.groups
 }
 // GetPendingRecoveryRequests gets the pendingRecoveryRequests property value. The pendingRecoveryRequests property
@@ -212,7 +212,7 @@ func (m *AuthAccount_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
 // SetGroups sets the groups property value. The groups property
-func (m *AuthAccount_additionalObjects) SetGroups(value GroupAccountGroupsWrapperable)() {
+func (m *AuthAccount_additionalObjects) SetGroups(value GroupAccountGroupLinkableWrapperWithCountable)() {
     m.groups = value
 }
 // SetPendingRecoveryRequests sets the pendingRecoveryRequests property value. The pendingRecoveryRequests property
@@ -236,14 +236,14 @@ type AuthAccount_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetActiveLogin()(*bool)
     GetAudit()(AuditInfoable)
-    GetGroups()(GroupAccountGroupsWrapperable)
+    GetGroups()(GroupAccountGroupLinkableWrapperWithCountable)
     GetPendingRecoveryRequests()(AuthAccountRecoveryStatusable)
     GetSettings()(AuthAccountSettingsable)
     GetStoredAttributes()(AuthStoredAccountAttributesable)
     GetVault()(VaultVaultable)
     SetActiveLogin(value *bool)()
     SetAudit(value AuditInfoable)()
-    SetGroups(value GroupAccountGroupsWrapperable)()
+    SetGroups(value GroupAccountGroupLinkableWrapperWithCountable)()
     SetPendingRecoveryRequests(value AuthAccountRecoveryStatusable)()
     SetSettings(value AuthAccountSettingsable)()
     SetStoredAttributes(value AuthStoredAccountAttributesable)()

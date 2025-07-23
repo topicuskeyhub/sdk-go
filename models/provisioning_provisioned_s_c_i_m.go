@@ -9,6 +9,8 @@ import (
 
 type ProvisioningProvisionedSCIM struct {
     ProvisioningProvisionedSystem
+    // The attributes property
+    attributes []MiscAttributeCustomizationable
     // The authenticationScheme property
     authenticationScheme *HttpAuthenticationScheme
     // The basicAuthPassword property
@@ -39,6 +41,11 @@ func NewProvisioningProvisionedSCIM()(*ProvisioningProvisionedSCIM) {
 // returns a Parsable when successful
 func CreateProvisioningProvisionedSCIMFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedSCIM(), nil
+}
+// GetAttributes gets the attributes property value. The attributes property
+// returns a []MiscAttributeCustomizationable when successful
+func (m *ProvisioningProvisionedSCIM) GetAttributes()([]MiscAttributeCustomizationable) {
+    return m.attributes
 }
 // GetAuthenticationScheme gets the authenticationScheme property value. The authenticationScheme property
 // returns a *HttpAuthenticationScheme when successful
@@ -74,6 +81,22 @@ func (m *ProvisioningProvisionedSCIM) GetCustomHeaderValue()(*string) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
+    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
+        }
+        return nil
+    }
     res["authenticationScheme"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetEnumValue(ParseHttpAuthenticationScheme)
         if err != nil {
@@ -172,6 +195,18 @@ func (m *ProvisioningProvisionedSCIM) Serialize(writer i878a80d2330e89d26896388a
     if err != nil {
         return err
     }
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
+        if err != nil {
+            return err
+        }
+    }
     if m.GetAuthenticationScheme() != nil {
         cast := (*m.GetAuthenticationScheme()).String()
         err = writer.WriteStringValue("authenticationScheme", &cast)
@@ -224,6 +259,10 @@ func (m *ProvisioningProvisionedSCIM) Serialize(writer i878a80d2330e89d26896388a
     }
     return nil
 }
+// SetAttributes sets the attributes property value. The attributes property
+func (m *ProvisioningProvisionedSCIM) SetAttributes(value []MiscAttributeCustomizationable)() {
+    m.attributes = value
+}
 // SetAuthenticationScheme sets the authenticationScheme property value. The authenticationScheme property
 func (m *ProvisioningProvisionedSCIM) SetAuthenticationScheme(value *HttpAuthenticationScheme)() {
     m.authenticationScheme = value
@@ -259,6 +298,7 @@ func (m *ProvisioningProvisionedSCIM) SetVendorEscaped(value *ProvisioningProvis
 type ProvisioningProvisionedSCIMable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetAuthenticationScheme()(*HttpAuthenticationScheme)
     GetBasicAuthPassword()(*string)
     GetBasicAuthUsername()(*string)
@@ -267,6 +307,7 @@ type ProvisioningProvisionedSCIMable interface {
     GetCustomHeaderValue()(*string)
     GetUrl()(*string)
     GetVendorEscaped()(*ProvisioningProvisionedSCIMVendor)
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetAuthenticationScheme(value *HttpAuthenticationScheme)()
     SetBasicAuthPassword(value *string)()
     SetBasicAuthUsername(value *string)()

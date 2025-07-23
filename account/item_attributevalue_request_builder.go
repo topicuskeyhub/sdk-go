@@ -52,7 +52,7 @@ type ItemAttributevalueRequestBuilderGetQueryParameters struct {
     Source []string `uriparametername:"source"`
     // Filter attribute values on the given source(s).
     SourceAsIdentityAccountAttributeSource []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeSource `uriparametername:"source"`
-    // Filter attribute values on the given actual value(s).
+    // Filter attribute values on the given actual value(s), ignoring case.
     Value []string `uriparametername:"value"`
 }
 // ItemAttributevalueRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
@@ -131,7 +131,7 @@ func (m *ItemAttributevalueRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

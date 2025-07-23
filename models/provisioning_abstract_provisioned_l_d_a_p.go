@@ -10,7 +10,7 @@ import (
 type ProvisioningAbstractProvisionedLDAP struct {
     ProvisioningProvisionedSystem
     // The attributes property
-    attributes ProvisioningAbstractProvisionedLDAP_attributesable
+    attributes []MiscAttributeCustomizationable
     // The baseDN property
     baseDN *string
     // The bindDN property
@@ -77,8 +77,8 @@ func CreateProvisioningAbstractProvisionedLDAPFromDiscriminatorValue(parseNode i
     return NewProvisioningAbstractProvisionedLDAP(), nil
 }
 // GetAttributes gets the attributes property value. The attributes property
-// returns a ProvisioningAbstractProvisionedLDAP_attributesable when successful
-func (m *ProvisioningAbstractProvisionedLDAP) GetAttributes()(ProvisioningAbstractProvisionedLDAP_attributesable) {
+// returns a []MiscAttributeCustomizationable when successful
+func (m *ProvisioningAbstractProvisionedLDAP) GetAttributes()([]MiscAttributeCustomizationable) {
     return m.attributes
 }
 // GetBaseDN gets the baseDN property value. The baseDN property
@@ -116,12 +116,18 @@ func (m *ProvisioningAbstractProvisionedLDAP) GetFailoverTrustedCertificate()(Ce
 func (m *ProvisioningAbstractProvisionedLDAP) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
     res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProvisioningAbstractProvisionedLDAP_attributesFromDiscriminatorValue)
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAttributes(val.(ProvisioningAbstractProvisionedLDAP_attributesable))
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
         }
         return nil
     }
@@ -328,8 +334,14 @@ func (m *ProvisioningAbstractProvisionedLDAP) Serialize(writer i878a80d2330e89d2
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteObjectValue("attributes", m.GetAttributes())
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
         if err != nil {
             return err
         }
@@ -429,7 +441,7 @@ func (m *ProvisioningAbstractProvisionedLDAP) Serialize(writer i878a80d2330e89d2
     return nil
 }
 // SetAttributes sets the attributes property value. The attributes property
-func (m *ProvisioningAbstractProvisionedLDAP) SetAttributes(value ProvisioningAbstractProvisionedLDAP_attributesable)() {
+func (m *ProvisioningAbstractProvisionedLDAP) SetAttributes(value []MiscAttributeCustomizationable)() {
     m.attributes = value
 }
 // SetBaseDN sets the baseDN property value. The baseDN property
@@ -495,7 +507,7 @@ func (m *ProvisioningAbstractProvisionedLDAP) SetUserDN(value *string)() {
 type ProvisioningAbstractProvisionedLDAPable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable
-    GetAttributes()(ProvisioningAbstractProvisionedLDAP_attributesable)
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetBaseDN()(*string)
     GetBindDN()(*string)
     GetBindPassword()(*string)
@@ -511,7 +523,7 @@ type ProvisioningAbstractProvisionedLDAPable interface {
     GetTls()(*TLSLevel)
     GetTrustedCertificate()(CertificateCertificatePrimerable)
     GetUserDN()(*string)
-    SetAttributes(value ProvisioningAbstractProvisionedLDAP_attributesable)()
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetBaseDN(value *string)()
     SetBindDN(value *string)()
     SetBindPassword(value *string)()

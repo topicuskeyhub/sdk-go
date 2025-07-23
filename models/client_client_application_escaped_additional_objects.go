@@ -9,7 +9,7 @@ import (
 
 type ClientClientApplication_additionalObjects struct {
     // The accessprofileclients property
-    accessprofileclients ProfileAccessProfileClientLinkableWrapperable
+    accessprofileclients ProfileAccessProfileClientLinkableWrapperWithCountable
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The audit property
@@ -17,7 +17,7 @@ type ClientClientApplication_additionalObjects struct {
     // The deleteTile property
     deleteTile *bool
     // The groupclients property
-    groupclients GroupGroupClientLinkableWrapperable
+    groupclients GroupGroupClientLinkableWrapperWithCountable
     // The groups property
     groups GroupGroupLinkableWrapperable
     // The organizationalUnits property
@@ -42,8 +42,8 @@ func CreateClientClientApplication_additionalObjectsFromDiscriminatorValue(parse
     return NewClientClientApplication_additionalObjects(), nil
 }
 // GetAccessprofileclients gets the accessprofileclients property value. The accessprofileclients property
-// returns a ProfileAccessProfileClientLinkableWrapperable when successful
-func (m *ClientClientApplication_additionalObjects) GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperable) {
+// returns a ProfileAccessProfileClientLinkableWrapperWithCountable when successful
+func (m *ClientClientApplication_additionalObjects) GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperWithCountable) {
     return m.accessprofileclients
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -66,12 +66,12 @@ func (m *ClientClientApplication_additionalObjects) GetDeleteTile()(*bool) {
 func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["accessprofileclients"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProfileAccessProfileClientLinkableWrapperFromDiscriminatorValue)
+        val, err := n.GetObjectValue(CreateProfileAccessProfileClientLinkableWrapperWithCountFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAccessprofileclients(val.(ProfileAccessProfileClientLinkableWrapperable))
+            m.SetAccessprofileclients(val.(ProfileAccessProfileClientLinkableWrapperWithCountable))
         }
         return nil
     }
@@ -96,12 +96,12 @@ func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[
         return nil
     }
     res["groupclients"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupClientLinkableWrapperFromDiscriminatorValue)
+        val, err := n.GetObjectValue(CreateGroupGroupClientLinkableWrapperWithCountFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetGroupclients(val.(GroupGroupClientLinkableWrapperable))
+            m.SetGroupclients(val.(GroupGroupClientLinkableWrapperWithCountable))
         }
         return nil
     }
@@ -158,8 +158,8 @@ func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[
     return res
 }
 // GetGroupclients gets the groupclients property value. The groupclients property
-// returns a GroupGroupClientLinkableWrapperable when successful
-func (m *ClientClientApplication_additionalObjects) GetGroupclients()(GroupGroupClientLinkableWrapperable) {
+// returns a GroupGroupClientLinkableWrapperWithCountable when successful
+func (m *ClientClientApplication_additionalObjects) GetGroupclients()(GroupGroupClientLinkableWrapperWithCountable) {
     return m.groupclients
 }
 // GetGroups gets the groups property value. The groups property
@@ -246,7 +246,7 @@ func (m *ClientClientApplication_additionalObjects) Serialize(writer i878a80d233
     return nil
 }
 // SetAccessprofileclients sets the accessprofileclients property value. The accessprofileclients property
-func (m *ClientClientApplication_additionalObjects) SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperable)() {
+func (m *ClientClientApplication_additionalObjects) SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperWithCountable)() {
     m.accessprofileclients = value
 }
 // SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -262,7 +262,7 @@ func (m *ClientClientApplication_additionalObjects) SetDeleteTile(value *bool)()
     m.deleteTile = value
 }
 // SetGroupclients sets the groupclients property value. The groupclients property
-func (m *ClientClientApplication_additionalObjects) SetGroupclients(value GroupGroupClientLinkableWrapperable)() {
+func (m *ClientClientApplication_additionalObjects) SetGroupclients(value GroupGroupClientLinkableWrapperWithCountable)() {
     m.groupclients = value
 }
 // SetGroups sets the groups property value. The groups property
@@ -288,19 +288,19 @@ func (m *ClientClientApplication_additionalObjects) SetVaultRecordCount(value *i
 type ClientClientApplication_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperable)
+    GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperWithCountable)
     GetAudit()(AuditInfoable)
     GetDeleteTile()(*bool)
-    GetGroupclients()(GroupGroupClientLinkableWrapperable)
+    GetGroupclients()(GroupGroupClientLinkableWrapperWithCountable)
     GetGroups()(GroupGroupLinkableWrapperable)
     GetOrganizationalUnits()(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)
     GetSecret()(GeneratedSecretable)
     GetTile()(LaunchpadSsoApplicationLaunchpadTileable)
     GetVaultRecordCount()(*int32)
-    SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperable)()
+    SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperWithCountable)()
     SetAudit(value AuditInfoable)()
     SetDeleteTile(value *bool)()
-    SetGroupclients(value GroupGroupClientLinkableWrapperable)()
+    SetGroupclients(value GroupGroupClientLinkableWrapperWithCountable)()
     SetGroups(value GroupGroupLinkableWrapperable)()
     SetOrganizationalUnits(value OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)()
     SetSecret(value GeneratedSecretable)()

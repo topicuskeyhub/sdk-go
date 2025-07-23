@@ -132,6 +132,7 @@ func (m *WithGroupclientItemRequestBuilder) ToDeleteRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single client link for the group.
@@ -145,7 +146,7 @@ func (m *WithGroupclientItemRequestBuilder) ToGetRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the client link for a group identified by the id.
@@ -159,8 +160,8 @@ func (m *WithGroupclientItemRequestBuilder) ToPutRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=78")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=78", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=79", body)
     if err != nil {
         return nil, err
     }
