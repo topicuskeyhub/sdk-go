@@ -79,7 +79,7 @@ type StatusBulkRequestBuilderPutQueryParameters struct {
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Only return accounts for which the username does not start with one of the given values.
     NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
-    // Only return accounts for which the username starts with one of the given values.
+    // Only return accounts for which the display name starts with one of the given values.
     NameStartsWith []string `uriparametername:"nameStartsWith"`
     // Filter the accounts that are not a member of the given access profiles, specified by id. 
     NotInAccessProfile []int64 `uriparametername:"notInAccessProfile"`
@@ -165,8 +165,8 @@ func (m *StatusBulkRequestBuilder) ToPutRequestInformation(ctx context.Context, 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=79", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=80", body)
     if err != nil {
         return nil, err
     }

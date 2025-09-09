@@ -13,6 +13,8 @@ type ProvisioningProvisionedSystemPrimer struct {
     active *bool
     // The adminPermissions property
     adminPermissions *bool
+    // The canWriteAccounts property
+    canWriteAccounts *bool
     // The contentAdminPermissions property
     contentAdminPermissions *bool
     // The name property
@@ -88,6 +90,11 @@ func (m *ProvisioningProvisionedSystemPrimer) GetActive()(*bool) {
 func (m *ProvisioningProvisionedSystemPrimer) GetAdminPermissions()(*bool) {
     return m.adminPermissions
 }
+// GetCanWriteAccounts gets the canWriteAccounts property value. The canWriteAccounts property
+// returns a *bool when successful
+func (m *ProvisioningProvisionedSystemPrimer) GetCanWriteAccounts()(*bool) {
+    return m.canWriteAccounts
+}
 // GetContentAdminPermissions gets the contentAdminPermissions property value. The contentAdminPermissions property
 // returns a *bool when successful
 func (m *ProvisioningProvisionedSystemPrimer) GetContentAdminPermissions()(*bool) {
@@ -114,6 +121,16 @@ func (m *ProvisioningProvisionedSystemPrimer) GetFieldDeserializers()(map[string
         }
         if val != nil {
             m.SetAdminPermissions(val)
+        }
+        return nil
+    }
+    res["canWriteAccounts"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetCanWriteAccounts(val)
         }
         return nil
     }
@@ -245,6 +262,10 @@ func (m *ProvisioningProvisionedSystemPrimer) SetActive(value *bool)() {
 func (m *ProvisioningProvisionedSystemPrimer) SetAdminPermissions(value *bool)() {
     m.adminPermissions = value
 }
+// SetCanWriteAccounts sets the canWriteAccounts property value. The canWriteAccounts property
+func (m *ProvisioningProvisionedSystemPrimer) SetCanWriteAccounts(value *bool)() {
+    m.canWriteAccounts = value
+}
 // SetContentAdminPermissions sets the contentAdminPermissions property value. The contentAdminPermissions property
 func (m *ProvisioningProvisionedSystemPrimer) SetContentAdminPermissions(value *bool)() {
     m.contentAdminPermissions = value
@@ -274,6 +295,7 @@ type ProvisioningProvisionedSystemPrimerable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetActive()(*bool)
     GetAdminPermissions()(*bool)
+    GetCanWriteAccounts()(*bool)
     GetContentAdminPermissions()(*bool)
     GetName()(*string)
     GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable)
@@ -282,6 +304,7 @@ type ProvisioningProvisionedSystemPrimerable interface {
     GetUuid()(*string)
     SetActive(value *bool)()
     SetAdminPermissions(value *bool)()
+    SetCanWriteAccounts(value *bool)()
     SetContentAdminPermissions(value *bool)()
     SetName(value *string)()
     SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)()

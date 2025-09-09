@@ -166,7 +166,7 @@ func (m *ItemInternalaccountRequestBuilder) ToGetRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new internal accounts within a directory and returns the newly created accounts.
@@ -180,8 +180,8 @@ func (m *ItemInternalaccountRequestBuilder) ToPostRequestInformation(ctx context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=79")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=79", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=80", body)
     if err != nil {
         return nil, err
     }

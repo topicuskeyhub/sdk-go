@@ -17,6 +17,8 @@ type VaultMoveVaultRecord struct {
     group GroupGroupPrimerable
     // The shareDuration property
     shareDuration *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration
+    // The shareEndDate property
+    shareEndDate *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
 }
 // NewVaultMoveVaultRecord instantiates a new VaultMoveVaultRecord and sets the default values.
 func NewVaultMoveVaultRecord()(*VaultMoveVaultRecord) {
@@ -86,6 +88,16 @@ func (m *VaultMoveVaultRecord) GetFieldDeserializers()(map[string]func(i878a80d2
         }
         return nil
     }
+    res["shareEndDate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetDateOnlyValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetShareEndDate(val)
+        }
+        return nil
+    }
     return res
 }
 // GetGroup gets the group property value. The group property
@@ -97,6 +109,11 @@ func (m *VaultMoveVaultRecord) GetGroup()(GroupGroupPrimerable) {
 // returns a *ISODuration when successful
 func (m *VaultMoveVaultRecord) GetShareDuration()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration) {
     return m.shareDuration
+}
+// GetShareEndDate gets the shareEndDate property value. The shareEndDate property
+// returns a *DateOnly when successful
+func (m *VaultMoveVaultRecord) GetShareEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
+    return m.shareEndDate
 }
 // Serialize serializes information the current object
 func (m *VaultMoveVaultRecord) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -129,6 +146,12 @@ func (m *VaultMoveVaultRecord) Serialize(writer i878a80d2330e89d26896388a3f487ee
             return err
         }
     }
+    {
+        err = writer.WriteDateOnlyValue("shareEndDate", m.GetShareEndDate())
+        if err != nil {
+            return err
+        }
+    }
     return nil
 }
 // SetAccount sets the account property value. The account property
@@ -147,6 +170,10 @@ func (m *VaultMoveVaultRecord) SetGroup(value GroupGroupPrimerable)() {
 func (m *VaultMoveVaultRecord) SetShareDuration(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)() {
     m.shareDuration = value
 }
+// SetShareEndDate sets the shareEndDate property value. The shareEndDate property
+func (m *VaultMoveVaultRecord) SetShareEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)() {
+    m.shareEndDate = value
+}
 type VaultMoveVaultRecordable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
@@ -154,8 +181,10 @@ type VaultMoveVaultRecordable interface {
     GetAction()(*VaultMoveVaultRecordAction)
     GetGroup()(GroupGroupPrimerable)
     GetShareDuration()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)
+    GetShareEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
     SetAccount(value AuthAccountPrimerable)()
     SetAction(value *VaultMoveVaultRecordAction)()
     SetGroup(value GroupGroupPrimerable)()
     SetShareDuration(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)()
+    SetShareEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)()
 }

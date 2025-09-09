@@ -6,6 +6,8 @@ type AuditAuditAccountAction int
 
 const (
     APPROVE_AUDITAUDITACCOUNTACTION AuditAuditAccountAction = iota
+    ADD_AS_MANAGER_AUDITAUDITACCOUNTACTION
+    ADD_AS_NORMAL_AUDITAUDITACCOUNTACTION
     CHANGE_TO_MANAGER_AUDITAUDITACCOUNTACTION
     CHANGE_TO_NORMAL_AUDITAUDITACCOUNTACTION
     REMOVE_AUDITAUDITACCOUNTACTION
@@ -13,13 +15,17 @@ const (
 )
 
 func (i AuditAuditAccountAction) String() string {
-    return []string{"APPROVE", "CHANGE_TO_MANAGER", "CHANGE_TO_NORMAL", "REMOVE", "CONNECT_NESTED"}[i]
+    return []string{"APPROVE", "ADD_AS_MANAGER", "ADD_AS_NORMAL", "CHANGE_TO_MANAGER", "CHANGE_TO_NORMAL", "REMOVE", "CONNECT_NESTED"}[i]
 }
 func ParseAuditAuditAccountAction(v string) (any, error) {
     result := APPROVE_AUDITAUDITACCOUNTACTION
     switch v {
         case "APPROVE":
             result = APPROVE_AUDITAUDITACCOUNTACTION
+        case "ADD_AS_MANAGER":
+            result = ADD_AS_MANAGER_AUDITAUDITACCOUNTACTION
+        case "ADD_AS_NORMAL":
+            result = ADD_AS_NORMAL_AUDITAUDITACCOUNTACTION
         case "CHANGE_TO_MANAGER":
             result = CHANGE_TO_MANAGER_AUDITAUDITACCOUNTACTION
         case "CHANGE_TO_NORMAL":
