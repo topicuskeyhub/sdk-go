@@ -24,6 +24,8 @@ type AttributedefRequestBuilderGetQueryParameters struct {
     AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
+    // Only return account attributes for which a rule can be created for all of the given access profiles, specified by id. The attribute cannot have a rule for any of the profiles, nor can it be exclusive in any other profile.
+    AvailableForAccessProfile []int64 `uriparametername:"availableForAccessProfile"`
     // Only return records that have been created after the given instant.
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
@@ -43,8 +45,6 @@ type AttributedefRequestBuilderGetQueryParameters struct {
     Name []string `uriparametername:"name"`
     // Filter account attribute definitions on (part of) the name.
     NameContains []string `uriparametername:"nameContains"`
-    // Only return account attributes for which the given access profiles do not have an attribute rule, specified by id.
-    NoRuleForAccessProfile []int64 `uriparametername:"noRuleForAccessProfile"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
     // Only return account attribute definitions that are or are not required.
@@ -111,7 +111,7 @@ func (m *AttributedefRequestBuilder) ByAttributedefidInt64(attributedefid int64)
 // NewAttributedefRequestBuilderInternal instantiates a new AttributedefRequestBuilder and sets the default values.
 func NewAttributedefRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AttributedefRequestBuilder) {
     m := &AttributedefRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,createdAfter*,createdBefore*,exclude*,format*,id*,modifiedSince*,name*,nameContains*,noRuleForAccessProfile*,q*,required*,sort*,systemDefinition*,unique*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,availableForAccessProfile*,createdAfter*,createdBefore*,exclude*,format*,id*,modifiedSince*,name*,nameContains*,q*,required*,sort*,systemDefinition*,unique*}", pathParameters),
     }
     return m
 }
@@ -172,7 +172,7 @@ func (m *AttributedefRequestBuilder) ToGetRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new account attribute definitions and returns the newly created account attribute definitions.
@@ -186,8 +186,8 @@ func (m *AttributedefRequestBuilder) ToPostRequestInformation(ctx context.Contex
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=80", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=81", body)
     if err != nil {
         return nil, err
     }

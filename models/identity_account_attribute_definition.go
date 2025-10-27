@@ -13,6 +13,8 @@ type IdentityAccountAttributeDefinition struct {
     additionalObjects IdentityAccountAttributeDefinition_additionalObjectsable
     // The format property
     format *IdentityAccountAttributeFormat
+    // The freelyUseable property
+    freelyUseable *bool
     // The list property
     list *bool
     // The name property
@@ -64,6 +66,16 @@ func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers()(map[string]
         }
         if val != nil {
             m.SetFormat(val.(*IdentityAccountAttributeFormat))
+        }
+        return nil
+    }
+    res["freelyUseable"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetFreelyUseable(val)
         }
         return nil
     }
@@ -124,6 +136,11 @@ func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers()(map[string]
 func (m *IdentityAccountAttributeDefinition) GetFormat()(*IdentityAccountAttributeFormat) {
     return m.format
 }
+// GetFreelyUseable gets the freelyUseable property value. The freelyUseable property
+// returns a *bool when successful
+func (m *IdentityAccountAttributeDefinition) GetFreelyUseable()(*bool) {
+    return m.freelyUseable
+}
 // GetList gets the list property value. The list property
 // returns a *bool when successful
 func (m *IdentityAccountAttributeDefinition) GetList()(*bool) {
@@ -169,6 +186,12 @@ func (m *IdentityAccountAttributeDefinition) Serialize(writer i878a80d2330e89d26
         }
     }
     {
+        err = writer.WriteBoolValue("freelyUseable", m.GetFreelyUseable())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteBoolValue("list", m.GetList())
         if err != nil {
             return err
@@ -209,6 +232,10 @@ func (m *IdentityAccountAttributeDefinition) SetAdditionalObjects(value Identity
 func (m *IdentityAccountAttributeDefinition) SetFormat(value *IdentityAccountAttributeFormat)() {
     m.format = value
 }
+// SetFreelyUseable sets the freelyUseable property value. The freelyUseable property
+func (m *IdentityAccountAttributeDefinition) SetFreelyUseable(value *bool)() {
+    m.freelyUseable = value
+}
 // SetList sets the list property value. The list property
 func (m *IdentityAccountAttributeDefinition) SetList(value *bool)() {
     m.list = value
@@ -234,6 +261,7 @@ type IdentityAccountAttributeDefinitionable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAdditionalObjects()(IdentityAccountAttributeDefinition_additionalObjectsable)
     GetFormat()(*IdentityAccountAttributeFormat)
+    GetFreelyUseable()(*bool)
     GetList()(*bool)
     GetName()(*string)
     GetRequired()(*bool)
@@ -241,6 +269,7 @@ type IdentityAccountAttributeDefinitionable interface {
     GetUnique()(*bool)
     SetAdditionalObjects(value IdentityAccountAttributeDefinition_additionalObjectsable)()
     SetFormat(value *IdentityAccountAttributeFormat)()
+    SetFreelyUseable(value *bool)()
     SetList(value *bool)()
     SetName(value *string)()
     SetRequired(value *bool)()

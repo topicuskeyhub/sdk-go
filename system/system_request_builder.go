@@ -225,7 +225,7 @@ func (m *SystemRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new provisioned systems and returns the newly created systems.
@@ -239,8 +239,8 @@ func (m *SystemRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=80", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=81", body)
     if err != nil {
         return nil, err
     }

@@ -55,6 +55,8 @@ type ItemPermissionRequestBuilderGetQueryParameters struct {
     Q []string `uriparametername:"q"`
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
     Sort []string `uriparametername:"sort"`
+    // Filter permissions on (part of) the name or uuid of the target.
+    TargetNameContains []string `uriparametername:"targetNameContains"`
     // Filter permissions on the permission type(s).
     // Deprecated: This property is deprecated, use ValueAsClientOAuth2ClientPermissionType instead
     Value []string `uriparametername:"value"`
@@ -100,7 +102,7 @@ func (m *ItemPermissionRequestBuilder) ByPermissionidInt64(permissionid int64)(*
 // NewItemPermissionRequestBuilderInternal instantiates a new ItemPermissionRequestBuilder and sets the default values.
 func NewItemPermissionRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemPermissionRequestBuilder) {
     m := &ItemPermissionRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/{clientid}/permission{?additional*,any*,client*,clientAdministratorGroup*,clientOwnerGroup*,createdAfter*,createdBefore*,exclude*,forGroup*,forSystem*,forSystemContentAdministratorGroup*,forSystemOwnerGroup*,forSystemTechnicalAdministratorGroup*,id*,modifiedSince*,q*,sort*,value*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client/{clientid}/permission{?additional*,any*,client*,clientAdministratorGroup*,clientOwnerGroup*,createdAfter*,createdBefore*,exclude*,forGroup*,forSystem*,forSystemContentAdministratorGroup*,forSystemOwnerGroup*,forSystemTechnicalAdministratorGroup*,id*,modifiedSince*,q*,sort*,targetNameContains*,value*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
     }
     return m
 }
@@ -141,7 +143,7 @@ func (m *ItemPermissionRequestBuilder) ToGetRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

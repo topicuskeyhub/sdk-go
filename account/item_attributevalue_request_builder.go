@@ -120,6 +120,11 @@ func (m *ItemAttributevalueRequestBuilder) Get(ctx context.Context, requestConfi
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeValueLinkableWrapperable), nil
 }
+// Override the override property
+// returns a *ItemAttributevalueOverrideRequestBuilder when successful
+func (m *ItemAttributevalueRequestBuilder) Override()(*ItemAttributevalueOverrideRequestBuilder) {
+    return NewItemAttributevalueOverrideRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // ToGetRequestInformation query for account attribute values for a specific account. The various query parameters can be used to filter the response.
 // returns a *RequestInformation when successful
 func (m *ItemAttributevalueRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemAttributevalueRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
@@ -131,7 +136,7 @@ func (m *ItemAttributevalueRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

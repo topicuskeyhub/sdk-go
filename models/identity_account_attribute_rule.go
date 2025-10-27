@@ -19,6 +19,8 @@ type IdentityAccountAttributeRule struct {
     attribute IdentityAccountAttributeDefinitionable
     // The defaultValue property
     defaultValue *string
+    // The exclusive property
+    exclusive *bool
     // The priorityDirectory property
     priorityDirectory *int32
     // The priorityExternalSource property
@@ -71,6 +73,11 @@ func (m *IdentityAccountAttributeRule) GetAttribute()(IdentityAccountAttributeDe
 func (m *IdentityAccountAttributeRule) GetDefaultValue()(*string) {
     return m.defaultValue
 }
+// GetExclusive gets the exclusive property value. The exclusive property
+// returns a *bool when successful
+func (m *IdentityAccountAttributeRule) GetExclusive()(*bool) {
+    return m.exclusive
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *IdentityAccountAttributeRule) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
@@ -122,6 +129,16 @@ func (m *IdentityAccountAttributeRule) GetFieldDeserializers()(map[string]func(i
         }
         if val != nil {
             m.SetDefaultValue(val)
+        }
+        return nil
+    }
+    res["exclusive"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetExclusive(val)
         }
         return nil
     }
@@ -254,6 +271,12 @@ func (m *IdentityAccountAttributeRule) Serialize(writer i878a80d2330e89d26896388
         }
     }
     {
+        err = writer.WriteBoolValue("exclusive", m.GetExclusive())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteInt32Value("priorityDirectory", m.GetPriorityDirectory())
         if err != nil {
             return err
@@ -311,6 +334,10 @@ func (m *IdentityAccountAttributeRule) SetAttribute(value IdentityAccountAttribu
 func (m *IdentityAccountAttributeRule) SetDefaultValue(value *string)() {
     m.defaultValue = value
 }
+// SetExclusive sets the exclusive property value. The exclusive property
+func (m *IdentityAccountAttributeRule) SetExclusive(value *bool)() {
+    m.exclusive = value
+}
 // SetPriorityDirectory sets the priorityDirectory property value. The priorityDirectory property
 func (m *IdentityAccountAttributeRule) SetPriorityDirectory(value *int32)() {
     m.priorityDirectory = value
@@ -343,6 +370,7 @@ type IdentityAccountAttributeRuleable interface {
     GetAllowSelfService()(*bool)
     GetAttribute()(IdentityAccountAttributeDefinitionable)
     GetDefaultValue()(*string)
+    GetExclusive()(*bool)
     GetPriorityDirectory()(*int32)
     GetPriorityExternalSource()(*int32)
     GetPriorityFormula()(*int32)
@@ -354,6 +382,7 @@ type IdentityAccountAttributeRuleable interface {
     SetAllowSelfService(value *bool)()
     SetAttribute(value IdentityAccountAttributeDefinitionable)()
     SetDefaultValue(value *string)()
+    SetExclusive(value *bool)()
     SetPriorityDirectory(value *int32)()
     SetPriorityExternalSource(value *int32)()
     SetPriorityFormula(value *int32)()

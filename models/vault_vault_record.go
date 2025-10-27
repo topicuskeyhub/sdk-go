@@ -11,6 +11,8 @@ type VaultVaultRecord struct {
     VaultVaultRecordPrimer
     // The additionalObjects property
     additionalObjects VaultVaultRecord_additionalObjectsable
+    // The additionalURLs property
+    additionalURLs *string
     // The derived property
     derived *bool
     // The endDate property
@@ -45,6 +47,11 @@ func CreateVaultVaultRecordFromDiscriminatorValue(parseNode i878a80d2330e89d2689
 func (m *VaultVaultRecord) GetAdditionalObjects()(VaultVaultRecord_additionalObjectsable) {
     return m.additionalObjects
 }
+// GetAdditionalURLs gets the additionalURLs property value. The additionalURLs property
+// returns a *string when successful
+func (m *VaultVaultRecord) GetAdditionalURLs()(*string) {
+    return m.additionalURLs
+}
 // GetDerived gets the derived property value. The derived property
 // returns a *bool when successful
 func (m *VaultVaultRecord) GetDerived()(*bool) {
@@ -66,6 +73,16 @@ func (m *VaultVaultRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e
         }
         if val != nil {
             m.SetAdditionalObjects(val.(VaultVaultRecord_additionalObjectsable))
+        }
+        return nil
+    }
+    res["additionalURLs"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAdditionalURLs(val)
         }
         return nil
     }
@@ -185,6 +202,12 @@ func (m *VaultVaultRecord) Serialize(writer i878a80d2330e89d26896388a3f487eef27b
         }
     }
     {
+        err = writer.WriteStringValue("additionalURLs", m.GetAdditionalURLs())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteDateOnlyValue("endDate", m.GetEndDate())
         if err != nil {
             return err
@@ -221,6 +244,10 @@ func (m *VaultVaultRecord) Serialize(writer i878a80d2330e89d26896388a3f487eef27b
 func (m *VaultVaultRecord) SetAdditionalObjects(value VaultVaultRecord_additionalObjectsable)() {
     m.additionalObjects = value
 }
+// SetAdditionalURLs sets the additionalURLs property value. The additionalURLs property
+func (m *VaultVaultRecord) SetAdditionalURLs(value *string)() {
+    m.additionalURLs = value
+}
 // SetDerived sets the derived property value. The derived property
 func (m *VaultVaultRecord) SetDerived(value *bool)() {
     m.derived = value
@@ -253,6 +280,7 @@ type VaultVaultRecordable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     VaultVaultRecordPrimerable
     GetAdditionalObjects()(VaultVaultRecord_additionalObjectsable)
+    GetAdditionalURLs()(*string)
     GetDerived()(*bool)
     GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
     GetFilename()(*string)
@@ -261,6 +289,7 @@ type VaultVaultRecordable interface {
     GetUsername()(*string)
     GetWarningPeriod()(*VaultVaultRecordWarningPeriod)
     SetAdditionalObjects(value VaultVaultRecord_additionalObjectsable)()
+    SetAdditionalURLs(value *string)()
     SetDerived(value *bool)()
     SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)()
     SetFilename(value *string)()

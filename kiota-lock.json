@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "BCBBF81030250172359BD99F4A874BCD3E13DAF5D665271C38CBC150384F5DE3EC1FF5086E9DD0AFECF7C76862B43DDDACED0949C5793F65E1619F70C4F249D8",
+  "descriptionHash": "0B537B3326C57C513125F5F998F82A239922B3633E7B3E70358AB4AE04EFCD93DFA09F905824E562ABB11AEE3175D5C80F302313D37AF65AA721DDD3B986F802",
   "descriptionLocation": "openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.28.0",
+  "kiotaVersion": "1.29.0",
   "clientClassName": "KeyHubClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "github.com/topicuskeyhub/sdk-go",

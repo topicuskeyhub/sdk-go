@@ -85,6 +85,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewIdentityAccountAttributeValueSelection(), nil
                     case "identity.AccountAttributeValueSummary":
                         return NewIdentityAccountAttributeValueSummary(), nil
+                    case "identity.AccountAttributeValueUpdate":
+                        return NewIdentityAccountAttributeValueUpdate(), nil
                     case "launchpad.DisplayedLaunchpadTiles":
                         return NewLaunchpadDisplayedLaunchpadTiles(), nil
                     case "license.KeyHubLicenseInfo":

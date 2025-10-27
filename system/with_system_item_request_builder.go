@@ -121,11 +121,6 @@ func (m *WithSystemItemRequestBuilder) Put(ctx context.Context, body ie2969523f4
 func (m *WithSystemItemRequestBuilder) Sync()(*ItemSyncRequestBuilder) {
     return NewItemSyncRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// Synclog the synclog property
-// returns a *ItemSynclogRequestBuilder when successful
-func (m *WithSystemItemRequestBuilder) Synclog()(*ItemSynclogRequestBuilder) {
-    return NewItemSynclogRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
-}
 // ToGetRequestInformation returns the provisioned system identified by the id.
 // returns a *RequestInformation when successful
 func (m *WithSystemItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *WithSystemItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
@@ -137,7 +132,7 @@ func (m *WithSystemItemRequestBuilder) ToGetRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the provisioned system identified by the id.
@@ -151,8 +146,8 @@ func (m *WithSystemItemRequestBuilder) ToPutRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=80", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=81", body)
     if err != nil {
         return nil, err
     }

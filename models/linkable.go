@@ -195,8 +195,10 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProvisioningProvisionedSystem(), nil
                     case "provisioning.ProvisionedSystemPrimer":
                         return NewProvisioningProvisionedSystemPrimer(), nil
-                    case "provisioning.ProvisionedSystemSyncLog":
-                        return NewProvisioningProvisionedSystemSyncLog(), nil
+                    case "provisioning.ProvisioningOperationLog":
+                        return NewProvisioningProvisioningOperationLog(), nil
+                    case "provisioning.ProvisioningOperationLogLine":
+                        return NewProvisioningProvisioningOperationLogLine(), nil
                     case "provisioning.ProvisionNumberSequence":
                         return NewProvisioningProvisionNumberSequence(), nil
                     case "request.AbstractAccessProfileModificationRequest":

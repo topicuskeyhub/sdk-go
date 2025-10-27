@@ -11,6 +11,8 @@ type IdentitysourceIdentitySource struct {
     IdentitysourceIdentitySourcePrimer
     // The additionalObjects property
     additionalObjects IdentitysourceIdentitySource_additionalObjectsable
+    // The schedule property
+    schedule *string
 }
 // NewIdentitysourceIdentitySource instantiates a new IdentitysourceIdentitySource and sets the default values.
 func NewIdentitysourceIdentitySource()(*IdentitysourceIdentitySource) {
@@ -63,7 +65,22 @@ func (m *IdentitysourceIdentitySource) GetFieldDeserializers()(map[string]func(i
         }
         return nil
     }
+    res["schedule"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetSchedule(val)
+        }
+        return nil
+    }
     return res
+}
+// GetSchedule gets the schedule property value. The schedule property
+// returns a *string when successful
+func (m *IdentitysourceIdentitySource) GetSchedule()(*string) {
+    return m.schedule
 }
 // Serialize serializes information the current object
 func (m *IdentitysourceIdentitySource) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -77,15 +94,27 @@ func (m *IdentitysourceIdentitySource) Serialize(writer i878a80d2330e89d26896388
             return err
         }
     }
+    {
+        err = writer.WriteStringValue("schedule", m.GetSchedule())
+        if err != nil {
+            return err
+        }
+    }
     return nil
 }
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
 func (m *IdentitysourceIdentitySource) SetAdditionalObjects(value IdentitysourceIdentitySource_additionalObjectsable)() {
     m.additionalObjects = value
 }
+// SetSchedule sets the schedule property value. The schedule property
+func (m *IdentitysourceIdentitySource) SetSchedule(value *string)() {
+    m.schedule = value
+}
 type IdentitysourceIdentitySourceable interface {
     IdentitysourceIdentitySourcePrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAdditionalObjects()(IdentitysourceIdentitySource_additionalObjectsable)
+    GetSchedule()(*string)
     SetAdditionalObjects(value IdentitysourceIdentitySource_additionalObjectsable)()
+    SetSchedule(value *string)()
 }

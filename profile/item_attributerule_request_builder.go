@@ -27,6 +27,8 @@ type ItemAttributeruleRequestBuilderGetQueryParameters struct {
     Additional []string `uriparametername:"additional"`
     // Request additional information to be returned for every record.
     AdditionalAsGetAdditionalQueryParameterType []i783381d01b16caed4b91a8b77c9298c8551b8f016070080557d8a27462668795.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    // Only return account attribute rules that allow or do not allow manual overriding values.
+    AllowOverride []bool `uriparametername:"allowOverride"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
     // Filter the attribute rules by attribute definition, specified by id. This parameter supports composition with all parameters from the attribute definition resource.
@@ -37,6 +39,8 @@ type ItemAttributeruleRequestBuilderGetQueryParameters struct {
     CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
+    // Only return account attribute rules that are or are not exclusive.
+    Exclusive []bool `uriparametername:"exclusive"`
     // Filter the results on the given ids.
     Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
@@ -100,7 +104,7 @@ func (m *ItemAttributeruleRequestBuilder) ByAttributeruleidInt64(attributeruleid
 // NewItemAttributeruleRequestBuilderInternal instantiates a new ItemAttributeruleRequestBuilder and sets the default values.
 func NewItemAttributeruleRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAttributeruleRequestBuilder) {
     m := &ItemAttributeruleRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/attributerule{?accessProfile*,accessProfileOwningGroup*,additional*,any*,attribute*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,organizationalUnit*,q*,sort*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/attributerule{?accessProfile*,accessProfileOwningGroup*,additional*,allowOverride*,any*,attribute*,createdAfter*,createdBefore*,exclude*,exclusive*,id*,modifiedSince*,organizationalUnit*,q*,sort*}", pathParameters),
     }
     return m
 }
@@ -161,7 +165,7 @@ func (m *ItemAttributeruleRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new account attribute rules and returns the newly created account attribute rules.
@@ -175,8 +179,8 @@ func (m *ItemAttributeruleRequestBuilder) ToPostRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=80")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=80", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=81", body)
     if err != nil {
         return nil, err
     }
