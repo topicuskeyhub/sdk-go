@@ -12,7 +12,7 @@ type ClientOAuth2Client struct {
     // The accountPermissions property
     accountPermissions []AuthPermissionable
     // The attributes property
-    attributes ClientOAuth2Client_attributesable
+    attributes []MiscAttributeCustomizationable
     // The callbackURI property
     callbackURI *string
     // The debugMode property
@@ -56,8 +56,8 @@ func (m *ClientOAuth2Client) GetAccountPermissions()([]AuthPermissionable) {
     return m.accountPermissions
 }
 // GetAttributes gets the attributes property value. The attributes property
-// returns a ClientOAuth2Client_attributesable when successful
-func (m *ClientOAuth2Client) GetAttributes()(ClientOAuth2Client_attributesable) {
+// returns a []MiscAttributeCustomizationable when successful
+func (m *ClientOAuth2Client) GetAttributes()([]MiscAttributeCustomizationable) {
     return m.attributes
 }
 // GetCallbackURI gets the callbackURI property value. The callbackURI property
@@ -91,12 +91,18 @@ func (m *ClientOAuth2Client) GetFieldDeserializers()(map[string]func(i878a80d233
         return nil
     }
     res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateClientOAuth2Client_attributesFromDiscriminatorValue)
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAttributes(val.(ClientOAuth2Client_attributesable))
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
         }
         return nil
     }
@@ -263,8 +269,14 @@ func (m *ClientOAuth2Client) Serialize(writer i878a80d2330e89d26896388a3f487eef2
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteObjectValue("attributes", m.GetAttributes())
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
         if err != nil {
             return err
         }
@@ -331,7 +343,7 @@ func (m *ClientOAuth2Client) SetAccountPermissions(value []AuthPermissionable)()
     m.accountPermissions = value
 }
 // SetAttributes sets the attributes property value. The attributes property
-func (m *ClientOAuth2Client) SetAttributes(value ClientOAuth2Client_attributesable)() {
+func (m *ClientOAuth2Client) SetAttributes(value []MiscAttributeCustomizationable)() {
     m.attributes = value
 }
 // SetCallbackURI sets the callbackURI property value. The callbackURI property
@@ -382,7 +394,7 @@ type ClientOAuth2Clientable interface {
     ClientClientApplicationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAccountPermissions()([]AuthPermissionable)
-    GetAttributes()(ClientOAuth2Client_attributesable)
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetCallbackURI()(*string)
     GetDebugMode()(*bool)
     GetForIdentitySource()(*bool)
@@ -395,7 +407,7 @@ type ClientOAuth2Clientable interface {
     GetShowLandingPage()(*bool)
     GetUseClientCredentials()(*bool)
     SetAccountPermissions(value []AuthPermissionable)()
-    SetAttributes(value ClientOAuth2Client_attributesable)()
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetCallbackURI(value *string)()
     SetDebugMode(value *bool)()
     SetForIdentitySource(value *bool)()

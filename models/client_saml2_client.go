@@ -10,7 +10,7 @@ import (
 type ClientSaml2Client struct {
     ClientClientApplication
     // The attributes property
-    attributes ClientSaml2Client_attributesable
+    attributes []MiscAttributeCustomizationable
     // The metadata property
     metadata *string
     // The metadataUrl property
@@ -33,8 +33,8 @@ func CreateClientSaml2ClientFromDiscriminatorValue(parseNode i878a80d2330e89d268
     return NewClientSaml2Client(), nil
 }
 // GetAttributes gets the attributes property value. The attributes property
-// returns a ClientSaml2Client_attributesable when successful
-func (m *ClientSaml2Client) GetAttributes()(ClientSaml2Client_attributesable) {
+// returns a []MiscAttributeCustomizationable when successful
+func (m *ClientSaml2Client) GetAttributes()([]MiscAttributeCustomizationable) {
     return m.attributes
 }
 // GetFieldDeserializers the deserialization information for the current model
@@ -42,12 +42,18 @@ func (m *ClientSaml2Client) GetAttributes()(ClientSaml2Client_attributesable) {
 func (m *ClientSaml2Client) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ClientClientApplication.GetFieldDeserializers()
     res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateClientSaml2Client_attributesFromDiscriminatorValue)
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAttributes(val.(ClientSaml2Client_attributesable))
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
         }
         return nil
     }
@@ -104,8 +110,14 @@ func (m *ClientSaml2Client) Serialize(writer i878a80d2330e89d26896388a3f487eef27
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteObjectValue("attributes", m.GetAttributes())
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
         if err != nil {
             return err
         }
@@ -132,7 +144,7 @@ func (m *ClientSaml2Client) Serialize(writer i878a80d2330e89d26896388a3f487eef27
     return nil
 }
 // SetAttributes sets the attributes property value. The attributes property
-func (m *ClientSaml2Client) SetAttributes(value ClientSaml2Client_attributesable)() {
+func (m *ClientSaml2Client) SetAttributes(value []MiscAttributeCustomizationable)() {
     m.attributes = value
 }
 // SetMetadata sets the metadata property value. The metadata property
@@ -150,11 +162,11 @@ func (m *ClientSaml2Client) SetSubjectFormat(value *ClientSubjectFormat)() {
 type ClientSaml2Clientable interface {
     ClientClientApplicationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAttributes()(ClientSaml2Client_attributesable)
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetMetadata()(*string)
     GetMetadataUrl()(*string)
     GetSubjectFormat()(*ClientSubjectFormat)
-    SetAttributes(value ClientSaml2Client_attributesable)()
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetMetadata(value *string)()
     SetMetadataUrl(value *string)()
     SetSubjectFormat(value *ClientSubjectFormat)()

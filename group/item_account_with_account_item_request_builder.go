@@ -142,7 +142,7 @@ func (m *ItemAccountWithAccountItemRequestBuilder) ToDeleteRequestInformation(ct
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single membership for the group. This also contains information such as the rights and provisioning information.
@@ -156,7 +156,7 @@ func (m *ItemAccountWithAccountItemRequestBuilder) ToGetRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the memberships for a group identified by the id.
@@ -170,8 +170,8 @@ func (m *ItemAccountWithAccountItemRequestBuilder) ToPutRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=81")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=81", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=82", body)
     if err != nil {
         return nil, err
     }
