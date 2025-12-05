@@ -28,6 +28,8 @@ type WebhookWebhookPush struct {
     group2 WebhookWebhookNameUuidable
     // The groupClassification property
     groupClassification WebhookWebhookNameUuidable
+    // The groupOnSystem property
+    groupOnSystem WebhookWebhookNameUuidable
     // The identitySource property
     identitySource WebhookWebhookNameUuidable
     // The modificationRequest property
@@ -195,6 +197,16 @@ func (m *WebhookWebhookPush) GetFieldDeserializers()(map[string]func(i878a80d233
         }
         return nil
     }
+    res["groupOnSystem"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGroupOnSystem(val.(WebhookWebhookNameUuidable))
+        }
+        return nil
+    }
     res["identitySource"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
         if err != nil {
@@ -352,6 +364,11 @@ func (m *WebhookWebhookPush) GetGroup2()(WebhookWebhookNameUuidable) {
 func (m *WebhookWebhookPush) GetGroupClassification()(WebhookWebhookNameUuidable) {
     return m.groupClassification
 }
+// GetGroupOnSystem gets the groupOnSystem property value. The groupOnSystem property
+// returns a WebhookWebhookNameUuidable when successful
+func (m *WebhookWebhookPush) GetGroupOnSystem()(WebhookWebhookNameUuidable) {
+    return m.groupOnSystem
+}
 // GetIdentitySource gets the identitySource property value. The identitySource property
 // returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetIdentitySource()(WebhookWebhookNameUuidable) {
@@ -483,6 +500,12 @@ func (m *WebhookWebhookPush) Serialize(writer i878a80d2330e89d26896388a3f487eef2
         }
     }
     {
+        err = writer.WriteObjectValue("groupOnSystem", m.GetGroupOnSystem())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("identitySource", m.GetIdentitySource())
         if err != nil {
             return err
@@ -606,6 +629,10 @@ func (m *WebhookWebhookPush) SetGroup2(value WebhookWebhookNameUuidable)() {
 func (m *WebhookWebhookPush) SetGroupClassification(value WebhookWebhookNameUuidable)() {
     m.groupClassification = value
 }
+// SetGroupOnSystem sets the groupOnSystem property value. The groupOnSystem property
+func (m *WebhookWebhookPush) SetGroupOnSystem(value WebhookWebhookNameUuidable)() {
+    m.groupOnSystem = value
+}
 // SetIdentitySource sets the identitySource property value. The identitySource property
 func (m *WebhookWebhookPush) SetIdentitySource(value WebhookWebhookNameUuidable)() {
     m.identitySource = value
@@ -674,6 +701,7 @@ type WebhookWebhookPushable interface {
     GetGroup()(WebhookWebhookNameUuidable)
     GetGroup2()(WebhookWebhookNameUuidable)
     GetGroupClassification()(WebhookWebhookNameUuidable)
+    GetGroupOnSystem()(WebhookWebhookNameUuidable)
     GetIdentitySource()(WebhookWebhookNameUuidable)
     GetModificationRequest()(WebhookWebhookNameUuidable)
     GetOrganizationalUnit()(WebhookWebhookNameUuidable)
@@ -697,6 +725,7 @@ type WebhookWebhookPushable interface {
     SetGroup(value WebhookWebhookNameUuidable)()
     SetGroup2(value WebhookWebhookNameUuidable)()
     SetGroupClassification(value WebhookWebhookNameUuidable)()
+    SetGroupOnSystem(value WebhookWebhookNameUuidable)()
     SetIdentitySource(value WebhookWebhookNameUuidable)()
     SetModificationRequest(value WebhookWebhookNameUuidable)()
     SetOrganizationalUnit(value WebhookWebhookNameUuidable)()

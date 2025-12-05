@@ -8,6 +8,7 @@ const (
     ACCESSPROFILECLIENTS_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
     AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
     DELETETILE_PUTADDITIONALQUERYPARAMETERTYPE
+    GENERATESECRET_PUTADDITIONALQUERYPARAMETERTYPE
     GROUPCLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
     GROUPS_PUTADDITIONALQUERYPARAMETERTYPE
     ORGANIZATIONALUNITS_PUTADDITIONALQUERYPARAMETERTYPE
@@ -17,7 +18,7 @@ const (
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"accessprofileclients", "audit", "deleteTile", "groupclients", "groups", "organizationalUnits", "secret", "tile", "vaultRecordCount"}[i]
+    return []string{"accessprofileclients", "audit", "deleteTile", "generateSecret", "groupclients", "groups", "organizationalUnits", "secret", "tile", "vaultRecordCount"}[i]
 }
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
     result := ACCESSPROFILECLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
@@ -28,6 +29,8 @@ func ParsePutAdditionalQueryParameterType(v string) (any, error) {
             result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
         case "deleteTile":
             result = DELETETILE_PUTADDITIONALQUERYPARAMETERTYPE
+        case "generateSecret":
+            result = GENERATESECRET_PUTADDITIONALQUERYPARAMETERTYPE
         case "groupclients":
             result = GROUPCLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
         case "groups":

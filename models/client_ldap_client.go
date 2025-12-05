@@ -17,8 +17,6 @@ type ClientLdapClient struct {
     sharedSecret VaultVaultRecordPrimerable
     // The shareSecretInVault property
     shareSecretInVault *bool
-    // The usedForProvisioning property
-    usedForProvisioning *bool
 }
 // NewClientLdapClient instantiates a new ClientLdapClient and sets the default values.
 func NewClientLdapClient()(*ClientLdapClient) {
@@ -88,16 +86,6 @@ func (m *ClientLdapClient) GetFieldDeserializers()(map[string]func(i878a80d2330e
         }
         return nil
     }
-    res["usedForProvisioning"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUsedForProvisioning(val)
-        }
-        return nil
-    }
     return res
 }
 // GetSharedSecret gets the sharedSecret property value. The sharedSecret property
@@ -109,11 +97,6 @@ func (m *ClientLdapClient) GetSharedSecret()(VaultVaultRecordPrimerable) {
 // returns a *bool when successful
 func (m *ClientLdapClient) GetShareSecretInVault()(*bool) {
     return m.shareSecretInVault
-}
-// GetUsedForProvisioning gets the usedForProvisioning property value. The usedForProvisioning property
-// returns a *bool when successful
-func (m *ClientLdapClient) GetUsedForProvisioning()(*bool) {
-    return m.usedForProvisioning
 }
 // Serialize serializes information the current object
 func (m *ClientLdapClient) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -157,10 +140,6 @@ func (m *ClientLdapClient) SetSharedSecret(value VaultVaultRecordPrimerable)() {
 func (m *ClientLdapClient) SetShareSecretInVault(value *bool)() {
     m.shareSecretInVault = value
 }
-// SetUsedForProvisioning sets the usedForProvisioning property value. The usedForProvisioning property
-func (m *ClientLdapClient) SetUsedForProvisioning(value *bool)() {
-    m.usedForProvisioning = value
-}
 type ClientLdapClientable interface {
     ClientClientApplicationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
@@ -168,10 +147,8 @@ type ClientLdapClientable interface {
     GetClientCertificate()(CertificateCertificatePrimerable)
     GetSharedSecret()(VaultVaultRecordPrimerable)
     GetShareSecretInVault()(*bool)
-    GetUsedForProvisioning()(*bool)
     SetBindDn(value *string)()
     SetClientCertificate(value CertificateCertificatePrimerable)()
     SetSharedSecret(value VaultVaultRecordPrimerable)()
     SetShareSecretInVault(value *bool)()
-    SetUsedForProvisioning(value *bool)()
 }

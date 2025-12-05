@@ -17,6 +17,8 @@ type ProvisioningGroupOnSystemPrimer struct {
     provisioningGroupOnSystemPrimerType *ProvisioningGroupOnSystemType
     // The shortNameInSystem property
     shortNameInSystem *string
+    // The uuid property
+    uuid *string
 }
 // NewProvisioningGroupOnSystemPrimer instantiates a new ProvisioningGroupOnSystemPrimer and sets the default values.
 func NewProvisioningGroupOnSystemPrimer()(*ProvisioningGroupOnSystemPrimer) {
@@ -101,6 +103,16 @@ func (m *ProvisioningGroupOnSystemPrimer) GetFieldDeserializers()(map[string]fun
         }
         return nil
     }
+    res["uuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetUuid(val)
+        }
+        return nil
+    }
     return res
 }
 // GetNameInSystem gets the nameInSystem property value. The nameInSystem property
@@ -117,6 +129,11 @@ func (m *ProvisioningGroupOnSystemPrimer) GetProvisioningGroupOnSystemPrimerType
 // returns a *string when successful
 func (m *ProvisioningGroupOnSystemPrimer) GetShortNameInSystem()(*string) {
     return m.shortNameInSystem
+}
+// GetUuid gets the uuid property value. The uuid property
+// returns a *string when successful
+func (m *ProvisioningGroupOnSystemPrimer) GetUuid()(*string) {
+    return m.uuid
 }
 // Serialize serializes information the current object
 func (m *ProvisioningGroupOnSystemPrimer) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -155,6 +172,10 @@ func (m *ProvisioningGroupOnSystemPrimer) SetProvisioningGroupOnSystemPrimerType
 func (m *ProvisioningGroupOnSystemPrimer) SetShortNameInSystem(value *string)() {
     m.shortNameInSystem = value
 }
+// SetUuid sets the uuid property value. The uuid property
+func (m *ProvisioningGroupOnSystemPrimer) SetUuid(value *string)() {
+    m.uuid = value
+}
 type ProvisioningGroupOnSystemPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
@@ -162,8 +183,10 @@ type ProvisioningGroupOnSystemPrimerable interface {
     GetNameInSystem()(*string)
     GetProvisioningGroupOnSystemPrimerType()(*ProvisioningGroupOnSystemType)
     GetShortNameInSystem()(*string)
+    GetUuid()(*string)
     SetDisplayName(value *string)()
     SetNameInSystem(value *string)()
     SetProvisioningGroupOnSystemPrimerType(value *ProvisioningGroupOnSystemType)()
     SetShortNameInSystem(value *string)()
+    SetUuid(value *string)()
 }

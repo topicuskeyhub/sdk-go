@@ -12,10 +12,12 @@ type ServiceaccountServiceAccount_additionalObjects struct {
     additionalData map[string]any
     // The audit property
     audit AuditInfoable
+    // The generateSecret property
+    generateSecret GenerateSecretable
     // The groups property
     groups ServiceaccountServiceAccountGroupLinkableWrapperable
     // The secret property
-    secret GeneratedSecretable
+    secret Secretable
     // The supportedFeatures property
     supportedFeatures ServiceaccountServiceAccountSupportedFeaturesable
 }
@@ -55,6 +57,16 @@ func (m *ServiceaccountServiceAccount_additionalObjects) GetFieldDeserializers()
         }
         return nil
     }
+    res["generateSecret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateGenerateSecretFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGenerateSecret(val.(GenerateSecretable))
+        }
+        return nil
+    }
     res["groups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateServiceaccountServiceAccountGroupLinkableWrapperFromDiscriminatorValue)
         if err != nil {
@@ -66,12 +78,12 @@ func (m *ServiceaccountServiceAccount_additionalObjects) GetFieldDeserializers()
         return nil
     }
     res["secret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGeneratedSecretFromDiscriminatorValue)
+        val, err := n.GetObjectValue(CreateSecretFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetSecret(val.(GeneratedSecretable))
+            m.SetSecret(val.(Secretable))
         }
         return nil
     }
@@ -87,14 +99,19 @@ func (m *ServiceaccountServiceAccount_additionalObjects) GetFieldDeserializers()
     }
     return res
 }
+// GetGenerateSecret gets the generateSecret property value. The generateSecret property
+// returns a GenerateSecretable when successful
+func (m *ServiceaccountServiceAccount_additionalObjects) GetGenerateSecret()(GenerateSecretable) {
+    return m.generateSecret
+}
 // GetGroups gets the groups property value. The groups property
 // returns a ServiceaccountServiceAccountGroupLinkableWrapperable when successful
 func (m *ServiceaccountServiceAccount_additionalObjects) GetGroups()(ServiceaccountServiceAccountGroupLinkableWrapperable) {
     return m.groups
 }
 // GetSecret gets the secret property value. The secret property
-// returns a GeneratedSecretable when successful
-func (m *ServiceaccountServiceAccount_additionalObjects) GetSecret()(GeneratedSecretable) {
+// returns a Secretable when successful
+func (m *ServiceaccountServiceAccount_additionalObjects) GetSecret()(Secretable) {
     return m.secret
 }
 // GetSupportedFeatures gets the supportedFeatures property value. The supportedFeatures property
@@ -106,6 +123,12 @@ func (m *ServiceaccountServiceAccount_additionalObjects) GetSupportedFeatures()(
 func (m *ServiceaccountServiceAccount_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     {
         err := writer.WriteObjectValue("audit", m.GetAudit())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("generateSecret", m.GetGenerateSecret())
         if err != nil {
             return err
         }
@@ -144,12 +167,16 @@ func (m *ServiceaccountServiceAccount_additionalObjects) SetAdditionalData(value
 func (m *ServiceaccountServiceAccount_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
+// SetGenerateSecret sets the generateSecret property value. The generateSecret property
+func (m *ServiceaccountServiceAccount_additionalObjects) SetGenerateSecret(value GenerateSecretable)() {
+    m.generateSecret = value
+}
 // SetGroups sets the groups property value. The groups property
 func (m *ServiceaccountServiceAccount_additionalObjects) SetGroups(value ServiceaccountServiceAccountGroupLinkableWrapperable)() {
     m.groups = value
 }
 // SetSecret sets the secret property value. The secret property
-func (m *ServiceaccountServiceAccount_additionalObjects) SetSecret(value GeneratedSecretable)() {
+func (m *ServiceaccountServiceAccount_additionalObjects) SetSecret(value Secretable)() {
     m.secret = value
 }
 // SetSupportedFeatures sets the supportedFeatures property value. The supportedFeatures property
@@ -160,11 +187,13 @@ type ServiceaccountServiceAccount_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAudit()(AuditInfoable)
+    GetGenerateSecret()(GenerateSecretable)
     GetGroups()(ServiceaccountServiceAccountGroupLinkableWrapperable)
-    GetSecret()(GeneratedSecretable)
+    GetSecret()(Secretable)
     GetSupportedFeatures()(ServiceaccountServiceAccountSupportedFeaturesable)
     SetAudit(value AuditInfoable)()
+    SetGenerateSecret(value GenerateSecretable)()
     SetGroups(value ServiceaccountServiceAccountGroupLinkableWrapperable)()
-    SetSecret(value GeneratedSecretable)()
+    SetSecret(value Secretable)()
     SetSupportedFeatures(value ServiceaccountServiceAccountSupportedFeaturesable)()
 }

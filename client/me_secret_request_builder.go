@@ -36,7 +36,7 @@ func NewMeSecretRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee26337
 // Post the given secret will be verified and a new secret generated and returned.
 // returns a []byte when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
-func (m *MeSecretRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GeneratedSecretable, requestConfiguration *MeSecretRequestBuilderPostRequestConfiguration)([]byte, error) {
+func (m *MeSecretRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GenerateSecretable, requestConfiguration *MeSecretRequestBuilderPostRequestConfiguration)([]byte, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
@@ -55,7 +55,7 @@ func (m *MeSecretRequestBuilder) Post(ctx context.Context, body ie2969523f41a2fa
 }
 // ToPostRequestInformation the given secret will be verified and a new secret generated and returned.
 // returns a *RequestInformation when successful
-func (m *MeSecretRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GeneratedSecretable, requestConfiguration *MeSecretRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *MeSecretRequestBuilder) ToPostRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GenerateSecretable, requestConfiguration *MeSecretRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
         requestInfo.Headers.AddAll(requestConfiguration.Headers)

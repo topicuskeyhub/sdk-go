@@ -8,10 +8,12 @@ const (
     DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR ProvisioningProvisionedSCIMVendor = iota
     AWS_PROVISIONINGPROVISIONEDSCIMVENDOR
     KEYSTONE_PROVISIONINGPROVISIONEDSCIMVENDOR
+    TOPICUS_KEYHUB_CONNECTOR_PROVISIONINGPROVISIONEDSCIMVENDOR
+    CUSTOM_PROVISIONINGPROVISIONEDSCIMVENDOR
 )
 
 func (i ProvisioningProvisionedSCIMVendor) String() string {
-    return []string{"DEFAULT", "AWS", "KEYSTONE"}[i]
+    return []string{"DEFAULT", "AWS", "KEYSTONE", "TOPICUS_KEYHUB_CONNECTOR", "CUSTOM"}[i]
 }
 func ParseProvisioningProvisionedSCIMVendor(v string) (any, error) {
     result := DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR
@@ -22,6 +24,10 @@ func ParseProvisioningProvisionedSCIMVendor(v string) (any, error) {
             result = AWS_PROVISIONINGPROVISIONEDSCIMVENDOR
         case "KEYSTONE":
             result = KEYSTONE_PROVISIONINGPROVISIONEDSCIMVENDOR
+        case "TOPICUS_KEYHUB_CONNECTOR":
+            result = TOPICUS_KEYHUB_CONNECTOR_PROVISIONINGPROVISIONEDSCIMVENDOR
+        case "CUSTOM":
+            result = CUSTOM_PROVISIONINGPROVISIONEDSCIMVENDOR
         default:
             return nil, nil
     }

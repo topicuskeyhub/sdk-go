@@ -9,8 +9,12 @@ import (
 
 type RequestModificationRequestReportChangeDetails struct {
     NonLinkable
+    // The additionalDescriptions property
+    additionalDescriptions []RequestModificationRequestReportChangeDescriptionable
     // The change property
     change *RequestModificationRequestReportChange
+    // The error property
+    error *RequestModificationRequestReportError
     // The objectName property
     objectName *string
     // The subjectName property
@@ -30,15 +34,41 @@ func NewRequestModificationRequestReportChangeDetails()(*RequestModificationRequ
 func CreateRequestModificationRequestReportChangeDetailsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewRequestModificationRequestReportChangeDetails(), nil
 }
+// GetAdditionalDescriptions gets the additionalDescriptions property value. The additionalDescriptions property
+// returns a []RequestModificationRequestReportChangeDescriptionable when successful
+func (m *RequestModificationRequestReportChangeDetails) GetAdditionalDescriptions()([]RequestModificationRequestReportChangeDescriptionable) {
+    return m.additionalDescriptions
+}
 // GetChange gets the change property value. The change property
 // returns a *RequestModificationRequestReportChange when successful
 func (m *RequestModificationRequestReportChangeDetails) GetChange()(*RequestModificationRequestReportChange) {
     return m.change
 }
+// GetError gets the error property value. The error property
+// returns a *RequestModificationRequestReportError when successful
+func (m *RequestModificationRequestReportChangeDetails) GetError()(*RequestModificationRequestReportError) {
+    return m.error
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *RequestModificationRequestReportChangeDetails) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.NonLinkable.GetFieldDeserializers()
+    res["additionalDescriptions"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateRequestModificationRequestReportChangeDescriptionFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]RequestModificationRequestReportChangeDescriptionable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(RequestModificationRequestReportChangeDescriptionable)
+                }
+            }
+            m.SetAdditionalDescriptions(res)
+        }
+        return nil
+    }
     res["change"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetEnumValue(ParseRequestModificationRequestReportChange)
         if err != nil {
@@ -46,6 +76,16 @@ func (m *RequestModificationRequestReportChangeDetails) GetFieldDeserializers()(
         }
         if val != nil {
             m.SetChange(val.(*RequestModificationRequestReportChange))
+        }
+        return nil
+    }
+    res["error"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetEnumValue(ParseRequestModificationRequestReportError)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetError(val.(*RequestModificationRequestReportError))
         }
         return nil
     }
@@ -87,9 +127,28 @@ func (m *RequestModificationRequestReportChangeDetails) Serialize(writer i878a80
     if err != nil {
         return err
     }
+    if m.GetAdditionalDescriptions() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAdditionalDescriptions()))
+        for i, v := range m.GetAdditionalDescriptions() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("additionalDescriptions", cast)
+        if err != nil {
+            return err
+        }
+    }
     if m.GetChange() != nil {
         cast := (*m.GetChange()).String()
         err = writer.WriteStringValue("change", &cast)
+        if err != nil {
+            return err
+        }
+    }
+    if m.GetError() != nil {
+        cast := (*m.GetError()).String()
+        err = writer.WriteStringValue("error", &cast)
         if err != nil {
             return err
         }
@@ -108,9 +167,17 @@ func (m *RequestModificationRequestReportChangeDetails) Serialize(writer i878a80
     }
     return nil
 }
+// SetAdditionalDescriptions sets the additionalDescriptions property value. The additionalDescriptions property
+func (m *RequestModificationRequestReportChangeDetails) SetAdditionalDescriptions(value []RequestModificationRequestReportChangeDescriptionable)() {
+    m.additionalDescriptions = value
+}
 // SetChange sets the change property value. The change property
 func (m *RequestModificationRequestReportChangeDetails) SetChange(value *RequestModificationRequestReportChange)() {
     m.change = value
+}
+// SetError sets the error property value. The error property
+func (m *RequestModificationRequestReportChangeDetails) SetError(value *RequestModificationRequestReportError)() {
+    m.error = value
 }
 // SetObjectName sets the objectName property value. The objectName property
 func (m *RequestModificationRequestReportChangeDetails) SetObjectName(value *string)() {
@@ -123,10 +190,14 @@ func (m *RequestModificationRequestReportChangeDetails) SetSubjectName(value *st
 type RequestModificationRequestReportChangeDetailsable interface {
     NonLinkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAdditionalDescriptions()([]RequestModificationRequestReportChangeDescriptionable)
     GetChange()(*RequestModificationRequestReportChange)
+    GetError()(*RequestModificationRequestReportError)
     GetObjectName()(*string)
     GetSubjectName()(*string)
+    SetAdditionalDescriptions(value []RequestModificationRequestReportChangeDescriptionable)()
     SetChange(value *RequestModificationRequestReportChange)()
+    SetError(value *RequestModificationRequestReportError)()
     SetObjectName(value *string)()
     SetSubjectName(value *string)()
 }

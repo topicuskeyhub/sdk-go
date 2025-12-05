@@ -9,6 +9,8 @@ import (
 
 type LaunchpadVaultRecordLaunchpadTile struct {
     LaunchpadLaunchpadTile
+    // The vaultRecord property
+    vaultRecord VaultVaultRecordPrimerable
 }
 // NewLaunchpadVaultRecordLaunchpadTile instantiates a new LaunchpadVaultRecordLaunchpadTile and sets the default values.
 func NewLaunchpadVaultRecordLaunchpadTile()(*LaunchpadVaultRecordLaunchpadTile) {
@@ -28,7 +30,22 @@ func CreateLaunchpadVaultRecordLaunchpadTileFromDiscriminatorValue(parseNode i87
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadVaultRecordLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.LaunchpadLaunchpadTile.GetFieldDeserializers()
+    res["vaultRecord"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateVaultVaultRecordPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetVaultRecord(val.(VaultVaultRecordPrimerable))
+        }
+        return nil
+    }
     return res
+}
+// GetVaultRecord gets the vaultRecord property value. The vaultRecord property
+// returns a VaultVaultRecordPrimerable when successful
+func (m *LaunchpadVaultRecordLaunchpadTile) GetVaultRecord()(VaultVaultRecordPrimerable) {
+    return m.vaultRecord
 }
 // Serialize serializes information the current object
 func (m *LaunchpadVaultRecordLaunchpadTile) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -36,9 +53,21 @@ func (m *LaunchpadVaultRecordLaunchpadTile) Serialize(writer i878a80d2330e89d268
     if err != nil {
         return err
     }
+    {
+        err = writer.WriteObjectValue("vaultRecord", m.GetVaultRecord())
+        if err != nil {
+            return err
+        }
+    }
     return nil
+}
+// SetVaultRecord sets the vaultRecord property value. The vaultRecord property
+func (m *LaunchpadVaultRecordLaunchpadTile) SetVaultRecord(value VaultVaultRecordPrimerable)() {
+    m.vaultRecord = value
 }
 type LaunchpadVaultRecordLaunchpadTileable interface {
     LaunchpadLaunchpadTileable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetVaultRecord()(VaultVaultRecordPrimerable)
+    SetVaultRecord(value VaultVaultRecordPrimerable)()
 }

@@ -32,6 +32,8 @@ type AuditAuditRecord struct {
     onGroup2 *string
     // The onGroupClassification property
     onGroupClassification *string
+    // The onGroupOnSystem property
+    onGroupOnSystem *string
     // The onIdentitySource property
     onIdentitySource *string
     // The onOrganizationalUnit property
@@ -198,6 +200,16 @@ func (m *AuditAuditRecord) GetFieldDeserializers()(map[string]func(i878a80d2330e
         }
         return nil
     }
+    res["onGroupOnSystem"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOnGroupOnSystem(val)
+        }
+        return nil
+    }
     res["onIdentitySource"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -350,6 +362,11 @@ func (m *AuditAuditRecord) GetOnGroup2()(*string) {
 func (m *AuditAuditRecord) GetOnGroupClassification()(*string) {
     return m.onGroupClassification
 }
+// GetOnGroupOnSystem gets the onGroupOnSystem property value. The onGroupOnSystem property
+// returns a *string when successful
+func (m *AuditAuditRecord) GetOnGroupOnSystem()(*string) {
+    return m.onGroupOnSystem
+}
 // GetOnIdentitySource gets the onIdentitySource property value. The onIdentitySource property
 // returns a *string when successful
 func (m *AuditAuditRecord) GetOnIdentitySource()(*string) {
@@ -477,6 +494,10 @@ func (m *AuditAuditRecord) SetOnGroup2(value *string)() {
 func (m *AuditAuditRecord) SetOnGroupClassification(value *string)() {
     m.onGroupClassification = value
 }
+// SetOnGroupOnSystem sets the onGroupOnSystem property value. The onGroupOnSystem property
+func (m *AuditAuditRecord) SetOnGroupOnSystem(value *string)() {
+    m.onGroupOnSystem = value
+}
 // SetOnIdentitySource sets the onIdentitySource property value. The onIdentitySource property
 func (m *AuditAuditRecord) SetOnIdentitySource(value *string)() {
     m.onIdentitySource = value
@@ -535,6 +556,7 @@ type AuditAuditRecordable interface {
     GetOnGroup()(*string)
     GetOnGroup2()(*string)
     GetOnGroupClassification()(*string)
+    GetOnGroupOnSystem()(*string)
     GetOnIdentitySource()(*string)
     GetOnOrganizationalUnit()(*string)
     GetOnServiceAccount()(*string)
@@ -557,6 +579,7 @@ type AuditAuditRecordable interface {
     SetOnGroup(value *string)()
     SetOnGroup2(value *string)()
     SetOnGroupClassification(value *string)()
+    SetOnGroupOnSystem(value *string)()
     SetOnIdentitySource(value *string)()
     SetOnOrganizationalUnit(value *string)()
     SetOnServiceAccount(value *string)()

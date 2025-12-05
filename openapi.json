@@ -10906,6 +10906,7 @@
                   "accessprofileclients",
                   "audit",
                   "deleteTile",
+                  "generateSecret",
                   "groupclients",
                   "groups",
                   "organizationalUnits",
@@ -11420,6 +11421,7 @@
                   "accessprofileclients",
                   "audit",
                   "deleteTile",
+                  "generateSecret",
                   "groupclients",
                   "groups",
                   "organizationalUnits",
@@ -11493,6 +11495,7 @@
                   "accessprofileclients",
                   "audit",
                   "deleteTile",
+                  "generateSecret",
                   "groupclients",
                   "groups",
                   "organizationalUnits",
@@ -11559,6 +11562,7 @@
                   "accessprofileclients",
                   "audit",
                   "deleteTile",
+                  "generateSecret",
                   "groupclients",
                   "groups",
                   "organizationalUnits",
@@ -12141,12 +12145,12 @@
           "content": {
             "application/vnd.topicus.keyhub+json;version=82": {
               "schema": {
-                "$ref": "#/components/schemas/GeneratedSecret"
+                "$ref": "#/components/schemas/GenerateSecret"
               }
             },
             "application/vnd.topicus.keyhub+xml;version=82": {
               "schema": {
-                "$ref": "#/components/schemas/GeneratedSecret"
+                "$ref": "#/components/schemas/GenerateSecret"
               }
             }
           }
@@ -28058,6 +28062,19 @@
             }
           },
           {
+            "name": "uuid",
+            "in": "query",
+            "description": "Filter results on one or more UUIDs.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "sort",
             "in": "query",
             "description": "Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.",
@@ -28897,6 +28914,7 @@
                 "type": "string",
                 "enum": [
                   "audit",
+                  "generateSecret",
                   "groups",
                   "secret",
                   "supportedFeatures"
@@ -29309,6 +29327,7 @@
                 "type": "string",
                 "enum": [
                   "audit",
+                  "generateSecret",
                   "groups",
                   "secret",
                   "supportedFeatures"
@@ -29409,6 +29428,7 @@
                 "type": "string",
                 "enum": [
                   "audit",
+                  "generateSecret",
                   "groups",
                   "secret",
                   "supportedFeatures"
@@ -29470,6 +29490,7 @@
                 "type": "string",
                 "enum": [
                   "audit",
+                  "generateSecret",
                   "groups",
                   "secret",
                   "supportedFeatures"
@@ -32312,40 +32333,37 @@
         "x-tkh-discriminator": "ErrorReport",
         "title": "ErrorReport"
       },
-      "GeneratedSecret": {
+      "GenerateSecret": {
         "allOf": [
           {
             "$ref": "#/components/schemas/NonLinkable",
-            "title": "GeneratedSecret"
+            "title": "GenerateSecret"
           },
           {
-            "title": "GeneratedSecret",
+            "title": "GenerateSecret",
             "required": [
               "$type"
             ],
             "type": "object",
             "properties": {
-              "generatedSecret": {
-                "type": "string",
-                "readOnly": true,
-                "x-tkh-sensitive": true
-              },
               "oldSecret": {
                 "type": "string",
+                "writeOnly": true,
                 "x-tkh-sensitive": true
               },
               "regenerate": {
-                "type": "boolean"
+                "type": "boolean",
+                "writeOnly": true
               },
               "$type": {
                 "type": "string",
-                "default": "GeneratedSecret"
+                "default": "GenerateSecret"
               }
             },
-            "x-tkh-discriminator": "GeneratedSecret"
+            "x-tkh-discriminator": "GenerateSecret"
           }
         ],
-        "title": "GeneratedSecret"
+        "title": "GenerateSecret"
       },
       "HttpAuthenticationScheme": {
         "type": "string",
@@ -32353,6 +32371,7 @@
           "NONE",
           "BASIC",
           "BEARER",
+          "KEYHUB",
           "CUSTOM"
         ],
         "title": "HttpAuthenticationScheme"
@@ -32583,8 +32602,9 @@
           "propertyName": "$type",
           "mapping": {
             "AuditInfo": "#/components/schemas/AuditInfo",
-            "GeneratedSecret": "#/components/schemas/GeneratedSecret",
+            "GenerateSecret": "#/components/schemas/GenerateSecret",
             "NonLinkable": "#/components/schemas/NonLinkable",
+            "Secret": "#/components/schemas/Secret",
             "SegmentCount": "#/components/schemas/SegmentCount",
             "auth.AccountBulkUpdate": "#/components/schemas/authAccountBulkUpdate",
             "auth.AccountChangeLocale": "#/components/schemas/authAccountChangeLocale",
@@ -32645,8 +32665,8 @@
             "request.AcceptJoinGroupRequestParameters": "#/components/schemas/requestAcceptJoinGroupRequestParameters",
             "request.AcceptModificationRequestParameters": "#/components/schemas/requestAcceptModificationRequestParameters",
             "request.ModificationRequestReport": "#/components/schemas/requestModificationRequestReport",
+            "request.ModificationRequestReportChangeDescription": "#/components/schemas/requestModificationRequestReportChangeDescription",
             "request.ModificationRequestReportChangeDetails": "#/components/schemas/requestModificationRequestReportChangeDetails",
-            "request.ModificationRequestReportErrorDetails": "#/components/schemas/requestModificationRequestReportErrorDetails",
             "request.ModificationRequestReportObjectChangeDetails": "#/components/schemas/requestModificationRequestReportObjectChangeDetails",
             "request.PasswordResetRequestStatus": "#/components/schemas/requestPasswordResetRequestStatus",
             "serviceaccount.ServiceAccountStatus": "#/components/schemas/serviceaccountServiceAccountStatus",
@@ -32693,6 +32713,34 @@
           }
         },
         "title": "RequestRange"
+      },
+      "Secret": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NonLinkable",
+            "title": "Secret"
+          },
+          {
+            "title": "Secret",
+            "required": [
+              "$type"
+            ],
+            "type": "object",
+            "properties": {
+              "secret": {
+                "type": "string",
+                "readOnly": true,
+                "x-tkh-sensitive": true
+              },
+              "$type": {
+                "type": "string",
+                "default": "Secret"
+              }
+            },
+            "x-tkh-discriminator": "Secret"
+          }
+        ],
+        "title": "Secret"
       },
       "SegmentCount": {
         "allOf": [
@@ -32826,6 +32874,11 @@
                 "x-tkh-immutable": true
               },
               "onSystem": {
+                "type": "string",
+                "readOnly": true,
+                "x-tkh-immutable": true
+              },
+              "onGroupOnSystem": {
                 "type": "string",
                 "readOnly": true,
                 "x-tkh-immutable": true
@@ -34617,10 +34670,20 @@
                   "secret": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/GeneratedSecret"
+                        "$ref": "#/components/schemas/Secret"
                       },
                       {
-                        "x-tkh-backend-determines-default": true
+                        "readOnly": true
+                      }
+                    ]
+                  },
+                  "generateSecret": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/GenerateSecret"
+                      },
+                      {
+                        "writeOnly": true
                       }
                     ]
                   },
@@ -34858,8 +34921,7 @@
             "required": [
               "$type",
               "name",
-              "shareSecretInVault",
-              "usedForProvisioning"
+              "shareSecretInVault"
             ],
             "type": "object",
             "properties": {
@@ -34873,11 +34935,6 @@
               "shareSecretInVault": {
                 "type": "boolean",
                 "x-tkh-default": true
-              },
-              "usedForProvisioning": {
-                "type": "boolean",
-                "readOnly": true,
-                "x-tkh-default": false
               },
               "sharedSecret": {
                 "allOf": [
@@ -34964,7 +35021,8 @@
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/miscAttributeCustomization"
-                }
+                },
+                "x-tkh-backend-determines-default": true
               },
               "idTokenClaims": {
                 "maxLength": 512,
@@ -35203,7 +35261,8 @@
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/miscAttributeCustomization"
-                }
+                },
+                "x-tkh-backend-determines-default": true
               },
               "$type": {
                 "type": "string",
@@ -38500,20 +38559,13 @@
               "identiconCode": {
                 "type": "integer",
                 "format": "int32",
-                "x-tkh-default": 0
+                "x-tkh-default": 0,
+                "x-tkh-backend-determines-default": true
               },
               "logo": {
                 "type": "string",
-                "format": "byte"
-              },
-              "group": {
-                "$ref": "#/components/schemas/groupGroupPrimer"
-              },
-              "application": {
-                "$ref": "#/components/schemas/clientClientApplicationPrimer"
-              },
-              "vaultRecord": {
-                "$ref": "#/components/schemas/vaultVaultRecordPrimer"
+                "format": "byte",
+                "x-tkh-backend-determines-default": true
               },
               "$type": {
                 "type": "string",
@@ -38613,11 +38665,15 @@
             "title": "launchpadManualLaunchpadTile",
             "required": [
               "$type",
+              "group",
               "title",
               "uri"
             ],
             "type": "object",
             "properties": {
+              "group": {
+                "$ref": "#/components/schemas/groupGroupPrimer"
+              },
               "title": {
                 "maxLength": 255,
                 "minLength": 0,
@@ -38655,6 +38711,17 @@
             ],
             "type": "object",
             "properties": {
+              "application": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/clientClientApplicationPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
+              },
               "uri": {
                 "type": "string"
               },
@@ -38686,6 +38753,17 @@
             ],
             "type": "object",
             "properties": {
+              "vaultRecord": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/vaultVaultRecordPrimer"
+                  },
+                  {
+                    "x-tkh-create-only": true,
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
+              },
               "$type": {
                 "type": "string",
                 "default": "launchpad.VaultRecordLaunchpadTile"
@@ -40717,7 +40795,6 @@
               "$type",
               "nameInSystem",
               "owner",
-              "provisioningEnabled",
               "type"
             ],
             "type": "object",
@@ -40742,9 +40819,16 @@
                   }
                 ]
               },
-              "provisioningEnabled": {
-                "type": "boolean",
-                "x-tkh-default": true
+              "accountProvisioning": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/provisioningGroupOnSystemProvisioningStatus"
+                  },
+                  {
+                    "x-tkh-default": "ENABLED",
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
               },
               "$type": {
                 "type": "string",
@@ -40821,6 +40905,13 @@
                   }
                 ]
               },
+              "uuid": {
+                "maxLength": 36,
+                "minLength": 0,
+                "type": "string",
+                "readOnly": true,
+                "x-tkh-immutable": true
+              },
               "nameInSystem": {
                 "maxLength": 255,
                 "minLength": 0,
@@ -40865,6 +40956,15 @@
         ],
         "title": "provisioningGroupOnSystemProvisioning"
       },
+      "provisioningGroupOnSystemProvisioningStatus": {
+        "type": "string",
+        "enum": [
+          "ENABLED",
+          "DISABLED_KEEP_ACCOUNT_ACTIVE",
+          "DISABLED"
+        ],
+        "title": "provisioningGroupOnSystemProvisioningStatus"
+      },
       "provisioningGroupOnSystemType": {
         "type": "string",
         "enum": [
@@ -40878,6 +40978,8 @@
           "AZURE_ROLE",
           "AZURE_UNIFIED_GROUP",
           "AZURE_SECURITY_GROUP",
+          "AZURE_DYNAMIC_UNIFIED_GROUP",
+          "AZURE_DYNAMIC_SECURITY_GROUP",
           "SCIM",
           "ACCOUNT_ONLY"
         ],
@@ -41628,25 +41730,22 @@
               "$type",
               "authenticationScheme",
               "cleanupPeriod",
+              "externalIdSupported",
+              "filterActiveUsersSupported",
               "groupOnSystemProvisioning",
+              "groupsSupported",
               "name",
               "owner",
+              "pageSize",
+              "passwordSupported",
               "technicalAdministrator",
+              "updateStrategy",
               "url",
+              "useScimJsonMimetype",
               "vendor"
             ],
             "type": "object",
             "properties": {
-              "vendor": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/provisioningProvisionedSCIMVendor"
-                  },
-                  {
-                    "x-tkh-default": "DEFAULT"
-                  }
-                ]
-              },
               "url": {
                 "maxLength": 512,
                 "minLength": 0,
@@ -41684,11 +41783,66 @@
                 "type": "string",
                 "x-tkh-sensitive": true
               },
+              "connectorConfiguration": {
+                "type": "string"
+              },
               "attributes": {
                 "type": "array",
                 "items": {
                   "$ref": "#/components/schemas/miscAttributeCustomization"
                 }
+              },
+              "vendor": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/provisioningProvisionedSCIMVendor"
+                  },
+                  {
+                    "x-tkh-default": "DEFAULT"
+                  }
+                ]
+              },
+              "passwordSupported": {
+                "type": "boolean",
+                "x-tkh-default": true,
+                "x-tkh-backend-determines-default": true
+              },
+              "useScimJsonMimetype": {
+                "type": "boolean",
+                "x-tkh-default": true,
+                "x-tkh-backend-determines-default": true
+              },
+              "updateStrategy": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/provisioningSCIMUpdateStrategy"
+                  },
+                  {
+                    "x-tkh-default": "PATCH",
+                    "x-tkh-backend-determines-default": true
+                  }
+                ]
+              },
+              "pageSize": {
+                "type": "integer",
+                "format": "int32",
+                "x-tkh-default": 100,
+                "x-tkh-backend-determines-default": true
+              },
+              "filterActiveUsersSupported": {
+                "type": "boolean",
+                "x-tkh-default": true,
+                "x-tkh-backend-determines-default": true
+              },
+              "externalIdSupported": {
+                "type": "boolean",
+                "x-tkh-default": false,
+                "x-tkh-backend-determines-default": true
+              },
+              "groupsSupported": {
+                "type": "boolean",
+                "x-tkh-default": false,
+                "x-tkh-backend-determines-default": true
               },
               "$type": {
                 "type": "string",
@@ -41710,7 +41864,9 @@
         "enum": [
           "DEFAULT",
           "AWS",
-          "KEYSTONE"
+          "KEYSTONE",
+          "TOPICUS_KEYHUB_CONNECTOR",
+          "CUSTOM"
         ],
         "title": "provisioningProvisionedSCIMVendor"
       },
@@ -42366,6 +42522,15 @@
           }
         ],
         "title": "provisioningProvisioningStatus"
+      },
+      "provisioningSCIMUpdateStrategy": {
+        "type": "string",
+        "enum": [
+          "PATCH",
+          "PUT",
+          "DELETE_POST"
+        ],
+        "title": "provisioningSCIMUpdateStrategy"
       },
       "provisioningTokenPassword": {
         "allOf": [
@@ -43345,6 +43510,10 @@
             ],
             "type": "object",
             "properties": {
+              "endDate": {
+                "type": "string",
+                "format": "date"
+              },
               "$type": {
                 "type": "string",
                 "default": "request.JoinGroupRequest"
@@ -43586,7 +43755,8 @@
           {
             "title": "requestModificationRequestReport",
             "required": [
-              "$type"
+              "$type",
+              "ok"
             ],
             "type": "object",
             "properties": {
@@ -43599,12 +43769,6 @@
                     "x-tkh-default": "OK"
                   }
                 ]
-              },
-              "errorDetails": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/requestModificationRequestReportErrorDetails"
-                }
               },
               "changeDetails": {
                 "type": "array",
@@ -43653,9 +43817,48 @@
           "SYSTEM_ACCOUNTS_WRITABLE_DISABLED",
           "GROUP_ACTIVATION_FOR_VAULT_DISABLED",
           "GROUP_ACTIVATION_FOR_SSO_DISABLED",
-          "GROUP_ACTIVATION_FOR_PROVISIONING_DISABLED"
+          "GROUP_ACTIVATION_FOR_PROVISIONING_DISABLED",
+          "VAULT_RECORDS_WILL_BE_REMOVED",
+          "VAULT_RECORDS_WILL_BE_REMOVED_UNRECOVERABLE",
+          "APPLICATION_WILL_BE_REMOVED",
+          "SYSTEM_WILL_BE_REMOVED",
+          "GROUP_ON_SYSTEM_WILL_BE_REMOVED",
+          "SERVICE_ACCOUNT_WILL_BE_REMOVED",
+          "HELPDESK_WILL_BE_REMOVED"
         ],
         "title": "requestModificationRequestReportChange"
+      },
+      "requestModificationRequestReportChangeDescription": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NonLinkable",
+            "title": "requestModificationRequestReportChangeDescription"
+          },
+          {
+            "title": "requestModificationRequestReportChangeDescription",
+            "required": [
+              "$type",
+              "isKey",
+              "key"
+            ],
+            "type": "object",
+            "properties": {
+              "isKey": {
+                "type": "boolean",
+                "x-tkh-default": false
+              },
+              "value": {
+                "type": "string"
+              },
+              "$type": {
+                "type": "string",
+                "default": "request.ModificationRequestReportChangeDescription"
+              }
+            },
+            "x-tkh-discriminator": "request.ModificationRequestReportChangeDescription"
+          }
+        ],
+        "title": "requestModificationRequestReportChangeDescription"
       },
       "requestModificationRequestReportChangeDetails": {
         "allOf": [
@@ -43673,11 +43876,20 @@
               "change": {
                 "$ref": "#/components/schemas/requestModificationRequestReportChange"
               },
+              "error": {
+                "$ref": "#/components/schemas/requestModificationRequestReportError"
+              },
               "objectName": {
                 "type": "string"
               },
               "subjectName": {
                 "type": "string"
+              },
+              "additionalDescriptions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/requestModificationRequestReportChangeDescription"
+                }
               },
               "$type": {
                 "type": "string",
@@ -43712,41 +43924,16 @@
           "ONE_MOVEABLE_VAULT_ACCESS_OF_MULTIPLE_MEMBERS",
           "ZERO_MOVEABLE_VAULT_ACCESS_MEMBERS",
           "GROUP_OWNER_CLIENTAPP_WITH_TECHADMIN_OTHER_OU",
-          "GROUP_TECHADMIN_CLIENTAPP_WITH_OWNER_OTHER_OU"
+          "GROUP_TECHADMIN_CLIENTAPP_WITH_OWNER_OTHER_OU",
+          "AUTHORIZED_GROUP_CANNOT_BE_REMOVED",
+          "HAS_NESTED_GROUP_CANNOT_BE_REMOVED",
+          "SERVICE_ACCOUNT_CANNOT_BE_REMOVED",
+          "APPLICATION_CANNOT_BE_REMOVED",
+          "SYSTEM_CANNOT_BE_REMOVED",
+          "GROUP_ON_SYSTEM_CANNOT_BE_REMOVED",
+          "GROUP_OWNS_ACCESS_PROFILE"
         ],
         "title": "requestModificationRequestReportError"
-      },
-      "requestModificationRequestReportErrorDetails": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NonLinkable",
-            "title": "requestModificationRequestReportErrorDetails"
-          },
-          {
-            "title": "requestModificationRequestReportErrorDetails",
-            "required": [
-              "$type"
-            ],
-            "type": "object",
-            "properties": {
-              "error": {
-                "$ref": "#/components/schemas/requestModificationRequestReportError"
-              },
-              "names": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "$type": {
-                "type": "string",
-                "default": "request.ModificationRequestReportErrorDetails"
-              }
-            },
-            "x-tkh-discriminator": "request.ModificationRequestReportErrorDetails"
-          }
-        ],
-        "title": "requestModificationRequestReportErrorDetails"
       },
       "requestModificationRequestReportObjectChangeDetails": {
         "allOf": [
@@ -44016,14 +44203,28 @@
           {
             "title": "requestRemoveGroupRequest",
             "required": [
-              "$type"
+              "$type",
+              "groupCount"
             ],
             "type": "object",
             "properties": {
-              "groupName": {
-                "maxLength": 255,
-                "minLength": 0,
-                "type": "string"
+              "groups": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/groupGroupPrimer"
+                }
+              },
+              "groupNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "groupCount": {
+                "type": "integer",
+                "format": "int32",
+                "readOnly": true,
+                "x-tkh-default": 0
               },
               "$type": {
                 "type": "string",
@@ -44716,10 +44917,20 @@
                   "secret": {
                     "allOf": [
                       {
-                        "$ref": "#/components/schemas/GeneratedSecret"
+                        "$ref": "#/components/schemas/Secret"
                       },
                       {
-                        "x-tkh-backend-determines-default": true
+                        "readOnly": true
+                      }
+                    ]
+                  },
+                  "generateSecret": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/GenerateSecret"
+                      },
+                      {
+                        "writeOnly": true
                       }
                     ]
                   },
@@ -46211,6 +46422,9 @@
                 "$ref": "#/components/schemas/webhookWebhookNameUuid"
               },
               "system": {
+                "$ref": "#/components/schemas/webhookWebhookNameUuid"
+              },
+              "groupOnSystem": {
                 "$ref": "#/components/schemas/webhookWebhookNameUuid"
               },
               "serviceAccount": {

@@ -11,18 +11,12 @@ type LaunchpadLaunchpadTile struct {
     LaunchpadLaunchpadTilePrimer
     // The additionalObjects property
     additionalObjects LaunchpadLaunchpadTile_additionalObjectsable
-    // The application property
-    application ClientClientApplicationPrimerable
-    // The group property
-    group GroupGroupPrimerable
     // The identiconCode property
     identiconCode *int32
     // The type property
     launchpadLaunchpadTileType *LaunchpadLaunchpadTileType
     // The logo property
     logo []byte
-    // The vaultRecord property
-    vaultRecord VaultVaultRecordPrimerable
 }
 // NewLaunchpadLaunchpadTile instantiates a new LaunchpadLaunchpadTile and sets the default values.
 func NewLaunchpadLaunchpadTile()(*LaunchpadLaunchpadTile) {
@@ -65,11 +59,6 @@ func CreateLaunchpadLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e8
 func (m *LaunchpadLaunchpadTile) GetAdditionalObjects()(LaunchpadLaunchpadTile_additionalObjectsable) {
     return m.additionalObjects
 }
-// GetApplication gets the application property value. The application property
-// returns a ClientClientApplicationPrimerable when successful
-func (m *LaunchpadLaunchpadTile) GetApplication()(ClientClientApplicationPrimerable) {
-    return m.application
-}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
@@ -81,26 +70,6 @@ func (m *LaunchpadLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80
         }
         if val != nil {
             m.SetAdditionalObjects(val.(LaunchpadLaunchpadTile_additionalObjectsable))
-        }
-        return nil
-    }
-    res["application"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateClientClientApplicationPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetApplication(val.(ClientClientApplicationPrimerable))
-        }
-        return nil
-    }
-    res["group"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroup(val.(GroupGroupPrimerable))
         }
         return nil
     }
@@ -134,22 +103,7 @@ func (m *LaunchpadLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80
         }
         return nil
     }
-    res["vaultRecord"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateVaultVaultRecordPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetVaultRecord(val.(VaultVaultRecordPrimerable))
-        }
-        return nil
-    }
     return res
-}
-// GetGroup gets the group property value. The group property
-// returns a GroupGroupPrimerable when successful
-func (m *LaunchpadLaunchpadTile) GetGroup()(GroupGroupPrimerable) {
-    return m.group
 }
 // GetIdenticonCode gets the identiconCode property value. The identiconCode property
 // returns a *int32 when successful
@@ -166,11 +120,6 @@ func (m *LaunchpadLaunchpadTile) GetLaunchpadLaunchpadTileType()(*LaunchpadLaunc
 func (m *LaunchpadLaunchpadTile) GetLogo()([]byte) {
     return m.logo
 }
-// GetVaultRecord gets the vaultRecord property value. The vaultRecord property
-// returns a VaultVaultRecordPrimerable when successful
-func (m *LaunchpadLaunchpadTile) GetVaultRecord()(VaultVaultRecordPrimerable) {
-    return m.vaultRecord
-}
 // Serialize serializes information the current object
 func (m *LaunchpadLaunchpadTile) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     err := m.LaunchpadLaunchpadTilePrimer.Serialize(writer)
@@ -179,18 +128,6 @@ func (m *LaunchpadLaunchpadTile) Serialize(writer i878a80d2330e89d26896388a3f487
     }
     {
         err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("application", m.GetApplication())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("group", m.GetGroup())
         if err != nil {
             return err
         }
@@ -214,25 +151,11 @@ func (m *LaunchpadLaunchpadTile) Serialize(writer i878a80d2330e89d26896388a3f487
             return err
         }
     }
-    {
-        err = writer.WriteObjectValue("vaultRecord", m.GetVaultRecord())
-        if err != nil {
-            return err
-        }
-    }
     return nil
 }
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
 func (m *LaunchpadLaunchpadTile) SetAdditionalObjects(value LaunchpadLaunchpadTile_additionalObjectsable)() {
     m.additionalObjects = value
-}
-// SetApplication sets the application property value. The application property
-func (m *LaunchpadLaunchpadTile) SetApplication(value ClientClientApplicationPrimerable)() {
-    m.application = value
-}
-// SetGroup sets the group property value. The group property
-func (m *LaunchpadLaunchpadTile) SetGroup(value GroupGroupPrimerable)() {
-    m.group = value
 }
 // SetIdenticonCode sets the identiconCode property value. The identiconCode property
 func (m *LaunchpadLaunchpadTile) SetIdenticonCode(value *int32)() {
@@ -246,25 +169,15 @@ func (m *LaunchpadLaunchpadTile) SetLaunchpadLaunchpadTileType(value *LaunchpadL
 func (m *LaunchpadLaunchpadTile) SetLogo(value []byte)() {
     m.logo = value
 }
-// SetVaultRecord sets the vaultRecord property value. The vaultRecord property
-func (m *LaunchpadLaunchpadTile) SetVaultRecord(value VaultVaultRecordPrimerable)() {
-    m.vaultRecord = value
-}
 type LaunchpadLaunchpadTileable interface {
     LaunchpadLaunchpadTilePrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAdditionalObjects()(LaunchpadLaunchpadTile_additionalObjectsable)
-    GetApplication()(ClientClientApplicationPrimerable)
-    GetGroup()(GroupGroupPrimerable)
     GetIdenticonCode()(*int32)
     GetLaunchpadLaunchpadTileType()(*LaunchpadLaunchpadTileType)
     GetLogo()([]byte)
-    GetVaultRecord()(VaultVaultRecordPrimerable)
     SetAdditionalObjects(value LaunchpadLaunchpadTile_additionalObjectsable)()
-    SetApplication(value ClientClientApplicationPrimerable)()
-    SetGroup(value GroupGroupPrimerable)()
     SetIdenticonCode(value *int32)()
     SetLaunchpadLaunchpadTileType(value *LaunchpadLaunchpadTileType)()
     SetLogo(value []byte)()
-    SetVaultRecord(value VaultVaultRecordPrimerable)()
 }

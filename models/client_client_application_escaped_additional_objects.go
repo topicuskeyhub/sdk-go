@@ -16,6 +16,8 @@ type ClientClientApplication_additionalObjects struct {
     audit AuditInfoable
     // The deleteTile property
     deleteTile *bool
+    // The generateSecret property
+    generateSecret GenerateSecretable
     // The groupclients property
     groupclients GroupGroupClientLinkableWrapperWithCountable
     // The groups property
@@ -23,7 +25,7 @@ type ClientClientApplication_additionalObjects struct {
     // The organizationalUnits property
     organizationalUnits OrganizationClientApplicationOrganizationalUnitLinkableWrapperable
     // The secret property
-    secret GeneratedSecretable
+    secret Secretable
     // The tile property
     tile LaunchpadSsoApplicationLaunchpadTileable
     // The vaultRecordCount property
@@ -95,6 +97,16 @@ func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[
         }
         return nil
     }
+    res["generateSecret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateGenerateSecretFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGenerateSecret(val.(GenerateSecretable))
+        }
+        return nil
+    }
     res["groupclients"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateGroupGroupClientLinkableWrapperWithCountFromDiscriminatorValue)
         if err != nil {
@@ -126,12 +138,12 @@ func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[
         return nil
     }
     res["secret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGeneratedSecretFromDiscriminatorValue)
+        val, err := n.GetObjectValue(CreateSecretFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetSecret(val.(GeneratedSecretable))
+            m.SetSecret(val.(Secretable))
         }
         return nil
     }
@@ -157,6 +169,11 @@ func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[
     }
     return res
 }
+// GetGenerateSecret gets the generateSecret property value. The generateSecret property
+// returns a GenerateSecretable when successful
+func (m *ClientClientApplication_additionalObjects) GetGenerateSecret()(GenerateSecretable) {
+    return m.generateSecret
+}
 // GetGroupclients gets the groupclients property value. The groupclients property
 // returns a GroupGroupClientLinkableWrapperWithCountable when successful
 func (m *ClientClientApplication_additionalObjects) GetGroupclients()(GroupGroupClientLinkableWrapperWithCountable) {
@@ -173,8 +190,8 @@ func (m *ClientClientApplication_additionalObjects) GetOrganizationalUnits()(Org
     return m.organizationalUnits
 }
 // GetSecret gets the secret property value. The secret property
-// returns a GeneratedSecretable when successful
-func (m *ClientClientApplication_additionalObjects) GetSecret()(GeneratedSecretable) {
+// returns a Secretable when successful
+func (m *ClientClientApplication_additionalObjects) GetSecret()(Secretable) {
     return m.secret
 }
 // GetTile gets the tile property value. The tile property
@@ -203,6 +220,12 @@ func (m *ClientClientApplication_additionalObjects) Serialize(writer i878a80d233
     }
     {
         err := writer.WriteBoolValue("deleteTile", m.GetDeleteTile())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("generateSecret", m.GetGenerateSecret())
         if err != nil {
             return err
         }
@@ -261,6 +284,10 @@ func (m *ClientClientApplication_additionalObjects) SetAudit(value AuditInfoable
 func (m *ClientClientApplication_additionalObjects) SetDeleteTile(value *bool)() {
     m.deleteTile = value
 }
+// SetGenerateSecret sets the generateSecret property value. The generateSecret property
+func (m *ClientClientApplication_additionalObjects) SetGenerateSecret(value GenerateSecretable)() {
+    m.generateSecret = value
+}
 // SetGroupclients sets the groupclients property value. The groupclients property
 func (m *ClientClientApplication_additionalObjects) SetGroupclients(value GroupGroupClientLinkableWrapperWithCountable)() {
     m.groupclients = value
@@ -274,7 +301,7 @@ func (m *ClientClientApplication_additionalObjects) SetOrganizationalUnits(value
     m.organizationalUnits = value
 }
 // SetSecret sets the secret property value. The secret property
-func (m *ClientClientApplication_additionalObjects) SetSecret(value GeneratedSecretable)() {
+func (m *ClientClientApplication_additionalObjects) SetSecret(value Secretable)() {
     m.secret = value
 }
 // SetTile sets the tile property value. The tile property
@@ -291,19 +318,21 @@ type ClientClientApplication_additionalObjectsable interface {
     GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperWithCountable)
     GetAudit()(AuditInfoable)
     GetDeleteTile()(*bool)
+    GetGenerateSecret()(GenerateSecretable)
     GetGroupclients()(GroupGroupClientLinkableWrapperWithCountable)
     GetGroups()(GroupGroupLinkableWrapperable)
     GetOrganizationalUnits()(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)
-    GetSecret()(GeneratedSecretable)
+    GetSecret()(Secretable)
     GetTile()(LaunchpadSsoApplicationLaunchpadTileable)
     GetVaultRecordCount()(*int32)
     SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperWithCountable)()
     SetAudit(value AuditInfoable)()
     SetDeleteTile(value *bool)()
+    SetGenerateSecret(value GenerateSecretable)()
     SetGroupclients(value GroupGroupClientLinkableWrapperWithCountable)()
     SetGroups(value GroupGroupLinkableWrapperable)()
     SetOrganizationalUnits(value OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)()
-    SetSecret(value GeneratedSecretable)()
+    SetSecret(value Secretable)()
     SetTile(value LaunchpadSsoApplicationLaunchpadTileable)()
     SetVaultRecordCount(value *int32)()
 }

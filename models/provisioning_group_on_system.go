@@ -9,12 +9,12 @@ import (
 
 type ProvisioningGroupOnSystem struct {
     ProvisioningGroupOnSystemPrimer
+    // The accountProvisioning property
+    accountProvisioning *ProvisioningGroupOnSystemProvisioningStatus
     // The additionalObjects property
     additionalObjects ProvisioningGroupOnSystem_additionalObjectsable
     // The owner property
     owner GroupGroupPrimerable
-    // The provisioningEnabled property
-    provisioningEnabled *bool
     // The system property
     system ProvisioningProvisionedSystemPrimerable
 }
@@ -32,6 +32,11 @@ func NewProvisioningGroupOnSystem()(*ProvisioningGroupOnSystem) {
 func CreateProvisioningGroupOnSystemFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningGroupOnSystem(), nil
 }
+// GetAccountProvisioning gets the accountProvisioning property value. The accountProvisioning property
+// returns a *ProvisioningGroupOnSystemProvisioningStatus when successful
+func (m *ProvisioningGroupOnSystem) GetAccountProvisioning()(*ProvisioningGroupOnSystemProvisioningStatus) {
+    return m.accountProvisioning
+}
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a ProvisioningGroupOnSystem_additionalObjectsable when successful
 func (m *ProvisioningGroupOnSystem) GetAdditionalObjects()(ProvisioningGroupOnSystem_additionalObjectsable) {
@@ -41,6 +46,16 @@ func (m *ProvisioningGroupOnSystem) GetAdditionalObjects()(ProvisioningGroupOnSy
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningGroupOnSystem) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningGroupOnSystemPrimer.GetFieldDeserializers()
+    res["accountProvisioning"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetEnumValue(ParseProvisioningGroupOnSystemProvisioningStatus)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAccountProvisioning(val.(*ProvisioningGroupOnSystemProvisioningStatus))
+        }
+        return nil
+    }
     res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateProvisioningGroupOnSystem_additionalObjectsFromDiscriminatorValue)
         if err != nil {
@@ -61,16 +76,6 @@ func (m *ProvisioningGroupOnSystem) GetFieldDeserializers()(map[string]func(i878
         }
         return nil
     }
-    res["provisioningEnabled"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetProvisioningEnabled(val)
-        }
-        return nil
-    }
     res["system"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue)
         if err != nil {
@@ -88,11 +93,6 @@ func (m *ProvisioningGroupOnSystem) GetFieldDeserializers()(map[string]func(i878
 func (m *ProvisioningGroupOnSystem) GetOwner()(GroupGroupPrimerable) {
     return m.owner
 }
-// GetProvisioningEnabled gets the provisioningEnabled property value. The provisioningEnabled property
-// returns a *bool when successful
-func (m *ProvisioningGroupOnSystem) GetProvisioningEnabled()(*bool) {
-    return m.provisioningEnabled
-}
 // GetSystem gets the system property value. The system property
 // returns a ProvisioningProvisionedSystemPrimerable when successful
 func (m *ProvisioningGroupOnSystem) GetSystem()(ProvisioningProvisionedSystemPrimerable) {
@@ -103,6 +103,13 @@ func (m *ProvisioningGroupOnSystem) Serialize(writer i878a80d2330e89d26896388a3f
     err := m.ProvisioningGroupOnSystemPrimer.Serialize(writer)
     if err != nil {
         return err
+    }
+    if m.GetAccountProvisioning() != nil {
+        cast := (*m.GetAccountProvisioning()).String()
+        err = writer.WriteStringValue("accountProvisioning", &cast)
+        if err != nil {
+            return err
+        }
     }
     {
         err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
@@ -117,18 +124,16 @@ func (m *ProvisioningGroupOnSystem) Serialize(writer i878a80d2330e89d26896388a3f
         }
     }
     {
-        err = writer.WriteBoolValue("provisioningEnabled", m.GetProvisioningEnabled())
-        if err != nil {
-            return err
-        }
-    }
-    {
         err = writer.WriteObjectValue("system", m.GetSystem())
         if err != nil {
             return err
         }
     }
     return nil
+}
+// SetAccountProvisioning sets the accountProvisioning property value. The accountProvisioning property
+func (m *ProvisioningGroupOnSystem) SetAccountProvisioning(value *ProvisioningGroupOnSystemProvisioningStatus)() {
+    m.accountProvisioning = value
 }
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
 func (m *ProvisioningGroupOnSystem) SetAdditionalObjects(value ProvisioningGroupOnSystem_additionalObjectsable)() {
@@ -138,10 +143,6 @@ func (m *ProvisioningGroupOnSystem) SetAdditionalObjects(value ProvisioningGroup
 func (m *ProvisioningGroupOnSystem) SetOwner(value GroupGroupPrimerable)() {
     m.owner = value
 }
-// SetProvisioningEnabled sets the provisioningEnabled property value. The provisioningEnabled property
-func (m *ProvisioningGroupOnSystem) SetProvisioningEnabled(value *bool)() {
-    m.provisioningEnabled = value
-}
 // SetSystem sets the system property value. The system property
 func (m *ProvisioningGroupOnSystem) SetSystem(value ProvisioningProvisionedSystemPrimerable)() {
     m.system = value
@@ -149,12 +150,12 @@ func (m *ProvisioningGroupOnSystem) SetSystem(value ProvisioningProvisionedSyste
 type ProvisioningGroupOnSystemable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningGroupOnSystemPrimerable
+    GetAccountProvisioning()(*ProvisioningGroupOnSystemProvisioningStatus)
     GetAdditionalObjects()(ProvisioningGroupOnSystem_additionalObjectsable)
     GetOwner()(GroupGroupPrimerable)
-    GetProvisioningEnabled()(*bool)
     GetSystem()(ProvisioningProvisionedSystemPrimerable)
+    SetAccountProvisioning(value *ProvisioningGroupOnSystemProvisioningStatus)()
     SetAdditionalObjects(value ProvisioningGroupOnSystem_additionalObjectsable)()
     SetOwner(value GroupGroupPrimerable)()
-    SetProvisioningEnabled(value *bool)()
     SetSystem(value ProvisioningProvisionedSystemPrimerable)()
 }

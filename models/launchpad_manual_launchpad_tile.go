@@ -9,6 +9,8 @@ import (
 
 type LaunchpadManualLaunchpadTile struct {
     LaunchpadLaunchpadTile
+    // The group property
+    group GroupGroupPrimerable
     // The title property
     title *string
     // The uri property
@@ -32,6 +34,16 @@ func CreateLaunchpadManualLaunchpadTileFromDiscriminatorValue(parseNode i878a80d
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadManualLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.LaunchpadLaunchpadTile.GetFieldDeserializers()
+    res["group"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetGroup(val.(GroupGroupPrimerable))
+        }
+        return nil
+    }
     res["title"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -54,6 +66,11 @@ func (m *LaunchpadManualLaunchpadTile) GetFieldDeserializers()(map[string]func(i
     }
     return res
 }
+// GetGroup gets the group property value. The group property
+// returns a GroupGroupPrimerable when successful
+func (m *LaunchpadManualLaunchpadTile) GetGroup()(GroupGroupPrimerable) {
+    return m.group
+}
 // GetTitle gets the title property value. The title property
 // returns a *string when successful
 func (m *LaunchpadManualLaunchpadTile) GetTitle()(*string) {
@@ -71,6 +88,12 @@ func (m *LaunchpadManualLaunchpadTile) Serialize(writer i878a80d2330e89d26896388
         return err
     }
     {
+        err = writer.WriteObjectValue("group", m.GetGroup())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("title", m.GetTitle())
         if err != nil {
             return err
@@ -84,6 +107,10 @@ func (m *LaunchpadManualLaunchpadTile) Serialize(writer i878a80d2330e89d26896388
     }
     return nil
 }
+// SetGroup sets the group property value. The group property
+func (m *LaunchpadManualLaunchpadTile) SetGroup(value GroupGroupPrimerable)() {
+    m.group = value
+}
 // SetTitle sets the title property value. The title property
 func (m *LaunchpadManualLaunchpadTile) SetTitle(value *string)() {
     m.title = value
@@ -95,8 +122,10 @@ func (m *LaunchpadManualLaunchpadTile) SetUri(value *string)() {
 type LaunchpadManualLaunchpadTileable interface {
     LaunchpadLaunchpadTileable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetGroup()(GroupGroupPrimerable)
     GetTitle()(*string)
     GetUri()(*string)
+    SetGroup(value GroupGroupPrimerable)()
     SetTitle(value *string)()
     SetUri(value *string)()
 }

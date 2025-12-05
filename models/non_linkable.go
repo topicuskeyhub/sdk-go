@@ -59,8 +59,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewAuthStoredAccountAttributes(), nil
                     case "directory.AccountDirectoryStatusReport":
                         return NewDirectoryAccountDirectoryStatusReport(), nil
-                    case "GeneratedSecret":
-                        return NewGeneratedSecret(), nil
+                    case "GenerateSecret":
+                        return NewGenerateSecret(), nil
                     case "group.GroupAccessInfo":
                         return NewGroupGroupAccessInfo(), nil
                     case "group.GroupAccountNesting":
@@ -157,14 +157,16 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewRequestAcceptModificationRequestParameters(), nil
                     case "request.ModificationRequestReport":
                         return NewRequestModificationRequestReport(), nil
+                    case "request.ModificationRequestReportChangeDescription":
+                        return NewRequestModificationRequestReportChangeDescription(), nil
                     case "request.ModificationRequestReportChangeDetails":
                         return NewRequestModificationRequestReportChangeDetails(), nil
-                    case "request.ModificationRequestReportErrorDetails":
-                        return NewRequestModificationRequestReportErrorDetails(), nil
                     case "request.ModificationRequestReportObjectChangeDetails":
                         return NewRequestModificationRequestReportObjectChangeDetails(), nil
                     case "request.PasswordResetRequestStatus":
                         return NewRequestPasswordResetRequestStatus(), nil
+                    case "Secret":
+                        return NewSecret(), nil
                     case "SegmentCount":
                         return NewSegmentCount(), nil
                     case "serviceaccount.ServiceAccountsAuditStats":

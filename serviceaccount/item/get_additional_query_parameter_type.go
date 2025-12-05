@@ -6,19 +6,22 @@ type GetAdditionalQueryParameterType int
 
 const (
     AUDIT_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    GENERATESECRET_GETADDITIONALQUERYPARAMETERTYPE
     GROUPS_GETADDITIONALQUERYPARAMETERTYPE
     SECRET_GETADDITIONALQUERYPARAMETERTYPE
     SUPPORTEDFEATURES_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"audit", "groups", "secret", "supportedFeatures"}[i]
+    return []string{"audit", "generateSecret", "groups", "secret", "supportedFeatures"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_GETADDITIONALQUERYPARAMETERTYPE
     switch v {
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+        case "generateSecret":
+            result = GENERATESECRET_GETADDITIONALQUERYPARAMETERTYPE
         case "groups":
             result = GROUPS_GETADDITIONALQUERYPARAMETERTYPE
         case "secret":

@@ -9,6 +9,8 @@ import (
 
 type LaunchpadSsoApplicationLaunchpadTile struct {
     LaunchpadLaunchpadTile
+    // The application property
+    application ClientClientApplicationPrimerable
     // The uri property
     uri *string
 }
@@ -26,10 +28,25 @@ func NewLaunchpadSsoApplicationLaunchpadTile()(*LaunchpadSsoApplicationLaunchpad
 func CreateLaunchpadSsoApplicationLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewLaunchpadSsoApplicationLaunchpadTile(), nil
 }
+// GetApplication gets the application property value. The application property
+// returns a ClientClientApplicationPrimerable when successful
+func (m *LaunchpadSsoApplicationLaunchpadTile) GetApplication()(ClientClientApplicationPrimerable) {
+    return m.application
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadSsoApplicationLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.LaunchpadLaunchpadTile.GetFieldDeserializers()
+    res["application"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateClientClientApplicationPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetApplication(val.(ClientClientApplicationPrimerable))
+        }
+        return nil
+    }
     res["uri"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -54,12 +71,22 @@ func (m *LaunchpadSsoApplicationLaunchpadTile) Serialize(writer i878a80d2330e89d
         return err
     }
     {
+        err = writer.WriteObjectValue("application", m.GetApplication())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("uri", m.GetUri())
         if err != nil {
             return err
         }
     }
     return nil
+}
+// SetApplication sets the application property value. The application property
+func (m *LaunchpadSsoApplicationLaunchpadTile) SetApplication(value ClientClientApplicationPrimerable)() {
+    m.application = value
 }
 // SetUri sets the uri property value. The uri property
 func (m *LaunchpadSsoApplicationLaunchpadTile) SetUri(value *string)() {
@@ -68,6 +95,8 @@ func (m *LaunchpadSsoApplicationLaunchpadTile) SetUri(value *string)() {
 type LaunchpadSsoApplicationLaunchpadTileable interface {
     LaunchpadLaunchpadTileable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetApplication()(ClientClientApplicationPrimerable)
     GetUri()(*string)
+    SetApplication(value ClientClientApplicationPrimerable)()
     SetUri(value *string)()
 }

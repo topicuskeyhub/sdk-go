@@ -8,11 +8,12 @@ const (
     NONE_HTTPAUTHENTICATIONSCHEME HttpAuthenticationScheme = iota
     BASIC_HTTPAUTHENTICATIONSCHEME
     BEARER_HTTPAUTHENTICATIONSCHEME
+    KEYHUB_HTTPAUTHENTICATIONSCHEME
     CUSTOM_HTTPAUTHENTICATIONSCHEME
 )
 
 func (i HttpAuthenticationScheme) String() string {
-    return []string{"NONE", "BASIC", "BEARER", "CUSTOM"}[i]
+    return []string{"NONE", "BASIC", "BEARER", "KEYHUB", "CUSTOM"}[i]
 }
 func ParseHttpAuthenticationScheme(v string) (any, error) {
     result := NONE_HTTPAUTHENTICATIONSCHEME
@@ -23,6 +24,8 @@ func ParseHttpAuthenticationScheme(v string) (any, error) {
             result = BASIC_HTTPAUTHENTICATIONSCHEME
         case "BEARER":
             result = BEARER_HTTPAUTHENTICATIONSCHEME
+        case "KEYHUB":
+            result = KEYHUB_HTTPAUTHENTICATIONSCHEME
         case "CUSTOM":
             result = CUSTOM_HTTPAUTHENTICATIONSCHEME
         default:
