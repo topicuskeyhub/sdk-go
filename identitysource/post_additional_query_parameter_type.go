@@ -6,16 +6,19 @@ type PostAdditionalQueryParameterType int
 
 const (
     AUDIT_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+    LASTIMPORT_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"audit"}[i]
+    return []string{"audit", "lastImport"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
     switch v {
         case "audit":
             result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+        case "lastImport":
+            result = LASTIMPORT_POSTADDITIONALQUERYPARAMETERTYPE
         default:
             return nil, nil
     }

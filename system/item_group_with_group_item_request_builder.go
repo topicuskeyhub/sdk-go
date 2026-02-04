@@ -142,7 +142,7 @@ func (m *ItemGroupWithGroupItemRequestBuilder) ToDeleteRequestInformation(ctx co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the group on system identified by the id.
@@ -156,7 +156,7 @@ func (m *ItemGroupWithGroupItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the group on system identified by the id.
@@ -170,8 +170,8 @@ func (m *ItemGroupWithGroupItemRequestBuilder) ToPutRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=82", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
     if err != nil {
         return nil, err
     }

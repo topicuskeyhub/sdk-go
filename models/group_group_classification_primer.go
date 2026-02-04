@@ -11,6 +11,8 @@ type GroupGroupClassificationPrimer struct {
     Linkable
     // The name property
     name *string
+    // The organizationalUnit property
+    organizationalUnit OrganizationOrganizationalUnitPrimerable
     // The uuid property
     uuid *string
 }
@@ -60,6 +62,16 @@ func (m *GroupGroupClassificationPrimer) GetFieldDeserializers()(map[string]func
         }
         return nil
     }
+    res["organizationalUnit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOrganizationalUnit(val.(OrganizationOrganizationalUnitPrimerable))
+        }
+        return nil
+    }
     res["uuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -76,6 +88,11 @@ func (m *GroupGroupClassificationPrimer) GetFieldDeserializers()(map[string]func
 // returns a *string when successful
 func (m *GroupGroupClassificationPrimer) GetName()(*string) {
     return m.name
+}
+// GetOrganizationalUnit gets the organizationalUnit property value. The organizationalUnit property
+// returns a OrganizationOrganizationalUnitPrimerable when successful
+func (m *GroupGroupClassificationPrimer) GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable) {
+    return m.organizationalUnit
 }
 // GetUuid gets the uuid property value. The uuid property
 // returns a *string when successful
@@ -94,11 +111,21 @@ func (m *GroupGroupClassificationPrimer) Serialize(writer i878a80d2330e89d268963
             return err
         }
     }
+    {
+        err = writer.WriteObjectValue("organizationalUnit", m.GetOrganizationalUnit())
+        if err != nil {
+            return err
+        }
+    }
     return nil
 }
 // SetName sets the name property value. The name property
 func (m *GroupGroupClassificationPrimer) SetName(value *string)() {
     m.name = value
+}
+// SetOrganizationalUnit sets the organizationalUnit property value. The organizationalUnit property
+func (m *GroupGroupClassificationPrimer) SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)() {
+    m.organizationalUnit = value
 }
 // SetUuid sets the uuid property value. The uuid property
 func (m *GroupGroupClassificationPrimer) SetUuid(value *string)() {
@@ -108,7 +135,9 @@ type GroupGroupClassificationPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetName()(*string)
+    GetOrganizationalUnit()(OrganizationOrganizationalUnitPrimerable)
     GetUuid()(*string)
     SetName(value *string)()
+    SetOrganizationalUnit(value OrganizationOrganizationalUnitPrimerable)()
     SetUuid(value *string)()
 }

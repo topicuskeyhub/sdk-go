@@ -6,18 +6,21 @@ type GetAdditionalQueryParameterType int
 
 const (
     AUDIT_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+    LATEST_SELFSERVICE_GETADDITIONALQUERYPARAMETERTYPE
     PREVIOUS_GETADDITIONALQUERYPARAMETERTYPE
     SELECTION_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"audit", "previous", "selection"}[i]
+    return []string{"audit", "latest_selfservice", "previous", "selection"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := AUDIT_GETADDITIONALQUERYPARAMETERTYPE
     switch v {
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+        case "latest_selfservice":
+            result = LATEST_SELFSERVICE_GETADDITIONALQUERYPARAMETERTYPE
         case "previous":
             result = PREVIOUS_GETADDITIONALQUERYPARAMETERTYPE
         case "selection":

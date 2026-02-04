@@ -9,8 +9,6 @@ import (
 
 type WebhookWebhook struct {
     Linkable
-    // The account property
-    account AuthAccountPrimerable
     // The active property
     active *bool
     // The additionalObjects property
@@ -39,6 +37,8 @@ type WebhookWebhook struct {
     group GroupGroupPrimerable
     // The name property
     name *string
+    // The serviceAccount property
+    serviceAccount ServiceaccountServiceAccountPrimerable
     // The system property
     system ProvisioningProvisionedSystemPrimerable
     // The tls property
@@ -67,11 +67,6 @@ func NewWebhookWebhook()(*WebhookWebhook) {
 // returns a Parsable when successful
 func CreateWebhookWebhookFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewWebhookWebhook(), nil
-}
-// GetAccount gets the account property value. The account property
-// returns a AuthAccountPrimerable when successful
-func (m *WebhookWebhook) GetAccount()(AuthAccountPrimerable) {
-    return m.account
 }
 // GetActive gets the active property value. The active property
 // returns a *bool when successful
@@ -137,16 +132,6 @@ func (m *WebhookWebhook) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *WebhookWebhook) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
-    res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateAuthAccountPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccount(val.(AuthAccountPrimerable))
-        }
-        return nil
-    }
     res["active"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -287,6 +272,16 @@ func (m *WebhookWebhook) GetFieldDeserializers()(map[string]func(i878a80d2330e89
         }
         return nil
     }
+    res["serviceAccount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateServiceaccountServiceAccountPrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetServiceAccount(val.(ServiceaccountServiceAccountPrimerable))
+        }
+        return nil
+    }
     res["system"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue)
         if err != nil {
@@ -375,6 +370,11 @@ func (m *WebhookWebhook) GetGroup()(GroupGroupPrimerable) {
 func (m *WebhookWebhook) GetName()(*string) {
     return m.name
 }
+// GetServiceAccount gets the serviceAccount property value. The serviceAccount property
+// returns a ServiceaccountServiceAccountPrimerable when successful
+func (m *WebhookWebhook) GetServiceAccount()(ServiceaccountServiceAccountPrimerable) {
+    return m.serviceAccount
+}
 // GetSystem gets the system property value. The system property
 // returns a ProvisioningProvisionedSystemPrimerable when successful
 func (m *WebhookWebhook) GetSystem()(ProvisioningProvisionedSystemPrimerable) {
@@ -415,12 +415,6 @@ func (m *WebhookWebhook) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a
     err := m.Linkable.Serialize(writer)
     if err != nil {
         return err
-    }
-    {
-        err = writer.WriteObjectValue("account", m.GetAccount())
-        if err != nil {
-            return err
-        }
     }
     {
         err = writer.WriteBoolValue("active", m.GetActive())
@@ -508,6 +502,12 @@ func (m *WebhookWebhook) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a
         }
     }
     {
+        err = writer.WriteObjectValue("serviceAccount", m.GetServiceAccount())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("system", m.GetSystem())
         if err != nil {
             return err
@@ -545,10 +545,6 @@ func (m *WebhookWebhook) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a
         }
     }
     return nil
-}
-// SetAccount sets the account property value. The account property
-func (m *WebhookWebhook) SetAccount(value AuthAccountPrimerable)() {
-    m.account = value
 }
 // SetActive sets the active property value. The active property
 func (m *WebhookWebhook) SetActive(value *bool)() {
@@ -606,6 +602,10 @@ func (m *WebhookWebhook) SetGroup(value GroupGroupPrimerable)() {
 func (m *WebhookWebhook) SetName(value *string)() {
     m.name = value
 }
+// SetServiceAccount sets the serviceAccount property value. The serviceAccount property
+func (m *WebhookWebhook) SetServiceAccount(value ServiceaccountServiceAccountPrimerable)() {
+    m.serviceAccount = value
+}
 // SetSystem sets the system property value. The system property
 func (m *WebhookWebhook) SetSystem(value ProvisioningProvisionedSystemPrimerable)() {
     m.system = value
@@ -637,7 +637,6 @@ func (m *WebhookWebhook) SetVerbosePayloads(value *bool)() {
 type WebhookWebhookable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAccount()(AuthAccountPrimerable)
     GetActive()(*bool)
     GetAdditionalObjects()(WebhookWebhook_additionalObjectsable)
     GetAllTypes()(*bool)
@@ -652,6 +651,7 @@ type WebhookWebhookable interface {
     GetDirectory()(DirectoryAccountDirectoryPrimerable)
     GetGroup()(GroupGroupPrimerable)
     GetName()(*string)
+    GetServiceAccount()(ServiceaccountServiceAccountPrimerable)
     GetSystem()(ProvisioningProvisionedSystemPrimerable)
     GetTls()(*TLSLevel)
     GetTrustedCertificate()(CertificateCertificatePrimerable)
@@ -659,7 +659,6 @@ type WebhookWebhookable interface {
     GetUrl()(*string)
     GetUuid()(*string)
     GetVerbosePayloads()(*bool)
-    SetAccount(value AuthAccountPrimerable)()
     SetActive(value *bool)()
     SetAdditionalObjects(value WebhookWebhook_additionalObjectsable)()
     SetAllTypes(value *bool)()
@@ -674,6 +673,7 @@ type WebhookWebhookable interface {
     SetDirectory(value DirectoryAccountDirectoryPrimerable)()
     SetGroup(value GroupGroupPrimerable)()
     SetName(value *string)()
+    SetServiceAccount(value ServiceaccountServiceAccountPrimerable)()
     SetSystem(value ProvisioningProvisionedSystemPrimerable)()
     SetTls(value *TLSLevel)()
     SetTrustedCertificate(value CertificateCertificatePrimerable)()

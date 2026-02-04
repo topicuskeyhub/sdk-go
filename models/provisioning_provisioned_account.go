@@ -11,6 +11,8 @@ type ProvisioningProvisionedAccount struct {
     AuthAccountPrimer
     // The additionalObjects property
     additionalObjects ProvisioningProvisionedAccount_additionalObjectsable
+    // The loginName property
+    loginName *string
     // The uid property
     uid *int64
 }
@@ -47,6 +49,16 @@ func (m *ProvisioningProvisionedAccount) GetFieldDeserializers()(map[string]func
         }
         return nil
     }
+    res["loginName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetLoginName(val)
+        }
+        return nil
+    }
     res["uid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetInt64Value()
         if err != nil {
@@ -58,6 +70,11 @@ func (m *ProvisioningProvisionedAccount) GetFieldDeserializers()(map[string]func
         return nil
     }
     return res
+}
+// GetLoginName gets the loginName property value. The loginName property
+// returns a *string when successful
+func (m *ProvisioningProvisionedAccount) GetLoginName()(*string) {
+    return m.loginName
 }
 // GetUid gets the uid property value. The uid property
 // returns a *int64 when successful
@@ -82,6 +99,10 @@ func (m *ProvisioningProvisionedAccount) Serialize(writer i878a80d2330e89d268963
 func (m *ProvisioningProvisionedAccount) SetAdditionalObjects(value ProvisioningProvisionedAccount_additionalObjectsable)() {
     m.additionalObjects = value
 }
+// SetLoginName sets the loginName property value. The loginName property
+func (m *ProvisioningProvisionedAccount) SetLoginName(value *string)() {
+    m.loginName = value
+}
 // SetUid sets the uid property value. The uid property
 func (m *ProvisioningProvisionedAccount) SetUid(value *int64)() {
     m.uid = value
@@ -90,7 +111,9 @@ type ProvisioningProvisionedAccountable interface {
     AuthAccountPrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAdditionalObjects()(ProvisioningProvisionedAccount_additionalObjectsable)
+    GetLoginName()(*string)
     GetUid()(*int64)
     SetAdditionalObjects(value ProvisioningProvisionedAccount_additionalObjectsable)()
+    SetLoginName(value *string)()
     SetUid(value *int64)()
 }

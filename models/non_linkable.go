@@ -67,8 +67,6 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewGroupGroupAccountNesting(), nil
                     case "group.GroupAccountStatus":
                         return NewGroupGroupAccountStatus(), nil
-                    case "group.GroupAdminMail":
-                        return NewGroupGroupAdminMail(), nil
                     case "group.GroupAuditingInfo":
                         return NewGroupGroupAuditingInfo(), nil
                     case "group.GroupClassificationInfo":
@@ -79,14 +77,20 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewGroupGroupGlobalRoleInfo(), nil
                     case "group.GroupInfo":
                         return NewGroupGroupInfo(), nil
+                    case "group.GroupMail":
+                        return NewGroupGroupMail(), nil
                     case "group.GroupsAuditStats":
                         return NewGroupGroupsAuditStats(), nil
+                    case "identity.AccountAttributeDefinitionProperty":
+                        return NewIdentityAccountAttributeDefinitionProperty(), nil
                     case "identity.AccountAttributeValueSelection":
                         return NewIdentityAccountAttributeValueSelection(), nil
                     case "identity.AccountAttributeValueSummary":
                         return NewIdentityAccountAttributeValueSummary(), nil
                     case "identity.AccountAttributeValueUpdate":
                         return NewIdentityAccountAttributeValueUpdate(), nil
+                    case "identitysource.IdentitySourceAttributeMapping":
+                        return NewIdentitysourceIdentitySourceAttributeMapping(), nil
                     case "launchpad.DisplayedLaunchpadTiles":
                         return NewLaunchpadDisplayedLaunchpadTiles(), nil
                     case "license.KeyHubLicenseInfo":

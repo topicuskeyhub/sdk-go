@@ -11,8 +11,8 @@ type IdentitysourceIdentitySource struct {
     IdentitysourceIdentitySourcePrimer
     // The additionalObjects property
     additionalObjects IdentitysourceIdentitySource_additionalObjectsable
-    // The schedule property
-    schedule *string
+    // The attributeMappings property
+    attributeMappings []IdentitysourceIdentitySourceAttributeMappingable
 }
 // NewIdentitysourceIdentitySource instantiates a new IdentitysourceIdentitySource and sets the default values.
 func NewIdentitysourceIdentitySource()(*IdentitysourceIdentitySource) {
@@ -40,6 +40,8 @@ func CreateIdentitysourceIdentitySourceFromDiscriminatorValue(parseNode i878a80d
                 switch *mappingValue {
                     case "identitysource.AFASIdentitySource":
                         return NewIdentitysourceAFASIdentitySource(), nil
+                    case "identitysource.CSVImportIdentitySource":
+                        return NewIdentitysourceCSVImportIdentitySource(), nil
                 }
             }
         }
@@ -50,6 +52,11 @@ func CreateIdentitysourceIdentitySourceFromDiscriminatorValue(parseNode i878a80d
 // returns a IdentitysourceIdentitySource_additionalObjectsable when successful
 func (m *IdentitysourceIdentitySource) GetAdditionalObjects()(IdentitysourceIdentitySource_additionalObjectsable) {
     return m.additionalObjects
+}
+// GetAttributeMappings gets the attributeMappings property value. The attributeMappings property
+// returns a []IdentitysourceIdentitySourceAttributeMappingable when successful
+func (m *IdentitysourceIdentitySource) GetAttributeMappings()([]IdentitysourceIdentitySourceAttributeMappingable) {
+    return m.attributeMappings
 }
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
@@ -65,22 +72,23 @@ func (m *IdentitysourceIdentitySource) GetFieldDeserializers()(map[string]func(i
         }
         return nil
     }
-    res["schedule"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["attributeMappings"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateIdentitysourceIdentitySourceAttributeMappingFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetSchedule(val)
+            res := make([]IdentitysourceIdentitySourceAttributeMappingable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(IdentitysourceIdentitySourceAttributeMappingable)
+                }
+            }
+            m.SetAttributeMappings(res)
         }
         return nil
     }
     return res
-}
-// GetSchedule gets the schedule property value. The schedule property
-// returns a *string when successful
-func (m *IdentitysourceIdentitySource) GetSchedule()(*string) {
-    return m.schedule
 }
 // Serialize serializes information the current object
 func (m *IdentitysourceIdentitySource) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -94,8 +102,14 @@ func (m *IdentitysourceIdentitySource) Serialize(writer i878a80d2330e89d26896388
             return err
         }
     }
-    {
-        err = writer.WriteStringValue("schedule", m.GetSchedule())
+    if m.GetAttributeMappings() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributeMappings()))
+        for i, v := range m.GetAttributeMappings() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributeMappings", cast)
         if err != nil {
             return err
         }
@@ -106,15 +120,15 @@ func (m *IdentitysourceIdentitySource) Serialize(writer i878a80d2330e89d26896388
 func (m *IdentitysourceIdentitySource) SetAdditionalObjects(value IdentitysourceIdentitySource_additionalObjectsable)() {
     m.additionalObjects = value
 }
-// SetSchedule sets the schedule property value. The schedule property
-func (m *IdentitysourceIdentitySource) SetSchedule(value *string)() {
-    m.schedule = value
+// SetAttributeMappings sets the attributeMappings property value. The attributeMappings property
+func (m *IdentitysourceIdentitySource) SetAttributeMappings(value []IdentitysourceIdentitySourceAttributeMappingable)() {
+    m.attributeMappings = value
 }
 type IdentitysourceIdentitySourceable interface {
     IdentitysourceIdentitySourcePrimerable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAdditionalObjects()(IdentitysourceIdentitySource_additionalObjectsable)
-    GetSchedule()(*string)
+    GetAttributeMappings()([]IdentitysourceIdentitySourceAttributeMappingable)
     SetAdditionalObjects(value IdentitysourceIdentitySource_additionalObjectsable)()
-    SetSchedule(value *string)()
+    SetAttributeMappings(value []IdentitysourceIdentitySourceAttributeMappingable)()
 }

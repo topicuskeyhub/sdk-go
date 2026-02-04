@@ -19,6 +19,10 @@ type IdentityAccountAttributeDefinition struct {
     list *bool
     // The name property
     name *string
+    // The properties property
+    properties []IdentityAccountAttributeDefinitionPropertyable
+    // The propertyHandling property
+    propertyHandling *IdentityComplexAccountAttributeHandling
     // The required property
     required *bool
     // The systemDefinition property
@@ -99,6 +103,32 @@ func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers()(map[string]
         }
         return nil
     }
+    res["properties"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateIdentityAccountAttributeDefinitionPropertyFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]IdentityAccountAttributeDefinitionPropertyable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(IdentityAccountAttributeDefinitionPropertyable)
+                }
+            }
+            m.SetProperties(res)
+        }
+        return nil
+    }
+    res["propertyHandling"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetEnumValue(ParseIdentityComplexAccountAttributeHandling)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetPropertyHandling(val.(*IdentityComplexAccountAttributeHandling))
+        }
+        return nil
+    }
     res["required"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -150,6 +180,16 @@ func (m *IdentityAccountAttributeDefinition) GetList()(*bool) {
 // returns a *string when successful
 func (m *IdentityAccountAttributeDefinition) GetName()(*string) {
     return m.name
+}
+// GetProperties gets the properties property value. The properties property
+// returns a []IdentityAccountAttributeDefinitionPropertyable when successful
+func (m *IdentityAccountAttributeDefinition) GetProperties()([]IdentityAccountAttributeDefinitionPropertyable) {
+    return m.properties
+}
+// GetPropertyHandling gets the propertyHandling property value. The propertyHandling property
+// returns a *IdentityComplexAccountAttributeHandling when successful
+func (m *IdentityAccountAttributeDefinition) GetPropertyHandling()(*IdentityComplexAccountAttributeHandling) {
+    return m.propertyHandling
 }
 // GetRequired gets the required property value. The required property
 // returns a *bool when successful
@@ -203,6 +243,25 @@ func (m *IdentityAccountAttributeDefinition) Serialize(writer i878a80d2330e89d26
             return err
         }
     }
+    if m.GetProperties() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetProperties()))
+        for i, v := range m.GetProperties() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("properties", cast)
+        if err != nil {
+            return err
+        }
+    }
+    if m.GetPropertyHandling() != nil {
+        cast := (*m.GetPropertyHandling()).String()
+        err = writer.WriteStringValue("propertyHandling", &cast)
+        if err != nil {
+            return err
+        }
+    }
     {
         err = writer.WriteBoolValue("required", m.GetRequired())
         if err != nil {
@@ -244,6 +303,14 @@ func (m *IdentityAccountAttributeDefinition) SetList(value *bool)() {
 func (m *IdentityAccountAttributeDefinition) SetName(value *string)() {
     m.name = value
 }
+// SetProperties sets the properties property value. The properties property
+func (m *IdentityAccountAttributeDefinition) SetProperties(value []IdentityAccountAttributeDefinitionPropertyable)() {
+    m.properties = value
+}
+// SetPropertyHandling sets the propertyHandling property value. The propertyHandling property
+func (m *IdentityAccountAttributeDefinition) SetPropertyHandling(value *IdentityComplexAccountAttributeHandling)() {
+    m.propertyHandling = value
+}
 // SetRequired sets the required property value. The required property
 func (m *IdentityAccountAttributeDefinition) SetRequired(value *bool)() {
     m.required = value
@@ -264,6 +331,8 @@ type IdentityAccountAttributeDefinitionable interface {
     GetFreelyUseable()(*bool)
     GetList()(*bool)
     GetName()(*string)
+    GetProperties()([]IdentityAccountAttributeDefinitionPropertyable)
+    GetPropertyHandling()(*IdentityComplexAccountAttributeHandling)
     GetRequired()(*bool)
     GetSystemDefinition()(*IdentityAccountAttributeSystemDefinition)
     GetUnique()(*bool)
@@ -272,6 +341,8 @@ type IdentityAccountAttributeDefinitionable interface {
     SetFreelyUseable(value *bool)()
     SetList(value *bool)()
     SetName(value *string)()
+    SetProperties(value []IdentityAccountAttributeDefinitionPropertyable)()
+    SetPropertyHandling(value *IdentityComplexAccountAttributeHandling)()
     SetRequired(value *bool)()
     SetSystemDefinition(value *IdentityAccountAttributeSystemDefinition)()
     SetUnique(value *bool)()

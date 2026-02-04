@@ -36,12 +36,16 @@ type WebhookWebhookPush struct {
     modificationRequest WebhookWebhookNameUuidable
     // The organizationalUnit property
     organizationalUnit WebhookWebhookNameUuidable
+    // The origin property
+    origin *string
     // The parameter1 property
     parameter1 *string
     // The parameter2 property
     parameter2 *string
     // The parameter3 property
     parameter3 *string
+    // The product property
+    product *string
     // The securityLevel property
     securityLevel *AuthSecurityLevel
     // The seq property
@@ -237,6 +241,16 @@ func (m *WebhookWebhookPush) GetFieldDeserializers()(map[string]func(i878a80d233
         }
         return nil
     }
+    res["origin"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOrigin(val)
+        }
+        return nil
+    }
     res["parameter1"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -264,6 +278,16 @@ func (m *WebhookWebhookPush) GetFieldDeserializers()(map[string]func(i878a80d233
         }
         if val != nil {
             m.SetParameter3(val)
+        }
+        return nil
+    }
+    res["product"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetProduct(val)
         }
         return nil
     }
@@ -384,6 +408,11 @@ func (m *WebhookWebhookPush) GetModificationRequest()(WebhookWebhookNameUuidable
 func (m *WebhookWebhookPush) GetOrganizationalUnit()(WebhookWebhookNameUuidable) {
     return m.organizationalUnit
 }
+// GetOrigin gets the origin property value. The origin property
+// returns a *string when successful
+func (m *WebhookWebhookPush) GetOrigin()(*string) {
+    return m.origin
+}
 // GetParameter1 gets the parameter1 property value. The parameter1 property
 // returns a *string when successful
 func (m *WebhookWebhookPush) GetParameter1()(*string) {
@@ -398,6 +427,11 @@ func (m *WebhookWebhookPush) GetParameter2()(*string) {
 // returns a *string when successful
 func (m *WebhookWebhookPush) GetParameter3()(*string) {
     return m.parameter3
+}
+// GetProduct gets the product property value. The product property
+// returns a *string when successful
+func (m *WebhookWebhookPush) GetProduct()(*string) {
+    return m.product
 }
 // GetSecurityLevel gets the securityLevel property value. The securityLevel property
 // returns a *AuthSecurityLevel when successful
@@ -524,6 +558,12 @@ func (m *WebhookWebhookPush) Serialize(writer i878a80d2330e89d26896388a3f487eef2
         }
     }
     {
+        err = writer.WriteStringValue("origin", m.GetOrigin())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("parameter1", m.GetParameter1())
         if err != nil {
             return err
@@ -537,6 +577,12 @@ func (m *WebhookWebhookPush) Serialize(writer i878a80d2330e89d26896388a3f487eef2
     }
     {
         err = writer.WriteStringValue("parameter3", m.GetParameter3())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteStringValue("product", m.GetProduct())
         if err != nil {
             return err
         }
@@ -645,6 +691,10 @@ func (m *WebhookWebhookPush) SetModificationRequest(value WebhookWebhookNameUuid
 func (m *WebhookWebhookPush) SetOrganizationalUnit(value WebhookWebhookNameUuidable)() {
     m.organizationalUnit = value
 }
+// SetOrigin sets the origin property value. The origin property
+func (m *WebhookWebhookPush) SetOrigin(value *string)() {
+    m.origin = value
+}
 // SetParameter1 sets the parameter1 property value. The parameter1 property
 func (m *WebhookWebhookPush) SetParameter1(value *string)() {
     m.parameter1 = value
@@ -656,6 +706,10 @@ func (m *WebhookWebhookPush) SetParameter2(value *string)() {
 // SetParameter3 sets the parameter3 property value. The parameter3 property
 func (m *WebhookWebhookPush) SetParameter3(value *string)() {
     m.parameter3 = value
+}
+// SetProduct sets the product property value. The product property
+func (m *WebhookWebhookPush) SetProduct(value *string)() {
+    m.product = value
 }
 // SetSecurityLevel sets the securityLevel property value. The securityLevel property
 func (m *WebhookWebhookPush) SetSecurityLevel(value *AuthSecurityLevel)() {
@@ -705,9 +759,11 @@ type WebhookWebhookPushable interface {
     GetIdentitySource()(WebhookWebhookNameUuidable)
     GetModificationRequest()(WebhookWebhookNameUuidable)
     GetOrganizationalUnit()(WebhookWebhookNameUuidable)
+    GetOrigin()(*string)
     GetParameter1()(*string)
     GetParameter2()(*string)
     GetParameter3()(*string)
+    GetProduct()(*string)
     GetSecurityLevel()(*AuthSecurityLevel)
     GetSeq()(*int64)
     GetServiceAccount()(WebhookWebhookNameUuidable)
@@ -729,9 +785,11 @@ type WebhookWebhookPushable interface {
     SetIdentitySource(value WebhookWebhookNameUuidable)()
     SetModificationRequest(value WebhookWebhookNameUuidable)()
     SetOrganizationalUnit(value WebhookWebhookNameUuidable)()
+    SetOrigin(value *string)()
     SetParameter1(value *string)()
     SetParameter2(value *string)()
     SetParameter3(value *string)()
+    SetProduct(value *string)()
     SetSecurityLevel(value *AuthSecurityLevel)()
     SetSeq(value *int64)()
     SetServiceAccount(value WebhookWebhookNameUuidable)()

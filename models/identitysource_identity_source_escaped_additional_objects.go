@@ -12,6 +12,8 @@ type IdentitysourceIdentitySource_additionalObjects struct {
     additionalData map[string]any
     // The audit property
     audit AuditInfoable
+    // The lastImport property
+    lastImport IdentitysourceImportedDocumentable
 }
 // NewIdentitysourceIdentitySource_additionalObjects instantiates a new IdentitysourceIdentitySource_additionalObjects and sets the default values.
 func NewIdentitysourceIdentitySource_additionalObjects()(*IdentitysourceIdentitySource_additionalObjects) {
@@ -49,12 +51,33 @@ func (m *IdentitysourceIdentitySource_additionalObjects) GetFieldDeserializers()
         }
         return nil
     }
+    res["lastImport"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateIdentitysourceImportedDocumentFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetLastImport(val.(IdentitysourceImportedDocumentable))
+        }
+        return nil
+    }
     return res
+}
+// GetLastImport gets the lastImport property value. The lastImport property
+// returns a IdentitysourceImportedDocumentable when successful
+func (m *IdentitysourceIdentitySource_additionalObjects) GetLastImport()(IdentitysourceImportedDocumentable) {
+    return m.lastImport
 }
 // Serialize serializes information the current object
 func (m *IdentitysourceIdentitySource_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     {
         err := writer.WriteObjectValue("audit", m.GetAudit())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("lastImport", m.GetLastImport())
         if err != nil {
             return err
         }
@@ -75,9 +98,15 @@ func (m *IdentitysourceIdentitySource_additionalObjects) SetAdditionalData(value
 func (m *IdentitysourceIdentitySource_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
+// SetLastImport sets the lastImport property value. The lastImport property
+func (m *IdentitysourceIdentitySource_additionalObjects) SetLastImport(value IdentitysourceImportedDocumentable)() {
+    m.lastImport = value
+}
 type IdentitysourceIdentitySource_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAudit()(AuditInfoable)
+    GetLastImport()(IdentitysourceImportedDocumentable)
     SetAudit(value AuditInfoable)()
+    SetLastImport(value IdentitysourceImportedDocumentable)()
 }

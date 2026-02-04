@@ -44,6 +44,8 @@ type OrganizationalunitRequestBuilderGetQueryParameters struct {
     EnableTechAdminApproveGroup []int64 `uriparametername:"enableTechAdminApproveGroup"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
+    // Filter organizational units for which the given groups perform some form of functional role, specified by id.
+    FunctionalRole []int64 `uriparametername:"functionalRole"`
     // Filter the results on the given ids.
     Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
@@ -121,7 +123,7 @@ func (m *OrganizationalunitRequestBuilder) ByOrganizationalunitidInt64(organizat
 // NewOrganizationalunitRequestBuilderInternal instantiates a new OrganizationalunitRequestBuilder and sets the default values.
 func NewOrganizationalunitRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*OrganizationalunitRequestBuilder) {
     m := &OrganizationalunitRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit{?accountIsAuditor*,additional*,ancestorOfOrEqualTo*,any*,auditorGroup*,connectedToAccount*,createGroupApproveGroup*,createdAfter*,createdBefore*,descendantOfOrEqualTo*,enableTechAdminApproveGroup*,exclude*,id*,modifiedSince*,name*,nameContains*,ownedBy*,parent*,q*,recoveryFallbackGroup*,removeGroupApproveGroup*,root*,sort*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit{?accountIsAuditor*,additional*,ancestorOfOrEqualTo*,any*,auditorGroup*,connectedToAccount*,createGroupApproveGroup*,createdAfter*,createdBefore*,descendantOfOrEqualTo*,enableTechAdminApproveGroup*,exclude*,functionalRole*,id*,modifiedSince*,name*,nameContains*,ownedBy*,parent*,q*,recoveryFallbackGroup*,removeGroupApproveGroup*,root*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -182,7 +184,7 @@ func (m *OrganizationalunitRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new organizational units and returns the newly created units.
@@ -196,8 +198,8 @@ func (m *OrganizationalunitRequestBuilder) ToPostRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=82", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
     if err != nil {
         return nil, err
     }

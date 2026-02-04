@@ -12,6 +12,8 @@ type IdentityAccountAttributeValue_additionalObjects struct {
     additionalData map[string]any
     // The audit property
     audit AuditInfoable
+    // The latest_selfservice property
+    latest_selfservice IdentityAccountAttributeValueable
     // The previous property
     previous IdentityAccountAttributeValueable
     // The selection property
@@ -53,6 +55,16 @@ func (m *IdentityAccountAttributeValue_additionalObjects) GetFieldDeserializers(
         }
         return nil
     }
+    res["latest_selfservice"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateIdentityAccountAttributeValueFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetLatestSelfservice(val.(IdentityAccountAttributeValueable))
+        }
+        return nil
+    }
     res["previous"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateIdentityAccountAttributeValueFromDiscriminatorValue)
         if err != nil {
@@ -75,6 +87,11 @@ func (m *IdentityAccountAttributeValue_additionalObjects) GetFieldDeserializers(
     }
     return res
 }
+// GetLatestSelfservice gets the latest_selfservice property value. The latest_selfservice property
+// returns a IdentityAccountAttributeValueable when successful
+func (m *IdentityAccountAttributeValue_additionalObjects) GetLatestSelfservice()(IdentityAccountAttributeValueable) {
+    return m.latest_selfservice
+}
 // GetPrevious gets the previous property value. The previous property
 // returns a IdentityAccountAttributeValueable when successful
 func (m *IdentityAccountAttributeValue_additionalObjects) GetPrevious()(IdentityAccountAttributeValueable) {
@@ -89,6 +106,12 @@ func (m *IdentityAccountAttributeValue_additionalObjects) GetSelection()(Identit
 func (m *IdentityAccountAttributeValue_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     {
         err := writer.WriteObjectValue("audit", m.GetAudit())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("latest_selfservice", m.GetLatestSelfservice())
         if err != nil {
             return err
         }
@@ -121,6 +144,10 @@ func (m *IdentityAccountAttributeValue_additionalObjects) SetAdditionalData(valu
 func (m *IdentityAccountAttributeValue_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
+// SetLatestSelfservice sets the latest_selfservice property value. The latest_selfservice property
+func (m *IdentityAccountAttributeValue_additionalObjects) SetLatestSelfservice(value IdentityAccountAttributeValueable)() {
+    m.latest_selfservice = value
+}
 // SetPrevious sets the previous property value. The previous property
 func (m *IdentityAccountAttributeValue_additionalObjects) SetPrevious(value IdentityAccountAttributeValueable)() {
     m.previous = value
@@ -133,9 +160,11 @@ type IdentityAccountAttributeValue_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAudit()(AuditInfoable)
+    GetLatestSelfservice()(IdentityAccountAttributeValueable)
     GetPrevious()(IdentityAccountAttributeValueable)
     GetSelection()(IdentityAccountAttributeValueSelectionable)
     SetAudit(value AuditInfoable)()
+    SetLatestSelfservice(value IdentityAccountAttributeValueable)()
     SetPrevious(value IdentityAccountAttributeValueable)()
     SetSelection(value IdentityAccountAttributeValueSelectionable)()
 }

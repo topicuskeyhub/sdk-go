@@ -17,8 +17,6 @@ type WebhookRequestBuilder struct {
 }
 // WebhookRequestBuilderGetQueryParameters queries over all webhooks. The various query parameters can be used to filter the response.
 type WebhookRequestBuilderGetQueryParameters struct {
-    // Filter webhooks on the given accounts, specified by id.
-    Account []int64 `uriparametername:"account"`
     // Only return active or inactive webhooks.
     // Deprecated: This property is deprecated, use ActiveAsBooleanEnum instead
     Active []string `uriparametername:"active"`
@@ -53,6 +51,8 @@ type WebhookRequestBuilderGetQueryParameters struct {
     ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"expiredCertificate"`
     // Only return webhooks that are or are not global.
     Global []bool `uriparametername:"global"`
+    // Only return webhooks that are or are not global concerning permissions. This includes all global webhooks and webhooks for a directory.
+    GlobalForPermissions []bool `uriparametername:"globalForPermissions"`
     // Filter webhooks on the given groups, specified by id.
     Group []int64 `uriparametername:"group"`
     // Filter the results on the given ids.
@@ -142,7 +142,7 @@ func (m *WebhookRequestBuilder) ByWebhookidInt64(webhookid int64)(*WithWebhookIt
 // NewWebhookRequestBuilderInternal instantiates a new WebhookRequestBuilder and sets the default values.
 func NewWebhookRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WebhookRequestBuilder) {
     m := &WebhookRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook{?account*,active*,additional*,any*,appAdminGroup*,appOwnerGroup*,client*,contentAdminGroup*,createdAfter*,createdBefore*,directory*,directoryOwnerGroup*,exclude*,expiredCertificate*,global*,group*,id*,modifiedSince*,nameContains*,q*,serviceAccount*,serviceAccountNotNull*,sort*,system*,systemAdminGroup*,systemOwnerGroup*,tls*,type*,url*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/webhook{?active*,additional*,any*,appAdminGroup*,appOwnerGroup*,client*,contentAdminGroup*,createdAfter*,createdBefore*,directory*,directoryOwnerGroup*,exclude*,expiredCertificate*,global*,globalForPermissions*,group*,id*,modifiedSince*,nameContains*,q*,serviceAccount*,serviceAccountNotNull*,sort*,system*,systemAdminGroup*,systemOwnerGroup*,tls*,type*,url*,uuid*}", pathParameters),
     }
     return m
 }
@@ -203,7 +203,7 @@ func (m *WebhookRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new webhooks and returns the newly created webhooks.
@@ -217,8 +217,8 @@ func (m *WebhookRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=82", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
     if err != nil {
         return nil, err
     }

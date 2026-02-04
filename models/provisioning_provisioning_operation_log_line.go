@@ -5,29 +5,30 @@ package models
 
 import (
     i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
+    i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22 "github.com/google/uuid"
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ProvisioningProvisioningOperationLogLine struct {
     Linkable
-    // The accessProfile property
-    accessProfile *string
-    // The account property
-    account *string
+    // The accessProfileUuid property
+    accessProfileUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+    // The accountUuid property
+    accountUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
     // The action property
     action *ProvisioningProvisioningOperationAction
-    // The group property
-    group *string
-    // The groupOnSystem property
-    groupOnSystem *string
+    // The groupOnSystemUuid property
+    groupOnSystemUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+    // The groupUuid property
+    groupUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
     // The level property
     level *ProvisioningProvisioningOperationLogLevel
     // The message property
     message *string
-    // The serviceAccount property
-    serviceAccount *string
-    // The system property
-    system *string
+    // The serviceAccountUuid property
+    serviceAccountUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+    // The systemUuid property
+    systemUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
     // The thread property
     thread *string
     // The time property
@@ -47,15 +48,15 @@ func NewProvisioningProvisioningOperationLogLine()(*ProvisioningProvisioningOper
 func CreateProvisioningProvisioningOperationLogLineFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisioningOperationLogLine(), nil
 }
-// GetAccessProfile gets the accessProfile property value. The accessProfile property
-// returns a *string when successful
-func (m *ProvisioningProvisioningOperationLogLine) GetAccessProfile()(*string) {
-    return m.accessProfile
+// GetAccessProfileUuid gets the accessProfileUuid property value. The accessProfileUuid property
+// returns a *UUID when successful
+func (m *ProvisioningProvisioningOperationLogLine) GetAccessProfileUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+    return m.accessProfileUuid
 }
-// GetAccount gets the account property value. The account property
-// returns a *string when successful
-func (m *ProvisioningProvisioningOperationLogLine) GetAccount()(*string) {
-    return m.account
+// GetAccountUuid gets the accountUuid property value. The accountUuid property
+// returns a *UUID when successful
+func (m *ProvisioningProvisioningOperationLogLine) GetAccountUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+    return m.accountUuid
 }
 // GetAction gets the action property value. The action property
 // returns a *ProvisioningProvisioningOperationAction when successful
@@ -66,23 +67,23 @@ func (m *ProvisioningProvisioningOperationLogLine) GetAction()(*ProvisioningProv
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisioningOperationLogLine) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
-    res["accessProfile"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["accessProfileUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetUUIDValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAccessProfile(val)
+            m.SetAccessProfileUuid(val)
         }
         return nil
     }
-    res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["accountUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetUUIDValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAccount(val)
+            m.SetAccountUuid(val)
         }
         return nil
     }
@@ -96,23 +97,23 @@ func (m *ProvisioningProvisioningOperationLogLine) GetFieldDeserializers()(map[s
         }
         return nil
     }
-    res["group"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["groupOnSystemUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetUUIDValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetGroup(val)
+            m.SetGroupOnSystemUuid(val)
         }
         return nil
     }
-    res["groupOnSystem"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["groupUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetUUIDValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetGroupOnSystem(val)
+            m.SetGroupUuid(val)
         }
         return nil
     }
@@ -136,23 +137,23 @@ func (m *ProvisioningProvisioningOperationLogLine) GetFieldDeserializers()(map[s
         }
         return nil
     }
-    res["serviceAccount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["serviceAccountUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetUUIDValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetServiceAccount(val)
+            m.SetServiceAccountUuid(val)
         }
         return nil
     }
-    res["system"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["systemUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetUUIDValue()
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetSystem(val)
+            m.SetSystemUuid(val)
         }
         return nil
     }
@@ -178,15 +179,15 @@ func (m *ProvisioningProvisioningOperationLogLine) GetFieldDeserializers()(map[s
     }
     return res
 }
-// GetGroup gets the group property value. The group property
-// returns a *string when successful
-func (m *ProvisioningProvisioningOperationLogLine) GetGroup()(*string) {
-    return m.group
+// GetGroupOnSystemUuid gets the groupOnSystemUuid property value. The groupOnSystemUuid property
+// returns a *UUID when successful
+func (m *ProvisioningProvisioningOperationLogLine) GetGroupOnSystemUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+    return m.groupOnSystemUuid
 }
-// GetGroupOnSystem gets the groupOnSystem property value. The groupOnSystem property
-// returns a *string when successful
-func (m *ProvisioningProvisioningOperationLogLine) GetGroupOnSystem()(*string) {
-    return m.groupOnSystem
+// GetGroupUuid gets the groupUuid property value. The groupUuid property
+// returns a *UUID when successful
+func (m *ProvisioningProvisioningOperationLogLine) GetGroupUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+    return m.groupUuid
 }
 // GetLevel gets the level property value. The level property
 // returns a *ProvisioningProvisioningOperationLogLevel when successful
@@ -198,15 +199,15 @@ func (m *ProvisioningProvisioningOperationLogLine) GetLevel()(*ProvisioningProvi
 func (m *ProvisioningProvisioningOperationLogLine) GetMessage()(*string) {
     return m.message
 }
-// GetServiceAccount gets the serviceAccount property value. The serviceAccount property
-// returns a *string when successful
-func (m *ProvisioningProvisioningOperationLogLine) GetServiceAccount()(*string) {
-    return m.serviceAccount
+// GetServiceAccountUuid gets the serviceAccountUuid property value. The serviceAccountUuid property
+// returns a *UUID when successful
+func (m *ProvisioningProvisioningOperationLogLine) GetServiceAccountUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+    return m.serviceAccountUuid
 }
-// GetSystem gets the system property value. The system property
-// returns a *string when successful
-func (m *ProvisioningProvisioningOperationLogLine) GetSystem()(*string) {
-    return m.system
+// GetSystemUuid gets the systemUuid property value. The systemUuid property
+// returns a *UUID when successful
+func (m *ProvisioningProvisioningOperationLogLine) GetSystemUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+    return m.systemUuid
 }
 // GetThread gets the thread property value. The thread property
 // returns a *string when successful
@@ -240,25 +241,25 @@ func (m *ProvisioningProvisioningOperationLogLine) Serialize(writer i878a80d2330
     }
     return nil
 }
-// SetAccessProfile sets the accessProfile property value. The accessProfile property
-func (m *ProvisioningProvisioningOperationLogLine) SetAccessProfile(value *string)() {
-    m.accessProfile = value
+// SetAccessProfileUuid sets the accessProfileUuid property value. The accessProfileUuid property
+func (m *ProvisioningProvisioningOperationLogLine) SetAccessProfileUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
+    m.accessProfileUuid = value
 }
-// SetAccount sets the account property value. The account property
-func (m *ProvisioningProvisioningOperationLogLine) SetAccount(value *string)() {
-    m.account = value
+// SetAccountUuid sets the accountUuid property value. The accountUuid property
+func (m *ProvisioningProvisioningOperationLogLine) SetAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
+    m.accountUuid = value
 }
 // SetAction sets the action property value. The action property
 func (m *ProvisioningProvisioningOperationLogLine) SetAction(value *ProvisioningProvisioningOperationAction)() {
     m.action = value
 }
-// SetGroup sets the group property value. The group property
-func (m *ProvisioningProvisioningOperationLogLine) SetGroup(value *string)() {
-    m.group = value
+// SetGroupOnSystemUuid sets the groupOnSystemUuid property value. The groupOnSystemUuid property
+func (m *ProvisioningProvisioningOperationLogLine) SetGroupOnSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
+    m.groupOnSystemUuid = value
 }
-// SetGroupOnSystem sets the groupOnSystem property value. The groupOnSystem property
-func (m *ProvisioningProvisioningOperationLogLine) SetGroupOnSystem(value *string)() {
-    m.groupOnSystem = value
+// SetGroupUuid sets the groupUuid property value. The groupUuid property
+func (m *ProvisioningProvisioningOperationLogLine) SetGroupUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
+    m.groupUuid = value
 }
 // SetLevel sets the level property value. The level property
 func (m *ProvisioningProvisioningOperationLogLine) SetLevel(value *ProvisioningProvisioningOperationLogLevel)() {
@@ -268,13 +269,13 @@ func (m *ProvisioningProvisioningOperationLogLine) SetLevel(value *ProvisioningP
 func (m *ProvisioningProvisioningOperationLogLine) SetMessage(value *string)() {
     m.message = value
 }
-// SetServiceAccount sets the serviceAccount property value. The serviceAccount property
-func (m *ProvisioningProvisioningOperationLogLine) SetServiceAccount(value *string)() {
-    m.serviceAccount = value
+// SetServiceAccountUuid sets the serviceAccountUuid property value. The serviceAccountUuid property
+func (m *ProvisioningProvisioningOperationLogLine) SetServiceAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
+    m.serviceAccountUuid = value
 }
-// SetSystem sets the system property value. The system property
-func (m *ProvisioningProvisioningOperationLogLine) SetSystem(value *string)() {
-    m.system = value
+// SetSystemUuid sets the systemUuid property value. The systemUuid property
+func (m *ProvisioningProvisioningOperationLogLine) SetSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
+    m.systemUuid = value
 }
 // SetThread sets the thread property value. The thread property
 func (m *ProvisioningProvisioningOperationLogLine) SetThread(value *string)() {
@@ -287,26 +288,26 @@ func (m *ProvisioningProvisioningOperationLogLine) SetTime(value *i336074805fc85
 type ProvisioningProvisioningOperationLogLineable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAccessProfile()(*string)
-    GetAccount()(*string)
+    GetAccessProfileUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+    GetAccountUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
     GetAction()(*ProvisioningProvisioningOperationAction)
-    GetGroup()(*string)
-    GetGroupOnSystem()(*string)
+    GetGroupOnSystemUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+    GetGroupUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
     GetLevel()(*ProvisioningProvisioningOperationLogLevel)
     GetMessage()(*string)
-    GetServiceAccount()(*string)
-    GetSystem()(*string)
+    GetServiceAccountUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+    GetSystemUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
     GetThread()(*string)
     GetTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
-    SetAccessProfile(value *string)()
-    SetAccount(value *string)()
+    SetAccessProfileUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
+    SetAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
     SetAction(value *ProvisioningProvisioningOperationAction)()
-    SetGroup(value *string)()
-    SetGroupOnSystem(value *string)()
+    SetGroupOnSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
+    SetGroupUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
     SetLevel(value *ProvisioningProvisioningOperationLogLevel)()
     SetMessage(value *string)()
-    SetServiceAccount(value *string)()
-    SetSystem(value *string)()
+    SetServiceAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
+    SetSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
     SetThread(value *string)()
     SetTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
 }

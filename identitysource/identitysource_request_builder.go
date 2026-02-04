@@ -24,7 +24,7 @@ type IdentitysourceRequestBuilderGetQueryParameters struct {
     AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
-    // Filter identity sources on the OAuth2 client used on the SCIM interface. This parameter supports composition with all parameters from the client resource.
+    // Filter synced identity sources on the OAuth2 client used on the SCIM interface. This parameter supports composition with all parameters from the client resource.
     Client []int64 `uriparametername:"client"`
     // Only return records that have been created after the given instant.
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
@@ -32,8 +32,12 @@ type IdentitysourceRequestBuilderGetQueryParameters struct {
     CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
     // Filter the results to exclude the given ids.
     Exclude []int64 `uriparametername:"exclude"`
+    // Filter identity sources on having a mapping for the given attribute, specified by id. This parameter supports composition with all parameters from the attribute definition resource.
+    HasMappingForAttribute []int64 `uriparametername:"hasMappingForAttribute"`
     // Filter the results on the given ids.
     Id []int64 `uriparametername:"id"`
+    // Filter identity sources on using the given attribute as identifier for accounts, specified by id. This parameter supports composition with all parameters from the attribute definition resource.
+    Identifier []int64 `uriparametername:"identifier"`
     // Only return records that have been modified since the given instant.
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
     // Filter identity sources on the exact name.
@@ -73,33 +77,33 @@ type IdentitysourceRequestBuilderPostRequestConfiguration struct {
     // Request query parameters
     QueryParameters *IdentitysourceRequestBuilderPostQueryParameters
 }
-// ByIdentitysourceid gets an item from the github.com/topicuskeyhub/sdk-go.identitysource.item collection
+// ByIdentitysourceId gets an item from the github.com/topicuskeyhub/sdk-go.identitysource.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
-// returns a *WithIdentitysourceItemRequestBuilder when successful
-func (m *IdentitysourceRequestBuilder) ByIdentitysourceid(identitysourceid string)(*WithIdentitysourceItemRequestBuilder) {
+// returns a *IdentitysourceItemRequestBuilder when successful
+func (m *IdentitysourceRequestBuilder) ByIdentitysourceId(identitysourceId string)(*IdentitysourceItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    if identitysourceid != "" {
-        urlTplParams["identitysourceid"] = identitysourceid
+    if identitysourceId != "" {
+        urlTplParams["identitysource%2Did"] = identitysourceId
     }
-    return NewWithIdentitysourceItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    return NewIdentitysourceItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
-// ByIdentitysourceidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.identitysource.item collection
-// returns a *WithIdentitysourceItemRequestBuilder when successful
-func (m *IdentitysourceRequestBuilder) ByIdentitysourceidInt64(identitysourceid int64)(*WithIdentitysourceItemRequestBuilder) {
+// ByIdentitysourceIdInt64 gets an item from the github.com/topicuskeyhub/sdk-go.identitysource.item collection
+// returns a *IdentitysourceItemRequestBuilder when successful
+func (m *IdentitysourceRequestBuilder) ByIdentitysourceIdInt64(identitysourceId int64)(*IdentitysourceItemRequestBuilder) {
     urlTplParams := make(map[string]string)
     for idx, item := range m.BaseRequestBuilder.PathParameters {
         urlTplParams[idx] = item
     }
-    urlTplParams["identitysourceid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(identitysourceid, 10)
-    return NewWithIdentitysourceItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+    urlTplParams["identitysource%2Did"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(identitysourceId, 10)
+    return NewIdentitysourceItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewIdentitysourceRequestBuilderInternal instantiates a new IdentitysourceRequestBuilder and sets the default values.
 func NewIdentitysourceRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*IdentitysourceRequestBuilder) {
     m := &IdentitysourceRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/identitysource{?additional*,any*,client*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,name*,nameContains*,q*,sort*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/identitysource{?additional*,any*,client*,createdAfter*,createdBefore*,exclude*,hasMappingForAttribute*,id*,identifier*,modifiedSince*,name*,nameContains*,q*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -160,7 +164,7 @@ func (m *IdentitysourceRequestBuilder) ToGetRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new identity sources and returns the newly created sources.
@@ -174,8 +178,8 @@ func (m *IdentitysourceRequestBuilder) ToPostRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=82", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
     if err != nil {
         return nil, err
     }

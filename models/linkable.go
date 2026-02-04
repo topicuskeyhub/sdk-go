@@ -123,10 +123,16 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewIdentityIdentity(), nil
                     case "identitysource.AFASIdentitySource":
                         return NewIdentitysourceAFASIdentitySource(), nil
+                    case "identitysource.CSVImportIdentitySource":
+                        return NewIdentitysourceCSVImportIdentitySource(), nil
                     case "identitysource.IdentitySource":
                         return NewIdentitysourceIdentitySource(), nil
                     case "identitysource.IdentitySourcePrimer":
                         return NewIdentitysourceIdentitySourcePrimer(), nil
+                    case "identitysource.ImportedDocument":
+                        return NewIdentitysourceImportedDocument(), nil
+                    case "identitysource.ImportedRow":
+                        return NewIdentitysourceImportedRow(), nil
                     case "launchpad.DisplayedLaunchpadTile":
                         return NewLaunchpadDisplayedLaunchpadTile(), nil
                     case "launchpad.LaunchpadTile":

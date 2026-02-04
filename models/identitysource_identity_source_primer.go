@@ -44,6 +44,8 @@ func CreateIdentitysourceIdentitySourcePrimerFromDiscriminatorValue(parseNode i8
                 switch *mappingValue {
                     case "identitysource.AFASIdentitySource":
                         return NewIdentitysourceAFASIdentitySource(), nil
+                    case "identitysource.CSVImportIdentitySource":
+                        return NewIdentitysourceCSVImportIdentitySource(), nil
                     case "identitysource.IdentitySource":
                         return NewIdentitysourceIdentitySource(), nil
                 }

@@ -18,8 +18,12 @@ type ProvisioningProvisionedSystem struct {
     cleanupPeriod ProvisioningProvisionedSystem_cleanupPeriodable
     // The contentAdministrator property
     contentAdministrator GroupGroupPrimerable
+    // The effectiveFullSyncInterval property
+    effectiveFullSyncInterval *int32
     // The externalUuid property
     externalUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+    // The fullSyncInterval property
+    fullSyncInterval *int32
     // The groupOnSystemProvisioning property
     groupOnSystemProvisioning *ProvisioningGroupOnSystemProvisioning
     // The owner property
@@ -36,6 +40,8 @@ type ProvisioningProvisionedSystem struct {
     shouldDestroyUnknownAccounts *bool
     // The technicalAdministrator property
     technicalAdministrator GroupGroupPrimerable
+    // The traceLoggingEnabled property
+    traceLoggingEnabled *bool
     // The usernamePrefix property
     usernamePrefix *string
 }
@@ -109,6 +115,11 @@ func (m *ProvisioningProvisionedSystem) GetCleanupPeriod()(ProvisioningProvision
 func (m *ProvisioningProvisionedSystem) GetContentAdministrator()(GroupGroupPrimerable) {
     return m.contentAdministrator
 }
+// GetEffectiveFullSyncInterval gets the effectiveFullSyncInterval property value. The effectiveFullSyncInterval property
+// returns a *int32 when successful
+func (m *ProvisioningProvisionedSystem) GetEffectiveFullSyncInterval()(*int32) {
+    return m.effectiveFullSyncInterval
+}
 // GetExternalUuid gets the externalUuid property value. The externalUuid property
 // returns a *UUID when successful
 func (m *ProvisioningProvisionedSystem) GetExternalUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
@@ -158,6 +169,16 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
         }
         return nil
     }
+    res["effectiveFullSyncInterval"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt32Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetEffectiveFullSyncInterval(val)
+        }
+        return nil
+    }
     res["externalUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetUUIDValue()
         if err != nil {
@@ -165,6 +186,16 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
         }
         if val != nil {
             m.SetExternalUuid(val)
+        }
+        return nil
+    }
+    res["fullSyncInterval"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt32Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetFullSyncInterval(val)
         }
         return nil
     }
@@ -248,6 +279,16 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
         }
         return nil
     }
+    res["traceLoggingEnabled"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetTraceLoggingEnabled(val)
+        }
+        return nil
+    }
     res["usernamePrefix"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -259,6 +300,11 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers()(map[string]func(
         return nil
     }
     return res
+}
+// GetFullSyncInterval gets the fullSyncInterval property value. The fullSyncInterval property
+// returns a *int32 when successful
+func (m *ProvisioningProvisionedSystem) GetFullSyncInterval()(*int32) {
+    return m.fullSyncInterval
 }
 // GetGroupOnSystemProvisioning gets the groupOnSystemProvisioning property value. The groupOnSystemProvisioning property
 // returns a *ProvisioningGroupOnSystemProvisioning when successful
@@ -300,6 +346,11 @@ func (m *ProvisioningProvisionedSystem) GetShouldDestroyUnknownAccounts()(*bool)
 func (m *ProvisioningProvisionedSystem) GetTechnicalAdministrator()(GroupGroupPrimerable) {
     return m.technicalAdministrator
 }
+// GetTraceLoggingEnabled gets the traceLoggingEnabled property value. The traceLoggingEnabled property
+// returns a *bool when successful
+func (m *ProvisioningProvisionedSystem) GetTraceLoggingEnabled()(*bool) {
+    return m.traceLoggingEnabled
+}
 // GetUsernamePrefix gets the usernamePrefix property value. The usernamePrefix property
 // returns a *string when successful
 func (m *ProvisioningProvisionedSystem) GetUsernamePrefix()(*string) {
@@ -325,6 +376,12 @@ func (m *ProvisioningProvisionedSystem) Serialize(writer i878a80d2330e89d2689638
     }
     {
         err = writer.WriteObjectValue("contentAdministrator", m.GetContentAdministrator())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteInt32Value("fullSyncInterval", m.GetFullSyncInterval())
         if err != nil {
             return err
         }
@@ -379,6 +436,12 @@ func (m *ProvisioningProvisionedSystem) Serialize(writer i878a80d2330e89d2689638
         }
     }
     {
+        err = writer.WriteBoolValue("traceLoggingEnabled", m.GetTraceLoggingEnabled())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("usernamePrefix", m.GetUsernamePrefix())
         if err != nil {
             return err
@@ -402,9 +465,17 @@ func (m *ProvisioningProvisionedSystem) SetCleanupPeriod(value ProvisioningProvi
 func (m *ProvisioningProvisionedSystem) SetContentAdministrator(value GroupGroupPrimerable)() {
     m.contentAdministrator = value
 }
+// SetEffectiveFullSyncInterval sets the effectiveFullSyncInterval property value. The effectiveFullSyncInterval property
+func (m *ProvisioningProvisionedSystem) SetEffectiveFullSyncInterval(value *int32)() {
+    m.effectiveFullSyncInterval = value
+}
 // SetExternalUuid sets the externalUuid property value. The externalUuid property
 func (m *ProvisioningProvisionedSystem) SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
     m.externalUuid = value
+}
+// SetFullSyncInterval sets the fullSyncInterval property value. The fullSyncInterval property
+func (m *ProvisioningProvisionedSystem) SetFullSyncInterval(value *int32)() {
+    m.fullSyncInterval = value
 }
 // SetGroupOnSystemProvisioning sets the groupOnSystemProvisioning property value. The groupOnSystemProvisioning property
 func (m *ProvisioningProvisionedSystem) SetGroupOnSystemProvisioning(value *ProvisioningGroupOnSystemProvisioning)() {
@@ -438,6 +509,10 @@ func (m *ProvisioningProvisionedSystem) SetShouldDestroyUnknownAccounts(value *b
 func (m *ProvisioningProvisionedSystem) SetTechnicalAdministrator(value GroupGroupPrimerable)() {
     m.technicalAdministrator = value
 }
+// SetTraceLoggingEnabled sets the traceLoggingEnabled property value. The traceLoggingEnabled property
+func (m *ProvisioningProvisionedSystem) SetTraceLoggingEnabled(value *bool)() {
+    m.traceLoggingEnabled = value
+}
 // SetUsernamePrefix sets the usernamePrefix property value. The usernamePrefix property
 func (m *ProvisioningProvisionedSystem) SetUsernamePrefix(value *string)() {
     m.usernamePrefix = value
@@ -449,7 +524,9 @@ type ProvisioningProvisionedSystemable interface {
     GetAdditionalObjects()(ProvisioningProvisionedSystem_additionalObjectsable)
     GetCleanupPeriod()(ProvisioningProvisionedSystem_cleanupPeriodable)
     GetContentAdministrator()(GroupGroupPrimerable)
+    GetEffectiveFullSyncInterval()(*int32)
     GetExternalUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+    GetFullSyncInterval()(*int32)
     GetGroupOnSystemProvisioning()(*ProvisioningGroupOnSystemProvisioning)
     GetOwner()(GroupGroupPrimerable)
     GetSelfServiceExistingGroups()(*bool)
@@ -458,12 +535,15 @@ type ProvisioningProvisionedSystemable interface {
     GetSelfServiceServiceAccounts()(*bool)
     GetShouldDestroyUnknownAccounts()(*bool)
     GetTechnicalAdministrator()(GroupGroupPrimerable)
+    GetTraceLoggingEnabled()(*bool)
     GetUsernamePrefix()(*string)
     SetAccountCount(value *int32)()
     SetAdditionalObjects(value ProvisioningProvisionedSystem_additionalObjectsable)()
     SetCleanupPeriod(value ProvisioningProvisionedSystem_cleanupPeriodable)()
     SetContentAdministrator(value GroupGroupPrimerable)()
+    SetEffectiveFullSyncInterval(value *int32)()
     SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
+    SetFullSyncInterval(value *int32)()
     SetGroupOnSystemProvisioning(value *ProvisioningGroupOnSystemProvisioning)()
     SetOwner(value GroupGroupPrimerable)()
     SetSelfServiceExistingGroups(value *bool)()
@@ -472,5 +552,6 @@ type ProvisioningProvisionedSystemable interface {
     SetSelfServiceServiceAccounts(value *bool)()
     SetShouldDestroyUnknownAccounts(value *bool)()
     SetTechnicalAdministrator(value GroupGroupPrimerable)()
+    SetTraceLoggingEnabled(value *bool)()
     SetUsernamePrefix(value *string)()
 }

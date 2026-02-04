@@ -49,6 +49,8 @@ type AttributedefRequestBuilderGetQueryParameters struct {
     Q []string `uriparametername:"q"`
     // Only return account attribute definitions that are or are not required.
     Required []bool `uriparametername:"required"`
+    // Only return account attributes which are available for self-service to all of the provided accounts.
+    SelfServiceableByAccount []int64 `uriparametername:"selfServiceableByAccount"`
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
     Sort []string `uriparametername:"sort"`
     // Filter account attribute definitions on the given system definition(s).
@@ -111,7 +113,7 @@ func (m *AttributedefRequestBuilder) ByAttributedefidInt64(attributedefid int64)
 // NewAttributedefRequestBuilderInternal instantiates a new AttributedefRequestBuilder and sets the default values.
 func NewAttributedefRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AttributedefRequestBuilder) {
     m := &AttributedefRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,availableForAccessProfile*,createdAfter*,createdBefore*,exclude*,format*,id*,modifiedSince*,name*,nameContains*,q*,required*,sort*,systemDefinition*,unique*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,availableForAccessProfile*,createdAfter*,createdBefore*,exclude*,format*,id*,modifiedSince*,name*,nameContains*,q*,required*,selfServiceableByAccount*,sort*,systemDefinition*,unique*}", pathParameters),
     }
     return m
 }
@@ -172,7 +174,7 @@ func (m *AttributedefRequestBuilder) ToGetRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new account attribute definitions and returns the newly created account attribute definitions.
@@ -186,8 +188,8 @@ func (m *AttributedefRequestBuilder) ToPostRequestInformation(ctx context.Contex
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=82", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
     if err != nil {
         return nil, err
     }

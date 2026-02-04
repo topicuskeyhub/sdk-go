@@ -6,16 +6,19 @@ type IdentitysourceIdentitySourceType int
 
 const (
     AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE IdentitysourceIdentitySourceType = iota
+    CSV_IMPORT_IDENTITYSOURCEIDENTITYSOURCETYPE
 )
 
 func (i IdentitysourceIdentitySourceType) String() string {
-    return []string{"AFAS"}[i]
+    return []string{"AFAS", "CSV_IMPORT"}[i]
 }
 func ParseIdentitysourceIdentitySourceType(v string) (any, error) {
     result := AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE
     switch v {
         case "AFAS":
             result = AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE
+        case "CSV_IMPORT":
+            result = CSV_IMPORT_IDENTITYSOURCEIDENTITYSOURCETYPE
         default:
             return nil, nil
     }

@@ -17,6 +17,7 @@ type ProvisioningProvisionedSystem_additionalObjects struct {
     // The issuedPermissions property
     issuedPermissions ClientOAuth2ClientPermissionWithClientLinkableWrapperable
     // The loginName property
+    // Deprecated: 
     loginName *string
     // The managementPermissions property
     managementPermissions ProvisioningProvisioningManagementPermissionsable
@@ -146,6 +147,7 @@ func (m *ProvisioningProvisionedSystem_additionalObjects) GetIssuedPermissions()
     return m.issuedPermissions
 }
 // GetLoginName gets the loginName property value. The loginName property
+// Deprecated: 
 // returns a *string when successful
 func (m *ProvisioningProvisionedSystem_additionalObjects) GetLoginName()(*string) {
     return m.loginName
@@ -239,6 +241,7 @@ func (m *ProvisioningProvisionedSystem_additionalObjects) SetIssuedPermissions(v
     m.issuedPermissions = value
 }
 // SetLoginName sets the loginName property value. The loginName property
+// Deprecated: 
 func (m *ProvisioningProvisionedSystem_additionalObjects) SetLoginName(value *string)() {
     m.loginName = value
 }

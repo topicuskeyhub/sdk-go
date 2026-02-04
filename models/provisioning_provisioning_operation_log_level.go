@@ -8,11 +8,12 @@ const (
     ERROR_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL ProvisioningProvisioningOperationLogLevel = iota
     WARNING_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
     INFO_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
+    DEBUG_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
     TRACE_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
 )
 
 func (i ProvisioningProvisioningOperationLogLevel) String() string {
-    return []string{"ERROR", "WARNING", "INFO", "TRACE"}[i]
+    return []string{"ERROR", "WARNING", "INFO", "DEBUG", "TRACE"}[i]
 }
 func ParseProvisioningProvisioningOperationLogLevel(v string) (any, error) {
     result := ERROR_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
@@ -23,6 +24,8 @@ func ParseProvisioningProvisioningOperationLogLevel(v string) (any, error) {
             result = WARNING_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
         case "INFO":
             result = INFO_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
+        case "DEBUG":
+            result = DEBUG_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
         case "TRACE":
             result = TRACE_PROVISIONINGPROVISIONINGOPERATIONLOGLEVEL
         default:

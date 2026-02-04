@@ -24,6 +24,8 @@ type GroupclassificationRequestBuilderGetQueryParameters struct {
     AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
     // Return all or no records. This can be useful when composing parameters.
     Any []bool `uriparametername:"any"`
+    // Filter the classifications on the given organizational units including ancestors, specified by id.
+    AvailableForOrganizationalUnit []int64 `uriparametername:"availableForOrganizationalUnit"`
     // Only return records that have been created after the given instant.
     CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
     // Only return records that have been created before the given instant.
@@ -40,6 +42,8 @@ type GroupclassificationRequestBuilderGetQueryParameters struct {
     Name []string `uriparametername:"name"`
     // Filter group classifications on (part of) the name or uuid.
     NameContains []string `uriparametername:"nameContains"`
+    // Filter the classifications on the given organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
+    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
     // Filter records on a complex CQL query.
     Q []string `uriparametername:"q"`
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
@@ -99,7 +103,7 @@ func (m *GroupclassificationRequestBuilder) ByGroupclassificationidInt64(groupcl
 // NewGroupclassificationRequestBuilderInternal instantiates a new GroupclassificationRequestBuilder and sets the default values.
 func NewGroupclassificationRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupclassificationRequestBuilder) {
     m := &GroupclassificationRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/groupclassification{?additional*,any*,createdAfter*,createdBefore*,defaultClassification*,exclude*,id*,modifiedSince*,name*,nameContains*,q*,sort*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/groupclassification{?additional*,any*,availableForOrganizationalUnit*,createdAfter*,createdBefore*,defaultClassification*,exclude*,id*,modifiedSince*,name*,nameContains*,organizationalUnit*,q*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -160,7 +164,7 @@ func (m *GroupclassificationRequestBuilder) ToGetRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new group classifications and returns the newly created classifications.
@@ -174,8 +178,8 @@ func (m *GroupclassificationRequestBuilder) ToPostRequestInformation(ctx context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=82")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=82", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
     if err != nil {
         return nil, err
     }

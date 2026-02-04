@@ -9,6 +9,8 @@ import (
 
 type IdentitysourceAFASIdentitySource struct {
     IdentitysourceIdentitySource
+    // The schedule property
+    schedule *string
     // The token property
     token *string
     // The url property
@@ -32,6 +34,16 @@ func CreateIdentitysourceAFASIdentitySourceFromDiscriminatorValue(parseNode i878
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *IdentitysourceAFASIdentitySource) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.IdentitysourceIdentitySource.GetFieldDeserializers()
+    res["schedule"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetSchedule(val)
+        }
+        return nil
+    }
     res["token"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -54,6 +66,11 @@ func (m *IdentitysourceAFASIdentitySource) GetFieldDeserializers()(map[string]fu
     }
     return res
 }
+// GetSchedule gets the schedule property value. The schedule property
+// returns a *string when successful
+func (m *IdentitysourceAFASIdentitySource) GetSchedule()(*string) {
+    return m.schedule
+}
 // GetToken gets the token property value. The token property
 // returns a *string when successful
 func (m *IdentitysourceAFASIdentitySource) GetToken()(*string) {
@@ -71,6 +88,12 @@ func (m *IdentitysourceAFASIdentitySource) Serialize(writer i878a80d2330e89d2689
         return err
     }
     {
+        err = writer.WriteStringValue("schedule", m.GetSchedule())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("token", m.GetToken())
         if err != nil {
             return err
@@ -84,6 +107,10 @@ func (m *IdentitysourceAFASIdentitySource) Serialize(writer i878a80d2330e89d2689
     }
     return nil
 }
+// SetSchedule sets the schedule property value. The schedule property
+func (m *IdentitysourceAFASIdentitySource) SetSchedule(value *string)() {
+    m.schedule = value
+}
 // SetToken sets the token property value. The token property
 func (m *IdentitysourceAFASIdentitySource) SetToken(value *string)() {
     m.token = value
@@ -95,8 +122,10 @@ func (m *IdentitysourceAFASIdentitySource) SetUrl(value *string)() {
 type IdentitysourceAFASIdentitySourceable interface {
     IdentitysourceIdentitySourceable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetSchedule()(*string)
     GetToken()(*string)
     GetUrl()(*string)
+    SetSchedule(value *string)()
     SetToken(value *string)()
     SetUrl(value *string)()
 }
