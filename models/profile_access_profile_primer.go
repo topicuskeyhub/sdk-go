@@ -40,6 +40,8 @@ func CreateProfileAccessProfilePrimerFromDiscriminatorValue(parseNode i878a80d23
                 switch *mappingValue {
                     case "profile.AccessProfile":
                         return NewProfileAccessProfile(), nil
+                    case "profile.AccountAccessProfile":
+                        return NewProfileAccountAccessProfile(), nil
                 }
             }
         }

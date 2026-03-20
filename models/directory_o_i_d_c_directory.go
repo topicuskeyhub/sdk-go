@@ -11,8 +11,8 @@ type DirectoryOIDCDirectory struct {
     DirectoryAccountDirectory
     // The acrValues property
     acrValues *string
-    // The attributesToStore property
-    attributesToStore *string
+    // The attributes property
+    attributes []MiscAttributeCustomizationable
     // The clientId property
     clientId *string
     // The clientSecret property
@@ -51,10 +51,10 @@ func CreateDirectoryOIDCDirectoryFromDiscriminatorValue(parseNode i878a80d2330e8
 func (m *DirectoryOIDCDirectory) GetAcrValues()(*string) {
     return m.acrValues
 }
-// GetAttributesToStore gets the attributesToStore property value. The attributesToStore property
-// returns a *string when successful
-func (m *DirectoryOIDCDirectory) GetAttributesToStore()(*string) {
-    return m.attributesToStore
+// GetAttributes gets the attributes property value. The attributes property
+// returns a []MiscAttributeCustomizationable when successful
+func (m *DirectoryOIDCDirectory) GetAttributes()([]MiscAttributeCustomizationable) {
+    return m.attributes
 }
 // GetClientId gets the clientId property value. The clientId property
 // returns a *string when successful
@@ -90,13 +90,19 @@ func (m *DirectoryOIDCDirectory) GetFieldDeserializers()(map[string]func(i878a80
         }
         return nil
     }
-    res["attributesToStore"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAttributesToStore(val)
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
         }
         return nil
     }
@@ -229,8 +235,14 @@ func (m *DirectoryOIDCDirectory) Serialize(writer i878a80d2330e89d26896388a3f487
             return err
         }
     }
-    {
-        err = writer.WriteStringValue("attributesToStore", m.GetAttributesToStore())
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
         if err != nil {
             return err
         }
@@ -290,9 +302,9 @@ func (m *DirectoryOIDCDirectory) Serialize(writer i878a80d2330e89d26896388a3f487
 func (m *DirectoryOIDCDirectory) SetAcrValues(value *string)() {
     m.acrValues = value
 }
-// SetAttributesToStore sets the attributesToStore property value. The attributesToStore property
-func (m *DirectoryOIDCDirectory) SetAttributesToStore(value *string)() {
-    m.attributesToStore = value
+// SetAttributes sets the attributes property value. The attributes property
+func (m *DirectoryOIDCDirectory) SetAttributes(value []MiscAttributeCustomizationable)() {
+    m.attributes = value
 }
 // SetClientId sets the clientId property value. The clientId property
 func (m *DirectoryOIDCDirectory) SetClientId(value *string)() {
@@ -334,7 +346,7 @@ type DirectoryOIDCDirectoryable interface {
     DirectoryAccountDirectoryable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAcrValues()(*string)
-    GetAttributesToStore()(*string)
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetClientId()(*string)
     GetClientSecret()(*string)
     GetDomainRestriction()(*string)
@@ -345,7 +357,7 @@ type DirectoryOIDCDirectoryable interface {
     GetSendLoginHint()(*bool)
     GetVendorEscaped()(*DirectoryOIDCVendor)
     SetAcrValues(value *string)()
-    SetAttributesToStore(value *string)()
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetClientId(value *string)()
     SetClientSecret(value *string)()
     SetDomainRestriction(value *string)()

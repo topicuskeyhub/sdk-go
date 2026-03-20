@@ -28,6 +28,8 @@ type GroupGroup_additionalObjects struct {
     clients GroupGroupClientLinkableWrapperable
     // The contentAdministeredSystems property
     contentAdministeredSystems ProvisioningProvisionedSystemLinkableWrapperable
+    // The excludedGroups property
+    excludedGroups GroupGroupPrimerLinkableWrapperWithCountable
     // The globalRoles property
     globalRoles GroupGroupGlobalRoleInfoable
     // The groupAccessInfo property
@@ -133,6 +135,11 @@ func (m *GroupGroup_additionalObjects) GetClients()(GroupGroupClientLinkableWrap
 func (m *GroupGroup_additionalObjects) GetContentAdministeredSystems()(ProvisioningProvisionedSystemLinkableWrapperable) {
     return m.contentAdministeredSystems
 }
+// GetExcludedGroups gets the excludedGroups property value. The excludedGroups property
+// returns a GroupGroupPrimerLinkableWrapperWithCountable when successful
+func (m *GroupGroup_additionalObjects) GetExcludedGroups()(GroupGroupPrimerLinkableWrapperWithCountable) {
+    return m.excludedGroups
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
@@ -224,6 +231,16 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers()(map[string]func(i
         }
         if val != nil {
             m.SetContentAdministeredSystems(val.(ProvisioningProvisionedSystemLinkableWrapperable))
+        }
+        return nil
+    }
+    res["excludedGroups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateGroupGroupPrimerLinkableWrapperWithCountFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetExcludedGroups(val.(GroupGroupPrimerLinkableWrapperWithCountable))
         }
         return nil
     }
@@ -601,6 +618,12 @@ func (m *GroupGroup_additionalObjects) Serialize(writer i878a80d2330e89d26896388
         }
     }
     {
+        err := writer.WriteObjectValue("excludedGroups", m.GetExcludedGroups())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteObjectValue("globalRoles", m.GetGlobalRoles())
         if err != nil {
             return err
@@ -775,6 +798,10 @@ func (m *GroupGroup_additionalObjects) SetClients(value GroupGroupClientLinkable
 func (m *GroupGroup_additionalObjects) SetContentAdministeredSystems(value ProvisioningProvisionedSystemLinkableWrapperable)() {
     m.contentAdministeredSystems = value
 }
+// SetExcludedGroups sets the excludedGroups property value. The excludedGroups property
+func (m *GroupGroup_additionalObjects) SetExcludedGroups(value GroupGroupPrimerLinkableWrapperWithCountable)() {
+    m.excludedGroups = value
+}
 // SetGlobalRoles sets the globalRoles property value. The globalRoles property
 func (m *GroupGroup_additionalObjects) SetGlobalRoles(value GroupGroupGlobalRoleInfoable)() {
     m.globalRoles = value
@@ -871,6 +898,7 @@ type GroupGroup_additionalObjectsable interface {
     GetClientPermissions()(ClientOAuth2ClientPermissionWithClientLinkableWrapperable)
     GetClients()(GroupGroupClientLinkableWrapperable)
     GetContentAdministeredSystems()(ProvisioningProvisionedSystemLinkableWrapperable)
+    GetExcludedGroups()(GroupGroupPrimerLinkableWrapperWithCountable)
     GetGlobalRoles()(GroupGroupGlobalRoleInfoable)
     GetGroupAccessInfo()(GroupGroupAccessInfoable)
     GetGroupauditinginfo()(GroupGroupAuditingInfoable)
@@ -901,6 +929,7 @@ type GroupGroup_additionalObjectsable interface {
     SetClientPermissions(value ClientOAuth2ClientPermissionWithClientLinkableWrapperable)()
     SetClients(value GroupGroupClientLinkableWrapperable)()
     SetContentAdministeredSystems(value ProvisioningProvisionedSystemLinkableWrapperable)()
+    SetExcludedGroups(value GroupGroupPrimerLinkableWrapperWithCountable)()
     SetGlobalRoles(value GroupGroupGlobalRoleInfoable)()
     SetGroupAccessInfo(value GroupGroupAccessInfoable)()
     SetGroupauditinginfo(value GroupGroupAuditingInfoable)()

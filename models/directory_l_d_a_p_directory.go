@@ -9,8 +9,8 @@ import (
 
 type DirectoryLDAPDirectory struct {
     DirectoryAccountDirectory
-    // The attributesToStore property
-    attributesToStore *string
+    // The attributes property
+    attributes []MiscAttributeCustomizationable
     // The baseDN property
     baseDN *string
     // The clientCertificate property
@@ -52,10 +52,10 @@ func NewDirectoryLDAPDirectory()(*DirectoryLDAPDirectory) {
 func CreateDirectoryLDAPDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewDirectoryLDAPDirectory(), nil
 }
-// GetAttributesToStore gets the attributesToStore property value. The attributesToStore property
-// returns a *string when successful
-func (m *DirectoryLDAPDirectory) GetAttributesToStore()(*string) {
-    return m.attributesToStore
+// GetAttributes gets the attributes property value. The attributes property
+// returns a []MiscAttributeCustomizationable when successful
+func (m *DirectoryLDAPDirectory) GetAttributes()([]MiscAttributeCustomizationable) {
+    return m.attributes
 }
 // GetBaseDN gets the baseDN property value. The baseDN property
 // returns a *string when successful
@@ -86,13 +86,19 @@ func (m *DirectoryLDAPDirectory) GetFailoverTrustedCertificate()(CertificateCert
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *DirectoryLDAPDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.DirectoryAccountDirectory.GetFieldDeserializers()
-    res["attributesToStore"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
+    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetAttributesToStore(val)
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
         }
         return nil
     }
@@ -274,8 +280,14 @@ func (m *DirectoryLDAPDirectory) Serialize(writer i878a80d2330e89d26896388a3f487
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteStringValue("attributesToStore", m.GetAttributesToStore())
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
         if err != nil {
             return err
         }
@@ -363,9 +375,9 @@ func (m *DirectoryLDAPDirectory) Serialize(writer i878a80d2330e89d26896388a3f487
     }
     return nil
 }
-// SetAttributesToStore sets the attributesToStore property value. The attributesToStore property
-func (m *DirectoryLDAPDirectory) SetAttributesToStore(value *string)() {
-    m.attributesToStore = value
+// SetAttributes sets the attributes property value. The attributes property
+func (m *DirectoryLDAPDirectory) SetAttributes(value []MiscAttributeCustomizationable)() {
+    m.attributes = value
 }
 // SetBaseDN sets the baseDN property value. The baseDN property
 func (m *DirectoryLDAPDirectory) SetBaseDN(value *string)() {
@@ -422,7 +434,7 @@ func (m *DirectoryLDAPDirectory) SetTrustedCertificate(value CertificateCertific
 type DirectoryLDAPDirectoryable interface {
     DirectoryAccountDirectoryable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAttributesToStore()(*string)
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetBaseDN()(*string)
     GetClientCertificate()(CertificateCertificatePrimerable)
     GetDialect()(*DirectoryLDAPDialect)
@@ -436,7 +448,7 @@ type DirectoryLDAPDirectoryable interface {
     GetSearchFilter()(*string)
     GetTls()(*TLSLevel)
     GetTrustedCertificate()(CertificateCertificatePrimerable)
-    SetAttributesToStore(value *string)()
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetBaseDN(value *string)()
     SetClientCertificate(value CertificateCertificatePrimerable)()
     SetDialect(value *DirectoryLDAPDialect)()

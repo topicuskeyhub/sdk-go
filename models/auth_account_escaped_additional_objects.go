@@ -14,14 +14,16 @@ type AuthAccount_additionalObjects struct {
     additionalData map[string]any
     // The audit property
     audit AuditInfoable
+    // The effectivePermissions property
+    effectivePermissions AuthEffectiveAccountPermissionsable
     // The groups property
     groups GroupAccountGroupLinkableWrapperWithCountable
     // The pendingRecoveryRequests property
     pendingRecoveryRequests AuthAccountRecoveryStatusable
     // The settings property
     settings AuthAccountSettingsable
-    // The storedAttributes property
-    storedAttributes AuthStoredAccountAttributesable
+    // The totalGroupCount property
+    totalGroupCount ItemCountable
     // The vault property
     vault VaultVaultable
 }
@@ -52,6 +54,11 @@ func (m *AuthAccount_additionalObjects) GetAdditionalData()(map[string]any) {
 func (m *AuthAccount_additionalObjects) GetAudit()(AuditInfoable) {
     return m.audit
 }
+// GetEffectivePermissions gets the effectivePermissions property value. The effectivePermissions property
+// returns a AuthEffectiveAccountPermissionsable when successful
+func (m *AuthAccount_additionalObjects) GetEffectivePermissions()(AuthEffectiveAccountPermissionsable) {
+    return m.effectivePermissions
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *AuthAccount_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
@@ -73,6 +80,16 @@ func (m *AuthAccount_additionalObjects) GetFieldDeserializers()(map[string]func(
         }
         if val != nil {
             m.SetAudit(val.(AuditInfoable))
+        }
+        return nil
+    }
+    res["effectivePermissions"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateAuthEffectiveAccountPermissionsFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetEffectivePermissions(val.(AuthEffectiveAccountPermissionsable))
         }
         return nil
     }
@@ -106,13 +123,13 @@ func (m *AuthAccount_additionalObjects) GetFieldDeserializers()(map[string]func(
         }
         return nil
     }
-    res["storedAttributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateAuthStoredAccountAttributesFromDiscriminatorValue)
+    res["totalGroupCount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateItemCountFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetStoredAttributes(val.(AuthStoredAccountAttributesable))
+            m.SetTotalGroupCount(val.(ItemCountable))
         }
         return nil
     }
@@ -143,10 +160,10 @@ func (m *AuthAccount_additionalObjects) GetPendingRecoveryRequests()(AuthAccount
 func (m *AuthAccount_additionalObjects) GetSettings()(AuthAccountSettingsable) {
     return m.settings
 }
-// GetStoredAttributes gets the storedAttributes property value. The storedAttributes property
-// returns a AuthStoredAccountAttributesable when successful
-func (m *AuthAccount_additionalObjects) GetStoredAttributes()(AuthStoredAccountAttributesable) {
-    return m.storedAttributes
+// GetTotalGroupCount gets the totalGroupCount property value. The totalGroupCount property
+// returns a ItemCountable when successful
+func (m *AuthAccount_additionalObjects) GetTotalGroupCount()(ItemCountable) {
+    return m.totalGroupCount
 }
 // GetVault gets the vault property value. The vault property
 // returns a VaultVaultable when successful
@@ -157,6 +174,12 @@ func (m *AuthAccount_additionalObjects) GetVault()(VaultVaultable) {
 func (m *AuthAccount_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     {
         err := writer.WriteObjectValue("audit", m.GetAudit())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("effectivePermissions", m.GetEffectivePermissions())
         if err != nil {
             return err
         }
@@ -180,7 +203,7 @@ func (m *AuthAccount_additionalObjects) Serialize(writer i878a80d2330e89d2689638
         }
     }
     {
-        err := writer.WriteObjectValue("storedAttributes", m.GetStoredAttributes())
+        err := writer.WriteObjectValue("totalGroupCount", m.GetTotalGroupCount())
         if err != nil {
             return err
         }
@@ -211,6 +234,10 @@ func (m *AuthAccount_additionalObjects) SetAdditionalData(value map[string]any)(
 func (m *AuthAccount_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
+// SetEffectivePermissions sets the effectivePermissions property value. The effectivePermissions property
+func (m *AuthAccount_additionalObjects) SetEffectivePermissions(value AuthEffectiveAccountPermissionsable)() {
+    m.effectivePermissions = value
+}
 // SetGroups sets the groups property value. The groups property
 func (m *AuthAccount_additionalObjects) SetGroups(value GroupAccountGroupLinkableWrapperWithCountable)() {
     m.groups = value
@@ -223,9 +250,9 @@ func (m *AuthAccount_additionalObjects) SetPendingRecoveryRequests(value AuthAcc
 func (m *AuthAccount_additionalObjects) SetSettings(value AuthAccountSettingsable)() {
     m.settings = value
 }
-// SetStoredAttributes sets the storedAttributes property value. The storedAttributes property
-func (m *AuthAccount_additionalObjects) SetStoredAttributes(value AuthStoredAccountAttributesable)() {
-    m.storedAttributes = value
+// SetTotalGroupCount sets the totalGroupCount property value. The totalGroupCount property
+func (m *AuthAccount_additionalObjects) SetTotalGroupCount(value ItemCountable)() {
+    m.totalGroupCount = value
 }
 // SetVault sets the vault property value. The vault property
 func (m *AuthAccount_additionalObjects) SetVault(value VaultVaultable)() {
@@ -236,16 +263,18 @@ type AuthAccount_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetActiveLogin()(*bool)
     GetAudit()(AuditInfoable)
+    GetEffectivePermissions()(AuthEffectiveAccountPermissionsable)
     GetGroups()(GroupAccountGroupLinkableWrapperWithCountable)
     GetPendingRecoveryRequests()(AuthAccountRecoveryStatusable)
     GetSettings()(AuthAccountSettingsable)
-    GetStoredAttributes()(AuthStoredAccountAttributesable)
+    GetTotalGroupCount()(ItemCountable)
     GetVault()(VaultVaultable)
     SetActiveLogin(value *bool)()
     SetAudit(value AuditInfoable)()
+    SetEffectivePermissions(value AuthEffectiveAccountPermissionsable)()
     SetGroups(value GroupAccountGroupLinkableWrapperWithCountable)()
     SetPendingRecoveryRequests(value AuthAccountRecoveryStatusable)()
     SetSettings(value AuthAccountSettingsable)()
-    SetStoredAttributes(value AuthStoredAccountAttributesable)()
+    SetTotalGroupCount(value ItemCountable)()
     SetVault(value VaultVaultable)()
 }

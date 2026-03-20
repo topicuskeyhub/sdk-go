@@ -114,6 +114,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
                         return NewRequestRevokeAdminRequest(), nil
                     case "request.SetupAuthorizingGroupRequest":
                         return NewRequestSetupAuthorizingGroupRequest(), nil
+                    case "request.SetupGroupExclusionRequest":
+                        return NewRequestSetupGroupExclusionRequest(), nil
                     case "request.SetupNestedGroupRequest":
                         return NewRequestSetupNestedGroupRequest(), nil
                     case "request.TransferAccessProfileOwnershipRequest":

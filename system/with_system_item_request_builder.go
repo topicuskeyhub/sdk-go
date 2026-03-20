@@ -53,6 +53,11 @@ type WithSystemItemRequestBuilderPutRequestConfiguration struct {
 func (m *WithSystemItemRequestBuilder) Account()(*ItemAccountRequestBuilder) {
     return NewItemAccountRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// Changestatus the changestatus property
+// returns a *ItemChangestatusRequestBuilder when successful
+func (m *WithSystemItemRequestBuilder) Changestatus()(*ItemChangestatusRequestBuilder) {
+    return NewItemChangestatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // NewWithSystemItemRequestBuilderInternal instantiates a new WithSystemItemRequestBuilder and sets the default values.
 func NewWithSystemItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithSystemItemRequestBuilder) {
     m := &WithSystemItemRequestBuilder{
@@ -65,11 +70,6 @@ func NewWithSystemItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7dae
     urlParams := make(map[string]string)
     urlParams["request-raw-url"] = rawUrl
     return NewWithSystemItemRequestBuilderInternal(urlParams, requestAdapter)
-}
-// Deactivate the deactivate property
-// returns a *ItemDeactivateRequestBuilder when successful
-func (m *WithSystemItemRequestBuilder) Deactivate()(*ItemDeactivateRequestBuilder) {
-    return NewItemDeactivateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Get returns the provisioned system identified by the id.
 // returns a ProvisioningProvisionedSystemable when successful
@@ -132,7 +132,7 @@ func (m *WithSystemItemRequestBuilder) ToGetRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the provisioned system identified by the id.
@@ -146,8 +146,8 @@ func (m *WithSystemItemRequestBuilder) ToPutRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
     if err != nil {
         return nil, err
     }

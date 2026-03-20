@@ -36,6 +36,8 @@ type ExportRequestBuilderPostQueryParameters struct {
     IncludeDaily []bool `uriparametername:"includeDaily"`
     // Only return records that have been modified since the given instant.
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    // Only return audit records targeting the given directory, specified by id.
+    OnDirectory []int64 `uriparametername:"onDirectory"`
     // Only return audit records targeting the given group either via onGroup1 or onGroup2, specified by id.
     OnGroup []int64 `uriparametername:"onGroup"`
     // Only return audit records targeting the given group specifically as onGroup1, specified by id.
@@ -74,7 +76,7 @@ type ExportRequestBuilderPostRequestConfiguration struct {
 // NewExportRequestBuilderInternal instantiates a new ExportRequestBuilder and sets the default values.
 func NewExportRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ExportRequestBuilder) {
     m := &ExportRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/audit/export{?after*,any*,before*,containing*,createdAfter*,createdBefore*,exclude*,id*,includeDaily*,modifiedSince*,onGroup*,onGroup1*,onOrByAccount*,onOrByClient*,onServiceAccount*,performedByNameSet*,performedByUuid*,q*,sort*,type*,visibleFor*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/audit/export{?after*,any*,before*,containing*,createdAfter*,createdBefore*,exclude*,id*,includeDaily*,modifiedSince*,onDirectory*,onGroup*,onGroup1*,onOrByAccount*,onOrByClient*,onServiceAccount*,performedByNameSet*,performedByUuid*,q*,sort*,type*,visibleFor*}", pathParameters),
     }
     return m
 }
@@ -111,7 +113,7 @@ func (m *ExportRequestBuilder) ToPostRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

@@ -39,6 +39,8 @@ type ItemAccountRequestBuilderGetQueryParameters struct {
     Id []int64 `uriparametername:"id"`
     // Only return records that have been modified since the given instant.
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    // Filter access profile memberships on the given organizational units, specified by id. This parameter supports composition with all parameters from the access profile resource.
+    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
     // Filter access profile memberships for which the given group is owner, specified by id. This parameter supports composition with all parameters from the group resource.
     OwnedBy []int64 `uriparametername:"ownedBy"`
     // Filter records on a complex CQL query.
@@ -98,7 +100,7 @@ func (m *ItemAccountRequestBuilder) ByAccountidInt64(accountid int64)(*ItemAccou
 // NewItemAccountRequestBuilderInternal instantiates a new ItemAccountRequestBuilder and sets the default values.
 func NewItemAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountRequestBuilder) {
     m := &ItemAccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/account{?accessProfile*,account*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,ownedBy*,q*,sort*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/account{?accessProfile*,account*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,organizationalUnit*,ownedBy*,q*,sort*}", pathParameters),
     }
     return m
 }
@@ -159,7 +161,7 @@ func (m *ItemAccountRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new memberships for an access profile and returns the newly created memberships.
@@ -173,8 +175,8 @@ func (m *ItemAccountRequestBuilder) ToPostRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
     if err != nil {
         return nil, err
     }

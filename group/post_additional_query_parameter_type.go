@@ -14,6 +14,7 @@ const (
     CLIENTPERMISSIONS_POSTADDITIONALQUERYPARAMETERTYPE
     CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
     CONTENTADMINISTEREDSYSTEMS_POSTADDITIONALQUERYPARAMETERTYPE
+    EXCLUDEDGROUPS_POSTADDITIONALQUERYPARAMETERTYPE
     GLOBALROLES_POSTADDITIONALQUERYPARAMETERTYPE
     GROUPACCESSINFO_POSTADDITIONALQUERYPARAMETERTYPE
     GROUPAUDITINGINFO_POSTADDITIONALQUERYPARAMETERTYPE
@@ -39,7 +40,7 @@ const (
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedAccessProfiles", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
+    return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "excludedGroups", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedAccessProfiles", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
     result := ACCOUNTS_POSTADDITIONALQUERYPARAMETERTYPE
@@ -62,6 +63,8 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
             result = CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
         case "contentAdministeredSystems":
             result = CONTENTADMINISTEREDSYSTEMS_POSTADDITIONALQUERYPARAMETERTYPE
+        case "excludedGroups":
+            result = EXCLUDEDGROUPS_POSTADDITIONALQUERYPARAMETERTYPE
         case "globalRoles":
             result = GLOBALROLES_POSTADDITIONALQUERYPARAMETERTYPE
         case "groupAccessInfo":

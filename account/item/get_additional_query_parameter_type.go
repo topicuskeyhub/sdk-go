@@ -7,15 +7,16 @@ type GetAdditionalQueryParameterType int
 const (
     ACTIVELOGIN_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
     AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+    EFFECTIVEPERMISSIONS_GETADDITIONALQUERYPARAMETERTYPE
     GROUPS_GETADDITIONALQUERYPARAMETERTYPE
     PENDINGRECOVERYREQUESTS_GETADDITIONALQUERYPARAMETERTYPE
     SETTINGS_GETADDITIONALQUERYPARAMETERTYPE
-    STOREDATTRIBUTES_GETADDITIONALQUERYPARAMETERTYPE
+    TOTALGROUPCOUNT_GETADDITIONALQUERYPARAMETERTYPE
     VAULT_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"activeLogin", "audit", "groups", "pendingRecoveryRequests", "settings", "storedAttributes", "vault"}[i]
+    return []string{"activeLogin", "audit", "effectivePermissions", "groups", "pendingRecoveryRequests", "settings", "totalGroupCount", "vault"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := ACTIVELOGIN_GETADDITIONALQUERYPARAMETERTYPE
@@ -24,14 +25,16 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
             result = ACTIVELOGIN_GETADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+        case "effectivePermissions":
+            result = EFFECTIVEPERMISSIONS_GETADDITIONALQUERYPARAMETERTYPE
         case "groups":
             result = GROUPS_GETADDITIONALQUERYPARAMETERTYPE
         case "pendingRecoveryRequests":
             result = PENDINGRECOVERYREQUESTS_GETADDITIONALQUERYPARAMETERTYPE
         case "settings":
             result = SETTINGS_GETADDITIONALQUERYPARAMETERTYPE
-        case "storedAttributes":
-            result = STOREDATTRIBUTES_GETADDITIONALQUERYPARAMETERTYPE
+        case "totalGroupCount":
+            result = TOTALGROUPCOUNT_GETADDITIONALQUERYPARAMETERTYPE
         case "vault":
             result = VAULT_GETADDITIONALQUERYPARAMETERTYPE
         default:

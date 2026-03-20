@@ -171,6 +171,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProfileAccessProfilePrimer(), nil
                     case "profile.AccessProfileProvisioning":
                         return NewProfileAccessProfileProvisioning(), nil
+                    case "profile.AccountAccessProfile":
+                        return NewProfileAccountAccessProfile(), nil
                     case "provisioning.AbstractProvisionedLDAP":
                         return NewProvisioningAbstractProvisionedLDAP(), nil
                     case "provisioning.GroupOnSystem":
@@ -273,6 +275,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewRequestRevokeAdminRequest(), nil
                     case "request.SetupAuthorizingGroupRequest":
                         return NewRequestSetupAuthorizingGroupRequest(), nil
+                    case "request.SetupGroupExclusionRequest":
+                        return NewRequestSetupGroupExclusionRequest(), nil
                     case "request.SetupNestedGroupRequest":
                         return NewRequestSetupNestedGroupRequest(), nil
                     case "request.TransferAccessProfileOwnershipRequest":

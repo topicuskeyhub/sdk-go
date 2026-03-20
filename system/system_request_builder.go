@@ -26,11 +26,11 @@ type SystemRequestBuilderGetQueryParameters struct {
     Account []int64 `uriparametername:"account"`
     // Only return source directory provisioning systems for which accounts are writable.
     AccountsWritable []bool `uriparametername:"accountsWritable"`
-    // Only return active or inactive systems.
-    // Deprecated: This property is deprecated, use ActiveAsBooleanEnum instead
-    Active []string `uriparametername:"active"`
-    // Only return active or inactive systems.
-    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum `uriparametername:"active"`
+    // Only return systems whose active status matches any of the provided values.
+    // Deprecated: This property is deprecated, use ActiveStatusAsProvisioningProvisionedSystemStatus instead
+    ActiveStatus []string `uriparametername:"activeStatus"`
+    // Only return systems whose active status matches any of the provided values.
+    ActiveStatusAsProvisioningProvisionedSystemStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemStatus `uriparametername:"activeStatus"`
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
     Additional []string `uriparametername:"additional"`
@@ -164,7 +164,7 @@ func (m *SystemRequestBuilder) BySystemidInt64(systemid int64)(*WithSystemItemRe
 // NewSystemRequestBuilderInternal instantiates a new SystemRequestBuilder and sets the default values.
 func NewSystemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*SystemRequestBuilder) {
     m := &SystemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system{?accessProfileProvisioning*,accessprofile*,account*,accountsWritable*,active*,additional*,any*,contentAdministrator*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,externalUuid*,forAzureOIDCDirectory*,forBaseSystem*,forClient*,forLDAPDirectory*,group*,groupDN*,groupOnSystem*,id*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,numbering*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,provisioningGroup*,q*,selfServiceExistingGroups*,selfServiceNewGroups*,selfServiceServiceAccounts*,serviceAccountDN*,sort*,technicalAdministrator*,tls*,type*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system{?accessProfileProvisioning*,accessprofile*,account*,accountsWritable*,activeStatus*,additional*,any*,contentAdministrator*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,externalUuid*,forAzureOIDCDirectory*,forBaseSystem*,forClient*,forLDAPDirectory*,group*,groupDN*,groupOnSystem*,id*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,numbering*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,provisioningGroup*,q*,selfServiceExistingGroups*,selfServiceNewGroups*,selfServiceServiceAccounts*,serviceAccountDN*,sort*,technicalAdministrator*,tls*,type*,uuid*}", pathParameters),
     }
     return m
 }
@@ -225,7 +225,7 @@ func (m *SystemRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new provisioned systems and returns the newly created systems.
@@ -239,8 +239,8 @@ func (m *SystemRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
     if err != nil {
         return nil, err
     }

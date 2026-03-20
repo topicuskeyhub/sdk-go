@@ -9,8 +9,8 @@ import (
 
 type ProvisioningProvisionedSystemPrimer struct {
     Linkable
-    // The active property
-    active *bool
+    // The activeStatus property
+    activeStatus *ProvisioningProvisionedSystemStatus
     // The adminPermissions property
     adminPermissions *bool
     // The canWriteAccounts property
@@ -80,10 +80,10 @@ func CreateProvisioningProvisionedSystemPrimerFromDiscriminatorValue(parseNode i
     }
     return NewProvisioningProvisionedSystemPrimer(), nil
 }
-// GetActive gets the active property value. The active property
-// returns a *bool when successful
-func (m *ProvisioningProvisionedSystemPrimer) GetActive()(*bool) {
-    return m.active
+// GetActiveStatus gets the activeStatus property value. The activeStatus property
+// returns a *ProvisioningProvisionedSystemStatus when successful
+func (m *ProvisioningProvisionedSystemPrimer) GetActiveStatus()(*ProvisioningProvisionedSystemStatus) {
+    return m.activeStatus
 }
 // GetAdminPermissions gets the adminPermissions property value. The adminPermissions property
 // returns a *bool when successful
@@ -104,13 +104,13 @@ func (m *ProvisioningProvisionedSystemPrimer) GetContentAdminPermissions()(*bool
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedSystemPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
-    res["active"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
+    res["activeStatus"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetEnumValue(ParseProvisioningProvisionedSystemStatus)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetActive(val)
+            m.SetActiveStatus(val.(*ProvisioningProvisionedSystemStatus))
         }
         return nil
     }
@@ -227,8 +227,9 @@ func (m *ProvisioningProvisionedSystemPrimer) Serialize(writer i878a80d2330e89d2
     if err != nil {
         return err
     }
-    {
-        err = writer.WriteBoolValue("active", m.GetActive())
+    if m.GetActiveStatus() != nil {
+        cast := (*m.GetActiveStatus()).String()
+        err = writer.WriteStringValue("activeStatus", &cast)
         if err != nil {
             return err
         }
@@ -254,9 +255,9 @@ func (m *ProvisioningProvisionedSystemPrimer) Serialize(writer i878a80d2330e89d2
     }
     return nil
 }
-// SetActive sets the active property value. The active property
-func (m *ProvisioningProvisionedSystemPrimer) SetActive(value *bool)() {
-    m.active = value
+// SetActiveStatus sets the activeStatus property value. The activeStatus property
+func (m *ProvisioningProvisionedSystemPrimer) SetActiveStatus(value *ProvisioningProvisionedSystemStatus)() {
+    m.activeStatus = value
 }
 // SetAdminPermissions sets the adminPermissions property value. The adminPermissions property
 func (m *ProvisioningProvisionedSystemPrimer) SetAdminPermissions(value *bool)() {
@@ -293,7 +294,7 @@ func (m *ProvisioningProvisionedSystemPrimer) SetUuid(value *string)() {
 type ProvisioningProvisionedSystemPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetActive()(*bool)
+    GetActiveStatus()(*ProvisioningProvisionedSystemStatus)
     GetAdminPermissions()(*bool)
     GetCanWriteAccounts()(*bool)
     GetContentAdminPermissions()(*bool)
@@ -302,7 +303,7 @@ type ProvisioningProvisionedSystemPrimerable interface {
     GetOwnerPermissions()(*bool)
     GetProvisioningProvisionedSystemPrimerType()(*ProvisioningProvisionedSystemType)
     GetUuid()(*string)
-    SetActive(value *bool)()
+    SetActiveStatus(value *ProvisioningProvisionedSystemStatus)()
     SetAdminPermissions(value *bool)()
     SetCanWriteAccounts(value *bool)()
     SetContentAdminPermissions(value *bool)()

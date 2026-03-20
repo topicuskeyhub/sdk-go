@@ -71,6 +71,8 @@ type GroupRequestBuilderGetQueryParameters struct {
     Exclude []int64 `uriparametername:"exclude"`
     // Filter groups by auditing configuration.
     GroupAuditConfig []int64 `uriparametername:"groupAuditConfig"`
+    // Filter groups with which the given group has an excluding relation, specified by id.
+    GroupExclusionWith []int64 `uriparametername:"groupExclusionWith"`
     // Only return groups that have, or do not have, any authorizing group set.
     HasAnyAuthorizingGroupSet []bool `uriparametername:"hasAnyAuthorizingGroupSet"`
     // Only return groups that have or do not have periodic auditing setup.
@@ -83,6 +85,8 @@ type GroupRequestBuilderGetQueryParameters struct {
     HasClients []bool `uriparametername:"hasClients"`
     // Only return groups that have or do not have 2 or more managers.
     HasMoreThanOneManager []bool `uriparametername:"hasMoreThanOneManager"`
+    // Filter groups with which the given group does not have an excluding relation, specified by id.
+    HasNoGroupExclusionWith []int64 `uriparametername:"hasNoGroupExclusionWith"`
     // Only return groups that have or do not have dynamic provisioning of linked systems.
     HasSystems []bool `uriparametername:"hasSystems"`
     // Only return groups that have or do not have a vault.
@@ -93,6 +97,8 @@ type GroupRequestBuilderGetQueryParameters struct {
     Id []int64 `uriparametername:"id"`
     // Only return groups for which the given account is manager, specified by id.
     IsManager []int64 `uriparametername:"isManager"`
+    // Only return groups for which the given account is manager or delegated manager, specified by id.
+    IsManagerOrDelegatedManager []int64 `uriparametername:"isManagerOrDelegatedManager"`
     // Only return the KeyHub administrator group or all other groups.
     KeyHubAdmin []bool `uriparametername:"keyHubAdmin"`
     // Only return groups that do or do not meet the various criteria set in the classification (if any).
@@ -229,7 +235,7 @@ func (m *GroupRequestBuilder) ByGroupidInt64(groupid int64)(*WithGroupItemReques
 // NewGroupRequestBuilderInternal instantiates a new GroupRequestBuilder and sets the default values.
 func NewGroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupRequestBuilder) {
     m := &GroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group{?accessModifiedSince*,accessProfileAdministration*,accessQuicksearch*,additional*,any*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditsReviewedBy*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,createdAfter*,createdBefore*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,exclude*,groupAuditConfig*,hasAnyAuthorizingGroupSet*,hasAuditUnderReview*,hasAuditing*,hasClientPermissions*,hasClients*,hasMoreThanOneManager*,hasSystems*,hasVault*,hasWebhooks*,id*,isManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,modifiedSince*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,notPartOfAccessProfile*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,partOfAccessProfile*,privateGroup*,provisioningAuthorizedBy*,q*,rotatingPasswordRequired*,singleManaged*,sort*,uuid*,vault*,vaultRecovery*,vaultRequiresActivation*,visibility*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group{?accessModifiedSince*,accessProfileAdministration*,accessQuicksearch*,additional*,any*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditsReviewedBy*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,createdAfter*,createdBefore*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,exclude*,groupAuditConfig*,groupExclusionWith*,hasAnyAuthorizingGroupSet*,hasAuditUnderReview*,hasAuditing*,hasClientPermissions*,hasClients*,hasMoreThanOneManager*,hasNoGroupExclusionWith*,hasSystems*,hasVault*,hasWebhooks*,id*,isManager*,isManagerOrDelegatedManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,modifiedSince*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,notPartOfAccessProfile*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,partOfAccessProfile*,privateGroup*,provisioningAuthorizedBy*,q*,rotatingPasswordRequired*,singleManaged*,sort*,uuid*,vault*,vaultRecovery*,vaultRequiresActivation*,visibility*}", pathParameters),
     }
     return m
 }
@@ -300,7 +306,7 @@ func (m *GroupRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new groups and returns the newly created groups. It is required to specify the first admin via the admins additional object.
@@ -314,8 +320,8 @@ func (m *GroupRequestBuilder) ToPostRequestInformation(ctx context.Context, body
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=83")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=83", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
     if err != nil {
         return nil, err
     }

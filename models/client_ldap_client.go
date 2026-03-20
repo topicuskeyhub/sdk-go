@@ -9,6 +9,8 @@ import (
 
 type ClientLdapClient struct {
     ClientClientApplication
+    // The attributes property
+    attributes []MiscAttributeCustomizationable
     // The bindDn property
     bindDn *string
     // The clientCertificate property
@@ -32,6 +34,11 @@ func NewClientLdapClient()(*ClientLdapClient) {
 func CreateClientLdapClientFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewClientLdapClient(), nil
 }
+// GetAttributes gets the attributes property value. The attributes property
+// returns a []MiscAttributeCustomizationable when successful
+func (m *ClientLdapClient) GetAttributes()([]MiscAttributeCustomizationable) {
+    return m.attributes
+}
 // GetBindDn gets the bindDn property value. The bindDn property
 // returns a *string when successful
 func (m *ClientLdapClient) GetBindDn()(*string) {
@@ -46,6 +53,22 @@ func (m *ClientLdapClient) GetClientCertificate()(CertificateCertificatePrimerab
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientLdapClient) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ClientClientApplication.GetFieldDeserializers()
+    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
+        }
+        return nil
+    }
     res["bindDn"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -104,6 +127,18 @@ func (m *ClientLdapClient) Serialize(writer i878a80d2330e89d26896388a3f487eef27b
     if err != nil {
         return err
     }
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
+        if err != nil {
+            return err
+        }
+    }
     {
         err = writer.WriteObjectValue("clientCertificate", m.GetClientCertificate())
         if err != nil {
@@ -124,6 +159,10 @@ func (m *ClientLdapClient) Serialize(writer i878a80d2330e89d26896388a3f487eef27b
     }
     return nil
 }
+// SetAttributes sets the attributes property value. The attributes property
+func (m *ClientLdapClient) SetAttributes(value []MiscAttributeCustomizationable)() {
+    m.attributes = value
+}
 // SetBindDn sets the bindDn property value. The bindDn property
 func (m *ClientLdapClient) SetBindDn(value *string)() {
     m.bindDn = value
@@ -143,10 +182,12 @@ func (m *ClientLdapClient) SetShareSecretInVault(value *bool)() {
 type ClientLdapClientable interface {
     ClientClientApplicationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetBindDn()(*string)
     GetClientCertificate()(CertificateCertificatePrimerable)
     GetSharedSecret()(VaultVaultRecordPrimerable)
     GetShareSecretInVault()(*bool)
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetBindDn(value *string)()
     SetClientCertificate(value CertificateCertificatePrimerable)()
     SetSharedSecret(value VaultVaultRecordPrimerable)()

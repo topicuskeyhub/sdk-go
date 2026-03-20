@@ -49,14 +49,12 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewAuthAccountSettings(), nil
                     case "auth.AccountStatus":
                         return NewAuthAccountStatus(), nil
+                    case "auth.EffectiveAccountPermissions":
+                        return NewAuthEffectiveAccountPermissions(), nil
                     case "auth.InternalAccountStatusObject":
                         return NewAuthInternalAccountStatusObject(), nil
                     case "auth.MoveInternalAccount":
                         return NewAuthMoveInternalAccount(), nil
-                    case "auth.StoredAccountAttribute":
-                        return NewAuthStoredAccountAttribute(), nil
-                    case "auth.StoredAccountAttributes":
-                        return NewAuthStoredAccountAttributes(), nil
                     case "directory.AccountDirectoryStatusReport":
                         return NewDirectoryAccountDirectoryStatusReport(), nil
                     case "GenerateSecret":
@@ -91,6 +89,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewIdentityAccountAttributeValueUpdate(), nil
                     case "identitysource.IdentitySourceAttributeMapping":
                         return NewIdentitysourceIdentitySourceAttributeMapping(), nil
+                    case "ItemCount":
+                        return NewItemCount(), nil
                     case "launchpad.DisplayedLaunchpadTiles":
                         return NewLaunchpadDisplayedLaunchpadTiles(), nil
                     case "license.KeyHubLicenseInfo":
@@ -133,6 +133,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewProvisioningAccountProvisioningStatus(), nil
                     case "provisioning.AccountProvisioningStatusReport":
                         return NewProvisioningAccountProvisioningStatusReport(), nil
+                    case "provisioning.ChangeProvisionedSystemStatus":
+                        return NewProvisioningChangeProvisionedSystemStatus(), nil
                     case "provisioning.CircuitBreakerStatistics":
                         return NewProvisioningCircuitBreakerStatistics(), nil
                     case "provisioning.GroupOnSystemTypes":
