@@ -19,45 +19,45 @@ type ItemAttributevalueRequestBuilder struct {
 // ItemAttributevalueRequestBuilderGetQueryParameters query for account attribute values for a specific account. The various query parameters can be used to filter the response.
 type ItemAttributevalueRequestBuilderGetQueryParameters struct {
     // Filter the attribute values by account, specified by id. This parameter supports composition with all parameters from the account resource.
-    Account []int64 `uriparametername:"account"`
+    Account []int64 "uriparametername:\"account\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []iaa007f6ced75fe943fc0c292ccaa44a9d3a88b1ccb028ddf0872e8b66543634f.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []iaa007f6ced75fe943fc0c292ccaa44a9d3a88b1ccb028ddf0872e8b66543634f.GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter the attribute values by attribute definition, specified by id. This parameter supports composition with all parameters from the attribute definition resource.
-    Attribute []int64 `uriparametername:"attribute"`
+    Attribute []int64 "uriparametername:\"attribute\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the attribute values by the account's directory, specified by id. This parameter supports composition with all parameters from the account directory resource.
-    Directory []int64 `uriparametername:"directory"`
+    Directory []int64 "uriparametername:\"directory\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return attribute values that are, or are not, the latest value for its source.
-    LatestForSource []bool `uriparametername:"latestForSource"`
+    LatestForSource []bool "uriparametername:\"latestForSource\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter the attribute values by organizational unit of the account, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
+    OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Filter attribute values on being the currently selected value for their respective attributes and accounts.
-    Selected []bool `uriparametername:"selected"`
+    Selected []bool "uriparametername:\"selected\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter attribute values on the given source(s).
     // Deprecated: This property is deprecated, use SourceAsIdentityAccountAttributeSource instead
-    Source []string `uriparametername:"source"`
+    Source []string "uriparametername:\"source\""
     // Filter attribute values on the given source(s).
-    SourceAsIdentityAccountAttributeSource []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeSource `uriparametername:"source"`
+    SourceAsIdentityAccountAttributeSource []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeSource "uriparametername:\"source\""
     // Filter attribute values on the given actual value(s), ignoring case.
-    Value []string `uriparametername:"value"`
+    Value []string "uriparametername:\"value\""
 }
 // ItemAttributevalueRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAttributevalueRequestBuilderGetRequestConfiguration struct {
@@ -145,7 +145,7 @@ func (m *ItemAttributevalueRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

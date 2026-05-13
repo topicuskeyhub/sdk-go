@@ -18,9 +18,9 @@ type ItemAuditWithAuditItemRequestBuilder struct {
 type ItemAuditWithAuditItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i7f644e1f5d438a9c6c1025e5e998db5736b5258fd876fe6a8bb687fd0219316a.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i7f644e1f5d438a9c6c1025e5e998db5736b5258fd876fe6a8bb687fd0219316a.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemAuditWithAuditItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAuditWithAuditItemRequestBuilderGetRequestConfiguration struct {
@@ -35,9 +35,9 @@ type ItemAuditWithAuditItemRequestBuilderGetRequestConfiguration struct {
 type ItemAuditWithAuditItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i7f644e1f5d438a9c6c1025e5e998db5736b5258fd876fe6a8bb687fd0219316a.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i7f644e1f5d438a9c6c1025e5e998db5736b5258fd876fe6a8bb687fd0219316a.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemAuditWithAuditItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAuditWithAuditItemRequestBuilderPutRequestConfiguration struct {
@@ -112,7 +112,7 @@ func (m *ItemAuditWithAuditItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the audit for a group identified by the id. Only audits in draft can be updated.
@@ -126,8 +126,8 @@ func (m *ItemAuditWithAuditItemRequestBuilder) ToPutRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

@@ -18,58 +18,58 @@ type OrganizationalunitRequestBuilder struct {
 // OrganizationalunitRequestBuilderGetQueryParameters query for all organizational units in Topicus KeyHub. The various query parameters can be used to filter the response.
 type OrganizationalunitRequestBuilderGetQueryParameters struct {
     // Filter the organizational units for which the given account is auditor, either directly or inherited from one of the parent units, specified by id.
-    AccountIsAuditor []int64 `uriparametername:"accountIsAuditor"`
+    AccountIsAuditor []int64 "uriparametername:\"accountIsAuditor\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Only return the organizational units that are equal to or an ancestor of the given unit(s), specified by id.
-    AncestorOfOrEqualTo []int64 `uriparametername:"ancestorOfOrEqualTo"`
+    AncestorOfOrEqualTo []int64 "uriparametername:\"ancestorOfOrEqualTo\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter the organizational units for which the given group is auditor group, specified by id. This parameter supports composition with all parameters from the group resource.
-    AuditorGroup []int64 `uriparametername:"auditorGroup"`
+    AuditorGroup []int64 "uriparametername:\"auditorGroup\""
     // Filter the organizational units by accounts, specified by id. This parameter supports composition with all parameters from the account resource.
-    ConnectedToAccount []int64 `uriparametername:"connectedToAccount"`
+    ConnectedToAccount []int64 "uriparametername:\"connectedToAccount\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the organizational units for which the given group is create group approve group, specified by id. This parameter supports composition with all parameters from the group resource.
-    CreateGroupApproveGroup []int64 `uriparametername:"createGroupApproveGroup"`
+    CreateGroupApproveGroup []int64 "uriparametername:\"createGroupApproveGroup\""
     // Only return the organizational units that are equal to or a descendant of the given unit(s), specified by id.
-    DescendantOfOrEqualTo []int64 `uriparametername:"descendantOfOrEqualTo"`
+    DescendantOfOrEqualTo []int64 "uriparametername:\"descendantOfOrEqualTo\""
     // Filter the organizational units for which the given group is enable tech admin approve group, specified by id. This parameter supports composition with all parameters from the group resource.
-    EnableTechAdminApproveGroup []int64 `uriparametername:"enableTechAdminApproveGroup"`
+    EnableTechAdminApproveGroup []int64 "uriparametername:\"enableTechAdminApproveGroup\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Filter organizational units for which the given groups perform some form of functional role, specified by id.
-    FunctionalRole []int64 `uriparametername:"functionalRole"`
+    FunctionalRole []int64 "uriparametername:\"functionalRole\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter organizational units on the exact name.
-    Name []string `uriparametername:"name"`
+    Name []string "uriparametername:\"name\""
     // Filter organizational units on (part of) the name or uuid.
-    NameContains []string `uriparametername:"nameContains"`
+    NameContains []string "uriparametername:\"nameContains\""
     // Filter the organizational units for which the given group is owner, specified by id. This parameter supports composition with all parameters from the group resource.
-    OwnedBy []int64 `uriparametername:"ownedBy"`
+    OwnedBy []int64 "uriparametername:\"ownedBy\""
     // Filter the organizational units by parent, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    Parent []int64 `uriparametername:"parent"`
+    Parent []int64 "uriparametername:\"parent\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Filter the organizational units for which the given group is recovery fallback group, specified by id. This parameter supports composition with all parameters from the group resource.
-    RecoveryFallbackGroup []int64 `uriparametername:"recoveryFallbackGroup"`
+    RecoveryFallbackGroup []int64 "uriparametername:\"recoveryFallbackGroup\""
     // Filter the organizational units for which the given group is remove group approve group, specified by id. This parameter supports composition with all parameters from the group resource.
-    RemoveGroupApproveGroup []int64 `uriparametername:"removeGroupApproveGroup"`
+    RemoveGroupApproveGroup []int64 "uriparametername:\"removeGroupApproveGroup\""
     // Only return organizational units that are or are not the root of the organizational tree.
-    Root []bool `uriparametername:"root"`
+    Root []bool "uriparametername:\"root\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter results on one or more UUIDs.
-    Uuid []string `uriparametername:"uuid"`
+    Uuid []string "uriparametername:\"uuid\""
 }
 // OrganizationalunitRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type OrganizationalunitRequestBuilderGetRequestConfiguration struct {
@@ -84,9 +84,9 @@ type OrganizationalunitRequestBuilderGetRequestConfiguration struct {
 type OrganizationalunitRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // OrganizationalunitRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type OrganizationalunitRequestBuilderPostRequestConfiguration struct {
@@ -184,7 +184,7 @@ func (m *OrganizationalunitRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new organizational units and returns the newly created units.
@@ -198,8 +198,8 @@ func (m *OrganizationalunitRequestBuilder) ToPostRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

@@ -15,7 +15,7 @@ type ItemVaultRandomRequestBuilder struct {
 }
 // ItemVaultRandomRequestBuilderGetQueryParameters returns a random generated value of the given length, default 24.
 type ItemVaultRandomRequestBuilderGetQueryParameters struct {
-    Length *int32 `uriparametername:"length"`
+    Length *int32 "uriparametername:\"length\""
 }
 // ItemVaultRandomRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultRandomRequestBuilderGetRequestConfiguration struct {
@@ -70,7 +70,7 @@ func (m *ItemVaultRandomRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

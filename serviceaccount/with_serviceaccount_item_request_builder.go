@@ -25,9 +25,9 @@ type WithServiceaccountItemRequestBuilderDeleteRequestConfiguration struct {
 type WithServiceaccountItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i7f0d53038484bbd4864cdbebe350954b6a5210645c7578c166f717eabb2ddf63.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i7f0d53038484bbd4864cdbebe350954b6a5210645c7578c166f717eabb2ddf63.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithServiceaccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithServiceaccountItemRequestBuilderGetRequestConfiguration struct {
@@ -42,9 +42,9 @@ type WithServiceaccountItemRequestBuilderGetRequestConfiguration struct {
 type WithServiceaccountItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i7f0d53038484bbd4864cdbebe350954b6a5210645c7578c166f717eabb2ddf63.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i7f0d53038484bbd4864cdbebe350954b6a5210645c7578c166f717eabb2ddf63.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithServiceaccountItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithServiceaccountItemRequestBuilderPutRequestConfiguration struct {
@@ -145,7 +145,7 @@ func (m *WithServiceaccountItemRequestBuilder) ToDeleteRequestInformation(ctx co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the service account identified by the id.
@@ -159,7 +159,7 @@ func (m *WithServiceaccountItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the service account identified by the id.
@@ -173,8 +173,8 @@ func (m *WithServiceaccountItemRequestBuilder) ToPutRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

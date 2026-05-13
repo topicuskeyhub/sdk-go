@@ -25,9 +25,9 @@ type WithGroupclassificationItemRequestBuilderDeleteRequestConfiguration struct 
 type WithGroupclassificationItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i19d28e777e7500a9c739f553e6c06920cfd5ada5d56e186a0f0bf371b30f449e.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i19d28e777e7500a9c739f553e6c06920cfd5ada5d56e186a0f0bf371b30f449e.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithGroupclassificationItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithGroupclassificationItemRequestBuilderGetRequestConfiguration struct {
@@ -42,9 +42,9 @@ type WithGroupclassificationItemRequestBuilderGetRequestConfiguration struct {
 type WithGroupclassificationItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i19d28e777e7500a9c739f553e6c06920cfd5ada5d56e186a0f0bf371b30f449e.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i19d28e777e7500a9c739f553e6c06920cfd5ada5d56e186a0f0bf371b30f449e.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithGroupclassificationItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithGroupclassificationItemRequestBuilderPutRequestConfiguration struct {
@@ -132,7 +132,7 @@ func (m *WithGroupclassificationItemRequestBuilder) ToDeleteRequestInformation(c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the group classification identified by the id.
@@ -146,7 +146,7 @@ func (m *WithGroupclassificationItemRequestBuilder) ToGetRequestInformation(ctx 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the group classification identified by the id.
@@ -160,8 +160,8 @@ func (m *WithGroupclassificationItemRequestBuilder) ToPutRequestInformation(ctx 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

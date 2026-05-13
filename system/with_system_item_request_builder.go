@@ -18,9 +18,9 @@ type WithSystemItemRequestBuilder struct {
 type WithSystemItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i761ed4799fc1102dad078d6dc96accd5c28848aa30264ee692c85538984a4fbf.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i761ed4799fc1102dad078d6dc96accd5c28848aa30264ee692c85538984a4fbf.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithSystemItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithSystemItemRequestBuilderGetRequestConfiguration struct {
@@ -35,9 +35,9 @@ type WithSystemItemRequestBuilderGetRequestConfiguration struct {
 type WithSystemItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i761ed4799fc1102dad078d6dc96accd5c28848aa30264ee692c85538984a4fbf.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i761ed4799fc1102dad078d6dc96accd5c28848aa30264ee692c85538984a4fbf.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithSystemItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithSystemItemRequestBuilderPutRequestConfiguration struct {
@@ -132,7 +132,7 @@ func (m *WithSystemItemRequestBuilder) ToGetRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the provisioned system identified by the id.
@@ -146,8 +146,8 @@ func (m *WithSystemItemRequestBuilder) ToPutRequestInformation(ctx context.Conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

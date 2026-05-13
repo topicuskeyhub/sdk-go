@@ -18,34 +18,34 @@ type AccessprofileclientRequestBuilder struct {
 // AccessprofileclientRequestBuilderGetQueryParameters queries over all client links for an access profile. The various query parameters can be used to filter the response.
 type AccessprofileclientRequestBuilderGetQueryParameters struct {
     // Filter client access profile links on the given access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    AccessProfile []int64 `uriparametername:"accessProfile"`
+    AccessProfile []int64 "uriparametername:\"accessProfile\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter client access profile links on the given clients, specified by id. This parameter supports composition with all parameters from the client resource.
-    Client []int64 `uriparametername:"client"`
+    Client []int64 "uriparametername:\"client\""
     // Only return access profile client links for which one of the given groups is the owner of its client application, specified by id. This parameter supports composition with all parameters from the groups resource.
-    ClientOwnerGroup []int64 `uriparametername:"clientOwnerGroup"`
+    ClientOwnerGroup []int64 "uriparametername:\"clientOwnerGroup\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter access profile client links for which the given groups are owner, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    OwnedBy []int64 `uriparametername:"ownedBy"`
+    OwnedBy []int64 "uriparametername:\"ownedBy\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
 }
 // AccessprofileclientRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AccessprofileclientRequestBuilderGetRequestConfiguration struct {
@@ -123,7 +123,7 @@ func (m *AccessprofileclientRequestBuilder) ToGetRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

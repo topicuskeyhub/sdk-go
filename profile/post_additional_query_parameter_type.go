@@ -5,8 +5,7 @@ package profile
 type PostAdditionalQueryParameterType int
 
 const (
-    ACCOUNTSWITHATTRIBUTES_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
-    ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE
+    ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
     AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
     CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
     GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
@@ -14,13 +13,11 @@ const (
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"accountsWithAttributes", "attributeRules", "audit", "clients", "groups", "provisioning"}[i]
+    return []string{"attributeRules", "audit", "clients", "groups", "provisioning"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
-    result := ACCOUNTSWITHATTRIBUTES_POSTADDITIONALQUERYPARAMETERTYPE
+    result := ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE
     switch v {
-        case "accountsWithAttributes":
-            result = ACCOUNTSWITHATTRIBUTES_POSTADDITIONALQUERYPARAMETERTYPE
         case "attributeRules":
             result = ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE
         case "audit":

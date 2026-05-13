@@ -19,47 +19,49 @@ type AttributedefRequestBuilder struct {
 type AttributedefRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Only return account attributes for which a rule can be created for all of the given access profiles, specified by id. The attribute cannot have a rule for any of the profiles, nor can it be exclusive in any other profile.
-    AvailableForAccessProfile []int64 `uriparametername:"availableForAccessProfile"`
+    AvailableForAccessProfile []int64 "uriparametername:\"availableForAccessProfile\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Filter account attribute definitions on the given format(s).
     // Deprecated: This property is deprecated, use FormatAsIdentityAccountAttributeFormat instead
-    Format []string `uriparametername:"format"`
+    Format []string "uriparametername:\"format\""
     // Filter account attribute definitions on the given format(s).
-    FormatAsIdentityAccountAttributeFormat []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeFormat `uriparametername:"format"`
+    FormatAsIdentityAccountAttributeFormat []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeFormat "uriparametername:\"format\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
+    // Only return account attribute definitions that are or are not a list.
+    List []bool "uriparametername:\"list\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter account attribute definitions on the exact name.
-    Name []string `uriparametername:"name"`
+    Name []string "uriparametername:\"name\""
     // Filter account attribute definitions on (part of) the name.
-    NameContains []string `uriparametername:"nameContains"`
+    NameContains []string "uriparametername:\"nameContains\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Only return account attribute definitions that are or are not required.
-    Required []bool `uriparametername:"required"`
+    Required []bool "uriparametername:\"required\""
     // Only return account attributes which are available for self-service to all of the provided accounts.
-    SelfServiceableByAccount []int64 `uriparametername:"selfServiceableByAccount"`
+    SelfServiceableByAccount []int64 "uriparametername:\"selfServiceableByAccount\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter account attribute definitions on the given system definition(s).
     // Deprecated: This property is deprecated, use SystemDefinitionAsIdentityAccountAttributeSystemDefinition instead
-    SystemDefinition []string `uriparametername:"systemDefinition"`
+    SystemDefinition []string "uriparametername:\"systemDefinition\""
     // Filter account attribute definitions on the given system definition(s).
-    SystemDefinitionAsIdentityAccountAttributeSystemDefinition []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeSystemDefinition `uriparametername:"systemDefinition"`
+    SystemDefinitionAsIdentityAccountAttributeSystemDefinition []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeSystemDefinition "uriparametername:\"systemDefinition\""
     // Only return account attribute definitions that are or are not unique.
-    Unique []bool `uriparametername:"unique"`
+    Unique []bool "uriparametername:\"unique\""
 }
 // AttributedefRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AttributedefRequestBuilderGetRequestConfiguration struct {
@@ -74,9 +76,9 @@ type AttributedefRequestBuilderGetRequestConfiguration struct {
 type AttributedefRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // AttributedefRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AttributedefRequestBuilderPostRequestConfiguration struct {
@@ -113,7 +115,7 @@ func (m *AttributedefRequestBuilder) ByAttributedefidInt64(attributedefid int64)
 // NewAttributedefRequestBuilderInternal instantiates a new AttributedefRequestBuilder and sets the default values.
 func NewAttributedefRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AttributedefRequestBuilder) {
     m := &AttributedefRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,availableForAccessProfile*,createdAfter*,createdBefore*,exclude*,format*,id*,modifiedSince*,name*,nameContains*,q*,required*,selfServiceableByAccount*,sort*,systemDefinition*,unique*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,availableForAccessProfile*,createdAfter*,createdBefore*,exclude*,format*,id*,list*,modifiedSince*,name*,nameContains*,q*,required*,selfServiceableByAccount*,sort*,systemDefinition*,unique*}", pathParameters),
     }
     return m
 }
@@ -174,7 +176,7 @@ func (m *AttributedefRequestBuilder) ToGetRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new account attribute definitions and returns the newly created account attribute definitions.
@@ -188,8 +190,8 @@ func (m *AttributedefRequestBuilder) ToPostRequestInformation(ctx context.Contex
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

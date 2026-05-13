@@ -9,6 +9,8 @@ import (
 
 type ProvisioningProvisionedAzureTenant struct {
     ProvisioningProvisionedSystem
+    // The attributes property
+    attributes []MiscAttributeCustomizationable
     // The clientId property
     clientId *string
     // The clientSecret property
@@ -32,6 +34,11 @@ func NewProvisioningProvisionedAzureTenant()(*ProvisioningProvisionedAzureTenant
 func CreateProvisioningProvisionedAzureTenantFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedAzureTenant(), nil
 }
+// GetAttributes gets the attributes property value. The attributes property
+// returns a []MiscAttributeCustomizationable when successful
+func (m *ProvisioningProvisionedAzureTenant) GetAttributes()([]MiscAttributeCustomizationable) {
+    return m.attributes
+}
 // GetClientId gets the clientId property value. The clientId property
 // returns a *string when successful
 func (m *ProvisioningProvisionedAzureTenant) GetClientId()(*string) {
@@ -46,6 +53,22 @@ func (m *ProvisioningProvisionedAzureTenant) GetClientSecret()(*string) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedAzureTenant) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
+    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
+        }
+        return nil
+    }
     res["clientId"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -104,6 +127,18 @@ func (m *ProvisioningProvisionedAzureTenant) Serialize(writer i878a80d2330e89d26
     if err != nil {
         return err
     }
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
+        if err != nil {
+            return err
+        }
+    }
     {
         err = writer.WriteStringValue("clientId", m.GetClientId())
         if err != nil {
@@ -130,6 +165,10 @@ func (m *ProvisioningProvisionedAzureTenant) Serialize(writer i878a80d2330e89d26
     }
     return nil
 }
+// SetAttributes sets the attributes property value. The attributes property
+func (m *ProvisioningProvisionedAzureTenant) SetAttributes(value []MiscAttributeCustomizationable)() {
+    m.attributes = value
+}
 // SetClientId sets the clientId property value. The clientId property
 func (m *ProvisioningProvisionedAzureTenant) SetClientId(value *string)() {
     m.clientId = value
@@ -149,10 +188,12 @@ func (m *ProvisioningProvisionedAzureTenant) SetTenant(value *string)() {
 type ProvisioningProvisionedAzureTenantable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetClientId()(*string)
     GetClientSecret()(*string)
     GetIdpDomain()(*string)
     GetTenant()(*string)
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetClientId(value *string)()
     SetClientSecret(value *string)()
     SetIdpDomain(value *string)()

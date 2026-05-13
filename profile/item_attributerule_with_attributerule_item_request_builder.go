@@ -25,9 +25,9 @@ type ItemAttributeruleWithAttributeruleItemRequestBuilderDeleteRequestConfigurat
 type ItemAttributeruleWithAttributeruleItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i7c76b17c0ce5210fbfe0d58e16f93682753e56559458acdb5f85fb73d460a4cd.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i7c76b17c0ce5210fbfe0d58e16f93682753e56559458acdb5f85fb73d460a4cd.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemAttributeruleWithAttributeruleItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAttributeruleWithAttributeruleItemRequestBuilderGetRequestConfiguration struct {
@@ -42,9 +42,9 @@ type ItemAttributeruleWithAttributeruleItemRequestBuilderGetRequestConfiguration
 type ItemAttributeruleWithAttributeruleItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i7c76b17c0ce5210fbfe0d58e16f93682753e56559458acdb5f85fb73d460a4cd.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i7c76b17c0ce5210fbfe0d58e16f93682753e56559458acdb5f85fb73d460a4cd.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemAttributeruleWithAttributeruleItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAttributeruleWithAttributeruleItemRequestBuilderPutRequestConfiguration struct {
@@ -132,7 +132,7 @@ func (m *ItemAttributeruleWithAttributeruleItemRequestBuilder) ToDeleteRequestIn
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the account attribute rule identified by the id.
@@ -146,7 +146,7 @@ func (m *ItemAttributeruleWithAttributeruleItemRequestBuilder) ToGetRequestInfor
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the account attribute rule identified by the id.
@@ -160,8 +160,8 @@ func (m *ItemAttributeruleWithAttributeruleItemRequestBuilder) ToPutRequestInfor
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

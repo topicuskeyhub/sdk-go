@@ -19,40 +19,40 @@ type ItemAttributeruleRequestBuilder struct {
 // ItemAttributeruleRequestBuilderGetQueryParameters query for all account attribute rules in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ItemAttributeruleRequestBuilderGetQueryParameters struct {
     // Filter account attribute rules on the access profile, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    AccessProfile []int64 `uriparametername:"accessProfile"`
+    AccessProfile []int64 "uriparametername:\"accessProfile\""
     // Filter account attribute rules on the owning group of the access profile, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    AccessProfileOwningGroup []int64 `uriparametername:"accessProfileOwningGroup"`
+    AccessProfileOwningGroup []int64 "uriparametername:\"accessProfileOwningGroup\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i783381d01b16caed4b91a8b77c9298c8551b8f016070080557d8a27462668795.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i783381d01b16caed4b91a8b77c9298c8551b8f016070080557d8a27462668795.GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Only return account attribute rules that allow or do not allow manual overriding values.
-    AllowOverride []bool `uriparametername:"allowOverride"`
+    AllowOverride []bool "uriparametername:\"allowOverride\""
     // Only return account attribute rules that allow or do not allow selfservice by the user.
-    AllowSelfService []bool `uriparametername:"allowSelfService"`
+    AllowSelfService []bool "uriparametername:\"allowSelfService\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter the attribute rules by attribute definition, specified by id. This parameter supports composition with all parameters from the attribute definition resource.
-    Attribute []int64 `uriparametername:"attribute"`
+    Attribute []int64 "uriparametername:\"attribute\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Only return account attribute rules that are or are not exclusive.
-    Exclusive []bool `uriparametername:"exclusive"`
+    Exclusive []bool "uriparametername:\"exclusive\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter account attribute rules on organizational units of the owning group of the access profile, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
+    OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
 }
 // ItemAttributeruleRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAttributeruleRequestBuilderGetRequestConfiguration struct {
@@ -67,9 +67,9 @@ type ItemAttributeruleRequestBuilderGetRequestConfiguration struct {
 type ItemAttributeruleRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []i783381d01b16caed4b91a8b77c9298c8551b8f016070080557d8a27462668795.PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []i783381d01b16caed4b91a8b77c9298c8551b8f016070080557d8a27462668795.PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemAttributeruleRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAttributeruleRequestBuilderPostRequestConfiguration struct {
@@ -167,7 +167,7 @@ func (m *ItemAttributeruleRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new account attribute rules and returns the newly created account attribute rules.
@@ -181,8 +181,8 @@ func (m *ItemAttributeruleRequestBuilder) ToPostRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

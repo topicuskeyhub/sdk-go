@@ -17,7 +17,7 @@ type ItemGroupWithGroupItemRequestBuilder struct {
 // ItemGroupWithGroupItemRequestBuilderDeleteQueryParameters deletes the group on system identified by the id. If 'system=true' is passed as query parameter, the group is also removed from the system.
 type ItemGroupWithGroupItemRequestBuilderDeleteQueryParameters struct {
     // When false, the group will not be removed from the system.
-    System *bool `uriparametername:"system"`
+    System *bool "uriparametername:\"system\""
 }
 // ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration struct {
@@ -32,9 +32,9 @@ type ItemGroupWithGroupItemRequestBuilderDeleteRequestConfiguration struct {
 type ItemGroupWithGroupItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i518b3ff80c4f56ba2a1f5116ef4fdc8914079e57918253fca0b5728dd67d3762.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i518b3ff80c4f56ba2a1f5116ef4fdc8914079e57918253fca0b5728dd67d3762.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration struct {
@@ -49,9 +49,9 @@ type ItemGroupWithGroupItemRequestBuilderGetRequestConfiguration struct {
 type ItemGroupWithGroupItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i518b3ff80c4f56ba2a1f5116ef4fdc8914079e57918253fca0b5728dd67d3762.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i518b3ff80c4f56ba2a1f5116ef4fdc8914079e57918253fca0b5728dd67d3762.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemGroupWithGroupItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemGroupWithGroupItemRequestBuilderPutRequestConfiguration struct {
@@ -142,7 +142,7 @@ func (m *ItemGroupWithGroupItemRequestBuilder) ToDeleteRequestInformation(ctx co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the group on system identified by the id.
@@ -156,7 +156,7 @@ func (m *ItemGroupWithGroupItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the group on system identified by the id.
@@ -170,8 +170,8 @@ func (m *ItemGroupWithGroupItemRequestBuilder) ToPutRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

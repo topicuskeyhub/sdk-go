@@ -19,56 +19,56 @@ type AuditRequestBuilder struct {
 type AuditRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Only return records after a given date.
-    After []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"after"`
+    After []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"after\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Only return records before a given date.
-    Before []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"before"`
+    Before []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"before\""
     // Perform a full text search on the contents of audit records.
-    Containing []string `uriparametername:"containing"`
+    Containing []string "uriparametername:\"containing\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Include or do not include records that are considered daily use.
-    IncludeDaily []bool `uriparametername:"includeDaily"`
+    IncludeDaily []bool "uriparametername:\"includeDaily\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Only return audit records targeting the given directory, specified by id.
-    OnDirectory []int64 `uriparametername:"onDirectory"`
+    OnDirectory []int64 "uriparametername:\"onDirectory\""
     // Only return audit records targeting the given group either via onGroup1 or onGroup2, specified by id.
-    OnGroup []int64 `uriparametername:"onGroup"`
+    OnGroup []int64 "uriparametername:\"onGroup\""
     // Only return audit records targeting the given group specifically as onGroup1, specified by id.
-    OnGroup1 []int64 `uriparametername:"onGroup1"`
+    OnGroup1 []int64 "uriparametername:\"onGroup1\""
     // Only return audit records performed by or targeting the given account, specified by id.
-    OnOrByAccount []int64 `uriparametername:"onOrByAccount"`
+    OnOrByAccount []int64 "uriparametername:\"onOrByAccount\""
     // Only return audit records performed by or targeting the given client, specified by id.
-    OnOrByClient []int64 `uriparametername:"onOrByClient"`
+    OnOrByClient []int64 "uriparametername:\"onOrByClient\""
     // Only return audit records targeting the given service account, specified by id.
-    OnServiceAccount []int64 `uriparametername:"onServiceAccount"`
+    OnServiceAccount []int64 "uriparametername:\"onServiceAccount\""
     // Only return audit records that have the performed-by-name set or not set.
-    PerformedByNameSet []bool `uriparametername:"performedByNameSet"`
+    PerformedByNameSet []bool "uriparametername:\"performedByNameSet\""
     // Only return audit records that are performed by the given account or client, specified by uuid.
-    PerformedByUuid []string `uriparametername:"performedByUuid"`
+    PerformedByUuid []string "uriparametername:\"performedByUuid\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter audit records on the given type(s).
     // Deprecated: This property is deprecated, use TypeAsAuditAuditRecordType instead
-    Type []string `uriparametername:"type"`
+    Type []string "uriparametername:\"type\""
     // Filter audit records on the given type(s).
-    TypeAsAuditAuditRecordType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditAuditRecordType `uriparametername:"type"`
+    TypeAsAuditAuditRecordType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditAuditRecordType "uriparametername:\"type\""
     // Only return audit records that are meant to be displayed to the given account, specified by id.
-    VisibleFor []int64 `uriparametername:"visibleFor"`
+    VisibleFor []int64 "uriparametername:\"visibleFor\""
 }
 // AuditRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AuditRequestBuilderGetRequestConfiguration struct {
@@ -151,7 +151,7 @@ func (m *AuditRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

@@ -25,9 +25,9 @@ type WithProfilegroupItemRequestBuilderDeleteRequestConfiguration struct {
 type WithProfilegroupItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i2b225bdefe67f05310688ef0f811b4215d868fa85cb6966b5a816f77f39d8e4a.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i2b225bdefe67f05310688ef0f811b4215d868fa85cb6966b5a816f77f39d8e4a.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithProfilegroupItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithProfilegroupItemRequestBuilderGetRequestConfiguration struct {
@@ -95,7 +95,7 @@ func (m *WithProfilegroupItemRequestBuilder) ToDeleteRequestInformation(ctx cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the access profile group link identified by the id.
@@ -109,7 +109,7 @@ func (m *WithProfilegroupItemRequestBuilder) ToGetRequestInformation(ctx context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

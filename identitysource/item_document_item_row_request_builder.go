@@ -20,36 +20,36 @@ type ItemDocumentItemRowRequestBuilder struct {
 type ItemDocumentItemRowRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []ic5aec28294c6afe4cfe91e8a3597e6eb30f2600e65134e98824ec70e5ca3a854.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []ic5aec28294c6afe4cfe91e8a3597e6eb30f2600e65134e98824ec70e5ca3a854.GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Only return imported rows for the given imported documents, specified by id. This parameter supports composition with all parameters from the imported document resource.
-    Document []int64 `uriparametername:"document"`
+    Document []int64 "uriparametername:\"document\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Filter imported rows on (part of) the identifier column.
-    Identifier []string `uriparametername:"identifier"`
+    Identifier []string "uriparametername:\"identifier\""
     // Only return imported rows for the given matched accounts, specified by id. This parameter supports composition with all parameters from the account resource.
-    MatchedAccount []int64 `uriparametername:"matchedAccount"`
+    MatchedAccount []int64 "uriparametername:\"matchedAccount\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter imported rows on the given status(es).
     // Deprecated: This property is deprecated, use StatusAsIdentitysourceImportedRowStatus instead
-    Status []string `uriparametername:"status"`
+    Status []string "uriparametername:\"status\""
     // Filter imported rows on the given status(es).
-    StatusAsIdentitysourceImportedRowStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentitysourceImportedRowStatus `uriparametername:"status"`
+    StatusAsIdentitysourceImportedRowStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentitysourceImportedRowStatus "uriparametername:\"status\""
 }
 // ItemDocumentItemRowRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemDocumentItemRowRequestBuilderGetRequestConfiguration struct {
@@ -127,7 +127,7 @@ func (m *ItemDocumentItemRowRequestBuilder) ToGetRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

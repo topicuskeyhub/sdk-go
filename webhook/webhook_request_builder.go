@@ -19,76 +19,76 @@ type WebhookRequestBuilder struct {
 type WebhookRequestBuilderGetQueryParameters struct {
     // Only return active or inactive webhooks.
     // Deprecated: This property is deprecated, use ActiveAsBooleanEnum instead
-    Active []string `uriparametername:"active"`
+    Active []string "uriparametername:\"active\""
     // Only return active or inactive webhooks.
-    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum `uriparametername:"active"`
+    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum "uriparametername:\"active\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter webhooks on the given groups performing technical administration for the client for the webhooks, specified by id.
-    AppAdminGroup []int64 `uriparametername:"appAdminGroup"`
+    AppAdminGroup []int64 "uriparametername:\"appAdminGroup\""
     // Filter the webhooks by groups owning the client, specified by id.
-    AppOwnerGroup []int64 `uriparametername:"appOwnerGroup"`
+    AppOwnerGroup []int64 "uriparametername:\"appOwnerGroup\""
     // Filter webhooks on the given clients, specified by id.
-    Client []int64 `uriparametername:"client"`
+    Client []int64 "uriparametername:\"client\""
     // Filter webhooks on the given groups performing content administration for the system for the webhooks, specified by id.
-    ContentAdminGroup []int64 `uriparametername:"contentAdminGroup"`
+    ContentAdminGroup []int64 "uriparametername:\"contentAdminGroup\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter webhooks on the given directories, specified by id.
-    Directory []int64 `uriparametername:"directory"`
+    Directory []int64 "uriparametername:\"directory\""
     // Filter the webhooks by groups owning the internal directory, specified by id.
-    DirectoryOwnerGroup []int64 `uriparametername:"directoryOwnerGroup"`
+    DirectoryOwnerGroup []int64 "uriparametername:\"directoryOwnerGroup\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Only return webhooks that use certificates that are expired at the given instant.
-    ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"expiredCertificate"`
+    ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"expiredCertificate\""
     // Only return webhooks that are or are not global.
-    Global []bool `uriparametername:"global"`
+    Global []bool "uriparametername:\"global\""
     // Only return webhooks that are or are not global concerning permissions. This includes all global webhooks and webhooks for a directory.
-    GlobalForPermissions []bool `uriparametername:"globalForPermissions"`
+    GlobalForPermissions []bool "uriparametername:\"globalForPermissions\""
     // Filter webhooks on the given groups, specified by id.
-    Group []int64 `uriparametername:"group"`
+    Group []int64 "uriparametername:\"group\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter webhooks on (part of) the name, uuid or URL.
-    NameContains []string `uriparametername:"nameContains"`
+    NameContains []string "uriparametername:\"nameContains\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Filter webhooks on the given service accounts, specified by id.
-    ServiceAccount []int64 `uriparametername:"serviceAccount"`
+    ServiceAccount []int64 "uriparametername:\"serviceAccount\""
     // Filter webhooks on the given service accounts, specified by id. This parameter supports composition with all parameters from the provisioning group resource.
-    ServiceAccountNotNull []int64 `uriparametername:"serviceAccountNotNull"`
+    ServiceAccountNotNull []int64 "uriparametername:\"serviceAccountNotNull\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter webhooks on the given systems, specified by id.
-    System []int64 `uriparametername:"system"`
+    System []int64 "uriparametername:\"system\""
     // Filter webhooks on the given groups performing technical administration for the system for the webhooks, specified by id.
-    SystemAdminGroup []int64 `uriparametername:"systemAdminGroup"`
+    SystemAdminGroup []int64 "uriparametername:\"systemAdminGroup\""
     // Filter the webhooks by groups owning the provisioned system, specified by id.
-    SystemOwnerGroup []int64 `uriparametername:"systemOwnerGroup"`
+    SystemOwnerGroup []int64 "uriparametername:\"systemOwnerGroup\""
     // Filter results on the given TLS mode(s).
     // Deprecated: This property is deprecated, use TlsAsTLSLevel instead
-    Tls []string `uriparametername:"tls"`
+    Tls []string "uriparametername:\"tls\""
     // Filter results on the given TLS mode(s).
-    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel `uriparametername:"tls"`
+    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel "uriparametername:\"tls\""
     // Only return webhooks that trigger on one of the given type(s).
     // Deprecated: This property is deprecated, use TypeAsAuditAuditRecordType instead
-    Type []string `uriparametername:"type"`
+    Type []string "uriparametername:\"type\""
     // Only return webhooks that trigger on one of the given type(s).
-    TypeAsAuditAuditRecordType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditAuditRecordType `uriparametername:"type"`
+    TypeAsAuditAuditRecordType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuditAuditRecordType "uriparametername:\"type\""
     // Filter results on one or more URLs.
-    Url []string `uriparametername:"url"`
+    Url []string "uriparametername:\"url\""
     // Filter results on one or more UUIDs.
-    Uuid []string `uriparametername:"uuid"`
+    Uuid []string "uriparametername:\"uuid\""
 }
 // WebhookRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WebhookRequestBuilderGetRequestConfiguration struct {
@@ -103,9 +103,9 @@ type WebhookRequestBuilderGetRequestConfiguration struct {
 type WebhookRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WebhookRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WebhookRequestBuilderPostRequestConfiguration struct {
@@ -203,7 +203,7 @@ func (m *WebhookRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new webhooks and returns the newly created webhooks.
@@ -217,8 +217,8 @@ func (m *WebhookRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

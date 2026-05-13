@@ -9,6 +9,8 @@ import (
 
 type IdentitysourceAFASIdentitySource struct {
     IdentitysourceIdentitySource
+    // The attributes property
+    attributes []MiscAttributeCustomizationable
     // The schedule property
     schedule *string
     // The token property
@@ -30,10 +32,31 @@ func NewIdentitysourceAFASIdentitySource()(*IdentitysourceAFASIdentitySource) {
 func CreateIdentitysourceAFASIdentitySourceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewIdentitysourceAFASIdentitySource(), nil
 }
+// GetAttributes gets the attributes property value. The attributes property
+// returns a []MiscAttributeCustomizationable when successful
+func (m *IdentitysourceAFASIdentitySource) GetAttributes()([]MiscAttributeCustomizationable) {
+    return m.attributes
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *IdentitysourceAFASIdentitySource) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.IdentitysourceIdentitySource.GetFieldDeserializers()
+    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]MiscAttributeCustomizationable, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = v.(MiscAttributeCustomizationable)
+                }
+            }
+            m.SetAttributes(res)
+        }
+        return nil
+    }
     res["schedule"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -87,6 +110,18 @@ func (m *IdentitysourceAFASIdentitySource) Serialize(writer i878a80d2330e89d2689
     if err != nil {
         return err
     }
+    if m.GetAttributes() != nil {
+        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+        for i, v := range m.GetAttributes() {
+            if v != nil {
+                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+            }
+        }
+        err = writer.WriteCollectionOfObjectValues("attributes", cast)
+        if err != nil {
+            return err
+        }
+    }
     {
         err = writer.WriteStringValue("schedule", m.GetSchedule())
         if err != nil {
@@ -107,6 +142,10 @@ func (m *IdentitysourceAFASIdentitySource) Serialize(writer i878a80d2330e89d2689
     }
     return nil
 }
+// SetAttributes sets the attributes property value. The attributes property
+func (m *IdentitysourceAFASIdentitySource) SetAttributes(value []MiscAttributeCustomizationable)() {
+    m.attributes = value
+}
 // SetSchedule sets the schedule property value. The schedule property
 func (m *IdentitysourceAFASIdentitySource) SetSchedule(value *string)() {
     m.schedule = value
@@ -122,9 +161,11 @@ func (m *IdentitysourceAFASIdentitySource) SetUrl(value *string)() {
 type IdentitysourceAFASIdentitySourceable interface {
     IdentitysourceIdentitySourceable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAttributes()([]MiscAttributeCustomizationable)
     GetSchedule()(*string)
     GetToken()(*string)
     GetUrl()(*string)
+    SetAttributes(value []MiscAttributeCustomizationable)()
     SetSchedule(value *string)()
     SetToken(value *string)()
     SetUrl(value *string)()

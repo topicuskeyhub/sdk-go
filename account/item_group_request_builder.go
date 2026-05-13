@@ -20,49 +20,49 @@ type ItemGroupRequestBuilder struct {
 // ItemGroupRequestBuilderGetQueryParameters queries over all groups the account is member of. The various query parameters can be used to filter the response.
 type ItemGroupRequestBuilderGetQueryParameters struct {
     // Filter group memberships on the given accounts, specified by id. This parameter supports composition with all parameters from the account resource.
-    Account []int64 `uriparametername:"account"`
+    Account []int64 "uriparametername:\"account\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i38b0920250e92bb8a55a058c9162c175f8de4fd54cf1b3cf90e78a941275b408.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i38b0920250e92bb8a55a058c9162c175f8de4fd54cf1b3cf90e78a941275b408.GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Only return group memberships that can or cannot be activated by the current user.
-    ApplicableForActivation []bool `uriparametername:"applicableForActivation"`
+    ApplicableForActivation []bool "uriparametername:\"applicableForActivation\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Only return group memberships that have an expiration set that is before the given date.
-    ExpiredAt []i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly `uriparametername:"expiredAt"`
+    ExpiredAt []i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly "uriparametername:\"expiredAt\""
     // Filter group memberships on the given groups, specified by id. This parameter supports composition with all parameters from the group resource.
-    Group []int64 `uriparametername:"group"`
+    Group []int64 "uriparametername:\"group\""
     // Filter group memberships on (part of) the name or uuid of the group or the folder (if any).
-    GroupNameContains []string `uriparametername:"groupNameContains"`
+    GroupNameContains []string "uriparametername:\"groupNameContains\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Only return group memberships that are or are not nested.
-    Nested []bool `uriparametername:"nested"`
+    Nested []bool "uriparametername:\"nested\""
     // Filter group memberships on the given organizational unit of the group, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
+    OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Filter group memberships on the given rights.
     // Deprecated: This property is deprecated, use RightsAsGroupGroupRights instead
-    Rights []string `uriparametername:"rights"`
+    Rights []string "uriparametername:\"rights\""
     // Filter group memberships on the given rights.
-    RightsAsGroupGroupRights []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupRights `uriparametername:"rights"`
+    RightsAsGroupGroupRights []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.GroupGroupRights "uriparametername:\"rights\""
     // Filter group memberships on the given signatures, specified by id. This parameter supports composition with all parameters from the signature filter.
-    Signature []int64 `uriparametername:"signature"`
+    Signature []int64 "uriparametername:\"signature\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Only return group memberships that have or do not have access to the group's vault.
-    VaultAccess []bool `uriparametername:"vaultAccess"`
+    VaultAccess []bool "uriparametername:\"vaultAccess\""
 }
 // ItemGroupRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemGroupRequestBuilderGetRequestConfiguration struct {
@@ -140,7 +140,7 @@ func (m *ItemGroupRequestBuilder) ToGetRequestInformation(ctx context.Context, r
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

@@ -15,9 +15,9 @@ type ProvisioningRequestBuilder struct {
 }
 // ProvisioningRequestBuilderGetQueryParameters returns the status of provisioning for the current user. The groups are filtered by the specified filter or group UUID.
 type ProvisioningRequestBuilderGetQueryParameters struct {
-    Filter *string `uriparametername:"filter"`
-    GroupUuid *string `uriparametername:"groupUuid"`
-    LoadAll *bool `uriparametername:"loadAll"`
+    Filter *string "uriparametername:\"filter\""
+    GroupUuid *string "uriparametername:\"groupUuid\""
+    LoadAll *bool "uriparametername:\"loadAll\""
 }
 // ProvisioningRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioningRequestBuilderGetRequestConfiguration struct {
@@ -30,7 +30,7 @@ type ProvisioningRequestBuilderGetRequestConfiguration struct {
 }
 // ProvisioningRequestBuilderPutQueryParameters updates the provisioning for the current user. This updates the end time for the given groups. If 'ignoreErrors' is set, errors do not cause the update to abort if errors are detected. To enable groups with auditing enabled the reason query parameter is required.
 type ProvisioningRequestBuilderPutQueryParameters struct {
-    Reason *string `uriparametername:"reason"`
+    Reason *string "uriparametername:\"reason\""
 }
 // ProvisioningRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ProvisioningRequestBuilderPutRequestConfiguration struct {
@@ -110,7 +110,7 @@ func (m *ProvisioningRequestBuilder) ToGetRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // Tokenpwd the tokenpwd property
@@ -129,8 +129,8 @@ func (m *ProvisioningRequestBuilder) ToPutRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

@@ -18,9 +18,9 @@ type ItemAttributevalueWithAttributevalueItemRequestBuilder struct {
 type ItemAttributevalueWithAttributevalueItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []icdefaf12ff73f4650b7516ad3b7d930785b9f916d240c5c66cd0f1d083edc2b5.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []icdefaf12ff73f4650b7516ad3b7d930785b9f916d240c5c66cd0f1d083edc2b5.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemAttributevalueWithAttributevalueItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAttributevalueWithAttributevalueItemRequestBuilderGetRequestConfiguration struct {
@@ -75,7 +75,7 @@ func (m *ItemAttributevalueWithAttributevalueItemRequestBuilder) ToGetRequestInf
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

@@ -25,9 +25,9 @@ type ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfig
 type ItemInternalaccountWithInternalaccountItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i9de8e0b8ede20a2b36f229cd6abda61c462ebf686756469c4f0b1a809efc09d9.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i9de8e0b8ede20a2b36f229cd6abda61c462ebf686756469c4f0b1a809efc09d9.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemInternalaccountWithInternalaccountItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemInternalaccountWithInternalaccountItemRequestBuilderGetRequestConfiguration struct {
@@ -42,9 +42,9 @@ type ItemInternalaccountWithInternalaccountItemRequestBuilderGetRequestConfigura
 type ItemInternalaccountWithInternalaccountItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i9de8e0b8ede20a2b36f229cd6abda61c462ebf686756469c4f0b1a809efc09d9.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i9de8e0b8ede20a2b36f229cd6abda61c462ebf686756469c4f0b1a809efc09d9.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemInternalaccountWithInternalaccountItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemInternalaccountWithInternalaccountItemRequestBuilderPutRequestConfiguration struct {
@@ -142,7 +142,7 @@ func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToDeleteReque
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single internal accounts within a directory.
@@ -156,7 +156,7 @@ func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToGetRequestI
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the internal accounts within a directory identified by the id.
@@ -170,8 +170,8 @@ func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToPutRequestI
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

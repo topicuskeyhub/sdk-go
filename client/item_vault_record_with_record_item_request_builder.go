@@ -25,9 +25,9 @@ type ItemVaultRecordWithRecordItemRequestBuilderDeleteRequestConfiguration struc
 type ItemVaultRecordWithRecordItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []ie098eec106de559f1ed4075ed2f377f52f0742f4b8f92e1f2a7dcbbef2274eb5.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []ie098eec106de559f1ed4075ed2f377f52f0742f4b8f92e1f2a7dcbbef2274eb5.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemVaultRecordWithRecordItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultRecordWithRecordItemRequestBuilderGetRequestConfiguration struct {
@@ -42,9 +42,9 @@ type ItemVaultRecordWithRecordItemRequestBuilderGetRequestConfiguration struct {
 type ItemVaultRecordWithRecordItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []ie098eec106de559f1ed4075ed2f377f52f0742f4b8f92e1f2a7dcbbef2274eb5.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []ie098eec106de559f1ed4075ed2f377f52f0742f4b8f92e1f2a7dcbbef2274eb5.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemVaultRecordWithRecordItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultRecordWithRecordItemRequestBuilderPutRequestConfiguration struct {
@@ -137,7 +137,7 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToDeleteRequestInformation
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the vault record identified by the id. When the 'secret' additonal object is requested, the 'topicus-Vault-session' header must be specified.
@@ -151,7 +151,7 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToGetRequestInformation(ct
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the vault record identified by the id. To update the secrets, the 'secret' additional object must be used, in addition to specifying the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
@@ -165,8 +165,8 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToPutRequestInformation(ct
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

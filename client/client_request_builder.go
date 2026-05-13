@@ -18,76 +18,76 @@ type ClientRequestBuilder struct {
 // ClientRequestBuilderGetQueryParameters query for all clients in Topicus KeyHub. The various query parameters can be used to filter the response.
 type ClientRequestBuilderGetQueryParameters struct {
     // Filter the SSO applications connected to access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    AccessProfile []int64 `uriparametername:"accessProfile"`
+    AccessProfile []int64 "uriparametername:\"accessProfile\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Only return the client applications whose base organizational unit, defined as the technical administrator's organizational unit, is equal to or an ancestor of any of the given unit(s), specified by id.
-    BaseOrganizationalUnitAncestorOf []int64 `uriparametername:"baseOrganizationalUnitAncestorOf"`
+    BaseOrganizationalUnitAncestorOf []int64 "uriparametername:\"baseOrganizationalUnitAncestorOf\""
     // Filter clients on the client ids.
-    ClientId []string `uriparametername:"clientId"`
+    ClientId []string "uriparametername:\"clientId\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Only return LDAP clients for which the client certificate is expired at the given instant.
-    ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"expiredCertificate"`
+    ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"expiredCertificate\""
     // Filter the SSO applications connected to groups, specified by id. This parameter supports composition with all parameters from the group resource.
-    Group []int64 `uriparametername:"group"`
+    Group []int64 "uriparametername:\"group\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return LDAP clients that are used as provisioned internal LDAP.
-    IsProvisionedInternalLDAP []bool `uriparametername:"isProvisionedInternalLDAP"`
+    IsProvisionedInternalLDAP []bool "uriparametername:\"isProvisionedInternalLDAP\""
     // Filter client applications on direct connections to organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    MemberOfOrganizationalUnit []int64 `uriparametername:"memberOfOrganizationalUnit"`
+    MemberOfOrganizationalUnit []int64 "uriparametername:\"memberOfOrganizationalUnit\""
     // Filter client applications on connections to organizational units by being part of the owner group, specified by id. This parameter supports composition with all parameters from the group resource.
-    MemberOfOrganizationalUnitOwnedBy []int64 `uriparametername:"memberOfOrganizationalUnitOwnedBy"`
+    MemberOfOrganizationalUnitOwnedBy []int64 "uriparametername:\"memberOfOrganizationalUnitOwnedBy\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter clients on the exact name.
-    Name []string `uriparametername:"name"`
+    Name []string "uriparametername:\"name\""
     // Search clients on (part of) the name, client id or uuid.
-    NameContains []string `uriparametername:"nameContains"`
+    NameContains []string "uriparametername:\"nameContains\""
     // Only return clients for which the name does not start with one of the given values.
-    NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
+    NameDoesNotStartWith []string "uriparametername:\"nameDoesNotStartWith\""
     // Only return clients for which the name starts with one of the given values.
-    NameStartsWith []string `uriparametername:"nameStartsWith"`
+    NameStartsWith []string "uriparametername:\"nameStartsWith\""
     // Filter the SSO applications not connected to access profiles, specified by id.
-    NotInAccessProfile []int64 `uriparametername:"notInAccessProfile"`
+    NotInAccessProfile []int64 "uriparametername:\"notInAccessProfile\""
     // Filter the SSO applications not connected to groups, specified by id.
-    NotInGroup []int64 `uriparametername:"notInGroup"`
+    NotInGroup []int64 "uriparametername:\"notInGroup\""
     // Filter clients on organizational units, specified by id. This parameter is automatically set and primarily used for security permission enforcement.
-    OrganizationalUnitForEnforcement []int64 `uriparametername:"organizationalUnitForEnforcement"`
+    OrganizationalUnitForEnforcement []int64 "uriparametername:\"organizationalUnitForEnforcement\""
     // Filter the clients for which the given group is owner, specified by id. This parameter supports composition with all parameters from the group resource.
-    OwnedBy []int64 `uriparametername:"ownedBy"`
+    OwnedBy []int64 "uriparametername:\"ownedBy\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Filter the clients by the secret shared in a vault, specified by id. This parameter supports composition with all parameters from the vault resource.
-    SharedSecret []int64 `uriparametername:"sharedSecret"`
+    SharedSecret []int64 "uriparametername:\"sharedSecret\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter the clients for which the given group is technical administrator, specified by id. This parameter supports composition with all parameters from the group resource.
-    TechnicalAdministrator []int64 `uriparametername:"technicalAdministrator"`
+    TechnicalAdministrator []int64 "uriparametername:\"technicalAdministrator\""
     // Only return clients of the given type(s).
-    Type []string `uriparametername:"type"`
+    Type []string "uriparametername:\"type\""
     // Only return OAuth2 clients that use or do not use the client credentials grant.
-    UseClientCredentials []bool `uriparametername:"useClientCredentials"`
+    UseClientCredentials []bool "uriparametername:\"useClientCredentials\""
     // Filter results on one or more UUIDs.
-    Uuid []string `uriparametername:"uuid"`
+    Uuid []string "uriparametername:\"uuid\""
     // Filter the OAuth 2.0 clients by vault, specified by id. This parameter supports composition with all parameters from the vault resource.
-    Vault []int64 `uriparametername:"vault"`
+    Vault []int64 "uriparametername:\"vault\""
     // Only return OAuth2 clients that have specific permissions, specified by id. This parameter supports composition with all parameters from the client permission resource.
-    WithPermission []int64 `uriparametername:"withPermission"`
+    WithPermission []int64 "uriparametername:\"withPermission\""
     // Filter the client applications with permissions for the given groups, either directly or via provisionedsystem ownership, specified by id. 
-    WithPermissionForOwningGroup []int64 `uriparametername:"withPermissionForOwningGroup"`
+    WithPermissionForOwningGroup []int64 "uriparametername:\"withPermissionForOwningGroup\""
     // Filter the client applications with active requests for permissions for the given groups, either directly or via provisionedsystem ownership, specified by id. 
-    WithRequestedPermissionForOwningGroup []int64 `uriparametername:"withRequestedPermissionForOwningGroup"`
+    WithRequestedPermissionForOwningGroup []int64 "uriparametername:\"withRequestedPermissionForOwningGroup\""
 }
 // ClientRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ClientRequestBuilderGetRequestConfiguration struct {
@@ -102,9 +102,9 @@ type ClientRequestBuilderGetRequestConfiguration struct {
 type ClientRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ClientRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ClientRequestBuilderPostRequestConfiguration struct {
@@ -207,7 +207,7 @@ func (m *ClientRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new clients and returns the newly created clients.
@@ -221,8 +221,8 @@ func (m *ClientRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

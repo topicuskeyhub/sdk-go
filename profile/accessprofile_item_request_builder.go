@@ -18,9 +18,9 @@ type AccessprofileItemRequestBuilder struct {
 type AccessprofileItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []ie4ee796b5bb2762cf0cb73853e4f0bfe9b8068ac3286c15c6670dcb56109d590.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []ie4ee796b5bb2762cf0cb73853e4f0bfe9b8068ac3286c15c6670dcb56109d590.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // AccessprofileItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AccessprofileItemRequestBuilderGetRequestConfiguration struct {
@@ -35,9 +35,9 @@ type AccessprofileItemRequestBuilderGetRequestConfiguration struct {
 type AccessprofileItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []ie4ee796b5bb2762cf0cb73853e4f0bfe9b8068ac3286c15c6670dcb56109d590.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []ie4ee796b5bb2762cf0cb73853e4f0bfe9b8068ac3286c15c6670dcb56109d590.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // AccessprofileItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type AccessprofileItemRequestBuilderPutRequestConfiguration struct {
@@ -116,6 +116,11 @@ func (m *AccessprofileItemRequestBuilder) Put(ctx context.Context, body ie296952
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileable), nil
 }
+// Synchronize the synchronize property
+// returns a *ItemSynchronizeRequestBuilder when successful
+func (m *AccessprofileItemRequestBuilder) Synchronize()(*ItemSynchronizeRequestBuilder) {
+    return NewItemSynchronizeRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // ToGetRequestInformation returns the access profile identified by the id.
 // returns a *RequestInformation when successful
 func (m *AccessprofileItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *AccessprofileItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
@@ -127,7 +132,7 @@ func (m *AccessprofileItemRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the access profile identified by the id.
@@ -141,8 +146,8 @@ func (m *AccessprofileItemRequestBuilder) ToPutRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

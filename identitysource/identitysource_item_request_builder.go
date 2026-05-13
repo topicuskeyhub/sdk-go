@@ -25,9 +25,9 @@ type IdentitysourceItemRequestBuilderDeleteRequestConfiguration struct {
 type IdentitysourceItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i148b50ed3724b0d0b1ecfa618cbef769a0cd0b242e137eec262ad5a5a74d7bb6.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i148b50ed3724b0d0b1ecfa618cbef769a0cd0b242e137eec262ad5a5a74d7bb6.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // IdentitysourceItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type IdentitysourceItemRequestBuilderGetRequestConfiguration struct {
@@ -42,9 +42,9 @@ type IdentitysourceItemRequestBuilderGetRequestConfiguration struct {
 type IdentitysourceItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i148b50ed3724b0d0b1ecfa618cbef769a0cd0b242e137eec262ad5a5a74d7bb6.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i148b50ed3724b0d0b1ecfa618cbef769a0cd0b242e137eec262ad5a5a74d7bb6.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // IdentitysourceItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type IdentitysourceItemRequestBuilderPutRequestConfiguration struct {
@@ -142,7 +142,7 @@ func (m *IdentitysourceItemRequestBuilder) ToDeleteRequestInformation(ctx contex
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the identity source identified by the id.
@@ -156,7 +156,7 @@ func (m *IdentitysourceItemRequestBuilder) ToGetRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the identity source identified by the id.
@@ -170,8 +170,8 @@ func (m *IdentitysourceItemRequestBuilder) ToPutRequestInformation(ctx context.C
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

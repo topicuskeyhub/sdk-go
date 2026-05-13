@@ -19,69 +19,69 @@ type DirectoryRequestBuilder struct {
 type DirectoryRequestBuilderGetQueryParameters struct {
     // Only return directories that are or are not active. Defaults to true.
     // Deprecated: This property is deprecated, use ActiveAsBooleanEnum instead
-    Active []string `uriparametername:"active"`
+    Active []string "uriparametername:\"active\""
     // Only return directories that are or are not active. Defaults to true.
-    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum `uriparametername:"active"`
+    ActiveAsBooleanEnum []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.BooleanEnum "uriparametername:\"active\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter the directories on the given base organizational unit, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    BaseOrganizationalUnit []int64 `uriparametername:"baseOrganizationalUnit"`
+    BaseOrganizationalUnit []int64 "uriparametername:\"baseOrganizationalUnit\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Only return directories that are or are not the default directory.
-    DefaultDirectory []bool `uriparametername:"defaultDirectory"`
+    DefaultDirectory []bool "uriparametername:\"defaultDirectory\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Only return directories that use certificates that are expired at the given instant.
-    ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"expiredCertificate"`
+    ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"expiredCertificate\""
     // Filter the directories on the given helpdesk groups, specified by id. This parameter supports composition with all parameters from the group resource.
-    HelpdeskGroup []int64 `uriparametername:"helpdeskGroup"`
+    HelpdeskGroup []int64 "uriparametername:\"helpdeskGroup\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return directories that are not used for source directory provisioning for the given types of linked systems.
     // Deprecated: This property is deprecated, use IsNotProvisionedDirectoryAsProvisioningProvisionedSystemType instead
-    IsNotProvisionedDirectory []string `uriparametername:"isNotProvisionedDirectory"`
+    IsNotProvisionedDirectory []string "uriparametername:\"isNotProvisionedDirectory\""
     // Only return directories that are not used for source directory provisioning for the given types of linked systems.
-    IsNotProvisionedDirectoryAsProvisioningProvisionedSystemType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemType `uriparametername:"isNotProvisionedDirectory"`
+    IsNotProvisionedDirectoryAsProvisioningProvisionedSystemType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemType "uriparametername:\"isNotProvisionedDirectory\""
     // Only return directories that are or are not the built-in maintenance directory.
-    MaintenanceDirectory []bool `uriparametername:"maintenanceDirectory"`
+    MaintenanceDirectory []bool "uriparametername:\"maintenanceDirectory\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter directories on the exact name.
-    Name []string `uriparametername:"name"`
+    Name []string "uriparametername:\"name\""
     // Filter directories on (part of) the name or uuid.
-    NameContains []string `uriparametername:"nameContains"`
+    NameContains []string "uriparametername:\"nameContains\""
     // Filter directories where the name does not start with the given values.
-    NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
+    NameDoesNotStartWith []string "uriparametername:\"nameDoesNotStartWith\""
     // Filter directories on the start of the name.
-    NameStartsWith []string `uriparametername:"nameStartsWith"`
+    NameStartsWith []string "uriparametername:\"nameStartsWith\""
     // Only return OIDC directories for the given vendor(s).
     // Deprecated: This property is deprecated, use OidcVenderAsDirectoryOIDCVendor instead
-    OidcVender []string `uriparametername:"oidcVender"`
+    OidcVender []string "uriparametername:\"oidcVender\""
     // Only return OIDC directories for the given vendor(s).
-    OidcVenderAsDirectoryOIDCVendor []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryOIDCVendor `uriparametername:"oidcVender"`
+    OidcVenderAsDirectoryOIDCVendor []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.DirectoryOIDCVendor "uriparametername:\"oidcVender\""
     // Only return internal directories for the given owner(s), specified by id. This parameter supports composition with all parameters from the group resource.
-    OwnedBy []int64 `uriparametername:"ownedBy"`
+    OwnedBy []int64 "uriparametername:\"ownedBy\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter LDAP directories on TLS setting(s) used.
     // Deprecated: This property is deprecated, use TlsAsTLSLevel instead
-    Tls []string `uriparametername:"tls"`
+    Tls []string "uriparametername:\"tls\""
     // Filter LDAP directories on TLS setting(s) used.
-    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel `uriparametername:"tls"`
+    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel "uriparametername:\"tls\""
     // Only return directories of the given type(s).
-    Type []string `uriparametername:"type"`
+    Type []string "uriparametername:\"type\""
     // Filter results on one or more UUIDs.
-    Uuid []string `uriparametername:"uuid"`
+    Uuid []string "uriparametername:\"uuid\""
 }
 // DirectoryRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type DirectoryRequestBuilderGetRequestConfiguration struct {
@@ -96,9 +96,9 @@ type DirectoryRequestBuilderGetRequestConfiguration struct {
 type DirectoryRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // DirectoryRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type DirectoryRequestBuilderPostRequestConfiguration struct {
@@ -196,7 +196,7 @@ func (m *DirectoryRequestBuilder) ToGetRequestInformation(ctx context.Context, r
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new directories and returns the newly created directories.
@@ -210,8 +210,8 @@ func (m *DirectoryRequestBuilder) ToPostRequestInformation(ctx context.Context, 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

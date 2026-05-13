@@ -25,9 +25,9 @@ type DeletedvaultholderItemRequestBuilderDeleteRequestConfiguration struct {
 type DeletedvaultholderItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i6988fee5c526fbb1d3ba4158663dc55e95163db39ce1ea0400f734d0b22775fc.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i6988fee5c526fbb1d3ba4158663dc55e95163db39ce1ea0400f734d0b22775fc.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // DeletedvaultholderItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type DeletedvaultholderItemRequestBuilderGetRequestConfiguration struct {
@@ -100,7 +100,7 @@ func (m *DeletedvaultholderItemRequestBuilder) ToDeleteRequestInformation(ctx co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the deleted vault identified by the id.
@@ -114,7 +114,7 @@ func (m *DeletedvaultholderItemRequestBuilder) ToGetRequestInformation(ctx conte
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // Vault the vault property

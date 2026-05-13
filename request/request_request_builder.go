@@ -18,109 +18,109 @@ type RequestRequestBuilder struct {
 // RequestRequestBuilderGetQueryParameters queries over all modification requests. The various query parameters can be used to filter the response.
 type RequestRequestBuilderGetQueryParameters struct {
     // Filter requests on the given access profiles, specified by id. This parameter supports composition with all parameters from the access profile unit resource.
-    AccessProfile []int64 `uriparametername:"accessProfile"`
+    AccessProfile []int64 "uriparametername:\"accessProfile\""
     // Only return UpdateGroupMembershipRequest for the given account(s), specified by id. This parameter supports composition with all parameters from the account resource.
-    AccountToUpdate []int64 `uriparametername:"accountToUpdate"`
+    AccountToUpdate []int64 "uriparametername:\"accountToUpdate\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Only return RevokeAdminRequest for the given account(s), specified by id. This parameter supports composition with all parameters from the account resource.
-    AdminToRevoke []int64 `uriparametername:"adminToRevoke"`
+    AdminToRevoke []int64 "uriparametername:\"adminToRevoke\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter requests on the given applications, specified by id. This parameter supports composition with all parameters from the client resource.
-    Application []int64 `uriparametername:"application"`
+    Application []int64 "uriparametername:\"application\""
     // Only return SetupAuthorizingGroupRequest for the given type of authorization.
     // Deprecated: This property is deprecated, use AuthorizationTypeAsRequestAuthorizingGroupType instead
-    AuthorizationType []string `uriparametername:"authorizationType"`
+    AuthorizationType []string "uriparametername:\"authorizationType\""
     // Only return SetupAuthorizingGroupRequest for the given type of authorization.
-    AuthorizationTypeAsRequestAuthorizingGroupType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestAuthorizingGroupType `uriparametername:"authorizationType"`
+    AuthorizationTypeAsRequestAuthorizingGroupType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestAuthorizingGroupType "uriparametername:\"authorizationType\""
     // Only return SetupAuthorizingGroupRequest(s) for the given authorization type.
     // Deprecated: This property is deprecated, use AuthorizingGroupTypeAsRequestAuthorizingGroupType instead
-    AuthorizingGroupType []string `uriparametername:"authorizingGroupType"`
+    AuthorizingGroupType []string "uriparametername:\"authorizingGroupType\""
     // Only return SetupAuthorizingGroupRequest(s) for the given authorization type.
-    AuthorizingGroupTypeAsRequestAuthorizingGroupType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestAuthorizingGroupType `uriparametername:"authorizingGroupType"`
+    AuthorizingGroupTypeAsRequestAuthorizingGroupType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestAuthorizingGroupType "uriparametername:\"authorizingGroupType\""
     // Only return GrantClientPermissionRequest for the given permission type(s).
     // Deprecated: This property is deprecated, use ClientPermissionAsClientOAuth2ClientPermissionType instead
-    ClientPermission []string `uriparametername:"clientPermission"`
+    ClientPermission []string "uriparametername:\"clientPermission\""
     // Only return GrantClientPermissionRequest for the given permission type(s).
-    ClientPermissionAsClientOAuth2ClientPermissionType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientOAuth2ClientPermissionType `uriparametername:"clientPermission"`
+    ClientPermissionAsClientOAuth2ClientPermissionType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ClientOAuth2ClientPermissionType "uriparametername:\"clientPermission\""
     // Only return SetupAuthorizingGroupRequest(s) that either connect or disconnect additional authorization.
-    ConnectAuthorization []bool `uriparametername:"connectAuthorization"`
+    ConnectAuthorization []bool "uriparametername:\"connectAuthorization\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Only return requests for the given directory(ies), specified by id. This parameter supports composition with all parameters from the directory resource.
-    Directory []int64 `uriparametername:"directory"`
+    Directory []int64 "uriparametername:\"directory\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Only return GrantGroupOnSystemRequest(s) that either have activation required enabled or disabled.
-    GrantGroupOnSystemRequestActivationRequired []bool `uriparametername:"grantGroupOnSystemRequestActivationRequired"`
+    GrantGroupOnSystemRequestActivationRequired []bool "uriparametername:\"grantGroupOnSystemRequestActivationRequired\""
     // Only return GrantGroupOnSystemRequestRequest(s) that either have activation required enabled or disabled.
-    GrantGroupOnSystemRequestRequestActivationRequired []bool `uriparametername:"grantGroupOnSystemRequestRequestActivationRequired"`
+    GrantGroupOnSystemRequestRequestActivationRequired []bool "uriparametername:\"grantGroupOnSystemRequestRequestActivationRequired\""
     // Filter requests on the given groups, specified by id. This parameter supports composition with all parameters from the group resource.
-    Group []int64 `uriparametername:"group"`
+    Group []int64 "uriparametername:\"group\""
     // Filter requests on the given group on system, specified by id. This parameter supports composition with all parameters from the group on system resource.
-    GroupOnSystem []int64 `uriparametername:"groupOnSystem"`
+    GroupOnSystem []int64 "uriparametername:\"groupOnSystem\""
     // Filter requests for multiple groups if they contain any of the given groups.
-    GroupsOverlapWith []int64 `uriparametername:"groupsOverlapWith"`
+    GroupsOverlapWith []int64 "uriparametername:\"groupsOverlapWith\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return VerifyInternalAccountRequest for the given internal account(s), specified by id. This parameter supports composition with all parameters from the internal account resource.
-    InternalAccount []int64 `uriparametername:"internalAccount"`
+    InternalAccount []int64 "uriparametername:\"internalAccount\""
     // Filter requests on the exact mail keys.
-    MailKey []string `uriparametername:"mailKey"`
+    MailKey []string "uriparametername:\"mailKey\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Only return AddGroupAdminRequest for the given account(s), specified by id. This parameter supports composition with all parameters from the account resource.
-    NewAdmin []int64 `uriparametername:"newAdmin"`
+    NewAdmin []int64 "uriparametername:\"newAdmin\""
     // Only return CreateGroupRequest with an exact match on the group name.
-    NewGroupName []string `uriparametername:"newGroupName"`
+    NewGroupName []string "uriparametername:\"newGroupName\""
     // Only return CreateGroupOnSystemRequest with an exact match on the name in system.
-    NewGroupOnSystemName []string `uriparametername:"newGroupOnSystemName"`
+    NewGroupOnSystemName []string "uriparametername:\"newGroupOnSystemName\""
     // Only return CreateProvisionedNamespaceRequest with an exact match on the namespace name.
-    NewNamespaceName []string `uriparametername:"newNamespaceName"`
+    NewNamespaceName []string "uriparametername:\"newNamespaceName\""
     // Only return CreateServiceAccountRequest with an exact match on the username.
-    NewServiceAccountName []string `uriparametername:"newServiceAccountName"`
+    NewServiceAccountName []string "uriparametername:\"newServiceAccountName\""
     // Filter requests on the given organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
+    OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
     // Only return CreateGroupOnSystemRequest with the given owner group(s), specified by id. This parameter supports composition with all parameters from the grouop resource.
-    OwnerGroup []int64 `uriparametername:"ownerGroup"`
+    OwnerGroup []int64 "uriparametername:\"ownerGroup\""
     // Only return requests that were preceded by the given request(s), specified by id. This parameter supports composition with all parameters from the request resource.
-    PrecededBy []int64 `uriparametername:"precededBy"`
+    PrecededBy []int64 "uriparametername:\"precededBy\""
     // Only return modification requests that can be processed by the given account, specified by id. This includes requests requested by the given account that are not yet processed or have been declined in the past 2 days.
-    ProcessedBy []int64 `uriparametername:"processedBy"`
+    ProcessedBy []int64 "uriparametername:\"processedBy\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Only return requests requested by the given account(s), specified by id. This parameter supports composition with all parameters from the account resource.
-    RequestedBy []int64 `uriparametername:"requestedBy"`
+    RequestedBy []int64 "uriparametername:\"requestedBy\""
     // Only return requests that are requested for the given groups, specified by id. This parameter supports composition with all parameters from the group resource.
-    RequestingGroup []int64 `uriparametername:"requestingGroup"`
+    RequestingGroup []int64 "uriparametername:\"requestingGroup\""
     // Filter requests on the given service accounts, specified by id. This parameter supports composition with all parameters from the service account resource.
-    ServiceAccount []int64 `uriparametername:"serviceAccount"`
+    ServiceAccount []int64 "uriparametername:\"serviceAccount\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter requests on the given status(es).
     // Deprecated: This property is deprecated, use StatusAsRequestModificationRequestStatus instead
-    Status []string `uriparametername:"status"`
+    Status []string "uriparametername:\"status\""
     // Filter requests on the given status(es).
-    StatusAsRequestModificationRequestStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestStatus `uriparametername:"status"`
+    StatusAsRequestModificationRequestStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestModificationRequestStatus "uriparametername:\"status\""
     // Filter requests on the given systems, specified by id. This parameter supports composition with all parameters from the system resource.
-    System []int64 `uriparametername:"system"`
+    System []int64 "uriparametername:\"system\""
     // Only return requests that did or did not trigger a follow up request.
-    TriggeredFollowUpRequest []bool `uriparametername:"triggeredFollowUpRequest"`
+    TriggeredFollowUpRequest []bool "uriparametername:\"triggeredFollowUpRequest\""
     // Only return requests of the given type(s).
-    Type []string `uriparametername:"type"`
+    Type []string "uriparametername:\"type\""
     // Only return UpdateGroupMembershipRequest(s) of the given update type.
     // Deprecated: This property is deprecated, use UpdateGroupMembershipTypeAsRequestUpdateGroupMembershipType instead
-    UpdateGroupMembershipType []string `uriparametername:"updateGroupMembershipType"`
+    UpdateGroupMembershipType []string "uriparametername:\"updateGroupMembershipType\""
     // Only return UpdateGroupMembershipRequest(s) of the given update type.
-    UpdateGroupMembershipTypeAsRequestUpdateGroupMembershipType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestUpdateGroupMembershipType `uriparametername:"updateGroupMembershipType"`
+    UpdateGroupMembershipTypeAsRequestUpdateGroupMembershipType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.RequestUpdateGroupMembershipType "uriparametername:\"updateGroupMembershipType\""
     // Only return requests the were processed by the given account(s), specified by id. This parameter supports composition with all parameters from the account resource.
-    WasProcessedBy []int64 `uriparametername:"wasProcessedBy"`
+    WasProcessedBy []int64 "uriparametername:\"wasProcessedBy\""
 }
 // RequestRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type RequestRequestBuilderGetRequestConfiguration struct {
@@ -135,9 +135,9 @@ type RequestRequestBuilderGetRequestConfiguration struct {
 type RequestRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // RequestRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type RequestRequestBuilderPostRequestConfiguration struct {
@@ -240,7 +240,7 @@ func (m *RequestRequestBuilder) ToGetRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new modification requests and returns the newly created requests.
@@ -254,8 +254,8 @@ func (m *RequestRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

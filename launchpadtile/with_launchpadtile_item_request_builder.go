@@ -25,9 +25,9 @@ type WithLaunchpadtileItemRequestBuilderDeleteRequestConfiguration struct {
 type WithLaunchpadtileItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i1f29339d7cfcb4ec1d2fb0f1382e5b1e10a0b1b4f9bc531aab8ea321a1fe3c24.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i1f29339d7cfcb4ec1d2fb0f1382e5b1e10a0b1b4f9bc531aab8ea321a1fe3c24.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithLaunchpadtileItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithLaunchpadtileItemRequestBuilderGetRequestConfiguration struct {
@@ -42,9 +42,9 @@ type WithLaunchpadtileItemRequestBuilderGetRequestConfiguration struct {
 type WithLaunchpadtileItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i1f29339d7cfcb4ec1d2fb0f1382e5b1e10a0b1b4f9bc531aab8ea321a1fe3c24.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i1f29339d7cfcb4ec1d2fb0f1382e5b1e10a0b1b4f9bc531aab8ea321a1fe3c24.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithLaunchpadtileItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithLaunchpadtileItemRequestBuilderPutRequestConfiguration struct {
@@ -132,7 +132,7 @@ func (m *WithLaunchpadtileItemRequestBuilder) ToDeleteRequestInformation(ctx con
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single launchpad tile.
@@ -146,7 +146,7 @@ func (m *WithLaunchpadtileItemRequestBuilder) ToGetRequestInformation(ctx contex
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the launchpad tile identified by the id.
@@ -160,8 +160,8 @@ func (m *WithLaunchpadtileItemRequestBuilder) ToPutRequestInformation(ctx contex
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

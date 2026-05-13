@@ -19,98 +19,100 @@ type SystemRequestBuilder struct {
 // SystemRequestBuilderGetQueryParameters query for all provisioned systems in Topicus KeyHub. The various query parameters can be used to filter the response.
 type SystemRequestBuilderGetQueryParameters struct {
     // Filter the systems by access profiles which reference a group on the returned systems, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    Accessprofile []int64 `uriparametername:"accessprofile"`
+    Accessprofile []int64 "uriparametername:\"accessprofile\""
     // Filter the systems by access profile provisioning which reference a group on the returned systems, specified by id. This parameter supports composition with all parameters from the access profile provisioning resource.
-    AccessProfileProvisioning []int64 `uriparametername:"accessProfileProvisioning"`
+    AccessProfileProvisioning []int64 "uriparametername:\"accessProfileProvisioning\""
     // Filter the systems by provisioned accounts, specified by id. This parameter supports composition with all parameters from the provisioned account resource.
-    Account []int64 `uriparametername:"account"`
+    Account []int64 "uriparametername:\"account\""
+    // Filter systems on the attribute definition used for account matching, specified by id. This parameter supports composition with all parameters from the attribute definition resource.
+    AccountMatchingAttribute []int64 "uriparametername:\"accountMatchingAttribute\""
     // Only return source directory provisioning systems for which accounts are writable.
-    AccountsWritable []bool `uriparametername:"accountsWritable"`
+    AccountsWritable []bool "uriparametername:\"accountsWritable\""
     // Only return systems whose active status matches any of the provided values.
     // Deprecated: This property is deprecated, use ActiveStatusAsProvisioningProvisionedSystemStatus instead
-    ActiveStatus []string `uriparametername:"activeStatus"`
+    ActiveStatus []string "uriparametername:\"activeStatus\""
     // Only return systems whose active status matches any of the provided values.
-    ActiveStatusAsProvisioningProvisionedSystemStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemStatus `uriparametername:"activeStatus"`
+    ActiveStatusAsProvisioningProvisionedSystemStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningProvisionedSystemStatus "uriparametername:\"activeStatus\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter the systems on groups that perform content administration for them, specified by id. This parameter supports composition with all parameters from the group resource.
-    ContentAdministrator []int64 `uriparametername:"contentAdministrator"`
+    ContentAdministrator []int64 "uriparametername:\"contentAdministrator\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Only return systems for which one of the certificates used is expired at the given instant.
-    ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"expiredCertificate"`
+    ExpiredCertificate []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"expiredCertificate\""
     // Filter the systems on one or more UUIDs as read from the system.
-    ExternalUuid []i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID `uriparametername:"externalUuid"`
+    ExternalUuid []i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID "uriparametername:\"externalUuid\""
     // Filter systems on the Azure OIDC directory for which it is a provisioned source directory, specified by id. This parameter supports composition with all parameters from the directory resource.
-    ForAzureOIDCDirectory []int64 `uriparametername:"forAzureOIDCDirectory"`
+    ForAzureOIDCDirectory []int64 "uriparametername:\"forAzureOIDCDirectory\""
     // Filter provisioned namespaces on their base system, specified by id. This parameter supports composition with all parameters from the provisioned system resource.
-    ForBaseSystem []int64 `uriparametername:"forBaseSystem"`
+    ForBaseSystem []int64 "uriparametername:\"forBaseSystem\""
     // Filter systems on the clients for which it is an internal provisioned LDAP, specified by id. This parameter supports composition with all parameters from the client resource.
-    ForClient []int64 `uriparametername:"forClient"`
+    ForClient []int64 "uriparametername:\"forClient\""
     // Filter systems on the LDAP directory for which it is a provisioned source directory, specified by id. This parameter supports composition with all parameters from the directory resource.
-    ForLDAPDirectory []int64 `uriparametername:"forLDAPDirectory"`
+    ForLDAPDirectory []int64 "uriparametername:\"forLDAPDirectory\""
     // Filter the systems by groups for which a provisioning group references a group on the returned systems, specified by id. This parameter supports composition with all parameters from the group resource.
-    Group []int64 `uriparametername:"group"`
+    Group []int64 "uriparametername:\"group\""
     // Filter systems on the specified groupDN, for those system types that have such a property.
-    GroupDN []string `uriparametername:"groupDN"`
+    GroupDN []string "uriparametername:\"groupDN\""
     // Filter systems on the groups on a system, specified by id. This parameter supports composition with all parameters from the group on system resource.
-    GroupOnSystem []int64 `uriparametername:"groupOnSystem"`
+    GroupOnSystem []int64 "uriparametername:\"groupOnSystem\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter systems on the exact name.
-    Name []string `uriparametername:"name"`
+    Name []string "uriparametername:\"name\""
     // Search systems on (part of) the name or uuid.
-    NameContains []string `uriparametername:"nameContains"`
+    NameContains []string "uriparametername:\"nameContains\""
     // Only return systems for which the name does not start with the given prefix.
-    NameDoesNotStartWith []string `uriparametername:"nameDoesNotStartWith"`
+    NameDoesNotStartWith []string "uriparametername:\"nameDoesNotStartWith\""
     // Only return systems for which the name starts with the given prefix.
-    NameStartsWith []string `uriparametername:"nameStartsWith"`
+    NameStartsWith []string "uriparametername:\"nameStartsWith\""
     // Filter the systems on not having a provisioning group for a group on system on the returned systems, specified by id.
-    NotInGroup []int64 `uriparametername:"notInGroup"`
+    NotInGroup []int64 "uriparametername:\"notInGroup\""
     // Filter provisioned LDAPs on the numbering used (uid or gid), specified by id.
-    Numbering []int64 `uriparametername:"numbering"`
+    Numbering []int64 "uriparametername:\"numbering\""
     // Filter systems on organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
+    OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
     // Filter systems on organizational units, specified by id. This parameter is automatically set and primarily used for security permission enforcement.
-    OrganizationalUnitForEnforcement []int64 `uriparametername:"organizationalUnitForEnforcement"`
+    OrganizationalUnitForEnforcement []int64 "uriparametername:\"organizationalUnitForEnforcement\""
     // Filter the systems for which the given group is owner, specified by id. This parameter supports composition with all parameters from the group resource.
-    OwnedBy []int64 `uriparametername:"ownedBy"`
+    OwnedBy []int64 "uriparametername:\"ownedBy\""
     // Filter the systems by provisioning groups which reference a group on the returned systems, specified by id. This parameter supports composition with all parameters from the provisioning group resource.
-    ProvisioningGroup []int64 `uriparametername:"provisioningGroup"`
+    ProvisioningGroup []int64 "uriparametername:\"provisioningGroup\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Only return systems for which self-service for existing groups on system is enabled.
-    SelfServiceExistingGroups []bool `uriparametername:"selfServiceExistingGroups"`
+    SelfServiceExistingGroups []bool "uriparametername:\"selfServiceExistingGroups\""
     // Only return systems for which self-service for new groups on system is enabled.
-    SelfServiceNewGroups []bool `uriparametername:"selfServiceNewGroups"`
+    SelfServiceNewGroups []bool "uriparametername:\"selfServiceNewGroups\""
     // Only return systems for which self-service for service accounts is enabled.
-    SelfServiceServiceAccounts []bool `uriparametername:"selfServiceServiceAccounts"`
+    SelfServiceServiceAccounts []bool "uriparametername:\"selfServiceServiceAccounts\""
     // Filter systems on the specified serviceAccountDN, for those system types that have such a property.
-    ServiceAccountDN []string `uriparametername:"serviceAccountDN"`
+    ServiceAccountDN []string "uriparametername:\"serviceAccountDN\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter the systems on groups that perform technical administration for them, specified by id. This parameter supports composition with all parameters from the group resource.
-    TechnicalAdministrator []int64 `uriparametername:"technicalAdministrator"`
+    TechnicalAdministrator []int64 "uriparametername:\"technicalAdministrator\""
     // Filter the systems on the TLS setting used.
     // Deprecated: This property is deprecated, use TlsAsTLSLevel instead
-    Tls []string `uriparametername:"tls"`
+    Tls []string "uriparametername:\"tls\""
     // Filter the systems on the TLS setting used.
-    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel `uriparametername:"tls"`
+    TlsAsTLSLevel []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.TLSLevel "uriparametername:\"tls\""
     // Only return systems of the given type(s).
-    Type []string `uriparametername:"type"`
+    Type []string "uriparametername:\"type\""
     // Filter results on one or more UUIDs.
-    Uuid []string `uriparametername:"uuid"`
+    Uuid []string "uriparametername:\"uuid\""
 }
 // SystemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type SystemRequestBuilderGetRequestConfiguration struct {
@@ -125,9 +127,9 @@ type SystemRequestBuilderGetRequestConfiguration struct {
 type SystemRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // SystemRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type SystemRequestBuilderPostRequestConfiguration struct {
@@ -164,7 +166,7 @@ func (m *SystemRequestBuilder) BySystemidInt64(systemid int64)(*WithSystemItemRe
 // NewSystemRequestBuilderInternal instantiates a new SystemRequestBuilder and sets the default values.
 func NewSystemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*SystemRequestBuilder) {
     m := &SystemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system{?accessProfileProvisioning*,accessprofile*,account*,accountsWritable*,activeStatus*,additional*,any*,contentAdministrator*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,externalUuid*,forAzureOIDCDirectory*,forBaseSystem*,forClient*,forLDAPDirectory*,group*,groupDN*,groupOnSystem*,id*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,numbering*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,provisioningGroup*,q*,selfServiceExistingGroups*,selfServiceNewGroups*,selfServiceServiceAccounts*,serviceAccountDN*,sort*,technicalAdministrator*,tls*,type*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system{?accessProfileProvisioning*,accessprofile*,account*,accountMatchingAttribute*,accountsWritable*,activeStatus*,additional*,any*,contentAdministrator*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,externalUuid*,forAzureOIDCDirectory*,forBaseSystem*,forClient*,forLDAPDirectory*,group*,groupDN*,groupOnSystem*,id*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInGroup*,numbering*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,provisioningGroup*,q*,selfServiceExistingGroups*,selfServiceNewGroups*,selfServiceServiceAccounts*,serviceAccountDN*,sort*,technicalAdministrator*,tls*,type*,uuid*}", pathParameters),
     }
     return m
 }
@@ -225,7 +227,7 @@ func (m *SystemRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new provisioned systems and returns the newly created systems.
@@ -239,8 +241,8 @@ func (m *SystemRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

@@ -10,6 +10,8 @@ import (
 type ProfileAccessProfileAccount_additionalObjects struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
+    // The attributeSummaries property
+    attributeSummaries NonLinkableWrapperable
     // The audit property
     audit AuditInfoable
 }
@@ -30,6 +32,11 @@ func CreateProfileAccessProfileAccount_additionalObjectsFromDiscriminatorValue(p
 func (m *ProfileAccessProfileAccount_additionalObjects) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
+// GetAttributeSummaries gets the attributeSummaries property value. The attributeSummaries property
+// returns a NonLinkableWrapperable when successful
+func (m *ProfileAccessProfileAccount_additionalObjects) GetAttributeSummaries()(NonLinkableWrapperable) {
+    return m.attributeSummaries
+}
 // GetAudit gets the audit property value. The audit property
 // returns a AuditInfoable when successful
 func (m *ProfileAccessProfileAccount_additionalObjects) GetAudit()(AuditInfoable) {
@@ -39,6 +46,16 @@ func (m *ProfileAccessProfileAccount_additionalObjects) GetAudit()(AuditInfoable
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProfileAccessProfileAccount_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
+    res["attributeSummaries"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateNonLinkableWrapperFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAttributeSummaries(val.(NonLinkableWrapperable))
+        }
+        return nil
+    }
     res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateAuditInfoFromDiscriminatorValue)
         if err != nil {
@@ -53,6 +70,12 @@ func (m *ProfileAccessProfileAccount_additionalObjects) GetFieldDeserializers()(
 }
 // Serialize serializes information the current object
 func (m *ProfileAccessProfileAccount_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
+    {
+        err := writer.WriteObjectValue("attributeSummaries", m.GetAttributeSummaries())
+        if err != nil {
+            return err
+        }
+    }
     {
         err := writer.WriteObjectValue("audit", m.GetAudit())
         if err != nil {
@@ -71,6 +94,10 @@ func (m *ProfileAccessProfileAccount_additionalObjects) Serialize(writer i878a80
 func (m *ProfileAccessProfileAccount_additionalObjects) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
 }
+// SetAttributeSummaries sets the attributeSummaries property value. The attributeSummaries property
+func (m *ProfileAccessProfileAccount_additionalObjects) SetAttributeSummaries(value NonLinkableWrapperable)() {
+    m.attributeSummaries = value
+}
 // SetAudit sets the audit property value. The audit property
 func (m *ProfileAccessProfileAccount_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
@@ -78,6 +105,8 @@ func (m *ProfileAccessProfileAccount_additionalObjects) SetAudit(value AuditInfo
 type ProfileAccessProfileAccount_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAttributeSummaries()(NonLinkableWrapperable)
     GetAudit()(AuditInfoable)
+    SetAttributeSummaries(value NonLinkableWrapperable)()
     SetAudit(value AuditInfoable)()
 }

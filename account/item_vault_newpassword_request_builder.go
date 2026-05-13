@@ -15,7 +15,7 @@ type ItemVaultNewpasswordRequestBuilder struct {
 }
 // ItemVaultNewpasswordRequestBuilderGetQueryParameters returns a random generated password using the given strategy, or the default strategy if none given.
 type ItemVaultNewpasswordRequestBuilderGetQueryParameters struct {
-    Strategy *string `uriparametername:"strategy"`
+    Strategy *string "uriparametername:\"strategy\""
 }
 // ItemVaultNewpasswordRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultNewpasswordRequestBuilderGetRequestConfiguration struct {
@@ -70,7 +70,7 @@ func (m *ItemVaultNewpasswordRequestBuilder) ToGetRequestInformation(ctx context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

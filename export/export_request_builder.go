@@ -15,7 +15,7 @@ type ExportRequestBuilder struct {
 }
 // ExportRequestBuilderGetQueryParameters downloads the export previously prepared.
 type ExportRequestBuilderGetQueryParameters struct {
-    Export *string `uriparametername:"export"`
+    Export *string "uriparametername:\"export\""
 }
 // ExportRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ExportRequestBuilderGetRequestConfiguration struct {
@@ -70,7 +70,7 @@ func (m *ExportRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "text/csv, application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "text/csv, application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

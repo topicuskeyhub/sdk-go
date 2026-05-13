@@ -15,6 +15,8 @@ type ClientClientConsent struct {
     client ClientClientApplicationPrimerable
     // The identifier property
     identifier *string
+    // The trustedIPs property
+    trustedIPs []string
 }
 // NewClientClientConsent instantiates a new ClientClientConsent and sets the default values.
 func NewClientClientConsent()(*ClientClientConsent) {
@@ -80,12 +82,33 @@ func (m *ClientClientConsent) GetFieldDeserializers()(map[string]func(i878a80d23
         }
         return nil
     }
+    res["trustedIPs"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetCollectionOfPrimitiveValues("string")
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            res := make([]string, len(val))
+            for i, v := range val {
+                if v != nil {
+                    res[i] = *(v.(*string))
+                }
+            }
+            m.SetTrustedIPs(res)
+        }
+        return nil
+    }
     return res
 }
 // GetIdentifier gets the identifier property value. The identifier property
 // returns a *string when successful
 func (m *ClientClientConsent) GetIdentifier()(*string) {
     return m.identifier
+}
+// GetTrustedIPs gets the trustedIPs property value. The trustedIPs property
+// returns a []string when successful
+func (m *ClientClientConsent) GetTrustedIPs()([]string) {
+    return m.trustedIPs
 }
 // Serialize serializes information the current object
 func (m *ClientClientConsent) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -105,6 +128,12 @@ func (m *ClientClientConsent) Serialize(writer i878a80d2330e89d26896388a3f487eef
             return err
         }
     }
+    if m.GetTrustedIPs() != nil {
+        err = writer.WriteCollectionOfStringValues("trustedIPs", m.GetTrustedIPs())
+        if err != nil {
+            return err
+        }
+    }
     return nil
 }
 // SetAllowedScopes sets the allowedScopes property value. The allowedScopes property
@@ -119,13 +148,19 @@ func (m *ClientClientConsent) SetClient(value ClientClientApplicationPrimerable)
 func (m *ClientClientConsent) SetIdentifier(value *string)() {
     m.identifier = value
 }
+// SetTrustedIPs sets the trustedIPs property value. The trustedIPs property
+func (m *ClientClientConsent) SetTrustedIPs(value []string)() {
+    m.trustedIPs = value
+}
 type ClientClientConsentable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAllowedScopes()([]string)
     GetClient()(ClientClientApplicationPrimerable)
     GetIdentifier()(*string)
+    GetTrustedIPs()([]string)
     SetAllowedScopes(value []string)()
     SetClient(value ClientClientApplicationPrimerable)()
     SetIdentifier(value *string)()
+    SetTrustedIPs(value []string)()
 }

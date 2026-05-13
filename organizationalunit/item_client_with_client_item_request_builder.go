@@ -25,9 +25,9 @@ type ItemClientWithClientItemRequestBuilderDeleteRequestConfiguration struct {
 type ItemClientWithClientItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []ic81bd31cb5af4da7064dce1dfc5c5f68eeec3c8e39793a705ec47dd73f1f092f.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []ic81bd31cb5af4da7064dce1dfc5c5f68eeec3c8e39793a705ec47dd73f1f092f.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemClientWithClientItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemClientWithClientItemRequestBuilderGetRequestConfiguration struct {
@@ -95,7 +95,7 @@ func (m *ItemClientWithClientItemRequestBuilder) ToDeleteRequestInformation(ctx 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single client application member of the organizational unit.
@@ -109,7 +109,7 @@ func (m *ItemClientWithClientItemRequestBuilder) ToGetRequestInformation(ctx con
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

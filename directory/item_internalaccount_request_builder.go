@@ -19,39 +19,39 @@ type ItemInternalaccountRequestBuilder struct {
 // ItemInternalaccountRequestBuilderGetQueryParameters queries over all internal accounts within a directory. The various query parameters can be used to filter the response.
 type ItemInternalaccountRequestBuilderGetQueryParameters struct {
     // Filter the internal accounts by KeyHub accounts, specified by id. This parameter supports composition with all parameters from the account resource.
-    Account []int64 `uriparametername:"account"`
+    Account []int64 "uriparametername:\"account\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i71c97f9512df5822f155a22bf755dad1f40cdfff8dd134c193ec96e5c2241965.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i71c97f9512df5822f155a22bf755dad1f40cdfff8dd134c193ec96e5c2241965.GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the internal accounts by directory, specified by id. This parameter supports composition with all parameters from the account directory resource.
-    Directory []int64 `uriparametername:"directory"`
+    Directory []int64 "uriparametername:\"directory\""
     // Filter the internal accounts by the owner group of the directory, specified by id. This parameter supports composition with all parameters from the account resource.
-    DirectoryOwnerGroup []int64 `uriparametername:"directoryOwnerGroup"`
+    DirectoryOwnerGroup []int64 "uriparametername:\"directoryOwnerGroup\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter the internal accounts by organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64 `uriparametername:"organizationalUnit"`
+    OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Only return internal accounts with the given status.
     // Deprecated: This property is deprecated, use StatusAsAuthInternalAccountStatus instead
-    Status []string `uriparametername:"status"`
+    Status []string "uriparametername:\"status\""
     // Only return internal accounts with the given status.
-    StatusAsAuthInternalAccountStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountStatus `uriparametername:"status"`
+    StatusAsAuthInternalAccountStatus []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.AuthInternalAccountStatus "uriparametername:\"status\""
 }
 // ItemInternalaccountRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemInternalaccountRequestBuilderGetRequestConfiguration struct {
@@ -66,9 +66,9 @@ type ItemInternalaccountRequestBuilderGetRequestConfiguration struct {
 type ItemInternalaccountRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []i71c97f9512df5822f155a22bf755dad1f40cdfff8dd134c193ec96e5c2241965.PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []i71c97f9512df5822f155a22bf755dad1f40cdfff8dd134c193ec96e5c2241965.PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemInternalaccountRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemInternalaccountRequestBuilderPostRequestConfiguration struct {
@@ -166,7 +166,7 @@ func (m *ItemInternalaccountRequestBuilder) ToGetRequestInformation(ctx context.
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new internal accounts within a directory and returns the newly created accounts.
@@ -180,8 +180,8 @@ func (m *ItemInternalaccountRequestBuilder) ToPostRequestInformation(ctx context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

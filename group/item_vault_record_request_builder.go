@@ -20,73 +20,73 @@ type ItemVaultRecordRequestBuilder struct {
 // ItemVaultRecordRequestBuilderGetQueryParameters query for vault records in a specific vault. The various query parameters can be used to filter the response. It is not possible to access secrets with a query that returns multiple results. Secrets can only be read one by one.
 type ItemVaultRecordRequestBuilderGetQueryParameters struct {
     // Filter records that accessible by the given account(s), specified by id.
-    AccessibleByAccount []int64 `uriparametername:"accessibleByAccount"`
+    AccessibleByAccount []int64 "uriparametername:\"accessibleByAccount\""
     // Filter records that accessible by the given account(s) and the account is manager of the group, specified by id.
-    AccessibleByAccountAsManager []int64 `uriparametername:"accessibleByAccountAsManager"`
+    AccessibleByAccountAsManager []int64 "uriparametername:\"accessibleByAccountAsManager\""
     // Filter records that accessible by the given client(s), specified by id.
-    AccessibleByClient []int64 `uriparametername:"accessibleByClient"`
+    AccessibleByClient []int64 "uriparametername:\"accessibleByClient\""
     // Filter the records by account, specified by id. This parameter supports composition with all parameters from the account resource.
-    Account []int64 `uriparametername:"account"`
+    Account []int64 "uriparametername:\"account\""
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i6f72f7b1ff840f4bdfc3540f0174eadc1c7a96ef52f712ad1a5ec4c4cfc3c78e.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i6f72f7b1ff840f4bdfc3540f0174eadc1c7a96ef52f712ad1a5ec4c4cfc3c78e.GetAdditionalQueryParameterType "uriparametername:\"additional\""
     // Return all or no records. This can be useful when composing parameters.
-    Any []bool `uriparametername:"any"`
+    Any []bool "uriparametername:\"any\""
     // Filter the records by client, specified by id. This parameter supports composition with all parameters from the client resource.
-    Client []int64 `uriparametername:"client"`
+    Client []int64 "uriparametername:\"client\""
     // Filter records on the color.
     // Deprecated: This property is deprecated, use ColorAsVaultVaultRecordColor instead
-    Color []string `uriparametername:"color"`
+    Color []string "uriparametername:\"color\""
     // Filter records on the color.
-    ColorAsVaultVaultRecordColor []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordColor `uriparametername:"color"`
+    ColorAsVaultVaultRecordColor []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordColor "uriparametername:\"color\""
     // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdAfter"`
+    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
     // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"createdBefore"`
+    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
     // Filter the results to exclude the given ids.
-    Exclude []int64 `uriparametername:"exclude"`
+    Exclude []int64 "uriparametername:\"exclude\""
     // Only return records that show an expiration warning at or before the given date.
-    ExpireWarningBeforeOrAt []i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly `uriparametername:"expireWarningBeforeOrAt"`
+    ExpireWarningBeforeOrAt []i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly "uriparametername:\"expireWarningBeforeOrAt\""
     // Filter records on the exact filename.
-    Filename []string `uriparametername:"filename"`
+    Filename []string "uriparametername:\"filename\""
     // Filter the records by group, specified by id. This parameter supports composition with all parameters from the group resource.
-    Group []int64 `uriparametername:"group"`
+    Group []int64 "uriparametername:\"group\""
     // Filter the records by organizational unit of the group, specified by id. This parameter supports composition with all parameters from the client resource.
-    GroupOrganizationalUnit []int64 `uriparametername:"groupOrganizationalUnit"`
+    GroupOrganizationalUnit []int64 "uriparametername:\"groupOrganizationalUnit\""
     // Only return records that have or do not have an expiration policy set.
-    HasNoPolicy []bool `uriparametername:"hasNoPolicy"`
+    HasNoPolicy []bool "uriparametername:\"hasNoPolicy\""
     // Filter records that are shared (have a parent record)
-    HasParent []bool `uriparametername:"hasParent"`
+    HasParent []bool "uriparametername:\"hasParent\""
     // Only return records that have or do not have expired.
-    HasValidPolicy []bool `uriparametername:"hasValidPolicy"`
+    HasValidPolicy []bool "uriparametername:\"hasValidPolicy\""
     // Filter the results on the given ids.
-    Id []int64 `uriparametername:"id"`
+    Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"modifiedSince"`
+    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter records on the exact name.
-    Name []string `uriparametername:"name"`
+    Name []string "uriparametername:\"name\""
     // Search records on (part of) the UUID, name, filename, URI or username.
-    NameContains []string `uriparametername:"nameContains"`
+    NameContains []string "uriparametername:\"nameContains\""
     // Filter records that are shared from the specified parent record, specified by id.
-    Parent []int64 `uriparametername:"parent"`
+    Parent []int64 "uriparametername:\"parent\""
     // Filter records on a complex CQL query.
-    Q []string `uriparametername:"q"`
+    Q []string "uriparametername:\"q\""
     // Filter records by secret using composition. Use secret.type to filter on type.
-    Secret []int64 `uriparametername:"secret"`
+    Secret []int64 "uriparametername:\"secret\""
     // Only return records for which the sharing period has expired at or before the given date.
-    ShareExpiresBeforeOrAt []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time `uriparametername:"shareExpiresBeforeOrAt"`
+    ShareExpiresBeforeOrAt []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"shareExpiresBeforeOrAt\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string `uriparametername:"sort"`
+    Sort []string "uriparametername:\"sort\""
     // Filter records on the exact URI.
-    Url []string `uriparametername:"url"`
+    Url []string "uriparametername:\"url\""
     // Filter records on the exact username.
-    Username []string `uriparametername:"username"`
+    Username []string "uriparametername:\"username\""
     // Filter records on one or more UUIDs.
-    Uuid []string `uriparametername:"uuid"`
+    Uuid []string "uriparametername:\"uuid\""
     // Filter the records by vault, specified by id. This parameter supports composition with all parameters from the vault resource.
-    Vault []int64 `uriparametername:"vault"`
+    Vault []int64 "uriparametername:\"vault\""
 }
 // ItemVaultRecordRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultRecordRequestBuilderGetRequestConfiguration struct {
@@ -101,9 +101,9 @@ type ItemVaultRecordRequestBuilderGetRequestConfiguration struct {
 type ItemVaultRecordRequestBuilderPostQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPostAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPostAdditionalQueryParameterType []i6f72f7b1ff840f4bdfc3540f0174eadc1c7a96ef52f712ad1a5ec4c4cfc3c78e.PostAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPostAdditionalQueryParameterType []i6f72f7b1ff840f4bdfc3540f0174eadc1c7a96ef52f712ad1a5ec4c4cfc3c78e.PostAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemVaultRecordRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemVaultRecordRequestBuilderPostRequestConfiguration struct {
@@ -206,7 +206,7 @@ func (m *ItemVaultRecordRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new vault records and returns the newly created records. Secrets are specified via the additional object secret. It is required to specify the 'topicus-Vault-session' header. When updating a TOTP-secret, make sure to set 'writeTotp' field.
@@ -220,8 +220,8 @@ func (m *ItemVaultRecordRequestBuilder) ToPostRequestInformation(ctx context.Con
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }

@@ -18,9 +18,9 @@ type ItemProfileWithProfileItemRequestBuilder struct {
 type ItemProfileWithProfileItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i6f62e02e96a6e94a085476b0e5ac2b14eaa1edbc8be922fb81f4965667b84900.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i6f62e02e96a6e94a085476b0e5ac2b14eaa1edbc8be922fb81f4965667b84900.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // ItemProfileWithProfileItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemProfileWithProfileItemRequestBuilderGetRequestConfiguration struct {
@@ -75,7 +75,7 @@ func (m *ItemProfileWithProfileItemRequestBuilder) ToGetRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

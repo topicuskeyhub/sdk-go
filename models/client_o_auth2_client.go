@@ -11,6 +11,8 @@ type ClientOAuth2Client struct {
     ClientClientApplication
     // The accountPermissions property
     accountPermissions []AuthPermissionable
+    // The allowDeviceGrant property
+    allowDeviceGrant *bool
     // The attributes property
     attributes []MiscAttributeCustomizationable
     // The callbackURI property
@@ -55,6 +57,11 @@ func CreateClientOAuth2ClientFromDiscriminatorValue(parseNode i878a80d2330e89d26
 func (m *ClientOAuth2Client) GetAccountPermissions()([]AuthPermissionable) {
     return m.accountPermissions
 }
+// GetAllowDeviceGrant gets the allowDeviceGrant property value. The allowDeviceGrant property
+// returns a *bool when successful
+func (m *ClientOAuth2Client) GetAllowDeviceGrant()(*bool) {
+    return m.allowDeviceGrant
+}
 // GetAttributes gets the attributes property value. The attributes property
 // returns a []MiscAttributeCustomizationable when successful
 func (m *ClientOAuth2Client) GetAttributes()([]MiscAttributeCustomizationable) {
@@ -87,6 +94,16 @@ func (m *ClientOAuth2Client) GetFieldDeserializers()(map[string]func(i878a80d233
                 }
             }
             m.SetAccountPermissions(res)
+        }
+        return nil
+    }
+    res["allowDeviceGrant"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAllowDeviceGrant(val)
         }
         return nil
     }
@@ -269,6 +286,12 @@ func (m *ClientOAuth2Client) Serialize(writer i878a80d2330e89d26896388a3f487eef2
     if err != nil {
         return err
     }
+    {
+        err = writer.WriteBoolValue("allowDeviceGrant", m.GetAllowDeviceGrant())
+        if err != nil {
+            return err
+        }
+    }
     if m.GetAttributes() != nil {
         cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
         for i, v := range m.GetAttributes() {
@@ -342,6 +365,10 @@ func (m *ClientOAuth2Client) Serialize(writer i878a80d2330e89d26896388a3f487eef2
 func (m *ClientOAuth2Client) SetAccountPermissions(value []AuthPermissionable)() {
     m.accountPermissions = value
 }
+// SetAllowDeviceGrant sets the allowDeviceGrant property value. The allowDeviceGrant property
+func (m *ClientOAuth2Client) SetAllowDeviceGrant(value *bool)() {
+    m.allowDeviceGrant = value
+}
 // SetAttributes sets the attributes property value. The attributes property
 func (m *ClientOAuth2Client) SetAttributes(value []MiscAttributeCustomizationable)() {
     m.attributes = value
@@ -394,6 +421,7 @@ type ClientOAuth2Clientable interface {
     ClientClientApplicationable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAccountPermissions()([]AuthPermissionable)
+    GetAllowDeviceGrant()(*bool)
     GetAttributes()([]MiscAttributeCustomizationable)
     GetCallbackURI()(*string)
     GetDebugMode()(*bool)
@@ -407,6 +435,7 @@ type ClientOAuth2Clientable interface {
     GetShowLandingPage()(*bool)
     GetUseClientCredentials()(*bool)
     SetAccountPermissions(value []AuthPermissionable)()
+    SetAllowDeviceGrant(value *bool)()
     SetAttributes(value []MiscAttributeCustomizationable)()
     SetCallbackURI(value *string)()
     SetDebugMode(value *bool)()

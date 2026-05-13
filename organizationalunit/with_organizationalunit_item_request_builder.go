@@ -18,9 +18,9 @@ type WithOrganizationalunitItemRequestBuilder struct {
 type WithOrganizationalunitItemRequestBuilderGetQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i3e1f2d56c687349fa119aa8ad064d08f6af964256ffe9a735610483ffb2ac1f8.GetAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsGetAdditionalQueryParameterType []i3e1f2d56c687349fa119aa8ad064d08f6af964256ffe9a735610483ffb2ac1f8.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithOrganizationalunitItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithOrganizationalunitItemRequestBuilderGetRequestConfiguration struct {
@@ -35,9 +35,9 @@ type WithOrganizationalunitItemRequestBuilderGetRequestConfiguration struct {
 type WithOrganizationalunitItemRequestBuilderPutQueryParameters struct {
     // Request additional information to be returned for every record.
     // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string `uriparametername:"additional"`
+    Additional []string "uriparametername:\"additional\""
     // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i3e1f2d56c687349fa119aa8ad064d08f6af964256ffe9a735610483ffb2ac1f8.PutAdditionalQueryParameterType `uriparametername:"additional"`
+    AdditionalAsPutAdditionalQueryParameterType []i3e1f2d56c687349fa119aa8ad064d08f6af964256ffe9a735610483ffb2ac1f8.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
 // WithOrganizationalunitItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithOrganizationalunitItemRequestBuilderPutRequestConfiguration struct {
@@ -122,7 +122,7 @@ func (m *WithOrganizationalunitItemRequestBuilder) ToGetRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the organizational unit identified by the id.
@@ -136,8 +136,8 @@ func (m *WithOrganizationalunitItemRequestBuilder) ToPutRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=84")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=84", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
     if err != nil {
         return nil, err
     }
