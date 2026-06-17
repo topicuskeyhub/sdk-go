@@ -21,6 +21,8 @@ type ProvisioningProvisionedSCIM struct {
     bearerToken *string
     // The connectorConfiguration property
     connectorConfiguration *string
+    // The cursorBasedPagination property
+    cursorBasedPagination *bool
     // The customHeaderName property
     customHeaderName *string
     // The customHeaderValue property
@@ -87,6 +89,11 @@ func (m *ProvisioningProvisionedSCIM) GetBearerToken()(*string) {
 // returns a *string when successful
 func (m *ProvisioningProvisionedSCIM) GetConnectorConfiguration()(*string) {
     return m.connectorConfiguration
+}
+// GetCursorBasedPagination gets the cursorBasedPagination property value. The cursorBasedPagination property
+// returns a *bool when successful
+func (m *ProvisioningProvisionedSCIM) GetCursorBasedPagination()(*bool) {
+    return m.cursorBasedPagination
 }
 // GetCustomHeaderName gets the customHeaderName property value. The customHeaderName property
 // returns a *string when successful
@@ -170,6 +177,16 @@ func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers()(map[string]func(i8
         }
         if val != nil {
             m.SetConnectorConfiguration(val)
+        }
+        return nil
+    }
+    res["cursorBasedPagination"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetCursorBasedPagination(val)
         }
         return nil
     }
@@ -375,6 +392,12 @@ func (m *ProvisioningProvisionedSCIM) Serialize(writer i878a80d2330e89d26896388a
         }
     }
     {
+        err = writer.WriteBoolValue("cursorBasedPagination", m.GetCursorBasedPagination())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteStringValue("customHeaderName", m.GetCustomHeaderName())
         if err != nil {
             return err
@@ -468,6 +491,10 @@ func (m *ProvisioningProvisionedSCIM) SetBearerToken(value *string)() {
 func (m *ProvisioningProvisionedSCIM) SetConnectorConfiguration(value *string)() {
     m.connectorConfiguration = value
 }
+// SetCursorBasedPagination sets the cursorBasedPagination property value. The cursorBasedPagination property
+func (m *ProvisioningProvisionedSCIM) SetCursorBasedPagination(value *bool)() {
+    m.cursorBasedPagination = value
+}
 // SetCustomHeaderName sets the customHeaderName property value. The customHeaderName property
 func (m *ProvisioningProvisionedSCIM) SetCustomHeaderName(value *string)() {
     m.customHeaderName = value
@@ -521,6 +548,7 @@ type ProvisioningProvisionedSCIMable interface {
     GetBasicAuthUsername()(*string)
     GetBearerToken()(*string)
     GetConnectorConfiguration()(*string)
+    GetCursorBasedPagination()(*bool)
     GetCustomHeaderName()(*string)
     GetCustomHeaderValue()(*string)
     GetExternalIdSupported()(*bool)
@@ -538,6 +566,7 @@ type ProvisioningProvisionedSCIMable interface {
     SetBasicAuthUsername(value *string)()
     SetBearerToken(value *string)()
     SetConnectorConfiguration(value *string)()
+    SetCursorBasedPagination(value *bool)()
     SetCustomHeaderName(value *string)()
     SetCustomHeaderValue(value *string)()
     SetExternalIdSupported(value *bool)()

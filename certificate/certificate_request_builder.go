@@ -40,6 +40,8 @@ type CertificateRequestBuilderGetQueryParameters struct {
     Id []int64 "uriparametername:\"id\""
     // Only return records that have been modified since the given instant.
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
+    // Filter certificates on (part of) the alias or uuid.
+    NameContains []string "uriparametername:\"nameContains\""
     // Filter records on a complex CQL query.
     Q []string "uriparametername:\"q\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
@@ -99,7 +101,7 @@ func (m *CertificateRequestBuilder) ByCertificateidInt64(certificateid int64)(*W
 // NewCertificateRequestBuilderInternal instantiates a new CertificateRequestBuilder and sets the default values.
 func NewCertificateRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*CertificateRequestBuilder) {
     m := &CertificateRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/certificate{?additional*,alias*,any*,createdAfter*,createdBefore*,exclude*,expired*,global*,id*,modifiedSince*,q*,sort*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/certificate{?additional*,alias*,any*,createdAfter*,createdBefore*,exclude*,expired*,global*,id*,modifiedSince*,nameContains*,q*,sort*,uuid*}", pathParameters),
     }
     return m
 }
@@ -160,7 +162,7 @@ func (m *CertificateRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new global trusted certificates and returns the newly created certificates.
@@ -174,8 +176,8 @@ func (m *CertificateRequestBuilder) ToPostRequestInformation(ctx context.Context
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=86", body)
     if err != nil {
         return nil, err
     }

@@ -7,10 +7,11 @@ type ProvisioningLDAPPasswordHashingScheme int
 const (
     SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME ProvisioningLDAPPasswordHashingScheme = iota
     PBKDF2_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
+    ARGON2ID_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
 )
 
 func (i ProvisioningLDAPPasswordHashingScheme) String() string {
-    return []string{"SSHA", "PBKDF2"}[i]
+    return []string{"SSHA", "PBKDF2", "ARGON2ID"}[i]
 }
 func ParseProvisioningLDAPPasswordHashingScheme(v string) (any, error) {
     result := SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
@@ -19,6 +20,8 @@ func ParseProvisioningLDAPPasswordHashingScheme(v string) (any, error) {
             result = SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
         case "PBKDF2":
             result = PBKDF2_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
+        case "ARGON2ID":
+            result = ARGON2ID_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
         default:
             return nil, nil
     }

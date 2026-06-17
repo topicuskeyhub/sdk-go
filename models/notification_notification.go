@@ -54,6 +54,8 @@ func CreateNotificationNotificationFromDiscriminatorValue(parseNode i878a80d2330
                         return NewNotificationProvisionConfigRequiredNotification(), nil
                     case "notification.RotatingPasswordRequiredNotification":
                         return NewNotificationRotatingPasswordRequiredNotification(), nil
+                    case "notification.SystemWideInvalidSignaturesDetectedNotification":
+                        return NewNotificationSystemWideInvalidSignaturesDetectedNotification(), nil
                     case "notification.UpdateAvailableNotification":
                         return NewNotificationUpdateAvailableNotification(), nil
                     case "notification.VaultRecordExpiredNotification":

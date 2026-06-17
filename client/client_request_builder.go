@@ -70,6 +70,8 @@ type ClientRequestBuilderGetQueryParameters struct {
     Q []string "uriparametername:\"q\""
     // Filter the clients by the secret shared in a vault, specified by id. This parameter supports composition with all parameters from the vault resource.
     SharedSecret []int64 "uriparametername:\"sharedSecret\""
+    // Filter the OAuth 2.0 clients by their party signing key, specified by id. This parameter supports composition with all parameters from the signing key resource.
+    SigningKey []int64 "uriparametername:\"signingKey\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
     Sort []string "uriparametername:\"sort\""
     // Filter the clients for which the given group is technical administrator, specified by id. This parameter supports composition with all parameters from the group resource.
@@ -141,7 +143,7 @@ func (m *ClientRequestBuilder) ByClientidInt64(clientid int64)(*WithClientItemRe
 // NewClientRequestBuilderInternal instantiates a new ClientRequestBuilder and sets the default values.
 func NewClientRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ClientRequestBuilder) {
     m := &ClientRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client{?accessProfile*,additional*,any*,baseOrganizationalUnitAncestorOf*,clientId*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,group*,id*,isProvisionedInternalLDAP*,memberOfOrganizationalUnit*,memberOfOrganizationalUnitOwnedBy*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInAccessProfile*,notInGroup*,organizationalUnitForEnforcement*,ownedBy*,q*,sharedSecret*,sort*,technicalAdministrator*,type*,useClientCredentials*,uuid*,vault*,withPermission*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/client{?accessProfile*,additional*,any*,baseOrganizationalUnitAncestorOf*,clientId*,createdAfter*,createdBefore*,exclude*,expiredCertificate*,group*,id*,isProvisionedInternalLDAP*,memberOfOrganizationalUnit*,memberOfOrganizationalUnitOwnedBy*,modifiedSince*,name*,nameContains*,nameDoesNotStartWith*,nameStartsWith*,notInAccessProfile*,notInGroup*,organizationalUnitForEnforcement*,ownedBy*,q*,sharedSecret*,signingKey*,sort*,technicalAdministrator*,type*,useClientCredentials*,uuid*,vault*,withPermission*,withPermissionForOwningGroup*,withRequestedPermissionForOwningGroup*}", pathParameters),
     }
     return m
 }
@@ -207,7 +209,7 @@ func (m *ClientRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new clients and returns the newly created clients.
@@ -221,8 +223,8 @@ func (m *ClientRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=86", body)
     if err != nil {
         return nil, err
     }

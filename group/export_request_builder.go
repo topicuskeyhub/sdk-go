@@ -41,6 +41,8 @@ type ExportRequestBuilderPostQueryParameters struct {
     AuditRequested []bool "uriparametername:\"auditRequested\""
     // Filter groups for which audits are reviewed by one of the given groups, specified by id. This parameter supports composition with all parameters from the group resource.
     AuditsReviewedBy []int64 "uriparametername:\"auditsReviewedBy\""
+    // Filter the groups by their authorization signing key, specified by id. This parameter supports composition with all parameters from the signing key resource.
+    AuthorizationSigningKey []int64 "uriparametername:\"authorizationSigningKey\""
     // Filter groups for which the given groups perform some form of authorization, specified by id.
     AuthorizedBy []int64 "uriparametername:\"authorizedBy\""
     // Filter groups by classification, specified by id. This parameter supports composition with all parameters from the group classification resource.
@@ -179,7 +181,7 @@ type ExportRequestBuilderPostRequestConfiguration struct {
 // NewExportRequestBuilderInternal instantiates a new ExportRequestBuilder and sets the default values.
 func NewExportRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ExportRequestBuilder) {
     m := &ExportRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/export{?accessModifiedSince*,accessProfileAdministration*,accessQuicksearch*,any*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditsReviewedBy*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,createdAfter*,createdBefore*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,exclude*,groupAuditConfig*,groupExclusionWith*,hasAnyAuthorizingGroupSet*,hasAuditUnderReview*,hasAuditing*,hasClientPermissions*,hasClients*,hasMoreThanOneManager*,hasNoGroupExclusionWith*,hasSystems*,hasVault*,hasWebhooks*,id*,isManager*,isManagerOrDelegatedManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,modifiedSince*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,notPartOfAccessProfile*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,partOfAccessProfile*,privateGroup*,provisioningAuthorizedBy*,q*,rotatingPasswordRequired*,singleManaged*,sort*,uuid*,vault*,vaultRecovery*,vaultRequiresActivation*,visibility*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group/export{?accessModifiedSince*,accessProfileAdministration*,accessQuicksearch*,any*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditsReviewedBy*,authorizationSigningKey*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,createdAfter*,createdBefore*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,exclude*,groupAuditConfig*,groupExclusionWith*,hasAnyAuthorizingGroupSet*,hasAuditUnderReview*,hasAuditing*,hasClientPermissions*,hasClients*,hasMoreThanOneManager*,hasNoGroupExclusionWith*,hasSystems*,hasVault*,hasWebhooks*,id*,isManager*,isManagerOrDelegatedManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,modifiedSince*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,notPartOfAccessProfile*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,partOfAccessProfile*,privateGroup*,provisioningAuthorizedBy*,q*,rotatingPasswordRequired*,singleManaged*,sort*,uuid*,vault*,vaultRecovery*,vaultRequiresActivation*,visibility*}", pathParameters),
     }
     return m
 }
@@ -216,7 +218,7 @@ func (m *ExportRequestBuilder) ToPostRequestInformation(ctx context.Context, req
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

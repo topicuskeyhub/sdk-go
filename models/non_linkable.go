@@ -55,6 +55,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewAuthInternalAccountStatusObject(), nil
                     case "auth.MoveInternalAccount":
                         return NewAuthMoveInternalAccount(), nil
+                    case "client.ClientApplicationStatus":
+                        return NewClientClientApplicationStatus(), nil
                     case "directory.AccountDirectoryStatusReport":
                         return NewDirectoryAccountDirectoryStatusReport(), nil
                     case "GenerateSecret":
@@ -105,6 +107,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewNotificationGroupAuditRequiredNotification(), nil
                     case "notification.GroupEditRequiredNotification":
                         return NewNotificationGroupEditRequiredNotification(), nil
+                    case "notification.InvalidSignatureOwner":
+                        return NewNotificationInvalidSignatureOwner(), nil
                     case "notification.InvalidSignaturesDetectedNotification":
                         return NewNotificationInvalidSignaturesDetectedNotification(), nil
                     case "notification.LicenseStatusNotification":
@@ -121,6 +125,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewNotificationProvisionConfigRequiredNotification(), nil
                     case "notification.RotatingPasswordRequiredNotification":
                         return NewNotificationRotatingPasswordRequiredNotification(), nil
+                    case "notification.SystemWideInvalidSignaturesDetectedNotification":
+                        return NewNotificationSystemWideInvalidSignaturesDetectedNotification(), nil
                     case "notification.UpdateAvailableNotification":
                         return NewNotificationUpdateAvailableNotification(), nil
                     case "notification.VaultRecordExpiredNotification":
@@ -175,8 +181,6 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewSegmentCount(), nil
                     case "serviceaccount.ServiceAccountsAuditStats":
                         return NewServiceaccountServiceAccountsAuditStats(), nil
-                    case "serviceaccount.ServiceAccountStatus":
-                        return NewServiceaccountServiceAccountStatus(), nil
                     case "serviceaccount.ServiceAccountSupportedFeatures":
                         return NewServiceaccountServiceAccountSupportedFeatures(), nil
                     case "simple.StringValue":

@@ -58,7 +58,7 @@ type StatusBulkRequestBuilderPutQueryParameters struct {
     HasVaultSecretForGroup []int64 "uriparametername:\"hasVaultSecretForGroup\""
     // Filter the results on the given ids.
     Id []int64 "uriparametername:\"id\""
-    // Filter accounts by exact match on the id in the directory.
+    // Filter accounts by exact case-insensitive match on the id in the directory.
     IdInDirectory []string "uriparametername:\"idInDirectory\""
     // Only return accounts that have not been active since the given instant.
     InactiveSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"inactiveSince\""
@@ -95,6 +95,8 @@ type StatusBulkRequestBuilderPutQueryParameters struct {
     ReregistrationRequired []bool "uriparametername:\"reregistrationRequired\""
     // Only return accounts that have or don't have rotating password enabled.
     RotatingPasswordEnabled []bool "uriparametername:\"rotatingPasswordEnabled\""
+    // Filter the accounts by their party signing key, specified by id. This parameter supports composition with all parameters from the signing key resource.
+    SigningKey []int64 "uriparametername:\"signingKey\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
     Sort []string "uriparametername:\"sort\""
     // Only return accounts that match the given 2FA status. Note that {@code APP} only matches the accounts who only have a KeyHub app linked, and similar for {@code TOTP} and {@code WEBAUTHN}. {@code MIXED} matches those who have both one or more WebAuthn keys, and either a KeyHub app or generic Totp app linked.
@@ -130,7 +132,7 @@ type StatusBulkRequestBuilderPutRequestConfiguration struct {
 // NewStatusBulkRequestBuilderInternal instantiates a new StatusBulkRequestBuilder and sets the default values.
 func NewStatusBulkRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*StatusBulkRequestBuilder) {
     m := &StatusBulkRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/status/bulk{?accessProfile*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,externalId*,group*,hasBeenActive*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,memberOfOrganizationalUnitOwnedBy*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notExcludedForGroup*,notInAccessProfile*,notInGroup*,owningClient*,q*,reregistrationRequired*,rotatingPasswordEnabled*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/status/bulk{?accessProfile*,activationCode*,activationDeadlineAtOrAfter*,active*,activeSince*,admin*,any*,baseOrganizationalUnitAncestorOf*,createdAfter*,createdBefore*,directory*,directoryOwnedBy*,email*,exclude*,externalId*,group*,hasBeenActive*,hasEmail*,hasVault*,hasVaultSecretForGroup*,id*,idInDirectory*,inactiveSince*,licenseRole*,maintenanceAdmin*,managerForGroup*,memberOfOrganizationalUnit*,memberOfOrganizationalUnitOwnedBy*,modifiedSince*,nameDoesNotStartWith*,nameStartsWith*,notExcludedForGroup*,notInAccessProfile*,notInGroup*,owningClient*,q*,reregistrationRequired*,rotatingPasswordEnabled*,signingKey*,sort*,twoFactorStatus*,username*,usernameContains*,uuid*,validInDirectory*,validity*,vault*}", pathParameters),
     }
     return m
 }
@@ -167,8 +169,8 @@ func (m *StatusBulkRequestBuilder) ToPutRequestInformation(ctx context.Context, 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=86", body)
     if err != nil {
         return nil, err
     }

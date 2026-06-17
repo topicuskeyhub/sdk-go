@@ -145,6 +145,10 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewLaunchpadSsoApplicationLaunchpadTile(), nil
                     case "launchpad.VaultRecordLaunchpadTile":
                         return NewLaunchpadVaultRecordLaunchpadTile(), nil
+                    case "log.OperationLog":
+                        return NewLogOperationLog(), nil
+                    case "log.OperationLogLine":
+                        return NewLogOperationLogLine(), nil
                     case "organization.AccountOrganizationalUnit":
                         return NewOrganizationAccountOrganizationalUnit(), nil
                     case "organization.ClientApplicationOrganizationalUnit":
@@ -201,10 +205,6 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProvisioningProvisionedSystem(), nil
                     case "provisioning.ProvisionedSystemPrimer":
                         return NewProvisioningProvisionedSystemPrimer(), nil
-                    case "provisioning.ProvisioningOperationLog":
-                        return NewProvisioningProvisioningOperationLog(), nil
-                    case "provisioning.ProvisioningOperationLogLine":
-                        return NewProvisioningProvisioningOperationLogLine(), nil
                     case "provisioning.ProvisionNumberSequence":
                         return NewProvisioningProvisionNumberSequence(), nil
                     case "request.AbstractAccessProfileModificationRequest":

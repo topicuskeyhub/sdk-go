@@ -9,6 +9,8 @@ import (
 
 type ClientClientApplicationPrimer struct {
     Linkable
+    // The active property
+    active *bool
     // The type property
     clientClientApplicationPrimerType *ClientClientApplicationType
     // The clientId property
@@ -62,6 +64,11 @@ func CreateClientClientApplicationPrimerFromDiscriminatorValue(parseNode i878a80
     }
     return NewClientClientApplicationPrimer(), nil
 }
+// GetActive gets the active property value. The active property
+// returns a *bool when successful
+func (m *ClientClientApplicationPrimer) GetActive()(*bool) {
+    return m.active
+}
 // GetClientClientApplicationPrimerType gets the type property value. The type property
 // returns a *ClientClientApplicationType when successful
 func (m *ClientClientApplicationPrimer) GetClientClientApplicationPrimerType()(*ClientClientApplicationType) {
@@ -76,6 +83,16 @@ func (m *ClientClientApplicationPrimer) GetClientId()(*string) {
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ClientClientApplicationPrimer) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
+    res["active"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetActive(val)
+        }
+        return nil
+    }
     res["type"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetEnumValue(ParseClientClientApplicationType)
         if err != nil {
@@ -170,6 +187,12 @@ func (m *ClientClientApplicationPrimer) Serialize(writer i878a80d2330e89d2689638
     if err != nil {
         return err
     }
+    {
+        err = writer.WriteBoolValue("active", m.GetActive())
+        if err != nil {
+            return err
+        }
+    }
     if m.GetClientClientApplicationPrimerType() != nil {
         cast := (*m.GetClientClientApplicationPrimerType()).String()
         err = writer.WriteStringValue("type", &cast)
@@ -196,6 +219,10 @@ func (m *ClientClientApplicationPrimer) Serialize(writer i878a80d2330e89d2689638
         }
     }
     return nil
+}
+// SetActive sets the active property value. The active property
+func (m *ClientClientApplicationPrimer) SetActive(value *bool)() {
+    m.active = value
 }
 // SetClientClientApplicationPrimerType sets the type property value. The type property
 func (m *ClientClientApplicationPrimer) SetClientClientApplicationPrimerType(value *ClientClientApplicationType)() {
@@ -224,12 +251,14 @@ func (m *ClientClientApplicationPrimer) SetUuid(value *string)() {
 type ClientClientApplicationPrimerable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetActive()(*bool)
     GetClientClientApplicationPrimerType()(*ClientClientApplicationType)
     GetClientId()(*string)
     GetName()(*string)
     GetScopes()([]string)
     GetSsoApplication()(*bool)
     GetUuid()(*string)
+    SetActive(value *bool)()
     SetClientClientApplicationPrimerType(value *ClientClientApplicationType)()
     SetClientId(value *string)()
     SetName(value *string)()

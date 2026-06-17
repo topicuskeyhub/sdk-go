@@ -9,6 +9,8 @@ import (
 
 type LaunchpadDisplayedLaunchpadTile struct {
     Linkable
+    // The accessProfile property
+    accessProfile ProfileAccessProfilePrimerable
     // The group property
     group GroupGroupPrimerable
     // The identiconCode property
@@ -36,10 +38,25 @@ func NewLaunchpadDisplayedLaunchpadTile()(*LaunchpadDisplayedLaunchpadTile) {
 func CreateLaunchpadDisplayedLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewLaunchpadDisplayedLaunchpadTile(), nil
 }
+// GetAccessProfile gets the accessProfile property value. The accessProfile property
+// returns a ProfileAccessProfilePrimerable when successful
+func (m *LaunchpadDisplayedLaunchpadTile) GetAccessProfile()(ProfileAccessProfilePrimerable) {
+    return m.accessProfile
+}
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *LaunchpadDisplayedLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
+    res["accessProfile"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProfileAccessProfilePrimerFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAccessProfile(val.(ProfileAccessProfilePrimerable))
+        }
+        return nil
+    }
     res["group"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
         if err != nil {
@@ -139,6 +156,12 @@ func (m *LaunchpadDisplayedLaunchpadTile) Serialize(writer i878a80d2330e89d26896
         return err
     }
     {
+        err = writer.WriteObjectValue("accessProfile", m.GetAccessProfile())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("group", m.GetGroup())
         if err != nil {
             return err
@@ -176,6 +199,10 @@ func (m *LaunchpadDisplayedLaunchpadTile) Serialize(writer i878a80d2330e89d26896
     }
     return nil
 }
+// SetAccessProfile sets the accessProfile property value. The accessProfile property
+func (m *LaunchpadDisplayedLaunchpadTile) SetAccessProfile(value ProfileAccessProfilePrimerable)() {
+    m.accessProfile = value
+}
 // SetGroup sets the group property value. The group property
 func (m *LaunchpadDisplayedLaunchpadTile) SetGroup(value GroupGroupPrimerable)() {
     m.group = value
@@ -203,12 +230,14 @@ func (m *LaunchpadDisplayedLaunchpadTile) SetUri(value *string)() {
 type LaunchpadDisplayedLaunchpadTileable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+    GetAccessProfile()(ProfileAccessProfilePrimerable)
     GetGroup()(GroupGroupPrimerable)
     GetIdenticonCode()(*int32)
     GetLogo()([]byte)
     GetTile()(LaunchpadLaunchpadTilePrimerable)
     GetTitle()(*string)
     GetUri()(*string)
+    SetAccessProfile(value ProfileAccessProfilePrimerable)()
     SetGroup(value GroupGroupPrimerable)()
     SetIdenticonCode(value *int32)()
     SetLogo(value []byte)()

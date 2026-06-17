@@ -36,6 +36,8 @@ type NumberseqRequestBuilderGetQueryParameters struct {
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter number sequences on the exact name.
     Name []string "uriparametername:\"name\""
+    // Filter number sequences on (part of) the name.
+    NameContains []string "uriparametername:\"nameContains\""
     // Filter records on a complex CQL query.
     Q []string "uriparametername:\"q\""
     // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
@@ -93,7 +95,7 @@ func (m *NumberseqRequestBuilder) ByNumberseqidInt64(numberseqid int64)(*WithNum
 // NewNumberseqRequestBuilderInternal instantiates a new NumberseqRequestBuilder and sets the default values.
 func NewNumberseqRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*NumberseqRequestBuilder) {
     m := &NumberseqRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/numberseq{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,name*,q*,sort*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/numberseq{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,name*,nameContains*,q*,sort*}", pathParameters),
     }
     return m
 }
@@ -154,7 +156,7 @@ func (m *NumberseqRequestBuilder) ToGetRequestInformation(ctx context.Context, r
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new provision number sequences and returns the newly created sequences.
@@ -168,8 +170,8 @@ func (m *NumberseqRequestBuilder) ToPostRequestInformation(ctx context.Context, 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=85", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=86", body)
     if err != nil {
         return nil, err
     }

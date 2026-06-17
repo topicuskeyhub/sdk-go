@@ -35,6 +35,8 @@ type ItemAccountRequestBuilderGetQueryParameters struct {
     Exclude []int64 "uriparametername:\"exclude\""
     // Filter the results on the given ids.
     Id []int64 "uriparametername:\"id\""
+    // Filter accounts by exact case-insensitive match on the identifier of the provisioned account.
+    Identifier []string "uriparametername:\"identifier\""
     // Only return records that have been modified since the given instant.
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Filter records on a complex CQL query.
@@ -84,7 +86,7 @@ func (m *ItemAccountRequestBuilder) ByAccountidInt64(accountid int64)(*ItemAccou
 // NewItemAccountRequestBuilderInternal instantiates a new ItemAccountRequestBuilder and sets the default values.
 func NewItemAccountRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountRequestBuilder) {
     m := &ItemAccountRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/account{?account*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,sort*,status*,system*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/account{?account*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,identifier*,modifiedSince*,q*,sort*,status*,system*}", pathParameters),
     }
     return m
 }
@@ -125,7 +127,7 @@ func (m *ItemAccountRequestBuilder) ToGetRequestInformation(ctx context.Context,
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=85")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

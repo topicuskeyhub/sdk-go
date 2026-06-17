@@ -9,6 +9,10 @@ import (
 
 type ProvisioningProvisionedAzureOIDCDirectory struct {
     ProvisioningProvisionedSystem
+    // The accountMatchingAttribute property
+    accountMatchingAttribute IdentityAccountAttributeDefinitionable
+    // The accountMatchingAttributeName property
+    accountMatchingAttributeName *string
     // The accountsWritable property
     accountsWritable *bool
     // The directory property
@@ -30,6 +34,16 @@ func NewProvisioningProvisionedAzureOIDCDirectory()(*ProvisioningProvisionedAzur
 func CreateProvisioningProvisionedAzureOIDCDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
     return NewProvisioningProvisionedAzureOIDCDirectory(), nil
 }
+// GetAccountMatchingAttribute gets the accountMatchingAttribute property value. The accountMatchingAttribute property
+// returns a IdentityAccountAttributeDefinitionable when successful
+func (m *ProvisioningProvisionedAzureOIDCDirectory) GetAccountMatchingAttribute()(IdentityAccountAttributeDefinitionable) {
+    return m.accountMatchingAttribute
+}
+// GetAccountMatchingAttributeName gets the accountMatchingAttributeName property value. The accountMatchingAttributeName property
+// returns a *string when successful
+func (m *ProvisioningProvisionedAzureOIDCDirectory) GetAccountMatchingAttributeName()(*string) {
+    return m.accountMatchingAttributeName
+}
 // GetAccountsWritable gets the accountsWritable property value. The accountsWritable property
 // returns a *bool when successful
 func (m *ProvisioningProvisionedAzureOIDCDirectory) GetAccountsWritable()(*bool) {
@@ -44,6 +58,26 @@ func (m *ProvisioningProvisionedAzureOIDCDirectory) GetDirectory()(DirectoryAcco
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
 func (m *ProvisioningProvisionedAzureOIDCDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
+    res["accountMatchingAttribute"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAccountMatchingAttribute(val.(IdentityAccountAttributeDefinitionable))
+        }
+        return nil
+    }
+    res["accountMatchingAttributeName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetAccountMatchingAttributeName(val)
+        }
+        return nil
+    }
     res["accountsWritable"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -88,6 +122,18 @@ func (m *ProvisioningProvisionedAzureOIDCDirectory) Serialize(writer i878a80d233
         return err
     }
     {
+        err = writer.WriteObjectValue("accountMatchingAttribute", m.GetAccountMatchingAttribute())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err = writer.WriteStringValue("accountMatchingAttributeName", m.GetAccountMatchingAttributeName())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteBoolValue("accountsWritable", m.GetAccountsWritable())
         if err != nil {
             return err
@@ -107,6 +153,14 @@ func (m *ProvisioningProvisionedAzureOIDCDirectory) Serialize(writer i878a80d233
     }
     return nil
 }
+// SetAccountMatchingAttribute sets the accountMatchingAttribute property value. The accountMatchingAttribute property
+func (m *ProvisioningProvisionedAzureOIDCDirectory) SetAccountMatchingAttribute(value IdentityAccountAttributeDefinitionable)() {
+    m.accountMatchingAttribute = value
+}
+// SetAccountMatchingAttributeName sets the accountMatchingAttributeName property value. The accountMatchingAttributeName property
+func (m *ProvisioningProvisionedAzureOIDCDirectory) SetAccountMatchingAttributeName(value *string)() {
+    m.accountMatchingAttributeName = value
+}
 // SetAccountsWritable sets the accountsWritable property value. The accountsWritable property
 func (m *ProvisioningProvisionedAzureOIDCDirectory) SetAccountsWritable(value *bool)() {
     m.accountsWritable = value
@@ -122,9 +176,13 @@ func (m *ProvisioningProvisionedAzureOIDCDirectory) SetTenant(value *string)() {
 type ProvisioningProvisionedAzureOIDCDirectoryable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     ProvisioningProvisionedSystemable
+    GetAccountMatchingAttribute()(IdentityAccountAttributeDefinitionable)
+    GetAccountMatchingAttributeName()(*string)
     GetAccountsWritable()(*bool)
     GetDirectory()(DirectoryAccountDirectoryPrimerable)
     GetTenant()(*string)
+    SetAccountMatchingAttribute(value IdentityAccountAttributeDefinitionable)()
+    SetAccountMatchingAttributeName(value *string)()
     SetAccountsWritable(value *bool)()
     SetDirectory(value DirectoryAccountDirectoryPrimerable)()
     SetTenant(value *string)()

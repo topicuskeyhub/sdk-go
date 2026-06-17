@@ -8,44 +8,46 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-type ProvisioningProvisioningOperationLog struct {
+type LogOperationLog struct {
     Linkable
     // The context property
     context *string
     // The endTime property
     endTime *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The type property
-    provisioningProvisioningOperationLogType *ProvisioningProvisioningOperationType
+    logOperationLogType *LogOperationType
     // The startTime property
     startTime *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    // The successful property
+    successful *bool
 }
-// NewProvisioningProvisioningOperationLog instantiates a new ProvisioningProvisioningOperationLog and sets the default values.
-func NewProvisioningProvisioningOperationLog()(*ProvisioningProvisioningOperationLog) {
-    m := &ProvisioningProvisioningOperationLog{
+// NewLogOperationLog instantiates a new LogOperationLog and sets the default values.
+func NewLogOperationLog()(*LogOperationLog) {
+    m := &LogOperationLog{
         Linkable: *NewLinkable(),
     }
-    typeEscapedValue := "provisioning.ProvisioningOperationLog"
+    typeEscapedValue := "log.OperationLog"
     m.SetTypeEscaped(&typeEscapedValue)
     return m
 }
-// CreateProvisioningProvisioningOperationLogFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// CreateLogOperationLogFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProvisioningProvisioningOperationLogFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewProvisioningProvisioningOperationLog(), nil
+func CreateLogOperationLogFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+    return NewLogOperationLog(), nil
 }
 // GetContext gets the context property value. The context property
 // returns a *string when successful
-func (m *ProvisioningProvisioningOperationLog) GetContext()(*string) {
+func (m *LogOperationLog) GetContext()(*string) {
     return m.context
 }
 // GetEndTime gets the endTime property value. The endTime property
 // returns a *Time when successful
-func (m *ProvisioningProvisioningOperationLog) GetEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+func (m *LogOperationLog) GetEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.endTime
 }
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProvisioningProvisioningOperationLog) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
+func (m *LogOperationLog) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := m.Linkable.GetFieldDeserializers()
     res["context"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
@@ -68,12 +70,12 @@ func (m *ProvisioningProvisioningOperationLog) GetFieldDeserializers()(map[strin
         return nil
     }
     res["type"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProvisioningProvisioningOperationType)
+        val, err := n.GetEnumValue(ParseLogOperationType)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetProvisioningProvisioningOperationLogType(val.(*ProvisioningProvisioningOperationType))
+            m.SetLogOperationLogType(val.(*LogOperationType))
         }
         return nil
     }
@@ -87,26 +89,41 @@ func (m *ProvisioningProvisioningOperationLog) GetFieldDeserializers()(map[strin
         }
         return nil
     }
+    res["successful"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetSuccessful(val)
+        }
+        return nil
+    }
     return res
 }
-// GetProvisioningProvisioningOperationLogType gets the type property value. The type property
-// returns a *ProvisioningProvisioningOperationType when successful
-func (m *ProvisioningProvisioningOperationLog) GetProvisioningProvisioningOperationLogType()(*ProvisioningProvisioningOperationType) {
-    return m.provisioningProvisioningOperationLogType
+// GetLogOperationLogType gets the type property value. The type property
+// returns a *LogOperationType when successful
+func (m *LogOperationLog) GetLogOperationLogType()(*LogOperationType) {
+    return m.logOperationLogType
 }
 // GetStartTime gets the startTime property value. The startTime property
 // returns a *Time when successful
-func (m *ProvisioningProvisioningOperationLog) GetStartTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+func (m *LogOperationLog) GetStartTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.startTime
 }
+// GetSuccessful gets the successful property value. The successful property
+// returns a *bool when successful
+func (m *LogOperationLog) GetSuccessful()(*bool) {
+    return m.successful
+}
 // Serialize serializes information the current object
-func (m *ProvisioningProvisioningOperationLog) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
+func (m *LogOperationLog) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     err := m.Linkable.Serialize(writer)
     if err != nil {
         return err
     }
-    if m.GetProvisioningProvisioningOperationLogType() != nil {
-        cast := (*m.GetProvisioningProvisioningOperationLogType()).String()
+    if m.GetLogOperationLogType() != nil {
+        cast := (*m.GetLogOperationLogType()).String()
         err = writer.WriteStringValue("type", &cast)
         if err != nil {
             return err
@@ -115,30 +132,36 @@ func (m *ProvisioningProvisioningOperationLog) Serialize(writer i878a80d2330e89d
     return nil
 }
 // SetContext sets the context property value. The context property
-func (m *ProvisioningProvisioningOperationLog) SetContext(value *string)() {
+func (m *LogOperationLog) SetContext(value *string)() {
     m.context = value
 }
 // SetEndTime sets the endTime property value. The endTime property
-func (m *ProvisioningProvisioningOperationLog) SetEndTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
+func (m *LogOperationLog) SetEndTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.endTime = value
 }
-// SetProvisioningProvisioningOperationLogType sets the type property value. The type property
-func (m *ProvisioningProvisioningOperationLog) SetProvisioningProvisioningOperationLogType(value *ProvisioningProvisioningOperationType)() {
-    m.provisioningProvisioningOperationLogType = value
+// SetLogOperationLogType sets the type property value. The type property
+func (m *LogOperationLog) SetLogOperationLogType(value *LogOperationType)() {
+    m.logOperationLogType = value
 }
 // SetStartTime sets the startTime property value. The startTime property
-func (m *ProvisioningProvisioningOperationLog) SetStartTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
+func (m *LogOperationLog) SetStartTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.startTime = value
 }
-type ProvisioningProvisioningOperationLogable interface {
+// SetSuccessful sets the successful property value. The successful property
+func (m *LogOperationLog) SetSuccessful(value *bool)() {
+    m.successful = value
+}
+type LogOperationLogable interface {
     Linkableable
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetContext()(*string)
     GetEndTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
-    GetProvisioningProvisioningOperationLogType()(*ProvisioningProvisioningOperationType)
+    GetLogOperationLogType()(*LogOperationType)
     GetStartTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
+    GetSuccessful()(*bool)
     SetContext(value *string)()
     SetEndTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
-    SetProvisioningProvisioningOperationLogType(value *ProvisioningProvisioningOperationType)()
+    SetLogOperationLogType(value *LogOperationType)()
     SetStartTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
+    SetSuccessful(value *bool)()
 }
