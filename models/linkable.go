@@ -165,10 +165,18 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
                         return NewProfileAccessProfile(), nil
                     case "profile.AccessProfileAccount":
                         return NewProfileAccessProfileAccount(), nil
+                    case "profile.AccessProfileAccountPrediction":
+                        return NewProfileAccessProfileAccountPrediction(), nil
                     case "profile.AccessProfileClient":
                         return NewProfileAccessProfileClient(), nil
                     case "profile.AccessProfileGroup":
                         return NewProfileAccessProfileGroup(), nil
+                    case "profile.AccessProfileLifecycleAction":
+                        return NewProfileAccessProfileLifecycleAction(), nil
+                    case "profile.AccessProfileLifecycleEvent":
+                        return NewProfileAccessProfileLifecycleEvent(), nil
+                    case "profile.AccessProfileMailLifecycleAction":
+                        return NewProfileAccessProfileMailLifecycleAction(), nil
                     case "profile.AccessProfilePrimer":
                         return NewProfileAccessProfilePrimer(), nil
                     case "profile.AccessProfileProvisioning":

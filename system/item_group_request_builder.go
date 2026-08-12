@@ -45,8 +45,12 @@ type ItemGroupRequestBuilderGetQueryParameters struct {
     ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
     // Search groups on (part of) the display name or the name in system.
     NameContains []string "uriparametername:\"nameContains\""
+    // Filter groups on system whose name in system does not start with the given values.
+    NameDoesNotStartWith []string "uriparametername:\"nameDoesNotStartWith\""
     // Filter groups on system on the exact name in system.
     NameInSystem []string "uriparametername:\"nameInSystem\""
+    // Filter groups on system on the start of the name in system.
+    NameStartsWith []string "uriparametername:\"nameStartsWith\""
     // Only return groups on system that do not have a provisioning group with one of the given groups, specified by id.
     NotLinkedToGroup []int64 "uriparametername:\"notLinkedToGroup\""
     // Only return groups on system that do are not linked to the given service account, specified by id.
@@ -129,7 +133,7 @@ func (m *ItemGroupRequestBuilder) ByGroupidInt64(groupid int64)(*ItemGroupWithGr
 // NewItemGroupRequestBuilderInternal instantiates a new ItemGroupRequestBuilder and sets the default values.
 func NewItemGroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemGroupRequestBuilder) {
     m := &ItemGroupRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/group{?accessProfile*,additional*,adminnedBy*,any*,contentAdminnedBy*,createdAfter*,createdBefore*,exclude*,group*,id*,modifiedSince*,nameContains*,nameInSystem*,notLinkedToGroup*,notLinkedToServiceAccount*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,q*,sort*,system*,systemForEnforcement*,systemOwnedBy*,tier2OwnedBy*,type*,uuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/system/{systemid}/group{?accessProfile*,additional*,adminnedBy*,any*,contentAdminnedBy*,createdAfter*,createdBefore*,exclude*,group*,id*,modifiedSince*,nameContains*,nameDoesNotStartWith*,nameInSystem*,nameStartsWith*,notLinkedToGroup*,notLinkedToServiceAccount*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,q*,sort*,system*,systemForEnforcement*,systemOwnedBy*,tier2OwnedBy*,type*,uuid*}", pathParameters),
     }
     return m
 }
@@ -190,7 +194,7 @@ func (m *ItemGroupRequestBuilder) ToGetRequestInformation(ctx context.Context, r
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
     return requestInfo, nil
 }
 // ToPostRequestInformation creates one or more new groups on systems and returns the newly created groups on systems. The groups will also be provisioned to the targeted provisioned system. By default, for every group on system, a provisioning group will be created granting the owner access to the newly created group. It is also possible to specify the provisioning groups to be created via the 'provgroups' addionalObjects property.
@@ -204,8 +208,8 @@ func (m *ItemGroupRequestBuilder) ToPostRequestInformation(ctx context.Context, 
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=86", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=87", body)
     if err != nil {
         return nil, err
     }

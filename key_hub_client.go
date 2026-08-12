@@ -30,6 +30,7 @@ import (
     ib7bf253b601139c5fca70bba4f4843e6731e3522bee75715df4b77d2107eff28 "github.com/topicuskeyhub/sdk-go/directory"
     ib9e126576b99f2c17a06c406abda14d8d7ddf2bc7cedbe82bfb3ddc25089b20b "github.com/topicuskeyhub/sdk-go/profilegroup"
     ibdde25a8196c6c3406e5b0b02de36d833849b28ee37dca06694dc2ec8a725bdc "github.com/topicuskeyhub/sdk-go/system"
+    icca2e829bd0ff2f72f4d686934d394a97ba27806cc6edff06308f80ec31bd2f9 "github.com/topicuskeyhub/sdk-go/auditorprovisioning"
     ie19695769860c2ce81c94e08d7b1cdbbd24da28301e01a4408a5565b07ee913d "github.com/topicuskeyhub/sdk-go/export"
     ifab6d67ca1d33e6497e3a4d4c835c8791b47bb5edc3b29f1c4577d91259fe6a1 "github.com/topicuskeyhub/sdk-go/accessprofileclient"
     ifb310ad74101a00ed1acdc17b384ce2e8964f5a38f9d9302b22aaaa28ff4d3e4 "github.com/topicuskeyhub/sdk-go/organizationalunit"
@@ -59,6 +60,11 @@ func (m *KeyHubClient) Attributedef()(*i2723009f4c6d8fd5e485063fcc0bee42cfe179ce
 // returns a *AuditRequestBuilder when successful
 func (m *KeyHubClient) Audit()(*i9a416ff0973cadc86a9386e3f28ad7c475076105c80d51f978001646d6a93eb8.AuditRequestBuilder) {
     return i9a416ff0973cadc86a9386e3f28ad7c475076105c80d51f978001646d6a93eb8.NewAuditRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Auditorprovisioning the auditorprovisioning property
+// returns a *AuditorprovisioningRequestBuilder when successful
+func (m *KeyHubClient) Auditorprovisioning()(*icca2e829bd0ff2f72f4d686934d394a97ba27806cc6edff06308f80ec31bd2f9.AuditorprovisioningRequestBuilder) {
+    return icca2e829bd0ff2f72f4d686934d394a97ba27806cc6edff06308f80ec31bd2f9.NewAuditorprovisioningRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Certificate the certificate property
 // returns a *CertificateRequestBuilder when successful

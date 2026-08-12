@@ -165,6 +165,8 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
                         return NewRequestAcceptJoinGroupRequestParameters(), nil
                     case "request.AcceptModificationRequestParameters":
                         return NewRequestAcceptModificationRequestParameters(), nil
+                    case "request.AcceptUpdateGroupMembershipRequestParameters":
+                        return NewRequestAcceptUpdateGroupMembershipRequestParameters(), nil
                     case "request.ModificationRequestReport":
                         return NewRequestModificationRequestReport(), nil
                     case "request.ModificationRequestReportChangeDescription":

@@ -46,6 +46,8 @@ func CreateRequestAcceptModificationRequestParametersFromDiscriminatorValue(pars
                         return NewRequestAcceptGrantAccessRequestParameters(), nil
                     case "request.AcceptJoinGroupRequestParameters":
                         return NewRequestAcceptJoinGroupRequestParameters(), nil
+                    case "request.AcceptUpdateGroupMembershipRequestParameters":
+                        return NewRequestAcceptUpdateGroupMembershipRequestParameters(), nil
                 }
             }
         }

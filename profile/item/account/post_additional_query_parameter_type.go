@@ -7,10 +7,11 @@ type PostAdditionalQueryParameterType int
 const (
     ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
     AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+    PREDICTION_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"attributeSummaries", "audit"}[i]
+    return []string{"attributeSummaries", "audit", "prediction"}[i]
 }
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
     result := ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE
@@ -19,6 +20,8 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
             result = ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+        case "prediction":
+            result = PREDICTION_POSTADDITIONALQUERYPARAMETERTYPE
         default:
             return nil, nil
     }

@@ -14,6 +14,8 @@ type ProfileAccessProfileAccount_additionalObjects struct {
     attributeSummaries NonLinkableWrapperable
     // The audit property
     audit AuditInfoable
+    // The prediction property
+    prediction ProfileAccessProfileAccountPredictionable
 }
 // NewProfileAccessProfileAccount_additionalObjects instantiates a new ProfileAccessProfileAccount_additionalObjects and sets the default values.
 func NewProfileAccessProfileAccount_additionalObjects()(*ProfileAccessProfileAccount_additionalObjects) {
@@ -66,7 +68,22 @@ func (m *ProfileAccessProfileAccount_additionalObjects) GetFieldDeserializers()(
         }
         return nil
     }
+    res["prediction"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateProfileAccessProfileAccountPredictionFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetPrediction(val.(ProfileAccessProfileAccountPredictionable))
+        }
+        return nil
+    }
     return res
+}
+// GetPrediction gets the prediction property value. The prediction property
+// returns a ProfileAccessProfileAccountPredictionable when successful
+func (m *ProfileAccessProfileAccount_additionalObjects) GetPrediction()(ProfileAccessProfileAccountPredictionable) {
+    return m.prediction
 }
 // Serialize serializes information the current object
 func (m *ProfileAccessProfileAccount_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
@@ -78,6 +95,12 @@ func (m *ProfileAccessProfileAccount_additionalObjects) Serialize(writer i878a80
     }
     {
         err := writer.WriteObjectValue("audit", m.GetAudit())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("prediction", m.GetPrediction())
         if err != nil {
             return err
         }
@@ -102,11 +125,17 @@ func (m *ProfileAccessProfileAccount_additionalObjects) SetAttributeSummaries(va
 func (m *ProfileAccessProfileAccount_additionalObjects) SetAudit(value AuditInfoable)() {
     m.audit = value
 }
+// SetPrediction sets the prediction property value. The prediction property
+func (m *ProfileAccessProfileAccount_additionalObjects) SetPrediction(value ProfileAccessProfileAccountPredictionable)() {
+    m.prediction = value
+}
 type ProfileAccessProfileAccount_additionalObjectsable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetAttributeSummaries()(NonLinkableWrapperable)
     GetAudit()(AuditInfoable)
+    GetPrediction()(ProfileAccessProfileAccountPredictionable)
     SetAttributeSummaries(value NonLinkableWrapperable)()
     SetAudit(value AuditInfoable)()
+    SetPrediction(value ProfileAccessProfileAccountPredictionable)()
 }

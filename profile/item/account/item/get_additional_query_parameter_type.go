@@ -7,10 +7,11 @@ type GetAdditionalQueryParameterType int
 const (
     ATTRIBUTESUMMARIES_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
     AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+    PREDICTION_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"attributeSummaries", "audit"}[i]
+    return []string{"attributeSummaries", "audit", "prediction"}[i]
 }
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
     result := ATTRIBUTESUMMARIES_GETADDITIONALQUERYPARAMETERTYPE
@@ -19,6 +20,8 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
             result = ATTRIBUTESUMMARIES_GETADDITIONALQUERYPARAMETERTYPE
         case "audit":
             result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+        case "prediction":
+            result = PREDICTION_GETADDITIONALQUERYPARAMETERTYPE
         default:
             return nil, nil
     }

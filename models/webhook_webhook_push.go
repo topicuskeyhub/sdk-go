@@ -32,6 +32,8 @@ type WebhookWebhookPush struct {
     groupOnSystem WebhookWebhookNameUuidable
     // The identitySource property
     identitySource WebhookWebhookNameUuidable
+    // The machineHostname property
+    machineHostname *string
     // The modificationRequest property
     modificationRequest WebhookWebhookNameUuidable
     // The organizationalUnit property
@@ -221,6 +223,16 @@ func (m *WebhookWebhookPush) GetFieldDeserializers()(map[string]func(i878a80d233
         }
         return nil
     }
+    res["machineHostname"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetMachineHostname(val)
+        }
+        return nil
+    }
     res["modificationRequest"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
         if err != nil {
@@ -398,6 +410,11 @@ func (m *WebhookWebhookPush) GetGroupOnSystem()(WebhookWebhookNameUuidable) {
 func (m *WebhookWebhookPush) GetIdentitySource()(WebhookWebhookNameUuidable) {
     return m.identitySource
 }
+// GetMachineHostname gets the machineHostname property value. The machineHostname property
+// returns a *string when successful
+func (m *WebhookWebhookPush) GetMachineHostname()(*string) {
+    return m.machineHostname
+}
 // GetModificationRequest gets the modificationRequest property value. The modificationRequest property
 // returns a WebhookWebhookNameUuidable when successful
 func (m *WebhookWebhookPush) GetModificationRequest()(WebhookWebhookNameUuidable) {
@@ -546,6 +563,12 @@ func (m *WebhookWebhookPush) Serialize(writer i878a80d2330e89d26896388a3f487eef2
         }
     }
     {
+        err = writer.WriteStringValue("machineHostname", m.GetMachineHostname())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err = writer.WriteObjectValue("modificationRequest", m.GetModificationRequest())
         if err != nil {
             return err
@@ -683,6 +706,10 @@ func (m *WebhookWebhookPush) SetGroupOnSystem(value WebhookWebhookNameUuidable)(
 func (m *WebhookWebhookPush) SetIdentitySource(value WebhookWebhookNameUuidable)() {
     m.identitySource = value
 }
+// SetMachineHostname sets the machineHostname property value. The machineHostname property
+func (m *WebhookWebhookPush) SetMachineHostname(value *string)() {
+    m.machineHostname = value
+}
 // SetModificationRequest sets the modificationRequest property value. The modificationRequest property
 func (m *WebhookWebhookPush) SetModificationRequest(value WebhookWebhookNameUuidable)() {
     m.modificationRequest = value
@@ -757,6 +784,7 @@ type WebhookWebhookPushable interface {
     GetGroupClassification()(WebhookWebhookNameUuidable)
     GetGroupOnSystem()(WebhookWebhookNameUuidable)
     GetIdentitySource()(WebhookWebhookNameUuidable)
+    GetMachineHostname()(*string)
     GetModificationRequest()(WebhookWebhookNameUuidable)
     GetOrganizationalUnit()(WebhookWebhookNameUuidable)
     GetOrigin()(*string)
@@ -783,6 +811,7 @@ type WebhookWebhookPushable interface {
     SetGroupClassification(value WebhookWebhookNameUuidable)()
     SetGroupOnSystem(value WebhookWebhookNameUuidable)()
     SetIdentitySource(value WebhookWebhookNameUuidable)()
+    SetMachineHostname(value *string)()
     SetModificationRequest(value WebhookWebhookNameUuidable)()
     SetOrganizationalUnit(value WebhookWebhookNameUuidable)()
     SetOrigin(value *string)()

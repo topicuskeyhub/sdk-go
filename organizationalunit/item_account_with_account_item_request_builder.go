@@ -14,12 +14,19 @@ import (
 type ItemAccountWithAccountItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+// ItemAccountWithAccountItemRequestBuilderDeleteQueryParameters removes the specified account from the organizational unit. When 'firePendingLifecycleEvents=true' is passed as query parameter, the pending access profile lifecycle events of the account for profiles owned by this organizational unit are fired (delivering their mail) before removal instead of being cancelled.
+type ItemAccountWithAccountItemRequestBuilderDeleteQueryParameters struct {
+    // When true, the account's pending access profile lifecycle events for profiles owned by this organizational unit are fired before removal instead of being cancelled.
+    FirePendingLifecycleEvents *bool "uriparametername:\"firePendingLifecycleEvents\""
+}
 // ItemAccountWithAccountItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemAccountWithAccountItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+    // Request query parameters
+    QueryParameters *ItemAccountWithAccountItemRequestBuilderDeleteQueryParameters
 }
 // ItemAccountWithAccountItemRequestBuilderGetQueryParameters returns the single account member of the organizational unit.
 type ItemAccountWithAccountItemRequestBuilderGetQueryParameters struct {
@@ -41,7 +48,7 @@ type ItemAccountWithAccountItemRequestBuilderGetRequestConfiguration struct {
 // NewItemAccountWithAccountItemRequestBuilderInternal instantiates a new ItemAccountWithAccountItemRequestBuilder and sets the default values.
 func NewItemAccountWithAccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemAccountWithAccountItemRequestBuilder) {
     m := &ItemAccountWithAccountItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit/{organizationalunitid}/account/{accountid}{?additional*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/organizationalunit/{organizationalunitid}/account/{accountid}{?additional*,firePendingLifecycleEvents*}", pathParameters),
     }
     return m
 }
@@ -51,7 +58,7 @@ func NewItemAccountWithAccountItemRequestBuilder(rawUrl string, requestAdapter i
     urlParams["request-raw-url"] = rawUrl
     return NewItemAccountWithAccountItemRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Delete removes the specified account from the organizational unit.
+// Delete removes the specified account from the organizational unit. When 'firePendingLifecycleEvents=true' is passed as query parameter, the pending access profile lifecycle events of the account for profiles owned by this organizational unit are fired (delivering their mail) before removal instead of being cancelled.
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemAccountWithAccountItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemAccountWithAccountItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
@@ -87,15 +94,18 @@ func (m *ItemAccountWithAccountItemRequestBuilder) Get(ctx context.Context, requ
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.OrganizationOrganizationalUnitAccountable), nil
 }
-// ToDeleteRequestInformation removes the specified account from the organizational unit.
+// ToDeleteRequestInformation removes the specified account from the organizational unit. When 'firePendingLifecycleEvents=true' is passed as query parameter, the pending access profile lifecycle events of the account for profiles owned by this organizational unit are fired (delivering their mail) before removal instead of being cancelled.
 // returns a *RequestInformation when successful
 func (m *ItemAccountWithAccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemAccountWithAccountItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
+        if requestConfiguration.QueryParameters != nil {
+            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+        }
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single account member of the organizational unit.
@@ -109,7 +119,7 @@ func (m *ItemAccountWithAccountItemRequestBuilder) ToGetRequestInformation(ctx c
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

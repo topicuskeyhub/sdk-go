@@ -14,12 +14,19 @@ import (
 type ItemInternalaccountWithInternalaccountItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+// ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteQueryParameters removes the specified internal accounts from a directory, including the associated KeyHub account. When 'firePendingLifecycleEvents=true' is passed as query parameter, the account's pending access profile lifecycle events are fired (delivering their mail) before deletion instead of being cancelled.
+type ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteQueryParameters struct {
+    // When true, the account's pending access profile lifecycle events are fired before deletion instead of being cancelled.
+    FirePendingLifecycleEvents *bool "uriparametername:\"firePendingLifecycleEvents\""
+}
 // ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+    // Request query parameters
+    QueryParameters *ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteQueryParameters
 }
 // ItemInternalaccountWithInternalaccountItemRequestBuilderGetQueryParameters returns the single internal accounts within a directory.
 type ItemInternalaccountWithInternalaccountItemRequestBuilderGetQueryParameters struct {
@@ -58,7 +65,7 @@ type ItemInternalaccountWithInternalaccountItemRequestBuilderPutRequestConfigura
 // NewItemInternalaccountWithInternalaccountItemRequestBuilderInternal instantiates a new ItemInternalaccountWithInternalaccountItemRequestBuilder and sets the default values.
 func NewItemInternalaccountWithInternalaccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemInternalaccountWithInternalaccountItemRequestBuilder) {
     m := &ItemInternalaccountWithInternalaccountItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount/{internalaccountid}{?additional*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/directory/{directoryid}/internalaccount/{internalaccountid}{?additional*,firePendingLifecycleEvents*}", pathParameters),
     }
     return m
 }
@@ -68,7 +75,7 @@ func NewItemInternalaccountWithInternalaccountItemRequestBuilder(rawUrl string, 
     urlParams["request-raw-url"] = rawUrl
     return NewItemInternalaccountWithInternalaccountItemRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Delete removes the specified internal accounts from a directory, including the associated KeyHub account.
+// Delete removes the specified internal accounts from a directory, including the associated KeyHub account. When 'firePendingLifecycleEvents=true' is passed as query parameter, the account's pending access profile lifecycle events are fired (delivering their mail) before deletion instead of being cancelled.
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
@@ -134,15 +141,18 @@ func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) Put(ctx conte
 func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) Status()(*ItemInternalaccountItemStatusRequestBuilder) {
     return NewItemInternalaccountItemStatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// ToDeleteRequestInformation removes the specified internal accounts from a directory, including the associated KeyHub account.
+// ToDeleteRequestInformation removes the specified internal accounts from a directory, including the associated KeyHub account. When 'firePendingLifecycleEvents=true' is passed as query parameter, the account's pending access profile lifecycle events are fired (delivering their mail) before deletion instead of being cancelled.
 // returns a *RequestInformation when successful
 func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemInternalaccountWithInternalaccountItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
+        if requestConfiguration.QueryParameters != nil {
+            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+        }
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the single internal accounts within a directory.
@@ -156,7 +166,7 @@ func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToGetRequestI
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the internal accounts within a directory identified by the id.
@@ -170,8 +180,8 @@ func (m *ItemInternalaccountWithInternalaccountItemRequestBuilder) ToPutRequestI
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=86", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=87", body)
     if err != nil {
         return nil, err
     }

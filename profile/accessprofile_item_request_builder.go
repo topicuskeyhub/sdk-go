@@ -96,6 +96,21 @@ func (m *AccessprofileItemRequestBuilder) Get(ctx context.Context, requestConfig
     }
     return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileable), nil
 }
+// Lifecycleaction the lifecycleaction property
+// returns a *ItemLifecycleactionRequestBuilder when successful
+func (m *AccessprofileItemRequestBuilder) Lifecycleaction()(*ItemLifecycleactionRequestBuilder) {
+    return NewItemLifecycleactionRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Lifecycleevent the lifecycleevent property
+// returns a *ItemLifecycleeventRequestBuilder when successful
+func (m *AccessprofileItemRequestBuilder) Lifecycleevent()(*ItemLifecycleeventRequestBuilder) {
+    return NewItemLifecycleeventRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Prediction the prediction property
+// returns a *ItemPredictionRequestBuilder when successful
+func (m *AccessprofileItemRequestBuilder) Prediction()(*ItemPredictionRequestBuilder) {
+    return NewItemPredictionRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Put updates the access profile identified by the id.
 // returns a ProfileAccessProfileable when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
@@ -132,7 +147,7 @@ func (m *AccessprofileItemRequestBuilder) ToGetRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
     return requestInfo, nil
 }
 // ToPutRequestInformation updates the access profile identified by the id.
@@ -146,8 +161,8 @@ func (m *AccessprofileItemRequestBuilder) ToPutRequestInformation(ctx context.Co
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=86", body)
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
+    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=87", body)
     if err != nil {
         return nil, err
     }

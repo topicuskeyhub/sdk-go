@@ -14,12 +14,19 @@ import (
 type WithAccountItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+// WithAccountItemRequestBuilderDeleteQueryParameters permanently removes the account. This cannot be undone. When 'firePendingLifecycleEvents=true' is passed as query parameter, the account's pending access profile lifecycle events are fired (delivering their mail) before deletion instead of being cancelled.
+type WithAccountItemRequestBuilderDeleteQueryParameters struct {
+    // When true, the account's pending access profile lifecycle events are fired before deletion instead of being cancelled.
+    FirePendingLifecycleEvents *bool "uriparametername:\"firePendingLifecycleEvents\""
+}
 // WithAccountItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type WithAccountItemRequestBuilderDeleteRequestConfiguration struct {
     // Request headers
     Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
     // Request options
     Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+    // Request query parameters
+    QueryParameters *WithAccountItemRequestBuilderDeleteQueryParameters
 }
 // WithAccountItemRequestBuilderGetQueryParameters returns the account identified by the id.
 type WithAccountItemRequestBuilderGetQueryParameters struct {
@@ -46,7 +53,7 @@ func (m *WithAccountItemRequestBuilder) Attributevalue()(*ItemAttributevalueRequ
 // NewWithAccountItemRequestBuilderInternal instantiates a new WithAccountItemRequestBuilder and sets the default values.
 func NewWithAccountItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*WithAccountItemRequestBuilder) {
     m := &WithAccountItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}{?additional*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}{?additional*,firePendingLifecycleEvents*}", pathParameters),
     }
     return m
 }
@@ -56,7 +63,7 @@ func NewWithAccountItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7da
     urlParams["request-raw-url"] = rawUrl
     return NewWithAccountItemRequestBuilderInternal(urlParams, requestAdapter)
 }
-// Delete permanently removes the account. This cannot be undone.
+// Delete permanently removes the account. This cannot be undone. When 'firePendingLifecycleEvents=true' is passed as query parameter, the account's pending access profile lifecycle events are fired (delivering their mail) before deletion instead of being cancelled.
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *WithAccountItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *WithAccountItemRequestBuilderDeleteRequestConfiguration)(error) {
     requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
@@ -117,15 +124,18 @@ func (m *WithAccountItemRequestBuilder) Profile()(*ItemProfileRequestBuilder) {
 func (m *WithAccountItemRequestBuilder) Status()(*ItemStatusRequestBuilder) {
     return NewItemStatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
-// ToDeleteRequestInformation permanently removes the account. This cannot be undone.
+// ToDeleteRequestInformation permanently removes the account. This cannot be undone. When 'firePendingLifecycleEvents=true' is passed as query parameter, the account's pending access profile lifecycle events are fired (delivering their mail) before deletion instead of being cancelled.
 // returns a *RequestInformation when successful
 func (m *WithAccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *WithAccountItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     if requestConfiguration != nil {
+        if requestConfiguration.QueryParameters != nil {
+            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+        }
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
     return requestInfo, nil
 }
 // ToGetRequestInformation returns the account identified by the id.
@@ -139,7 +149,7 @@ func (m *WithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
         requestInfo.Headers.AddAll(requestConfiguration.Headers)
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=86")
+    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
     return requestInfo, nil
 }
 // Validate the validate property
