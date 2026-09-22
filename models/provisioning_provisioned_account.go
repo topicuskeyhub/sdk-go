@@ -4,116 +4,127 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ProvisioningProvisionedAccount struct {
-    AuthAccountPrimer
-    // The additionalObjects property
-    additionalObjects ProvisioningProvisionedAccount_additionalObjectsable
-    // The loginName property
-    loginName *string
-    // The uid property
-    uid *int64
+	AuthAccountPrimer
+	// The additionalObjects property
+	additionalObjects ProvisioningProvisionedAccount_additionalObjectsable
+	// The loginName property
+	loginName *string
+	// The uid property
+	uid *int64
 }
+
 // NewProvisioningProvisionedAccount instantiates a new ProvisioningProvisionedAccount and sets the default values.
-func NewProvisioningProvisionedAccount()(*ProvisioningProvisionedAccount) {
-    m := &ProvisioningProvisionedAccount{
-        AuthAccountPrimer: *NewAuthAccountPrimer(),
-    }
-    typeEscapedValue := "provisioning.ProvisionedAccount"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewProvisioningProvisionedAccount() *ProvisioningProvisionedAccount {
+	m := &ProvisioningProvisionedAccount{
+		AuthAccountPrimer: *NewAuthAccountPrimer(),
+	}
+	typeEscapedValue := "provisioning.ProvisionedAccount"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateProvisioningProvisionedAccountFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProvisioningProvisionedAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewProvisioningProvisionedAccount(), nil
+func CreateProvisioningProvisionedAccountFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewProvisioningProvisionedAccount(), nil
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a ProvisioningProvisionedAccount_additionalObjectsable when successful
-func (m *ProvisioningProvisionedAccount) GetAdditionalObjects()(ProvisioningProvisionedAccount_additionalObjectsable) {
-    return m.additionalObjects
+func (m *ProvisioningProvisionedAccount) GetAdditionalObjects() ProvisioningProvisionedAccount_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProvisioningProvisionedAccount) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.AuthAccountPrimer.GetFieldDeserializers()
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProvisioningProvisionedAccount_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(ProvisioningProvisionedAccount_additionalObjectsable))
-        }
-        return nil
-    }
-    res["loginName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetLoginName(val)
-        }
-        return nil
-    }
-    res["uid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt64Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUid(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ProvisioningProvisionedAccount) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.AuthAccountPrimer.GetFieldDeserializers()
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProvisioningProvisionedAccount_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(ProvisioningProvisionedAccount_additionalObjectsable))
+		}
+		return nil
+	}
+	res["loginName"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetLoginName(val)
+		}
+		return nil
+	}
+	res["uid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt64Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUid(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetLoginName gets the loginName property value. The loginName property
 // returns a *string when successful
-func (m *ProvisioningProvisionedAccount) GetLoginName()(*string) {
-    return m.loginName
+func (m *ProvisioningProvisionedAccount) GetLoginName() *string {
+	return m.loginName
 }
+
 // GetUid gets the uid property value. The uid property
 // returns a *int64 when successful
-func (m *ProvisioningProvisionedAccount) GetUid()(*int64) {
-    return m.uid
+func (m *ProvisioningProvisionedAccount) GetUid() *int64 {
+	return m.uid
 }
+
 // Serialize serializes information the current object
-func (m *ProvisioningProvisionedAccount) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.AuthAccountPrimer.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ProvisioningProvisionedAccount) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.AuthAccountPrimer.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *ProvisioningProvisionedAccount) SetAdditionalObjects(value ProvisioningProvisionedAccount_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *ProvisioningProvisionedAccount) SetAdditionalObjects(value ProvisioningProvisionedAccount_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetLoginName sets the loginName property value. The loginName property
-func (m *ProvisioningProvisionedAccount) SetLoginName(value *string)() {
-    m.loginName = value
+func (m *ProvisioningProvisionedAccount) SetLoginName(value *string) {
+	m.loginName = value
 }
+
 // SetUid sets the uid property value. The uid property
-func (m *ProvisioningProvisionedAccount) SetUid(value *int64)() {
-    m.uid = value
+func (m *ProvisioningProvisionedAccount) SetUid(value *int64) {
+	m.uid = value
 }
+
 type ProvisioningProvisionedAccountable interface {
-    AuthAccountPrimerable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAdditionalObjects()(ProvisioningProvisionedAccount_additionalObjectsable)
-    GetLoginName()(*string)
-    GetUid()(*int64)
-    SetAdditionalObjects(value ProvisioningProvisionedAccount_additionalObjectsable)()
-    SetLoginName(value *string)()
-    SetUid(value *int64)()
+	AuthAccountPrimerable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAdditionalObjects() ProvisioningProvisionedAccount_additionalObjectsable
+	GetLoginName() *string
+	GetUid() *int64
+	SetAdditionalObjects(value ProvisioningProvisionedAccount_additionalObjectsable)
+	SetLoginName(value *string)
+	SetUid(value *int64)
 }

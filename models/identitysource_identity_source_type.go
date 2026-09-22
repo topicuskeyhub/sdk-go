@@ -2,35 +2,39 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type IdentitysourceIdentitySourceType int
 
 const (
-    AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE IdentitysourceIdentitySourceType = iota
-    CSV_IMPORT_IDENTITYSOURCEIDENTITYSOURCETYPE
+	AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE IdentitysourceIdentitySourceType = iota
+	CSV_IMPORT_IDENTITYSOURCEIDENTITYSOURCETYPE
 )
 
 func (i IdentitysourceIdentitySourceType) String() string {
-    return []string{"AFAS", "CSV_IMPORT"}[i]
+	return []string{"AFAS", "CSV_IMPORT"}[i]
 }
+
 func ParseIdentitysourceIdentitySourceType(v string) (any, error) {
-    result := AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE
-    switch v {
-        case "AFAS":
-            result = AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE
-        case "CSV_IMPORT":
-            result = CSV_IMPORT_IDENTITYSOURCEIDENTITYSOURCETYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE
+	switch v {
+	case "AFAS":
+		result = AFAS_IDENTITYSOURCEIDENTITYSOURCETYPE
+	case "CSV_IMPORT":
+		result = CSV_IMPORT_IDENTITYSOURCEIDENTITYSOURCETYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeIdentitysourceIdentitySourceType(values []IdentitysourceIdentitySourceType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i IdentitysourceIdentitySourceType) isMultiValue() bool {
-    return false
+	return false
 }

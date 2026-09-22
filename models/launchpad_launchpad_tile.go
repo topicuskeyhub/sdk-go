@@ -4,180 +4,193 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type LaunchpadLaunchpadTile struct {
-    LaunchpadLaunchpadTilePrimer
-    // The additionalObjects property
-    additionalObjects LaunchpadLaunchpadTile_additionalObjectsable
-    // The identiconCode property
-    identiconCode *int32
-    // The type property
-    launchpadLaunchpadTileType *LaunchpadLaunchpadTileType
-    // The logo property
-    logo []byte
+	LaunchpadLaunchpadTilePrimer
+	// The additionalObjects property
+	additionalObjects LaunchpadLaunchpadTile_additionalObjectsable
+	// The identiconCode property
+	identiconCode *int32
+	// The type property
+	launchpadLaunchpadTileType *LaunchpadLaunchpadTileType
+	// The logo property
+	logo *string
 }
+
 // NewLaunchpadLaunchpadTile instantiates a new LaunchpadLaunchpadTile and sets the default values.
-func NewLaunchpadLaunchpadTile()(*LaunchpadLaunchpadTile) {
-    m := &LaunchpadLaunchpadTile{
-        LaunchpadLaunchpadTilePrimer: *NewLaunchpadLaunchpadTilePrimer(),
-    }
-    typeEscapedValue := "launchpad.LaunchpadTile"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewLaunchpadLaunchpadTile() *LaunchpadLaunchpadTile {
+	m := &LaunchpadLaunchpadTile{
+		LaunchpadLaunchpadTilePrimer: *NewLaunchpadLaunchpadTilePrimer(),
+	}
+	typeEscapedValue := "launchpad.LaunchpadTile"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateLaunchpadLaunchpadTileFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateLaunchpadLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    if parseNode != nil {
-        mappingValueNode, err := parseNode.GetChildNode("$type")
-        if err != nil {
-            return nil, err
-        }
-        if mappingValueNode != nil {
-            mappingValue, err := mappingValueNode.GetStringValue()
-            if err != nil {
-                return nil, err
-            }
-            if mappingValue != nil {
-                switch *mappingValue {
-                    case "launchpad.ManualLaunchpadTile":
-                        return NewLaunchpadManualLaunchpadTile(), nil
-                    case "launchpad.SsoApplicationLaunchpadTile":
-                        return NewLaunchpadSsoApplicationLaunchpadTile(), nil
-                    case "launchpad.VaultRecordLaunchpadTile":
-                        return NewLaunchpadVaultRecordLaunchpadTile(), nil
-                }
-            }
-        }
-    }
-    return NewLaunchpadLaunchpadTile(), nil
+func CreateLaunchpadLaunchpadTileFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	if parseNode != nil {
+		mappingValueNode, err := parseNode.GetChildNode("$type")
+		if err != nil {
+			return nil, err
+		}
+		if mappingValueNode != nil {
+			mappingValue, err := mappingValueNode.GetStringValue()
+			if err != nil {
+				return nil, err
+			}
+			if mappingValue != nil {
+				switch *mappingValue {
+				case "launchpad.ManualLaunchpadTile":
+					return NewLaunchpadManualLaunchpadTile(), nil
+				case "launchpad.SsoApplicationLaunchpadTile":
+					return NewLaunchpadSsoApplicationLaunchpadTile(), nil
+				case "launchpad.VaultRecordLaunchpadTile":
+					return NewLaunchpadVaultRecordLaunchpadTile(), nil
+				}
+			}
+		}
+	}
+	return NewLaunchpadLaunchpadTile(), nil
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a LaunchpadLaunchpadTile_additionalObjectsable when successful
-func (m *LaunchpadLaunchpadTile) GetAdditionalObjects()(LaunchpadLaunchpadTile_additionalObjectsable) {
-    return m.additionalObjects
+func (m *LaunchpadLaunchpadTile) GetAdditionalObjects() LaunchpadLaunchpadTile_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *LaunchpadLaunchpadTile) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.LaunchpadLaunchpadTilePrimer.GetFieldDeserializers()
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateLaunchpadLaunchpadTile_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(LaunchpadLaunchpadTile_additionalObjectsable))
-        }
-        return nil
-    }
-    res["identiconCode"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetIdenticonCode(val)
-        }
-        return nil
-    }
-    res["type"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseLaunchpadLaunchpadTileType)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetLaunchpadLaunchpadTileType(val.(*LaunchpadLaunchpadTileType))
-        }
-        return nil
-    }
-    res["logo"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetByteArrayValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetLogo(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *LaunchpadLaunchpadTile) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.LaunchpadLaunchpadTilePrimer.GetFieldDeserializers()
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateLaunchpadLaunchpadTile_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(LaunchpadLaunchpadTile_additionalObjectsable))
+		}
+		return nil
+	}
+	res["identiconCode"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetIdenticonCode(val)
+		}
+		return nil
+	}
+	res["type"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseLaunchpadLaunchpadTileType)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetLaunchpadLaunchpadTileType(val.(*LaunchpadLaunchpadTileType))
+		}
+		return nil
+	}
+	res["logo"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetLogo(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetIdenticonCode gets the identiconCode property value. The identiconCode property
 // returns a *int32 when successful
-func (m *LaunchpadLaunchpadTile) GetIdenticonCode()(*int32) {
-    return m.identiconCode
+func (m *LaunchpadLaunchpadTile) GetIdenticonCode() *int32 {
+	return m.identiconCode
 }
+
 // GetLaunchpadLaunchpadTileType gets the type property value. The type property
 // returns a *LaunchpadLaunchpadTileType when successful
-func (m *LaunchpadLaunchpadTile) GetLaunchpadLaunchpadTileType()(*LaunchpadLaunchpadTileType) {
-    return m.launchpadLaunchpadTileType
+func (m *LaunchpadLaunchpadTile) GetLaunchpadLaunchpadTileType() *LaunchpadLaunchpadTileType {
+	return m.launchpadLaunchpadTileType
 }
+
 // GetLogo gets the logo property value. The logo property
-// returns a []byte when successful
-func (m *LaunchpadLaunchpadTile) GetLogo()([]byte) {
-    return m.logo
+// returns a *string when successful
+func (m *LaunchpadLaunchpadTile) GetLogo() *string {
+	return m.logo
 }
+
 // Serialize serializes information the current object
-func (m *LaunchpadLaunchpadTile) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.LaunchpadLaunchpadTilePrimer.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("identiconCode", m.GetIdenticonCode())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetLaunchpadLaunchpadTileType() != nil {
-        cast := (*m.GetLaunchpadLaunchpadTileType()).String()
-        err = writer.WriteStringValue("type", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteByteArrayValue("logo", m.GetLogo())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *LaunchpadLaunchpadTile) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.LaunchpadLaunchpadTilePrimer.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteInt32Value("identiconCode", m.GetIdenticonCode())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetLaunchpadLaunchpadTileType() != nil {
+		cast := (*m.GetLaunchpadLaunchpadTileType()).String()
+		err = writer.WriteStringValue("type", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("logo", m.GetLogo())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *LaunchpadLaunchpadTile) SetAdditionalObjects(value LaunchpadLaunchpadTile_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *LaunchpadLaunchpadTile) SetAdditionalObjects(value LaunchpadLaunchpadTile_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetIdenticonCode sets the identiconCode property value. The identiconCode property
-func (m *LaunchpadLaunchpadTile) SetIdenticonCode(value *int32)() {
-    m.identiconCode = value
+func (m *LaunchpadLaunchpadTile) SetIdenticonCode(value *int32) {
+	m.identiconCode = value
 }
+
 // SetLaunchpadLaunchpadTileType sets the type property value. The type property
-func (m *LaunchpadLaunchpadTile) SetLaunchpadLaunchpadTileType(value *LaunchpadLaunchpadTileType)() {
-    m.launchpadLaunchpadTileType = value
+func (m *LaunchpadLaunchpadTile) SetLaunchpadLaunchpadTileType(value *LaunchpadLaunchpadTileType) {
+	m.launchpadLaunchpadTileType = value
 }
+
 // SetLogo sets the logo property value. The logo property
-func (m *LaunchpadLaunchpadTile) SetLogo(value []byte)() {
-    m.logo = value
+func (m *LaunchpadLaunchpadTile) SetLogo(value *string) {
+	m.logo = value
 }
+
 type LaunchpadLaunchpadTileable interface {
-    LaunchpadLaunchpadTilePrimerable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAdditionalObjects()(LaunchpadLaunchpadTile_additionalObjectsable)
-    GetIdenticonCode()(*int32)
-    GetLaunchpadLaunchpadTileType()(*LaunchpadLaunchpadTileType)
-    GetLogo()([]byte)
-    SetAdditionalObjects(value LaunchpadLaunchpadTile_additionalObjectsable)()
-    SetIdenticonCode(value *int32)()
-    SetLaunchpadLaunchpadTileType(value *LaunchpadLaunchpadTileType)()
-    SetLogo(value []byte)()
+	LaunchpadLaunchpadTilePrimerable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAdditionalObjects() LaunchpadLaunchpadTile_additionalObjectsable
+	GetIdenticonCode() *int32
+	GetLaunchpadLaunchpadTileType() *LaunchpadLaunchpadTileType
+	GetLogo() *string
+	SetAdditionalObjects(value LaunchpadLaunchpadTile_additionalObjectsable)
+	SetIdenticonCode(value *int32)
+	SetLaunchpadLaunchpadTileType(value *LaunchpadLaunchpadTileType)
+	SetLogo(value *string)
 }

@@ -4,131 +4,140 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type IdentitysourceIdentitySource struct {
-    IdentitysourceIdentitySourcePrimer
-    // The additionalObjects property
-    additionalObjects IdentitysourceIdentitySource_additionalObjectsable
-    // The attributeMappings property
-    attributeMappings []IdentitysourceIdentitySourceAttributeMappingable
+	IdentitysourceIdentitySourcePrimer
+	// The additionalObjects property
+	additionalObjects IdentitysourceIdentitySource_additionalObjectsable
+	// The attributeMappings property
+	attributeMappings []IdentitysourceIdentitySourceAttributeMappingable
 }
+
 // NewIdentitysourceIdentitySource instantiates a new IdentitysourceIdentitySource and sets the default values.
-func NewIdentitysourceIdentitySource()(*IdentitysourceIdentitySource) {
-    m := &IdentitysourceIdentitySource{
-        IdentitysourceIdentitySourcePrimer: *NewIdentitysourceIdentitySourcePrimer(),
-    }
-    typeEscapedValue := "identitysource.IdentitySource"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewIdentitysourceIdentitySource() *IdentitysourceIdentitySource {
+	m := &IdentitysourceIdentitySource{
+		IdentitysourceIdentitySourcePrimer: *NewIdentitysourceIdentitySourcePrimer(),
+	}
+	typeEscapedValue := "identitysource.IdentitySource"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateIdentitysourceIdentitySourceFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateIdentitysourceIdentitySourceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    if parseNode != nil {
-        mappingValueNode, err := parseNode.GetChildNode("$type")
-        if err != nil {
-            return nil, err
-        }
-        if mappingValueNode != nil {
-            mappingValue, err := mappingValueNode.GetStringValue()
-            if err != nil {
-                return nil, err
-            }
-            if mappingValue != nil {
-                switch *mappingValue {
-                    case "identitysource.AFASIdentitySource":
-                        return NewIdentitysourceAFASIdentitySource(), nil
-                    case "identitysource.CSVImportIdentitySource":
-                        return NewIdentitysourceCSVImportIdentitySource(), nil
-                }
-            }
-        }
-    }
-    return NewIdentitysourceIdentitySource(), nil
+func CreateIdentitysourceIdentitySourceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	if parseNode != nil {
+		mappingValueNode, err := parseNode.GetChildNode("$type")
+		if err != nil {
+			return nil, err
+		}
+		if mappingValueNode != nil {
+			mappingValue, err := mappingValueNode.GetStringValue()
+			if err != nil {
+				return nil, err
+			}
+			if mappingValue != nil {
+				switch *mappingValue {
+				case "identitysource.AFASIdentitySource":
+					return NewIdentitysourceAFASIdentitySource(), nil
+				case "identitysource.CSVImportIdentitySource":
+					return NewIdentitysourceCSVImportIdentitySource(), nil
+				}
+			}
+		}
+	}
+	return NewIdentitysourceIdentitySource(), nil
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a IdentitysourceIdentitySource_additionalObjectsable when successful
-func (m *IdentitysourceIdentitySource) GetAdditionalObjects()(IdentitysourceIdentitySource_additionalObjectsable) {
-    return m.additionalObjects
+func (m *IdentitysourceIdentitySource) GetAdditionalObjects() IdentitysourceIdentitySource_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetAttributeMappings gets the attributeMappings property value. The attributeMappings property
 // returns a []IdentitysourceIdentitySourceAttributeMappingable when successful
-func (m *IdentitysourceIdentitySource) GetAttributeMappings()([]IdentitysourceIdentitySourceAttributeMappingable) {
-    return m.attributeMappings
+func (m *IdentitysourceIdentitySource) GetAttributeMappings() []IdentitysourceIdentitySourceAttributeMappingable {
+	return m.attributeMappings
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *IdentitysourceIdentitySource) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.IdentitysourceIdentitySourcePrimer.GetFieldDeserializers()
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateIdentitysourceIdentitySource_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(IdentitysourceIdentitySource_additionalObjectsable))
-        }
-        return nil
-    }
-    res["attributeMappings"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(CreateIdentitysourceIdentitySourceAttributeMappingFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]IdentitysourceIdentitySourceAttributeMappingable, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = v.(IdentitysourceIdentitySourceAttributeMappingable)
-                }
-            }
-            m.SetAttributeMappings(res)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *IdentitysourceIdentitySource) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.IdentitysourceIdentitySourcePrimer.GetFieldDeserializers()
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateIdentitysourceIdentitySource_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(IdentitysourceIdentitySource_additionalObjectsable))
+		}
+		return nil
+	}
+	res["attributeMappings"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetCollectionOfObjectValues(CreateIdentitysourceIdentitySourceAttributeMappingFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			res := make([]IdentitysourceIdentitySourceAttributeMappingable, len(val))
+			for i, v := range val {
+				if v != nil {
+					res[i] = v.(IdentitysourceIdentitySourceAttributeMappingable)
+				}
+			}
+			m.SetAttributeMappings(res)
+		}
+		return nil
+	}
+	return res
 }
+
 // Serialize serializes information the current object
-func (m *IdentitysourceIdentitySource) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.IdentitysourceIdentitySourcePrimer.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetAttributeMappings() != nil {
-        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributeMappings()))
-        for i, v := range m.GetAttributeMappings() {
-            if v != nil {
-                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
-            }
-        }
-        err = writer.WriteCollectionOfObjectValues("attributeMappings", cast)
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *IdentitysourceIdentitySource) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.IdentitysourceIdentitySourcePrimer.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetAttributeMappings() != nil {
+		cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributeMappings()))
+		for i, v := range m.GetAttributeMappings() {
+			if v != nil {
+				cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+			}
+		}
+		err = writer.WriteCollectionOfObjectValues("attributeMappings", cast)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *IdentitysourceIdentitySource) SetAdditionalObjects(value IdentitysourceIdentitySource_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *IdentitysourceIdentitySource) SetAdditionalObjects(value IdentitysourceIdentitySource_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetAttributeMappings sets the attributeMappings property value. The attributeMappings property
-func (m *IdentitysourceIdentitySource) SetAttributeMappings(value []IdentitysourceIdentitySourceAttributeMappingable)() {
-    m.attributeMappings = value
+func (m *IdentitysourceIdentitySource) SetAttributeMappings(value []IdentitysourceIdentitySourceAttributeMappingable) {
+	m.attributeMappings = value
 }
+
 type IdentitysourceIdentitySourceable interface {
-    IdentitysourceIdentitySourcePrimerable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAdditionalObjects()(IdentitysourceIdentitySource_additionalObjectsable)
-    GetAttributeMappings()([]IdentitysourceIdentitySourceAttributeMappingable)
-    SetAdditionalObjects(value IdentitysourceIdentitySource_additionalObjectsable)()
-    SetAttributeMappings(value []IdentitysourceIdentitySourceAttributeMappingable)()
+	IdentitysourceIdentitySourcePrimerable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAdditionalObjects() IdentitysourceIdentitySource_additionalObjectsable
+	GetAttributeMappings() []IdentitysourceIdentitySourceAttributeMappingable
+	SetAdditionalObjects(value IdentitysourceIdentitySource_additionalObjectsable)
+	SetAttributeMappings(value []IdentitysourceIdentitySourceAttributeMappingable)
 }

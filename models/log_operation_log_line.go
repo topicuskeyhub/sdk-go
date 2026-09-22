@@ -4,333 +4,362 @@
 package models
 
 import (
-    i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
-    i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22 "github.com/google/uuid"
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22 "github.com/google/uuid"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
 )
 
 type LogOperationLogLine struct {
-    Linkable
-    // The accessProfileUuid property
-    accessProfileUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-    // The accountUuid property
-    accountUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-    // The action property
-    action *LogOperationAction
-    // The groupOnSystemUuid property
-    groupOnSystemUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-    // The groupUuid property
-    groupUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-    // The identitySourceUuid property
-    identitySourceUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-    // The level property
-    level *LogOperationLogLevel
-    // The message property
-    message *string
-    // The serviceAccountUuid property
-    serviceAccountUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-    // The systemUuid property
-    systemUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-    // The thread property
-    thread *string
-    // The time property
-    time *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+	Linkable
+	// The accessProfileUuid property
+	accessProfileUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	// The accountUuid property
+	accountUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	// The action property
+	action *LogOperationAction
+	// The groupOnSystemUuid property
+	groupOnSystemUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	// The groupUuid property
+	groupUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	// The identitySourceUuid property
+	identitySourceUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	// The level property
+	level *LogOperationLogLevel
+	// The message property
+	message *string
+	// The serviceAccountUuid property
+	serviceAccountUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	// The systemUuid property
+	systemUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	// The thread property
+	thread *string
+	// The time property
+	time *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 }
+
 // NewLogOperationLogLine instantiates a new LogOperationLogLine and sets the default values.
-func NewLogOperationLogLine()(*LogOperationLogLine) {
-    m := &LogOperationLogLine{
-        Linkable: *NewLinkable(),
-    }
-    typeEscapedValue := "log.OperationLogLine"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewLogOperationLogLine() *LogOperationLogLine {
+	m := &LogOperationLogLine{
+		Linkable: *NewLinkable(),
+	}
+	typeEscapedValue := "log.OperationLogLine"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateLogOperationLogLineFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateLogOperationLogLineFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewLogOperationLogLine(), nil
+func CreateLogOperationLogLineFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewLogOperationLogLine(), nil
 }
+
 // GetAccessProfileUuid gets the accessProfileUuid property value. The accessProfileUuid property
 // returns a *UUID when successful
-func (m *LogOperationLogLine) GetAccessProfileUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
-    return m.accessProfileUuid
+func (m *LogOperationLogLine) GetAccessProfileUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID {
+	return m.accessProfileUuid
 }
+
 // GetAccountUuid gets the accountUuid property value. The accountUuid property
 // returns a *UUID when successful
-func (m *LogOperationLogLine) GetAccountUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
-    return m.accountUuid
+func (m *LogOperationLogLine) GetAccountUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID {
+	return m.accountUuid
 }
+
 // GetAction gets the action property value. The action property
 // returns a *LogOperationAction when successful
-func (m *LogOperationLogLine) GetAction()(*LogOperationAction) {
-    return m.action
+func (m *LogOperationLogLine) GetAction() *LogOperationAction {
+	return m.action
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *LogOperationLogLine) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.Linkable.GetFieldDeserializers()
-    res["accessProfileUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetUUIDValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccessProfileUuid(val)
-        }
-        return nil
-    }
-    res["accountUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetUUIDValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccountUuid(val)
-        }
-        return nil
-    }
-    res["action"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseLogOperationAction)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAction(val.(*LogOperationAction))
-        }
-        return nil
-    }
-    res["groupOnSystemUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetUUIDValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroupOnSystemUuid(val)
-        }
-        return nil
-    }
-    res["groupUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetUUIDValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroupUuid(val)
-        }
-        return nil
-    }
-    res["identitySourceUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetUUIDValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetIdentitySourceUuid(val)
-        }
-        return nil
-    }
-    res["level"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseLogOperationLogLevel)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetLevel(val.(*LogOperationLogLevel))
-        }
-        return nil
-    }
-    res["message"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetMessage(val)
-        }
-        return nil
-    }
-    res["serviceAccountUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetUUIDValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetServiceAccountUuid(val)
-        }
-        return nil
-    }
-    res["systemUuid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetUUIDValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSystemUuid(val)
-        }
-        return nil
-    }
-    res["thread"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetThread(val)
-        }
-        return nil
-    }
-    res["time"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetTimeValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetTime(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *LogOperationLogLine) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.Linkable.GetFieldDeserializers()
+	res["accessProfileUuid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetUUIDValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAccessProfileUuid(val)
+		}
+		return nil
+	}
+	res["accountUuid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetUUIDValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAccountUuid(val)
+		}
+		return nil
+	}
+	res["action"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseLogOperationAction)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAction(val.(*LogOperationAction))
+		}
+		return nil
+	}
+	res["groupOnSystemUuid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetUUIDValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroupOnSystemUuid(val)
+		}
+		return nil
+	}
+	res["groupUuid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetUUIDValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroupUuid(val)
+		}
+		return nil
+	}
+	res["identitySourceUuid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetUUIDValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetIdentitySourceUuid(val)
+		}
+		return nil
+	}
+	res["level"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseLogOperationLogLevel)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetLevel(val.(*LogOperationLogLevel))
+		}
+		return nil
+	}
+	res["message"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetMessage(val)
+		}
+		return nil
+	}
+	res["serviceAccountUuid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetUUIDValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetServiceAccountUuid(val)
+		}
+		return nil
+	}
+	res["systemUuid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetUUIDValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSystemUuid(val)
+		}
+		return nil
+	}
+	res["thread"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetThread(val)
+		}
+		return nil
+	}
+	res["time"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetTimeValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetTime(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetGroupOnSystemUuid gets the groupOnSystemUuid property value. The groupOnSystemUuid property
 // returns a *UUID when successful
-func (m *LogOperationLogLine) GetGroupOnSystemUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
-    return m.groupOnSystemUuid
+func (m *LogOperationLogLine) GetGroupOnSystemUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID {
+	return m.groupOnSystemUuid
 }
+
 // GetGroupUuid gets the groupUuid property value. The groupUuid property
 // returns a *UUID when successful
-func (m *LogOperationLogLine) GetGroupUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
-    return m.groupUuid
+func (m *LogOperationLogLine) GetGroupUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID {
+	return m.groupUuid
 }
+
 // GetIdentitySourceUuid gets the identitySourceUuid property value. The identitySourceUuid property
 // returns a *UUID when successful
-func (m *LogOperationLogLine) GetIdentitySourceUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
-    return m.identitySourceUuid
+func (m *LogOperationLogLine) GetIdentitySourceUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID {
+	return m.identitySourceUuid
 }
+
 // GetLevel gets the level property value. The level property
 // returns a *LogOperationLogLevel when successful
-func (m *LogOperationLogLine) GetLevel()(*LogOperationLogLevel) {
-    return m.level
+func (m *LogOperationLogLine) GetLevel() *LogOperationLogLevel {
+	return m.level
 }
+
 // GetMessage gets the message property value. The message property
 // returns a *string when successful
-func (m *LogOperationLogLine) GetMessage()(*string) {
-    return m.message
+func (m *LogOperationLogLine) GetMessage() *string {
+	return m.message
 }
+
 // GetServiceAccountUuid gets the serviceAccountUuid property value. The serviceAccountUuid property
 // returns a *UUID when successful
-func (m *LogOperationLogLine) GetServiceAccountUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
-    return m.serviceAccountUuid
+func (m *LogOperationLogLine) GetServiceAccountUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID {
+	return m.serviceAccountUuid
 }
+
 // GetSystemUuid gets the systemUuid property value. The systemUuid property
 // returns a *UUID when successful
-func (m *LogOperationLogLine) GetSystemUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
-    return m.systemUuid
+func (m *LogOperationLogLine) GetSystemUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID {
+	return m.systemUuid
 }
+
 // GetThread gets the thread property value. The thread property
 // returns a *string when successful
-func (m *LogOperationLogLine) GetThread()(*string) {
-    return m.thread
+func (m *LogOperationLogLine) GetThread() *string {
+	return m.thread
 }
+
 // GetTime gets the time property value. The time property
 // returns a *Time when successful
-func (m *LogOperationLogLine) GetTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
-    return m.time
+func (m *LogOperationLogLine) GetTime() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time {
+	return m.time
 }
+
 // Serialize serializes information the current object
-func (m *LogOperationLogLine) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.Linkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    if m.GetAction() != nil {
-        cast := (*m.GetAction()).String()
-        err = writer.WriteStringValue("action", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetLevel() != nil {
-        cast := (*m.GetLevel()).String()
-        err = writer.WriteStringValue("level", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *LogOperationLogLine) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.Linkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	if m.GetAction() != nil {
+		cast := (*m.GetAction()).String()
+		err = writer.WriteStringValue("action", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetLevel() != nil {
+		cast := (*m.GetLevel()).String()
+		err = writer.WriteStringValue("level", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAccessProfileUuid sets the accessProfileUuid property value. The accessProfileUuid property
-func (m *LogOperationLogLine) SetAccessProfileUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
-    m.accessProfileUuid = value
+func (m *LogOperationLogLine) SetAccessProfileUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+	m.accessProfileUuid = value
 }
+
 // SetAccountUuid sets the accountUuid property value. The accountUuid property
-func (m *LogOperationLogLine) SetAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
-    m.accountUuid = value
+func (m *LogOperationLogLine) SetAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+	m.accountUuid = value
 }
+
 // SetAction sets the action property value. The action property
-func (m *LogOperationLogLine) SetAction(value *LogOperationAction)() {
-    m.action = value
+func (m *LogOperationLogLine) SetAction(value *LogOperationAction) {
+	m.action = value
 }
+
 // SetGroupOnSystemUuid sets the groupOnSystemUuid property value. The groupOnSystemUuid property
-func (m *LogOperationLogLine) SetGroupOnSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
-    m.groupOnSystemUuid = value
+func (m *LogOperationLogLine) SetGroupOnSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+	m.groupOnSystemUuid = value
 }
+
 // SetGroupUuid sets the groupUuid property value. The groupUuid property
-func (m *LogOperationLogLine) SetGroupUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
-    m.groupUuid = value
+func (m *LogOperationLogLine) SetGroupUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+	m.groupUuid = value
 }
+
 // SetIdentitySourceUuid sets the identitySourceUuid property value. The identitySourceUuid property
-func (m *LogOperationLogLine) SetIdentitySourceUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
-    m.identitySourceUuid = value
+func (m *LogOperationLogLine) SetIdentitySourceUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+	m.identitySourceUuid = value
 }
+
 // SetLevel sets the level property value. The level property
-func (m *LogOperationLogLine) SetLevel(value *LogOperationLogLevel)() {
-    m.level = value
+func (m *LogOperationLogLine) SetLevel(value *LogOperationLogLevel) {
+	m.level = value
 }
+
 // SetMessage sets the message property value. The message property
-func (m *LogOperationLogLine) SetMessage(value *string)() {
-    m.message = value
+func (m *LogOperationLogLine) SetMessage(value *string) {
+	m.message = value
 }
+
 // SetServiceAccountUuid sets the serviceAccountUuid property value. The serviceAccountUuid property
-func (m *LogOperationLogLine) SetServiceAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
-    m.serviceAccountUuid = value
+func (m *LogOperationLogLine) SetServiceAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+	m.serviceAccountUuid = value
 }
+
 // SetSystemUuid sets the systemUuid property value. The systemUuid property
-func (m *LogOperationLogLine) SetSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)() {
-    m.systemUuid = value
+func (m *LogOperationLogLine) SetSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
+	m.systemUuid = value
 }
+
 // SetThread sets the thread property value. The thread property
-func (m *LogOperationLogLine) SetThread(value *string)() {
-    m.thread = value
+func (m *LogOperationLogLine) SetThread(value *string) {
+	m.thread = value
 }
+
 // SetTime sets the time property value. The time property
-func (m *LogOperationLogLine) SetTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
-    m.time = value
+func (m *LogOperationLogLine) SetTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+	m.time = value
 }
+
 type LogOperationLogLineable interface {
-    Linkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAccessProfileUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-    GetAccountUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-    GetAction()(*LogOperationAction)
-    GetGroupOnSystemUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-    GetGroupUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-    GetIdentitySourceUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-    GetLevel()(*LogOperationLogLevel)
-    GetMessage()(*string)
-    GetServiceAccountUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-    GetSystemUuid()(*i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-    GetThread()(*string)
-    GetTime()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
-    SetAccessProfileUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
-    SetAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
-    SetAction(value *LogOperationAction)()
-    SetGroupOnSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
-    SetGroupUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
-    SetIdentitySourceUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
-    SetLevel(value *LogOperationLogLevel)()
-    SetMessage(value *string)()
-    SetServiceAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
-    SetSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)()
-    SetThread(value *string)()
-    SetTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
+	Linkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAccessProfileUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	GetAccountUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	GetAction() *LogOperationAction
+	GetGroupOnSystemUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	GetGroupUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	GetIdentitySourceUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	GetLevel() *LogOperationLogLevel
+	GetMessage() *string
+	GetServiceAccountUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	GetSystemUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
+	GetThread() *string
+	GetTime() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+	SetAccessProfileUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+	SetAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+	SetAction(value *LogOperationAction)
+	SetGroupOnSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+	SetGroupUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+	SetIdentitySourceUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+	SetLevel(value *LogOperationLogLevel)
+	SetMessage(value *string)
+	SetServiceAccountUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+	SetSystemUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
+	SetThread(value *string)
+	SetTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
 }

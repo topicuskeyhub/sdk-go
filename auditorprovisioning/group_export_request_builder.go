@@ -4,130 +4,137 @@
 package auditorprovisioning
 
 import (
-    "context"
-    i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
-    ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
+	"context"
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
+	ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
+	i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
 )
 
 // GroupExportRequestBuilder builds and executes requests for operations under \auditorprovisioning\group\export
 type GroupExportRequestBuilder struct {
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+
 // GroupExportRequestBuilderPostQueryParameters prepares an export of groups-on-system and groups using the filtering specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.
 type GroupExportRequestBuilderPostQueryParameters struct {
-    // Only return groups on system that have an access profile provisioning link with one of the given access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    AccessProfile []int64 "uriparametername:\"accessProfile\""
-    // Filter the groups on system on groups that perform technical administration for the systems they belong to, specified by id. This parameter supports composition with all parameters from the group resource.
-    AdminnedBy []int64 "uriparametername:\"adminnedBy\""
-    // Return all or no records. This can be useful when composing parameters.
-    Any []bool "uriparametername:\"any\""
-    // Filter the groups on system on groups that perform content administration for the systems they belong to, specified by id. This parameter supports composition with all parameters from the group resource.
-    ContentAdminnedBy []int64 "uriparametername:\"contentAdminnedBy\""
-    // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
-    // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
-    // Filter the results to exclude the given ids.
-    Exclude []int64 "uriparametername:\"exclude\""
-    // Only return groups on system that have a provisioning group with one of the given groups, specified by id. This parameter supports composition with all parameters from the groups resource.
-    Group []int64 "uriparametername:\"group\""
-    // Filter the results on the given ids.
-    Id []int64 "uriparametername:\"id\""
-    // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
-    // Search groups on (part of) the display name or the name in system.
-    NameContains []string "uriparametername:\"nameContains\""
-    // Filter groups on system whose name in system does not start with the given values.
-    NameDoesNotStartWith []string "uriparametername:\"nameDoesNotStartWith\""
-    // Filter groups on system on the exact name in system.
-    NameInSystem []string "uriparametername:\"nameInSystem\""
-    // Filter groups on system on the start of the name in system.
-    NameStartsWith []string "uriparametername:\"nameStartsWith\""
-    // Only return groups on system that do not have a provisioning group with one of the given groups, specified by id.
-    NotLinkedToGroup []int64 "uriparametername:\"notLinkedToGroup\""
-    // Only return groups on system that do are not linked to the given service account, specified by id.
-    NotLinkedToServiceAccount []int64 "uriparametername:\"notLinkedToServiceAccount\""
-    // Filter groups-on-system on organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
-    OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
-    // Filter groups-on-system on organizational units, specified by id.
-    OrganizationalUnitForEnforcement []int64 "uriparametername:\"organizationalUnitForEnforcement\""
-    // Filter the groups on system on groups that are owner for them, specified by id. This parameter supports composition with all parameters from the group resource.
-    OwnedBy []int64 "uriparametername:\"ownedBy\""
-    // Filter records on a complex CQL query.
-    Q []string "uriparametername:\"q\""
-    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string "uriparametername:\"sort\""
-    // Only return groups that are the on one of the given systems, specified by id. This parameter supports composition with all parameters from the systems resource.
-    System []int64 "uriparametername:\"system\""
-    // Constrain groups-on-system on the system the current user is content admin or owner of, specified by id.
-    SystemForEnforcement []int64 "uriparametername:\"systemForEnforcement\""
-    // Filter the groups on system on groups that own the systems they belong to, specified by id. This parameter supports composition with all parameters from the group resource.
-    SystemOwnedBy []int64 "uriparametername:\"systemOwnedBy\""
-    // Filter the groups on system on groups that are tier 2 owner for them, specified by id. A tier 2 owner is an owner of a group on system that is linked to a service account this group on system is also linked to.
-    Tier2OwnedBy []int64 "uriparametername:\"tier2OwnedBy\""
-    // Filter groups on system on the type.
-    // Deprecated: This property is deprecated, use TypeAsProvisioningGroupOnSystemType instead
-    Type []string "uriparametername:\"type\""
-    // Filter groups on system on the type.
-    TypeAsProvisioningGroupOnSystemType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningGroupOnSystemType "uriparametername:\"type\""
-    // Filter results on one or more UUIDs.
-    Uuid []string "uriparametername:\"uuid\""
+	// Only return groups on system that have an access profile provisioning link with one of the given access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
+	AccessProfile []int64 "uriparametername:\"accessProfile\""
+	// Filter the groups on system on groups that perform technical administration for the systems they belong to, specified by id. This parameter supports composition with all parameters from the group resource.
+	AdminnedBy []int64 "uriparametername:\"adminnedBy\""
+	// Return all or no records. This can be useful when composing parameters.
+	Any []bool "uriparametername:\"any\""
+	// Filter the groups on system on groups that perform content administration for the systems they belong to, specified by id. This parameter supports composition with all parameters from the group resource.
+	ContentAdminnedBy []int64 "uriparametername:\"contentAdminnedBy\""
+	// Only return records that have been created after the given instant.
+	CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
+	// Only return records that have been created before the given instant.
+	CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
+	// Filter the results to exclude the given ids.
+	Exclude []int64 "uriparametername:\"exclude\""
+	// Only return groups on system that have a provisioning group with one of the given groups, specified by id. This parameter supports composition with all parameters from the groups resource.
+	Group []int64 "uriparametername:\"group\""
+	// Filter the results on the given ids.
+	Id []int64 "uriparametername:\"id\""
+	// Only return records that have been modified since the given instant.
+	ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
+	// Search groups on (part of) the display name or the name in system.
+	NameContains []string "uriparametername:\"nameContains\""
+	// Filter groups on system whose displayed name does not start with any of the given values. See `nameStartsWith` for how the displayed name is determined.
+	NameDoesNotStartWith []string "uriparametername:\"nameDoesNotStartWith\""
+	// Filter groups on system on the exact name in system.
+	NameInSystem []string "uriparametername:\"nameInSystem\""
+	// Filter groups on system on the start of the displayed name. The displayed name is the display name when the target system provides one, and otherwise the name in system without the leading RDN of a distinguished name, such as `cn=`. Matching is case insensitive.
+	NameStartsWith []string "uriparametername:\"nameStartsWith\""
+	// Only return groups on system that do not have a provisioning group with one of the given groups, specified by id.
+	NotLinkedToGroup []int64 "uriparametername:\"notLinkedToGroup\""
+	// Only return groups on system that do are not linked to the given service account, specified by id.
+	NotLinkedToServiceAccount []int64 "uriparametername:\"notLinkedToServiceAccount\""
+	// Filter groups-on-system on organizational units, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
+	OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
+	// Filter groups-on-system on organizational units, specified by id.
+	OrganizationalUnitForEnforcement []int64 "uriparametername:\"organizationalUnitForEnforcement\""
+	// Filter the groups on system on groups that are owner for them, specified by id. This parameter supports composition with all parameters from the group resource.
+	OwnedBy []int64 "uriparametername:\"ownedBy\""
+	// Filter records on a complex CQL query.
+	Q []string "uriparametername:\"q\""
+	// Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+	Sort []string "uriparametername:\"sort\""
+	// Only return groups that are the on one of the given systems, specified by id. This parameter supports composition with all parameters from the systems resource.
+	System []int64 "uriparametername:\"system\""
+	// Constrain groups-on-system on the system the current user is content admin or owner of, specified by id.
+	SystemForEnforcement []int64 "uriparametername:\"systemForEnforcement\""
+	// Filter the groups on system on groups that own the systems they belong to, specified by id. This parameter supports composition with all parameters from the group resource.
+	SystemOwnedBy []int64 "uriparametername:\"systemOwnedBy\""
+	// Filter the groups on system on groups that are tier 2 owner for them, specified by id. A tier 2 owner is an owner of a group on system that is linked to a service account this group on system is also linked to.
+	Tier2OwnedBy []int64 "uriparametername:\"tier2OwnedBy\""
+	// Filter groups on system on the type.
+	// Deprecated: This property is deprecated, use TypeAsProvisioningGroupOnSystemType instead
+	Type []string "uriparametername:\"type\""
+	// Filter groups on system on the type.
+	TypeAsProvisioningGroupOnSystemType []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProvisioningGroupOnSystemType "uriparametername:\"type\""
+	// Filter results on one or more UUIDs.
+	Uuid []string "uriparametername:\"uuid\""
 }
+
 // GroupExportRequestBuilderPostRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type GroupExportRequestBuilderPostRequestConfiguration struct {
-    // Request headers
-    Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
-    // Request options
-    Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
-    // Request query parameters
-    QueryParameters *GroupExportRequestBuilderPostQueryParameters
+	// Request headers
+	Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
+	// Request options
+	Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+	// Request query parameters
+	QueryParameters *GroupExportRequestBuilderPostQueryParameters
 }
+
 // NewGroupExportRequestBuilderInternal instantiates a new GroupExportRequestBuilder and sets the default values.
-func NewGroupExportRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupExportRequestBuilder) {
-    m := &GroupExportRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/auditorprovisioning/group/export{?accessProfile*,adminnedBy*,any*,contentAdminnedBy*,createdAfter*,createdBefore*,exclude*,group*,id*,modifiedSince*,nameContains*,nameDoesNotStartWith*,nameInSystem*,nameStartsWith*,notLinkedToGroup*,notLinkedToServiceAccount*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,q*,sort*,system*,systemForEnforcement*,systemOwnedBy*,tier2OwnedBy*,type*,uuid*}", pathParameters),
-    }
-    return m
+func NewGroupExportRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *GroupExportRequestBuilder {
+	m := &GroupExportRequestBuilder{
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/auditorprovisioning/group/export{?accessProfile*,adminnedBy*,any*,contentAdminnedBy*,createdAfter*,createdBefore*,exclude*,group*,id*,modifiedSince*,nameContains*,nameDoesNotStartWith*,nameInSystem*,nameStartsWith*,notLinkedToGroup*,notLinkedToServiceAccount*,organizationalUnit*,organizationalUnitForEnforcement*,ownedBy*,q*,sort*,system*,systemForEnforcement*,systemOwnedBy*,tier2OwnedBy*,type*,uuid*}", pathParameters),
+	}
+	return m
 }
+
 // NewGroupExportRequestBuilder instantiates a new GroupExportRequestBuilder and sets the default values.
-func NewGroupExportRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*GroupExportRequestBuilder) {
-    urlParams := make(map[string]string)
-    urlParams["request-raw-url"] = rawUrl
-    return NewGroupExportRequestBuilderInternal(urlParams, requestAdapter)
+func NewGroupExportRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *GroupExportRequestBuilder {
+	urlParams := make(map[string]string)
+	urlParams["request-raw-url"] = rawUrl
+	return NewGroupExportRequestBuilderInternal(urlParams, requestAdapter)
 }
+
 // Post prepares an export of groups-on-system and groups using the filtering specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
-func (m *GroupExportRequestBuilder) Post(ctx context.Context, requestConfiguration *GroupExportRequestBuilderPostRequestConfiguration)(error) {
-    requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration);
-    if err != nil {
-        return err
-    }
-    errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-    }
-    err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
-    if err != nil {
-        return err
-    }
-    return nil
+func (m *GroupExportRequestBuilder) Post(ctx context.Context, requestConfiguration *GroupExportRequestBuilderPostRequestConfiguration) error {
+	requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration)
+	if err != nil {
+		return err
+	}
+	errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings{
+		"XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+	}
+	err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
+	if err != nil {
+		return err
+	}
+	return nil
 }
+
 // ToPostRequestInformation prepares an export of groups-on-system and groups using the filtering specified in the query parameters. The URI of the export can be found in the returned Location header. This URI is valid for 2 minutes after being generated.
 // returns a *RequestInformation when successful
-func (m *GroupExportRequestBuilder) ToPostRequestInformation(ctx context.Context, requestConfiguration *GroupExportRequestBuilderPostRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
-    if requestConfiguration != nil {
-        if requestConfiguration.QueryParameters != nil {
-            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
-        }
-        requestInfo.Headers.AddAll(requestConfiguration.Headers)
-        requestInfo.AddRequestOptions(requestConfiguration.Options)
-    }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
-    return requestInfo, nil
+func (m *GroupExportRequestBuilder) ToPostRequestInformation(ctx context.Context, requestConfiguration *GroupExportRequestBuilderPostRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+	requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+	if requestConfiguration != nil {
+		if requestConfiguration.QueryParameters != nil {
+			requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+		}
+		requestInfo.Headers.AddAll(requestConfiguration.Headers)
+		requestInfo.AddRequestOptions(requestConfiguration.Options)
+	}
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	return requestInfo, nil
 }
+
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
 // returns a *GroupExportRequestBuilder when successful
-func (m *GroupExportRequestBuilder) WithUrl(rawUrl string)(*GroupExportRequestBuilder) {
-    return NewGroupExportRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *GroupExportRequestBuilder) WithUrl(rawUrl string) *GroupExportRequestBuilder {
+	return NewGroupExportRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter)
 }

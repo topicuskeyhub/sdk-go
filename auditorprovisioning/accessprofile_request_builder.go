@@ -4,28 +4,31 @@
 package auditorprovisioning
 
 import (
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
 )
 
 // AccessprofileRequestBuilder builds and executes requests for operations under \auditorprovisioning\accessprofile
 type AccessprofileRequestBuilder struct {
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+
 // NewAccessprofileRequestBuilderInternal instantiates a new AccessprofileRequestBuilder and sets the default values.
-func NewAccessprofileRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccessprofileRequestBuilder) {
-    m := &AccessprofileRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/auditorprovisioning/accessprofile", pathParameters),
-    }
-    return m
+func NewAccessprofileRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *AccessprofileRequestBuilder {
+	m := &AccessprofileRequestBuilder{
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/auditorprovisioning/accessprofile", pathParameters),
+	}
+	return m
 }
+
 // NewAccessprofileRequestBuilder instantiates a new AccessprofileRequestBuilder and sets the default values.
-func NewAccessprofileRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*AccessprofileRequestBuilder) {
-    urlParams := make(map[string]string)
-    urlParams["request-raw-url"] = rawUrl
-    return NewAccessprofileRequestBuilderInternal(urlParams, requestAdapter)
+func NewAccessprofileRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *AccessprofileRequestBuilder {
+	urlParams := make(map[string]string)
+	urlParams["request-raw-url"] = rawUrl
+	return NewAccessprofileRequestBuilderInternal(urlParams, requestAdapter)
 }
+
 // Export the export property
 // returns a *AccessprofileExportRequestBuilder when successful
-func (m *AccessprofileRequestBuilder) Export()(*AccessprofileExportRequestBuilder) {
-    return NewAccessprofileExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+func (m *AccessprofileRequestBuilder) Export() *AccessprofileExportRequestBuilder {
+	return NewAccessprofileExportRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }

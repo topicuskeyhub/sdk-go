@@ -4,186 +4,201 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type IdentitysourceIdentitySourceAttributeMapping struct {
-    NonLinkable
-    // The attribute property
-    attribute IdentityAccountAttributeDefinitionable
-    // The fetchSeparately property
-    fetchSeparately *bool
-    // The index property
-    index *int32
-    // The multiValued property
-    multiValued *bool
-    // The selector property
-    selector *string
+	NonLinkable
+	// The attribute property
+	attribute IdentityAccountAttributeDefinitionable
+	// The fetchSeparately property
+	fetchSeparately *bool
+	// The index property
+	index *int32
+	// The multiValued property
+	multiValued *bool
+	// The selector property
+	selector *string
 }
+
 // NewIdentitysourceIdentitySourceAttributeMapping instantiates a new IdentitysourceIdentitySourceAttributeMapping and sets the default values.
-func NewIdentitysourceIdentitySourceAttributeMapping()(*IdentitysourceIdentitySourceAttributeMapping) {
-    m := &IdentitysourceIdentitySourceAttributeMapping{
-        NonLinkable: *NewNonLinkable(),
-    }
-    typeEscapedValue := "identitysource.IdentitySourceAttributeMapping"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewIdentitysourceIdentitySourceAttributeMapping() *IdentitysourceIdentitySourceAttributeMapping {
+	m := &IdentitysourceIdentitySourceAttributeMapping{
+		NonLinkable: *NewNonLinkable(),
+	}
+	typeEscapedValue := "identitysource.IdentitySourceAttributeMapping"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateIdentitysourceIdentitySourceAttributeMappingFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateIdentitysourceIdentitySourceAttributeMappingFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewIdentitysourceIdentitySourceAttributeMapping(), nil
+func CreateIdentitysourceIdentitySourceAttributeMappingFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewIdentitysourceIdentitySourceAttributeMapping(), nil
 }
+
 // GetAttribute gets the attribute property value. The attribute property
 // returns a IdentityAccountAttributeDefinitionable when successful
-func (m *IdentitysourceIdentitySourceAttributeMapping) GetAttribute()(IdentityAccountAttributeDefinitionable) {
-    return m.attribute
+func (m *IdentitysourceIdentitySourceAttributeMapping) GetAttribute() IdentityAccountAttributeDefinitionable {
+	return m.attribute
 }
+
 // GetFetchSeparately gets the fetchSeparately property value. The fetchSeparately property
 // returns a *bool when successful
-func (m *IdentitysourceIdentitySourceAttributeMapping) GetFetchSeparately()(*bool) {
-    return m.fetchSeparately
+func (m *IdentitysourceIdentitySourceAttributeMapping) GetFetchSeparately() *bool {
+	return m.fetchSeparately
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *IdentitysourceIdentitySourceAttributeMapping) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.NonLinkable.GetFieldDeserializers()
-    res["attribute"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAttribute(val.(IdentityAccountAttributeDefinitionable))
-        }
-        return nil
-    }
-    res["fetchSeparately"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetFetchSeparately(val)
-        }
-        return nil
-    }
-    res["index"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetIndex(val)
-        }
-        return nil
-    }
-    res["multiValued"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetMultiValued(val)
-        }
-        return nil
-    }
-    res["selector"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSelector(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *IdentitysourceIdentitySourceAttributeMapping) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.NonLinkable.GetFieldDeserializers()
+	res["attribute"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAttribute(val.(IdentityAccountAttributeDefinitionable))
+		}
+		return nil
+	}
+	res["fetchSeparately"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetFetchSeparately(val)
+		}
+		return nil
+	}
+	res["index"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetIndex(val)
+		}
+		return nil
+	}
+	res["multiValued"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetMultiValued(val)
+		}
+		return nil
+	}
+	res["selector"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSelector(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetIndex gets the index property value. The index property
 // returns a *int32 when successful
-func (m *IdentitysourceIdentitySourceAttributeMapping) GetIndex()(*int32) {
-    return m.index
+func (m *IdentitysourceIdentitySourceAttributeMapping) GetIndex() *int32 {
+	return m.index
 }
+
 // GetMultiValued gets the multiValued property value. The multiValued property
 // returns a *bool when successful
-func (m *IdentitysourceIdentitySourceAttributeMapping) GetMultiValued()(*bool) {
-    return m.multiValued
+func (m *IdentitysourceIdentitySourceAttributeMapping) GetMultiValued() *bool {
+	return m.multiValued
 }
+
 // GetSelector gets the selector property value. The selector property
 // returns a *string when successful
-func (m *IdentitysourceIdentitySourceAttributeMapping) GetSelector()(*string) {
-    return m.selector
+func (m *IdentitysourceIdentitySourceAttributeMapping) GetSelector() *string {
+	return m.selector
 }
+
 // Serialize serializes information the current object
-func (m *IdentitysourceIdentitySourceAttributeMapping) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.NonLinkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("attribute", m.GetAttribute())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("fetchSeparately", m.GetFetchSeparately())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("index", m.GetIndex())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("multiValued", m.GetMultiValued())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("selector", m.GetSelector())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *IdentitysourceIdentitySourceAttributeMapping) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.NonLinkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("attribute", m.GetAttribute())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("fetchSeparately", m.GetFetchSeparately())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteInt32Value("index", m.GetIndex())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("multiValued", m.GetMultiValued())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("selector", m.GetSelector())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAttribute sets the attribute property value. The attribute property
-func (m *IdentitysourceIdentitySourceAttributeMapping) SetAttribute(value IdentityAccountAttributeDefinitionable)() {
-    m.attribute = value
+func (m *IdentitysourceIdentitySourceAttributeMapping) SetAttribute(value IdentityAccountAttributeDefinitionable) {
+	m.attribute = value
 }
+
 // SetFetchSeparately sets the fetchSeparately property value. The fetchSeparately property
-func (m *IdentitysourceIdentitySourceAttributeMapping) SetFetchSeparately(value *bool)() {
-    m.fetchSeparately = value
+func (m *IdentitysourceIdentitySourceAttributeMapping) SetFetchSeparately(value *bool) {
+	m.fetchSeparately = value
 }
+
 // SetIndex sets the index property value. The index property
-func (m *IdentitysourceIdentitySourceAttributeMapping) SetIndex(value *int32)() {
-    m.index = value
+func (m *IdentitysourceIdentitySourceAttributeMapping) SetIndex(value *int32) {
+	m.index = value
 }
+
 // SetMultiValued sets the multiValued property value. The multiValued property
-func (m *IdentitysourceIdentitySourceAttributeMapping) SetMultiValued(value *bool)() {
-    m.multiValued = value
+func (m *IdentitysourceIdentitySourceAttributeMapping) SetMultiValued(value *bool) {
+	m.multiValued = value
 }
+
 // SetSelector sets the selector property value. The selector property
-func (m *IdentitysourceIdentitySourceAttributeMapping) SetSelector(value *string)() {
-    m.selector = value
+func (m *IdentitysourceIdentitySourceAttributeMapping) SetSelector(value *string) {
+	m.selector = value
 }
+
 type IdentitysourceIdentitySourceAttributeMappingable interface {
-    NonLinkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAttribute()(IdentityAccountAttributeDefinitionable)
-    GetFetchSeparately()(*bool)
-    GetIndex()(*int32)
-    GetMultiValued()(*bool)
-    GetSelector()(*string)
-    SetAttribute(value IdentityAccountAttributeDefinitionable)()
-    SetFetchSeparately(value *bool)()
-    SetIndex(value *int32)()
-    SetMultiValued(value *bool)()
-    SetSelector(value *string)()
+	NonLinkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAttribute() IdentityAccountAttributeDefinitionable
+	GetFetchSeparately() *bool
+	GetIndex() *int32
+	GetMultiValued() *bool
+	GetSelector() *string
+	SetAttribute(value IdentityAccountAttributeDefinitionable)
+	SetFetchSeparately(value *bool)
+	SetIndex(value *int32)
+	SetMultiValued(value *bool)
+	SetSelector(value *string)
 }

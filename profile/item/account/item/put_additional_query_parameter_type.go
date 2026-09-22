@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package item
+
 type PutAdditionalQueryParameterType int
 
 const (
-    ATTRIBUTESUMMARIES_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
-    AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
-    PREDICTION_PUTADDITIONALQUERYPARAMETERTYPE
+	ATTRIBUTESUMMARIES_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
+	AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+	PREDICTION_PUTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"attributeSummaries", "audit", "prediction"}[i]
+	return []string{"attributeSummaries", "audit", "prediction"}[i]
 }
+
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
-    result := ATTRIBUTESUMMARIES_PUTADDITIONALQUERYPARAMETERTYPE
-    switch v {
-        case "attributeSummaries":
-            result = ATTRIBUTESUMMARIES_PUTADDITIONALQUERYPARAMETERTYPE
-        case "audit":
-            result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
-        case "prediction":
-            result = PREDICTION_PUTADDITIONALQUERYPARAMETERTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ATTRIBUTESUMMARIES_PUTADDITIONALQUERYPARAMETERTYPE
+	switch v {
+	case "attributeSummaries":
+		result = ATTRIBUTESUMMARIES_PUTADDITIONALQUERYPARAMETERTYPE
+	case "audit":
+		result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+	case "prediction":
+		result = PREDICTION_PUTADDITIONALQUERYPARAMETERTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializePutAdditionalQueryParameterType(values []PutAdditionalQueryParameterType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i PutAdditionalQueryParameterType) isMultiValue() bool {
-    return false
+	return false
 }

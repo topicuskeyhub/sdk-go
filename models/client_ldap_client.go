@@ -4,192 +4,207 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ClientLdapClient struct {
-    ClientClientApplication
-    // The attributes property
-    attributes []MiscAttributeCustomizationable
-    // The bindDn property
-    bindDn *string
-    // The clientCertificate property
-    clientCertificate CertificateCertificatePrimerable
-    // The sharedSecret property
-    sharedSecret VaultVaultRecordPrimerable
-    // The shareSecretInVault property
-    shareSecretInVault *bool
+	ClientClientApplication
+	// The attributes property
+	attributes []MiscAttributeCustomizationable
+	// The bindDn property
+	bindDn *string
+	// The clientCertificate property
+	clientCertificate CertificateCertificatePrimerable
+	// The sharedSecret property
+	sharedSecret VaultVaultRecordPrimerable
+	// The shareSecretInVault property
+	shareSecretInVault *bool
 }
+
 // NewClientLdapClient instantiates a new ClientLdapClient and sets the default values.
-func NewClientLdapClient()(*ClientLdapClient) {
-    m := &ClientLdapClient{
-        ClientClientApplication: *NewClientClientApplication(),
-    }
-    typeEscapedValue := "client.LdapClient"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewClientLdapClient() *ClientLdapClient {
+	m := &ClientLdapClient{
+		ClientClientApplication: *NewClientClientApplication(),
+	}
+	typeEscapedValue := "client.LdapClient"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateClientLdapClientFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateClientLdapClientFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewClientLdapClient(), nil
+func CreateClientLdapClientFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewClientLdapClient(), nil
 }
+
 // GetAttributes gets the attributes property value. The attributes property
 // returns a []MiscAttributeCustomizationable when successful
-func (m *ClientLdapClient) GetAttributes()([]MiscAttributeCustomizationable) {
-    return m.attributes
+func (m *ClientLdapClient) GetAttributes() []MiscAttributeCustomizationable {
+	return m.attributes
 }
+
 // GetBindDn gets the bindDn property value. The bindDn property
 // returns a *string when successful
-func (m *ClientLdapClient) GetBindDn()(*string) {
-    return m.bindDn
+func (m *ClientLdapClient) GetBindDn() *string {
+	return m.bindDn
 }
+
 // GetClientCertificate gets the clientCertificate property value. The clientCertificate property
 // returns a CertificateCertificatePrimerable when successful
-func (m *ClientLdapClient) GetClientCertificate()(CertificateCertificatePrimerable) {
-    return m.clientCertificate
+func (m *ClientLdapClient) GetClientCertificate() CertificateCertificatePrimerable {
+	return m.clientCertificate
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ClientLdapClient) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.ClientClientApplication.GetFieldDeserializers()
-    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]MiscAttributeCustomizationable, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = v.(MiscAttributeCustomizationable)
-                }
-            }
-            m.SetAttributes(res)
-        }
-        return nil
-    }
-    res["bindDn"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetBindDn(val)
-        }
-        return nil
-    }
-    res["clientCertificate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateCertificateCertificatePrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetClientCertificate(val.(CertificateCertificatePrimerable))
-        }
-        return nil
-    }
-    res["sharedSecret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateVaultVaultRecordPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSharedSecret(val.(VaultVaultRecordPrimerable))
-        }
-        return nil
-    }
-    res["shareSecretInVault"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetShareSecretInVault(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ClientLdapClient) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.ClientClientApplication.GetFieldDeserializers()
+	res["attributes"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			res := make([]MiscAttributeCustomizationable, len(val))
+			for i, v := range val {
+				if v != nil {
+					res[i] = v.(MiscAttributeCustomizationable)
+				}
+			}
+			m.SetAttributes(res)
+		}
+		return nil
+	}
+	res["bindDn"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetBindDn(val)
+		}
+		return nil
+	}
+	res["clientCertificate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateCertificateCertificatePrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetClientCertificate(val.(CertificateCertificatePrimerable))
+		}
+		return nil
+	}
+	res["sharedSecret"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateVaultVaultRecordPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSharedSecret(val.(VaultVaultRecordPrimerable))
+		}
+		return nil
+	}
+	res["shareSecretInVault"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetShareSecretInVault(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetSharedSecret gets the sharedSecret property value. The sharedSecret property
 // returns a VaultVaultRecordPrimerable when successful
-func (m *ClientLdapClient) GetSharedSecret()(VaultVaultRecordPrimerable) {
-    return m.sharedSecret
+func (m *ClientLdapClient) GetSharedSecret() VaultVaultRecordPrimerable {
+	return m.sharedSecret
 }
+
 // GetShareSecretInVault gets the shareSecretInVault property value. The shareSecretInVault property
 // returns a *bool when successful
-func (m *ClientLdapClient) GetShareSecretInVault()(*bool) {
-    return m.shareSecretInVault
+func (m *ClientLdapClient) GetShareSecretInVault() *bool {
+	return m.shareSecretInVault
 }
+
 // Serialize serializes information the current object
-func (m *ClientLdapClient) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.ClientClientApplication.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    if m.GetAttributes() != nil {
-        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
-        for i, v := range m.GetAttributes() {
-            if v != nil {
-                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
-            }
-        }
-        err = writer.WriteCollectionOfObjectValues("attributes", cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("clientCertificate", m.GetClientCertificate())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("sharedSecret", m.GetSharedSecret())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("shareSecretInVault", m.GetShareSecretInVault())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ClientLdapClient) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.ClientClientApplication.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	if m.GetAttributes() != nil {
+		cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+		for i, v := range m.GetAttributes() {
+			if v != nil {
+				cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+			}
+		}
+		err = writer.WriteCollectionOfObjectValues("attributes", cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("clientCertificate", m.GetClientCertificate())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("sharedSecret", m.GetSharedSecret())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("shareSecretInVault", m.GetShareSecretInVault())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAttributes sets the attributes property value. The attributes property
-func (m *ClientLdapClient) SetAttributes(value []MiscAttributeCustomizationable)() {
-    m.attributes = value
+func (m *ClientLdapClient) SetAttributes(value []MiscAttributeCustomizationable) {
+	m.attributes = value
 }
+
 // SetBindDn sets the bindDn property value. The bindDn property
-func (m *ClientLdapClient) SetBindDn(value *string)() {
-    m.bindDn = value
+func (m *ClientLdapClient) SetBindDn(value *string) {
+	m.bindDn = value
 }
+
 // SetClientCertificate sets the clientCertificate property value. The clientCertificate property
-func (m *ClientLdapClient) SetClientCertificate(value CertificateCertificatePrimerable)() {
-    m.clientCertificate = value
+func (m *ClientLdapClient) SetClientCertificate(value CertificateCertificatePrimerable) {
+	m.clientCertificate = value
 }
+
 // SetSharedSecret sets the sharedSecret property value. The sharedSecret property
-func (m *ClientLdapClient) SetSharedSecret(value VaultVaultRecordPrimerable)() {
-    m.sharedSecret = value
+func (m *ClientLdapClient) SetSharedSecret(value VaultVaultRecordPrimerable) {
+	m.sharedSecret = value
 }
+
 // SetShareSecretInVault sets the shareSecretInVault property value. The shareSecretInVault property
-func (m *ClientLdapClient) SetShareSecretInVault(value *bool)() {
-    m.shareSecretInVault = value
+func (m *ClientLdapClient) SetShareSecretInVault(value *bool) {
+	m.shareSecretInVault = value
 }
+
 type ClientLdapClientable interface {
-    ClientClientApplicationable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAttributes()([]MiscAttributeCustomizationable)
-    GetBindDn()(*string)
-    GetClientCertificate()(CertificateCertificatePrimerable)
-    GetSharedSecret()(VaultVaultRecordPrimerable)
-    GetShareSecretInVault()(*bool)
-    SetAttributes(value []MiscAttributeCustomizationable)()
-    SetBindDn(value *string)()
-    SetClientCertificate(value CertificateCertificatePrimerable)()
-    SetSharedSecret(value VaultVaultRecordPrimerable)()
-    SetShareSecretInVault(value *bool)()
+	ClientClientApplicationable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAttributes() []MiscAttributeCustomizationable
+	GetBindDn() *string
+	GetClientCertificate() CertificateCertificatePrimerable
+	GetSharedSecret() VaultVaultRecordPrimerable
+	GetShareSecretInVault() *bool
+	SetAttributes(value []MiscAttributeCustomizationable)
+	SetBindDn(value *string)
+	SetClientCertificate(value CertificateCertificatePrimerable)
+	SetSharedSecret(value VaultVaultRecordPrimerable)
+	SetShareSecretInVault(value *bool)
 }

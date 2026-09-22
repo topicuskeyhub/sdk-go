@@ -2,56 +2,60 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type IdentityAccountAttributeFormat int
 
 const (
-    INTERNAL_IDENTITYACCOUNTATTRIBUTEFORMAT IdentityAccountAttributeFormat = iota
-    EMAIL_IDENTITYACCOUNTATTRIBUTEFORMAT
-    TELEPHONE_IDENTITYACCOUNTATTRIBUTEFORMAT
-    NUMBER_IDENTITYACCOUNTATTRIBUTEFORMAT
-    DATE_IDENTITYACCOUNTATTRIBUTEFORMAT
-    DATETIME_IDENTITYACCOUNTATTRIBUTEFORMAT
-    BOOLEAN_IDENTITYACCOUNTATTRIBUTEFORMAT
-    TEXT_IDENTITYACCOUNTATTRIBUTEFORMAT
-    COMPLEX_IDENTITYACCOUNTATTRIBUTEFORMAT
+	INTERNAL_IDENTITYACCOUNTATTRIBUTEFORMAT IdentityAccountAttributeFormat = iota
+	EMAIL_IDENTITYACCOUNTATTRIBUTEFORMAT
+	TELEPHONE_IDENTITYACCOUNTATTRIBUTEFORMAT
+	NUMBER_IDENTITYACCOUNTATTRIBUTEFORMAT
+	DATE_IDENTITYACCOUNTATTRIBUTEFORMAT
+	DATETIME_IDENTITYACCOUNTATTRIBUTEFORMAT
+	BOOLEAN_IDENTITYACCOUNTATTRIBUTEFORMAT
+	TEXT_IDENTITYACCOUNTATTRIBUTEFORMAT
+	COMPLEX_IDENTITYACCOUNTATTRIBUTEFORMAT
 )
 
 func (i IdentityAccountAttributeFormat) String() string {
-    return []string{"INTERNAL", "EMAIL", "TELEPHONE", "NUMBER", "DATE", "DATETIME", "BOOLEAN", "TEXT", "COMPLEX"}[i]
+	return []string{"INTERNAL", "EMAIL", "TELEPHONE", "NUMBER", "DATE", "DATETIME", "BOOLEAN", "TEXT", "COMPLEX"}[i]
 }
+
 func ParseIdentityAccountAttributeFormat(v string) (any, error) {
-    result := INTERNAL_IDENTITYACCOUNTATTRIBUTEFORMAT
-    switch v {
-        case "INTERNAL":
-            result = INTERNAL_IDENTITYACCOUNTATTRIBUTEFORMAT
-        case "EMAIL":
-            result = EMAIL_IDENTITYACCOUNTATTRIBUTEFORMAT
-        case "TELEPHONE":
-            result = TELEPHONE_IDENTITYACCOUNTATTRIBUTEFORMAT
-        case "NUMBER":
-            result = NUMBER_IDENTITYACCOUNTATTRIBUTEFORMAT
-        case "DATE":
-            result = DATE_IDENTITYACCOUNTATTRIBUTEFORMAT
-        case "DATETIME":
-            result = DATETIME_IDENTITYACCOUNTATTRIBUTEFORMAT
-        case "BOOLEAN":
-            result = BOOLEAN_IDENTITYACCOUNTATTRIBUTEFORMAT
-        case "TEXT":
-            result = TEXT_IDENTITYACCOUNTATTRIBUTEFORMAT
-        case "COMPLEX":
-            result = COMPLEX_IDENTITYACCOUNTATTRIBUTEFORMAT
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := INTERNAL_IDENTITYACCOUNTATTRIBUTEFORMAT
+	switch v {
+	case "INTERNAL":
+		result = INTERNAL_IDENTITYACCOUNTATTRIBUTEFORMAT
+	case "EMAIL":
+		result = EMAIL_IDENTITYACCOUNTATTRIBUTEFORMAT
+	case "TELEPHONE":
+		result = TELEPHONE_IDENTITYACCOUNTATTRIBUTEFORMAT
+	case "NUMBER":
+		result = NUMBER_IDENTITYACCOUNTATTRIBUTEFORMAT
+	case "DATE":
+		result = DATE_IDENTITYACCOUNTATTRIBUTEFORMAT
+	case "DATETIME":
+		result = DATETIME_IDENTITYACCOUNTATTRIBUTEFORMAT
+	case "BOOLEAN":
+		result = BOOLEAN_IDENTITYACCOUNTATTRIBUTEFORMAT
+	case "TEXT":
+		result = TEXT_IDENTITYACCOUNTATTRIBUTEFORMAT
+	case "COMPLEX":
+		result = COMPLEX_IDENTITYACCOUNTATTRIBUTEFORMAT
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeIdentityAccountAttributeFormat(values []IdentityAccountAttributeFormat) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i IdentityAccountAttributeFormat) isMultiValue() bool {
-    return false
+	return false
 }

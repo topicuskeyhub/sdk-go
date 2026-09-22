@@ -4,70 +4,77 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type RequestAcceptUpdateGroupMembershipRequestParameters struct {
-    RequestAcceptModificationRequestParameters
-    // The endDate property
-    endDate *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
+	RequestAcceptModificationRequestParameters
+	// The endDate property
+	endDate *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
 }
+
 // NewRequestAcceptUpdateGroupMembershipRequestParameters instantiates a new RequestAcceptUpdateGroupMembershipRequestParameters and sets the default values.
-func NewRequestAcceptUpdateGroupMembershipRequestParameters()(*RequestAcceptUpdateGroupMembershipRequestParameters) {
-    m := &RequestAcceptUpdateGroupMembershipRequestParameters{
-        RequestAcceptModificationRequestParameters: *NewRequestAcceptModificationRequestParameters(),
-    }
-    typeEscapedValue := "request.AcceptUpdateGroupMembershipRequestParameters"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewRequestAcceptUpdateGroupMembershipRequestParameters() *RequestAcceptUpdateGroupMembershipRequestParameters {
+	m := &RequestAcceptUpdateGroupMembershipRequestParameters{
+		RequestAcceptModificationRequestParameters: *NewRequestAcceptModificationRequestParameters(),
+	}
+	typeEscapedValue := "request.AcceptUpdateGroupMembershipRequestParameters"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateRequestAcceptUpdateGroupMembershipRequestParametersFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateRequestAcceptUpdateGroupMembershipRequestParametersFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewRequestAcceptUpdateGroupMembershipRequestParameters(), nil
+func CreateRequestAcceptUpdateGroupMembershipRequestParametersFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewRequestAcceptUpdateGroupMembershipRequestParameters(), nil
 }
+
 // GetEndDate gets the endDate property value. The endDate property
 // returns a *DateOnly when successful
-func (m *RequestAcceptUpdateGroupMembershipRequestParameters) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
-    return m.endDate
+func (m *RequestAcceptUpdateGroupMembershipRequestParameters) GetEndDate() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly {
+	return m.endDate
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *RequestAcceptUpdateGroupMembershipRequestParameters) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.RequestAcceptModificationRequestParameters.GetFieldDeserializers()
-    res["endDate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetDateOnlyValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetEndDate(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *RequestAcceptUpdateGroupMembershipRequestParameters) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.RequestAcceptModificationRequestParameters.GetFieldDeserializers()
+	res["endDate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetDateOnlyValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetEndDate(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // Serialize serializes information the current object
-func (m *RequestAcceptUpdateGroupMembershipRequestParameters) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.RequestAcceptModificationRequestParameters.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteDateOnlyValue("endDate", m.GetEndDate())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *RequestAcceptUpdateGroupMembershipRequestParameters) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.RequestAcceptModificationRequestParameters.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteDateOnlyValue("endDate", m.GetEndDate())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetEndDate sets the endDate property value. The endDate property
-func (m *RequestAcceptUpdateGroupMembershipRequestParameters) SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)() {
-    m.endDate = value
+func (m *RequestAcceptUpdateGroupMembershipRequestParameters) SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
+	m.endDate = value
 }
+
 type RequestAcceptUpdateGroupMembershipRequestParametersable interface {
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    RequestAcceptModificationRequestParametersable
-    GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
-    SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)()
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	RequestAcceptModificationRequestParametersable
+	GetEndDate() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
+	SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
 }

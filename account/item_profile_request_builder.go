@@ -4,131 +4,140 @@
 package account
 
 import (
-    "context"
-    i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
-    i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274 "strconv"
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
-    ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
-    if9f145c20d09be4c148da25f41e203bf245dcf434277bbc53186958b5c6ce450 "github.com/topicuskeyhub/sdk-go/account/item/profile"
+	"context"
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
+	if9f145c20d09be4c148da25f41e203bf245dcf434277bbc53186958b5c6ce450 "github.com/topicuskeyhub/sdk-go/account/item/profile"
+	ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
+	i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274 "strconv"
+	i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
 )
 
 // ItemProfileRequestBuilder builds and executes requests for operations under \account\{accountid}\profile
 type ItemProfileRequestBuilder struct {
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+
 // ItemProfileRequestBuilderGetQueryParameters queries over all access profile the account is member of. The various query parameters can be used to filter the response.
 type ItemProfileRequestBuilderGetQueryParameters struct {
-    // Filter access profile memberships on the given access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    AccessProfile []int64 "uriparametername:\"accessProfile\""
-    // Filter access profile memberships on the given accounts, specified by id. This parameter supports composition with all parameters from the account resource.
-    Account []int64 "uriparametername:\"account\""
-    // Request additional information to be returned for every record.
-    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string "uriparametername:\"additional\""
-    // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []if9f145c20d09be4c148da25f41e203bf245dcf434277bbc53186958b5c6ce450.GetAdditionalQueryParameterType "uriparametername:\"additional\""
-    // Return all or no records. This can be useful when composing parameters.
-    Any []bool "uriparametername:\"any\""
-    // Only return records that have been created after the given instant.
-    CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
-    // Only return records that have been created before the given instant.
-    CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
-    // Filter the results to exclude the given ids.
-    Exclude []int64 "uriparametername:\"exclude\""
-    // Filter the results on the given ids.
-    Id []int64 "uriparametername:\"id\""
-    // Only return records that have been modified since the given instant.
-    ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
-    // Filter access profile memberships on the given organizational units, specified by id. This parameter supports composition with all parameters from the access profile resource.
-    OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
-    // Filter access profile memberships for which the given group is owner, specified by id. This parameter supports composition with all parameters from the group resource.
-    OwnedBy []int64 "uriparametername:\"ownedBy\""
-    // Filter records on a complex CQL query.
-    Q []string "uriparametername:\"q\""
-    // Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
-    Sort []string "uriparametername:\"sort\""
+	// Filter access profile memberships on the given access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
+	AccessProfile []int64 "uriparametername:\"accessProfile\""
+	// Filter access profile memberships on the given accounts, specified by id. This parameter supports composition with all parameters from the account resource.
+	Account []int64 "uriparametername:\"account\""
+	// Request additional information to be returned for every record.
+	// Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
+	Additional []string "uriparametername:\"additional\""
+	// Request additional information to be returned for every record.
+	AdditionalAsGetAdditionalQueryParameterType []if9f145c20d09be4c148da25f41e203bf245dcf434277bbc53186958b5c6ce450.GetAdditionalQueryParameterType "uriparametername:\"additional\""
+	// Return all or no records. This can be useful when composing parameters.
+	Any []bool "uriparametername:\"any\""
+	// Only return records that have been created after the given instant.
+	CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
+	// Only return records that have been created before the given instant.
+	CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
+	// Filter the results to exclude the given ids.
+	Exclude []int64 "uriparametername:\"exclude\""
+	// Filter the results on the given ids.
+	Id []int64 "uriparametername:\"id\""
+	// Only return records that have been modified since the given instant.
+	ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
+	// Filter access profile memberships on the given organizational units, specified by id. This parameter supports composition with all parameters from the access profile resource.
+	OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
+	// Filter access profile memberships for which the given group is owner, specified by id. This parameter supports composition with all parameters from the group resource.
+	OwnedBy []int64 "uriparametername:\"ownedBy\""
+	// Filter records on a complex CQL query.
+	Q []string "uriparametername:\"q\""
+	// Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
+	Sort []string "uriparametername:\"sort\""
 }
+
 // ItemProfileRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemProfileRequestBuilderGetRequestConfiguration struct {
-    // Request headers
-    Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
-    // Request options
-    Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
-    // Request query parameters
-    QueryParameters *ItemProfileRequestBuilderGetQueryParameters
+	// Request headers
+	Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
+	// Request options
+	Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+	// Request query parameters
+	QueryParameters *ItemProfileRequestBuilderGetQueryParameters
 }
+
 // ByProfileid gets an item from the github.com/topicuskeyhub/sdk-go.account.item.profile.item collection
 // Deprecated: This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.
 // returns a *ItemProfileWithProfileItemRequestBuilder when successful
-func (m *ItemProfileRequestBuilder) ByProfileid(profileid string)(*ItemProfileWithProfileItemRequestBuilder) {
-    urlTplParams := make(map[string]string)
-    for idx, item := range m.BaseRequestBuilder.PathParameters {
-        urlTplParams[idx] = item
-    }
-    if profileid != "" {
-        urlTplParams["profileid"] = profileid
-    }
-    return NewItemProfileWithProfileItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+func (m *ItemProfileRequestBuilder) ByProfileid(profileid string) *ItemProfileWithProfileItemRequestBuilder {
+	urlTplParams := make(map[string]string)
+	for idx, item := range m.BaseRequestBuilder.PathParameters {
+		urlTplParams[idx] = item
+	}
+	if profileid != "" {
+		urlTplParams["profileid"] = profileid
+	}
+	return NewItemProfileWithProfileItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
+
 // ByProfileidInt64 gets an item from the github.com/topicuskeyhub/sdk-go.account.item.profile.item collection
 // returns a *ItemProfileWithProfileItemRequestBuilder when successful
-func (m *ItemProfileRequestBuilder) ByProfileidInt64(profileid int64)(*ItemProfileWithProfileItemRequestBuilder) {
-    urlTplParams := make(map[string]string)
-    for idx, item := range m.BaseRequestBuilder.PathParameters {
-        urlTplParams[idx] = item
-    }
-    urlTplParams["profileid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(profileid, 10)
-    return NewItemProfileWithProfileItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+func (m *ItemProfileRequestBuilder) ByProfileidInt64(profileid int64) *ItemProfileWithProfileItemRequestBuilder {
+	urlTplParams := make(map[string]string)
+	for idx, item := range m.BaseRequestBuilder.PathParameters {
+		urlTplParams[idx] = item
+	}
+	urlTplParams["profileid"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(profileid, 10)
+	return NewItemProfileWithProfileItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
 }
+
 // NewItemProfileRequestBuilderInternal instantiates a new ItemProfileRequestBuilder and sets the default values.
-func NewItemProfileRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemProfileRequestBuilder) {
-    m := &ItemProfileRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/profile{?accessProfile*,account*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,organizationalUnit*,ownedBy*,q*,sort*}", pathParameters),
-    }
-    return m
+func NewItemProfileRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemProfileRequestBuilder {
+	m := &ItemProfileRequestBuilder{
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/profile{?accessProfile*,account*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,organizationalUnit*,ownedBy*,q*,sort*}", pathParameters),
+	}
+	return m
 }
+
 // NewItemProfileRequestBuilder instantiates a new ItemProfileRequestBuilder and sets the default values.
-func NewItemProfileRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemProfileRequestBuilder) {
-    urlParams := make(map[string]string)
-    urlParams["request-raw-url"] = rawUrl
-    return NewItemProfileRequestBuilderInternal(urlParams, requestAdapter)
+func NewItemProfileRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemProfileRequestBuilder {
+	urlParams := make(map[string]string)
+	urlParams["request-raw-url"] = rawUrl
+	return NewItemProfileRequestBuilderInternal(urlParams, requestAdapter)
 }
+
 // Get queries over all access profile the account is member of. The various query parameters can be used to filter the response.
 // returns a ProfileAccountAccessProfileLinkableWrapperable when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
-func (m *ItemProfileRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemProfileRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccountAccessProfileLinkableWrapperable, error) {
-    requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
-    if err != nil {
-        return nil, err
-    }
-    errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-    }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProfileAccountAccessProfileLinkableWrapperFromDiscriminatorValue, errorMapping)
-    if err != nil {
-        return nil, err
-    }
-    if res == nil {
-        return nil, nil
-    }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccountAccessProfileLinkableWrapperable), nil
+func (m *ItemProfileRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemProfileRequestBuilderGetRequestConfiguration) (ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccountAccessProfileLinkableWrapperable, error) {
+	requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration)
+	if err != nil {
+		return nil, err
+	}
+	errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings{
+		"XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+	}
+	res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProfileAccountAccessProfileLinkableWrapperFromDiscriminatorValue, errorMapping)
+	if err != nil {
+		return nil, err
+	}
+	if res == nil {
+		return nil, nil
+	}
+	return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccountAccessProfileLinkableWrapperable), nil
 }
+
 // ToGetRequestInformation queries over all access profile the account is member of. The various query parameters can be used to filter the response.
 // returns a *RequestInformation when successful
-func (m *ItemProfileRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemProfileRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
-    if requestConfiguration != nil {
-        if requestConfiguration.QueryParameters != nil {
-            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
-        }
-        requestInfo.Headers.AddAll(requestConfiguration.Headers)
-        requestInfo.AddRequestOptions(requestConfiguration.Options)
-    }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
-    return requestInfo, nil
+func (m *ItemProfileRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemProfileRequestBuilderGetRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+	requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+	if requestConfiguration != nil {
+		if requestConfiguration.QueryParameters != nil {
+			requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+		}
+		requestInfo.Headers.AddAll(requestConfiguration.Headers)
+		requestInfo.AddRequestOptions(requestConfiguration.Options)
+	}
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	return requestInfo, nil
 }
+
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
 // returns a *ItemProfileRequestBuilder when successful
-func (m *ItemProfileRequestBuilder) WithUrl(rawUrl string)(*ItemProfileRequestBuilder) {
-    return NewItemProfileRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemProfileRequestBuilder) WithUrl(rawUrl string) *ItemProfileRequestBuilder {
+	return NewItemProfileRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter)
 }

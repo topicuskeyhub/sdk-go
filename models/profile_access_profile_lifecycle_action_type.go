@@ -2,32 +2,36 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ProfileAccessProfileLifecycleActionType int
 
 const (
-    MAIL_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE ProfileAccessProfileLifecycleActionType = iota
+	MAIL_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE ProfileAccessProfileLifecycleActionType = iota
 )
 
 func (i ProfileAccessProfileLifecycleActionType) String() string {
-    return []string{"MAIL"}[i]
+	return []string{"MAIL"}[i]
 }
+
 func ParseProfileAccessProfileLifecycleActionType(v string) (any, error) {
-    result := MAIL_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE
-    switch v {
-        case "MAIL":
-            result = MAIL_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := MAIL_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE
+	switch v {
+	case "MAIL":
+		result = MAIL_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeProfileAccessProfileLifecycleActionType(values []ProfileAccessProfileLifecycleActionType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ProfileAccessProfileLifecycleActionType) isMultiValue() bool {
-    return false
+	return false
 }

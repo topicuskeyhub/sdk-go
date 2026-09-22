@@ -4,578 +4,712 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ProvisioningProvisionedSCIM struct {
-    ProvisioningProvisionedSystem
-    // The attributes property
-    attributes []MiscAttributeCustomizationable
-    // The authenticationScheme property
-    authenticationScheme *HttpAuthenticationScheme
-    // The basicAuthPassword property
-    basicAuthPassword *string
-    // The basicAuthUsername property
-    basicAuthUsername *string
-    // The bearerToken property
-    bearerToken *string
-    // The connectorConfiguration property
-    connectorConfiguration *string
-    // The cursorBasedPagination property
-    cursorBasedPagination *bool
-    // The customHeaderName property
-    customHeaderName *string
-    // The customHeaderValue property
-    customHeaderValue *string
-    // The externalIdSupported property
-    externalIdSupported *bool
-    // The filterActiveUsersSupported property
-    filterActiveUsersSupported *bool
-    // The groupsSupported property
-    groupsSupported *bool
-    // The pageSize property
-    pageSize *int32
-    // The passwordSupported property
-    passwordSupported *bool
-    // The updateStrategy property
-    updateStrategy *ProvisioningSCIMUpdateStrategy
-    // The url property
-    url *string
-    // The useScimJsonMimetype property
-    useScimJsonMimetype *bool
-    // The vendor property
-    vendorEscaped *ProvisioningProvisionedSCIMVendor
+	ProvisioningProvisionedSystem
+	// The attributes property
+	attributes []MiscAttributeCustomizationable
+	// The authenticationScheme property
+	authenticationScheme *HttpAuthenticationScheme
+	// The basicAuthPassword property
+	basicAuthPassword *string
+	// The basicAuthUsername property
+	basicAuthUsername *string
+	// The bearerToken property
+	bearerToken *string
+	// The connectorConfiguration property
+	connectorConfiguration *string
+	// The cursorBasedPagination property
+	cursorBasedPagination *bool
+	// The customHeaderName property
+	customHeaderName *string
+	// The customHeaderValue property
+	customHeaderValue *string
+	// The externalIdSupported property
+	externalIdSupported *bool
+	// The filterActiveUsersSupported property
+	filterActiveUsersSupported *bool
+	// The filterGroupMembersSupported property
+	filterGroupMembersSupported *bool
+	// The groupMembersInListResponse property
+	groupMembersInListResponse *bool
+	// The groupsSupported property
+	groupsSupported *bool
+	// The lowerCaseFilterComparators property
+	lowerCaseFilterComparators *bool
+	// The pageSize property
+	pageSize *int32
+	// The passwordSupported property
+	passwordSupported *bool
+	// The updateStrategy property
+	updateStrategy *ProvisioningSCIMUpdateStrategy
+	// The url property
+	url *string
+	// The useScimJsonMimetype property
+	useScimJsonMimetype *bool
+	// The vendor property
+	vendorEscaped *ProvisioningProvisionedSCIMVendor
 }
+
 // NewProvisioningProvisionedSCIM instantiates a new ProvisioningProvisionedSCIM and sets the default values.
-func NewProvisioningProvisionedSCIM()(*ProvisioningProvisionedSCIM) {
-    m := &ProvisioningProvisionedSCIM{
-        ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
-    }
-    typeEscapedValue := "provisioning.ProvisionedSCIM"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewProvisioningProvisionedSCIM() *ProvisioningProvisionedSCIM {
+	m := &ProvisioningProvisionedSCIM{
+		ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
+	}
+	typeEscapedValue := "provisioning.ProvisionedSCIM"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateProvisioningProvisionedSCIMFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProvisioningProvisionedSCIMFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewProvisioningProvisionedSCIM(), nil
+func CreateProvisioningProvisionedSCIMFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewProvisioningProvisionedSCIM(), nil
 }
+
 // GetAttributes gets the attributes property value. The attributes property
 // returns a []MiscAttributeCustomizationable when successful
-func (m *ProvisioningProvisionedSCIM) GetAttributes()([]MiscAttributeCustomizationable) {
-    return m.attributes
+func (m *ProvisioningProvisionedSCIM) GetAttributes() []MiscAttributeCustomizationable {
+	return m.attributes
 }
+
 // GetAuthenticationScheme gets the authenticationScheme property value. The authenticationScheme property
 // returns a *HttpAuthenticationScheme when successful
-func (m *ProvisioningProvisionedSCIM) GetAuthenticationScheme()(*HttpAuthenticationScheme) {
-    return m.authenticationScheme
+func (m *ProvisioningProvisionedSCIM) GetAuthenticationScheme() *HttpAuthenticationScheme {
+	return m.authenticationScheme
 }
+
 // GetBasicAuthPassword gets the basicAuthPassword property value. The basicAuthPassword property
 // returns a *string when successful
-func (m *ProvisioningProvisionedSCIM) GetBasicAuthPassword()(*string) {
-    return m.basicAuthPassword
+func (m *ProvisioningProvisionedSCIM) GetBasicAuthPassword() *string {
+	return m.basicAuthPassword
 }
+
 // GetBasicAuthUsername gets the basicAuthUsername property value. The basicAuthUsername property
 // returns a *string when successful
-func (m *ProvisioningProvisionedSCIM) GetBasicAuthUsername()(*string) {
-    return m.basicAuthUsername
+func (m *ProvisioningProvisionedSCIM) GetBasicAuthUsername() *string {
+	return m.basicAuthUsername
 }
+
 // GetBearerToken gets the bearerToken property value. The bearerToken property
 // returns a *string when successful
-func (m *ProvisioningProvisionedSCIM) GetBearerToken()(*string) {
-    return m.bearerToken
+func (m *ProvisioningProvisionedSCIM) GetBearerToken() *string {
+	return m.bearerToken
 }
+
 // GetConnectorConfiguration gets the connectorConfiguration property value. The connectorConfiguration property
 // returns a *string when successful
-func (m *ProvisioningProvisionedSCIM) GetConnectorConfiguration()(*string) {
-    return m.connectorConfiguration
+func (m *ProvisioningProvisionedSCIM) GetConnectorConfiguration() *string {
+	return m.connectorConfiguration
 }
+
 // GetCursorBasedPagination gets the cursorBasedPagination property value. The cursorBasedPagination property
 // returns a *bool when successful
-func (m *ProvisioningProvisionedSCIM) GetCursorBasedPagination()(*bool) {
-    return m.cursorBasedPagination
+func (m *ProvisioningProvisionedSCIM) GetCursorBasedPagination() *bool {
+	return m.cursorBasedPagination
 }
+
 // GetCustomHeaderName gets the customHeaderName property value. The customHeaderName property
 // returns a *string when successful
-func (m *ProvisioningProvisionedSCIM) GetCustomHeaderName()(*string) {
-    return m.customHeaderName
+func (m *ProvisioningProvisionedSCIM) GetCustomHeaderName() *string {
+	return m.customHeaderName
 }
+
 // GetCustomHeaderValue gets the customHeaderValue property value. The customHeaderValue property
 // returns a *string when successful
-func (m *ProvisioningProvisionedSCIM) GetCustomHeaderValue()(*string) {
-    return m.customHeaderValue
+func (m *ProvisioningProvisionedSCIM) GetCustomHeaderValue() *string {
+	return m.customHeaderValue
 }
+
 // GetExternalIdSupported gets the externalIdSupported property value. The externalIdSupported property
 // returns a *bool when successful
-func (m *ProvisioningProvisionedSCIM) GetExternalIdSupported()(*bool) {
-    return m.externalIdSupported
+func (m *ProvisioningProvisionedSCIM) GetExternalIdSupported() *bool {
+	return m.externalIdSupported
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
-    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]MiscAttributeCustomizationable, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = v.(MiscAttributeCustomizationable)
-                }
-            }
-            m.SetAttributes(res)
-        }
-        return nil
-    }
-    res["authenticationScheme"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseHttpAuthenticationScheme)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAuthenticationScheme(val.(*HttpAuthenticationScheme))
-        }
-        return nil
-    }
-    res["basicAuthPassword"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetBasicAuthPassword(val)
-        }
-        return nil
-    }
-    res["basicAuthUsername"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetBasicAuthUsername(val)
-        }
-        return nil
-    }
-    res["bearerToken"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetBearerToken(val)
-        }
-        return nil
-    }
-    res["connectorConfiguration"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetConnectorConfiguration(val)
-        }
-        return nil
-    }
-    res["cursorBasedPagination"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetCursorBasedPagination(val)
-        }
-        return nil
-    }
-    res["customHeaderName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetCustomHeaderName(val)
-        }
-        return nil
-    }
-    res["customHeaderValue"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetCustomHeaderValue(val)
-        }
-        return nil
-    }
-    res["externalIdSupported"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetExternalIdSupported(val)
-        }
-        return nil
-    }
-    res["filterActiveUsersSupported"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetFilterActiveUsersSupported(val)
-        }
-        return nil
-    }
-    res["groupsSupported"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroupsSupported(val)
-        }
-        return nil
-    }
-    res["pageSize"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetPageSize(val)
-        }
-        return nil
-    }
-    res["passwordSupported"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetPasswordSupported(val)
-        }
-        return nil
-    }
-    res["updateStrategy"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProvisioningSCIMUpdateStrategy)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUpdateStrategy(val.(*ProvisioningSCIMUpdateStrategy))
-        }
-        return nil
-    }
-    res["url"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUrl(val)
-        }
-        return nil
-    }
-    res["useScimJsonMimetype"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUseScimJsonMimetype(val)
-        }
-        return nil
-    }
-    res["vendor"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProvisioningProvisionedSCIMVendor)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetVendorEscaped(val.(*ProvisioningProvisionedSCIMVendor))
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
+	res["attributes"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			res := make([]MiscAttributeCustomizationable, len(val))
+			for i, v := range val {
+				if v != nil {
+					res[i] = v.(MiscAttributeCustomizationable)
+				}
+			}
+			m.SetAttributes(res)
+		}
+		return nil
+	}
+	res["authenticationScheme"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseHttpAuthenticationScheme)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAuthenticationScheme(val.(*HttpAuthenticationScheme))
+		}
+		return nil
+	}
+	res["basicAuthPassword"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetBasicAuthPassword(val)
+		}
+		return nil
+	}
+	res["basicAuthUsername"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetBasicAuthUsername(val)
+		}
+		return nil
+	}
+	res["bearerToken"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetBearerToken(val)
+		}
+		return nil
+	}
+	res["connectorConfiguration"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetConnectorConfiguration(val)
+		}
+		return nil
+	}
+	res["cursorBasedPagination"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetCursorBasedPagination(val)
+		}
+		return nil
+	}
+	res["customHeaderName"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetCustomHeaderName(val)
+		}
+		return nil
+	}
+	res["customHeaderValue"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetCustomHeaderValue(val)
+		}
+		return nil
+	}
+	res["externalIdSupported"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetExternalIdSupported(val)
+		}
+		return nil
+	}
+	res["filterActiveUsersSupported"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetFilterActiveUsersSupported(val)
+		}
+		return nil
+	}
+	res["filterGroupMembersSupported"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetFilterGroupMembersSupported(val)
+		}
+		return nil
+	}
+	res["groupMembersInListResponse"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroupMembersInListResponse(val)
+		}
+		return nil
+	}
+	res["groupsSupported"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroupsSupported(val)
+		}
+		return nil
+	}
+	res["lowerCaseFilterComparators"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetLowerCaseFilterComparators(val)
+		}
+		return nil
+	}
+	res["pageSize"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetPageSize(val)
+		}
+		return nil
+	}
+	res["passwordSupported"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetPasswordSupported(val)
+		}
+		return nil
+	}
+	res["updateStrategy"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProvisioningSCIMUpdateStrategy)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUpdateStrategy(val.(*ProvisioningSCIMUpdateStrategy))
+		}
+		return nil
+	}
+	res["url"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUrl(val)
+		}
+		return nil
+	}
+	res["useScimJsonMimetype"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUseScimJsonMimetype(val)
+		}
+		return nil
+	}
+	res["vendor"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProvisioningProvisionedSCIMVendor)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetVendorEscaped(val.(*ProvisioningProvisionedSCIMVendor))
+		}
+		return nil
+	}
+	return res
 }
+
 // GetFilterActiveUsersSupported gets the filterActiveUsersSupported property value. The filterActiveUsersSupported property
 // returns a *bool when successful
-func (m *ProvisioningProvisionedSCIM) GetFilterActiveUsersSupported()(*bool) {
-    return m.filterActiveUsersSupported
+func (m *ProvisioningProvisionedSCIM) GetFilterActiveUsersSupported() *bool {
+	return m.filterActiveUsersSupported
 }
+
+// GetFilterGroupMembersSupported gets the filterGroupMembersSupported property value. The filterGroupMembersSupported property
+// returns a *bool when successful
+func (m *ProvisioningProvisionedSCIM) GetFilterGroupMembersSupported() *bool {
+	return m.filterGroupMembersSupported
+}
+
+// GetGroupMembersInListResponse gets the groupMembersInListResponse property value. The groupMembersInListResponse property
+// returns a *bool when successful
+func (m *ProvisioningProvisionedSCIM) GetGroupMembersInListResponse() *bool {
+	return m.groupMembersInListResponse
+}
+
 // GetGroupsSupported gets the groupsSupported property value. The groupsSupported property
 // returns a *bool when successful
-func (m *ProvisioningProvisionedSCIM) GetGroupsSupported()(*bool) {
-    return m.groupsSupported
+func (m *ProvisioningProvisionedSCIM) GetGroupsSupported() *bool {
+	return m.groupsSupported
 }
+
+// GetLowerCaseFilterComparators gets the lowerCaseFilterComparators property value. The lowerCaseFilterComparators property
+// returns a *bool when successful
+func (m *ProvisioningProvisionedSCIM) GetLowerCaseFilterComparators() *bool {
+	return m.lowerCaseFilterComparators
+}
+
 // GetPageSize gets the pageSize property value. The pageSize property
 // returns a *int32 when successful
-func (m *ProvisioningProvisionedSCIM) GetPageSize()(*int32) {
-    return m.pageSize
+func (m *ProvisioningProvisionedSCIM) GetPageSize() *int32 {
+	return m.pageSize
 }
+
 // GetPasswordSupported gets the passwordSupported property value. The passwordSupported property
 // returns a *bool when successful
-func (m *ProvisioningProvisionedSCIM) GetPasswordSupported()(*bool) {
-    return m.passwordSupported
+func (m *ProvisioningProvisionedSCIM) GetPasswordSupported() *bool {
+	return m.passwordSupported
 }
+
 // GetUpdateStrategy gets the updateStrategy property value. The updateStrategy property
 // returns a *ProvisioningSCIMUpdateStrategy when successful
-func (m *ProvisioningProvisionedSCIM) GetUpdateStrategy()(*ProvisioningSCIMUpdateStrategy) {
-    return m.updateStrategy
+func (m *ProvisioningProvisionedSCIM) GetUpdateStrategy() *ProvisioningSCIMUpdateStrategy {
+	return m.updateStrategy
 }
+
 // GetUrl gets the url property value. The url property
 // returns a *string when successful
-func (m *ProvisioningProvisionedSCIM) GetUrl()(*string) {
-    return m.url
+func (m *ProvisioningProvisionedSCIM) GetUrl() *string {
+	return m.url
 }
+
 // GetUseScimJsonMimetype gets the useScimJsonMimetype property value. The useScimJsonMimetype property
 // returns a *bool when successful
-func (m *ProvisioningProvisionedSCIM) GetUseScimJsonMimetype()(*bool) {
-    return m.useScimJsonMimetype
+func (m *ProvisioningProvisionedSCIM) GetUseScimJsonMimetype() *bool {
+	return m.useScimJsonMimetype
 }
+
 // GetVendorEscaped gets the vendor property value. The vendor property
 // returns a *ProvisioningProvisionedSCIMVendor when successful
-func (m *ProvisioningProvisionedSCIM) GetVendorEscaped()(*ProvisioningProvisionedSCIMVendor) {
-    return m.vendorEscaped
+func (m *ProvisioningProvisionedSCIM) GetVendorEscaped() *ProvisioningProvisionedSCIMVendor {
+	return m.vendorEscaped
 }
+
 // Serialize serializes information the current object
-func (m *ProvisioningProvisionedSCIM) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.ProvisioningProvisionedSystem.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    if m.GetAttributes() != nil {
-        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
-        for i, v := range m.GetAttributes() {
-            if v != nil {
-                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
-            }
-        }
-        err = writer.WriteCollectionOfObjectValues("attributes", cast)
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetAuthenticationScheme() != nil {
-        cast := (*m.GetAuthenticationScheme()).String()
-        err = writer.WriteStringValue("authenticationScheme", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("basicAuthPassword", m.GetBasicAuthPassword())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("basicAuthUsername", m.GetBasicAuthUsername())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("bearerToken", m.GetBearerToken())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("connectorConfiguration", m.GetConnectorConfiguration())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("cursorBasedPagination", m.GetCursorBasedPagination())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("customHeaderName", m.GetCustomHeaderName())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("customHeaderValue", m.GetCustomHeaderValue())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("externalIdSupported", m.GetExternalIdSupported())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("filterActiveUsersSupported", m.GetFilterActiveUsersSupported())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("groupsSupported", m.GetGroupsSupported())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("pageSize", m.GetPageSize())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("passwordSupported", m.GetPasswordSupported())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetUpdateStrategy() != nil {
-        cast := (*m.GetUpdateStrategy()).String()
-        err = writer.WriteStringValue("updateStrategy", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("url", m.GetUrl())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("useScimJsonMimetype", m.GetUseScimJsonMimetype())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetVendorEscaped() != nil {
-        cast := (*m.GetVendorEscaped()).String()
-        err = writer.WriteStringValue("vendor", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ProvisioningProvisionedSCIM) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.ProvisioningProvisionedSystem.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	if m.GetAttributes() != nil {
+		cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+		for i, v := range m.GetAttributes() {
+			if v != nil {
+				cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+			}
+		}
+		err = writer.WriteCollectionOfObjectValues("attributes", cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetAuthenticationScheme() != nil {
+		cast := (*m.GetAuthenticationScheme()).String()
+		err = writer.WriteStringValue("authenticationScheme", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("basicAuthPassword", m.GetBasicAuthPassword())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("basicAuthUsername", m.GetBasicAuthUsername())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("bearerToken", m.GetBearerToken())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("connectorConfiguration", m.GetConnectorConfiguration())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("cursorBasedPagination", m.GetCursorBasedPagination())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("customHeaderName", m.GetCustomHeaderName())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("customHeaderValue", m.GetCustomHeaderValue())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("externalIdSupported", m.GetExternalIdSupported())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("filterActiveUsersSupported", m.GetFilterActiveUsersSupported())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("filterGroupMembersSupported", m.GetFilterGroupMembersSupported())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("groupMembersInListResponse", m.GetGroupMembersInListResponse())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("groupsSupported", m.GetGroupsSupported())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("lowerCaseFilterComparators", m.GetLowerCaseFilterComparators())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteInt32Value("pageSize", m.GetPageSize())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("passwordSupported", m.GetPasswordSupported())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetUpdateStrategy() != nil {
+		cast := (*m.GetUpdateStrategy()).String()
+		err = writer.WriteStringValue("updateStrategy", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("url", m.GetUrl())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("useScimJsonMimetype", m.GetUseScimJsonMimetype())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetVendorEscaped() != nil {
+		cast := (*m.GetVendorEscaped()).String()
+		err = writer.WriteStringValue("vendor", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAttributes sets the attributes property value. The attributes property
-func (m *ProvisioningProvisionedSCIM) SetAttributes(value []MiscAttributeCustomizationable)() {
-    m.attributes = value
+func (m *ProvisioningProvisionedSCIM) SetAttributes(value []MiscAttributeCustomizationable) {
+	m.attributes = value
 }
+
 // SetAuthenticationScheme sets the authenticationScheme property value. The authenticationScheme property
-func (m *ProvisioningProvisionedSCIM) SetAuthenticationScheme(value *HttpAuthenticationScheme)() {
-    m.authenticationScheme = value
+func (m *ProvisioningProvisionedSCIM) SetAuthenticationScheme(value *HttpAuthenticationScheme) {
+	m.authenticationScheme = value
 }
+
 // SetBasicAuthPassword sets the basicAuthPassword property value. The basicAuthPassword property
-func (m *ProvisioningProvisionedSCIM) SetBasicAuthPassword(value *string)() {
-    m.basicAuthPassword = value
+func (m *ProvisioningProvisionedSCIM) SetBasicAuthPassword(value *string) {
+	m.basicAuthPassword = value
 }
+
 // SetBasicAuthUsername sets the basicAuthUsername property value. The basicAuthUsername property
-func (m *ProvisioningProvisionedSCIM) SetBasicAuthUsername(value *string)() {
-    m.basicAuthUsername = value
+func (m *ProvisioningProvisionedSCIM) SetBasicAuthUsername(value *string) {
+	m.basicAuthUsername = value
 }
+
 // SetBearerToken sets the bearerToken property value. The bearerToken property
-func (m *ProvisioningProvisionedSCIM) SetBearerToken(value *string)() {
-    m.bearerToken = value
+func (m *ProvisioningProvisionedSCIM) SetBearerToken(value *string) {
+	m.bearerToken = value
 }
+
 // SetConnectorConfiguration sets the connectorConfiguration property value. The connectorConfiguration property
-func (m *ProvisioningProvisionedSCIM) SetConnectorConfiguration(value *string)() {
-    m.connectorConfiguration = value
+func (m *ProvisioningProvisionedSCIM) SetConnectorConfiguration(value *string) {
+	m.connectorConfiguration = value
 }
+
 // SetCursorBasedPagination sets the cursorBasedPagination property value. The cursorBasedPagination property
-func (m *ProvisioningProvisionedSCIM) SetCursorBasedPagination(value *bool)() {
-    m.cursorBasedPagination = value
+func (m *ProvisioningProvisionedSCIM) SetCursorBasedPagination(value *bool) {
+	m.cursorBasedPagination = value
 }
+
 // SetCustomHeaderName sets the customHeaderName property value. The customHeaderName property
-func (m *ProvisioningProvisionedSCIM) SetCustomHeaderName(value *string)() {
-    m.customHeaderName = value
+func (m *ProvisioningProvisionedSCIM) SetCustomHeaderName(value *string) {
+	m.customHeaderName = value
 }
+
 // SetCustomHeaderValue sets the customHeaderValue property value. The customHeaderValue property
-func (m *ProvisioningProvisionedSCIM) SetCustomHeaderValue(value *string)() {
-    m.customHeaderValue = value
+func (m *ProvisioningProvisionedSCIM) SetCustomHeaderValue(value *string) {
+	m.customHeaderValue = value
 }
+
 // SetExternalIdSupported sets the externalIdSupported property value. The externalIdSupported property
-func (m *ProvisioningProvisionedSCIM) SetExternalIdSupported(value *bool)() {
-    m.externalIdSupported = value
+func (m *ProvisioningProvisionedSCIM) SetExternalIdSupported(value *bool) {
+	m.externalIdSupported = value
 }
+
 // SetFilterActiveUsersSupported sets the filterActiveUsersSupported property value. The filterActiveUsersSupported property
-func (m *ProvisioningProvisionedSCIM) SetFilterActiveUsersSupported(value *bool)() {
-    m.filterActiveUsersSupported = value
+func (m *ProvisioningProvisionedSCIM) SetFilterActiveUsersSupported(value *bool) {
+	m.filterActiveUsersSupported = value
 }
+
+// SetFilterGroupMembersSupported sets the filterGroupMembersSupported property value. The filterGroupMembersSupported property
+func (m *ProvisioningProvisionedSCIM) SetFilterGroupMembersSupported(value *bool) {
+	m.filterGroupMembersSupported = value
+}
+
+// SetGroupMembersInListResponse sets the groupMembersInListResponse property value. The groupMembersInListResponse property
+func (m *ProvisioningProvisionedSCIM) SetGroupMembersInListResponse(value *bool) {
+	m.groupMembersInListResponse = value
+}
+
 // SetGroupsSupported sets the groupsSupported property value. The groupsSupported property
-func (m *ProvisioningProvisionedSCIM) SetGroupsSupported(value *bool)() {
-    m.groupsSupported = value
+func (m *ProvisioningProvisionedSCIM) SetGroupsSupported(value *bool) {
+	m.groupsSupported = value
 }
+
+// SetLowerCaseFilterComparators sets the lowerCaseFilterComparators property value. The lowerCaseFilterComparators property
+func (m *ProvisioningProvisionedSCIM) SetLowerCaseFilterComparators(value *bool) {
+	m.lowerCaseFilterComparators = value
+}
+
 // SetPageSize sets the pageSize property value. The pageSize property
-func (m *ProvisioningProvisionedSCIM) SetPageSize(value *int32)() {
-    m.pageSize = value
+func (m *ProvisioningProvisionedSCIM) SetPageSize(value *int32) {
+	m.pageSize = value
 }
+
 // SetPasswordSupported sets the passwordSupported property value. The passwordSupported property
-func (m *ProvisioningProvisionedSCIM) SetPasswordSupported(value *bool)() {
-    m.passwordSupported = value
+func (m *ProvisioningProvisionedSCIM) SetPasswordSupported(value *bool) {
+	m.passwordSupported = value
 }
+
 // SetUpdateStrategy sets the updateStrategy property value. The updateStrategy property
-func (m *ProvisioningProvisionedSCIM) SetUpdateStrategy(value *ProvisioningSCIMUpdateStrategy)() {
-    m.updateStrategy = value
+func (m *ProvisioningProvisionedSCIM) SetUpdateStrategy(value *ProvisioningSCIMUpdateStrategy) {
+	m.updateStrategy = value
 }
+
 // SetUrl sets the url property value. The url property
-func (m *ProvisioningProvisionedSCIM) SetUrl(value *string)() {
-    m.url = value
+func (m *ProvisioningProvisionedSCIM) SetUrl(value *string) {
+	m.url = value
 }
+
 // SetUseScimJsonMimetype sets the useScimJsonMimetype property value. The useScimJsonMimetype property
-func (m *ProvisioningProvisionedSCIM) SetUseScimJsonMimetype(value *bool)() {
-    m.useScimJsonMimetype = value
+func (m *ProvisioningProvisionedSCIM) SetUseScimJsonMimetype(value *bool) {
+	m.useScimJsonMimetype = value
 }
+
 // SetVendorEscaped sets the vendor property value. The vendor property
-func (m *ProvisioningProvisionedSCIM) SetVendorEscaped(value *ProvisioningProvisionedSCIMVendor)() {
-    m.vendorEscaped = value
+func (m *ProvisioningProvisionedSCIM) SetVendorEscaped(value *ProvisioningProvisionedSCIMVendor) {
+	m.vendorEscaped = value
 }
+
 type ProvisioningProvisionedSCIMable interface {
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    ProvisioningProvisionedSystemable
-    GetAttributes()([]MiscAttributeCustomizationable)
-    GetAuthenticationScheme()(*HttpAuthenticationScheme)
-    GetBasicAuthPassword()(*string)
-    GetBasicAuthUsername()(*string)
-    GetBearerToken()(*string)
-    GetConnectorConfiguration()(*string)
-    GetCursorBasedPagination()(*bool)
-    GetCustomHeaderName()(*string)
-    GetCustomHeaderValue()(*string)
-    GetExternalIdSupported()(*bool)
-    GetFilterActiveUsersSupported()(*bool)
-    GetGroupsSupported()(*bool)
-    GetPageSize()(*int32)
-    GetPasswordSupported()(*bool)
-    GetUpdateStrategy()(*ProvisioningSCIMUpdateStrategy)
-    GetUrl()(*string)
-    GetUseScimJsonMimetype()(*bool)
-    GetVendorEscaped()(*ProvisioningProvisionedSCIMVendor)
-    SetAttributes(value []MiscAttributeCustomizationable)()
-    SetAuthenticationScheme(value *HttpAuthenticationScheme)()
-    SetBasicAuthPassword(value *string)()
-    SetBasicAuthUsername(value *string)()
-    SetBearerToken(value *string)()
-    SetConnectorConfiguration(value *string)()
-    SetCursorBasedPagination(value *bool)()
-    SetCustomHeaderName(value *string)()
-    SetCustomHeaderValue(value *string)()
-    SetExternalIdSupported(value *bool)()
-    SetFilterActiveUsersSupported(value *bool)()
-    SetGroupsSupported(value *bool)()
-    SetPageSize(value *int32)()
-    SetPasswordSupported(value *bool)()
-    SetUpdateStrategy(value *ProvisioningSCIMUpdateStrategy)()
-    SetUrl(value *string)()
-    SetUseScimJsonMimetype(value *bool)()
-    SetVendorEscaped(value *ProvisioningProvisionedSCIMVendor)()
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	ProvisioningProvisionedSystemable
+	GetAttributes() []MiscAttributeCustomizationable
+	GetAuthenticationScheme() *HttpAuthenticationScheme
+	GetBasicAuthPassword() *string
+	GetBasicAuthUsername() *string
+	GetBearerToken() *string
+	GetConnectorConfiguration() *string
+	GetCursorBasedPagination() *bool
+	GetCustomHeaderName() *string
+	GetCustomHeaderValue() *string
+	GetExternalIdSupported() *bool
+	GetFilterActiveUsersSupported() *bool
+	GetFilterGroupMembersSupported() *bool
+	GetGroupMembersInListResponse() *bool
+	GetGroupsSupported() *bool
+	GetLowerCaseFilterComparators() *bool
+	GetPageSize() *int32
+	GetPasswordSupported() *bool
+	GetUpdateStrategy() *ProvisioningSCIMUpdateStrategy
+	GetUrl() *string
+	GetUseScimJsonMimetype() *bool
+	GetVendorEscaped() *ProvisioningProvisionedSCIMVendor
+	SetAttributes(value []MiscAttributeCustomizationable)
+	SetAuthenticationScheme(value *HttpAuthenticationScheme)
+	SetBasicAuthPassword(value *string)
+	SetBasicAuthUsername(value *string)
+	SetBearerToken(value *string)
+	SetConnectorConfiguration(value *string)
+	SetCursorBasedPagination(value *bool)
+	SetCustomHeaderName(value *string)
+	SetCustomHeaderValue(value *string)
+	SetExternalIdSupported(value *bool)
+	SetFilterActiveUsersSupported(value *bool)
+	SetFilterGroupMembersSupported(value *bool)
+	SetGroupMembersInListResponse(value *bool)
+	SetGroupsSupported(value *bool)
+	SetLowerCaseFilterComparators(value *bool)
+	SetPageSize(value *int32)
+	SetPasswordSupported(value *bool)
+	SetUpdateStrategy(value *ProvisioningSCIMUpdateStrategy)
+	SetUrl(value *string)
+	SetUseScimJsonMimetype(value *bool)
+	SetVendorEscaped(value *ProvisioningProvisionedSCIMVendor)
 }

@@ -4,321 +4,348 @@
 package models
 
 import (
-    i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
 )
 
 type ProfileAccessProfileLifecycleEvent struct {
-    Linkable
-    // The account property
-    account AuthAccountPrimerable
-    // The actionName property
-    actionName *string
-    // The additionalObjects property
-    additionalObjects ProfileAccessProfileLifecycleEvent_additionalObjectsable
-    // The anchor property
-    anchor *ProfileAccessProfileLifecycleAnchor
-    // The attempts property
-    attempts *int32
-    // The dueDate property
-    dueDate *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
-    // The dueImmediately property
-    dueImmediately *bool
-    // The firedAt property
-    firedAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
-    // The lastAttemptAt property
-    lastAttemptAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
-    // The lastError property
-    lastError *string
-    // The status property
-    status *ProfileAccessProfileLifecycleEventStatus
+	Linkable
+	// The account property
+	account AuthAccountPrimerable
+	// The actionName property
+	actionName *string
+	// The additionalObjects property
+	additionalObjects ProfileAccessProfileLifecycleEvent_additionalObjectsable
+	// The anchor property
+	anchor *ProfileAccessProfileLifecycleAnchor
+	// The attempts property
+	attempts *int32
+	// The dueDate property
+	dueDate *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
+	// The dueImmediately property
+	dueImmediately *bool
+	// The firedAt property
+	firedAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+	// The lastAttemptAt property
+	lastAttemptAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+	// The lastError property
+	lastError *string
+	// The status property
+	status *ProfileAccessProfileLifecycleEventStatus
 }
+
 // NewProfileAccessProfileLifecycleEvent instantiates a new ProfileAccessProfileLifecycleEvent and sets the default values.
-func NewProfileAccessProfileLifecycleEvent()(*ProfileAccessProfileLifecycleEvent) {
-    m := &ProfileAccessProfileLifecycleEvent{
-        Linkable: *NewLinkable(),
-    }
-    typeEscapedValue := "profile.AccessProfileLifecycleEvent"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewProfileAccessProfileLifecycleEvent() *ProfileAccessProfileLifecycleEvent {
+	m := &ProfileAccessProfileLifecycleEvent{
+		Linkable: *NewLinkable(),
+	}
+	typeEscapedValue := "profile.AccessProfileLifecycleEvent"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateProfileAccessProfileLifecycleEventFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProfileAccessProfileLifecycleEventFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewProfileAccessProfileLifecycleEvent(), nil
+func CreateProfileAccessProfileLifecycleEventFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewProfileAccessProfileLifecycleEvent(), nil
 }
+
 // GetAccount gets the account property value. The account property
 // returns a AuthAccountPrimerable when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetAccount()(AuthAccountPrimerable) {
-    return m.account
+func (m *ProfileAccessProfileLifecycleEvent) GetAccount() AuthAccountPrimerable {
+	return m.account
 }
+
 // GetActionName gets the actionName property value. The actionName property
 // returns a *string when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetActionName()(*string) {
-    return m.actionName
+func (m *ProfileAccessProfileLifecycleEvent) GetActionName() *string {
+	return m.actionName
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a ProfileAccessProfileLifecycleEvent_additionalObjectsable when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetAdditionalObjects()(ProfileAccessProfileLifecycleEvent_additionalObjectsable) {
-    return m.additionalObjects
+func (m *ProfileAccessProfileLifecycleEvent) GetAdditionalObjects() ProfileAccessProfileLifecycleEvent_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetAnchor gets the anchor property value. The anchor property
 // returns a *ProfileAccessProfileLifecycleAnchor when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetAnchor()(*ProfileAccessProfileLifecycleAnchor) {
-    return m.anchor
+func (m *ProfileAccessProfileLifecycleEvent) GetAnchor() *ProfileAccessProfileLifecycleAnchor {
+	return m.anchor
 }
+
 // GetAttempts gets the attempts property value. The attempts property
 // returns a *int32 when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetAttempts()(*int32) {
-    return m.attempts
+func (m *ProfileAccessProfileLifecycleEvent) GetAttempts() *int32 {
+	return m.attempts
 }
+
 // GetDueDate gets the dueDate property value. The dueDate property
 // returns a *DateOnly when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetDueDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
-    return m.dueDate
+func (m *ProfileAccessProfileLifecycleEvent) GetDueDate() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly {
+	return m.dueDate
 }
+
 // GetDueImmediately gets the dueImmediately property value. The dueImmediately property
 // returns a *bool when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetDueImmediately()(*bool) {
-    return m.dueImmediately
+func (m *ProfileAccessProfileLifecycleEvent) GetDueImmediately() *bool {
+	return m.dueImmediately
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.Linkable.GetFieldDeserializers()
-    res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateAuthAccountPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccount(val.(AuthAccountPrimerable))
-        }
-        return nil
-    }
-    res["actionName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetActionName(val)
-        }
-        return nil
-    }
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProfileAccessProfileLifecycleEvent_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(ProfileAccessProfileLifecycleEvent_additionalObjectsable))
-        }
-        return nil
-    }
-    res["anchor"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleAnchor)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAnchor(val.(*ProfileAccessProfileLifecycleAnchor))
-        }
-        return nil
-    }
-    res["attempts"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAttempts(val)
-        }
-        return nil
-    }
-    res["dueDate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetDateOnlyValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDueDate(val)
-        }
-        return nil
-    }
-    res["dueImmediately"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDueImmediately(val)
-        }
-        return nil
-    }
-    res["firedAt"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetTimeValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetFiredAt(val)
-        }
-        return nil
-    }
-    res["lastAttemptAt"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetTimeValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetLastAttemptAt(val)
-        }
-        return nil
-    }
-    res["lastError"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetLastError(val)
-        }
-        return nil
-    }
-    res["status"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleEventStatus)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetStatus(val.(*ProfileAccessProfileLifecycleEventStatus))
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ProfileAccessProfileLifecycleEvent) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.Linkable.GetFieldDeserializers()
+	res["account"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateAuthAccountPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAccount(val.(AuthAccountPrimerable))
+		}
+		return nil
+	}
+	res["actionName"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetActionName(val)
+		}
+		return nil
+	}
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProfileAccessProfileLifecycleEvent_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(ProfileAccessProfileLifecycleEvent_additionalObjectsable))
+		}
+		return nil
+	}
+	res["anchor"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleAnchor)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAnchor(val.(*ProfileAccessProfileLifecycleAnchor))
+		}
+		return nil
+	}
+	res["attempts"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAttempts(val)
+		}
+		return nil
+	}
+	res["dueDate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetDateOnlyValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDueDate(val)
+		}
+		return nil
+	}
+	res["dueImmediately"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDueImmediately(val)
+		}
+		return nil
+	}
+	res["firedAt"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetTimeValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetFiredAt(val)
+		}
+		return nil
+	}
+	res["lastAttemptAt"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetTimeValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetLastAttemptAt(val)
+		}
+		return nil
+	}
+	res["lastError"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetLastError(val)
+		}
+		return nil
+	}
+	res["status"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleEventStatus)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetStatus(val.(*ProfileAccessProfileLifecycleEventStatus))
+		}
+		return nil
+	}
+	return res
 }
+
 // GetFiredAt gets the firedAt property value. The firedAt property
 // returns a *Time when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetFiredAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
-    return m.firedAt
+func (m *ProfileAccessProfileLifecycleEvent) GetFiredAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time {
+	return m.firedAt
 }
+
 // GetLastAttemptAt gets the lastAttemptAt property value. The lastAttemptAt property
 // returns a *Time when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetLastAttemptAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
-    return m.lastAttemptAt
+func (m *ProfileAccessProfileLifecycleEvent) GetLastAttemptAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time {
+	return m.lastAttemptAt
 }
+
 // GetLastError gets the lastError property value. The lastError property
 // returns a *string when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetLastError()(*string) {
-    return m.lastError
+func (m *ProfileAccessProfileLifecycleEvent) GetLastError() *string {
+	return m.lastError
 }
+
 // GetStatus gets the status property value. The status property
 // returns a *ProfileAccessProfileLifecycleEventStatus when successful
-func (m *ProfileAccessProfileLifecycleEvent) GetStatus()(*ProfileAccessProfileLifecycleEventStatus) {
-    return m.status
+func (m *ProfileAccessProfileLifecycleEvent) GetStatus() *ProfileAccessProfileLifecycleEventStatus {
+	return m.status
 }
+
 // Serialize serializes information the current object
-func (m *ProfileAccessProfileLifecycleEvent) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.Linkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("account", m.GetAccount())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetAnchor() != nil {
-        cast := (*m.GetAnchor()).String()
-        err = writer.WriteStringValue("anchor", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetStatus() != nil {
-        cast := (*m.GetStatus()).String()
-        err = writer.WriteStringValue("status", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ProfileAccessProfileLifecycleEvent) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.Linkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("account", m.GetAccount())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetAnchor() != nil {
+		cast := (*m.GetAnchor()).String()
+		err = writer.WriteStringValue("anchor", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetStatus() != nil {
+		cast := (*m.GetStatus()).String()
+		err = writer.WriteStringValue("status", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAccount sets the account property value. The account property
-func (m *ProfileAccessProfileLifecycleEvent) SetAccount(value AuthAccountPrimerable)() {
-    m.account = value
+func (m *ProfileAccessProfileLifecycleEvent) SetAccount(value AuthAccountPrimerable) {
+	m.account = value
 }
+
 // SetActionName sets the actionName property value. The actionName property
-func (m *ProfileAccessProfileLifecycleEvent) SetActionName(value *string)() {
-    m.actionName = value
+func (m *ProfileAccessProfileLifecycleEvent) SetActionName(value *string) {
+	m.actionName = value
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *ProfileAccessProfileLifecycleEvent) SetAdditionalObjects(value ProfileAccessProfileLifecycleEvent_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *ProfileAccessProfileLifecycleEvent) SetAdditionalObjects(value ProfileAccessProfileLifecycleEvent_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetAnchor sets the anchor property value. The anchor property
-func (m *ProfileAccessProfileLifecycleEvent) SetAnchor(value *ProfileAccessProfileLifecycleAnchor)() {
-    m.anchor = value
+func (m *ProfileAccessProfileLifecycleEvent) SetAnchor(value *ProfileAccessProfileLifecycleAnchor) {
+	m.anchor = value
 }
+
 // SetAttempts sets the attempts property value. The attempts property
-func (m *ProfileAccessProfileLifecycleEvent) SetAttempts(value *int32)() {
-    m.attempts = value
+func (m *ProfileAccessProfileLifecycleEvent) SetAttempts(value *int32) {
+	m.attempts = value
 }
+
 // SetDueDate sets the dueDate property value. The dueDate property
-func (m *ProfileAccessProfileLifecycleEvent) SetDueDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)() {
-    m.dueDate = value
+func (m *ProfileAccessProfileLifecycleEvent) SetDueDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
+	m.dueDate = value
 }
+
 // SetDueImmediately sets the dueImmediately property value. The dueImmediately property
-func (m *ProfileAccessProfileLifecycleEvent) SetDueImmediately(value *bool)() {
-    m.dueImmediately = value
+func (m *ProfileAccessProfileLifecycleEvent) SetDueImmediately(value *bool) {
+	m.dueImmediately = value
 }
+
 // SetFiredAt sets the firedAt property value. The firedAt property
-func (m *ProfileAccessProfileLifecycleEvent) SetFiredAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
-    m.firedAt = value
+func (m *ProfileAccessProfileLifecycleEvent) SetFiredAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+	m.firedAt = value
 }
+
 // SetLastAttemptAt sets the lastAttemptAt property value. The lastAttemptAt property
-func (m *ProfileAccessProfileLifecycleEvent) SetLastAttemptAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
-    m.lastAttemptAt = value
+func (m *ProfileAccessProfileLifecycleEvent) SetLastAttemptAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+	m.lastAttemptAt = value
 }
+
 // SetLastError sets the lastError property value. The lastError property
-func (m *ProfileAccessProfileLifecycleEvent) SetLastError(value *string)() {
-    m.lastError = value
+func (m *ProfileAccessProfileLifecycleEvent) SetLastError(value *string) {
+	m.lastError = value
 }
+
 // SetStatus sets the status property value. The status property
-func (m *ProfileAccessProfileLifecycleEvent) SetStatus(value *ProfileAccessProfileLifecycleEventStatus)() {
-    m.status = value
+func (m *ProfileAccessProfileLifecycleEvent) SetStatus(value *ProfileAccessProfileLifecycleEventStatus) {
+	m.status = value
 }
+
 type ProfileAccessProfileLifecycleEventable interface {
-    Linkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAccount()(AuthAccountPrimerable)
-    GetActionName()(*string)
-    GetAdditionalObjects()(ProfileAccessProfileLifecycleEvent_additionalObjectsable)
-    GetAnchor()(*ProfileAccessProfileLifecycleAnchor)
-    GetAttempts()(*int32)
-    GetDueDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
-    GetDueImmediately()(*bool)
-    GetFiredAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
-    GetLastAttemptAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
-    GetLastError()(*string)
-    GetStatus()(*ProfileAccessProfileLifecycleEventStatus)
-    SetAccount(value AuthAccountPrimerable)()
-    SetActionName(value *string)()
-    SetAdditionalObjects(value ProfileAccessProfileLifecycleEvent_additionalObjectsable)()
-    SetAnchor(value *ProfileAccessProfileLifecycleAnchor)()
-    SetAttempts(value *int32)()
-    SetDueDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)()
-    SetDueImmediately(value *bool)()
-    SetFiredAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
-    SetLastAttemptAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
-    SetLastError(value *string)()
-    SetStatus(value *ProfileAccessProfileLifecycleEventStatus)()
+	Linkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAccount() AuthAccountPrimerable
+	GetActionName() *string
+	GetAdditionalObjects() ProfileAccessProfileLifecycleEvent_additionalObjectsable
+	GetAnchor() *ProfileAccessProfileLifecycleAnchor
+	GetAttempts() *int32
+	GetDueDate() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
+	GetDueImmediately() *bool
+	GetFiredAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+	GetLastAttemptAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+	GetLastError() *string
+	GetStatus() *ProfileAccessProfileLifecycleEventStatus
+	SetAccount(value AuthAccountPrimerable)
+	SetActionName(value *string)
+	SetAdditionalObjects(value ProfileAccessProfileLifecycleEvent_additionalObjectsable)
+	SetAnchor(value *ProfileAccessProfileLifecycleAnchor)
+	SetAttempts(value *int32)
+	SetDueDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
+	SetDueImmediately(value *bool)
+	SetFiredAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
+	SetLastAttemptAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
+	SetLastError(value *string)
+	SetStatus(value *ProfileAccessProfileLifecycleEventStatus)
 }

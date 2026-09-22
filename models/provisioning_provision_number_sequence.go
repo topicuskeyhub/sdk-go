@@ -4,128 +4,139 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ProvisioningProvisionNumberSequence struct {
-    Linkable
-    // The additionalObjects property
-    additionalObjects ProvisioningProvisionNumberSequence_additionalObjectsable
-    // The name property
-    name *string
-    // The nextID property
-    nextID *int64
+	Linkable
+	// The additionalObjects property
+	additionalObjects ProvisioningProvisionNumberSequence_additionalObjectsable
+	// The name property
+	name *string
+	// The nextID property
+	nextID *int64
 }
+
 // NewProvisioningProvisionNumberSequence instantiates a new ProvisioningProvisionNumberSequence and sets the default values.
-func NewProvisioningProvisionNumberSequence()(*ProvisioningProvisionNumberSequence) {
-    m := &ProvisioningProvisionNumberSequence{
-        Linkable: *NewLinkable(),
-    }
-    typeEscapedValue := "provisioning.ProvisionNumberSequence"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewProvisioningProvisionNumberSequence() *ProvisioningProvisionNumberSequence {
+	m := &ProvisioningProvisionNumberSequence{
+		Linkable: *NewLinkable(),
+	}
+	typeEscapedValue := "provisioning.ProvisionNumberSequence"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewProvisioningProvisionNumberSequence(), nil
+func CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewProvisioningProvisionNumberSequence(), nil
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a ProvisioningProvisionNumberSequence_additionalObjectsable when successful
-func (m *ProvisioningProvisionNumberSequence) GetAdditionalObjects()(ProvisioningProvisionNumberSequence_additionalObjectsable) {
-    return m.additionalObjects
+func (m *ProvisioningProvisionNumberSequence) GetAdditionalObjects() ProvisioningProvisionNumberSequence_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProvisioningProvisionNumberSequence) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.Linkable.GetFieldDeserializers()
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProvisioningProvisionNumberSequence_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(ProvisioningProvisionNumberSequence_additionalObjectsable))
-        }
-        return nil
-    }
-    res["name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetName(val)
-        }
-        return nil
-    }
-    res["nextID"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt64Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetNextID(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ProvisioningProvisionNumberSequence) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.Linkable.GetFieldDeserializers()
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProvisioningProvisionNumberSequence_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(ProvisioningProvisionNumberSequence_additionalObjectsable))
+		}
+		return nil
+	}
+	res["name"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetName(val)
+		}
+		return nil
+	}
+	res["nextID"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt64Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetNextID(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetName gets the name property value. The name property
 // returns a *string when successful
-func (m *ProvisioningProvisionNumberSequence) GetName()(*string) {
-    return m.name
+func (m *ProvisioningProvisionNumberSequence) GetName() *string {
+	return m.name
 }
+
 // GetNextID gets the nextID property value. The nextID property
 // returns a *int64 when successful
-func (m *ProvisioningProvisionNumberSequence) GetNextID()(*int64) {
-    return m.nextID
+func (m *ProvisioningProvisionNumberSequence) GetNextID() *int64 {
+	return m.nextID
 }
+
 // Serialize serializes information the current object
-func (m *ProvisioningProvisionNumberSequence) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.Linkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("name", m.GetName())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("nextID", m.GetNextID())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ProvisioningProvisionNumberSequence) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.Linkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("name", m.GetName())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteInt64Value("nextID", m.GetNextID())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *ProvisioningProvisionNumberSequence) SetAdditionalObjects(value ProvisioningProvisionNumberSequence_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *ProvisioningProvisionNumberSequence) SetAdditionalObjects(value ProvisioningProvisionNumberSequence_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetName sets the name property value. The name property
-func (m *ProvisioningProvisionNumberSequence) SetName(value *string)() {
-    m.name = value
+func (m *ProvisioningProvisionNumberSequence) SetName(value *string) {
+	m.name = value
 }
+
 // SetNextID sets the nextID property value. The nextID property
-func (m *ProvisioningProvisionNumberSequence) SetNextID(value *int64)() {
-    m.nextID = value
+func (m *ProvisioningProvisionNumberSequence) SetNextID(value *int64) {
+	m.nextID = value
 }
+
 type ProvisioningProvisionNumberSequenceable interface {
-    Linkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAdditionalObjects()(ProvisioningProvisionNumberSequence_additionalObjectsable)
-    GetName()(*string)
-    GetNextID()(*int64)
-    SetAdditionalObjects(value ProvisioningProvisionNumberSequence_additionalObjectsable)()
-    SetName(value *string)()
-    SetNextID(value *int64)()
+	Linkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAdditionalObjects() ProvisioningProvisionNumberSequence_additionalObjectsable
+	GetName() *string
+	GetNextID() *int64
+	SetAdditionalObjects(value ProvisioningProvisionNumberSequence_additionalObjectsable)
+	SetName(value *string)
+	SetNextID(value *int64)
 }

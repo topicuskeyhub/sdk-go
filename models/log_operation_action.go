@@ -2,41 +2,45 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type LogOperationAction int
 
 const (
-    LOG_LOGOPERATIONACTION LogOperationAction = iota
-    READ_LOGOPERATIONACTION
-    WRITE_LOGOPERATIONACTION
-    MODIFY_LOGOPERATIONACTION
+	LOG_LOGOPERATIONACTION LogOperationAction = iota
+	READ_LOGOPERATIONACTION
+	WRITE_LOGOPERATIONACTION
+	MODIFY_LOGOPERATIONACTION
 )
 
 func (i LogOperationAction) String() string {
-    return []string{"LOG", "READ", "WRITE", "MODIFY"}[i]
+	return []string{"LOG", "READ", "WRITE", "MODIFY"}[i]
 }
+
 func ParseLogOperationAction(v string) (any, error) {
-    result := LOG_LOGOPERATIONACTION
-    switch v {
-        case "LOG":
-            result = LOG_LOGOPERATIONACTION
-        case "READ":
-            result = READ_LOGOPERATIONACTION
-        case "WRITE":
-            result = WRITE_LOGOPERATIONACTION
-        case "MODIFY":
-            result = MODIFY_LOGOPERATIONACTION
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := LOG_LOGOPERATIONACTION
+	switch v {
+	case "LOG":
+		result = LOG_LOGOPERATIONACTION
+	case "READ":
+		result = READ_LOGOPERATIONACTION
+	case "WRITE":
+		result = WRITE_LOGOPERATIONACTION
+	case "MODIFY":
+		result = MODIFY_LOGOPERATIONACTION
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeLogOperationAction(values []LogOperationAction) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i LogOperationAction) isMultiValue() bool {
-    return false
+	return false
 }

@@ -4,99 +4,108 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type GenerateSecret struct {
-    NonLinkable
-    // The oldSecret property
-    oldSecret *string
-    // The regenerate property
-    regenerate *bool
+	NonLinkable
+	// The oldSecret property
+	oldSecret *string
+	// The regenerate property
+	regenerate *bool
 }
+
 // NewGenerateSecret instantiates a new GenerateSecret and sets the default values.
-func NewGenerateSecret()(*GenerateSecret) {
-    m := &GenerateSecret{
-        NonLinkable: *NewNonLinkable(),
-    }
-    typeEscapedValue := "GenerateSecret"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewGenerateSecret() *GenerateSecret {
+	m := &GenerateSecret{
+		NonLinkable: *NewNonLinkable(),
+	}
+	typeEscapedValue := "GenerateSecret"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateGenerateSecretFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateGenerateSecretFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewGenerateSecret(), nil
+func CreateGenerateSecretFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewGenerateSecret(), nil
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *GenerateSecret) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.NonLinkable.GetFieldDeserializers()
-    res["oldSecret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetOldSecret(val)
-        }
-        return nil
-    }
-    res["regenerate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetRegenerate(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *GenerateSecret) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.NonLinkable.GetFieldDeserializers()
+	res["oldSecret"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOldSecret(val)
+		}
+		return nil
+	}
+	res["regenerate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetRegenerate(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetOldSecret gets the oldSecret property value. The oldSecret property
 // returns a *string when successful
-func (m *GenerateSecret) GetOldSecret()(*string) {
-    return m.oldSecret
+func (m *GenerateSecret) GetOldSecret() *string {
+	return m.oldSecret
 }
+
 // GetRegenerate gets the regenerate property value. The regenerate property
 // returns a *bool when successful
-func (m *GenerateSecret) GetRegenerate()(*bool) {
-    return m.regenerate
+func (m *GenerateSecret) GetRegenerate() *bool {
+	return m.regenerate
 }
+
 // Serialize serializes information the current object
-func (m *GenerateSecret) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.NonLinkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteStringValue("oldSecret", m.GetOldSecret())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("regenerate", m.GetRegenerate())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *GenerateSecret) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.NonLinkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteStringValue("oldSecret", m.GetOldSecret())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("regenerate", m.GetRegenerate())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetOldSecret sets the oldSecret property value. The oldSecret property
-func (m *GenerateSecret) SetOldSecret(value *string)() {
-    m.oldSecret = value
+func (m *GenerateSecret) SetOldSecret(value *string) {
+	m.oldSecret = value
 }
+
 // SetRegenerate sets the regenerate property value. The regenerate property
-func (m *GenerateSecret) SetRegenerate(value *bool)() {
-    m.regenerate = value
+func (m *GenerateSecret) SetRegenerate(value *bool) {
+	m.regenerate = value
 }
+
 type GenerateSecretable interface {
-    NonLinkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetOldSecret()(*string)
-    GetRegenerate()(*bool)
-    SetOldSecret(value *string)()
-    SetRegenerate(value *bool)()
+	NonLinkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetOldSecret() *string
+	GetRegenerate() *bool
+	SetOldSecret(value *string)
+	SetRegenerate(value *bool)
 }

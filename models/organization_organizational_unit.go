@@ -4,354 +4,381 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type OrganizationOrganizationalUnit struct {
-    OrganizationOrganizationalUnitPrimer
-    // The additionalObjects property
-    additionalObjects OrganizationOrganizationalUnit_additionalObjectsable
-    // The auditorGroup property
-    auditorGroup GroupGroupPrimerable
-    // The createGroupApproveGroup property
-    createGroupApproveGroup GroupGroupPrimerable
-    // The createGroupPlaceholder property
-    createGroupPlaceholder *string
-    // The depth property
-    depth *int32
-    // The description property
-    description *string
-    // The enableTechAdminApproveGroup property
-    enableTechAdminApproveGroup GroupGroupPrimerable
-    // The owner property
-    owner GroupGroupPrimerable
-    // The parent property
-    parent OrganizationOrganizationalUnitPrimerable
-    // The recoveryFallbackGroup property
-    recoveryFallbackGroup GroupGroupPrimerable
-    // The removeGroupApproveGroup property
-    removeGroupApproveGroup GroupGroupPrimerable
+	OrganizationOrganizationalUnitPrimer
+	// The additionalObjects property
+	additionalObjects OrganizationOrganizationalUnit_additionalObjectsable
+	// The auditorGroup property
+	auditorGroup GroupGroupPrimerable
+	// The createGroupApproveGroup property
+	createGroupApproveGroup GroupGroupPrimerable
+	// The createGroupPlaceholder property
+	createGroupPlaceholder *string
+	// The depth property
+	depth *int32
+	// The description property
+	description *string
+	// The enableTechAdminApproveGroup property
+	enableTechAdminApproveGroup GroupGroupPrimerable
+	// The owner property
+	owner GroupGroupPrimerable
+	// The parent property
+	parent OrganizationOrganizationalUnitPrimerable
+	// The recoveryFallbackGroup property
+	recoveryFallbackGroup GroupGroupPrimerable
+	// The removeGroupApproveGroup property
+	removeGroupApproveGroup GroupGroupPrimerable
 }
+
 // NewOrganizationOrganizationalUnit instantiates a new OrganizationOrganizationalUnit and sets the default values.
-func NewOrganizationOrganizationalUnit()(*OrganizationOrganizationalUnit) {
-    m := &OrganizationOrganizationalUnit{
-        OrganizationOrganizationalUnitPrimer: *NewOrganizationOrganizationalUnitPrimer(),
-    }
-    typeEscapedValue := "organization.OrganizationalUnit"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewOrganizationOrganizationalUnit() *OrganizationOrganizationalUnit {
+	m := &OrganizationOrganizationalUnit{
+		OrganizationOrganizationalUnitPrimer: *NewOrganizationOrganizationalUnitPrimer(),
+	}
+	typeEscapedValue := "organization.OrganizationalUnit"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateOrganizationOrganizationalUnitFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateOrganizationOrganizationalUnitFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewOrganizationOrganizationalUnit(), nil
+func CreateOrganizationOrganizationalUnitFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewOrganizationOrganizationalUnit(), nil
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a OrganizationOrganizationalUnit_additionalObjectsable when successful
-func (m *OrganizationOrganizationalUnit) GetAdditionalObjects()(OrganizationOrganizationalUnit_additionalObjectsable) {
-    return m.additionalObjects
+func (m *OrganizationOrganizationalUnit) GetAdditionalObjects() OrganizationOrganizationalUnit_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetAuditorGroup gets the auditorGroup property value. The auditorGroup property
 // returns a GroupGroupPrimerable when successful
-func (m *OrganizationOrganizationalUnit) GetAuditorGroup()(GroupGroupPrimerable) {
-    return m.auditorGroup
+func (m *OrganizationOrganizationalUnit) GetAuditorGroup() GroupGroupPrimerable {
+	return m.auditorGroup
 }
+
 // GetCreateGroupApproveGroup gets the createGroupApproveGroup property value. The createGroupApproveGroup property
 // returns a GroupGroupPrimerable when successful
-func (m *OrganizationOrganizationalUnit) GetCreateGroupApproveGroup()(GroupGroupPrimerable) {
-    return m.createGroupApproveGroup
+func (m *OrganizationOrganizationalUnit) GetCreateGroupApproveGroup() GroupGroupPrimerable {
+	return m.createGroupApproveGroup
 }
+
 // GetCreateGroupPlaceholder gets the createGroupPlaceholder property value. The createGroupPlaceholder property
 // returns a *string when successful
-func (m *OrganizationOrganizationalUnit) GetCreateGroupPlaceholder()(*string) {
-    return m.createGroupPlaceholder
+func (m *OrganizationOrganizationalUnit) GetCreateGroupPlaceholder() *string {
+	return m.createGroupPlaceholder
 }
+
 // GetDepth gets the depth property value. The depth property
 // returns a *int32 when successful
-func (m *OrganizationOrganizationalUnit) GetDepth()(*int32) {
-    return m.depth
+func (m *OrganizationOrganizationalUnit) GetDepth() *int32 {
+	return m.depth
 }
+
 // GetDescription gets the description property value. The description property
 // returns a *string when successful
-func (m *OrganizationOrganizationalUnit) GetDescription()(*string) {
-    return m.description
+func (m *OrganizationOrganizationalUnit) GetDescription() *string {
+	return m.description
 }
+
 // GetEnableTechAdminApproveGroup gets the enableTechAdminApproveGroup property value. The enableTechAdminApproveGroup property
 // returns a GroupGroupPrimerable when successful
-func (m *OrganizationOrganizationalUnit) GetEnableTechAdminApproveGroup()(GroupGroupPrimerable) {
-    return m.enableTechAdminApproveGroup
+func (m *OrganizationOrganizationalUnit) GetEnableTechAdminApproveGroup() GroupGroupPrimerable {
+	return m.enableTechAdminApproveGroup
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *OrganizationOrganizationalUnit) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.OrganizationOrganizationalUnitPrimer.GetFieldDeserializers()
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnit_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(OrganizationOrganizationalUnit_additionalObjectsable))
-        }
-        return nil
-    }
-    res["auditorGroup"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAuditorGroup(val.(GroupGroupPrimerable))
-        }
-        return nil
-    }
-    res["createGroupApproveGroup"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetCreateGroupApproveGroup(val.(GroupGroupPrimerable))
-        }
-        return nil
-    }
-    res["createGroupPlaceholder"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetCreateGroupPlaceholder(val)
-        }
-        return nil
-    }
-    res["depth"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDepth(val)
-        }
-        return nil
-    }
-    res["description"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDescription(val)
-        }
-        return nil
-    }
-    res["enableTechAdminApproveGroup"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetEnableTechAdminApproveGroup(val.(GroupGroupPrimerable))
-        }
-        return nil
-    }
-    res["owner"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetOwner(val.(GroupGroupPrimerable))
-        }
-        return nil
-    }
-    res["parent"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetParent(val.(OrganizationOrganizationalUnitPrimerable))
-        }
-        return nil
-    }
-    res["recoveryFallbackGroup"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetRecoveryFallbackGroup(val.(GroupGroupPrimerable))
-        }
-        return nil
-    }
-    res["removeGroupApproveGroup"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetRemoveGroupApproveGroup(val.(GroupGroupPrimerable))
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *OrganizationOrganizationalUnit) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.OrganizationOrganizationalUnitPrimer.GetFieldDeserializers()
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnit_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(OrganizationOrganizationalUnit_additionalObjectsable))
+		}
+		return nil
+	}
+	res["auditorGroup"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAuditorGroup(val.(GroupGroupPrimerable))
+		}
+		return nil
+	}
+	res["createGroupApproveGroup"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetCreateGroupApproveGroup(val.(GroupGroupPrimerable))
+		}
+		return nil
+	}
+	res["createGroupPlaceholder"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetCreateGroupPlaceholder(val)
+		}
+		return nil
+	}
+	res["depth"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDepth(val)
+		}
+		return nil
+	}
+	res["description"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDescription(val)
+		}
+		return nil
+	}
+	res["enableTechAdminApproveGroup"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetEnableTechAdminApproveGroup(val.(GroupGroupPrimerable))
+		}
+		return nil
+	}
+	res["owner"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOwner(val.(GroupGroupPrimerable))
+		}
+		return nil
+	}
+	res["parent"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnitPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetParent(val.(OrganizationOrganizationalUnitPrimerable))
+		}
+		return nil
+	}
+	res["recoveryFallbackGroup"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetRecoveryFallbackGroup(val.(GroupGroupPrimerable))
+		}
+		return nil
+	}
+	res["removeGroupApproveGroup"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetRemoveGroupApproveGroup(val.(GroupGroupPrimerable))
+		}
+		return nil
+	}
+	return res
 }
+
 // GetOwner gets the owner property value. The owner property
 // returns a GroupGroupPrimerable when successful
-func (m *OrganizationOrganizationalUnit) GetOwner()(GroupGroupPrimerable) {
-    return m.owner
+func (m *OrganizationOrganizationalUnit) GetOwner() GroupGroupPrimerable {
+	return m.owner
 }
+
 // GetParent gets the parent property value. The parent property
 // returns a OrganizationOrganizationalUnitPrimerable when successful
-func (m *OrganizationOrganizationalUnit) GetParent()(OrganizationOrganizationalUnitPrimerable) {
-    return m.parent
+func (m *OrganizationOrganizationalUnit) GetParent() OrganizationOrganizationalUnitPrimerable {
+	return m.parent
 }
+
 // GetRecoveryFallbackGroup gets the recoveryFallbackGroup property value. The recoveryFallbackGroup property
 // returns a GroupGroupPrimerable when successful
-func (m *OrganizationOrganizationalUnit) GetRecoveryFallbackGroup()(GroupGroupPrimerable) {
-    return m.recoveryFallbackGroup
+func (m *OrganizationOrganizationalUnit) GetRecoveryFallbackGroup() GroupGroupPrimerable {
+	return m.recoveryFallbackGroup
 }
+
 // GetRemoveGroupApproveGroup gets the removeGroupApproveGroup property value. The removeGroupApproveGroup property
 // returns a GroupGroupPrimerable when successful
-func (m *OrganizationOrganizationalUnit) GetRemoveGroupApproveGroup()(GroupGroupPrimerable) {
-    return m.removeGroupApproveGroup
+func (m *OrganizationOrganizationalUnit) GetRemoveGroupApproveGroup() GroupGroupPrimerable {
+	return m.removeGroupApproveGroup
 }
+
 // Serialize serializes information the current object
-func (m *OrganizationOrganizationalUnit) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.OrganizationOrganizationalUnitPrimer.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("auditorGroup", m.GetAuditorGroup())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("createGroupApproveGroup", m.GetCreateGroupApproveGroup())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("createGroupPlaceholder", m.GetCreateGroupPlaceholder())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("description", m.GetDescription())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("enableTechAdminApproveGroup", m.GetEnableTechAdminApproveGroup())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("owner", m.GetOwner())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("parent", m.GetParent())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("recoveryFallbackGroup", m.GetRecoveryFallbackGroup())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("removeGroupApproveGroup", m.GetRemoveGroupApproveGroup())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *OrganizationOrganizationalUnit) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.OrganizationOrganizationalUnitPrimer.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("auditorGroup", m.GetAuditorGroup())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("createGroupApproveGroup", m.GetCreateGroupApproveGroup())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("createGroupPlaceholder", m.GetCreateGroupPlaceholder())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("description", m.GetDescription())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("enableTechAdminApproveGroup", m.GetEnableTechAdminApproveGroup())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("owner", m.GetOwner())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("parent", m.GetParent())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("recoveryFallbackGroup", m.GetRecoveryFallbackGroup())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("removeGroupApproveGroup", m.GetRemoveGroupApproveGroup())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *OrganizationOrganizationalUnit) SetAdditionalObjects(value OrganizationOrganizationalUnit_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *OrganizationOrganizationalUnit) SetAdditionalObjects(value OrganizationOrganizationalUnit_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetAuditorGroup sets the auditorGroup property value. The auditorGroup property
-func (m *OrganizationOrganizationalUnit) SetAuditorGroup(value GroupGroupPrimerable)() {
-    m.auditorGroup = value
+func (m *OrganizationOrganizationalUnit) SetAuditorGroup(value GroupGroupPrimerable) {
+	m.auditorGroup = value
 }
+
 // SetCreateGroupApproveGroup sets the createGroupApproveGroup property value. The createGroupApproveGroup property
-func (m *OrganizationOrganizationalUnit) SetCreateGroupApproveGroup(value GroupGroupPrimerable)() {
-    m.createGroupApproveGroup = value
+func (m *OrganizationOrganizationalUnit) SetCreateGroupApproveGroup(value GroupGroupPrimerable) {
+	m.createGroupApproveGroup = value
 }
+
 // SetCreateGroupPlaceholder sets the createGroupPlaceholder property value. The createGroupPlaceholder property
-func (m *OrganizationOrganizationalUnit) SetCreateGroupPlaceholder(value *string)() {
-    m.createGroupPlaceholder = value
+func (m *OrganizationOrganizationalUnit) SetCreateGroupPlaceholder(value *string) {
+	m.createGroupPlaceholder = value
 }
+
 // SetDepth sets the depth property value. The depth property
-func (m *OrganizationOrganizationalUnit) SetDepth(value *int32)() {
-    m.depth = value
+func (m *OrganizationOrganizationalUnit) SetDepth(value *int32) {
+	m.depth = value
 }
+
 // SetDescription sets the description property value. The description property
-func (m *OrganizationOrganizationalUnit) SetDescription(value *string)() {
-    m.description = value
+func (m *OrganizationOrganizationalUnit) SetDescription(value *string) {
+	m.description = value
 }
+
 // SetEnableTechAdminApproveGroup sets the enableTechAdminApproveGroup property value. The enableTechAdminApproveGroup property
-func (m *OrganizationOrganizationalUnit) SetEnableTechAdminApproveGroup(value GroupGroupPrimerable)() {
-    m.enableTechAdminApproveGroup = value
+func (m *OrganizationOrganizationalUnit) SetEnableTechAdminApproveGroup(value GroupGroupPrimerable) {
+	m.enableTechAdminApproveGroup = value
 }
+
 // SetOwner sets the owner property value. The owner property
-func (m *OrganizationOrganizationalUnit) SetOwner(value GroupGroupPrimerable)() {
-    m.owner = value
+func (m *OrganizationOrganizationalUnit) SetOwner(value GroupGroupPrimerable) {
+	m.owner = value
 }
+
 // SetParent sets the parent property value. The parent property
-func (m *OrganizationOrganizationalUnit) SetParent(value OrganizationOrganizationalUnitPrimerable)() {
-    m.parent = value
+func (m *OrganizationOrganizationalUnit) SetParent(value OrganizationOrganizationalUnitPrimerable) {
+	m.parent = value
 }
+
 // SetRecoveryFallbackGroup sets the recoveryFallbackGroup property value. The recoveryFallbackGroup property
-func (m *OrganizationOrganizationalUnit) SetRecoveryFallbackGroup(value GroupGroupPrimerable)() {
-    m.recoveryFallbackGroup = value
+func (m *OrganizationOrganizationalUnit) SetRecoveryFallbackGroup(value GroupGroupPrimerable) {
+	m.recoveryFallbackGroup = value
 }
+
 // SetRemoveGroupApproveGroup sets the removeGroupApproveGroup property value. The removeGroupApproveGroup property
-func (m *OrganizationOrganizationalUnit) SetRemoveGroupApproveGroup(value GroupGroupPrimerable)() {
-    m.removeGroupApproveGroup = value
+func (m *OrganizationOrganizationalUnit) SetRemoveGroupApproveGroup(value GroupGroupPrimerable) {
+	m.removeGroupApproveGroup = value
 }
+
 type OrganizationOrganizationalUnitable interface {
-    OrganizationOrganizationalUnitPrimerable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAdditionalObjects()(OrganizationOrganizationalUnit_additionalObjectsable)
-    GetAuditorGroup()(GroupGroupPrimerable)
-    GetCreateGroupApproveGroup()(GroupGroupPrimerable)
-    GetCreateGroupPlaceholder()(*string)
-    GetDepth()(*int32)
-    GetDescription()(*string)
-    GetEnableTechAdminApproveGroup()(GroupGroupPrimerable)
-    GetOwner()(GroupGroupPrimerable)
-    GetParent()(OrganizationOrganizationalUnitPrimerable)
-    GetRecoveryFallbackGroup()(GroupGroupPrimerable)
-    GetRemoveGroupApproveGroup()(GroupGroupPrimerable)
-    SetAdditionalObjects(value OrganizationOrganizationalUnit_additionalObjectsable)()
-    SetAuditorGroup(value GroupGroupPrimerable)()
-    SetCreateGroupApproveGroup(value GroupGroupPrimerable)()
-    SetCreateGroupPlaceholder(value *string)()
-    SetDepth(value *int32)()
-    SetDescription(value *string)()
-    SetEnableTechAdminApproveGroup(value GroupGroupPrimerable)()
-    SetOwner(value GroupGroupPrimerable)()
-    SetParent(value OrganizationOrganizationalUnitPrimerable)()
-    SetRecoveryFallbackGroup(value GroupGroupPrimerable)()
-    SetRemoveGroupApproveGroup(value GroupGroupPrimerable)()
+	OrganizationOrganizationalUnitPrimerable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAdditionalObjects() OrganizationOrganizationalUnit_additionalObjectsable
+	GetAuditorGroup() GroupGroupPrimerable
+	GetCreateGroupApproveGroup() GroupGroupPrimerable
+	GetCreateGroupPlaceholder() *string
+	GetDepth() *int32
+	GetDescription() *string
+	GetEnableTechAdminApproveGroup() GroupGroupPrimerable
+	GetOwner() GroupGroupPrimerable
+	GetParent() OrganizationOrganizationalUnitPrimerable
+	GetRecoveryFallbackGroup() GroupGroupPrimerable
+	GetRemoveGroupApproveGroup() GroupGroupPrimerable
+	SetAdditionalObjects(value OrganizationOrganizationalUnit_additionalObjectsable)
+	SetAuditorGroup(value GroupGroupPrimerable)
+	SetCreateGroupApproveGroup(value GroupGroupPrimerable)
+	SetCreateGroupPlaceholder(value *string)
+	SetDepth(value *int32)
+	SetDescription(value *string)
+	SetEnableTechAdminApproveGroup(value GroupGroupPrimerable)
+	SetOwner(value GroupGroupPrimerable)
+	SetParent(value OrganizationOrganizationalUnitPrimerable)
+	SetRecoveryFallbackGroup(value GroupGroupPrimerable)
+	SetRemoveGroupApproveGroup(value GroupGroupPrimerable)
 }

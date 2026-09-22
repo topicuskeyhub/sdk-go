@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ProvisioningProvisionedSystemStatus int
 
 const (
-    ACTIVE_PROVISIONINGPROVISIONEDSYSTEMSTATUS ProvisioningProvisionedSystemStatus = iota
-    READ_ONLY_PROVISIONINGPROVISIONEDSYSTEMSTATUS
-    DISABLED_PROVISIONINGPROVISIONEDSYSTEMSTATUS
+	ACTIVE_PROVISIONINGPROVISIONEDSYSTEMSTATUS ProvisioningProvisionedSystemStatus = iota
+	READ_ONLY_PROVISIONINGPROVISIONEDSYSTEMSTATUS
+	DISABLED_PROVISIONINGPROVISIONEDSYSTEMSTATUS
 )
 
 func (i ProvisioningProvisionedSystemStatus) String() string {
-    return []string{"ACTIVE", "READ_ONLY", "DISABLED"}[i]
+	return []string{"ACTIVE", "READ_ONLY", "DISABLED"}[i]
 }
+
 func ParseProvisioningProvisionedSystemStatus(v string) (any, error) {
-    result := ACTIVE_PROVISIONINGPROVISIONEDSYSTEMSTATUS
-    switch v {
-        case "ACTIVE":
-            result = ACTIVE_PROVISIONINGPROVISIONEDSYSTEMSTATUS
-        case "READ_ONLY":
-            result = READ_ONLY_PROVISIONINGPROVISIONEDSYSTEMSTATUS
-        case "DISABLED":
-            result = DISABLED_PROVISIONINGPROVISIONEDSYSTEMSTATUS
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ACTIVE_PROVISIONINGPROVISIONEDSYSTEMSTATUS
+	switch v {
+	case "ACTIVE":
+		result = ACTIVE_PROVISIONINGPROVISIONEDSYSTEMSTATUS
+	case "READ_ONLY":
+		result = READ_ONLY_PROVISIONINGPROVISIONEDSYSTEMSTATUS
+	case "DISABLED":
+		result = DISABLED_PROVISIONINGPROVISIONEDSYSTEMSTATUS
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeProvisioningProvisionedSystemStatus(values []ProvisioningProvisionedSystemStatus) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ProvisioningProvisionedSystemStatus) isMultiValue() bool {
-    return false
+	return false
 }

@@ -2,41 +2,45 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type VaultVaultSecretType int
 
 const (
-    PASSWORD_VAULTVAULTSECRETTYPE VaultVaultSecretType = iota
-    FILE_VAULTVAULTSECRETTYPE
-    TOTP_VAULTVAULTSECRETTYPE
-    COMMENT_VAULTVAULTSECRETTYPE
+	PASSWORD_VAULTVAULTSECRETTYPE VaultVaultSecretType = iota
+	FILE_VAULTVAULTSECRETTYPE
+	TOTP_VAULTVAULTSECRETTYPE
+	COMMENT_VAULTVAULTSECRETTYPE
 )
 
 func (i VaultVaultSecretType) String() string {
-    return []string{"PASSWORD", "FILE", "TOTP", "COMMENT"}[i]
+	return []string{"PASSWORD", "FILE", "TOTP", "COMMENT"}[i]
 }
+
 func ParseVaultVaultSecretType(v string) (any, error) {
-    result := PASSWORD_VAULTVAULTSECRETTYPE
-    switch v {
-        case "PASSWORD":
-            result = PASSWORD_VAULTVAULTSECRETTYPE
-        case "FILE":
-            result = FILE_VAULTVAULTSECRETTYPE
-        case "TOTP":
-            result = TOTP_VAULTVAULTSECRETTYPE
-        case "COMMENT":
-            result = COMMENT_VAULTVAULTSECRETTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := PASSWORD_VAULTVAULTSECRETTYPE
+	switch v {
+	case "PASSWORD":
+		result = PASSWORD_VAULTVAULTSECRETTYPE
+	case "FILE":
+		result = FILE_VAULTVAULTSECRETTYPE
+	case "TOTP":
+		result = TOTP_VAULTVAULTSECRETTYPE
+	case "COMMENT":
+		result = COMMENT_VAULTVAULTSECRETTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeVaultVaultSecretType(values []VaultVaultSecretType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i VaultVaultSecretType) isMultiValue() bool {
-    return false
+	return false
 }

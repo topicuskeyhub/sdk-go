@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ClientClientApplicationType int
 
 const (
-    OAUTH2_CLIENTCLIENTAPPLICATIONTYPE ClientClientApplicationType = iota
-    SAML2_CLIENTCLIENTAPPLICATIONTYPE
-    LDAP_CLIENTCLIENTAPPLICATIONTYPE
+	OAUTH2_CLIENTCLIENTAPPLICATIONTYPE ClientClientApplicationType = iota
+	SAML2_CLIENTCLIENTAPPLICATIONTYPE
+	LDAP_CLIENTCLIENTAPPLICATIONTYPE
 )
 
 func (i ClientClientApplicationType) String() string {
-    return []string{"OAUTH2", "SAML2", "LDAP"}[i]
+	return []string{"OAUTH2", "SAML2", "LDAP"}[i]
 }
+
 func ParseClientClientApplicationType(v string) (any, error) {
-    result := OAUTH2_CLIENTCLIENTAPPLICATIONTYPE
-    switch v {
-        case "OAUTH2":
-            result = OAUTH2_CLIENTCLIENTAPPLICATIONTYPE
-        case "SAML2":
-            result = SAML2_CLIENTCLIENTAPPLICATIONTYPE
-        case "LDAP":
-            result = LDAP_CLIENTCLIENTAPPLICATIONTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := OAUTH2_CLIENTCLIENTAPPLICATIONTYPE
+	switch v {
+	case "OAUTH2":
+		result = OAUTH2_CLIENTCLIENTAPPLICATIONTYPE
+	case "SAML2":
+		result = SAML2_CLIENTCLIENTAPPLICATIONTYPE
+	case "LDAP":
+		result = LDAP_CLIENTCLIENTAPPLICATIONTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeClientClientApplicationType(values []ClientClientApplicationType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ClientClientApplicationType) isMultiValue() bool {
-    return false
+	return false
 }

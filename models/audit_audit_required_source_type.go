@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type AuditAuditRequiredSourceType int
 
 const (
-    CONFORM_AUDITAUDITREQUIREDSOURCETYPE AuditAuditRequiredSourceType = iota
-    PERIODIC_AUDITAUDITREQUIREDSOURCETYPE
-    REQUESTED_AUDITAUDITREQUIREDSOURCETYPE
+	CONFORM_AUDITAUDITREQUIREDSOURCETYPE AuditAuditRequiredSourceType = iota
+	PERIODIC_AUDITAUDITREQUIREDSOURCETYPE
+	REQUESTED_AUDITAUDITREQUIREDSOURCETYPE
 )
 
 func (i AuditAuditRequiredSourceType) String() string {
-    return []string{"CONFORM", "PERIODIC", "REQUESTED"}[i]
+	return []string{"CONFORM", "PERIODIC", "REQUESTED"}[i]
 }
+
 func ParseAuditAuditRequiredSourceType(v string) (any, error) {
-    result := CONFORM_AUDITAUDITREQUIREDSOURCETYPE
-    switch v {
-        case "CONFORM":
-            result = CONFORM_AUDITAUDITREQUIREDSOURCETYPE
-        case "PERIODIC":
-            result = PERIODIC_AUDITAUDITREQUIREDSOURCETYPE
-        case "REQUESTED":
-            result = REQUESTED_AUDITAUDITREQUIREDSOURCETYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := CONFORM_AUDITAUDITREQUIREDSOURCETYPE
+	switch v {
+	case "CONFORM":
+		result = CONFORM_AUDITAUDITREQUIREDSOURCETYPE
+	case "PERIODIC":
+		result = PERIODIC_AUDITAUDITREQUIREDSOURCETYPE
+	case "REQUESTED":
+		result = REQUESTED_AUDITAUDITREQUIREDSOURCETYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeAuditAuditRequiredSourceType(values []AuditAuditRequiredSourceType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i AuditAuditRequiredSourceType) isMultiValue() bool {
-    return false
+	return false
 }

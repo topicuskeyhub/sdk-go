@@ -2,44 +2,48 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type LogOperationLogLevel int
 
 const (
-    ERROR_LOGOPERATIONLOGLEVEL LogOperationLogLevel = iota
-    WARNING_LOGOPERATIONLOGLEVEL
-    INFO_LOGOPERATIONLOGLEVEL
-    DEBUG_LOGOPERATIONLOGLEVEL
-    TRACE_LOGOPERATIONLOGLEVEL
+	ERROR_LOGOPERATIONLOGLEVEL LogOperationLogLevel = iota
+	WARNING_LOGOPERATIONLOGLEVEL
+	INFO_LOGOPERATIONLOGLEVEL
+	DEBUG_LOGOPERATIONLOGLEVEL
+	TRACE_LOGOPERATIONLOGLEVEL
 )
 
 func (i LogOperationLogLevel) String() string {
-    return []string{"ERROR", "WARNING", "INFO", "DEBUG", "TRACE"}[i]
+	return []string{"ERROR", "WARNING", "INFO", "DEBUG", "TRACE"}[i]
 }
+
 func ParseLogOperationLogLevel(v string) (any, error) {
-    result := ERROR_LOGOPERATIONLOGLEVEL
-    switch v {
-        case "ERROR":
-            result = ERROR_LOGOPERATIONLOGLEVEL
-        case "WARNING":
-            result = WARNING_LOGOPERATIONLOGLEVEL
-        case "INFO":
-            result = INFO_LOGOPERATIONLOGLEVEL
-        case "DEBUG":
-            result = DEBUG_LOGOPERATIONLOGLEVEL
-        case "TRACE":
-            result = TRACE_LOGOPERATIONLOGLEVEL
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ERROR_LOGOPERATIONLOGLEVEL
+	switch v {
+	case "ERROR":
+		result = ERROR_LOGOPERATIONLOGLEVEL
+	case "WARNING":
+		result = WARNING_LOGOPERATIONLOGLEVEL
+	case "INFO":
+		result = INFO_LOGOPERATIONLOGLEVEL
+	case "DEBUG":
+		result = DEBUG_LOGOPERATIONLOGLEVEL
+	case "TRACE":
+		result = TRACE_LOGOPERATIONLOGLEVEL
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeLogOperationLogLevel(values []LogOperationLogLevel) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i LogOperationLogLevel) isMultiValue() bool {
-    return false
+	return false
 }

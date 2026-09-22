@@ -2,41 +2,45 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ProfileAccessProfileLifecycleAnchor int
 
 const (
-    ADD_PROFILEACCESSPROFILELIFECYCLEANCHOR ProfileAccessProfileLifecycleAnchor = iota
-    ACTIVATE_PROFILEACCESSPROFILELIFECYCLEANCHOR
-    DEACTIVATE_PROFILEACCESSPROFILELIFECYCLEANCHOR
-    REMOVE_PROFILEACCESSPROFILELIFECYCLEANCHOR
+	ADD_PROFILEACCESSPROFILELIFECYCLEANCHOR ProfileAccessProfileLifecycleAnchor = iota
+	ACTIVATE_PROFILEACCESSPROFILELIFECYCLEANCHOR
+	DEACTIVATE_PROFILEACCESSPROFILELIFECYCLEANCHOR
+	REMOVE_PROFILEACCESSPROFILELIFECYCLEANCHOR
 )
 
 func (i ProfileAccessProfileLifecycleAnchor) String() string {
-    return []string{"ADD", "ACTIVATE", "DEACTIVATE", "REMOVE"}[i]
+	return []string{"ADD", "ACTIVATE", "DEACTIVATE", "REMOVE"}[i]
 }
+
 func ParseProfileAccessProfileLifecycleAnchor(v string) (any, error) {
-    result := ADD_PROFILEACCESSPROFILELIFECYCLEANCHOR
-    switch v {
-        case "ADD":
-            result = ADD_PROFILEACCESSPROFILELIFECYCLEANCHOR
-        case "ACTIVATE":
-            result = ACTIVATE_PROFILEACCESSPROFILELIFECYCLEANCHOR
-        case "DEACTIVATE":
-            result = DEACTIVATE_PROFILEACCESSPROFILELIFECYCLEANCHOR
-        case "REMOVE":
-            result = REMOVE_PROFILEACCESSPROFILELIFECYCLEANCHOR
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ADD_PROFILEACCESSPROFILELIFECYCLEANCHOR
+	switch v {
+	case "ADD":
+		result = ADD_PROFILEACCESSPROFILELIFECYCLEANCHOR
+	case "ACTIVATE":
+		result = ACTIVATE_PROFILEACCESSPROFILELIFECYCLEANCHOR
+	case "DEACTIVATE":
+		result = DEACTIVATE_PROFILEACCESSPROFILELIFECYCLEANCHOR
+	case "REMOVE":
+		result = REMOVE_PROFILEACCESSPROFILELIFECYCLEANCHOR
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeProfileAccessProfileLifecycleAnchor(values []ProfileAccessProfileLifecycleAnchor) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ProfileAccessProfileLifecycleAnchor) isMultiValue() bool {
-    return false
+	return false
 }

@@ -4,94 +4,103 @@
 package models
 
 import (
-    i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
 )
 
 type IdentitysourceImportedDocument struct {
-    Linkable
-    // The additionalObjects property
-    additionalObjects IdentitysourceImportedDocument_additionalObjectsable
-    // The createdAt property
-    createdAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+	Linkable
+	// The additionalObjects property
+	additionalObjects IdentitysourceImportedDocument_additionalObjectsable
+	// The createdAt property
+	createdAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 }
+
 // NewIdentitysourceImportedDocument instantiates a new IdentitysourceImportedDocument and sets the default values.
-func NewIdentitysourceImportedDocument()(*IdentitysourceImportedDocument) {
-    m := &IdentitysourceImportedDocument{
-        Linkable: *NewLinkable(),
-    }
-    typeEscapedValue := "identitysource.ImportedDocument"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewIdentitysourceImportedDocument() *IdentitysourceImportedDocument {
+	m := &IdentitysourceImportedDocument{
+		Linkable: *NewLinkable(),
+	}
+	typeEscapedValue := "identitysource.ImportedDocument"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateIdentitysourceImportedDocumentFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateIdentitysourceImportedDocumentFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewIdentitysourceImportedDocument(), nil
+func CreateIdentitysourceImportedDocumentFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewIdentitysourceImportedDocument(), nil
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a IdentitysourceImportedDocument_additionalObjectsable when successful
-func (m *IdentitysourceImportedDocument) GetAdditionalObjects()(IdentitysourceImportedDocument_additionalObjectsable) {
-    return m.additionalObjects
+func (m *IdentitysourceImportedDocument) GetAdditionalObjects() IdentitysourceImportedDocument_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetCreatedAt gets the createdAt property value. The createdAt property
 // returns a *Time when successful
-func (m *IdentitysourceImportedDocument) GetCreatedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
-    return m.createdAt
+func (m *IdentitysourceImportedDocument) GetCreatedAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time {
+	return m.createdAt
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *IdentitysourceImportedDocument) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.Linkable.GetFieldDeserializers()
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateIdentitysourceImportedDocument_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(IdentitysourceImportedDocument_additionalObjectsable))
-        }
-        return nil
-    }
-    res["createdAt"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetTimeValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetCreatedAt(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *IdentitysourceImportedDocument) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.Linkable.GetFieldDeserializers()
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateIdentitysourceImportedDocument_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(IdentitysourceImportedDocument_additionalObjectsable))
+		}
+		return nil
+	}
+	res["createdAt"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetTimeValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetCreatedAt(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // Serialize serializes information the current object
-func (m *IdentitysourceImportedDocument) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.Linkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *IdentitysourceImportedDocument) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.Linkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *IdentitysourceImportedDocument) SetAdditionalObjects(value IdentitysourceImportedDocument_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *IdentitysourceImportedDocument) SetAdditionalObjects(value IdentitysourceImportedDocument_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetCreatedAt sets the createdAt property value. The createdAt property
-func (m *IdentitysourceImportedDocument) SetCreatedAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
-    m.createdAt = value
+func (m *IdentitysourceImportedDocument) SetCreatedAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+	m.createdAt = value
 }
+
 type IdentitysourceImportedDocumentable interface {
-    Linkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAdditionalObjects()(IdentitysourceImportedDocument_additionalObjectsable)
-    GetCreatedAt()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
-    SetAdditionalObjects(value IdentitysourceImportedDocument_additionalObjectsable)()
-    SetCreatedAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
+	Linkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAdditionalObjects() IdentitysourceImportedDocument_additionalObjectsable
+	GetCreatedAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+	SetAdditionalObjects(value IdentitysourceImportedDocument_additionalObjectsable)
+	SetCreatedAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
 }

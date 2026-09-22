@@ -2,44 +2,48 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type HttpAuthenticationScheme int
 
 const (
-    NONE_HTTPAUTHENTICATIONSCHEME HttpAuthenticationScheme = iota
-    BASIC_HTTPAUTHENTICATIONSCHEME
-    BEARER_HTTPAUTHENTICATIONSCHEME
-    KEYHUB_HTTPAUTHENTICATIONSCHEME
-    CUSTOM_HTTPAUTHENTICATIONSCHEME
+	NONE_HTTPAUTHENTICATIONSCHEME HttpAuthenticationScheme = iota
+	BASIC_HTTPAUTHENTICATIONSCHEME
+	BEARER_HTTPAUTHENTICATIONSCHEME
+	KEYHUB_HTTPAUTHENTICATIONSCHEME
+	CUSTOM_HTTPAUTHENTICATIONSCHEME
 )
 
 func (i HttpAuthenticationScheme) String() string {
-    return []string{"NONE", "BASIC", "BEARER", "KEYHUB", "CUSTOM"}[i]
+	return []string{"NONE", "BASIC", "BEARER", "KEYHUB", "CUSTOM"}[i]
 }
+
 func ParseHttpAuthenticationScheme(v string) (any, error) {
-    result := NONE_HTTPAUTHENTICATIONSCHEME
-    switch v {
-        case "NONE":
-            result = NONE_HTTPAUTHENTICATIONSCHEME
-        case "BASIC":
-            result = BASIC_HTTPAUTHENTICATIONSCHEME
-        case "BEARER":
-            result = BEARER_HTTPAUTHENTICATIONSCHEME
-        case "KEYHUB":
-            result = KEYHUB_HTTPAUTHENTICATIONSCHEME
-        case "CUSTOM":
-            result = CUSTOM_HTTPAUTHENTICATIONSCHEME
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := NONE_HTTPAUTHENTICATIONSCHEME
+	switch v {
+	case "NONE":
+		result = NONE_HTTPAUTHENTICATIONSCHEME
+	case "BASIC":
+		result = BASIC_HTTPAUTHENTICATIONSCHEME
+	case "BEARER":
+		result = BEARER_HTTPAUTHENTICATIONSCHEME
+	case "KEYHUB":
+		result = KEYHUB_HTTPAUTHENTICATIONSCHEME
+	case "CUSTOM":
+		result = CUSTOM_HTTPAUTHENTICATIONSCHEME
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeHttpAuthenticationScheme(values []HttpAuthenticationScheme) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i HttpAuthenticationScheme) isMultiValue() bool {
-    return false
+	return false
 }

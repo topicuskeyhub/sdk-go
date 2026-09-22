@@ -4,433 +4,838 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ProvisioningProvisionedLDAPDirectory struct {
-    ProvisioningProvisionedSystem
-    // The accountMatchingAttribute property
-    accountMatchingAttribute IdentityAccountAttributeDefinitionable
-    // The accountMatchingAttributeName property
-    accountMatchingAttributeName *string
-    // The accountsWritable property
-    accountsWritable *bool
-    // The attributes property
-    attributes []MiscAttributeCustomizationable
-    // The directory property
-    directory DirectoryAccountDirectoryPrimerable
-    // The gid property
-    gid *int64
-    // The gidNumbering property
-    gidNumbering ProvisioningProvisionNumberSequenceable
-    // The groupDN property
-    groupDN *string
-    // The hashingScheme property
-    hashingScheme *ProvisioningLDAPPasswordHashingScheme
-    // The numbering property
-    numbering ProvisioningProvisionNumberSequenceable
-    // The objectClasses property
-    objectClasses *string
-    // The samAccountNameScheme property
-    samAccountNameScheme *ProvisioningADSamAccountNameScheme
-    // The sshPublicKeySupport property
-    sshPublicKeySupport *ProvisioningLDAPSshPublicKeySupport
+	ProvisioningProvisionedSystem
+	// The accountMatchingAttribute property
+	accountMatchingAttribute IdentityAccountAttributeDefinitionable
+	// The accountMatchingAttributeName property
+	accountMatchingAttributeName *string
+	// The accountsWritable property
+	accountsWritable *bool
+	// The attributes property
+	attributes []MiscAttributeCustomizationable
+	// The baseDN property
+	baseDN *string
+	// The bindDN property
+	bindDN *string
+	// The bindPassword property
+	bindPassword *string
+	// The clientCertificate property
+	clientCertificate CertificateCertificatePrimerable
+	// The dialect property
+	dialect *DirectoryLDAPDialect
+	// The directory property
+	directory DirectoryAccountDirectoryPrimerable
+	// The failoverHost property
+	failoverHost *string
+	// The failoverTrustedCertificate property
+	failoverTrustedCertificate CertificateCertificatePrimerable
+	// The gid property
+	gid *int64
+	// The gidNumbering property
+	gidNumbering ProvisioningProvisionNumberSequenceable
+	// The groupDN property
+	groupDN *string
+	// The hashingScheme property
+	hashingScheme *ProvisioningLDAPPasswordHashingScheme
+	// The host property
+	host *string
+	// The numbering property
+	numbering ProvisioningProvisionNumberSequenceable
+	// The objectClasses property
+	objectClasses *string
+	// The oidcDirectory property
+	oidcDirectory DirectoryAccountDirectoryPrimerable
+	// The port property
+	port *int32
+	// The samAccountNameScheme property
+	samAccountNameScheme *ProvisioningADSamAccountNameScheme
+	// The sshPublicKeySupport property
+	sshPublicKeySupport *ProvisioningLDAPSshPublicKeySupport
+	// The tls property
+	tls *TLSLevel
+	// The trustedCertificate property
+	trustedCertificate CertificateCertificatePrimerable
 }
+
 // NewProvisioningProvisionedLDAPDirectory instantiates a new ProvisioningProvisionedLDAPDirectory and sets the default values.
-func NewProvisioningProvisionedLDAPDirectory()(*ProvisioningProvisionedLDAPDirectory) {
-    m := &ProvisioningProvisionedLDAPDirectory{
-        ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
-    }
-    typeEscapedValue := "provisioning.ProvisionedLDAPDirectory"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewProvisioningProvisionedLDAPDirectory() *ProvisioningProvisionedLDAPDirectory {
+	m := &ProvisioningProvisionedLDAPDirectory{
+		ProvisioningProvisionedSystem: *NewProvisioningProvisionedSystem(),
+	}
+	typeEscapedValue := "provisioning.ProvisionedLDAPDirectory"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateProvisioningProvisionedLDAPDirectoryFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProvisioningProvisionedLDAPDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewProvisioningProvisionedLDAPDirectory(), nil
+func CreateProvisioningProvisionedLDAPDirectoryFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewProvisioningProvisionedLDAPDirectory(), nil
 }
+
 // GetAccountMatchingAttribute gets the accountMatchingAttribute property value. The accountMatchingAttribute property
 // returns a IdentityAccountAttributeDefinitionable when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetAccountMatchingAttribute()(IdentityAccountAttributeDefinitionable) {
-    return m.accountMatchingAttribute
+func (m *ProvisioningProvisionedLDAPDirectory) GetAccountMatchingAttribute() IdentityAccountAttributeDefinitionable {
+	return m.accountMatchingAttribute
 }
+
 // GetAccountMatchingAttributeName gets the accountMatchingAttributeName property value. The accountMatchingAttributeName property
 // returns a *string when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetAccountMatchingAttributeName()(*string) {
-    return m.accountMatchingAttributeName
+func (m *ProvisioningProvisionedLDAPDirectory) GetAccountMatchingAttributeName() *string {
+	return m.accountMatchingAttributeName
 }
+
 // GetAccountsWritable gets the accountsWritable property value. The accountsWritable property
 // returns a *bool when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetAccountsWritable()(*bool) {
-    return m.accountsWritable
+func (m *ProvisioningProvisionedLDAPDirectory) GetAccountsWritable() *bool {
+	return m.accountsWritable
 }
+
 // GetAttributes gets the attributes property value. The attributes property
 // returns a []MiscAttributeCustomizationable when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetAttributes()([]MiscAttributeCustomizationable) {
-    return m.attributes
+func (m *ProvisioningProvisionedLDAPDirectory) GetAttributes() []MiscAttributeCustomizationable {
+	return m.attributes
 }
+
+// GetBaseDN gets the baseDN property value. The baseDN property
+// returns a *string when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetBaseDN() *string {
+	return m.baseDN
+}
+
+// GetBindDN gets the bindDN property value. The bindDN property
+// returns a *string when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetBindDN() *string {
+	return m.bindDN
+}
+
+// GetBindPassword gets the bindPassword property value. The bindPassword property
+// returns a *string when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetBindPassword() *string {
+	return m.bindPassword
+}
+
+// GetClientCertificate gets the clientCertificate property value. The clientCertificate property
+// returns a CertificateCertificatePrimerable when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetClientCertificate() CertificateCertificatePrimerable {
+	return m.clientCertificate
+}
+
+// GetDialect gets the dialect property value. The dialect property
+// returns a *DirectoryLDAPDialect when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetDialect() *DirectoryLDAPDialect {
+	return m.dialect
+}
+
 // GetDirectory gets the directory property value. The directory property
 // returns a DirectoryAccountDirectoryPrimerable when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetDirectory()(DirectoryAccountDirectoryPrimerable) {
-    return m.directory
+func (m *ProvisioningProvisionedLDAPDirectory) GetDirectory() DirectoryAccountDirectoryPrimerable {
+	return m.directory
 }
+
+// GetFailoverHost gets the failoverHost property value. The failoverHost property
+// returns a *string when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetFailoverHost() *string {
+	return m.failoverHost
+}
+
+// GetFailoverTrustedCertificate gets the failoverTrustedCertificate property value. The failoverTrustedCertificate property
+// returns a CertificateCertificatePrimerable when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetFailoverTrustedCertificate() CertificateCertificatePrimerable {
+	return m.failoverTrustedCertificate
+}
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
-    res["accountMatchingAttribute"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccountMatchingAttribute(val.(IdentityAccountAttributeDefinitionable))
-        }
-        return nil
-    }
-    res["accountMatchingAttributeName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccountMatchingAttributeName(val)
-        }
-        return nil
-    }
-    res["accountsWritable"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccountsWritable(val)
-        }
-        return nil
-    }
-    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]MiscAttributeCustomizationable, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = v.(MiscAttributeCustomizationable)
-                }
-            }
-            m.SetAttributes(res)
-        }
-        return nil
-    }
-    res["directory"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateDirectoryAccountDirectoryPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDirectory(val.(DirectoryAccountDirectoryPrimerable))
-        }
-        return nil
-    }
-    res["gid"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt64Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGid(val)
-        }
-        return nil
-    }
-    res["gidNumbering"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGidNumbering(val.(ProvisioningProvisionNumberSequenceable))
-        }
-        return nil
-    }
-    res["groupDN"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroupDN(val)
-        }
-        return nil
-    }
-    res["hashingScheme"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProvisioningLDAPPasswordHashingScheme)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetHashingScheme(val.(*ProvisioningLDAPPasswordHashingScheme))
-        }
-        return nil
-    }
-    res["numbering"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetNumbering(val.(ProvisioningProvisionNumberSequenceable))
-        }
-        return nil
-    }
-    res["objectClasses"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetObjectClasses(val)
-        }
-        return nil
-    }
-    res["samAccountNameScheme"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProvisioningADSamAccountNameScheme)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSamAccountNameScheme(val.(*ProvisioningADSamAccountNameScheme))
-        }
-        return nil
-    }
-    res["sshPublicKeySupport"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProvisioningLDAPSshPublicKeySupport)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSshPublicKeySupport(val.(*ProvisioningLDAPSshPublicKeySupport))
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.ProvisioningProvisionedSystem.GetFieldDeserializers()
+	res["accountMatchingAttribute"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAccountMatchingAttribute(val.(IdentityAccountAttributeDefinitionable))
+		}
+		return nil
+	}
+	res["accountMatchingAttributeName"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAccountMatchingAttributeName(val)
+		}
+		return nil
+	}
+	res["accountsWritable"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAccountsWritable(val)
+		}
+		return nil
+	}
+	res["attributes"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			res := make([]MiscAttributeCustomizationable, len(val))
+			for i, v := range val {
+				if v != nil {
+					res[i] = v.(MiscAttributeCustomizationable)
+				}
+			}
+			m.SetAttributes(res)
+		}
+		return nil
+	}
+	res["baseDN"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetBaseDN(val)
+		}
+		return nil
+	}
+	res["bindDN"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetBindDN(val)
+		}
+		return nil
+	}
+	res["bindPassword"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetBindPassword(val)
+		}
+		return nil
+	}
+	res["clientCertificate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateCertificateCertificatePrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetClientCertificate(val.(CertificateCertificatePrimerable))
+		}
+		return nil
+	}
+	res["dialect"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseDirectoryLDAPDialect)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDialect(val.(*DirectoryLDAPDialect))
+		}
+		return nil
+	}
+	res["directory"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateDirectoryAccountDirectoryPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDirectory(val.(DirectoryAccountDirectoryPrimerable))
+		}
+		return nil
+	}
+	res["failoverHost"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetFailoverHost(val)
+		}
+		return nil
+	}
+	res["failoverTrustedCertificate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateCertificateCertificatePrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetFailoverTrustedCertificate(val.(CertificateCertificatePrimerable))
+		}
+		return nil
+	}
+	res["gid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt64Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGid(val)
+		}
+		return nil
+	}
+	res["gidNumbering"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGidNumbering(val.(ProvisioningProvisionNumberSequenceable))
+		}
+		return nil
+	}
+	res["groupDN"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroupDN(val)
+		}
+		return nil
+	}
+	res["hashingScheme"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProvisioningLDAPPasswordHashingScheme)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetHashingScheme(val.(*ProvisioningLDAPPasswordHashingScheme))
+		}
+		return nil
+	}
+	res["host"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetHost(val)
+		}
+		return nil
+	}
+	res["numbering"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProvisioningProvisionNumberSequenceFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetNumbering(val.(ProvisioningProvisionNumberSequenceable))
+		}
+		return nil
+	}
+	res["objectClasses"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetObjectClasses(val)
+		}
+		return nil
+	}
+	res["oidcDirectory"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateDirectoryAccountDirectoryPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOidcDirectory(val.(DirectoryAccountDirectoryPrimerable))
+		}
+		return nil
+	}
+	res["port"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetPort(val)
+		}
+		return nil
+	}
+	res["samAccountNameScheme"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProvisioningADSamAccountNameScheme)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSamAccountNameScheme(val.(*ProvisioningADSamAccountNameScheme))
+		}
+		return nil
+	}
+	res["sshPublicKeySupport"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProvisioningLDAPSshPublicKeySupport)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSshPublicKeySupport(val.(*ProvisioningLDAPSshPublicKeySupport))
+		}
+		return nil
+	}
+	res["tls"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseTLSLevel)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetTls(val.(*TLSLevel))
+		}
+		return nil
+	}
+	res["trustedCertificate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateCertificateCertificatePrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetTrustedCertificate(val.(CertificateCertificatePrimerable))
+		}
+		return nil
+	}
+	return res
 }
+
 // GetGid gets the gid property value. The gid property
 // returns a *int64 when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetGid()(*int64) {
-    return m.gid
+func (m *ProvisioningProvisionedLDAPDirectory) GetGid() *int64 {
+	return m.gid
 }
+
 // GetGidNumbering gets the gidNumbering property value. The gidNumbering property
 // returns a ProvisioningProvisionNumberSequenceable when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetGidNumbering()(ProvisioningProvisionNumberSequenceable) {
-    return m.gidNumbering
+func (m *ProvisioningProvisionedLDAPDirectory) GetGidNumbering() ProvisioningProvisionNumberSequenceable {
+	return m.gidNumbering
 }
+
 // GetGroupDN gets the groupDN property value. The groupDN property
 // returns a *string when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetGroupDN()(*string) {
-    return m.groupDN
+func (m *ProvisioningProvisionedLDAPDirectory) GetGroupDN() *string {
+	return m.groupDN
 }
+
 // GetHashingScheme gets the hashingScheme property value. The hashingScheme property
 // returns a *ProvisioningLDAPPasswordHashingScheme when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetHashingScheme()(*ProvisioningLDAPPasswordHashingScheme) {
-    return m.hashingScheme
+func (m *ProvisioningProvisionedLDAPDirectory) GetHashingScheme() *ProvisioningLDAPPasswordHashingScheme {
+	return m.hashingScheme
 }
+
+// GetHost gets the host property value. The host property
+// returns a *string when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetHost() *string {
+	return m.host
+}
+
 // GetNumbering gets the numbering property value. The numbering property
 // returns a ProvisioningProvisionNumberSequenceable when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetNumbering()(ProvisioningProvisionNumberSequenceable) {
-    return m.numbering
+func (m *ProvisioningProvisionedLDAPDirectory) GetNumbering() ProvisioningProvisionNumberSequenceable {
+	return m.numbering
 }
+
 // GetObjectClasses gets the objectClasses property value. The objectClasses property
 // returns a *string when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetObjectClasses()(*string) {
-    return m.objectClasses
+func (m *ProvisioningProvisionedLDAPDirectory) GetObjectClasses() *string {
+	return m.objectClasses
 }
+
+// GetOidcDirectory gets the oidcDirectory property value. The oidcDirectory property
+// returns a DirectoryAccountDirectoryPrimerable when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetOidcDirectory() DirectoryAccountDirectoryPrimerable {
+	return m.oidcDirectory
+}
+
+// GetPort gets the port property value. The port property
+// returns a *int32 when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetPort() *int32 {
+	return m.port
+}
+
 // GetSamAccountNameScheme gets the samAccountNameScheme property value. The samAccountNameScheme property
 // returns a *ProvisioningADSamAccountNameScheme when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetSamAccountNameScheme()(*ProvisioningADSamAccountNameScheme) {
-    return m.samAccountNameScheme
+func (m *ProvisioningProvisionedLDAPDirectory) GetSamAccountNameScheme() *ProvisioningADSamAccountNameScheme {
+	return m.samAccountNameScheme
 }
+
 // GetSshPublicKeySupport gets the sshPublicKeySupport property value. The sshPublicKeySupport property
 // returns a *ProvisioningLDAPSshPublicKeySupport when successful
-func (m *ProvisioningProvisionedLDAPDirectory) GetSshPublicKeySupport()(*ProvisioningLDAPSshPublicKeySupport) {
-    return m.sshPublicKeySupport
+func (m *ProvisioningProvisionedLDAPDirectory) GetSshPublicKeySupport() *ProvisioningLDAPSshPublicKeySupport {
+	return m.sshPublicKeySupport
 }
+
+// GetTls gets the tls property value. The tls property
+// returns a *TLSLevel when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetTls() *TLSLevel {
+	return m.tls
+}
+
+// GetTrustedCertificate gets the trustedCertificate property value. The trustedCertificate property
+// returns a CertificateCertificatePrimerable when successful
+func (m *ProvisioningProvisionedLDAPDirectory) GetTrustedCertificate() CertificateCertificatePrimerable {
+	return m.trustedCertificate
+}
+
 // Serialize serializes information the current object
-func (m *ProvisioningProvisionedLDAPDirectory) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.ProvisioningProvisionedSystem.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("accountMatchingAttribute", m.GetAccountMatchingAttribute())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("accountMatchingAttributeName", m.GetAccountMatchingAttributeName())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("accountsWritable", m.GetAccountsWritable())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetAttributes() != nil {
-        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
-        for i, v := range m.GetAttributes() {
-            if v != nil {
-                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
-            }
-        }
-        err = writer.WriteCollectionOfObjectValues("attributes", cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("directory", m.GetDirectory())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt64Value("gid", m.GetGid())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("gidNumbering", m.GetGidNumbering())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("groupDN", m.GetGroupDN())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetHashingScheme() != nil {
-        cast := (*m.GetHashingScheme()).String()
-        err = writer.WriteStringValue("hashingScheme", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("numbering", m.GetNumbering())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("objectClasses", m.GetObjectClasses())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetSamAccountNameScheme() != nil {
-        cast := (*m.GetSamAccountNameScheme()).String()
-        err = writer.WriteStringValue("samAccountNameScheme", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetSshPublicKeySupport() != nil {
-        cast := (*m.GetSshPublicKeySupport()).String()
-        err = writer.WriteStringValue("sshPublicKeySupport", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ProvisioningProvisionedLDAPDirectory) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.ProvisioningProvisionedSystem.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("accountMatchingAttribute", m.GetAccountMatchingAttribute())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("accountMatchingAttributeName", m.GetAccountMatchingAttributeName())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("accountsWritable", m.GetAccountsWritable())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetAttributes() != nil {
+		cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+		for i, v := range m.GetAttributes() {
+			if v != nil {
+				cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+			}
+		}
+		err = writer.WriteCollectionOfObjectValues("attributes", cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("baseDN", m.GetBaseDN())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("bindDN", m.GetBindDN())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("bindPassword", m.GetBindPassword())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("clientCertificate", m.GetClientCertificate())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetDialect() != nil {
+		cast := (*m.GetDialect()).String()
+		err = writer.WriteStringValue("dialect", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("directory", m.GetDirectory())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("failoverHost", m.GetFailoverHost())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("failoverTrustedCertificate", m.GetFailoverTrustedCertificate())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteInt64Value("gid", m.GetGid())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("gidNumbering", m.GetGidNumbering())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("groupDN", m.GetGroupDN())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetHashingScheme() != nil {
+		cast := (*m.GetHashingScheme()).String()
+		err = writer.WriteStringValue("hashingScheme", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("host", m.GetHost())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("numbering", m.GetNumbering())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("objectClasses", m.GetObjectClasses())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("oidcDirectory", m.GetOidcDirectory())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteInt32Value("port", m.GetPort())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetSamAccountNameScheme() != nil {
+		cast := (*m.GetSamAccountNameScheme()).String()
+		err = writer.WriteStringValue("samAccountNameScheme", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetSshPublicKeySupport() != nil {
+		cast := (*m.GetSshPublicKeySupport()).String()
+		err = writer.WriteStringValue("sshPublicKeySupport", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetTls() != nil {
+		cast := (*m.GetTls()).String()
+		err = writer.WriteStringValue("tls", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("trustedCertificate", m.GetTrustedCertificate())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAccountMatchingAttribute sets the accountMatchingAttribute property value. The accountMatchingAttribute property
-func (m *ProvisioningProvisionedLDAPDirectory) SetAccountMatchingAttribute(value IdentityAccountAttributeDefinitionable)() {
-    m.accountMatchingAttribute = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetAccountMatchingAttribute(value IdentityAccountAttributeDefinitionable) {
+	m.accountMatchingAttribute = value
 }
+
 // SetAccountMatchingAttributeName sets the accountMatchingAttributeName property value. The accountMatchingAttributeName property
-func (m *ProvisioningProvisionedLDAPDirectory) SetAccountMatchingAttributeName(value *string)() {
-    m.accountMatchingAttributeName = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetAccountMatchingAttributeName(value *string) {
+	m.accountMatchingAttributeName = value
 }
+
 // SetAccountsWritable sets the accountsWritable property value. The accountsWritable property
-func (m *ProvisioningProvisionedLDAPDirectory) SetAccountsWritable(value *bool)() {
-    m.accountsWritable = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetAccountsWritable(value *bool) {
+	m.accountsWritable = value
 }
+
 // SetAttributes sets the attributes property value. The attributes property
-func (m *ProvisioningProvisionedLDAPDirectory) SetAttributes(value []MiscAttributeCustomizationable)() {
-    m.attributes = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetAttributes(value []MiscAttributeCustomizationable) {
+	m.attributes = value
 }
+
+// SetBaseDN sets the baseDN property value. The baseDN property
+func (m *ProvisioningProvisionedLDAPDirectory) SetBaseDN(value *string) {
+	m.baseDN = value
+}
+
+// SetBindDN sets the bindDN property value. The bindDN property
+func (m *ProvisioningProvisionedLDAPDirectory) SetBindDN(value *string) {
+	m.bindDN = value
+}
+
+// SetBindPassword sets the bindPassword property value. The bindPassword property
+func (m *ProvisioningProvisionedLDAPDirectory) SetBindPassword(value *string) {
+	m.bindPassword = value
+}
+
+// SetClientCertificate sets the clientCertificate property value. The clientCertificate property
+func (m *ProvisioningProvisionedLDAPDirectory) SetClientCertificate(value CertificateCertificatePrimerable) {
+	m.clientCertificate = value
+}
+
+// SetDialect sets the dialect property value. The dialect property
+func (m *ProvisioningProvisionedLDAPDirectory) SetDialect(value *DirectoryLDAPDialect) {
+	m.dialect = value
+}
+
 // SetDirectory sets the directory property value. The directory property
-func (m *ProvisioningProvisionedLDAPDirectory) SetDirectory(value DirectoryAccountDirectoryPrimerable)() {
-    m.directory = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetDirectory(value DirectoryAccountDirectoryPrimerable) {
+	m.directory = value
 }
+
+// SetFailoverHost sets the failoverHost property value. The failoverHost property
+func (m *ProvisioningProvisionedLDAPDirectory) SetFailoverHost(value *string) {
+	m.failoverHost = value
+}
+
+// SetFailoverTrustedCertificate sets the failoverTrustedCertificate property value. The failoverTrustedCertificate property
+func (m *ProvisioningProvisionedLDAPDirectory) SetFailoverTrustedCertificate(value CertificateCertificatePrimerable) {
+	m.failoverTrustedCertificate = value
+}
+
 // SetGid sets the gid property value. The gid property
-func (m *ProvisioningProvisionedLDAPDirectory) SetGid(value *int64)() {
-    m.gid = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetGid(value *int64) {
+	m.gid = value
 }
+
 // SetGidNumbering sets the gidNumbering property value. The gidNumbering property
-func (m *ProvisioningProvisionedLDAPDirectory) SetGidNumbering(value ProvisioningProvisionNumberSequenceable)() {
-    m.gidNumbering = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetGidNumbering(value ProvisioningProvisionNumberSequenceable) {
+	m.gidNumbering = value
 }
+
 // SetGroupDN sets the groupDN property value. The groupDN property
-func (m *ProvisioningProvisionedLDAPDirectory) SetGroupDN(value *string)() {
-    m.groupDN = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetGroupDN(value *string) {
+	m.groupDN = value
 }
+
 // SetHashingScheme sets the hashingScheme property value. The hashingScheme property
-func (m *ProvisioningProvisionedLDAPDirectory) SetHashingScheme(value *ProvisioningLDAPPasswordHashingScheme)() {
-    m.hashingScheme = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetHashingScheme(value *ProvisioningLDAPPasswordHashingScheme) {
+	m.hashingScheme = value
 }
+
+// SetHost sets the host property value. The host property
+func (m *ProvisioningProvisionedLDAPDirectory) SetHost(value *string) {
+	m.host = value
+}
+
 // SetNumbering sets the numbering property value. The numbering property
-func (m *ProvisioningProvisionedLDAPDirectory) SetNumbering(value ProvisioningProvisionNumberSequenceable)() {
-    m.numbering = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetNumbering(value ProvisioningProvisionNumberSequenceable) {
+	m.numbering = value
 }
+
 // SetObjectClasses sets the objectClasses property value. The objectClasses property
-func (m *ProvisioningProvisionedLDAPDirectory) SetObjectClasses(value *string)() {
-    m.objectClasses = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetObjectClasses(value *string) {
+	m.objectClasses = value
 }
+
+// SetOidcDirectory sets the oidcDirectory property value. The oidcDirectory property
+func (m *ProvisioningProvisionedLDAPDirectory) SetOidcDirectory(value DirectoryAccountDirectoryPrimerable) {
+	m.oidcDirectory = value
+}
+
+// SetPort sets the port property value. The port property
+func (m *ProvisioningProvisionedLDAPDirectory) SetPort(value *int32) {
+	m.port = value
+}
+
 // SetSamAccountNameScheme sets the samAccountNameScheme property value. The samAccountNameScheme property
-func (m *ProvisioningProvisionedLDAPDirectory) SetSamAccountNameScheme(value *ProvisioningADSamAccountNameScheme)() {
-    m.samAccountNameScheme = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetSamAccountNameScheme(value *ProvisioningADSamAccountNameScheme) {
+	m.samAccountNameScheme = value
 }
+
 // SetSshPublicKeySupport sets the sshPublicKeySupport property value. The sshPublicKeySupport property
-func (m *ProvisioningProvisionedLDAPDirectory) SetSshPublicKeySupport(value *ProvisioningLDAPSshPublicKeySupport)() {
-    m.sshPublicKeySupport = value
+func (m *ProvisioningProvisionedLDAPDirectory) SetSshPublicKeySupport(value *ProvisioningLDAPSshPublicKeySupport) {
+	m.sshPublicKeySupport = value
 }
+
+// SetTls sets the tls property value. The tls property
+func (m *ProvisioningProvisionedLDAPDirectory) SetTls(value *TLSLevel) {
+	m.tls = value
+}
+
+// SetTrustedCertificate sets the trustedCertificate property value. The trustedCertificate property
+func (m *ProvisioningProvisionedLDAPDirectory) SetTrustedCertificate(value CertificateCertificatePrimerable) {
+	m.trustedCertificate = value
+}
+
 type ProvisioningProvisionedLDAPDirectoryable interface {
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    ProvisioningProvisionedSystemable
-    GetAccountMatchingAttribute()(IdentityAccountAttributeDefinitionable)
-    GetAccountMatchingAttributeName()(*string)
-    GetAccountsWritable()(*bool)
-    GetAttributes()([]MiscAttributeCustomizationable)
-    GetDirectory()(DirectoryAccountDirectoryPrimerable)
-    GetGid()(*int64)
-    GetGidNumbering()(ProvisioningProvisionNumberSequenceable)
-    GetGroupDN()(*string)
-    GetHashingScheme()(*ProvisioningLDAPPasswordHashingScheme)
-    GetNumbering()(ProvisioningProvisionNumberSequenceable)
-    GetObjectClasses()(*string)
-    GetSamAccountNameScheme()(*ProvisioningADSamAccountNameScheme)
-    GetSshPublicKeySupport()(*ProvisioningLDAPSshPublicKeySupport)
-    SetAccountMatchingAttribute(value IdentityAccountAttributeDefinitionable)()
-    SetAccountMatchingAttributeName(value *string)()
-    SetAccountsWritable(value *bool)()
-    SetAttributes(value []MiscAttributeCustomizationable)()
-    SetDirectory(value DirectoryAccountDirectoryPrimerable)()
-    SetGid(value *int64)()
-    SetGidNumbering(value ProvisioningProvisionNumberSequenceable)()
-    SetGroupDN(value *string)()
-    SetHashingScheme(value *ProvisioningLDAPPasswordHashingScheme)()
-    SetNumbering(value ProvisioningProvisionNumberSequenceable)()
-    SetObjectClasses(value *string)()
-    SetSamAccountNameScheme(value *ProvisioningADSamAccountNameScheme)()
-    SetSshPublicKeySupport(value *ProvisioningLDAPSshPublicKeySupport)()
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	ProvisioningProvisionedSystemable
+	GetAccountMatchingAttribute() IdentityAccountAttributeDefinitionable
+	GetAccountMatchingAttributeName() *string
+	GetAccountsWritable() *bool
+	GetAttributes() []MiscAttributeCustomizationable
+	GetBaseDN() *string
+	GetBindDN() *string
+	GetBindPassword() *string
+	GetClientCertificate() CertificateCertificatePrimerable
+	GetDialect() *DirectoryLDAPDialect
+	GetDirectory() DirectoryAccountDirectoryPrimerable
+	GetFailoverHost() *string
+	GetFailoverTrustedCertificate() CertificateCertificatePrimerable
+	GetGid() *int64
+	GetGidNumbering() ProvisioningProvisionNumberSequenceable
+	GetGroupDN() *string
+	GetHashingScheme() *ProvisioningLDAPPasswordHashingScheme
+	GetHost() *string
+	GetNumbering() ProvisioningProvisionNumberSequenceable
+	GetObjectClasses() *string
+	GetOidcDirectory() DirectoryAccountDirectoryPrimerable
+	GetPort() *int32
+	GetSamAccountNameScheme() *ProvisioningADSamAccountNameScheme
+	GetSshPublicKeySupport() *ProvisioningLDAPSshPublicKeySupport
+	GetTls() *TLSLevel
+	GetTrustedCertificate() CertificateCertificatePrimerable
+	SetAccountMatchingAttribute(value IdentityAccountAttributeDefinitionable)
+	SetAccountMatchingAttributeName(value *string)
+	SetAccountsWritable(value *bool)
+	SetAttributes(value []MiscAttributeCustomizationable)
+	SetBaseDN(value *string)
+	SetBindDN(value *string)
+	SetBindPassword(value *string)
+	SetClientCertificate(value CertificateCertificatePrimerable)
+	SetDialect(value *DirectoryLDAPDialect)
+	SetDirectory(value DirectoryAccountDirectoryPrimerable)
+	SetFailoverHost(value *string)
+	SetFailoverTrustedCertificate(value CertificateCertificatePrimerable)
+	SetGid(value *int64)
+	SetGidNumbering(value ProvisioningProvisionNumberSequenceable)
+	SetGroupDN(value *string)
+	SetHashingScheme(value *ProvisioningLDAPPasswordHashingScheme)
+	SetHost(value *string)
+	SetNumbering(value ProvisioningProvisionNumberSequenceable)
+	SetObjectClasses(value *string)
+	SetOidcDirectory(value DirectoryAccountDirectoryPrimerable)
+	SetPort(value *int32)
+	SetSamAccountNameScheme(value *ProvisioningADSamAccountNameScheme)
+	SetSshPublicKeySupport(value *ProvisioningLDAPSshPublicKeySupport)
+	SetTls(value *TLSLevel)
+	SetTrustedCertificate(value CertificateCertificatePrimerable)
 }

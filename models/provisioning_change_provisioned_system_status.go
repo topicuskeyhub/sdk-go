@@ -4,101 +4,110 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ProvisioningChangeProvisionedSystemStatus struct {
-    NonLinkable
-    // The deprovisionAction property
-    deprovisionAction *ProvisioningDeprovisionAction
-    // The newActiveStatus property
-    newActiveStatus *ProvisioningProvisionedSystemStatus
+	NonLinkable
+	// The deprovisionAction property
+	deprovisionAction *ProvisioningDeprovisionAction
+	// The newActiveStatus property
+	newActiveStatus *ProvisioningProvisionedSystemStatus
 }
+
 // NewProvisioningChangeProvisionedSystemStatus instantiates a new ProvisioningChangeProvisionedSystemStatus and sets the default values.
-func NewProvisioningChangeProvisionedSystemStatus()(*ProvisioningChangeProvisionedSystemStatus) {
-    m := &ProvisioningChangeProvisionedSystemStatus{
-        NonLinkable: *NewNonLinkable(),
-    }
-    typeEscapedValue := "provisioning.ChangeProvisionedSystemStatus"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewProvisioningChangeProvisionedSystemStatus() *ProvisioningChangeProvisionedSystemStatus {
+	m := &ProvisioningChangeProvisionedSystemStatus{
+		NonLinkable: *NewNonLinkable(),
+	}
+	typeEscapedValue := "provisioning.ChangeProvisionedSystemStatus"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateProvisioningChangeProvisionedSystemStatusFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProvisioningChangeProvisionedSystemStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewProvisioningChangeProvisionedSystemStatus(), nil
+func CreateProvisioningChangeProvisionedSystemStatusFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewProvisioningChangeProvisionedSystemStatus(), nil
 }
+
 // GetDeprovisionAction gets the deprovisionAction property value. The deprovisionAction property
 // returns a *ProvisioningDeprovisionAction when successful
-func (m *ProvisioningChangeProvisionedSystemStatus) GetDeprovisionAction()(*ProvisioningDeprovisionAction) {
-    return m.deprovisionAction
+func (m *ProvisioningChangeProvisionedSystemStatus) GetDeprovisionAction() *ProvisioningDeprovisionAction {
+	return m.deprovisionAction
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProvisioningChangeProvisionedSystemStatus) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.NonLinkable.GetFieldDeserializers()
-    res["deprovisionAction"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProvisioningDeprovisionAction)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDeprovisionAction(val.(*ProvisioningDeprovisionAction))
-        }
-        return nil
-    }
-    res["newActiveStatus"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProvisioningProvisionedSystemStatus)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetNewActiveStatus(val.(*ProvisioningProvisionedSystemStatus))
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ProvisioningChangeProvisionedSystemStatus) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.NonLinkable.GetFieldDeserializers()
+	res["deprovisionAction"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProvisioningDeprovisionAction)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDeprovisionAction(val.(*ProvisioningDeprovisionAction))
+		}
+		return nil
+	}
+	res["newActiveStatus"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProvisioningProvisionedSystemStatus)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetNewActiveStatus(val.(*ProvisioningProvisionedSystemStatus))
+		}
+		return nil
+	}
+	return res
 }
+
 // GetNewActiveStatus gets the newActiveStatus property value. The newActiveStatus property
 // returns a *ProvisioningProvisionedSystemStatus when successful
-func (m *ProvisioningChangeProvisionedSystemStatus) GetNewActiveStatus()(*ProvisioningProvisionedSystemStatus) {
-    return m.newActiveStatus
+func (m *ProvisioningChangeProvisionedSystemStatus) GetNewActiveStatus() *ProvisioningProvisionedSystemStatus {
+	return m.newActiveStatus
 }
+
 // Serialize serializes information the current object
-func (m *ProvisioningChangeProvisionedSystemStatus) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.NonLinkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    if m.GetDeprovisionAction() != nil {
-        cast := (*m.GetDeprovisionAction()).String()
-        err = writer.WriteStringValue("deprovisionAction", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetNewActiveStatus() != nil {
-        cast := (*m.GetNewActiveStatus()).String()
-        err = writer.WriteStringValue("newActiveStatus", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ProvisioningChangeProvisionedSystemStatus) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.NonLinkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	if m.GetDeprovisionAction() != nil {
+		cast := (*m.GetDeprovisionAction()).String()
+		err = writer.WriteStringValue("deprovisionAction", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetNewActiveStatus() != nil {
+		cast := (*m.GetNewActiveStatus()).String()
+		err = writer.WriteStringValue("newActiveStatus", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetDeprovisionAction sets the deprovisionAction property value. The deprovisionAction property
-func (m *ProvisioningChangeProvisionedSystemStatus) SetDeprovisionAction(value *ProvisioningDeprovisionAction)() {
-    m.deprovisionAction = value
+func (m *ProvisioningChangeProvisionedSystemStatus) SetDeprovisionAction(value *ProvisioningDeprovisionAction) {
+	m.deprovisionAction = value
 }
+
 // SetNewActiveStatus sets the newActiveStatus property value. The newActiveStatus property
-func (m *ProvisioningChangeProvisionedSystemStatus) SetNewActiveStatus(value *ProvisioningProvisionedSystemStatus)() {
-    m.newActiveStatus = value
+func (m *ProvisioningChangeProvisionedSystemStatus) SetNewActiveStatus(value *ProvisioningProvisionedSystemStatus) {
+	m.newActiveStatus = value
 }
+
 type ProvisioningChangeProvisionedSystemStatusable interface {
-    NonLinkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetDeprovisionAction()(*ProvisioningDeprovisionAction)
-    GetNewActiveStatus()(*ProvisioningProvisionedSystemStatus)
-    SetDeprovisionAction(value *ProvisioningDeprovisionAction)()
-    SetNewActiveStatus(value *ProvisioningProvisionedSystemStatus)()
+	NonLinkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetDeprovisionAction() *ProvisioningDeprovisionAction
+	GetNewActiveStatus() *ProvisioningProvisionedSystemStatus
+	SetDeprovisionAction(value *ProvisioningDeprovisionAction)
+	SetNewActiveStatus(value *ProvisioningProvisionedSystemStatus)
 }

@@ -4,157 +4,170 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type NotificationInvalidSignatureOwner struct {
-    NonLinkable
-    // The account property
-    account AuthAccountPrimerable
-    // The client property
-    client ClientClientApplicationPrimerable
-    // The group property
-    group GroupGroupPrimerable
-    // The retiredInVersion property
-    retiredInVersion *int32
+	NonLinkable
+	// The account property
+	account AuthAccountPrimerable
+	// The client property
+	client ClientClientApplicationPrimerable
+	// The group property
+	group GroupGroupPrimerable
+	// The retiredInVersion property
+	retiredInVersion *int32
 }
+
 // NewNotificationInvalidSignatureOwner instantiates a new NotificationInvalidSignatureOwner and sets the default values.
-func NewNotificationInvalidSignatureOwner()(*NotificationInvalidSignatureOwner) {
-    m := &NotificationInvalidSignatureOwner{
-        NonLinkable: *NewNonLinkable(),
-    }
-    typeEscapedValue := "notification.InvalidSignatureOwner"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewNotificationInvalidSignatureOwner() *NotificationInvalidSignatureOwner {
+	m := &NotificationInvalidSignatureOwner{
+		NonLinkable: *NewNonLinkable(),
+	}
+	typeEscapedValue := "notification.InvalidSignatureOwner"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateNotificationInvalidSignatureOwnerFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateNotificationInvalidSignatureOwnerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewNotificationInvalidSignatureOwner(), nil
+func CreateNotificationInvalidSignatureOwnerFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewNotificationInvalidSignatureOwner(), nil
 }
+
 // GetAccount gets the account property value. The account property
 // returns a AuthAccountPrimerable when successful
-func (m *NotificationInvalidSignatureOwner) GetAccount()(AuthAccountPrimerable) {
-    return m.account
+func (m *NotificationInvalidSignatureOwner) GetAccount() AuthAccountPrimerable {
+	return m.account
 }
+
 // GetClient gets the client property value. The client property
 // returns a ClientClientApplicationPrimerable when successful
-func (m *NotificationInvalidSignatureOwner) GetClient()(ClientClientApplicationPrimerable) {
-    return m.client
+func (m *NotificationInvalidSignatureOwner) GetClient() ClientClientApplicationPrimerable {
+	return m.client
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *NotificationInvalidSignatureOwner) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.NonLinkable.GetFieldDeserializers()
-    res["account"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateAuthAccountPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccount(val.(AuthAccountPrimerable))
-        }
-        return nil
-    }
-    res["client"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateClientClientApplicationPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetClient(val.(ClientClientApplicationPrimerable))
-        }
-        return nil
-    }
-    res["group"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroup(val.(GroupGroupPrimerable))
-        }
-        return nil
-    }
-    res["retiredInVersion"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetRetiredInVersion(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *NotificationInvalidSignatureOwner) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.NonLinkable.GetFieldDeserializers()
+	res["account"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateAuthAccountPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAccount(val.(AuthAccountPrimerable))
+		}
+		return nil
+	}
+	res["client"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateClientClientApplicationPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetClient(val.(ClientClientApplicationPrimerable))
+		}
+		return nil
+	}
+	res["group"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroup(val.(GroupGroupPrimerable))
+		}
+		return nil
+	}
+	res["retiredInVersion"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetRetiredInVersion(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetGroup gets the group property value. The group property
 // returns a GroupGroupPrimerable when successful
-func (m *NotificationInvalidSignatureOwner) GetGroup()(GroupGroupPrimerable) {
-    return m.group
+func (m *NotificationInvalidSignatureOwner) GetGroup() GroupGroupPrimerable {
+	return m.group
 }
+
 // GetRetiredInVersion gets the retiredInVersion property value. The retiredInVersion property
 // returns a *int32 when successful
-func (m *NotificationInvalidSignatureOwner) GetRetiredInVersion()(*int32) {
-    return m.retiredInVersion
+func (m *NotificationInvalidSignatureOwner) GetRetiredInVersion() *int32 {
+	return m.retiredInVersion
 }
+
 // Serialize serializes information the current object
-func (m *NotificationInvalidSignatureOwner) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.NonLinkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("account", m.GetAccount())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("client", m.GetClient())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("group", m.GetGroup())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteInt32Value("retiredInVersion", m.GetRetiredInVersion())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *NotificationInvalidSignatureOwner) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.NonLinkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("account", m.GetAccount())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("client", m.GetClient())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("group", m.GetGroup())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteInt32Value("retiredInVersion", m.GetRetiredInVersion())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAccount sets the account property value. The account property
-func (m *NotificationInvalidSignatureOwner) SetAccount(value AuthAccountPrimerable)() {
-    m.account = value
+func (m *NotificationInvalidSignatureOwner) SetAccount(value AuthAccountPrimerable) {
+	m.account = value
 }
+
 // SetClient sets the client property value. The client property
-func (m *NotificationInvalidSignatureOwner) SetClient(value ClientClientApplicationPrimerable)() {
-    m.client = value
+func (m *NotificationInvalidSignatureOwner) SetClient(value ClientClientApplicationPrimerable) {
+	m.client = value
 }
+
 // SetGroup sets the group property value. The group property
-func (m *NotificationInvalidSignatureOwner) SetGroup(value GroupGroupPrimerable)() {
-    m.group = value
+func (m *NotificationInvalidSignatureOwner) SetGroup(value GroupGroupPrimerable) {
+	m.group = value
 }
+
 // SetRetiredInVersion sets the retiredInVersion property value. The retiredInVersion property
-func (m *NotificationInvalidSignatureOwner) SetRetiredInVersion(value *int32)() {
-    m.retiredInVersion = value
+func (m *NotificationInvalidSignatureOwner) SetRetiredInVersion(value *int32) {
+	m.retiredInVersion = value
 }
+
 type NotificationInvalidSignatureOwnerable interface {
-    NonLinkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAccount()(AuthAccountPrimerable)
-    GetClient()(ClientClientApplicationPrimerable)
-    GetGroup()(GroupGroupPrimerable)
-    GetRetiredInVersion()(*int32)
-    SetAccount(value AuthAccountPrimerable)()
-    SetClient(value ClientClientApplicationPrimerable)()
-    SetGroup(value GroupGroupPrimerable)()
-    SetRetiredInVersion(value *int32)()
+	NonLinkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAccount() AuthAccountPrimerable
+	GetClient() ClientClientApplicationPrimerable
+	GetGroup() GroupGroupPrimerable
+	GetRetiredInVersion() *int32
+	SetAccount(value AuthAccountPrimerable)
+	SetClient(value ClientClientApplicationPrimerable)
+	SetGroup(value GroupGroupPrimerable)
+	SetRetiredInVersion(value *int32)
 }

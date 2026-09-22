@@ -2,41 +2,45 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type AuthWebAuthnPRFSupported int
 
 const (
-    SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED AuthWebAuthnPRFSupported = iota
-    NOT_SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED
-    DISABLED_AUTHWEBAUTHNPRFSUPPORTED
-    SUPPORTED_NOT_LINKED_AUTHWEBAUTHNPRFSUPPORTED
+	SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED AuthWebAuthnPRFSupported = iota
+	NOT_SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED
+	DISABLED_AUTHWEBAUTHNPRFSUPPORTED
+	SUPPORTED_NOT_LINKED_AUTHWEBAUTHNPRFSUPPORTED
 )
 
 func (i AuthWebAuthnPRFSupported) String() string {
-    return []string{"SUPPORTED", "NOT_SUPPORTED", "DISABLED", "SUPPORTED_NOT_LINKED"}[i]
+	return []string{"SUPPORTED", "NOT_SUPPORTED", "DISABLED", "SUPPORTED_NOT_LINKED"}[i]
 }
+
 func ParseAuthWebAuthnPRFSupported(v string) (any, error) {
-    result := SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED
-    switch v {
-        case "SUPPORTED":
-            result = SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED
-        case "NOT_SUPPORTED":
-            result = NOT_SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED
-        case "DISABLED":
-            result = DISABLED_AUTHWEBAUTHNPRFSUPPORTED
-        case "SUPPORTED_NOT_LINKED":
-            result = SUPPORTED_NOT_LINKED_AUTHWEBAUTHNPRFSUPPORTED
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED
+	switch v {
+	case "SUPPORTED":
+		result = SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED
+	case "NOT_SUPPORTED":
+		result = NOT_SUPPORTED_AUTHWEBAUTHNPRFSUPPORTED
+	case "DISABLED":
+		result = DISABLED_AUTHWEBAUTHNPRFSUPPORTED
+	case "SUPPORTED_NOT_LINKED":
+		result = SUPPORTED_NOT_LINKED_AUTHWEBAUTHNPRFSUPPORTED
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeAuthWebAuthnPRFSupported(values []AuthWebAuthnPRFSupported) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i AuthWebAuthnPRFSupported) isMultiValue() bool {
-    return false
+	return false
 }

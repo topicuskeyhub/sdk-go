@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ProvisioningSCIMUpdateStrategy int
 
 const (
-    PATCH_PROVISIONINGSCIMUPDATESTRATEGY ProvisioningSCIMUpdateStrategy = iota
-    PUT_PROVISIONINGSCIMUPDATESTRATEGY
-    DELETE_POST_PROVISIONINGSCIMUPDATESTRATEGY
+	PATCH_PROVISIONINGSCIMUPDATESTRATEGY ProvisioningSCIMUpdateStrategy = iota
+	PUT_PROVISIONINGSCIMUPDATESTRATEGY
+	DELETE_POST_PROVISIONINGSCIMUPDATESTRATEGY
 )
 
 func (i ProvisioningSCIMUpdateStrategy) String() string {
-    return []string{"PATCH", "PUT", "DELETE_POST"}[i]
+	return []string{"PATCH", "PUT", "DELETE_POST"}[i]
 }
+
 func ParseProvisioningSCIMUpdateStrategy(v string) (any, error) {
-    result := PATCH_PROVISIONINGSCIMUPDATESTRATEGY
-    switch v {
-        case "PATCH":
-            result = PATCH_PROVISIONINGSCIMUPDATESTRATEGY
-        case "PUT":
-            result = PUT_PROVISIONINGSCIMUPDATESTRATEGY
-        case "DELETE_POST":
-            result = DELETE_POST_PROVISIONINGSCIMUPDATESTRATEGY
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := PATCH_PROVISIONINGSCIMUPDATESTRATEGY
+	switch v {
+	case "PATCH":
+		result = PATCH_PROVISIONINGSCIMUPDATESTRATEGY
+	case "PUT":
+		result = PUT_PROVISIONINGSCIMUPDATESTRATEGY
+	case "DELETE_POST":
+		result = DELETE_POST_PROVISIONINGSCIMUPDATESTRATEGY
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeProvisioningSCIMUpdateStrategy(values []ProvisioningSCIMUpdateStrategy) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ProvisioningSCIMUpdateStrategy) isMultiValue() bool {
-    return false
+	return false
 }

@@ -4,171 +4,185 @@
 package profile
 
 import (
-    "context"
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
-    ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
-    i6e00a34cae84af29c25c8293447efaf302047cbe547828265269e803d0606c96 "github.com/topicuskeyhub/sdk-go/profile/item/lifecycleaction/item"
+	"context"
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
+	ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
+	i6e00a34cae84af29c25c8293447efaf302047cbe547828265269e803d0606c96 "github.com/topicuskeyhub/sdk-go/profile/item/lifecycleaction/item"
 )
 
 // ItemLifecycleactionWithLifecycleactionItemRequestBuilder builds and executes requests for operations under \profile\{accessprofile-id}\lifecycleaction\{lifecycleactionid}
 type ItemLifecycleactionWithLifecycleactionItemRequestBuilder struct {
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+
 // ItemLifecycleactionWithLifecycleactionItemRequestBuilderDeleteRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemLifecycleactionWithLifecycleactionItemRequestBuilderDeleteRequestConfiguration struct {
-    // Request headers
-    Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
-    // Request options
-    Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+	// Request headers
+	Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
+	// Request options
+	Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
 }
+
 // ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetQueryParameters returns the lifecycle action identified by the id.
 type ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetQueryParameters struct {
-    // Request additional information to be returned for every record.
-    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string "uriparametername:\"additional\""
-    // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i6e00a34cae84af29c25c8293447efaf302047cbe547828265269e803d0606c96.GetAdditionalQueryParameterType "uriparametername:\"additional\""
+	// Request additional information to be returned for every record.
+	// Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
+	Additional []string "uriparametername:\"additional\""
+	// Request additional information to be returned for every record.
+	AdditionalAsGetAdditionalQueryParameterType []i6e00a34cae84af29c25c8293447efaf302047cbe547828265269e803d0606c96.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
+
 // ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetRequestConfiguration struct {
-    // Request headers
-    Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
-    // Request options
-    Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
-    // Request query parameters
-    QueryParameters *ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetQueryParameters
+	// Request headers
+	Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
+	// Request options
+	Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+	// Request query parameters
+	QueryParameters *ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetQueryParameters
 }
+
 // ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutQueryParameters updates the lifecycle action identified by the id.
 type ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutQueryParameters struct {
-    // Request additional information to be returned for every record.
-    // Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
-    Additional []string "uriparametername:\"additional\""
-    // Request additional information to be returned for every record.
-    AdditionalAsPutAdditionalQueryParameterType []i6e00a34cae84af29c25c8293447efaf302047cbe547828265269e803d0606c96.PutAdditionalQueryParameterType "uriparametername:\"additional\""
+	// Request additional information to be returned for every record.
+	// Deprecated: This property is deprecated, use AdditionalAsPutAdditionalQueryParameterType instead
+	Additional []string "uriparametername:\"additional\""
+	// Request additional information to be returned for every record.
+	AdditionalAsPutAdditionalQueryParameterType []i6e00a34cae84af29c25c8293447efaf302047cbe547828265269e803d0606c96.PutAdditionalQueryParameterType "uriparametername:\"additional\""
 }
+
 // ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutRequestConfiguration struct {
-    // Request headers
-    Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
-    // Request options
-    Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
-    // Request query parameters
-    QueryParameters *ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutQueryParameters
+	// Request headers
+	Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
+	// Request options
+	Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+	// Request query parameters
+	QueryParameters *ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutQueryParameters
 }
+
 // NewItemLifecycleactionWithLifecycleactionItemRequestBuilderInternal instantiates a new ItemLifecycleactionWithLifecycleactionItemRequestBuilder and sets the default values.
-func NewItemLifecycleactionWithLifecycleactionItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemLifecycleactionWithLifecycleactionItemRequestBuilder) {
-    m := &ItemLifecycleactionWithLifecycleactionItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/lifecycleaction/{lifecycleactionid}{?additional*}", pathParameters),
-    }
-    return m
+func NewItemLifecycleactionWithLifecycleactionItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemLifecycleactionWithLifecycleactionItemRequestBuilder {
+	m := &ItemLifecycleactionWithLifecycleactionItemRequestBuilder{
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/lifecycleaction/{lifecycleactionid}{?additional*}", pathParameters),
+	}
+	return m
 }
+
 // NewItemLifecycleactionWithLifecycleactionItemRequestBuilder instantiates a new ItemLifecycleactionWithLifecycleactionItemRequestBuilder and sets the default values.
-func NewItemLifecycleactionWithLifecycleactionItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemLifecycleactionWithLifecycleactionItemRequestBuilder) {
-    urlParams := make(map[string]string)
-    urlParams["request-raw-url"] = rawUrl
-    return NewItemLifecycleactionWithLifecycleactionItemRequestBuilderInternal(urlParams, requestAdapter)
+func NewItemLifecycleactionWithLifecycleactionItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemLifecycleactionWithLifecycleactionItemRequestBuilder {
+	urlParams := make(map[string]string)
+	urlParams["request-raw-url"] = rawUrl
+	return NewItemLifecycleactionWithLifecycleactionItemRequestBuilderInternal(urlParams, requestAdapter)
 }
+
 // Delete deletes the lifecycle action identified by the id and cancels its pending events.
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
-func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderDeleteRequestConfiguration)(error) {
-    requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration);
-    if err != nil {
-        return err
-    }
-    errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-    }
-    err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
-    if err != nil {
-        return err
-    }
-    return nil
+func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) Delete(ctx context.Context, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderDeleteRequestConfiguration) error {
+	requestInfo, err := m.ToDeleteRequestInformation(ctx, requestConfiguration)
+	if err != nil {
+		return err
+	}
+	errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings{
+		"XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+	}
+	err = m.BaseRequestBuilder.RequestAdapter.SendNoContent(ctx, requestInfo, errorMapping)
+	if err != nil {
+		return err
+	}
+	return nil
 }
+
 // Get returns the lifecycle action identified by the id.
 // returns a ProfileAccessProfileLifecycleActionable when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
-func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable, error) {
-    requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
-    if err != nil {
-        return nil, err
-    }
-    errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-    }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProfileAccessProfileLifecycleActionFromDiscriminatorValue, errorMapping)
-    if err != nil {
-        return nil, err
-    }
-    if res == nil {
-        return nil, nil
-    }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable), nil
+func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetRequestConfiguration) (ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable, error) {
+	requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration)
+	if err != nil {
+		return nil, err
+	}
+	errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings{
+		"XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+	}
+	res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProfileAccessProfileLifecycleActionFromDiscriminatorValue, errorMapping)
+	if err != nil {
+		return nil, err
+	}
+	if res == nil {
+		return nil, nil
+	}
+	return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable), nil
 }
+
 // Put updates the lifecycle action identified by the id.
 // returns a ProfileAccessProfileLifecycleActionable when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
-func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable, error) {
-    requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
-    if err != nil {
-        return nil, err
-    }
-    errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-    }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProfileAccessProfileLifecycleActionFromDiscriminatorValue, errorMapping)
-    if err != nil {
-        return nil, err
-    }
-    if res == nil {
-        return nil, nil
-    }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable), nil
+func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) Put(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutRequestConfiguration) (ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable, error) {
+	requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration)
+	if err != nil {
+		return nil, err
+	}
+	errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings{
+		"XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+	}
+	res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProfileAccessProfileLifecycleActionFromDiscriminatorValue, errorMapping)
+	if err != nil {
+		return nil, err
+	}
+	if res == nil {
+		return nil, nil
+	}
+	return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable), nil
 }
+
 // ToDeleteRequestInformation deletes the lifecycle action identified by the id and cancels its pending events.
 // returns a *RequestInformation when successful
-func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderDeleteRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
-    if requestConfiguration != nil {
-        requestInfo.Headers.AddAll(requestConfiguration.Headers)
-        requestInfo.AddRequestOptions(requestConfiguration.Options)
-    }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
-    return requestInfo, nil
+func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderDeleteRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+	requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DELETE, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+	if requestConfiguration != nil {
+		requestInfo.Headers.AddAll(requestConfiguration.Headers)
+		requestInfo.AddRequestOptions(requestConfiguration.Options)
+	}
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	return requestInfo, nil
 }
+
 // ToGetRequestInformation returns the lifecycle action identified by the id.
 // returns a *RequestInformation when successful
-func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
-    if requestConfiguration != nil {
-        if requestConfiguration.QueryParameters != nil {
-            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
-        }
-        requestInfo.Headers.AddAll(requestConfiguration.Headers)
-        requestInfo.AddRequestOptions(requestConfiguration.Options)
-    }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
-    return requestInfo, nil
+func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderGetRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+	requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+	if requestConfiguration != nil {
+		if requestConfiguration.QueryParameters != nil {
+			requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+		}
+		requestInfo.Headers.AddAll(requestConfiguration.Headers)
+		requestInfo.AddRequestOptions(requestConfiguration.Options)
+	}
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	return requestInfo, nil
 }
+
 // ToPutRequestInformation updates the lifecycle action identified by the id.
 // returns a *RequestInformation when successful
-func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
-    if requestConfiguration != nil {
-        if requestConfiguration.QueryParameters != nil {
-            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
-        }
-        requestInfo.Headers.AddAll(requestConfiguration.Headers)
-        requestInfo.AddRequestOptions(requestConfiguration.Options)
-    }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
-    err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=87", body)
-    if err != nil {
-        return nil, err
-    }
-    return requestInfo, nil
+func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccessProfileLifecycleActionable, requestConfiguration *ItemLifecycleactionWithLifecycleactionItemRequestBuilderPutRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+	requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+	if requestConfiguration != nil {
+		if requestConfiguration.QueryParameters != nil {
+			requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+		}
+		requestInfo.Headers.AddAll(requestConfiguration.Headers)
+		requestInfo.AddRequestOptions(requestConfiguration.Options)
+	}
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=88", body)
+	if err != nil {
+		return nil, err
+	}
+	return requestInfo, nil
 }
+
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
 // returns a *ItemLifecycleactionWithLifecycleactionItemRequestBuilder when successful
-func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) WithUrl(rawUrl string)(*ItemLifecycleactionWithLifecycleactionItemRequestBuilder) {
-    return NewItemLifecycleactionWithLifecycleactionItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemLifecycleactionWithLifecycleactionItemRequestBuilder) WithUrl(rawUrl string) *ItemLifecycleactionWithLifecycleactionItemRequestBuilder {
+	return NewItemLifecycleactionWithLifecycleactionItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter)
 }

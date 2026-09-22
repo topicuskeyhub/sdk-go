@@ -4,206 +4,221 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ProfileAccessProfileLifecycleAction struct {
-    Linkable
-    // The additionalObjects property
-    additionalObjects ProfileAccessProfileLifecycleAction_additionalObjectsable
-    // The anchor property
-    anchor *ProfileAccessProfileLifecycleAnchor
-    // The name property
-    name *string
-    // The offset property
-    offset ProfileAccessProfileLifecycleAction_offsetable
-    // The type property
-    profileAccessProfileLifecycleActionType *ProfileAccessProfileLifecycleActionType
+	Linkable
+	// The additionalObjects property
+	additionalObjects ProfileAccessProfileLifecycleAction_additionalObjectsable
+	// The anchor property
+	anchor *ProfileAccessProfileLifecycleAnchor
+	// The name property
+	name *string
+	// The offset property
+	offset ProfileAccessProfileLifecycleAction_offsetable
+	// The type property
+	profileAccessProfileLifecycleActionType *ProfileAccessProfileLifecycleActionType
 }
+
 // NewProfileAccessProfileLifecycleAction instantiates a new ProfileAccessProfileLifecycleAction and sets the default values.
-func NewProfileAccessProfileLifecycleAction()(*ProfileAccessProfileLifecycleAction) {
-    m := &ProfileAccessProfileLifecycleAction{
-        Linkable: *NewLinkable(),
-    }
-    typeEscapedValue := "profile.AccessProfileLifecycleAction"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewProfileAccessProfileLifecycleAction() *ProfileAccessProfileLifecycleAction {
+	m := &ProfileAccessProfileLifecycleAction{
+		Linkable: *NewLinkable(),
+	}
+	typeEscapedValue := "profile.AccessProfileLifecycleAction"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateProfileAccessProfileLifecycleActionFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProfileAccessProfileLifecycleActionFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    if parseNode != nil {
-        mappingValueNode, err := parseNode.GetChildNode("$type")
-        if err != nil {
-            return nil, err
-        }
-        if mappingValueNode != nil {
-            mappingValue, err := mappingValueNode.GetStringValue()
-            if err != nil {
-                return nil, err
-            }
-            if mappingValue != nil {
-                switch *mappingValue {
-                    case "profile.AccessProfileMailLifecycleAction":
-                        return NewProfileAccessProfileMailLifecycleAction(), nil
-                }
-            }
-        }
-    }
-    return NewProfileAccessProfileLifecycleAction(), nil
+func CreateProfileAccessProfileLifecycleActionFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	if parseNode != nil {
+		mappingValueNode, err := parseNode.GetChildNode("$type")
+		if err != nil {
+			return nil, err
+		}
+		if mappingValueNode != nil {
+			mappingValue, err := mappingValueNode.GetStringValue()
+			if err != nil {
+				return nil, err
+			}
+			if mappingValue != nil {
+				switch *mappingValue {
+				case "profile.AccessProfileMailLifecycleAction":
+					return NewProfileAccessProfileMailLifecycleAction(), nil
+				}
+			}
+		}
+	}
+	return NewProfileAccessProfileLifecycleAction(), nil
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a ProfileAccessProfileLifecycleAction_additionalObjectsable when successful
-func (m *ProfileAccessProfileLifecycleAction) GetAdditionalObjects()(ProfileAccessProfileLifecycleAction_additionalObjectsable) {
-    return m.additionalObjects
+func (m *ProfileAccessProfileLifecycleAction) GetAdditionalObjects() ProfileAccessProfileLifecycleAction_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetAnchor gets the anchor property value. The anchor property
 // returns a *ProfileAccessProfileLifecycleAnchor when successful
-func (m *ProfileAccessProfileLifecycleAction) GetAnchor()(*ProfileAccessProfileLifecycleAnchor) {
-    return m.anchor
+func (m *ProfileAccessProfileLifecycleAction) GetAnchor() *ProfileAccessProfileLifecycleAnchor {
+	return m.anchor
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProfileAccessProfileLifecycleAction) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.Linkable.GetFieldDeserializers()
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProfileAccessProfileLifecycleAction_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(ProfileAccessProfileLifecycleAction_additionalObjectsable))
-        }
-        return nil
-    }
-    res["anchor"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleAnchor)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAnchor(val.(*ProfileAccessProfileLifecycleAnchor))
-        }
-        return nil
-    }
-    res["name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetName(val)
-        }
-        return nil
-    }
-    res["offset"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProfileAccessProfileLifecycleAction_offsetFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetOffset(val.(ProfileAccessProfileLifecycleAction_offsetable))
-        }
-        return nil
-    }
-    res["type"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleActionType)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetProfileAccessProfileLifecycleActionType(val.(*ProfileAccessProfileLifecycleActionType))
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ProfileAccessProfileLifecycleAction) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.Linkable.GetFieldDeserializers()
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProfileAccessProfileLifecycleAction_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(ProfileAccessProfileLifecycleAction_additionalObjectsable))
+		}
+		return nil
+	}
+	res["anchor"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleAnchor)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAnchor(val.(*ProfileAccessProfileLifecycleAnchor))
+		}
+		return nil
+	}
+	res["name"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetName(val)
+		}
+		return nil
+	}
+	res["offset"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProfileAccessProfileLifecycleAction_offsetFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOffset(val.(ProfileAccessProfileLifecycleAction_offsetable))
+		}
+		return nil
+	}
+	res["type"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleActionType)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetProfileAccessProfileLifecycleActionType(val.(*ProfileAccessProfileLifecycleActionType))
+		}
+		return nil
+	}
+	return res
 }
+
 // GetName gets the name property value. The name property
 // returns a *string when successful
-func (m *ProfileAccessProfileLifecycleAction) GetName()(*string) {
-    return m.name
+func (m *ProfileAccessProfileLifecycleAction) GetName() *string {
+	return m.name
 }
+
 // GetOffset gets the offset property value. The offset property
 // returns a ProfileAccessProfileLifecycleAction_offsetable when successful
-func (m *ProfileAccessProfileLifecycleAction) GetOffset()(ProfileAccessProfileLifecycleAction_offsetable) {
-    return m.offset
+func (m *ProfileAccessProfileLifecycleAction) GetOffset() ProfileAccessProfileLifecycleAction_offsetable {
+	return m.offset
 }
+
 // GetProfileAccessProfileLifecycleActionType gets the type property value. The type property
 // returns a *ProfileAccessProfileLifecycleActionType when successful
-func (m *ProfileAccessProfileLifecycleAction) GetProfileAccessProfileLifecycleActionType()(*ProfileAccessProfileLifecycleActionType) {
-    return m.profileAccessProfileLifecycleActionType
+func (m *ProfileAccessProfileLifecycleAction) GetProfileAccessProfileLifecycleActionType() *ProfileAccessProfileLifecycleActionType {
+	return m.profileAccessProfileLifecycleActionType
 }
+
 // Serialize serializes information the current object
-func (m *ProfileAccessProfileLifecycleAction) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.Linkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetAnchor() != nil {
-        cast := (*m.GetAnchor()).String()
-        err = writer.WriteStringValue("anchor", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("name", m.GetName())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("offset", m.GetOffset())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetProfileAccessProfileLifecycleActionType() != nil {
-        cast := (*m.GetProfileAccessProfileLifecycleActionType()).String()
-        err = writer.WriteStringValue("type", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ProfileAccessProfileLifecycleAction) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.Linkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetAnchor() != nil {
+		cast := (*m.GetAnchor()).String()
+		err = writer.WriteStringValue("anchor", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("name", m.GetName())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("offset", m.GetOffset())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetProfileAccessProfileLifecycleActionType() != nil {
+		cast := (*m.GetProfileAccessProfileLifecycleActionType()).String()
+		err = writer.WriteStringValue("type", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *ProfileAccessProfileLifecycleAction) SetAdditionalObjects(value ProfileAccessProfileLifecycleAction_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *ProfileAccessProfileLifecycleAction) SetAdditionalObjects(value ProfileAccessProfileLifecycleAction_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetAnchor sets the anchor property value. The anchor property
-func (m *ProfileAccessProfileLifecycleAction) SetAnchor(value *ProfileAccessProfileLifecycleAnchor)() {
-    m.anchor = value
+func (m *ProfileAccessProfileLifecycleAction) SetAnchor(value *ProfileAccessProfileLifecycleAnchor) {
+	m.anchor = value
 }
+
 // SetName sets the name property value. The name property
-func (m *ProfileAccessProfileLifecycleAction) SetName(value *string)() {
-    m.name = value
+func (m *ProfileAccessProfileLifecycleAction) SetName(value *string) {
+	m.name = value
 }
+
 // SetOffset sets the offset property value. The offset property
-func (m *ProfileAccessProfileLifecycleAction) SetOffset(value ProfileAccessProfileLifecycleAction_offsetable)() {
-    m.offset = value
+func (m *ProfileAccessProfileLifecycleAction) SetOffset(value ProfileAccessProfileLifecycleAction_offsetable) {
+	m.offset = value
 }
+
 // SetProfileAccessProfileLifecycleActionType sets the type property value. The type property
-func (m *ProfileAccessProfileLifecycleAction) SetProfileAccessProfileLifecycleActionType(value *ProfileAccessProfileLifecycleActionType)() {
-    m.profileAccessProfileLifecycleActionType = value
+func (m *ProfileAccessProfileLifecycleAction) SetProfileAccessProfileLifecycleActionType(value *ProfileAccessProfileLifecycleActionType) {
+	m.profileAccessProfileLifecycleActionType = value
 }
+
 type ProfileAccessProfileLifecycleActionable interface {
-    Linkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAdditionalObjects()(ProfileAccessProfileLifecycleAction_additionalObjectsable)
-    GetAnchor()(*ProfileAccessProfileLifecycleAnchor)
-    GetName()(*string)
-    GetOffset()(ProfileAccessProfileLifecycleAction_offsetable)
-    GetProfileAccessProfileLifecycleActionType()(*ProfileAccessProfileLifecycleActionType)
-    SetAdditionalObjects(value ProfileAccessProfileLifecycleAction_additionalObjectsable)()
-    SetAnchor(value *ProfileAccessProfileLifecycleAnchor)()
-    SetName(value *string)()
-    SetOffset(value ProfileAccessProfileLifecycleAction_offsetable)()
-    SetProfileAccessProfileLifecycleActionType(value *ProfileAccessProfileLifecycleActionType)()
+	Linkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAdditionalObjects() ProfileAccessProfileLifecycleAction_additionalObjectsable
+	GetAnchor() *ProfileAccessProfileLifecycleAnchor
+	GetName() *string
+	GetOffset() ProfileAccessProfileLifecycleAction_offsetable
+	GetProfileAccessProfileLifecycleActionType() *ProfileAccessProfileLifecycleActionType
+	SetAdditionalObjects(value ProfileAccessProfileLifecycleAction_additionalObjectsable)
+	SetAnchor(value *ProfileAccessProfileLifecycleAnchor)
+	SetName(value *string)
+	SetOffset(value ProfileAccessProfileLifecycleAction_offsetable)
+	SetProfileAccessProfileLifecycleActionType(value *ProfileAccessProfileLifecycleActionType)
 }

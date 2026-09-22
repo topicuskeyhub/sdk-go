@@ -2,44 +2,48 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package serviceaccount
+
 type PostAdditionalQueryParameterType int
 
 const (
-    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
-    GENERATESECRET_POSTADDITIONALQUERYPARAMETERTYPE
-    GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
-    SECRET_POSTADDITIONALQUERYPARAMETERTYPE
-    SUPPORTEDFEATURES_POSTADDITIONALQUERYPARAMETERTYPE
+	AUDIT_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+	GENERATESECRET_POSTADDITIONALQUERYPARAMETERTYPE
+	GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
+	SECRET_POSTADDITIONALQUERYPARAMETERTYPE
+	SUPPORTEDFEATURES_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"audit", "generateSecret", "groups", "secret", "supportedFeatures"}[i]
+	return []string{"audit", "generateSecret", "groups", "secret", "supportedFeatures"}[i]
 }
+
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
-    result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
-    switch v {
-        case "audit":
-            result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
-        case "generateSecret":
-            result = GENERATESECRET_POSTADDITIONALQUERYPARAMETERTYPE
-        case "groups":
-            result = GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
-        case "secret":
-            result = SECRET_POSTADDITIONALQUERYPARAMETERTYPE
-        case "supportedFeatures":
-            result = SUPPORTEDFEATURES_POSTADDITIONALQUERYPARAMETERTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+	switch v {
+	case "audit":
+		result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+	case "generateSecret":
+		result = GENERATESECRET_POSTADDITIONALQUERYPARAMETERTYPE
+	case "groups":
+		result = GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
+	case "secret":
+		result = SECRET_POSTADDITIONALQUERYPARAMETERTYPE
+	case "supportedFeatures":
+		result = SUPPORTEDFEATURES_POSTADDITIONALQUERYPARAMETERTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializePostAdditionalQueryParameterType(values []PostAdditionalQueryParameterType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i PostAdditionalQueryParameterType) isMultiValue() bool {
-    return false
+	return false
 }

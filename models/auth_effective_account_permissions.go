@@ -4,302 +4,325 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type AuthEffectiveAccountPermissions struct {
-    NonLinkable
-    // The declineResetRequestsAllowed property
-    declineResetRequestsAllowed *bool
-    // The disableAccountAllowed property
-    disableAccountAllowed *bool
-    // The disableTwoFactorAllowed property
-    disableTwoFactorAllowed *bool
-    // The enableAccountAllowed property
-    enableAccountAllowed *bool
-    // The updateCanRequestGroupsAllowed property
-    updateCanRequestGroupsAllowed *bool
-    // The updateLicenseRoleAllowed property
-    updateLicenseRoleAllowed *bool
-    // The updateReregistrationAllowed property
-    updateReregistrationAllowed *bool
-    // The viewFullAuditLog property
-    viewFullAuditLog *bool
-    // The viewGroupsAndProfiles property
-    viewGroupsAndProfiles *bool
+	NonLinkable
+	// The declineResetRequestsAllowed property
+	declineResetRequestsAllowed *bool
+	// The disableAccountAllowed property
+	disableAccountAllowed *bool
+	// The disableTwoFactorAllowed property
+	disableTwoFactorAllowed *bool
+	// The enableAccountAllowed property
+	enableAccountAllowed *bool
+	// The updateCanRequestGroupsAllowed property
+	updateCanRequestGroupsAllowed *bool
+	// The updateLicenseRoleAllowed property
+	updateLicenseRoleAllowed *bool
+	// The updateReregistrationAllowed property
+	updateReregistrationAllowed *bool
+	// The viewFullAuditLog property
+	viewFullAuditLog *bool
+	// The viewGroupsAndProfiles property
+	viewGroupsAndProfiles *bool
 }
+
 // NewAuthEffectiveAccountPermissions instantiates a new AuthEffectiveAccountPermissions and sets the default values.
-func NewAuthEffectiveAccountPermissions()(*AuthEffectiveAccountPermissions) {
-    m := &AuthEffectiveAccountPermissions{
-        NonLinkable: *NewNonLinkable(),
-    }
-    typeEscapedValue := "auth.EffectiveAccountPermissions"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewAuthEffectiveAccountPermissions() *AuthEffectiveAccountPermissions {
+	m := &AuthEffectiveAccountPermissions{
+		NonLinkable: *NewNonLinkable(),
+	}
+	typeEscapedValue := "auth.EffectiveAccountPermissions"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateAuthEffectiveAccountPermissionsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateAuthEffectiveAccountPermissionsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewAuthEffectiveAccountPermissions(), nil
+func CreateAuthEffectiveAccountPermissionsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewAuthEffectiveAccountPermissions(), nil
 }
+
 // GetDeclineResetRequestsAllowed gets the declineResetRequestsAllowed property value. The declineResetRequestsAllowed property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetDeclineResetRequestsAllowed()(*bool) {
-    return m.declineResetRequestsAllowed
+func (m *AuthEffectiveAccountPermissions) GetDeclineResetRequestsAllowed() *bool {
+	return m.declineResetRequestsAllowed
 }
+
 // GetDisableAccountAllowed gets the disableAccountAllowed property value. The disableAccountAllowed property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetDisableAccountAllowed()(*bool) {
-    return m.disableAccountAllowed
+func (m *AuthEffectiveAccountPermissions) GetDisableAccountAllowed() *bool {
+	return m.disableAccountAllowed
 }
+
 // GetDisableTwoFactorAllowed gets the disableTwoFactorAllowed property value. The disableTwoFactorAllowed property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetDisableTwoFactorAllowed()(*bool) {
-    return m.disableTwoFactorAllowed
+func (m *AuthEffectiveAccountPermissions) GetDisableTwoFactorAllowed() *bool {
+	return m.disableTwoFactorAllowed
 }
+
 // GetEnableAccountAllowed gets the enableAccountAllowed property value. The enableAccountAllowed property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetEnableAccountAllowed()(*bool) {
-    return m.enableAccountAllowed
+func (m *AuthEffectiveAccountPermissions) GetEnableAccountAllowed() *bool {
+	return m.enableAccountAllowed
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *AuthEffectiveAccountPermissions) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.NonLinkable.GetFieldDeserializers()
-    res["declineResetRequestsAllowed"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDeclineResetRequestsAllowed(val)
-        }
-        return nil
-    }
-    res["disableAccountAllowed"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDisableAccountAllowed(val)
-        }
-        return nil
-    }
-    res["disableTwoFactorAllowed"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDisableTwoFactorAllowed(val)
-        }
-        return nil
-    }
-    res["enableAccountAllowed"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetEnableAccountAllowed(val)
-        }
-        return nil
-    }
-    res["updateCanRequestGroupsAllowed"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUpdateCanRequestGroupsAllowed(val)
-        }
-        return nil
-    }
-    res["updateLicenseRoleAllowed"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUpdateLicenseRoleAllowed(val)
-        }
-        return nil
-    }
-    res["updateReregistrationAllowed"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUpdateReregistrationAllowed(val)
-        }
-        return nil
-    }
-    res["viewFullAuditLog"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetViewFullAuditLog(val)
-        }
-        return nil
-    }
-    res["viewGroupsAndProfiles"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetViewGroupsAndProfiles(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *AuthEffectiveAccountPermissions) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.NonLinkable.GetFieldDeserializers()
+	res["declineResetRequestsAllowed"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDeclineResetRequestsAllowed(val)
+		}
+		return nil
+	}
+	res["disableAccountAllowed"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDisableAccountAllowed(val)
+		}
+		return nil
+	}
+	res["disableTwoFactorAllowed"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDisableTwoFactorAllowed(val)
+		}
+		return nil
+	}
+	res["enableAccountAllowed"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetEnableAccountAllowed(val)
+		}
+		return nil
+	}
+	res["updateCanRequestGroupsAllowed"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUpdateCanRequestGroupsAllowed(val)
+		}
+		return nil
+	}
+	res["updateLicenseRoleAllowed"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUpdateLicenseRoleAllowed(val)
+		}
+		return nil
+	}
+	res["updateReregistrationAllowed"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUpdateReregistrationAllowed(val)
+		}
+		return nil
+	}
+	res["viewFullAuditLog"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetViewFullAuditLog(val)
+		}
+		return nil
+	}
+	res["viewGroupsAndProfiles"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetViewGroupsAndProfiles(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetUpdateCanRequestGroupsAllowed gets the updateCanRequestGroupsAllowed property value. The updateCanRequestGroupsAllowed property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetUpdateCanRequestGroupsAllowed()(*bool) {
-    return m.updateCanRequestGroupsAllowed
+func (m *AuthEffectiveAccountPermissions) GetUpdateCanRequestGroupsAllowed() *bool {
+	return m.updateCanRequestGroupsAllowed
 }
+
 // GetUpdateLicenseRoleAllowed gets the updateLicenseRoleAllowed property value. The updateLicenseRoleAllowed property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetUpdateLicenseRoleAllowed()(*bool) {
-    return m.updateLicenseRoleAllowed
+func (m *AuthEffectiveAccountPermissions) GetUpdateLicenseRoleAllowed() *bool {
+	return m.updateLicenseRoleAllowed
 }
+
 // GetUpdateReregistrationAllowed gets the updateReregistrationAllowed property value. The updateReregistrationAllowed property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetUpdateReregistrationAllowed()(*bool) {
-    return m.updateReregistrationAllowed
+func (m *AuthEffectiveAccountPermissions) GetUpdateReregistrationAllowed() *bool {
+	return m.updateReregistrationAllowed
 }
+
 // GetViewFullAuditLog gets the viewFullAuditLog property value. The viewFullAuditLog property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetViewFullAuditLog()(*bool) {
-    return m.viewFullAuditLog
+func (m *AuthEffectiveAccountPermissions) GetViewFullAuditLog() *bool {
+	return m.viewFullAuditLog
 }
+
 // GetViewGroupsAndProfiles gets the viewGroupsAndProfiles property value. The viewGroupsAndProfiles property
 // returns a *bool when successful
-func (m *AuthEffectiveAccountPermissions) GetViewGroupsAndProfiles()(*bool) {
-    return m.viewGroupsAndProfiles
+func (m *AuthEffectiveAccountPermissions) GetViewGroupsAndProfiles() *bool {
+	return m.viewGroupsAndProfiles
 }
+
 // Serialize serializes information the current object
-func (m *AuthEffectiveAccountPermissions) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.NonLinkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteBoolValue("declineResetRequestsAllowed", m.GetDeclineResetRequestsAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("disableAccountAllowed", m.GetDisableAccountAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("disableTwoFactorAllowed", m.GetDisableTwoFactorAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("enableAccountAllowed", m.GetEnableAccountAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("updateCanRequestGroupsAllowed", m.GetUpdateCanRequestGroupsAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("updateLicenseRoleAllowed", m.GetUpdateLicenseRoleAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("updateReregistrationAllowed", m.GetUpdateReregistrationAllowed())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("viewFullAuditLog", m.GetViewFullAuditLog())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("viewGroupsAndProfiles", m.GetViewGroupsAndProfiles())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *AuthEffectiveAccountPermissions) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.NonLinkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteBoolValue("declineResetRequestsAllowed", m.GetDeclineResetRequestsAllowed())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("disableAccountAllowed", m.GetDisableAccountAllowed())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("disableTwoFactorAllowed", m.GetDisableTwoFactorAllowed())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("enableAccountAllowed", m.GetEnableAccountAllowed())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("updateCanRequestGroupsAllowed", m.GetUpdateCanRequestGroupsAllowed())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("updateLicenseRoleAllowed", m.GetUpdateLicenseRoleAllowed())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("updateReregistrationAllowed", m.GetUpdateReregistrationAllowed())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("viewFullAuditLog", m.GetViewFullAuditLog())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("viewGroupsAndProfiles", m.GetViewGroupsAndProfiles())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetDeclineResetRequestsAllowed sets the declineResetRequestsAllowed property value. The declineResetRequestsAllowed property
-func (m *AuthEffectiveAccountPermissions) SetDeclineResetRequestsAllowed(value *bool)() {
-    m.declineResetRequestsAllowed = value
+func (m *AuthEffectiveAccountPermissions) SetDeclineResetRequestsAllowed(value *bool) {
+	m.declineResetRequestsAllowed = value
 }
+
 // SetDisableAccountAllowed sets the disableAccountAllowed property value. The disableAccountAllowed property
-func (m *AuthEffectiveAccountPermissions) SetDisableAccountAllowed(value *bool)() {
-    m.disableAccountAllowed = value
+func (m *AuthEffectiveAccountPermissions) SetDisableAccountAllowed(value *bool) {
+	m.disableAccountAllowed = value
 }
+
 // SetDisableTwoFactorAllowed sets the disableTwoFactorAllowed property value. The disableTwoFactorAllowed property
-func (m *AuthEffectiveAccountPermissions) SetDisableTwoFactorAllowed(value *bool)() {
-    m.disableTwoFactorAllowed = value
+func (m *AuthEffectiveAccountPermissions) SetDisableTwoFactorAllowed(value *bool) {
+	m.disableTwoFactorAllowed = value
 }
+
 // SetEnableAccountAllowed sets the enableAccountAllowed property value. The enableAccountAllowed property
-func (m *AuthEffectiveAccountPermissions) SetEnableAccountAllowed(value *bool)() {
-    m.enableAccountAllowed = value
+func (m *AuthEffectiveAccountPermissions) SetEnableAccountAllowed(value *bool) {
+	m.enableAccountAllowed = value
 }
+
 // SetUpdateCanRequestGroupsAllowed sets the updateCanRequestGroupsAllowed property value. The updateCanRequestGroupsAllowed property
-func (m *AuthEffectiveAccountPermissions) SetUpdateCanRequestGroupsAllowed(value *bool)() {
-    m.updateCanRequestGroupsAllowed = value
+func (m *AuthEffectiveAccountPermissions) SetUpdateCanRequestGroupsAllowed(value *bool) {
+	m.updateCanRequestGroupsAllowed = value
 }
+
 // SetUpdateLicenseRoleAllowed sets the updateLicenseRoleAllowed property value. The updateLicenseRoleAllowed property
-func (m *AuthEffectiveAccountPermissions) SetUpdateLicenseRoleAllowed(value *bool)() {
-    m.updateLicenseRoleAllowed = value
+func (m *AuthEffectiveAccountPermissions) SetUpdateLicenseRoleAllowed(value *bool) {
+	m.updateLicenseRoleAllowed = value
 }
+
 // SetUpdateReregistrationAllowed sets the updateReregistrationAllowed property value. The updateReregistrationAllowed property
-func (m *AuthEffectiveAccountPermissions) SetUpdateReregistrationAllowed(value *bool)() {
-    m.updateReregistrationAllowed = value
+func (m *AuthEffectiveAccountPermissions) SetUpdateReregistrationAllowed(value *bool) {
+	m.updateReregistrationAllowed = value
 }
+
 // SetViewFullAuditLog sets the viewFullAuditLog property value. The viewFullAuditLog property
-func (m *AuthEffectiveAccountPermissions) SetViewFullAuditLog(value *bool)() {
-    m.viewFullAuditLog = value
+func (m *AuthEffectiveAccountPermissions) SetViewFullAuditLog(value *bool) {
+	m.viewFullAuditLog = value
 }
+
 // SetViewGroupsAndProfiles sets the viewGroupsAndProfiles property value. The viewGroupsAndProfiles property
-func (m *AuthEffectiveAccountPermissions) SetViewGroupsAndProfiles(value *bool)() {
-    m.viewGroupsAndProfiles = value
+func (m *AuthEffectiveAccountPermissions) SetViewGroupsAndProfiles(value *bool) {
+	m.viewGroupsAndProfiles = value
 }
+
 type AuthEffectiveAccountPermissionsable interface {
-    NonLinkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetDeclineResetRequestsAllowed()(*bool)
-    GetDisableAccountAllowed()(*bool)
-    GetDisableTwoFactorAllowed()(*bool)
-    GetEnableAccountAllowed()(*bool)
-    GetUpdateCanRequestGroupsAllowed()(*bool)
-    GetUpdateLicenseRoleAllowed()(*bool)
-    GetUpdateReregistrationAllowed()(*bool)
-    GetViewFullAuditLog()(*bool)
-    GetViewGroupsAndProfiles()(*bool)
-    SetDeclineResetRequestsAllowed(value *bool)()
-    SetDisableAccountAllowed(value *bool)()
-    SetDisableTwoFactorAllowed(value *bool)()
-    SetEnableAccountAllowed(value *bool)()
-    SetUpdateCanRequestGroupsAllowed(value *bool)()
-    SetUpdateLicenseRoleAllowed(value *bool)()
-    SetUpdateReregistrationAllowed(value *bool)()
-    SetViewFullAuditLog(value *bool)()
-    SetViewGroupsAndProfiles(value *bool)()
+	NonLinkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetDeclineResetRequestsAllowed() *bool
+	GetDisableAccountAllowed() *bool
+	GetDisableTwoFactorAllowed() *bool
+	GetEnableAccountAllowed() *bool
+	GetUpdateCanRequestGroupsAllowed() *bool
+	GetUpdateLicenseRoleAllowed() *bool
+	GetUpdateReregistrationAllowed() *bool
+	GetViewFullAuditLog() *bool
+	GetViewGroupsAndProfiles() *bool
+	SetDeclineResetRequestsAllowed(value *bool)
+	SetDisableAccountAllowed(value *bool)
+	SetDisableTwoFactorAllowed(value *bool)
+	SetEnableAccountAllowed(value *bool)
+	SetUpdateCanRequestGroupsAllowed(value *bool)
+	SetUpdateLicenseRoleAllowed(value *bool)
+	SetUpdateReregistrationAllowed(value *bool)
+	SetViewFullAuditLog(value *bool)
+	SetViewGroupsAndProfiles(value *bool)
 }

@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package item
+
 type PutAdditionalQueryParameterType int
 
 const (
-    ACCEPTPARAMS_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
-    AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
-    RESETSTATUS_PUTADDITIONALQUERYPARAMETERTYPE
+	ACCEPTPARAMS_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
+	AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+	RESETSTATUS_PUTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-    return []string{"acceptParams", "audit", "resetStatus"}[i]
+	return []string{"acceptParams", "audit", "resetStatus"}[i]
 }
+
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
-    result := ACCEPTPARAMS_PUTADDITIONALQUERYPARAMETERTYPE
-    switch v {
-        case "acceptParams":
-            result = ACCEPTPARAMS_PUTADDITIONALQUERYPARAMETERTYPE
-        case "audit":
-            result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
-        case "resetStatus":
-            result = RESETSTATUS_PUTADDITIONALQUERYPARAMETERTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ACCEPTPARAMS_PUTADDITIONALQUERYPARAMETERTYPE
+	switch v {
+	case "acceptParams":
+		result = ACCEPTPARAMS_PUTADDITIONALQUERYPARAMETERTYPE
+	case "audit":
+		result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
+	case "resetStatus":
+		result = RESETSTATUS_PUTADDITIONALQUERYPARAMETERTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializePutAdditionalQueryParameterType(values []PutAdditionalQueryParameterType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i PutAdditionalQueryParameterType) isMultiValue() bool {
-    return false
+	return false
 }

@@ -4,138 +4,150 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ProfileAccessProfileAccount_additionalObjects struct {
-    // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additionalData map[string]any
-    // The attributeSummaries property
-    attributeSummaries NonLinkableWrapperable
-    // The audit property
-    audit AuditInfoable
-    // The prediction property
-    prediction ProfileAccessProfileAccountPredictionable
+	// Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+	additionalData map[string]any
+	// The attributeSummaries property
+	attributeSummaries NonLinkableWrapperable
+	// The audit property
+	audit AuditInfoable
+	// The prediction property
+	prediction ProfileAccessProfileAccountPredictionable
 }
+
 // NewProfileAccessProfileAccount_additionalObjects instantiates a new ProfileAccessProfileAccount_additionalObjects and sets the default values.
-func NewProfileAccessProfileAccount_additionalObjects()(*ProfileAccessProfileAccount_additionalObjects) {
-    m := &ProfileAccessProfileAccount_additionalObjects{
-    }
-    m.SetAdditionalData(make(map[string]any))
-    return m
+func NewProfileAccessProfileAccount_additionalObjects() *ProfileAccessProfileAccount_additionalObjects {
+	m := &ProfileAccessProfileAccount_additionalObjects{}
+	m.SetAdditionalData(make(map[string]any))
+	return m
 }
+
 // CreateProfileAccessProfileAccount_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateProfileAccessProfileAccount_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewProfileAccessProfileAccount_additionalObjects(), nil
+func CreateProfileAccessProfileAccount_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewProfileAccessProfileAccount_additionalObjects(), nil
 }
+
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 // returns a map[string]any when successful
-func (m *ProfileAccessProfileAccount_additionalObjects) GetAdditionalData()(map[string]any) {
-    return m.additionalData
+func (m *ProfileAccessProfileAccount_additionalObjects) GetAdditionalData() map[string]any {
+	return m.additionalData
 }
+
 // GetAttributeSummaries gets the attributeSummaries property value. The attributeSummaries property
 // returns a NonLinkableWrapperable when successful
-func (m *ProfileAccessProfileAccount_additionalObjects) GetAttributeSummaries()(NonLinkableWrapperable) {
-    return m.attributeSummaries
+func (m *ProfileAccessProfileAccount_additionalObjects) GetAttributeSummaries() NonLinkableWrapperable {
+	return m.attributeSummaries
 }
+
 // GetAudit gets the audit property value. The audit property
 // returns a AuditInfoable when successful
-func (m *ProfileAccessProfileAccount_additionalObjects) GetAudit()(AuditInfoable) {
-    return m.audit
+func (m *ProfileAccessProfileAccount_additionalObjects) GetAudit() AuditInfoable {
+	return m.audit
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ProfileAccessProfileAccount_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
-    res["attributeSummaries"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateNonLinkableWrapperFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAttributeSummaries(val.(NonLinkableWrapperable))
-        }
-        return nil
-    }
-    res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateAuditInfoFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAudit(val.(AuditInfoable))
-        }
-        return nil
-    }
-    res["prediction"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProfileAccessProfileAccountPredictionFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetPrediction(val.(ProfileAccessProfileAccountPredictionable))
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ProfileAccessProfileAccount_additionalObjects) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error)
+	res["attributeSummaries"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateNonLinkableWrapperFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAttributeSummaries(val.(NonLinkableWrapperable))
+		}
+		return nil
+	}
+	res["audit"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateAuditInfoFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAudit(val.(AuditInfoable))
+		}
+		return nil
+	}
+	res["prediction"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProfileAccessProfileAccountPredictionFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetPrediction(val.(ProfileAccessProfileAccountPredictionable))
+		}
+		return nil
+	}
+	return res
 }
+
 // GetPrediction gets the prediction property value. The prediction property
 // returns a ProfileAccessProfileAccountPredictionable when successful
-func (m *ProfileAccessProfileAccount_additionalObjects) GetPrediction()(ProfileAccessProfileAccountPredictionable) {
-    return m.prediction
+func (m *ProfileAccessProfileAccount_additionalObjects) GetPrediction() ProfileAccessProfileAccountPredictionable {
+	return m.prediction
 }
+
 // Serialize serializes information the current object
-func (m *ProfileAccessProfileAccount_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    {
-        err := writer.WriteObjectValue("attributeSummaries", m.GetAttributeSummaries())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("audit", m.GetAudit())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("prediction", m.GetPrediction())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteAdditionalData(m.GetAdditionalData())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ProfileAccessProfileAccount_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	{
+		err := writer.WriteObjectValue("attributeSummaries", m.GetAttributeSummaries())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("audit", m.GetAudit())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("prediction", m.GetPrediction())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteAdditionalData(m.GetAdditionalData())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-func (m *ProfileAccessProfileAccount_additionalObjects) SetAdditionalData(value map[string]any)() {
-    m.additionalData = value
+func (m *ProfileAccessProfileAccount_additionalObjects) SetAdditionalData(value map[string]any) {
+	m.additionalData = value
 }
+
 // SetAttributeSummaries sets the attributeSummaries property value. The attributeSummaries property
-func (m *ProfileAccessProfileAccount_additionalObjects) SetAttributeSummaries(value NonLinkableWrapperable)() {
-    m.attributeSummaries = value
+func (m *ProfileAccessProfileAccount_additionalObjects) SetAttributeSummaries(value NonLinkableWrapperable) {
+	m.attributeSummaries = value
 }
+
 // SetAudit sets the audit property value. The audit property
-func (m *ProfileAccessProfileAccount_additionalObjects) SetAudit(value AuditInfoable)() {
-    m.audit = value
+func (m *ProfileAccessProfileAccount_additionalObjects) SetAudit(value AuditInfoable) {
+	m.audit = value
 }
+
 // SetPrediction sets the prediction property value. The prediction property
-func (m *ProfileAccessProfileAccount_additionalObjects) SetPrediction(value ProfileAccessProfileAccountPredictionable)() {
-    m.prediction = value
+func (m *ProfileAccessProfileAccount_additionalObjects) SetPrediction(value ProfileAccessProfileAccountPredictionable) {
+	m.prediction = value
 }
+
 type ProfileAccessProfileAccount_additionalObjectsable interface {
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAttributeSummaries()(NonLinkableWrapperable)
-    GetAudit()(AuditInfoable)
-    GetPrediction()(ProfileAccessProfileAccountPredictionable)
-    SetAttributeSummaries(value NonLinkableWrapperable)()
-    SetAudit(value AuditInfoable)()
-    SetPrediction(value ProfileAccessProfileAccountPredictionable)()
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAttributeSummaries() NonLinkableWrapperable
+	GetAudit() AuditInfoable
+	GetPrediction() ProfileAccessProfileAccountPredictionable
+	SetAttributeSummaries(value NonLinkableWrapperable)
+	SetAudit(value AuditInfoable)
+	SetPrediction(value ProfileAccessProfileAccountPredictionable)
 }

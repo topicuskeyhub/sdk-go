@@ -4,335 +4,361 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type ClientClientApplication_additionalObjects struct {
-    // The accessprofileclients property
-    accessprofileclients ProfileAccessProfileClientLinkableWrapperWithCountable
-    // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    additionalData map[string]any
-    // The audit property
-    audit AuditInfoable
-    // The deleteTile property
-    deleteTile *bool
-    // The generateSecret property
-    generateSecret GenerateSecretable
-    // The groupclients property
-    groupclients GroupGroupClientLinkableWrapperWithCountable
-    // The groups property
-    groups GroupGroupLinkableWrapperable
-    // The organizationalUnits property
-    organizationalUnits OrganizationClientApplicationOrganizationalUnitLinkableWrapperable
-    // The secret property
-    secret Secretable
-    // The tile property
-    tile LaunchpadSsoApplicationLaunchpadTileable
-    // The vaultRecordCount property
-    vaultRecordCount *int32
+	// The accessprofileclients property
+	accessprofileclients ProfileAccessProfileClientLinkableWrapperWithCountable
+	// Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+	additionalData map[string]any
+	// The audit property
+	audit AuditInfoable
+	// The deleteTile property
+	deleteTile *bool
+	// The generateSecret property
+	generateSecret GenerateSecretable
+	// The groupclients property
+	groupclients GroupGroupClientLinkableWrapperWithCountable
+	// The groups property
+	groups GroupGroupLinkableWrapperable
+	// The organizationalUnits property
+	organizationalUnits OrganizationClientApplicationOrganizationalUnitLinkableWrapperable
+	// The secret property
+	secret Secretable
+	// The tile property
+	tile LaunchpadSsoApplicationLaunchpadTileable
+	// The vaultRecordCount property
+	vaultRecordCount *int32
 }
+
 // NewClientClientApplication_additionalObjects instantiates a new ClientClientApplication_additionalObjects and sets the default values.
-func NewClientClientApplication_additionalObjects()(*ClientClientApplication_additionalObjects) {
-    m := &ClientClientApplication_additionalObjects{
-    }
-    m.SetAdditionalData(make(map[string]any))
-    return m
+func NewClientClientApplication_additionalObjects() *ClientClientApplication_additionalObjects {
+	m := &ClientClientApplication_additionalObjects{}
+	m.SetAdditionalData(make(map[string]any))
+	return m
 }
+
 // CreateClientClientApplication_additionalObjectsFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateClientClientApplication_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewClientClientApplication_additionalObjects(), nil
+func CreateClientClientApplication_additionalObjectsFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewClientClientApplication_additionalObjects(), nil
 }
+
 // GetAccessprofileclients gets the accessprofileclients property value. The accessprofileclients property
 // returns a ProfileAccessProfileClientLinkableWrapperWithCountable when successful
-func (m *ClientClientApplication_additionalObjects) GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperWithCountable) {
-    return m.accessprofileclients
+func (m *ClientClientApplication_additionalObjects) GetAccessprofileclients() ProfileAccessProfileClientLinkableWrapperWithCountable {
+	return m.accessprofileclients
 }
+
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 // returns a map[string]any when successful
-func (m *ClientClientApplication_additionalObjects) GetAdditionalData()(map[string]any) {
-    return m.additionalData
+func (m *ClientClientApplication_additionalObjects) GetAdditionalData() map[string]any {
+	return m.additionalData
 }
+
 // GetAudit gets the audit property value. The audit property
 // returns a AuditInfoable when successful
-func (m *ClientClientApplication_additionalObjects) GetAudit()(AuditInfoable) {
-    return m.audit
+func (m *ClientClientApplication_additionalObjects) GetAudit() AuditInfoable {
+	return m.audit
 }
+
 // GetDeleteTile gets the deleteTile property value. The deleteTile property
 // returns a *bool when successful
-func (m *ClientClientApplication_additionalObjects) GetDeleteTile()(*bool) {
-    return m.deleteTile
+func (m *ClientClientApplication_additionalObjects) GetDeleteTile() *bool {
+	return m.deleteTile
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
-    res["accessprofileclients"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateProfileAccessProfileClientLinkableWrapperWithCountFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAccessprofileclients(val.(ProfileAccessProfileClientLinkableWrapperWithCountable))
-        }
-        return nil
-    }
-    res["audit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateAuditInfoFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAudit(val.(AuditInfoable))
-        }
-        return nil
-    }
-    res["deleteTile"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetDeleteTile(val)
-        }
-        return nil
-    }
-    res["generateSecret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGenerateSecretFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGenerateSecret(val.(GenerateSecretable))
-        }
-        return nil
-    }
-    res["groupclients"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupClientLinkableWrapperWithCountFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroupclients(val.(GroupGroupClientLinkableWrapperWithCountable))
-        }
-        return nil
-    }
-    res["groups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupLinkableWrapperFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroups(val.(GroupGroupLinkableWrapperable))
-        }
-        return nil
-    }
-    res["organizationalUnits"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateOrganizationClientApplicationOrganizationalUnitLinkableWrapperFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetOrganizationalUnits(val.(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable))
-        }
-        return nil
-    }
-    res["secret"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateSecretFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSecret(val.(Secretable))
-        }
-        return nil
-    }
-    res["tile"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateLaunchpadSsoApplicationLaunchpadTileFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetTile(val.(LaunchpadSsoApplicationLaunchpadTileable))
-        }
-        return nil
-    }
-    res["vaultRecordCount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetVaultRecordCount(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *ClientClientApplication_additionalObjects) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error)
+	res["accessprofileclients"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProfileAccessProfileClientLinkableWrapperWithCountFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAccessprofileclients(val.(ProfileAccessProfileClientLinkableWrapperWithCountable))
+		}
+		return nil
+	}
+	res["audit"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateAuditInfoFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAudit(val.(AuditInfoable))
+		}
+		return nil
+	}
+	res["deleteTile"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDeleteTile(val)
+		}
+		return nil
+	}
+	res["generateSecret"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGenerateSecretFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGenerateSecret(val.(GenerateSecretable))
+		}
+		return nil
+	}
+	res["groupclients"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupClientLinkableWrapperWithCountFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroupclients(val.(GroupGroupClientLinkableWrapperWithCountable))
+		}
+		return nil
+	}
+	res["groups"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupLinkableWrapperFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroups(val.(GroupGroupLinkableWrapperable))
+		}
+		return nil
+	}
+	res["organizationalUnits"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateOrganizationClientApplicationOrganizationalUnitLinkableWrapperFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOrganizationalUnits(val.(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable))
+		}
+		return nil
+	}
+	res["secret"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateSecretFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSecret(val.(Secretable))
+		}
+		return nil
+	}
+	res["tile"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateLaunchpadSsoApplicationLaunchpadTileFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetTile(val.(LaunchpadSsoApplicationLaunchpadTileable))
+		}
+		return nil
+	}
+	res["vaultRecordCount"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetVaultRecordCount(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetGenerateSecret gets the generateSecret property value. The generateSecret property
 // returns a GenerateSecretable when successful
-func (m *ClientClientApplication_additionalObjects) GetGenerateSecret()(GenerateSecretable) {
-    return m.generateSecret
+func (m *ClientClientApplication_additionalObjects) GetGenerateSecret() GenerateSecretable {
+	return m.generateSecret
 }
+
 // GetGroupclients gets the groupclients property value. The groupclients property
 // returns a GroupGroupClientLinkableWrapperWithCountable when successful
-func (m *ClientClientApplication_additionalObjects) GetGroupclients()(GroupGroupClientLinkableWrapperWithCountable) {
-    return m.groupclients
+func (m *ClientClientApplication_additionalObjects) GetGroupclients() GroupGroupClientLinkableWrapperWithCountable {
+	return m.groupclients
 }
+
 // GetGroups gets the groups property value. The groups property
 // returns a GroupGroupLinkableWrapperable when successful
-func (m *ClientClientApplication_additionalObjects) GetGroups()(GroupGroupLinkableWrapperable) {
-    return m.groups
+func (m *ClientClientApplication_additionalObjects) GetGroups() GroupGroupLinkableWrapperable {
+	return m.groups
 }
+
 // GetOrganizationalUnits gets the organizationalUnits property value. The organizationalUnits property
 // returns a OrganizationClientApplicationOrganizationalUnitLinkableWrapperable when successful
-func (m *ClientClientApplication_additionalObjects) GetOrganizationalUnits()(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable) {
-    return m.organizationalUnits
+func (m *ClientClientApplication_additionalObjects) GetOrganizationalUnits() OrganizationClientApplicationOrganizationalUnitLinkableWrapperable {
+	return m.organizationalUnits
 }
+
 // GetSecret gets the secret property value. The secret property
 // returns a Secretable when successful
-func (m *ClientClientApplication_additionalObjects) GetSecret()(Secretable) {
-    return m.secret
+func (m *ClientClientApplication_additionalObjects) GetSecret() Secretable {
+	return m.secret
 }
+
 // GetTile gets the tile property value. The tile property
 // returns a LaunchpadSsoApplicationLaunchpadTileable when successful
-func (m *ClientClientApplication_additionalObjects) GetTile()(LaunchpadSsoApplicationLaunchpadTileable) {
-    return m.tile
+func (m *ClientClientApplication_additionalObjects) GetTile() LaunchpadSsoApplicationLaunchpadTileable {
+	return m.tile
 }
+
 // GetVaultRecordCount gets the vaultRecordCount property value. The vaultRecordCount property
 // returns a *int32 when successful
-func (m *ClientClientApplication_additionalObjects) GetVaultRecordCount()(*int32) {
-    return m.vaultRecordCount
+func (m *ClientClientApplication_additionalObjects) GetVaultRecordCount() *int32 {
+	return m.vaultRecordCount
 }
+
 // Serialize serializes information the current object
-func (m *ClientClientApplication_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    {
-        err := writer.WriteObjectValue("accessprofileclients", m.GetAccessprofileclients())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("audit", m.GetAudit())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteBoolValue("deleteTile", m.GetDeleteTile())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("generateSecret", m.GetGenerateSecret())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("groupclients", m.GetGroupclients())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("groups", m.GetGroups())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("organizationalUnits", m.GetOrganizationalUnits())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("secret", m.GetSecret())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteObjectValue("tile", m.GetTile())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err := writer.WriteAdditionalData(m.GetAdditionalData())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *ClientClientApplication_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	{
+		err := writer.WriteObjectValue("accessprofileclients", m.GetAccessprofileclients())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("audit", m.GetAudit())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteBoolValue("deleteTile", m.GetDeleteTile())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("generateSecret", m.GetGenerateSecret())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("groupclients", m.GetGroupclients())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("groups", m.GetGroups())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("organizationalUnits", m.GetOrganizationalUnits())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("secret", m.GetSecret())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("tile", m.GetTile())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteAdditionalData(m.GetAdditionalData())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAccessprofileclients sets the accessprofileclients property value. The accessprofileclients property
-func (m *ClientClientApplication_additionalObjects) SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperWithCountable)() {
-    m.accessprofileclients = value
+func (m *ClientClientApplication_additionalObjects) SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperWithCountable) {
+	m.accessprofileclients = value
 }
+
 // SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-func (m *ClientClientApplication_additionalObjects) SetAdditionalData(value map[string]any)() {
-    m.additionalData = value
+func (m *ClientClientApplication_additionalObjects) SetAdditionalData(value map[string]any) {
+	m.additionalData = value
 }
+
 // SetAudit sets the audit property value. The audit property
-func (m *ClientClientApplication_additionalObjects) SetAudit(value AuditInfoable)() {
-    m.audit = value
+func (m *ClientClientApplication_additionalObjects) SetAudit(value AuditInfoable) {
+	m.audit = value
 }
+
 // SetDeleteTile sets the deleteTile property value. The deleteTile property
-func (m *ClientClientApplication_additionalObjects) SetDeleteTile(value *bool)() {
-    m.deleteTile = value
+func (m *ClientClientApplication_additionalObjects) SetDeleteTile(value *bool) {
+	m.deleteTile = value
 }
+
 // SetGenerateSecret sets the generateSecret property value. The generateSecret property
-func (m *ClientClientApplication_additionalObjects) SetGenerateSecret(value GenerateSecretable)() {
-    m.generateSecret = value
+func (m *ClientClientApplication_additionalObjects) SetGenerateSecret(value GenerateSecretable) {
+	m.generateSecret = value
 }
+
 // SetGroupclients sets the groupclients property value. The groupclients property
-func (m *ClientClientApplication_additionalObjects) SetGroupclients(value GroupGroupClientLinkableWrapperWithCountable)() {
-    m.groupclients = value
+func (m *ClientClientApplication_additionalObjects) SetGroupclients(value GroupGroupClientLinkableWrapperWithCountable) {
+	m.groupclients = value
 }
+
 // SetGroups sets the groups property value. The groups property
-func (m *ClientClientApplication_additionalObjects) SetGroups(value GroupGroupLinkableWrapperable)() {
-    m.groups = value
+func (m *ClientClientApplication_additionalObjects) SetGroups(value GroupGroupLinkableWrapperable) {
+	m.groups = value
 }
+
 // SetOrganizationalUnits sets the organizationalUnits property value. The organizationalUnits property
-func (m *ClientClientApplication_additionalObjects) SetOrganizationalUnits(value OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)() {
-    m.organizationalUnits = value
+func (m *ClientClientApplication_additionalObjects) SetOrganizationalUnits(value OrganizationClientApplicationOrganizationalUnitLinkableWrapperable) {
+	m.organizationalUnits = value
 }
+
 // SetSecret sets the secret property value. The secret property
-func (m *ClientClientApplication_additionalObjects) SetSecret(value Secretable)() {
-    m.secret = value
+func (m *ClientClientApplication_additionalObjects) SetSecret(value Secretable) {
+	m.secret = value
 }
+
 // SetTile sets the tile property value. The tile property
-func (m *ClientClientApplication_additionalObjects) SetTile(value LaunchpadSsoApplicationLaunchpadTileable)() {
-    m.tile = value
+func (m *ClientClientApplication_additionalObjects) SetTile(value LaunchpadSsoApplicationLaunchpadTileable) {
+	m.tile = value
 }
+
 // SetVaultRecordCount sets the vaultRecordCount property value. The vaultRecordCount property
-func (m *ClientClientApplication_additionalObjects) SetVaultRecordCount(value *int32)() {
-    m.vaultRecordCount = value
+func (m *ClientClientApplication_additionalObjects) SetVaultRecordCount(value *int32) {
+	m.vaultRecordCount = value
 }
+
 type ClientClientApplication_additionalObjectsable interface {
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAccessprofileclients()(ProfileAccessProfileClientLinkableWrapperWithCountable)
-    GetAudit()(AuditInfoable)
-    GetDeleteTile()(*bool)
-    GetGenerateSecret()(GenerateSecretable)
-    GetGroupclients()(GroupGroupClientLinkableWrapperWithCountable)
-    GetGroups()(GroupGroupLinkableWrapperable)
-    GetOrganizationalUnits()(OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)
-    GetSecret()(Secretable)
-    GetTile()(LaunchpadSsoApplicationLaunchpadTileable)
-    GetVaultRecordCount()(*int32)
-    SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperWithCountable)()
-    SetAudit(value AuditInfoable)()
-    SetDeleteTile(value *bool)()
-    SetGenerateSecret(value GenerateSecretable)()
-    SetGroupclients(value GroupGroupClientLinkableWrapperWithCountable)()
-    SetGroups(value GroupGroupLinkableWrapperable)()
-    SetOrganizationalUnits(value OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)()
-    SetSecret(value Secretable)()
-    SetTile(value LaunchpadSsoApplicationLaunchpadTileable)()
-    SetVaultRecordCount(value *int32)()
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAccessprofileclients() ProfileAccessProfileClientLinkableWrapperWithCountable
+	GetAudit() AuditInfoable
+	GetDeleteTile() *bool
+	GetGenerateSecret() GenerateSecretable
+	GetGroupclients() GroupGroupClientLinkableWrapperWithCountable
+	GetGroups() GroupGroupLinkableWrapperable
+	GetOrganizationalUnits() OrganizationClientApplicationOrganizationalUnitLinkableWrapperable
+	GetSecret() Secretable
+	GetTile() LaunchpadSsoApplicationLaunchpadTileable
+	GetVaultRecordCount() *int32
+	SetAccessprofileclients(value ProfileAccessProfileClientLinkableWrapperWithCountable)
+	SetAudit(value AuditInfoable)
+	SetDeleteTile(value *bool)
+	SetGenerateSecret(value GenerateSecretable)
+	SetGroupclients(value GroupGroupClientLinkableWrapperWithCountable)
+	SetGroups(value GroupGroupLinkableWrapperable)
+	SetOrganizationalUnits(value OrganizationClientApplicationOrganizationalUnitLinkableWrapperable)
+	SetSecret(value Secretable)
+	SetTile(value LaunchpadSsoApplicationLaunchpadTileable)
+	SetVaultRecordCount(value *int32)
 }

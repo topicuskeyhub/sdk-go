@@ -2,44 +2,48 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package profile
+
 type PostAdditionalQueryParameterType int
 
 const (
-    ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
-    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
-    CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
-    GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
-    PROVISIONING_POSTADDITIONALQUERYPARAMETERTYPE
+	ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+	AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+	CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
+	GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
+	PROVISIONING_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"attributeRules", "audit", "clients", "groups", "provisioning"}[i]
+	return []string{"attributeRules", "audit", "clients", "groups", "provisioning"}[i]
 }
+
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
-    result := ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE
-    switch v {
-        case "attributeRules":
-            result = ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE
-        case "audit":
-            result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
-        case "clients":
-            result = CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
-        case "groups":
-            result = GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
-        case "provisioning":
-            result = PROVISIONING_POSTADDITIONALQUERYPARAMETERTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE
+	switch v {
+	case "attributeRules":
+		result = ATTRIBUTERULES_POSTADDITIONALQUERYPARAMETERTYPE
+	case "audit":
+		result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+	case "clients":
+		result = CLIENTS_POSTADDITIONALQUERYPARAMETERTYPE
+	case "groups":
+		result = GROUPS_POSTADDITIONALQUERYPARAMETERTYPE
+	case "provisioning":
+		result = PROVISIONING_POSTADDITIONALQUERYPARAMETERTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializePostAdditionalQueryParameterType(values []PostAdditionalQueryParameterType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i PostAdditionalQueryParameterType) isMultiValue() bool {
-    return false
+	return false
 }

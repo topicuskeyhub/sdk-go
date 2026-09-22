@@ -4,82 +4,89 @@
 package account
 
 import (
-    "context"
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
-    ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
-    i6f62e02e96a6e94a085476b0e5ac2b14eaa1edbc8be922fb81f4965667b84900 "github.com/topicuskeyhub/sdk-go/account/item/profile/item"
+	"context"
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
+	i6f62e02e96a6e94a085476b0e5ac2b14eaa1edbc8be922fb81f4965667b84900 "github.com/topicuskeyhub/sdk-go/account/item/profile/item"
+	ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1 "github.com/topicuskeyhub/sdk-go/models"
 )
 
 // ItemProfileWithProfileItemRequestBuilder builds and executes requests for operations under \account\{accountid}\profile\{profileid}
 type ItemProfileWithProfileItemRequestBuilder struct {
-    i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
+	i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+
 // ItemProfileWithProfileItemRequestBuilderGetQueryParameters returns the single access profile membership for the account. This also contains information such as the rights and provisioning information.
 type ItemProfileWithProfileItemRequestBuilderGetQueryParameters struct {
-    // Request additional information to be returned for every record.
-    // Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
-    Additional []string "uriparametername:\"additional\""
-    // Request additional information to be returned for every record.
-    AdditionalAsGetAdditionalQueryParameterType []i6f62e02e96a6e94a085476b0e5ac2b14eaa1edbc8be922fb81f4965667b84900.GetAdditionalQueryParameterType "uriparametername:\"additional\""
+	// Request additional information to be returned for every record.
+	// Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
+	Additional []string "uriparametername:\"additional\""
+	// Request additional information to be returned for every record.
+	AdditionalAsGetAdditionalQueryParameterType []i6f62e02e96a6e94a085476b0e5ac2b14eaa1edbc8be922fb81f4965667b84900.GetAdditionalQueryParameterType "uriparametername:\"additional\""
 }
+
 // ItemProfileWithProfileItemRequestBuilderGetRequestConfiguration configuration for the request such as headers, query parameters, and middleware options.
 type ItemProfileWithProfileItemRequestBuilderGetRequestConfiguration struct {
-    // Request headers
-    Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
-    // Request options
-    Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
-    // Request query parameters
-    QueryParameters *ItemProfileWithProfileItemRequestBuilderGetQueryParameters
+	// Request headers
+	Headers *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestHeaders
+	// Request options
+	Options []i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestOption
+	// Request query parameters
+	QueryParameters *ItemProfileWithProfileItemRequestBuilderGetQueryParameters
 }
+
 // NewItemProfileWithProfileItemRequestBuilderInternal instantiates a new ItemProfileWithProfileItemRequestBuilder and sets the default values.
-func NewItemProfileWithProfileItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemProfileWithProfileItemRequestBuilder) {
-    m := &ItemProfileWithProfileItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/profile/{profileid}{?additional*}", pathParameters),
-    }
-    return m
+func NewItemProfileWithProfileItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemProfileWithProfileItemRequestBuilder {
+	m := &ItemProfileWithProfileItemRequestBuilder{
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/account/{accountid}/profile/{profileid}{?additional*}", pathParameters),
+	}
+	return m
 }
+
 // NewItemProfileWithProfileItemRequestBuilder instantiates a new ItemProfileWithProfileItemRequestBuilder and sets the default values.
-func NewItemProfileWithProfileItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemProfileWithProfileItemRequestBuilder) {
-    urlParams := make(map[string]string)
-    urlParams["request-raw-url"] = rawUrl
-    return NewItemProfileWithProfileItemRequestBuilderInternal(urlParams, requestAdapter)
+func NewItemProfileWithProfileItemRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemProfileWithProfileItemRequestBuilder {
+	urlParams := make(map[string]string)
+	urlParams["request-raw-url"] = rawUrl
+	return NewItemProfileWithProfileItemRequestBuilderInternal(urlParams, requestAdapter)
 }
+
 // Get returns the single access profile membership for the account. This also contains information such as the rights and provisioning information.
 // returns a ProfileAccountAccessProfileable when successful
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
-func (m *ItemProfileWithProfileItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemProfileWithProfileItemRequestBuilderGetRequestConfiguration)(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccountAccessProfileable, error) {
-    requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
-    if err != nil {
-        return nil, err
-    }
-    errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings {
-        "XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
-    }
-    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProfileAccountAccessProfileFromDiscriminatorValue, errorMapping)
-    if err != nil {
-        return nil, err
-    }
-    if res == nil {
-        return nil, nil
-    }
-    return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccountAccessProfileable), nil
+func (m *ItemProfileWithProfileItemRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemProfileWithProfileItemRequestBuilderGetRequestConfiguration) (ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccountAccessProfileable, error) {
+	requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration)
+	if err != nil {
+		return nil, err
+	}
+	errorMapping := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ErrorMappings{
+		"XXX": ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateErrorReportFromDiscriminatorValue,
+	}
+	res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.CreateProfileAccountAccessProfileFromDiscriminatorValue, errorMapping)
+	if err != nil {
+		return nil, err
+	}
+	if res == nil {
+		return nil, nil
+	}
+	return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.ProfileAccountAccessProfileable), nil
 }
+
 // ToGetRequestInformation returns the single access profile membership for the account. This also contains information such as the rights and provisioning information.
 // returns a *RequestInformation when successful
-func (m *ItemProfileWithProfileItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemProfileWithProfileItemRequestBuilderGetRequestConfiguration)(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
-    requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
-    if requestConfiguration != nil {
-        if requestConfiguration.QueryParameters != nil {
-            requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
-        }
-        requestInfo.Headers.AddAll(requestConfiguration.Headers)
-        requestInfo.AddRequestOptions(requestConfiguration.Options)
-    }
-    requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=87")
-    return requestInfo, nil
+func (m *ItemProfileWithProfileItemRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *ItemProfileWithProfileItemRequestBuilderGetRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+	requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.GET, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
+	if requestConfiguration != nil {
+		if requestConfiguration.QueryParameters != nil {
+			requestInfo.AddQueryParameters(*(requestConfiguration.QueryParameters))
+		}
+		requestInfo.Headers.AddAll(requestConfiguration.Headers)
+		requestInfo.AddRequestOptions(requestConfiguration.Options)
+	}
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	return requestInfo, nil
 }
+
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
 // returns a *ItemProfileWithProfileItemRequestBuilder when successful
-func (m *ItemProfileWithProfileItemRequestBuilder) WithUrl(rawUrl string)(*ItemProfileWithProfileItemRequestBuilder) {
-    return NewItemProfileWithProfileItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
+func (m *ItemProfileWithProfileItemRequestBuilder) WithUrl(rawUrl string) *ItemProfileWithProfileItemRequestBuilder {
+	return NewItemProfileWithProfileItemRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter)
 }

@@ -4,140 +4,151 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type RequestRemoveGroupRequest struct {
-    RequestModificationRequest
-    // The groupCount property
-    groupCount *int32
-    // The groupNames property
-    groupNames []string
-    // The groups property
-    groups []GroupGroupPrimerable
+	RequestModificationRequest
+	// The groupCount property
+	groupCount *int32
+	// The groupNames property
+	groupNames []string
+	// The groups property
+	groups []GroupGroupPrimerable
 }
+
 // NewRequestRemoveGroupRequest instantiates a new RequestRemoveGroupRequest and sets the default values.
-func NewRequestRemoveGroupRequest()(*RequestRemoveGroupRequest) {
-    m := &RequestRemoveGroupRequest{
-        RequestModificationRequest: *NewRequestModificationRequest(),
-    }
-    typeEscapedValue := "request.RemoveGroupRequest"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewRequestRemoveGroupRequest() *RequestRemoveGroupRequest {
+	m := &RequestRemoveGroupRequest{
+		RequestModificationRequest: *NewRequestModificationRequest(),
+	}
+	typeEscapedValue := "request.RemoveGroupRequest"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateRequestRemoveGroupRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateRequestRemoveGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewRequestRemoveGroupRequest(), nil
+func CreateRequestRemoveGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewRequestRemoveGroupRequest(), nil
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *RequestRemoveGroupRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.RequestModificationRequest.GetFieldDeserializers()
-    res["groupCount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetGroupCount(val)
-        }
-        return nil
-    }
-    res["groupNames"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfPrimitiveValues("string")
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]string, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = *(v.(*string))
-                }
-            }
-            m.SetGroupNames(res)
-        }
-        return nil
-    }
-    res["groups"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]GroupGroupPrimerable, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = v.(GroupGroupPrimerable)
-                }
-            }
-            m.SetGroups(res)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *RequestRemoveGroupRequest) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.RequestModificationRequest.GetFieldDeserializers()
+	res["groupCount"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetInt32Value()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetGroupCount(val)
+		}
+		return nil
+	}
+	res["groupNames"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetCollectionOfPrimitiveValues("string")
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			res := make([]string, len(val))
+			for i, v := range val {
+				if v != nil {
+					res[i] = *(v.(*string))
+				}
+			}
+			m.SetGroupNames(res)
+		}
+		return nil
+	}
+	res["groups"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetCollectionOfObjectValues(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			res := make([]GroupGroupPrimerable, len(val))
+			for i, v := range val {
+				if v != nil {
+					res[i] = v.(GroupGroupPrimerable)
+				}
+			}
+			m.SetGroups(res)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetGroupCount gets the groupCount property value. The groupCount property
 // returns a *int32 when successful
-func (m *RequestRemoveGroupRequest) GetGroupCount()(*int32) {
-    return m.groupCount
+func (m *RequestRemoveGroupRequest) GetGroupCount() *int32 {
+	return m.groupCount
 }
+
 // GetGroupNames gets the groupNames property value. The groupNames property
 // returns a []string when successful
-func (m *RequestRemoveGroupRequest) GetGroupNames()([]string) {
-    return m.groupNames
+func (m *RequestRemoveGroupRequest) GetGroupNames() []string {
+	return m.groupNames
 }
+
 // GetGroups gets the groups property value. The groups property
 // returns a []GroupGroupPrimerable when successful
-func (m *RequestRemoveGroupRequest) GetGroups()([]GroupGroupPrimerable) {
-    return m.groups
+func (m *RequestRemoveGroupRequest) GetGroups() []GroupGroupPrimerable {
+	return m.groups
 }
+
 // Serialize serializes information the current object
-func (m *RequestRemoveGroupRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.RequestModificationRequest.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    if m.GetGroupNames() != nil {
-        err = writer.WriteCollectionOfStringValues("groupNames", m.GetGroupNames())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetGroups() != nil {
-        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetGroups()))
-        for i, v := range m.GetGroups() {
-            if v != nil {
-                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
-            }
-        }
-        err = writer.WriteCollectionOfObjectValues("groups", cast)
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *RequestRemoveGroupRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.RequestModificationRequest.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	if m.GetGroupNames() != nil {
+		err = writer.WriteCollectionOfStringValues("groupNames", m.GetGroupNames())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetGroups() != nil {
+		cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetGroups()))
+		for i, v := range m.GetGroups() {
+			if v != nil {
+				cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+			}
+		}
+		err = writer.WriteCollectionOfObjectValues("groups", cast)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetGroupCount sets the groupCount property value. The groupCount property
-func (m *RequestRemoveGroupRequest) SetGroupCount(value *int32)() {
-    m.groupCount = value
+func (m *RequestRemoveGroupRequest) SetGroupCount(value *int32) {
+	m.groupCount = value
 }
+
 // SetGroupNames sets the groupNames property value. The groupNames property
-func (m *RequestRemoveGroupRequest) SetGroupNames(value []string)() {
-    m.groupNames = value
+func (m *RequestRemoveGroupRequest) SetGroupNames(value []string) {
+	m.groupNames = value
 }
+
 // SetGroups sets the groups property value. The groups property
-func (m *RequestRemoveGroupRequest) SetGroups(value []GroupGroupPrimerable)() {
-    m.groups = value
+func (m *RequestRemoveGroupRequest) SetGroups(value []GroupGroupPrimerable) {
+	m.groups = value
 }
+
 type RequestRemoveGroupRequestable interface {
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    RequestModificationRequestable
-    GetGroupCount()(*int32)
-    GetGroupNames()([]string)
-    GetGroups()([]GroupGroupPrimerable)
-    SetGroupCount(value *int32)()
-    SetGroupNames(value []string)()
-    SetGroups(value []GroupGroupPrimerable)()
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	RequestModificationRequestable
+	GetGroupCount() *int32
+	GetGroupNames() []string
+	GetGroups() []GroupGroupPrimerable
+	SetGroupCount(value *int32)
+	SetGroupNames(value []string)
+	SetGroups(value []GroupGroupPrimerable)
 }

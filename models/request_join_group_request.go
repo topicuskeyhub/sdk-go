@@ -4,70 +4,77 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type RequestJoinGroupRequest struct {
-    RequestAbstractAccessProfileModificationRequest
-    // The endDate property
-    endDate *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
+	RequestAbstractAccessProfileModificationRequest
+	// The endDate property
+	endDate *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
 }
+
 // NewRequestJoinGroupRequest instantiates a new RequestJoinGroupRequest and sets the default values.
-func NewRequestJoinGroupRequest()(*RequestJoinGroupRequest) {
-    m := &RequestJoinGroupRequest{
-        RequestAbstractAccessProfileModificationRequest: *NewRequestAbstractAccessProfileModificationRequest(),
-    }
-    typeEscapedValue := "request.JoinGroupRequest"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewRequestJoinGroupRequest() *RequestJoinGroupRequest {
+	m := &RequestJoinGroupRequest{
+		RequestAbstractAccessProfileModificationRequest: *NewRequestAbstractAccessProfileModificationRequest(),
+	}
+	typeEscapedValue := "request.JoinGroupRequest"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateRequestJoinGroupRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateRequestJoinGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewRequestJoinGroupRequest(), nil
+func CreateRequestJoinGroupRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewRequestJoinGroupRequest(), nil
 }
+
 // GetEndDate gets the endDate property value. The endDate property
 // returns a *DateOnly when successful
-func (m *RequestJoinGroupRequest) GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
-    return m.endDate
+func (m *RequestJoinGroupRequest) GetEndDate() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly {
+	return m.endDate
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *RequestJoinGroupRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.RequestAbstractAccessProfileModificationRequest.GetFieldDeserializers()
-    res["endDate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetDateOnlyValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetEndDate(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *RequestJoinGroupRequest) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.RequestAbstractAccessProfileModificationRequest.GetFieldDeserializers()
+	res["endDate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetDateOnlyValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetEndDate(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // Serialize serializes information the current object
-func (m *RequestJoinGroupRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.RequestAbstractAccessProfileModificationRequest.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteDateOnlyValue("endDate", m.GetEndDate())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *RequestJoinGroupRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.RequestAbstractAccessProfileModificationRequest.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteDateOnlyValue("endDate", m.GetEndDate())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetEndDate sets the endDate property value. The endDate property
-func (m *RequestJoinGroupRequest) SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)() {
-    m.endDate = value
+func (m *RequestJoinGroupRequest) SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
+	m.endDate = value
 }
+
 type RequestJoinGroupRequestable interface {
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    RequestAbstractAccessProfileModificationRequestable
-    GetEndDate()(*i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
-    SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)()
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	RequestAbstractAccessProfileModificationRequestable
+	GetEndDate() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
+	SetEndDate(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
 }

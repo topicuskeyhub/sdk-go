@@ -2,44 +2,48 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package item
+
 type GetAdditionalQueryParameterType int
 
 const (
-    ATTRIBUTERULES_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
-    AUDIT_GETADDITIONALQUERYPARAMETERTYPE
-    CLIENTS_GETADDITIONALQUERYPARAMETERTYPE
-    GROUPS_GETADDITIONALQUERYPARAMETERTYPE
-    PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
+	ATTRIBUTERULES_GETADDITIONALQUERYPARAMETERTYPE GetAdditionalQueryParameterType = iota
+	AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+	CLIENTS_GETADDITIONALQUERYPARAMETERTYPE
+	GROUPS_GETADDITIONALQUERYPARAMETERTYPE
+	PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-    return []string{"attributeRules", "audit", "clients", "groups", "provisioning"}[i]
+	return []string{"attributeRules", "audit", "clients", "groups", "provisioning"}[i]
 }
+
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
-    result := ATTRIBUTERULES_GETADDITIONALQUERYPARAMETERTYPE
-    switch v {
-        case "attributeRules":
-            result = ATTRIBUTERULES_GETADDITIONALQUERYPARAMETERTYPE
-        case "audit":
-            result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
-        case "clients":
-            result = CLIENTS_GETADDITIONALQUERYPARAMETERTYPE
-        case "groups":
-            result = GROUPS_GETADDITIONALQUERYPARAMETERTYPE
-        case "provisioning":
-            result = PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ATTRIBUTERULES_GETADDITIONALQUERYPARAMETERTYPE
+	switch v {
+	case "attributeRules":
+		result = ATTRIBUTERULES_GETADDITIONALQUERYPARAMETERTYPE
+	case "audit":
+		result = AUDIT_GETADDITIONALQUERYPARAMETERTYPE
+	case "clients":
+		result = CLIENTS_GETADDITIONALQUERYPARAMETERTYPE
+	case "groups":
+		result = GROUPS_GETADDITIONALQUERYPARAMETERTYPE
+	case "provisioning":
+		result = PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeGetAdditionalQueryParameterType(values []GetAdditionalQueryParameterType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i GetAdditionalQueryParameterType) isMultiValue() bool {
-    return false
+	return false
 }

@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package account
+
 type PostAdditionalQueryParameterType int
 
 const (
-    ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
-    AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
-    PREDICTION_POSTADDITIONALQUERYPARAMETERTYPE
+	ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE PostAdditionalQueryParameterType = iota
+	AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+	PREDICTION_POSTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-    return []string{"attributeSummaries", "audit", "prediction"}[i]
+	return []string{"attributeSummaries", "audit", "prediction"}[i]
 }
+
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
-    result := ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE
-    switch v {
-        case "attributeSummaries":
-            result = ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE
-        case "audit":
-            result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
-        case "prediction":
-            result = PREDICTION_POSTADDITIONALQUERYPARAMETERTYPE
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE
+	switch v {
+	case "attributeSummaries":
+		result = ATTRIBUTESUMMARIES_POSTADDITIONALQUERYPARAMETERTYPE
+	case "audit":
+		result = AUDIT_POSTADDITIONALQUERYPARAMETERTYPE
+	case "prediction":
+		result = PREDICTION_POSTADDITIONALQUERYPARAMETERTYPE
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializePostAdditionalQueryParameterType(values []PostAdditionalQueryParameterType) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i PostAdditionalQueryParameterType) isMultiValue() bool {
-    return false
+	return false
 }

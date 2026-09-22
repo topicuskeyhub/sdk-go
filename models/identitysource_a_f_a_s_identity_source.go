@@ -4,169 +4,213 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type IdentitysourceAFASIdentitySource struct {
-    IdentitysourceIdentitySource
-    // The attributes property
-    attributes []MiscAttributeCustomizationable
-    // The schedule property
-    schedule *string
-    // The token property
-    token *string
-    // The url property
-    url *string
+	IdentitysourceIdentitySource
+	// The attributes property
+	attributes []MiscAttributeCustomizationable
+	// The identifier property
+	identifier IdentityAccountAttributeDefinitionable
+	// The schedule property
+	schedule *string
+	// The token property
+	token *string
+	// The url property
+	url *string
 }
+
 // NewIdentitysourceAFASIdentitySource instantiates a new IdentitysourceAFASIdentitySource and sets the default values.
-func NewIdentitysourceAFASIdentitySource()(*IdentitysourceAFASIdentitySource) {
-    m := &IdentitysourceAFASIdentitySource{
-        IdentitysourceIdentitySource: *NewIdentitysourceIdentitySource(),
-    }
-    typeEscapedValue := "identitysource.AFASIdentitySource"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewIdentitysourceAFASIdentitySource() *IdentitysourceAFASIdentitySource {
+	m := &IdentitysourceAFASIdentitySource{
+		IdentitysourceIdentitySource: *NewIdentitysourceIdentitySource(),
+	}
+	typeEscapedValue := "identitysource.AFASIdentitySource"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateIdentitysourceAFASIdentitySourceFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateIdentitysourceAFASIdentitySourceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewIdentitysourceAFASIdentitySource(), nil
+func CreateIdentitysourceAFASIdentitySourceFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewIdentitysourceAFASIdentitySource(), nil
 }
+
 // GetAttributes gets the attributes property value. The attributes property
 // returns a []MiscAttributeCustomizationable when successful
-func (m *IdentitysourceAFASIdentitySource) GetAttributes()([]MiscAttributeCustomizationable) {
-    return m.attributes
+func (m *IdentitysourceAFASIdentitySource) GetAttributes() []MiscAttributeCustomizationable {
+	return m.attributes
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *IdentitysourceAFASIdentitySource) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.IdentitysourceIdentitySource.GetFieldDeserializers()
-    res["attributes"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]MiscAttributeCustomizationable, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = v.(MiscAttributeCustomizationable)
-                }
-            }
-            m.SetAttributes(res)
-        }
-        return nil
-    }
-    res["schedule"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSchedule(val)
-        }
-        return nil
-    }
-    res["token"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetToken(val)
-        }
-        return nil
-    }
-    res["url"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUrl(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *IdentitysourceAFASIdentitySource) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.IdentitysourceIdentitySource.GetFieldDeserializers()
+	res["attributes"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetCollectionOfObjectValues(CreateMiscAttributeCustomizationFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			res := make([]MiscAttributeCustomizationable, len(val))
+			for i, v := range val {
+				if v != nil {
+					res[i] = v.(MiscAttributeCustomizationable)
+				}
+			}
+			m.SetAttributes(res)
+		}
+		return nil
+	}
+	res["identifier"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetIdentifier(val.(IdentityAccountAttributeDefinitionable))
+		}
+		return nil
+	}
+	res["schedule"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSchedule(val)
+		}
+		return nil
+	}
+	res["token"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetToken(val)
+		}
+		return nil
+	}
+	res["url"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUrl(val)
+		}
+		return nil
+	}
+	return res
 }
+
+// GetIdentifier gets the identifier property value. The identifier property
+// returns a IdentityAccountAttributeDefinitionable when successful
+func (m *IdentitysourceAFASIdentitySource) GetIdentifier() IdentityAccountAttributeDefinitionable {
+	return m.identifier
+}
+
 // GetSchedule gets the schedule property value. The schedule property
 // returns a *string when successful
-func (m *IdentitysourceAFASIdentitySource) GetSchedule()(*string) {
-    return m.schedule
+func (m *IdentitysourceAFASIdentitySource) GetSchedule() *string {
+	return m.schedule
 }
+
 // GetToken gets the token property value. The token property
 // returns a *string when successful
-func (m *IdentitysourceAFASIdentitySource) GetToken()(*string) {
-    return m.token
+func (m *IdentitysourceAFASIdentitySource) GetToken() *string {
+	return m.token
 }
+
 // GetUrl gets the url property value. The url property
 // returns a *string when successful
-func (m *IdentitysourceAFASIdentitySource) GetUrl()(*string) {
-    return m.url
+func (m *IdentitysourceAFASIdentitySource) GetUrl() *string {
+	return m.url
 }
+
 // Serialize serializes information the current object
-func (m *IdentitysourceAFASIdentitySource) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.IdentitysourceIdentitySource.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    if m.GetAttributes() != nil {
-        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
-        for i, v := range m.GetAttributes() {
-            if v != nil {
-                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
-            }
-        }
-        err = writer.WriteCollectionOfObjectValues("attributes", cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("schedule", m.GetSchedule())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("token", m.GetToken())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("url", m.GetUrl())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *IdentitysourceAFASIdentitySource) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.IdentitysourceIdentitySource.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	if m.GetAttributes() != nil {
+		cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetAttributes()))
+		for i, v := range m.GetAttributes() {
+			if v != nil {
+				cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+			}
+		}
+		err = writer.WriteCollectionOfObjectValues("attributes", cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("identifier", m.GetIdentifier())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("schedule", m.GetSchedule())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("token", m.GetToken())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("url", m.GetUrl())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAttributes sets the attributes property value. The attributes property
-func (m *IdentitysourceAFASIdentitySource) SetAttributes(value []MiscAttributeCustomizationable)() {
-    m.attributes = value
+func (m *IdentitysourceAFASIdentitySource) SetAttributes(value []MiscAttributeCustomizationable) {
+	m.attributes = value
 }
+
+// SetIdentifier sets the identifier property value. The identifier property
+func (m *IdentitysourceAFASIdentitySource) SetIdentifier(value IdentityAccountAttributeDefinitionable) {
+	m.identifier = value
+}
+
 // SetSchedule sets the schedule property value. The schedule property
-func (m *IdentitysourceAFASIdentitySource) SetSchedule(value *string)() {
-    m.schedule = value
+func (m *IdentitysourceAFASIdentitySource) SetSchedule(value *string) {
+	m.schedule = value
 }
+
 // SetToken sets the token property value. The token property
-func (m *IdentitysourceAFASIdentitySource) SetToken(value *string)() {
-    m.token = value
+func (m *IdentitysourceAFASIdentitySource) SetToken(value *string) {
+	m.token = value
 }
+
 // SetUrl sets the url property value. The url property
-func (m *IdentitysourceAFASIdentitySource) SetUrl(value *string)() {
-    m.url = value
+func (m *IdentitysourceAFASIdentitySource) SetUrl(value *string) {
+	m.url = value
 }
+
 type IdentitysourceAFASIdentitySourceable interface {
-    IdentitysourceIdentitySourceable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAttributes()([]MiscAttributeCustomizationable)
-    GetSchedule()(*string)
-    GetToken()(*string)
-    GetUrl()(*string)
-    SetAttributes(value []MiscAttributeCustomizationable)()
-    SetSchedule(value *string)()
-    SetToken(value *string)()
-    SetUrl(value *string)()
+	IdentitysourceIdentitySourceable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAttributes() []MiscAttributeCustomizationable
+	GetIdentifier() IdentityAccountAttributeDefinitionable
+	GetSchedule() *string
+	GetToken() *string
+	GetUrl() *string
+	SetAttributes(value []MiscAttributeCustomizationable)
+	SetIdentifier(value IdentityAccountAttributeDefinitionable)
+	SetSchedule(value *string)
+	SetToken(value *string)
+	SetUrl(value *string)
 }

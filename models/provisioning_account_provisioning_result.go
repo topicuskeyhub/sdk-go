@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ProvisioningAccountProvisioningResult int
 
 const (
-    OK_PROVISIONINGACCOUNTPROVISIONINGRESULT ProvisioningAccountProvisioningResult = iota
-    CONFIGURATION_REQUIRED_PROVISIONINGACCOUNTPROVISIONINGRESULT
-    ERROR_PROVISIONINGACCOUNTPROVISIONINGRESULT
+	OK_PROVISIONINGACCOUNTPROVISIONINGRESULT ProvisioningAccountProvisioningResult = iota
+	CONFIGURATION_REQUIRED_PROVISIONINGACCOUNTPROVISIONINGRESULT
+	ERROR_PROVISIONINGACCOUNTPROVISIONINGRESULT
 )
 
 func (i ProvisioningAccountProvisioningResult) String() string {
-    return []string{"OK", "CONFIGURATION_REQUIRED", "ERROR"}[i]
+	return []string{"OK", "CONFIGURATION_REQUIRED", "ERROR"}[i]
 }
+
 func ParseProvisioningAccountProvisioningResult(v string) (any, error) {
-    result := OK_PROVISIONINGACCOUNTPROVISIONINGRESULT
-    switch v {
-        case "OK":
-            result = OK_PROVISIONINGACCOUNTPROVISIONINGRESULT
-        case "CONFIGURATION_REQUIRED":
-            result = CONFIGURATION_REQUIRED_PROVISIONINGACCOUNTPROVISIONINGRESULT
-        case "ERROR":
-            result = ERROR_PROVISIONINGACCOUNTPROVISIONINGRESULT
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := OK_PROVISIONINGACCOUNTPROVISIONINGRESULT
+	switch v {
+	case "OK":
+		result = OK_PROVISIONINGACCOUNTPROVISIONINGRESULT
+	case "CONFIGURATION_REQUIRED":
+		result = CONFIGURATION_REQUIRED_PROVISIONINGACCOUNTPROVISIONINGRESULT
+	case "ERROR":
+		result = ERROR_PROVISIONINGACCOUNTPROVISIONINGRESULT
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeProvisioningAccountProvisioningResult(values []ProvisioningAccountProvisioningResult) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ProvisioningAccountProvisioningResult) isMultiValue() bool {
-    return false
+	return false
 }

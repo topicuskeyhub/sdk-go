@@ -4,99 +4,108 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type RequestSetupGroupExclusionRequest struct {
-    RequestModificationRequest
-    // The connect property
-    connect *bool
-    // The requestingGroup property
-    requestingGroup GroupGroupPrimerable
+	RequestModificationRequest
+	// The connect property
+	connect *bool
+	// The requestingGroup property
+	requestingGroup GroupGroupPrimerable
 }
+
 // NewRequestSetupGroupExclusionRequest instantiates a new RequestSetupGroupExclusionRequest and sets the default values.
-func NewRequestSetupGroupExclusionRequest()(*RequestSetupGroupExclusionRequest) {
-    m := &RequestSetupGroupExclusionRequest{
-        RequestModificationRequest: *NewRequestModificationRequest(),
-    }
-    typeEscapedValue := "request.SetupGroupExclusionRequest"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewRequestSetupGroupExclusionRequest() *RequestSetupGroupExclusionRequest {
+	m := &RequestSetupGroupExclusionRequest{
+		RequestModificationRequest: *NewRequestModificationRequest(),
+	}
+	typeEscapedValue := "request.SetupGroupExclusionRequest"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateRequestSetupGroupExclusionRequestFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateRequestSetupGroupExclusionRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewRequestSetupGroupExclusionRequest(), nil
+func CreateRequestSetupGroupExclusionRequestFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewRequestSetupGroupExclusionRequest(), nil
 }
+
 // GetConnect gets the connect property value. The connect property
 // returns a *bool when successful
-func (m *RequestSetupGroupExclusionRequest) GetConnect()(*bool) {
-    return m.connect
+func (m *RequestSetupGroupExclusionRequest) GetConnect() *bool {
+	return m.connect
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *RequestSetupGroupExclusionRequest) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.RequestModificationRequest.GetFieldDeserializers()
-    res["connect"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetConnect(val)
-        }
-        return nil
-    }
-    res["requestingGroup"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetRequestingGroup(val.(GroupGroupPrimerable))
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *RequestSetupGroupExclusionRequest) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.RequestModificationRequest.GetFieldDeserializers()
+	res["connect"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetConnect(val)
+		}
+		return nil
+	}
+	res["requestingGroup"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateGroupGroupPrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetRequestingGroup(val.(GroupGroupPrimerable))
+		}
+		return nil
+	}
+	return res
 }
+
 // GetRequestingGroup gets the requestingGroup property value. The requestingGroup property
 // returns a GroupGroupPrimerable when successful
-func (m *RequestSetupGroupExclusionRequest) GetRequestingGroup()(GroupGroupPrimerable) {
-    return m.requestingGroup
+func (m *RequestSetupGroupExclusionRequest) GetRequestingGroup() GroupGroupPrimerable {
+	return m.requestingGroup
 }
+
 // Serialize serializes information the current object
-func (m *RequestSetupGroupExclusionRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.RequestModificationRequest.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteBoolValue("connect", m.GetConnect())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteObjectValue("requestingGroup", m.GetRequestingGroup())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *RequestSetupGroupExclusionRequest) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.RequestModificationRequest.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteBoolValue("connect", m.GetConnect())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("requestingGroup", m.GetRequestingGroup())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetConnect sets the connect property value. The connect property
-func (m *RequestSetupGroupExclusionRequest) SetConnect(value *bool)() {
-    m.connect = value
+func (m *RequestSetupGroupExclusionRequest) SetConnect(value *bool) {
+	m.connect = value
 }
+
 // SetRequestingGroup sets the requestingGroup property value. The requestingGroup property
-func (m *RequestSetupGroupExclusionRequest) SetRequestingGroup(value GroupGroupPrimerable)() {
-    m.requestingGroup = value
+func (m *RequestSetupGroupExclusionRequest) SetRequestingGroup(value GroupGroupPrimerable) {
+	m.requestingGroup = value
 }
+
 type RequestSetupGroupExclusionRequestable interface {
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    RequestModificationRequestable
-    GetConnect()(*bool)
-    GetRequestingGroup()(GroupGroupPrimerable)
-    SetConnect(value *bool)()
-    SetRequestingGroup(value GroupGroupPrimerable)()
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	RequestModificationRequestable
+	GetConnect() *bool
+	GetRequestingGroup() GroupGroupPrimerable
+	SetConnect(value *bool)
+	SetRequestingGroup(value GroupGroupPrimerable)
 }

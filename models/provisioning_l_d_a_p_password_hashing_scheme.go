@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ProvisioningLDAPPasswordHashingScheme int
 
 const (
-    SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME ProvisioningLDAPPasswordHashingScheme = iota
-    PBKDF2_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
-    ARGON2ID_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
+	SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME ProvisioningLDAPPasswordHashingScheme = iota
+	PBKDF2_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
+	ARGON2ID_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
 )
 
 func (i ProvisioningLDAPPasswordHashingScheme) String() string {
-    return []string{"SSHA", "PBKDF2", "ARGON2ID"}[i]
+	return []string{"SSHA", "PBKDF2", "ARGON2ID"}[i]
 }
+
 func ParseProvisioningLDAPPasswordHashingScheme(v string) (any, error) {
-    result := SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
-    switch v {
-        case "SSHA":
-            result = SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
-        case "PBKDF2":
-            result = PBKDF2_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
-        case "ARGON2ID":
-            result = ARGON2ID_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
+	switch v {
+	case "SSHA":
+		result = SSHA_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
+	case "PBKDF2":
+		result = PBKDF2_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
+	case "ARGON2ID":
+		result = ARGON2ID_PROVISIONINGLDAPPASSWORDHASHINGSCHEME
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeProvisioningLDAPPasswordHashingScheme(values []ProvisioningLDAPPasswordHashingScheme) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ProvisioningLDAPPasswordHashingScheme) isMultiValue() bool {
-    return false
+	return false
 }

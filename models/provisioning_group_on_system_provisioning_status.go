@@ -2,38 +2,42 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ProvisioningGroupOnSystemProvisioningStatus int
 
 const (
-    ENABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS ProvisioningGroupOnSystemProvisioningStatus = iota
-    DISABLED_KEEP_ACCOUNT_ACTIVE_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
-    DISABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
+	ENABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS ProvisioningGroupOnSystemProvisioningStatus = iota
+	DISABLED_KEEP_ACCOUNT_ACTIVE_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
+	DISABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
 )
 
 func (i ProvisioningGroupOnSystemProvisioningStatus) String() string {
-    return []string{"ENABLED", "DISABLED_KEEP_ACCOUNT_ACTIVE", "DISABLED"}[i]
+	return []string{"ENABLED", "DISABLED_KEEP_ACCOUNT_ACTIVE", "DISABLED"}[i]
 }
+
 func ParseProvisioningGroupOnSystemProvisioningStatus(v string) (any, error) {
-    result := ENABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
-    switch v {
-        case "ENABLED":
-            result = ENABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
-        case "DISABLED_KEEP_ACCOUNT_ACTIVE":
-            result = DISABLED_KEEP_ACCOUNT_ACTIVE_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
-        case "DISABLED":
-            result = DISABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := ENABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
+	switch v {
+	case "ENABLED":
+		result = ENABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
+	case "DISABLED_KEEP_ACCOUNT_ACTIVE":
+		result = DISABLED_KEEP_ACCOUNT_ACTIVE_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
+	case "DISABLED":
+		result = DISABLED_PROVISIONINGGROUPONSYSTEMPROVISIONINGSTATUS
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeProvisioningGroupOnSystemProvisioningStatus(values []ProvisioningGroupOnSystemProvisioningStatus) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ProvisioningGroupOnSystemProvisioningStatus) isMultiValue() bool {
-    return false
+	return false
 }

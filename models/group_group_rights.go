@@ -2,35 +2,39 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type GroupGroupRights int
 
 const (
-    MANAGER_GROUPGROUPRIGHTS GroupGroupRights = iota
-    NORMAL_GROUPGROUPRIGHTS
+	MANAGER_GROUPGROUPRIGHTS GroupGroupRights = iota
+	NORMAL_GROUPGROUPRIGHTS
 )
 
 func (i GroupGroupRights) String() string {
-    return []string{"MANAGER", "NORMAL"}[i]
+	return []string{"MANAGER", "NORMAL"}[i]
 }
+
 func ParseGroupGroupRights(v string) (any, error) {
-    result := MANAGER_GROUPGROUPRIGHTS
-    switch v {
-        case "MANAGER":
-            result = MANAGER_GROUPGROUPRIGHTS
-        case "NORMAL":
-            result = NORMAL_GROUPGROUPRIGHTS
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := MANAGER_GROUPGROUPRIGHTS
+	switch v {
+	case "MANAGER":
+		result = MANAGER_GROUPGROUPRIGHTS
+	case "NORMAL":
+		result = NORMAL_GROUPGROUPRIGHTS
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeGroupGroupRights(values []GroupGroupRights) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i GroupGroupRights) isMultiValue() bool {
-    return false
+	return false
 }

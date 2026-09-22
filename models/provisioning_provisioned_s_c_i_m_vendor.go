@@ -2,44 +2,51 @@
 // Changes may cause incorrect behavior and will be lost if the code is regenerated.
 
 package models
+
 type ProvisioningProvisionedSCIMVendor int
 
 const (
-    DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR ProvisioningProvisionedSCIMVendor = iota
-    AWS_PROVISIONINGPROVISIONEDSCIMVENDOR
-    KEYSTONE_PROVISIONINGPROVISIONEDSCIMVENDOR
-    TOPICUS_KEYHUB_CONNECTOR_PROVISIONINGPROVISIONEDSCIMVENDOR
-    CUSTOM_PROVISIONINGPROVISIONEDSCIMVENDOR
+	DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR ProvisioningProvisionedSCIMVendor = iota
+	ATLASSIAN_PROVISIONINGPROVISIONEDSCIMVENDOR
+	AWS_PROVISIONINGPROVISIONEDSCIMVENDOR
+	KEYSTONE_PROVISIONINGPROVISIONEDSCIMVENDOR
+	TOPICUS_KEYHUB_CONNECTOR_PROVISIONINGPROVISIONEDSCIMVENDOR
+	CUSTOM_PROVISIONINGPROVISIONEDSCIMVENDOR
 )
 
 func (i ProvisioningProvisionedSCIMVendor) String() string {
-    return []string{"DEFAULT", "AWS", "KEYSTONE", "TOPICUS_KEYHUB_CONNECTOR", "CUSTOM"}[i]
+	return []string{"DEFAULT", "ATLASSIAN", "AWS", "KEYSTONE", "TOPICUS_KEYHUB_CONNECTOR", "CUSTOM"}[i]
 }
+
 func ParseProvisioningProvisionedSCIMVendor(v string) (any, error) {
-    result := DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR
-    switch v {
-        case "DEFAULT":
-            result = DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR
-        case "AWS":
-            result = AWS_PROVISIONINGPROVISIONEDSCIMVENDOR
-        case "KEYSTONE":
-            result = KEYSTONE_PROVISIONINGPROVISIONEDSCIMVENDOR
-        case "TOPICUS_KEYHUB_CONNECTOR":
-            result = TOPICUS_KEYHUB_CONNECTOR_PROVISIONINGPROVISIONEDSCIMVENDOR
-        case "CUSTOM":
-            result = CUSTOM_PROVISIONINGPROVISIONEDSCIMVENDOR
-        default:
-            return nil, nil
-    }
-    return &result, nil
+	result := DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR
+	switch v {
+	case "DEFAULT":
+		result = DEFAULT_PROVISIONINGPROVISIONEDSCIMVENDOR
+	case "ATLASSIAN":
+		result = ATLASSIAN_PROVISIONINGPROVISIONEDSCIMVENDOR
+	case "AWS":
+		result = AWS_PROVISIONINGPROVISIONEDSCIMVENDOR
+	case "KEYSTONE":
+		result = KEYSTONE_PROVISIONINGPROVISIONEDSCIMVENDOR
+	case "TOPICUS_KEYHUB_CONNECTOR":
+		result = TOPICUS_KEYHUB_CONNECTOR_PROVISIONINGPROVISIONEDSCIMVENDOR
+	case "CUSTOM":
+		result = CUSTOM_PROVISIONINGPROVISIONEDSCIMVENDOR
+	default:
+		return nil, nil
+	}
+	return &result, nil
 }
+
 func SerializeProvisioningProvisionedSCIMVendor(values []ProvisioningProvisionedSCIMVendor) []string {
-    result := make([]string, len(values))
-    for i, v := range values {
-        result[i] = v.String()
-    }
-    return result
+	result := make([]string, len(values))
+	for i, v := range values {
+		result[i] = v.String()
+	}
+	return result
 }
+
 func (i ProvisioningProvisionedSCIMVendor) isMultiValue() bool {
-    return false
+	return false
 }

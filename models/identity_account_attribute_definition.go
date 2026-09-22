@@ -4,346 +4,371 @@
 package models
 
 import (
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
 type IdentityAccountAttributeDefinition struct {
-    Linkable
-    // The additionalObjects property
-    additionalObjects IdentityAccountAttributeDefinition_additionalObjectsable
-    // The format property
-    format *IdentityAccountAttributeFormat
-    // The freelyUseable property
-    freelyUseable *bool
-    // The list property
-    list *bool
-    // The name property
-    name *string
-    // The properties property
-    properties []IdentityAccountAttributeDefinitionPropertyable
-    // The propertyHandling property
-    propertyHandling *IdentityComplexAccountAttributeHandling
-    // The required property
-    required *bool
-    // The systemDefinition property
-    systemDefinition *IdentityAccountAttributeSystemDefinition
-    // The unique property
-    unique *bool
+	Linkable
+	// The additionalObjects property
+	additionalObjects IdentityAccountAttributeDefinition_additionalObjectsable
+	// The format property
+	format *IdentityAccountAttributeFormat
+	// The freelyUseable property
+	freelyUseable *bool
+	// The list property
+	list *bool
+	// The name property
+	name *string
+	// The properties property
+	properties []IdentityAccountAttributeDefinitionPropertyable
+	// The propertyHandling property
+	propertyHandling *IdentityComplexAccountAttributeHandling
+	// The required property
+	required *bool
+	// The systemDefinition property
+	systemDefinition *IdentityAccountAttributeSystemDefinition
+	// The unique property
+	unique *bool
 }
+
 // NewIdentityAccountAttributeDefinition instantiates a new IdentityAccountAttributeDefinition and sets the default values.
-func NewIdentityAccountAttributeDefinition()(*IdentityAccountAttributeDefinition) {
-    m := &IdentityAccountAttributeDefinition{
-        Linkable: *NewLinkable(),
-    }
-    typeEscapedValue := "identity.AccountAttributeDefinition"
-    m.SetTypeEscaped(&typeEscapedValue)
-    return m
+func NewIdentityAccountAttributeDefinition() *IdentityAccountAttributeDefinition {
+	m := &IdentityAccountAttributeDefinition{
+		Linkable: *NewLinkable(),
+	}
+	typeEscapedValue := "identity.AccountAttributeDefinition"
+	m.SetTypeEscaped(&typeEscapedValue)
+	return m
 }
+
 // CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewIdentityAccountAttributeDefinition(), nil
+func CreateIdentityAccountAttributeDefinitionFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) (i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+	return NewIdentityAccountAttributeDefinition(), nil
 }
+
 // GetAdditionalObjects gets the additionalObjects property value. The additionalObjects property
 // returns a IdentityAccountAttributeDefinition_additionalObjectsable when successful
-func (m *IdentityAccountAttributeDefinition) GetAdditionalObjects()(IdentityAccountAttributeDefinition_additionalObjectsable) {
-    return m.additionalObjects
+func (m *IdentityAccountAttributeDefinition) GetAdditionalObjects() IdentityAccountAttributeDefinition_additionalObjectsable {
+	return m.additionalObjects
 }
+
 // GetFieldDeserializers the deserialization information for the current model
-// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
-    res := m.Linkable.GetFieldDeserializers()
-    res["additionalObjects"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetObjectValue(CreateIdentityAccountAttributeDefinition_additionalObjectsFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetAdditionalObjects(val.(IdentityAccountAttributeDefinition_additionalObjectsable))
-        }
-        return nil
-    }
-    res["format"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseIdentityAccountAttributeFormat)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetFormat(val.(*IdentityAccountAttributeFormat))
-        }
-        return nil
-    }
-    res["freelyUseable"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetFreelyUseable(val)
-        }
-        return nil
-    }
-    res["list"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetList(val)
-        }
-        return nil
-    }
-    res["name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetStringValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetName(val)
-        }
-        return nil
-    }
-    res["properties"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(CreateIdentityAccountAttributeDefinitionPropertyFromDiscriminatorValue)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]IdentityAccountAttributeDefinitionPropertyable, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = v.(IdentityAccountAttributeDefinitionPropertyable)
-                }
-            }
-            m.SetProperties(res)
-        }
-        return nil
-    }
-    res["propertyHandling"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseIdentityComplexAccountAttributeHandling)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetPropertyHandling(val.(*IdentityComplexAccountAttributeHandling))
-        }
-        return nil
-    }
-    res["required"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetRequired(val)
-        }
-        return nil
-    }
-    res["systemDefinition"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetEnumValue(ParseIdentityAccountAttributeSystemDefinition)
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetSystemDefinition(val.(*IdentityAccountAttributeSystemDefinition))
-        }
-        return nil
-    }
-    res["unique"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            m.SetUnique(val)
-        }
-        return nil
-    }
-    return res
+// returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
+func (m *IdentityAccountAttributeDefinition) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+	res := m.Linkable.GetFieldDeserializers()
+	res["additionalObjects"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateIdentityAccountAttributeDefinition_additionalObjectsFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdditionalObjects(val.(IdentityAccountAttributeDefinition_additionalObjectsable))
+		}
+		return nil
+	}
+	res["format"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseIdentityAccountAttributeFormat)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetFormat(val.(*IdentityAccountAttributeFormat))
+		}
+		return nil
+	}
+	res["freelyUseable"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetFreelyUseable(val)
+		}
+		return nil
+	}
+	res["list"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetList(val)
+		}
+		return nil
+	}
+	res["name"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetName(val)
+		}
+		return nil
+	}
+	res["properties"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetCollectionOfObjectValues(CreateIdentityAccountAttributeDefinitionPropertyFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			res := make([]IdentityAccountAttributeDefinitionPropertyable, len(val))
+			for i, v := range val {
+				if v != nil {
+					res[i] = v.(IdentityAccountAttributeDefinitionPropertyable)
+				}
+			}
+			m.SetProperties(res)
+		}
+		return nil
+	}
+	res["propertyHandling"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseIdentityComplexAccountAttributeHandling)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetPropertyHandling(val.(*IdentityComplexAccountAttributeHandling))
+		}
+		return nil
+	}
+	res["required"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetRequired(val)
+		}
+		return nil
+	}
+	res["systemDefinition"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseIdentityAccountAttributeSystemDefinition)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSystemDefinition(val.(*IdentityAccountAttributeSystemDefinition))
+		}
+		return nil
+	}
+	res["unique"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetBoolValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetUnique(val)
+		}
+		return nil
+	}
+	return res
 }
+
 // GetFormat gets the format property value. The format property
 // returns a *IdentityAccountAttributeFormat when successful
-func (m *IdentityAccountAttributeDefinition) GetFormat()(*IdentityAccountAttributeFormat) {
-    return m.format
+func (m *IdentityAccountAttributeDefinition) GetFormat() *IdentityAccountAttributeFormat {
+	return m.format
 }
+
 // GetFreelyUseable gets the freelyUseable property value. The freelyUseable property
 // returns a *bool when successful
-func (m *IdentityAccountAttributeDefinition) GetFreelyUseable()(*bool) {
-    return m.freelyUseable
+func (m *IdentityAccountAttributeDefinition) GetFreelyUseable() *bool {
+	return m.freelyUseable
 }
+
 // GetList gets the list property value. The list property
 // returns a *bool when successful
-func (m *IdentityAccountAttributeDefinition) GetList()(*bool) {
-    return m.list
+func (m *IdentityAccountAttributeDefinition) GetList() *bool {
+	return m.list
 }
+
 // GetName gets the name property value. The name property
 // returns a *string when successful
-func (m *IdentityAccountAttributeDefinition) GetName()(*string) {
-    return m.name
+func (m *IdentityAccountAttributeDefinition) GetName() *string {
+	return m.name
 }
+
 // GetProperties gets the properties property value. The properties property
 // returns a []IdentityAccountAttributeDefinitionPropertyable when successful
-func (m *IdentityAccountAttributeDefinition) GetProperties()([]IdentityAccountAttributeDefinitionPropertyable) {
-    return m.properties
+func (m *IdentityAccountAttributeDefinition) GetProperties() []IdentityAccountAttributeDefinitionPropertyable {
+	return m.properties
 }
+
 // GetPropertyHandling gets the propertyHandling property value. The propertyHandling property
 // returns a *IdentityComplexAccountAttributeHandling when successful
-func (m *IdentityAccountAttributeDefinition) GetPropertyHandling()(*IdentityComplexAccountAttributeHandling) {
-    return m.propertyHandling
+func (m *IdentityAccountAttributeDefinition) GetPropertyHandling() *IdentityComplexAccountAttributeHandling {
+	return m.propertyHandling
 }
+
 // GetRequired gets the required property value. The required property
 // returns a *bool when successful
-func (m *IdentityAccountAttributeDefinition) GetRequired()(*bool) {
-    return m.required
+func (m *IdentityAccountAttributeDefinition) GetRequired() *bool {
+	return m.required
 }
+
 // GetSystemDefinition gets the systemDefinition property value. The systemDefinition property
 // returns a *IdentityAccountAttributeSystemDefinition when successful
-func (m *IdentityAccountAttributeDefinition) GetSystemDefinition()(*IdentityAccountAttributeSystemDefinition) {
-    return m.systemDefinition
+func (m *IdentityAccountAttributeDefinition) GetSystemDefinition() *IdentityAccountAttributeSystemDefinition {
+	return m.systemDefinition
 }
+
 // GetUnique gets the unique property value. The unique property
 // returns a *bool when successful
-func (m *IdentityAccountAttributeDefinition) GetUnique()(*bool) {
-    return m.unique
+func (m *IdentityAccountAttributeDefinition) GetUnique() *bool {
+	return m.unique
 }
+
 // Serialize serializes information the current object
-func (m *IdentityAccountAttributeDefinition) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
-    err := m.Linkable.Serialize(writer)
-    if err != nil {
-        return err
-    }
-    {
-        err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetFormat() != nil {
-        cast := (*m.GetFormat()).String()
-        err = writer.WriteStringValue("format", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("freelyUseable", m.GetFreelyUseable())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("list", m.GetList())
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteStringValue("name", m.GetName())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetProperties() != nil {
-        cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetProperties()))
-        for i, v := range m.GetProperties() {
-            if v != nil {
-                cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
-            }
-        }
-        err = writer.WriteCollectionOfObjectValues("properties", cast)
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetPropertyHandling() != nil {
-        cast := (*m.GetPropertyHandling()).String()
-        err = writer.WriteStringValue("propertyHandling", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("required", m.GetRequired())
-        if err != nil {
-            return err
-        }
-    }
-    if m.GetSystemDefinition() != nil {
-        cast := (*m.GetSystemDefinition()).String()
-        err = writer.WriteStringValue("systemDefinition", &cast)
-        if err != nil {
-            return err
-        }
-    }
-    {
-        err = writer.WriteBoolValue("unique", m.GetUnique())
-        if err != nil {
-            return err
-        }
-    }
-    return nil
+func (m *IdentityAccountAttributeDefinition) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
+	err := m.Linkable.Serialize(writer)
+	if err != nil {
+		return err
+	}
+	{
+		err = writer.WriteObjectValue("additionalObjects", m.GetAdditionalObjects())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetFormat() != nil {
+		cast := (*m.GetFormat()).String()
+		err = writer.WriteStringValue("format", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("freelyUseable", m.GetFreelyUseable())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("list", m.GetList())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("name", m.GetName())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetProperties() != nil {
+		cast := make([]i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, len(m.GetProperties()))
+		for i, v := range m.GetProperties() {
+			if v != nil {
+				cast[i] = v.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable)
+			}
+		}
+		err = writer.WriteCollectionOfObjectValues("properties", cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetPropertyHandling() != nil {
+		cast := (*m.GetPropertyHandling()).String()
+		err = writer.WriteStringValue("propertyHandling", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("required", m.GetRequired())
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetSystemDefinition() != nil {
+		cast := (*m.GetSystemDefinition()).String()
+		err = writer.WriteStringValue("systemDefinition", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteBoolValue("unique", m.GetUnique())
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
+
 // SetAdditionalObjects sets the additionalObjects property value. The additionalObjects property
-func (m *IdentityAccountAttributeDefinition) SetAdditionalObjects(value IdentityAccountAttributeDefinition_additionalObjectsable)() {
-    m.additionalObjects = value
+func (m *IdentityAccountAttributeDefinition) SetAdditionalObjects(value IdentityAccountAttributeDefinition_additionalObjectsable) {
+	m.additionalObjects = value
 }
+
 // SetFormat sets the format property value. The format property
-func (m *IdentityAccountAttributeDefinition) SetFormat(value *IdentityAccountAttributeFormat)() {
-    m.format = value
+func (m *IdentityAccountAttributeDefinition) SetFormat(value *IdentityAccountAttributeFormat) {
+	m.format = value
 }
+
 // SetFreelyUseable sets the freelyUseable property value. The freelyUseable property
-func (m *IdentityAccountAttributeDefinition) SetFreelyUseable(value *bool)() {
-    m.freelyUseable = value
+func (m *IdentityAccountAttributeDefinition) SetFreelyUseable(value *bool) {
+	m.freelyUseable = value
 }
+
 // SetList sets the list property value. The list property
-func (m *IdentityAccountAttributeDefinition) SetList(value *bool)() {
-    m.list = value
+func (m *IdentityAccountAttributeDefinition) SetList(value *bool) {
+	m.list = value
 }
+
 // SetName sets the name property value. The name property
-func (m *IdentityAccountAttributeDefinition) SetName(value *string)() {
-    m.name = value
+func (m *IdentityAccountAttributeDefinition) SetName(value *string) {
+	m.name = value
 }
+
 // SetProperties sets the properties property value. The properties property
-func (m *IdentityAccountAttributeDefinition) SetProperties(value []IdentityAccountAttributeDefinitionPropertyable)() {
-    m.properties = value
+func (m *IdentityAccountAttributeDefinition) SetProperties(value []IdentityAccountAttributeDefinitionPropertyable) {
+	m.properties = value
 }
+
 // SetPropertyHandling sets the propertyHandling property value. The propertyHandling property
-func (m *IdentityAccountAttributeDefinition) SetPropertyHandling(value *IdentityComplexAccountAttributeHandling)() {
-    m.propertyHandling = value
+func (m *IdentityAccountAttributeDefinition) SetPropertyHandling(value *IdentityComplexAccountAttributeHandling) {
+	m.propertyHandling = value
 }
+
 // SetRequired sets the required property value. The required property
-func (m *IdentityAccountAttributeDefinition) SetRequired(value *bool)() {
-    m.required = value
+func (m *IdentityAccountAttributeDefinition) SetRequired(value *bool) {
+	m.required = value
 }
+
 // SetSystemDefinition sets the systemDefinition property value. The systemDefinition property
-func (m *IdentityAccountAttributeDefinition) SetSystemDefinition(value *IdentityAccountAttributeSystemDefinition)() {
-    m.systemDefinition = value
+func (m *IdentityAccountAttributeDefinition) SetSystemDefinition(value *IdentityAccountAttributeSystemDefinition) {
+	m.systemDefinition = value
 }
+
 // SetUnique sets the unique property value. The unique property
-func (m *IdentityAccountAttributeDefinition) SetUnique(value *bool)() {
-    m.unique = value
+func (m *IdentityAccountAttributeDefinition) SetUnique(value *bool) {
+	m.unique = value
 }
+
 type IdentityAccountAttributeDefinitionable interface {
-    Linkableable
-    i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
-    GetAdditionalObjects()(IdentityAccountAttributeDefinition_additionalObjectsable)
-    GetFormat()(*IdentityAccountAttributeFormat)
-    GetFreelyUseable()(*bool)
-    GetList()(*bool)
-    GetName()(*string)
-    GetProperties()([]IdentityAccountAttributeDefinitionPropertyable)
-    GetPropertyHandling()(*IdentityComplexAccountAttributeHandling)
-    GetRequired()(*bool)
-    GetSystemDefinition()(*IdentityAccountAttributeSystemDefinition)
-    GetUnique()(*bool)
-    SetAdditionalObjects(value IdentityAccountAttributeDefinition_additionalObjectsable)()
-    SetFormat(value *IdentityAccountAttributeFormat)()
-    SetFreelyUseable(value *bool)()
-    SetList(value *bool)()
-    SetName(value *string)()
-    SetProperties(value []IdentityAccountAttributeDefinitionPropertyable)()
-    SetPropertyHandling(value *IdentityComplexAccountAttributeHandling)()
-    SetRequired(value *bool)()
-    SetSystemDefinition(value *IdentityAccountAttributeSystemDefinition)()
-    SetUnique(value *bool)()
+	Linkableable
+	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
+	GetAdditionalObjects() IdentityAccountAttributeDefinition_additionalObjectsable
+	GetFormat() *IdentityAccountAttributeFormat
+	GetFreelyUseable() *bool
+	GetList() *bool
+	GetName() *string
+	GetProperties() []IdentityAccountAttributeDefinitionPropertyable
+	GetPropertyHandling() *IdentityComplexAccountAttributeHandling
+	GetRequired() *bool
+	GetSystemDefinition() *IdentityAccountAttributeSystemDefinition
+	GetUnique() *bool
+	SetAdditionalObjects(value IdentityAccountAttributeDefinition_additionalObjectsable)
+	SetFormat(value *IdentityAccountAttributeFormat)
+	SetFreelyUseable(value *bool)
+	SetList(value *bool)
+	SetName(value *string)
+	SetProperties(value []IdentityAccountAttributeDefinitionPropertyable)
+	SetPropertyHandling(value *IdentityComplexAccountAttributeHandling)
+	SetRequired(value *bool)
+	SetSystemDefinition(value *IdentityAccountAttributeSystemDefinition)
+	SetUnique(value *bool)
 }
