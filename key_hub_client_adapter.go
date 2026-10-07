@@ -15,6 +15,7 @@ import (
 	nethttp "net/http"
 	"net/url"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/coreos/go-oidc/v3/oidc"
@@ -27,6 +28,7 @@ import (
 
 type KeyHubAccessTokenProvider struct {
 	tokenSource  *oauth2.TokenSource
+	mu           sync.RWMutex
 	vaultSession string
 }
 
@@ -44,7 +46,9 @@ func (p *KeyHubAccessTokenProvider) GetAuthorizationToken(ctx context.Context, u
 	}
 	vault := token.Extra("vaultSession")
 	if vault != nil {
+		p.mu.Lock()
 		p.vaultSession = fmt.Sprintf("%v", vault)
+		p.mu.Unlock()
 	}
 	return token.AccessToken, nil
 }
@@ -55,8 +59,11 @@ func (p *KeyHubAccessTokenProvider) GetAllowedHostsValidator() *auth.AllowedHost
 }
 
 func (p *KeyHubAccessTokenProvider) Intercept(pipeline http.Pipeline, middlewareIndex int, req *nethttp.Request) (*nethttp.Response, error) {
-	if p.vaultSession != "" {
-		req.Header.Set("topicus-Vault-session", fmt.Sprintf("%v", p.vaultSession))
+	p.mu.RLock()
+	vaultSession := p.vaultSession
+	p.mu.RUnlock()
+	if vaultSession != "" {
+		req.Header.Set("topicus-Vault-session", vaultSession)
 	}
 	return pipeline.Next(req, middlewareIndex)
 }
