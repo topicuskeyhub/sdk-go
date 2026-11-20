@@ -38,8 +38,14 @@ type ItemLifecycleactionRequestBuilderGetQueryParameters struct {
 	Exclude []int64 "uriparametername:\"exclude\""
 	// Filter the results on the given ids.
 	Id []int64 "uriparametername:\"id\""
+	// Filter ITSM lifecycle actions on the ITSM system they start workflows in, specified by id. This parameter supports composition with all parameters from the ITSM system resource.
+	ItsmSystem []int64 "uriparametername:\"itsmSystem\""
+	// Filter ITSM lifecycle actions on the workflow type they start, specified by id. This parameter supports composition with all parameters from the workflow type resource.
+	ItsmWorkflowType []int64 "uriparametername:\"itsmWorkflowType\""
 	// Only return records that have been modified since the given instant.
 	ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
+	// Filter lifecycle actions on (part of) the name.
+	NameContains []string "uriparametername:\"nameContains\""
 	// Filter records on a complex CQL query.
 	Q []string "uriparametername:\"q\""
 	// Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
@@ -103,7 +109,7 @@ func (m *ItemLifecycleactionRequestBuilder) ByLifecycleactionidInt64(lifecycleac
 // NewItemLifecycleactionRequestBuilderInternal instantiates a new ItemLifecycleactionRequestBuilder and sets the default values.
 func NewItemLifecycleactionRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemLifecycleactionRequestBuilder {
 	m := &ItemLifecycleactionRequestBuilder{
-		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/lifecycleaction{?accessProfile*,accessProfileOwnedBy*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,modifiedSince*,q*,sort*}", pathParameters),
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/lifecycleaction{?accessProfile*,accessProfileOwnedBy*,additional*,any*,createdAfter*,createdBefore*,exclude*,id*,itsmSystem*,itsmWorkflowType*,modifiedSince*,nameContains*,q*,sort*}", pathParameters),
 	}
 	return m
 }
@@ -168,7 +174,7 @@ func (m *ItemLifecycleactionRequestBuilder) ToGetRequestInformation(ctx context.
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -183,8 +189,8 @@ func (m *ItemLifecycleactionRequestBuilder) ToPostRequestInformation(ctx context
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
-	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=88", body)
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
+	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=89", body)
 	if err != nil {
 		return nil, err
 	}

@@ -143,6 +143,10 @@ type GroupRequestBuilderGetQueryParameters struct {
 	OwnsDirectories []bool "uriparametername:\"ownsDirectories\""
 	// Only return groups that own or do not own groups on linked systems.
 	OwnsGroupOnSystems []bool "uriparametername:\"ownsGroupOnSystems\""
+	// Only return groups that own or do not own ITSM systems.
+	OwnsItsmSystems []bool "uriparametername:\"ownsItsmSystems\""
+	// Only return groups that own or do not own ITSM workflow types.
+	OwnsItsmWorkflowTypes []bool "uriparametername:\"ownsItsmWorkflowTypes\""
 	// Only return groups that own or do not own provisioned systems.
 	OwnsSystems []bool "uriparametername:\"ownsSystems\""
 	// Filter the groups part of the given access profiles, specified by id. This parameter supports composition with all parameters from the access profile resource.
@@ -246,7 +250,7 @@ func (m *GroupRequestBuilder) ByGroupidInt64(groupid int64) *WithGroupItemReques
 // NewGroupRequestBuilderInternal instantiates a new GroupRequestBuilder and sets the default values.
 func NewGroupRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *GroupRequestBuilder {
 	m := &GroupRequestBuilder{
-		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group{?accessModifiedSince*,accessProfileAdministration*,accessQuicksearch*,additional*,any*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditsReviewedBy*,authorizationSigningKey*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,createdAfter*,createdBefore*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,exclude*,groupAuditConfig*,groupExclusionWith*,hasAnyAuthorizingGroupSet*,hasAuditUnderReview*,hasAuditing*,hasClientPermissions*,hasClients*,hasMoreThanOneManager*,hasNoGroupExclusionWith*,hasSystems*,hasVault*,hasWebhooks*,id*,isManager*,isManagerOrDelegatedManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,modifiedSince*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,notPartOfAccessProfile*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsSystems*,partOfAccessProfile*,privateGroup*,provisioningAuthorizedBy*,q*,rotatingPasswordRequired*,singleManaged*,sort*,uuid*,vault*,vaultRecovery*,vaultRequiresActivation*,visibility*}", pathParameters),
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/group{?accessModifiedSince*,accessProfileAdministration*,accessQuicksearch*,additional*,any*,applicationAdministration*,auditDue*,auditOverDue*,auditRequested*,auditedSince*,auditingStatus*,auditsReviewedBy*,authorizationSigningKey*,authorizedBy*,classification*,containsAccount*,containsAllAccounts*,containsClient*,createdAfter*,createdBefore*,delegationGivenTo*,doesNotContainAccount*,doesNotContainClient*,exclude*,groupAuditConfig*,groupExclusionWith*,hasAnyAuthorizingGroupSet*,hasAuditUnderReview*,hasAuditing*,hasClientPermissions*,hasClients*,hasMoreThanOneManager*,hasNoGroupExclusionWith*,hasSystems*,hasVault*,hasWebhooks*,id*,isManager*,isManagerOrDelegatedManager*,keyHubAdmin*,meetsClassificationCriteria*,membershipAuthorizedBy*,modifiedSince*,myGroups*,name*,nameContains*,nameDoesNotStartWith*,nameOrDescriptionContains*,nameStartsWith*,nestedGroup*,nestedUnder*,notNestedUnder*,notPartOfAccessProfile*,numberOfAccountsGreaterOrEqual*,organizationalUnit*,ownsClients*,ownsDirectories*,ownsGroupOnSystems*,ownsItsmSystems*,ownsItsmWorkflowTypes*,ownsSystems*,partOfAccessProfile*,privateGroup*,provisioningAuthorizedBy*,q*,rotatingPasswordRequired*,singleManaged*,sort*,uuid*,vault*,vaultRecovery*,vaultRequiresActivation*,visibility*}", pathParameters),
 	}
 	return m
 }
@@ -323,7 +327,7 @@ func (m *GroupRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -338,8 +342,8 @@ func (m *GroupRequestBuilder) ToPostRequestInformation(ctx context.Context, body
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
-	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=88", body)
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
+	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=89", body)
 	if err != nil {
 		return nil, err
 	}

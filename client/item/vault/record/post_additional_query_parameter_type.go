@@ -12,6 +12,7 @@ const (
 	PARENT_POSTADDITIONALQUERYPARAMETERTYPE
 	PASSWORDMETADATA_POSTADDITIONALQUERYPARAMETERTYPE
 	SECRET_POSTADDITIONALQUERYPARAMETERTYPE
+	SECRETHISTORY_POSTADDITIONALQUERYPARAMETERTYPE
 	SHARESUMMARY_POSTADDITIONALQUERYPARAMETERTYPE
 	SHARES_POSTADDITIONALQUERYPARAMETERTYPE
 	TILE_POSTADDITIONALQUERYPARAMETERTYPE
@@ -19,7 +20,7 @@ const (
 )
 
 func (i PostAdditionalQueryParameterType) String() string {
-	return []string{"activationStatus", "audit", "deleteTile", "parent", "passwordMetadata", "secret", "shareSummary", "shares", "tile", "vaultholder"}[i]
+	return []string{"activationStatus", "audit", "deleteTile", "parent", "passwordMetadata", "secret", "secretHistory", "shareSummary", "shares", "tile", "vaultholder"}[i]
 }
 
 func ParsePostAdditionalQueryParameterType(v string) (any, error) {
@@ -37,6 +38,8 @@ func ParsePostAdditionalQueryParameterType(v string) (any, error) {
 		result = PASSWORDMETADATA_POSTADDITIONALQUERYPARAMETERTYPE
 	case "secret":
 		result = SECRET_POSTADDITIONALQUERYPARAMETERTYPE
+	case "secretHistory":
+		result = SECRETHISTORY_POSTADDITIONALQUERYPARAMETERTYPE
 	case "shareSummary":
 		result = SHARESUMMARY_POSTADDITIONALQUERYPARAMETERTYPE
 	case "shares":

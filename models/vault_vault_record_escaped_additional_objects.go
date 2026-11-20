@@ -22,6 +22,8 @@ type VaultVaultRecord_additionalObjects struct {
 	passwordMetadata VaultPasswordMetadataable
 	// The secret property
 	secret VaultVaultRecordSecretsable
+	// The secretHistory property
+	secretHistory VaultVaultRecordSecretHistoryable
 	// The shares property
 	shares VaultVaultRecordPrimerLinkableWrapperable
 	// The shareSummary property
@@ -133,6 +135,16 @@ func (m *VaultVaultRecord_additionalObjects) GetFieldDeserializers() map[string]
 		}
 		return nil
 	}
+	res["secretHistory"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateVaultVaultRecordSecretHistoryFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSecretHistory(val.(VaultVaultRecordSecretHistoryable))
+		}
+		return nil
+	}
 	res["shares"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetObjectValue(CreateVaultVaultRecordPrimerLinkableWrapperFromDiscriminatorValue)
 		if err != nil {
@@ -194,6 +206,12 @@ func (m *VaultVaultRecord_additionalObjects) GetSecret() VaultVaultRecordSecrets
 	return m.secret
 }
 
+// GetSecretHistory gets the secretHistory property value. The secretHistory property
+// returns a VaultVaultRecordSecretHistoryable when successful
+func (m *VaultVaultRecord_additionalObjects) GetSecretHistory() VaultVaultRecordSecretHistoryable {
+	return m.secretHistory
+}
+
 // GetShares gets the shares property value. The shares property
 // returns a VaultVaultRecordPrimerLinkableWrapperable when successful
 func (m *VaultVaultRecord_additionalObjects) GetShares() VaultVaultRecordPrimerLinkableWrapperable {
@@ -252,6 +270,12 @@ func (m *VaultVaultRecord_additionalObjects) Serialize(writer i878a80d2330e89d26
 	}
 	{
 		err := writer.WriteObjectValue("secret", m.GetSecret())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("secretHistory", m.GetSecretHistory())
 		if err != nil {
 			return err
 		}
@@ -324,6 +348,11 @@ func (m *VaultVaultRecord_additionalObjects) SetSecret(value VaultVaultRecordSec
 	m.secret = value
 }
 
+// SetSecretHistory sets the secretHistory property value. The secretHistory property
+func (m *VaultVaultRecord_additionalObjects) SetSecretHistory(value VaultVaultRecordSecretHistoryable) {
+	m.secretHistory = value
+}
+
 // SetShares sets the shares property value. The shares property
 func (m *VaultVaultRecord_additionalObjects) SetShares(value VaultVaultRecordPrimerLinkableWrapperable) {
 	m.shares = value
@@ -353,6 +382,7 @@ type VaultVaultRecord_additionalObjectsable interface {
 	GetParent() VaultVaultRecordPrimerable
 	GetPasswordMetadata() VaultPasswordMetadataable
 	GetSecret() VaultVaultRecordSecretsable
+	GetSecretHistory() VaultVaultRecordSecretHistoryable
 	GetShares() VaultVaultRecordPrimerLinkableWrapperable
 	GetShareSummary() VaultVaultRecordShareSummaryable
 	GetTile() LaunchpadVaultRecordLaunchpadTileable
@@ -363,6 +393,7 @@ type VaultVaultRecord_additionalObjectsable interface {
 	SetParent(value VaultVaultRecordPrimerable)
 	SetPasswordMetadata(value VaultPasswordMetadataable)
 	SetSecret(value VaultVaultRecordSecretsable)
+	SetSecretHistory(value VaultVaultRecordSecretHistoryable)
 	SetShares(value VaultVaultRecordPrimerLinkableWrapperable)
 	SetShareSummary(value VaultVaultRecordShareSummaryable)
 	SetTile(value LaunchpadVaultRecordLaunchpadTileable)

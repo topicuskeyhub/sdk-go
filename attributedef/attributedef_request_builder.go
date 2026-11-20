@@ -25,6 +25,11 @@ type AttributedefRequestBuilderGetQueryParameters struct {
 	AdditionalAsGetAdditionalQueryParameterType []GetAdditionalQueryParameterType "uriparametername:\"additional\""
 	// Return all or no records. This can be useful when composing parameters.
 	Any []bool "uriparametername:\"any\""
+	// Only return account attribute definitions whose values can be assigned to a value of all of the given format(s): the same format, or any text-like format for TEXT. System attributes count with the format of their values.
+	// Deprecated: This property is deprecated, use AssignableToAsIdentityAccountAttributeFormat instead
+	AssignableTo []string "uriparametername:\"assignableTo\""
+	// Only return account attribute definitions whose values can be assigned to a value of all of the given format(s): the same format, or any text-like format for TEXT. System attributes count with the format of their values.
+	AssignableToAsIdentityAccountAttributeFormat []ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.IdentityAccountAttributeFormat "uriparametername:\"assignableTo\""
 	// Only return account attributes for which a rule can be created for all of the given access profiles, specified by id. The attribute cannot have a rule for any of the profiles, nor can it be exclusive in any other profile.
 	AvailableForAccessProfile []int64 "uriparametername:\"availableForAccessProfile\""
 	// Only return records that have been created after the given instant.
@@ -122,7 +127,7 @@ func (m *AttributedefRequestBuilder) ByAttributedefidInt64(attributedefid int64)
 // NewAttributedefRequestBuilderInternal instantiates a new AttributedefRequestBuilder and sets the default values.
 func NewAttributedefRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *AttributedefRequestBuilder {
 	m := &AttributedefRequestBuilder{
-		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,availableForAccessProfile*,createdAfter*,createdBefore*,exclude*,format*,id*,list*,modifiedSince*,name*,nameContains*,q*,required*,selfServiceableByAccount*,sort*,systemDefinition*,unique*}", pathParameters),
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/attributedef{?additional*,any*,assignableTo*,availableForAccessProfile*,createdAfter*,createdBefore*,exclude*,format*,id*,list*,modifiedSince*,name*,nameContains*,q*,required*,selfServiceableByAccount*,sort*,systemDefinition*,unique*}", pathParameters),
 	}
 	return m
 }
@@ -187,7 +192,7 @@ func (m *AttributedefRequestBuilder) ToGetRequestInformation(ctx context.Context
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -202,8 +207,8 @@ func (m *AttributedefRequestBuilder) ToPostRequestInformation(ctx context.Contex
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
-	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=88", body)
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
+	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=89", body)
 	if err != nil {
 		return nil, err
 	}

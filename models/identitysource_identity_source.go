@@ -44,6 +44,8 @@ func CreateIdentitysourceIdentitySourceFromDiscriminatorValue(parseNode i878a80d
 					return NewIdentitysourceAFASIdentitySource(), nil
 				case "identitysource.CSVImportIdentitySource":
 					return NewIdentitysourceCSVImportIdentitySource(), nil
+				case "identitysource.YouForceIdentitySource":
+					return NewIdentitysourceYouForceIdentitySource(), nil
 				}
 			}
 		}

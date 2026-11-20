@@ -10,11 +10,12 @@ const (
 	AUDIT_GETADDITIONALQUERYPARAMETERTYPE
 	CLIENTS_GETADDITIONALQUERYPARAMETERTYPE
 	GROUPS_GETADDITIONALQUERYPARAMETERTYPE
+	ITSMWORKFLOWTYPES_GETADDITIONALQUERYPARAMETERTYPE
 	PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i GetAdditionalQueryParameterType) String() string {
-	return []string{"attributeRules", "audit", "clients", "groups", "provisioning"}[i]
+	return []string{"attributeRules", "audit", "clients", "groups", "itsmWorkflowTypes", "provisioning"}[i]
 }
 
 func ParseGetAdditionalQueryParameterType(v string) (any, error) {
@@ -28,6 +29,8 @@ func ParseGetAdditionalQueryParameterType(v string) (any, error) {
 		result = CLIENTS_GETADDITIONALQUERYPARAMETERTYPE
 	case "groups":
 		result = GROUPS_GETADDITIONALQUERYPARAMETERTYPE
+	case "itsmWorkflowTypes":
+		result = ITSMWORKFLOWTYPES_GETADDITIONALQUERYPARAMETERTYPE
 	case "provisioning":
 		result = PROVISIONING_GETADDITIONALQUERYPARAMETERTYPE
 	default:

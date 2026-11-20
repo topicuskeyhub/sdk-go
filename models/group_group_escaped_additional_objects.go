@@ -14,6 +14,8 @@ type GroupGroup_additionalObjects struct {
 	additionalData map[string]any
 	// The administeredClients property
 	administeredClients ClientClientApplicationLinkableWrapperable
+	// The administeredItsmSystems property
+	administeredItsmSystems ItsmItsmSystemLinkableWrapperable
 	// The administeredSystems property
 	administeredSystems ProvisioningProvisionedSystemLinkableWrapperable
 	// The admins property
@@ -56,6 +58,10 @@ type GroupGroup_additionalObjects struct {
 	ownedDirectories DirectoryAccountDirectoryLinkableWrapperable
 	// The ownedGroupsOnSystem property
 	ownedGroupsOnSystem ProvisioningOwnedGroupOnSystemsWrapperable
+	// The ownedItsmSystems property
+	ownedItsmSystems ItsmItsmSystemLinkableWrapperable
+	// The ownedItsmWorkflowTypes property
+	ownedItsmWorkflowTypes ItsmItsmWorkflowTypeLinkableWrapperable
 	// The ownedOrganizationalUnits property
 	ownedOrganizationalUnits OrganizationOrganizationalUnitLinkableWrapperable
 	// The ownedSystems property
@@ -103,6 +109,12 @@ func (m *GroupGroup_additionalObjects) GetAdditionalData() map[string]any {
 // returns a ClientClientApplicationLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetAdministeredClients() ClientClientApplicationLinkableWrapperable {
 	return m.administeredClients
+}
+
+// GetAdministeredItsmSystems gets the administeredItsmSystems property value. The administeredItsmSystems property
+// returns a ItsmItsmSystemLinkableWrapperable when successful
+func (m *GroupGroup_additionalObjects) GetAdministeredItsmSystems() ItsmItsmSystemLinkableWrapperable {
+	return m.administeredItsmSystems
 }
 
 // GetAdministeredSystems gets the administeredSystems property value. The administeredSystems property
@@ -174,6 +186,16 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers() map[string]func(i
 		}
 		if val != nil {
 			m.SetAdministeredClients(val.(ClientClientApplicationLinkableWrapperable))
+		}
+		return nil
+	}
+	res["administeredItsmSystems"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateItsmItsmSystemLinkableWrapperFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetAdministeredItsmSystems(val.(ItsmItsmSystemLinkableWrapperable))
 		}
 		return nil
 	}
@@ -387,6 +409,26 @@ func (m *GroupGroup_additionalObjects) GetFieldDeserializers() map[string]func(i
 		}
 		return nil
 	}
+	res["ownedItsmSystems"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateItsmItsmSystemLinkableWrapperFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOwnedItsmSystems(val.(ItsmItsmSystemLinkableWrapperable))
+		}
+		return nil
+	}
+	res["ownedItsmWorkflowTypes"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateItsmItsmWorkflowTypeLinkableWrapperFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOwnedItsmWorkflowTypes(val.(ItsmItsmWorkflowTypeLinkableWrapperable))
+		}
+		return nil
+	}
 	res["ownedOrganizationalUnits"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetObjectValue(CreateOrganizationOrganizationalUnitLinkableWrapperFromDiscriminatorValue)
 		if err != nil {
@@ -548,6 +590,18 @@ func (m *GroupGroup_additionalObjects) GetOwnedGroupsOnSystem() ProvisioningOwne
 	return m.ownedGroupsOnSystem
 }
 
+// GetOwnedItsmSystems gets the ownedItsmSystems property value. The ownedItsmSystems property
+// returns a ItsmItsmSystemLinkableWrapperable when successful
+func (m *GroupGroup_additionalObjects) GetOwnedItsmSystems() ItsmItsmSystemLinkableWrapperable {
+	return m.ownedItsmSystems
+}
+
+// GetOwnedItsmWorkflowTypes gets the ownedItsmWorkflowTypes property value. The ownedItsmWorkflowTypes property
+// returns a ItsmItsmWorkflowTypeLinkableWrapperable when successful
+func (m *GroupGroup_additionalObjects) GetOwnedItsmWorkflowTypes() ItsmItsmWorkflowTypeLinkableWrapperable {
+	return m.ownedItsmWorkflowTypes
+}
+
 // GetOwnedOrganizationalUnits gets the ownedOrganizationalUnits property value. The ownedOrganizationalUnits property
 // returns a OrganizationOrganizationalUnitLinkableWrapperable when successful
 func (m *GroupGroup_additionalObjects) GetOwnedOrganizationalUnits() OrganizationOrganizationalUnitLinkableWrapperable {
@@ -606,6 +660,12 @@ func (m *GroupGroup_additionalObjects) Serialize(writer i878a80d2330e89d26896388
 	}
 	{
 		err := writer.WriteObjectValue("administeredClients", m.GetAdministeredClients())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("administeredItsmSystems", m.GetAdministeredItsmSystems())
 		if err != nil {
 			return err
 		}
@@ -737,6 +797,18 @@ func (m *GroupGroup_additionalObjects) Serialize(writer i878a80d2330e89d26896388
 		}
 	}
 	{
+		err := writer.WriteObjectValue("ownedItsmSystems", m.GetOwnedItsmSystems())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("ownedItsmWorkflowTypes", m.GetOwnedItsmWorkflowTypes())
+		if err != nil {
+			return err
+		}
+	}
+	{
 		err := writer.WriteObjectValue("ownedOrganizationalUnits", m.GetOwnedOrganizationalUnits())
 		if err != nil {
 			return err
@@ -807,6 +879,11 @@ func (m *GroupGroup_additionalObjects) SetAdditionalData(value map[string]any) {
 // SetAdministeredClients sets the administeredClients property value. The administeredClients property
 func (m *GroupGroup_additionalObjects) SetAdministeredClients(value ClientClientApplicationLinkableWrapperable) {
 	m.administeredClients = value
+}
+
+// SetAdministeredItsmSystems sets the administeredItsmSystems property value. The administeredItsmSystems property
+func (m *GroupGroup_additionalObjects) SetAdministeredItsmSystems(value ItsmItsmSystemLinkableWrapperable) {
+	m.administeredItsmSystems = value
 }
 
 // SetAdministeredSystems sets the administeredSystems property value. The administeredSystems property
@@ -914,6 +991,16 @@ func (m *GroupGroup_additionalObjects) SetOwnedGroupsOnSystem(value Provisioning
 	m.ownedGroupsOnSystem = value
 }
 
+// SetOwnedItsmSystems sets the ownedItsmSystems property value. The ownedItsmSystems property
+func (m *GroupGroup_additionalObjects) SetOwnedItsmSystems(value ItsmItsmSystemLinkableWrapperable) {
+	m.ownedItsmSystems = value
+}
+
+// SetOwnedItsmWorkflowTypes sets the ownedItsmWorkflowTypes property value. The ownedItsmWorkflowTypes property
+func (m *GroupGroup_additionalObjects) SetOwnedItsmWorkflowTypes(value ItsmItsmWorkflowTypeLinkableWrapperable) {
+	m.ownedItsmWorkflowTypes = value
+}
+
 // SetOwnedOrganizationalUnits sets the ownedOrganizationalUnits property value. The ownedOrganizationalUnits property
 func (m *GroupGroup_additionalObjects) SetOwnedOrganizationalUnits(value OrganizationOrganizationalUnitLinkableWrapperable) {
 	m.ownedOrganizationalUnits = value
@@ -959,6 +1046,7 @@ type GroupGroup_additionalObjectsable interface {
 	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
 	GetAccounts() GroupGroupAccountLinkableWrapperable
 	GetAdministeredClients() ClientClientApplicationLinkableWrapperable
+	GetAdministeredItsmSystems() ItsmItsmSystemLinkableWrapperable
 	GetAdministeredSystems() ProvisioningProvisionedSystemLinkableWrapperable
 	GetAdmins() GroupGroupAccountLinkableWrapperable
 	GetAudit() AuditInfoable
@@ -980,6 +1068,8 @@ type GroupGroup_additionalObjectsable interface {
 	GetOwnedClients() ClientClientApplicationLinkableWrapperable
 	GetOwnedDirectories() DirectoryAccountDirectoryLinkableWrapperable
 	GetOwnedGroupsOnSystem() ProvisioningOwnedGroupOnSystemsWrapperable
+	GetOwnedItsmSystems() ItsmItsmSystemLinkableWrapperable
+	GetOwnedItsmWorkflowTypes() ItsmItsmWorkflowTypeLinkableWrapperable
 	GetOwnedOrganizationalUnits() OrganizationOrganizationalUnitLinkableWrapperable
 	GetOwnedSystems() ProvisioningProvisionedSystemLinkableWrapperable
 	GetRecentAudits() AuditGroupAuditLinkableWrapperable
@@ -990,6 +1080,7 @@ type GroupGroup_additionalObjectsable interface {
 	GetWebhooks() WebhookWebhookLinkableWrapperable
 	SetAccounts(value GroupGroupAccountLinkableWrapperable)
 	SetAdministeredClients(value ClientClientApplicationLinkableWrapperable)
+	SetAdministeredItsmSystems(value ItsmItsmSystemLinkableWrapperable)
 	SetAdministeredSystems(value ProvisioningProvisionedSystemLinkableWrapperable)
 	SetAdmins(value GroupGroupAccountLinkableWrapperable)
 	SetAudit(value AuditInfoable)
@@ -1011,6 +1102,8 @@ type GroupGroup_additionalObjectsable interface {
 	SetOwnedClients(value ClientClientApplicationLinkableWrapperable)
 	SetOwnedDirectories(value DirectoryAccountDirectoryLinkableWrapperable)
 	SetOwnedGroupsOnSystem(value ProvisioningOwnedGroupOnSystemsWrapperable)
+	SetOwnedItsmSystems(value ItsmItsmSystemLinkableWrapperable)
+	SetOwnedItsmWorkflowTypes(value ItsmItsmWorkflowTypeLinkableWrapperable)
 	SetOwnedOrganizationalUnits(value OrganizationOrganizationalUnitLinkableWrapperable)
 	SetOwnedSystems(value ProvisioningProvisionedSystemLinkableWrapperable)
 	SetRecentAudits(value AuditGroupAuditLinkableWrapperable)

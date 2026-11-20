@@ -134,6 +134,16 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
 					return NewIdentitysourceImportedDocument(), nil
 				case "identitysource.ImportedRow":
 					return NewIdentitysourceImportedRow(), nil
+				case "identitysource.YouForceIdentitySource":
+					return NewIdentitysourceYouForceIdentitySource(), nil
+				case "itsm.ItsmSystem":
+					return NewItsmItsmSystem(), nil
+				case "itsm.ItsmSystemPrimer":
+					return NewItsmItsmSystemPrimer(), nil
+				case "itsm.ItsmWorkflowType":
+					return NewItsmItsmWorkflowType(), nil
+				case "itsm.ItsmWorkflowTypePrimer":
+					return NewItsmItsmWorkflowTypePrimer(), nil
 				case "launchpad.DisplayedLaunchpadTile":
 					return NewLaunchpadDisplayedLaunchpadTile(), nil
 				case "launchpad.LaunchpadTile":
@@ -172,6 +182,10 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
 					return NewProfileAccessProfileClient(), nil
 				case "profile.AccessProfileGroup":
 					return NewProfileAccessProfileGroup(), nil
+				case "profile.AccessProfileItsmLifecycleAction":
+					return NewProfileAccessProfileItsmLifecycleAction(), nil
+				case "profile.AccessProfileItsmWorkflowType":
+					return NewProfileAccessProfileItsmWorkflowType(), nil
 				case "profile.AccessProfileLifecycleAction":
 					return NewProfileAccessProfileLifecycleAction(), nil
 				case "profile.AccessProfileLifecycleEvent":
@@ -184,6 +198,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
 					return NewProfileAccessProfileProvisioning(), nil
 				case "profile.AccountAccessProfile":
 					return NewProfileAccountAccessProfile(), nil
+				case "profile.AccountLifecycleEvent":
+					return NewProfileAccountLifecycleEvent(), nil
 				case "provisioning.AbstractProvisionedLDAP":
 					return NewProvisioningAbstractProvisionedLDAP(), nil
 				case "provisioning.GroupOnSystem":
@@ -220,6 +236,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
 					return NewRequestAbstractAccessProfileModificationRequest(), nil
 				case "request.AbstractApplicationModificationRequest":
 					return NewRequestAbstractApplicationModificationRequest(), nil
+				case "request.AbstractItsmSystemModificationRequest":
+					return NewRequestAbstractItsmSystemModificationRequest(), nil
 				case "request.AbstractOrganizationalUnitModificationRequest":
 					return NewRequestAbstractOrganizationalUnitModificationRequest(), nil
 				case "request.AbstractProvisionedSystemModificationRequest":
@@ -254,6 +272,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
 					return NewRequestGrantGroupOnSystemRequest(), nil
 				case "request.GrantGroupOnSystemRequestRequest":
 					return NewRequestGrantGroupOnSystemRequestRequest(), nil
+				case "request.GrantItsmWorkflowTypeRequest":
+					return NewRequestGrantItsmWorkflowTypeRequest(), nil
 				case "request.GrantServiceAccountGroupRequest":
 					return NewRequestGrantServiceAccountGroupRequest(), nil
 				case "request.JoinGroupRequest":
@@ -272,6 +292,8 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
 					return NewRequestRemoveAccessProfileRequest(), nil
 				case "request.RemoveGroupRequest":
 					return NewRequestRemoveGroupRequest(), nil
+				case "request.RemoveItsmSystemRequest":
+					return NewRequestRemoveItsmSystemRequest(), nil
 				case "request.RemoveOrganizationalUnitRequest":
 					return NewRequestRemoveOrganizationalUnitRequest(), nil
 				case "request.RemoveProvisionedSystemRequest":
@@ -294,6 +316,12 @@ func CreateLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f4
 					return NewRequestTransferApplicationOwnershipRequest(), nil
 				case "request.TransferGroupOnSystemOwnershipRequest":
 					return NewRequestTransferGroupOnSystemOwnershipRequest(), nil
+				case "request.TransferItsmSystemAdministrationRequest":
+					return NewRequestTransferItsmSystemAdministrationRequest(), nil
+				case "request.TransferItsmSystemOwnershipRequest":
+					return NewRequestTransferItsmSystemOwnershipRequest(), nil
+				case "request.TransferItsmWorkflowTypeOwnershipRequest":
+					return NewRequestTransferItsmWorkflowTypeOwnershipRequest(), nil
 				case "request.TransferOrganizationalUnitOwnershipRequest":
 					return NewRequestTransferOrganizationalUnitOwnershipRequest(), nil
 				case "request.TransferProvisionedSystemAdministrationRequest":

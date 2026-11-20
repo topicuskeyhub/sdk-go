@@ -44,7 +44,7 @@ type ItemPredictionRequestBuilderGetQueryParameters struct {
 	CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
 	// Filter the results to exclude the given ids.
 	Exclude []int64 "uriparametername:\"exclude\""
-	// Only return predictions that do, or do not, still have a pending lifecycle event for the same account.
+	// Only return predictions that do, or do not, still have a pending or waiting lifecycle event for the same account.
 	HasPendingEvents []bool "uriparametername:\"hasPendingEvents\""
 	// Filter the results on the given ids.
 	Id []int64 "uriparametername:\"id\""
@@ -140,7 +140,7 @@ func (m *ItemPredictionRequestBuilder) ToGetRequestInformation(ctx context.Conte
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

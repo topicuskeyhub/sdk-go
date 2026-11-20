@@ -8,6 +8,7 @@ type PutAdditionalQueryParameterType int
 const (
 	ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
 	ADMINISTEREDCLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
+	ADMINISTEREDITSMSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
 	ADMINISTEREDSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
 	ADMINS_PUTADDITIONALQUERYPARAMETERTYPE
 	AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
@@ -30,6 +31,8 @@ const (
 	OWNEDCLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
 	OWNEDDIRECTORIES_PUTADDITIONALQUERYPARAMETERTYPE
 	OWNEDGROUPSONSYSTEM_PUTADDITIONALQUERYPARAMETERTYPE
+	OWNEDITSMSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
+	OWNEDITSMWORKFLOWTYPES_PUTADDITIONALQUERYPARAMETERTYPE
 	OWNEDORGANIZATIONALUNITS_PUTADDITIONALQUERYPARAMETERTYPE
 	OWNEDSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
 	RECENTAUDITS_PUTADDITIONALQUERYPARAMETERTYPE
@@ -41,7 +44,7 @@ const (
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-	return []string{"accounts", "administeredClients", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "excludedGroups", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedAccessProfiles", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
+	return []string{"accounts", "administeredClients", "administeredItsmSystems", "administeredSystems", "admins", "audit", "authorizedGroups", "clientPermissions", "clients", "contentAdministeredSystems", "excludedGroups", "globalRoles", "groupAccessInfo", "groupauditinginfo", "groupinfo", "helpdesk", "markers", "myaccount", "mydelegatedaccount", "nestedGroups", "onlyLinkedGOS", "ownedAccessProfiles", "ownedClients", "ownedDirectories", "ownedGroupsOnSystem", "ownedItsmSystems", "ownedItsmWorkflowTypes", "ownedOrganizationalUnits", "ownedSystems", "recentAudits", "requeststatus", "serviceAccounts", "systems", "vault", "webhooks"}[i]
 }
 
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
@@ -51,6 +54,8 @@ func ParsePutAdditionalQueryParameterType(v string) (any, error) {
 		result = ACCOUNTS_PUTADDITIONALQUERYPARAMETERTYPE
 	case "administeredClients":
 		result = ADMINISTEREDCLIENTS_PUTADDITIONALQUERYPARAMETERTYPE
+	case "administeredItsmSystems":
+		result = ADMINISTEREDITSMSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
 	case "administeredSystems":
 		result = ADMINISTEREDSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
 	case "admins":
@@ -95,6 +100,10 @@ func ParsePutAdditionalQueryParameterType(v string) (any, error) {
 		result = OWNEDDIRECTORIES_PUTADDITIONALQUERYPARAMETERTYPE
 	case "ownedGroupsOnSystem":
 		result = OWNEDGROUPSONSYSTEM_PUTADDITIONALQUERYPARAMETERTYPE
+	case "ownedItsmSystems":
+		result = OWNEDITSMSYSTEMS_PUTADDITIONALQUERYPARAMETERTYPE
+	case "ownedItsmWorkflowTypes":
+		result = OWNEDITSMWORKFLOWTYPES_PUTADDITIONALQUERYPARAMETERTYPE
 	case "ownedOrganizationalUnits":
 		result = OWNEDORGANIZATIONALUNITS_PUTADDITIONALQUERYPARAMETERTYPE
 	case "ownedSystems":

@@ -36,6 +36,10 @@ type AuditAuditRecord struct {
 	onGroupOnSystem *string
 	// The onIdentitySource property
 	onIdentitySource *string
+	// The onItsmSystem property
+	onItsmSystem *string
+	// The onItsmWorkflowType property
+	onItsmWorkflowType *string
 	// The onOrganizationalUnit property
 	onOrganizationalUnit *string
 	// The onServiceAccount property
@@ -226,6 +230,26 @@ func (m *AuditAuditRecord) GetFieldDeserializers() map[string]func(i878a80d2330e
 		}
 		return nil
 	}
+	res["onItsmSystem"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOnItsmSystem(val)
+		}
+		return nil
+	}
+	res["onItsmWorkflowType"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetOnItsmWorkflowType(val)
+		}
+		return nil
+	}
 	res["onOrganizationalUnit"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetStringValue()
 		if err != nil {
@@ -389,6 +413,18 @@ func (m *AuditAuditRecord) GetOnIdentitySource() *string {
 	return m.onIdentitySource
 }
 
+// GetOnItsmSystem gets the onItsmSystem property value. The onItsmSystem property
+// returns a *string when successful
+func (m *AuditAuditRecord) GetOnItsmSystem() *string {
+	return m.onItsmSystem
+}
+
+// GetOnItsmWorkflowType gets the onItsmWorkflowType property value. The onItsmWorkflowType property
+// returns a *string when successful
+func (m *AuditAuditRecord) GetOnItsmWorkflowType() *string {
+	return m.onItsmWorkflowType
+}
+
 // GetOnOrganizationalUnit gets the onOrganizationalUnit property value. The onOrganizationalUnit property
 // returns a *string when successful
 func (m *AuditAuditRecord) GetOnOrganizationalUnit() *string {
@@ -543,6 +579,16 @@ func (m *AuditAuditRecord) SetOnIdentitySource(value *string) {
 	m.onIdentitySource = value
 }
 
+// SetOnItsmSystem sets the onItsmSystem property value. The onItsmSystem property
+func (m *AuditAuditRecord) SetOnItsmSystem(value *string) {
+	m.onItsmSystem = value
+}
+
+// SetOnItsmWorkflowType sets the onItsmWorkflowType property value. The onItsmWorkflowType property
+func (m *AuditAuditRecord) SetOnItsmWorkflowType(value *string) {
+	m.onItsmWorkflowType = value
+}
+
 // SetOnOrganizationalUnit sets the onOrganizationalUnit property value. The onOrganizationalUnit property
 func (m *AuditAuditRecord) SetOnOrganizationalUnit(value *string) {
 	m.onOrganizationalUnit = value
@@ -609,6 +655,8 @@ type AuditAuditRecordable interface {
 	GetOnGroupClassification() *string
 	GetOnGroupOnSystem() *string
 	GetOnIdentitySource() *string
+	GetOnItsmSystem() *string
+	GetOnItsmWorkflowType() *string
 	GetOnOrganizationalUnit() *string
 	GetOnServiceAccount() *string
 	GetOnSystem() *string
@@ -632,6 +680,8 @@ type AuditAuditRecordable interface {
 	SetOnGroupClassification(value *string)
 	SetOnGroupOnSystem(value *string)
 	SetOnIdentitySource(value *string)
+	SetOnItsmSystem(value *string)
+	SetOnItsmWorkflowType(value *string)
 	SetOnOrganizationalUnit(value *string)
 	SetOnServiceAccount(value *string)
 	SetOnSystem(value *string)

@@ -76,7 +76,7 @@ func (m *ExportRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "text/csv, application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "text/csv, application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

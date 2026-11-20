@@ -18,14 +18,12 @@ type ProvisioningProvisionedSystem struct {
 	cleanupPeriod ProvisioningProvisionedSystem_cleanupPeriodable
 	// The contentAdministrator property
 	contentAdministrator GroupGroupPrimerable
-	// The effectiveFullSyncInterval property
-	effectiveFullSyncInterval *int32
 	// The externalUuid property
 	externalUuid *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-	// The fullSyncInterval property
-	fullSyncInterval *int32
 	// The groupOnSystemProvisioning property
 	groupOnSystemProvisioning *ProvisioningGroupOnSystemProvisioning
+	// The maxVerificationInterval property
+	maxVerificationInterval *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration
 	// The owner property
 	owner GroupGroupPrimerable
 	// The selfServiceExistingGroups property
@@ -122,12 +120,6 @@ func (m *ProvisioningProvisionedSystem) GetContentAdministrator() GroupGroupPrim
 	return m.contentAdministrator
 }
 
-// GetEffectiveFullSyncInterval gets the effectiveFullSyncInterval property value. The effectiveFullSyncInterval property
-// returns a *int32 when successful
-func (m *ProvisioningProvisionedSystem) GetEffectiveFullSyncInterval() *int32 {
-	return m.effectiveFullSyncInterval
-}
-
 // GetExternalUuid gets the externalUuid property value. The externalUuid property
 // returns a *UUID when successful
 func (m *ProvisioningProvisionedSystem) GetExternalUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID {
@@ -178,16 +170,6 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers() map[string]func(
 		}
 		return nil
 	}
-	res["effectiveFullSyncInterval"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-		val, err := n.GetInt32Value()
-		if err != nil {
-			return err
-		}
-		if val != nil {
-			m.SetEffectiveFullSyncInterval(val)
-		}
-		return nil
-	}
 	res["externalUuid"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetUUIDValue()
 		if err != nil {
@@ -198,16 +180,6 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers() map[string]func(
 		}
 		return nil
 	}
-	res["fullSyncInterval"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-		val, err := n.GetInt32Value()
-		if err != nil {
-			return err
-		}
-		if val != nil {
-			m.SetFullSyncInterval(val)
-		}
-		return nil
-	}
 	res["groupOnSystemProvisioning"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetEnumValue(ParseProvisioningGroupOnSystemProvisioning)
 		if err != nil {
@@ -215,6 +187,16 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers() map[string]func(
 		}
 		if val != nil {
 			m.SetGroupOnSystemProvisioning(val.(*ProvisioningGroupOnSystemProvisioning))
+		}
+		return nil
+	}
+	res["maxVerificationInterval"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetISODurationValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetMaxVerificationInterval(val)
 		}
 		return nil
 	}
@@ -311,16 +293,16 @@ func (m *ProvisioningProvisionedSystem) GetFieldDeserializers() map[string]func(
 	return res
 }
 
-// GetFullSyncInterval gets the fullSyncInterval property value. The fullSyncInterval property
-// returns a *int32 when successful
-func (m *ProvisioningProvisionedSystem) GetFullSyncInterval() *int32 {
-	return m.fullSyncInterval
-}
-
 // GetGroupOnSystemProvisioning gets the groupOnSystemProvisioning property value. The groupOnSystemProvisioning property
 // returns a *ProvisioningGroupOnSystemProvisioning when successful
 func (m *ProvisioningProvisionedSystem) GetGroupOnSystemProvisioning() *ProvisioningGroupOnSystemProvisioning {
 	return m.groupOnSystemProvisioning
+}
+
+// GetMaxVerificationInterval gets the maxVerificationInterval property value. The maxVerificationInterval property
+// returns a *ISODuration when successful
+func (m *ProvisioningProvisionedSystem) GetMaxVerificationInterval() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration {
+	return m.maxVerificationInterval
 }
 
 // GetOwner gets the owner property value. The owner property
@@ -401,15 +383,15 @@ func (m *ProvisioningProvisionedSystem) Serialize(writer i878a80d2330e89d2689638
 			return err
 		}
 	}
-	{
-		err = writer.WriteInt32Value("fullSyncInterval", m.GetFullSyncInterval())
+	if m.GetGroupOnSystemProvisioning() != nil {
+		cast := (*m.GetGroupOnSystemProvisioning()).String()
+		err = writer.WriteStringValue("groupOnSystemProvisioning", &cast)
 		if err != nil {
 			return err
 		}
 	}
-	if m.GetGroupOnSystemProvisioning() != nil {
-		cast := (*m.GetGroupOnSystemProvisioning()).String()
-		err = writer.WriteStringValue("groupOnSystemProvisioning", &cast)
+	{
+		err = writer.WriteISODurationValue("maxVerificationInterval", m.GetMaxVerificationInterval())
 		if err != nil {
 			return err
 		}
@@ -491,24 +473,19 @@ func (m *ProvisioningProvisionedSystem) SetContentAdministrator(value GroupGroup
 	m.contentAdministrator = value
 }
 
-// SetEffectiveFullSyncInterval sets the effectiveFullSyncInterval property value. The effectiveFullSyncInterval property
-func (m *ProvisioningProvisionedSystem) SetEffectiveFullSyncInterval(value *int32) {
-	m.effectiveFullSyncInterval = value
-}
-
 // SetExternalUuid sets the externalUuid property value. The externalUuid property
 func (m *ProvisioningProvisionedSystem) SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID) {
 	m.externalUuid = value
 }
 
-// SetFullSyncInterval sets the fullSyncInterval property value. The fullSyncInterval property
-func (m *ProvisioningProvisionedSystem) SetFullSyncInterval(value *int32) {
-	m.fullSyncInterval = value
-}
-
 // SetGroupOnSystemProvisioning sets the groupOnSystemProvisioning property value. The groupOnSystemProvisioning property
 func (m *ProvisioningProvisionedSystem) SetGroupOnSystemProvisioning(value *ProvisioningGroupOnSystemProvisioning) {
 	m.groupOnSystemProvisioning = value
+}
+
+// SetMaxVerificationInterval sets the maxVerificationInterval property value. The maxVerificationInterval property
+func (m *ProvisioningProvisionedSystem) SetMaxVerificationInterval(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration) {
+	m.maxVerificationInterval = value
 }
 
 // SetOwner sets the owner property value. The owner property
@@ -563,10 +540,9 @@ type ProvisioningProvisionedSystemable interface {
 	GetAdditionalObjects() ProvisioningProvisionedSystem_additionalObjectsable
 	GetCleanupPeriod() ProvisioningProvisionedSystem_cleanupPeriodable
 	GetContentAdministrator() GroupGroupPrimerable
-	GetEffectiveFullSyncInterval() *int32
 	GetExternalUuid() *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID
-	GetFullSyncInterval() *int32
 	GetGroupOnSystemProvisioning() *ProvisioningGroupOnSystemProvisioning
+	GetMaxVerificationInterval() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration
 	GetOwner() GroupGroupPrimerable
 	GetSelfServiceExistingGroups() *bool
 	GetSelfServiceNewGroups() *bool
@@ -580,10 +556,9 @@ type ProvisioningProvisionedSystemable interface {
 	SetAdditionalObjects(value ProvisioningProvisionedSystem_additionalObjectsable)
 	SetCleanupPeriod(value ProvisioningProvisionedSystem_cleanupPeriodable)
 	SetContentAdministrator(value GroupGroupPrimerable)
-	SetEffectiveFullSyncInterval(value *int32)
 	SetExternalUuid(value *i561e97a8befe7661a44c8f54600992b4207a3a0cf6770e5559949bc276de2e22.UUID)
-	SetFullSyncInterval(value *int32)
 	SetGroupOnSystemProvisioning(value *ProvisioningGroupOnSystemProvisioning)
+	SetMaxVerificationInterval(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ISODuration)
 	SetOwner(value GroupGroupPrimerable)
 	SetSelfServiceExistingGroups(value *bool)
 	SetSelfServiceNewGroups(value *bool)

@@ -7,10 +7,11 @@ type ProfileAccessProfileLifecycleActionType int
 
 const (
 	MAIL_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE ProfileAccessProfileLifecycleActionType = iota
+	ITSM_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE
 )
 
 func (i ProfileAccessProfileLifecycleActionType) String() string {
-	return []string{"MAIL"}[i]
+	return []string{"MAIL", "ITSM"}[i]
 }
 
 func ParseProfileAccessProfileLifecycleActionType(v string) (any, error) {
@@ -18,6 +19,8 @@ func ParseProfileAccessProfileLifecycleActionType(v string) (any, error) {
 	switch v {
 	case "MAIL":
 		result = MAIL_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE
+	case "ITSM":
+		result = ITSM_PROFILEACCESSPROFILELIFECYCLEACTIONTYPE
 	default:
 		return nil, nil
 	}

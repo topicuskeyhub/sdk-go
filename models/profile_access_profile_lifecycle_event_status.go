@@ -7,13 +7,14 @@ type ProfileAccessProfileLifecycleEventStatus int
 
 const (
 	PENDING_PROFILEACCESSPROFILELIFECYCLEEVENTSTATUS ProfileAccessProfileLifecycleEventStatus = iota
+	WAITING_PROFILEACCESSPROFILELIFECYCLEEVENTSTATUS
 	FIRED_PROFILEACCESSPROFILELIFECYCLEEVENTSTATUS
 	FAILED_PROFILEACCESSPROFILELIFECYCLEEVENTSTATUS
 	CANCELLED_PROFILEACCESSPROFILELIFECYCLEEVENTSTATUS
 )
 
 func (i ProfileAccessProfileLifecycleEventStatus) String() string {
-	return []string{"PENDING", "FIRED", "FAILED", "CANCELLED"}[i]
+	return []string{"PENDING", "WAITING", "FIRED", "FAILED", "CANCELLED"}[i]
 }
 
 func ParseProfileAccessProfileLifecycleEventStatus(v string) (any, error) {
@@ -21,6 +22,8 @@ func ParseProfileAccessProfileLifecycleEventStatus(v string) (any, error) {
 	switch v {
 	case "PENDING":
 		result = PENDING_PROFILEACCESSPROFILELIFECYCLEEVENTSTATUS
+	case "WAITING":
+		result = WAITING_PROFILEACCESSPROFILELIFECYCLEEVENTSTATUS
 	case "FIRED":
 		result = FIRED_PROFILEACCESSPROFILELIFECYCLEEVENTSTATUS
 	case "FAILED":

@@ -87,9 +87,9 @@ type ClientRequestBuilderGetQueryParameters struct {
 	Vault []int64 "uriparametername:\"vault\""
 	// Only return OAuth2 clients that have specific permissions, specified by id. This parameter supports composition with all parameters from the client permission resource.
 	WithPermission []int64 "uriparametername:\"withPermission\""
-	// Filter the client applications with permissions for the given groups, either directly or via provisionedsystem ownership, specified by id. 
+	// Filter the client applications with permissions for the given groups, either directly or via provisionedsystem ownership, specified by id.
 	WithPermissionForOwningGroup []int64 "uriparametername:\"withPermissionForOwningGroup\""
-	// Filter the client applications with active requests for permissions for the given groups, either directly or via provisionedsystem ownership, specified by id. 
+	// Filter the client applications with active requests for permissions for the given groups, either directly or via provisionedsystem ownership, specified by id.
 	WithRequestedPermissionForOwningGroup []int64 "uriparametername:\"withRequestedPermissionForOwningGroup\""
 }
 
@@ -221,7 +221,7 @@ func (m *ClientRequestBuilder) ToGetRequestInformation(ctx context.Context, requ
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -236,8 +236,8 @@ func (m *ClientRequestBuilder) ToPostRequestInformation(ctx context.Context, bod
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
-	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=88", body)
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
+	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=89", body)
 	if err != nil {
 		return nil, err
 	}

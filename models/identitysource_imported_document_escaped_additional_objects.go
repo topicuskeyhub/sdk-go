@@ -12,6 +12,8 @@ type IdentitysourceImportedDocument_additionalObjects struct {
 	additionalData map[string]any
 	// The audit property
 	audit AuditInfoable
+	// The summary property
+	summary IdentitysourceImportedDocumentSummaryable
 }
 
 // NewIdentitysourceImportedDocument_additionalObjects instantiates a new IdentitysourceImportedDocument_additionalObjects and sets the default values.
@@ -53,13 +55,35 @@ func (m *IdentitysourceImportedDocument_additionalObjects) GetFieldDeserializers
 		}
 		return nil
 	}
+	res["summary"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateIdentitysourceImportedDocumentSummaryFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetSummary(val.(IdentitysourceImportedDocumentSummaryable))
+		}
+		return nil
+	}
 	return res
+}
+
+// GetSummary gets the summary property value. The summary property
+// returns a IdentitysourceImportedDocumentSummaryable when successful
+func (m *IdentitysourceImportedDocument_additionalObjects) GetSummary() IdentitysourceImportedDocumentSummaryable {
+	return m.summary
 }
 
 // Serialize serializes information the current object
 func (m *IdentitysourceImportedDocument_additionalObjects) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter) error {
 	{
 		err := writer.WriteObjectValue("audit", m.GetAudit())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("summary", m.GetSummary())
 		if err != nil {
 			return err
 		}
@@ -83,9 +107,16 @@ func (m *IdentitysourceImportedDocument_additionalObjects) SetAudit(value AuditI
 	m.audit = value
 }
 
+// SetSummary sets the summary property value. The summary property
+func (m *IdentitysourceImportedDocument_additionalObjects) SetSummary(value IdentitysourceImportedDocumentSummaryable) {
+	m.summary = value
+}
+
 type IdentitysourceImportedDocument_additionalObjectsable interface {
 	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
 	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
 	GetAudit() AuditInfoable
+	GetSummary() IdentitysourceImportedDocumentSummaryable
 	SetAudit(value AuditInfoable)
+	SetSummary(value IdentitysourceImportedDocumentSummaryable)
 }

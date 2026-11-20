@@ -45,6 +45,8 @@ type VaultrecordRequestBuilderGetQueryParameters struct {
 	CreatedAfter []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdAfter\""
 	// Only return records that have been created before the given instant.
 	CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
+	// Only return records that were deleted before the given moment. Combine with includeDeleted, as deleted records are left out by default.
+	DeletedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"deletedBefore\""
 	// Filter the results to exclude the given ids.
 	Exclude []int64 "uriparametername:\"exclude\""
 	// Only return records that show an expiration warning at or before the given date.
@@ -63,6 +65,8 @@ type VaultrecordRequestBuilderGetQueryParameters struct {
 	HasValidPolicy []bool "uriparametername:\"hasValidPolicy\""
 	// Filter the results on the given ids.
 	Id []int64 "uriparametername:\"id\""
+	// Also return records that are pending deletion. These are left out by default, except in composed parameters such as vault.record on groups: there, set this to false explicitly to leave them out.
+	IncludeDeleted []bool "uriparametername:\"includeDeleted\""
 	// Only return records that were last read before the given moment. Records that have never been read are not returned; use {@code neverRead} to select those.
 	LastReadBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"lastReadBefore\""
 	// Only return records that have been modified since the given instant.
@@ -131,7 +135,7 @@ func (m *VaultrecordRequestBuilder) ByVaultrecordidInt64(vaultrecordid int64) *W
 // NewVaultrecordRequestBuilderInternal instantiates a new VaultrecordRequestBuilder and sets the default values.
 func NewVaultrecordRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *VaultrecordRequestBuilder {
 	m := &VaultrecordRequestBuilder{
-		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/vaultrecord{?accessibleByAccount*,accessibleByAccountAsManager*,accessibleByClient*,account*,additional*,any*,client*,color*,createdAfter*,createdBefore*,exclude*,expireWarningBeforeOrAt*,filename*,group*,groupOrganizationalUnit*,hasNoPolicy*,hasParent*,hasValidPolicy*,id*,lastReadBefore*,modifiedSince*,name*,nameContains*,neverRead*,parent*,q*,secret*,shareExpiresBeforeOrAt*,sort*,url*,username*,uuid*,vault*}", pathParameters),
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/vaultrecord{?accessibleByAccount*,accessibleByAccountAsManager*,accessibleByClient*,account*,additional*,any*,client*,color*,createdAfter*,createdBefore*,deletedBefore*,exclude*,expireWarningBeforeOrAt*,filename*,group*,groupOrganizationalUnit*,hasNoPolicy*,hasParent*,hasValidPolicy*,id*,includeDeleted*,lastReadBefore*,modifiedSince*,name*,nameContains*,neverRead*,parent*,q*,secret*,shareExpiresBeforeOrAt*,sort*,url*,username*,uuid*,vault*}", pathParameters),
 	}
 	return m
 }
@@ -175,7 +179,7 @@ func (m *VaultrecordRequestBuilder) ToGetRequestInformation(ctx context.Context,
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

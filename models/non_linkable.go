@@ -42,6 +42,14 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
 					return NewAuthAccountBulkUpdate(), nil
 				case "auth.AccountChangeLocale":
 					return NewAuthAccountChangeLocale(), nil
+				case "auth.AccountChangeTheme":
+					return NewAuthAccountChangeTheme(), nil
+				case "auth.AccountEmployment":
+					return NewAuthAccountEmployment(), nil
+				case "auth.AccountIdentitySource":
+					return NewAuthAccountIdentitySource(), nil
+				case "auth.AccountIdentitySources":
+					return NewAuthAccountIdentitySources(), nil
 				case "auth.AccountRecoveryStatus":
 					return NewAuthAccountRecoveryStatus(), nil
 				case "auth.AccountsAuditStats":
@@ -90,8 +98,16 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
 					return NewIdentityAccountAttributeValueUpdate(), nil
 				case "identitysource.IdentitySourceAttributeMapping":
 					return NewIdentitysourceIdentitySourceAttributeMapping(), nil
+				case "identitysource.ImportedDocumentSummary":
+					return NewIdentitysourceImportedDocumentSummary(), nil
 				case "ItemCount":
 					return NewItemCount(), nil
+				case "itsm.ItsmWorkflowTypeDefinition":
+					return NewItsmItsmWorkflowTypeDefinition(), nil
+				case "itsm.ItsmWorkflowTypeParameter":
+					return NewItsmItsmWorkflowTypeParameter(), nil
+				case "itsm.ItsmWorkflowTypeParameterProperty":
+					return NewItsmItsmWorkflowTypeParameterProperty(), nil
 				case "launchpad.DisplayedLaunchpadTiles":
 					return NewLaunchpadDisplayedLaunchpadTiles(), nil
 				case "license.KeyHubLicenseInfo":
@@ -166,8 +182,6 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
 					return NewRequestAcceptJoinGroupRequestParameters(), nil
 				case "request.AcceptModificationRequestParameters":
 					return NewRequestAcceptModificationRequestParameters(), nil
-				case "request.AcceptUpdateGroupMembershipRequestParameters":
-					return NewRequestAcceptUpdateGroupMembershipRequestParameters(), nil
 				case "request.ModificationRequestReport":
 					return NewRequestModificationRequestReport(), nil
 				case "request.ModificationRequestReportChangeDescription":
@@ -198,12 +212,18 @@ func CreateNonLinkableFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a
 					return NewVaultPasswordMetadata(), nil
 				case "vault.VaultActivationStatus":
 					return NewVaultVaultActivationStatus(), nil
+				case "vault.VaultRecordSecretHistory":
+					return NewVaultVaultRecordSecretHistory(), nil
 				case "vault.VaultRecordSecrets":
 					return NewVaultVaultRecordSecrets(), nil
+				case "vault.VaultRecordSecretVersion":
+					return NewVaultVaultRecordSecretVersion(), nil
 				case "vault.VaultRecordShare":
 					return NewVaultVaultRecordShare(), nil
 				case "vault.VaultRecordShareSummary":
 					return NewVaultVaultRecordShareSummary(), nil
+				case "vault.VaultRecordStatus":
+					return NewVaultVaultRecordStatus(), nil
 				case "vault.VaultRecovery":
 					return NewVaultVaultRecovery(), nil
 				case "vault.VaultUnlock":

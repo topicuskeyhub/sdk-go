@@ -23,11 +23,14 @@ import (
 	i43af1840a4616958e60c4cbee17a55c9c7345f03d798c4b93f71ba6ea8a8fed7 "github.com/topicuskeyhub/sdk-go/groupfolder"
 	i8203ffcf188d76703152f9ce625e3b250b0df75b66364a0f3589cc6d00ce0e8e "github.com/topicuskeyhub/sdk-go/identitysource"
 	ia9c84b329cdbc7e9961b248161459b4dfb0d53b98e1b471cd7c10b6d027a90d3 "github.com/topicuskeyhub/sdk-go/info"
+	i648dd543bc7f6600f20f3ec0a10d6d33a642d84d26403a7be879b641d8fd8419 "github.com/topicuskeyhub/sdk-go/itsmsystem"
+	ie38cbdaaf617115f308a3b9306898b262053976db2063eac7d2e76595ec7620f "github.com/topicuskeyhub/sdk-go/itsmworkflowtype"
 	i385775f507ab02e04cf3e40e8696ee406fb1371e877539b6dfbde0c8e4b123b2 "github.com/topicuskeyhub/sdk-go/launchpadtile"
 	i98ee0f07cd6158c2879ae08ef6a731b5a05b3610b774bf729ac7c7bf7d1efa2c "github.com/topicuskeyhub/sdk-go/numberseq"
 	ifb310ad74101a00ed1acdc17b384ce2e8964f5a38f9d9302b22aaaa28ff4d3e4 "github.com/topicuskeyhub/sdk-go/organizationalunit"
 	i3e244f19958aced6afc8c02a477435c3f0af5f60044658105a73a312fcf20b03 "github.com/topicuskeyhub/sdk-go/profile"
 	ib9e126576b99f2c17a06c406abda14d8d7ddf2bc7cedbe82bfb3ddc25089b20b "github.com/topicuskeyhub/sdk-go/profilegroup"
+	i3fba2a2e478357dd41c4844066eff57cb060dfe8862351d622c9e5b2e81bb84c "github.com/topicuskeyhub/sdk-go/profileitsmworkflowtype"
 	i7bdff1f6c6d048a157c7731fd2951237edafe6d60ef09e4370339bc038988788 "github.com/topicuskeyhub/sdk-go/profileprovisioning"
 	i29b864faf50a3a1afdf661366bb4234f149662638d0e3841e35acccd9352cf20 "github.com/topicuskeyhub/sdk-go/provisioninggroup"
 	i4e9df38273eb83f44b000e660fb1ceeb2fdcb7939eb1e594bf0e1c6dd130c8e2 "github.com/topicuskeyhub/sdk-go/request"
@@ -156,6 +159,18 @@ func (m *KeyHubClient) Info() *ia9c84b329cdbc7e9961b248161459b4dfb0d53b98e1b471c
 	return ia9c84b329cdbc7e9961b248161459b4dfb0d53b98e1b471cd7c10b6d027a90d3.NewInfoRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 
+// Itsmsystem the itsmsystem property
+// returns a *ItsmsystemRequestBuilder when successful
+func (m *KeyHubClient) Itsmsystem() *i648dd543bc7f6600f20f3ec0a10d6d33a642d84d26403a7be879b641d8fd8419.ItsmsystemRequestBuilder {
+	return i648dd543bc7f6600f20f3ec0a10d6d33a642d84d26403a7be879b641d8fd8419.NewItsmsystemRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+
+// Itsmworkflowtype the itsmworkflowtype property
+// returns a *ItsmworkflowtypeRequestBuilder when successful
+func (m *KeyHubClient) Itsmworkflowtype() *ie38cbdaaf617115f308a3b9306898b262053976db2063eac7d2e76595ec7620f.ItsmworkflowtypeRequestBuilder {
+	return ie38cbdaaf617115f308a3b9306898b262053976db2063eac7d2e76595ec7620f.NewItsmworkflowtypeRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+
 // Launchpadtile the launchpadtile property
 // returns a *LaunchpadtileRequestBuilder when successful
 func (m *KeyHubClient) Launchpadtile() *i385775f507ab02e04cf3e40e8696ee406fb1371e877539b6dfbde0c8e4b123b2.LaunchpadtileRequestBuilder {
@@ -184,6 +199,12 @@ func (m *KeyHubClient) Profile() *i3e244f19958aced6afc8c02a477435c3f0af5f6004465
 // returns a *ProfilegroupRequestBuilder when successful
 func (m *KeyHubClient) Profilegroup() *ib9e126576b99f2c17a06c406abda14d8d7ddf2bc7cedbe82bfb3ddc25089b20b.ProfilegroupRequestBuilder {
 	return ib9e126576b99f2c17a06c406abda14d8d7ddf2bc7cedbe82bfb3ddc25089b20b.NewProfilegroupRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+
+// Profileitsmworkflowtype the profileitsmworkflowtype property
+// returns a *ProfileitsmworkflowtypeRequestBuilder when successful
+func (m *KeyHubClient) Profileitsmworkflowtype() *i3fba2a2e478357dd41c4844066eff57cb060dfe8862351d622c9e5b2e81bb84c.ProfileitsmworkflowtypeRequestBuilder {
+	return i3fba2a2e478357dd41c4844066eff57cb060dfe8862351d622c9e5b2e81bb84c.NewProfileitsmworkflowtypeRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 
 // Profileprovisioning the profileprovisioning property

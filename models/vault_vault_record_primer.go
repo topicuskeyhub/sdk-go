@@ -12,6 +12,8 @@ type VaultVaultRecordPrimer struct {
 	Linkable
 	// The color property
 	color *VaultVaultRecordColor
+	// The deletedAt property
+	deletedAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	// The lastReadAt property
 	lastReadAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	// The name property
@@ -62,6 +64,12 @@ func (m *VaultVaultRecordPrimer) GetColor() *VaultVaultRecordColor {
 	return m.color
 }
 
+// GetDeletedAt gets the deletedAt property value. The deletedAt property
+// returns a *Time when successful
+func (m *VaultVaultRecordPrimer) GetDeletedAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time {
+	return m.deletedAt
+}
+
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error when successful
 func (m *VaultVaultRecordPrimer) GetFieldDeserializers() map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
@@ -73,6 +81,16 @@ func (m *VaultVaultRecordPrimer) GetFieldDeserializers() map[string]func(i878a80
 		}
 		if val != nil {
 			m.SetColor(val.(*VaultVaultRecordColor))
+		}
+		return nil
+	}
+	res["deletedAt"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetTimeValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetDeletedAt(val)
 		}
 		return nil
 	}
@@ -170,6 +188,11 @@ func (m *VaultVaultRecordPrimer) SetColor(value *VaultVaultRecordColor) {
 	m.color = value
 }
 
+// SetDeletedAt sets the deletedAt property value. The deletedAt property
+func (m *VaultVaultRecordPrimer) SetDeletedAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+	m.deletedAt = value
+}
+
 // SetLastReadAt sets the lastReadAt property value. The lastReadAt property
 func (m *VaultVaultRecordPrimer) SetLastReadAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
 	m.lastReadAt = value
@@ -194,11 +217,13 @@ type VaultVaultRecordPrimerable interface {
 	Linkableable
 	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
 	GetColor() *VaultVaultRecordColor
+	GetDeletedAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	GetLastReadAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	GetName() *string
 	GetShareEndTime() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	GetUuid() *string
 	SetColor(value *VaultVaultRecordColor)
+	SetDeletedAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
 	SetLastReadAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
 	SetName(value *string)
 	SetShareEndTime(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)

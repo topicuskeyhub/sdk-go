@@ -121,6 +121,12 @@ func (m *WithAccountItemRequestBuilder) Identity() *ItemIdentityRequestBuilder {
 	return NewItemIdentityRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 
+// Lifecycleevent the lifecycleevent property
+// returns a *ItemLifecycleeventRequestBuilder when successful
+func (m *WithAccountItemRequestBuilder) Lifecycleevent() *ItemLifecycleeventRequestBuilder {
+	return NewItemLifecycleeventRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+
 // Organizationalunit the organizationalunit property
 // returns a *ItemOrganizationalunitRequestBuilder when successful
 func (m *WithAccountItemRequestBuilder) Organizationalunit() *ItemOrganizationalunitRequestBuilder {
@@ -150,7 +156,7 @@ func (m *WithAccountItemRequestBuilder) ToDeleteRequestInformation(ctx context.C
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -165,7 +171,7 @@ func (m *WithAccountItemRequestBuilder) ToGetRequestInformation(ctx context.Cont
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

@@ -64,6 +64,12 @@ func (m *MeSettingsRequestBuilder) Locale() *MeSettingsLocaleRequestBuilder {
 	return NewMeSettingsLocaleRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 
+// Theme the theme property
+// returns a *MeSettingsThemeRequestBuilder when successful
+func (m *MeSettingsRequestBuilder) Theme() *MeSettingsThemeRequestBuilder {
+	return NewMeSettingsThemeRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+
 // ToGetRequestInformation returns an overview of the settings selected by the current user.
 // returns a *RequestInformation when successful
 func (m *MeSettingsRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *MeSettingsRequestBuilderGetRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
@@ -72,7 +78,7 @@ func (m *MeSettingsRequestBuilder) ToGetRequestInformation(ctx context.Context, 
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

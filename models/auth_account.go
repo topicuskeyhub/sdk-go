@@ -44,6 +44,8 @@ type AuthAccount struct {
 	locale *string
 	// The reregistrationRequired property
 	reregistrationRequired *bool
+	// The theme property
+	theme *AuthAccountTheme
 	// The tokenPasswordEnabled property
 	tokenPasswordEnabled *bool
 	// The twoFactorStatus property
@@ -326,6 +328,16 @@ func (m *AuthAccount) GetFieldDeserializers() map[string]func(i878a80d2330e89d26
 		}
 		return nil
 	}
+	res["theme"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseAuthAccountTheme)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetTheme(val.(*AuthAccountTheme))
+		}
+		return nil
+	}
 	res["tokenPasswordEnabled"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetBoolValue()
 		if err != nil {
@@ -401,6 +413,12 @@ func (m *AuthAccount) GetReregistrationRequired() *bool {
 	return m.reregistrationRequired
 }
 
+// GetTheme gets the theme property value. The theme property
+// returns a *AuthAccountTheme when successful
+func (m *AuthAccount) GetTheme() *AuthAccountTheme {
+	return m.theme
+}
+
 // GetTokenPasswordEnabled gets the tokenPasswordEnabled property value. The tokenPasswordEnabled property
 // returns a *bool when successful
 func (m *AuthAccount) GetTokenPasswordEnabled() *bool {
@@ -460,6 +478,13 @@ func (m *AuthAccount) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6
 	if m.GetLicenseRole() != nil {
 		cast := (*m.GetLicenseRole()).String()
 		err = writer.WriteStringValue("licenseRole", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetTheme() != nil {
+		cast := (*m.GetTheme()).String()
+		err = writer.WriteStringValue("theme", &cast)
 		if err != nil {
 			return err
 		}
@@ -559,6 +584,11 @@ func (m *AuthAccount) SetReregistrationRequired(value *bool) {
 	m.reregistrationRequired = value
 }
 
+// SetTheme sets the theme property value. The theme property
+func (m *AuthAccount) SetTheme(value *AuthAccountTheme) {
+	m.theme = value
+}
+
 // SetTokenPasswordEnabled sets the tokenPasswordEnabled property value. The tokenPasswordEnabled property
 func (m *AuthAccount) SetTokenPasswordEnabled(value *bool) {
 	m.tokenPasswordEnabled = value
@@ -594,6 +624,7 @@ type AuthAccountable interface {
 	GetLicenseRole() *AuthAccountLicenseRole
 	GetLocale() *string
 	GetReregistrationRequired() *bool
+	GetTheme() *AuthAccountTheme
 	GetTokenPasswordEnabled() *bool
 	GetTwoFactorStatus() *AuthTwoFactorAuthenticationStatus
 	GetValidInDirectory() *bool
@@ -614,6 +645,7 @@ type AuthAccountable interface {
 	SetLicenseRole(value *AuthAccountLicenseRole)
 	SetLocale(value *string)
 	SetReregistrationRequired(value *bool)
+	SetTheme(value *AuthAccountTheme)
 	SetTokenPasswordEnabled(value *bool)
 	SetTwoFactorStatus(value *AuthTwoFactorAuthenticationStatus)
 	SetValidInDirectory(value *bool)

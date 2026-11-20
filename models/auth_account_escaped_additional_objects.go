@@ -18,6 +18,8 @@ type AuthAccount_additionalObjects struct {
 	effectivePermissions AuthEffectiveAccountPermissionsable
 	// The groups property
 	groups GroupAccountGroupLinkableWrapperWithCountable
+	// The identitySources property
+	identitySources AuthAccountIdentitySourcesable
 	// The pendingRecoveryRequests property
 	pendingRecoveryRequests AuthAccountRecoveryStatusable
 	// The settings property
@@ -109,6 +111,16 @@ func (m *AuthAccount_additionalObjects) GetFieldDeserializers() map[string]func(
 		}
 		return nil
 	}
+	res["identitySources"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateAuthAccountIdentitySourcesFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetIdentitySources(val.(AuthAccountIdentitySourcesable))
+		}
+		return nil
+	}
 	res["pendingRecoveryRequests"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetObjectValue(CreateAuthAccountRecoveryStatusFromDiscriminatorValue)
 		if err != nil {
@@ -158,6 +170,12 @@ func (m *AuthAccount_additionalObjects) GetGroups() GroupAccountGroupLinkableWra
 	return m.groups
 }
 
+// GetIdentitySources gets the identitySources property value. The identitySources property
+// returns a AuthAccountIdentitySourcesable when successful
+func (m *AuthAccount_additionalObjects) GetIdentitySources() AuthAccountIdentitySourcesable {
+	return m.identitySources
+}
+
 // GetPendingRecoveryRequests gets the pendingRecoveryRequests property value. The pendingRecoveryRequests property
 // returns a AuthAccountRecoveryStatusable when successful
 func (m *AuthAccount_additionalObjects) GetPendingRecoveryRequests() AuthAccountRecoveryStatusable {
@@ -198,6 +216,12 @@ func (m *AuthAccount_additionalObjects) Serialize(writer i878a80d2330e89d2689638
 	}
 	{
 		err := writer.WriteObjectValue("groups", m.GetGroups())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("identitySources", m.GetIdentitySources())
 		if err != nil {
 			return err
 		}
@@ -260,6 +284,11 @@ func (m *AuthAccount_additionalObjects) SetGroups(value GroupAccountGroupLinkabl
 	m.groups = value
 }
 
+// SetIdentitySources sets the identitySources property value. The identitySources property
+func (m *AuthAccount_additionalObjects) SetIdentitySources(value AuthAccountIdentitySourcesable) {
+	m.identitySources = value
+}
+
 // SetPendingRecoveryRequests sets the pendingRecoveryRequests property value. The pendingRecoveryRequests property
 func (m *AuthAccount_additionalObjects) SetPendingRecoveryRequests(value AuthAccountRecoveryStatusable) {
 	m.pendingRecoveryRequests = value
@@ -287,6 +316,7 @@ type AuthAccount_additionalObjectsable interface {
 	GetAudit() AuditInfoable
 	GetEffectivePermissions() AuthEffectiveAccountPermissionsable
 	GetGroups() GroupAccountGroupLinkableWrapperWithCountable
+	GetIdentitySources() AuthAccountIdentitySourcesable
 	GetPendingRecoveryRequests() AuthAccountRecoveryStatusable
 	GetSettings() AuthAccountSettingsable
 	GetTotalGroupCount() ItemCountable
@@ -295,6 +325,7 @@ type AuthAccount_additionalObjectsable interface {
 	SetAudit(value AuditInfoable)
 	SetEffectivePermissions(value AuthEffectiveAccountPermissionsable)
 	SetGroups(value GroupAccountGroupLinkableWrapperWithCountable)
+	SetIdentitySources(value AuthAccountIdentitySourcesable)
 	SetPendingRecoveryRequests(value AuthAccountRecoveryStatusable)
 	SetSettings(value AuthAccountSettingsable)
 	SetTotalGroupCount(value ItemCountable)

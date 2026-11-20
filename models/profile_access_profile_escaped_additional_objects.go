@@ -18,6 +18,8 @@ type ProfileAccessProfile_additionalObjects struct {
 	clients ProfileAccessProfileClientLinkableWrapperable
 	// The groups property
 	groups ProfileAccessProfileGroupLinkableWrapperable
+	// The itsmWorkflowTypes property
+	itsmWorkflowTypes ProfileAccessProfileItsmWorkflowTypeLinkableWrapperable
 	// The provisioning property
 	provisioning ProfileAccessProfileProvisioningLinkableWrapperable
 }
@@ -103,6 +105,16 @@ func (m *ProfileAccessProfile_additionalObjects) GetFieldDeserializers() map[str
 		}
 		return nil
 	}
+	res["itsmWorkflowTypes"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateProfileAccessProfileItsmWorkflowTypeLinkableWrapperFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetItsmWorkflowTypes(val.(ProfileAccessProfileItsmWorkflowTypeLinkableWrapperable))
+		}
+		return nil
+	}
 	res["provisioning"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetObjectValue(CreateProfileAccessProfileProvisioningLinkableWrapperFromDiscriminatorValue)
 		if err != nil {
@@ -120,6 +132,12 @@ func (m *ProfileAccessProfile_additionalObjects) GetFieldDeserializers() map[str
 // returns a ProfileAccessProfileGroupLinkableWrapperable when successful
 func (m *ProfileAccessProfile_additionalObjects) GetGroups() ProfileAccessProfileGroupLinkableWrapperable {
 	return m.groups
+}
+
+// GetItsmWorkflowTypes gets the itsmWorkflowTypes property value. The itsmWorkflowTypes property
+// returns a ProfileAccessProfileItsmWorkflowTypeLinkableWrapperable when successful
+func (m *ProfileAccessProfile_additionalObjects) GetItsmWorkflowTypes() ProfileAccessProfileItsmWorkflowTypeLinkableWrapperable {
+	return m.itsmWorkflowTypes
 }
 
 // GetProvisioning gets the provisioning property value. The provisioning property
@@ -150,6 +168,12 @@ func (m *ProfileAccessProfile_additionalObjects) Serialize(writer i878a80d2330e8
 	}
 	{
 		err := writer.WriteObjectValue("groups", m.GetGroups())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err := writer.WriteObjectValue("itsmWorkflowTypes", m.GetItsmWorkflowTypes())
 		if err != nil {
 			return err
 		}
@@ -194,6 +218,11 @@ func (m *ProfileAccessProfile_additionalObjects) SetGroups(value ProfileAccessPr
 	m.groups = value
 }
 
+// SetItsmWorkflowTypes sets the itsmWorkflowTypes property value. The itsmWorkflowTypes property
+func (m *ProfileAccessProfile_additionalObjects) SetItsmWorkflowTypes(value ProfileAccessProfileItsmWorkflowTypeLinkableWrapperable) {
+	m.itsmWorkflowTypes = value
+}
+
 // SetProvisioning sets the provisioning property value. The provisioning property
 func (m *ProfileAccessProfile_additionalObjects) SetProvisioning(value ProfileAccessProfileProvisioningLinkableWrapperable) {
 	m.provisioning = value
@@ -206,10 +235,12 @@ type ProfileAccessProfile_additionalObjectsable interface {
 	GetAudit() AuditInfoable
 	GetClients() ProfileAccessProfileClientLinkableWrapperable
 	GetGroups() ProfileAccessProfileGroupLinkableWrapperable
+	GetItsmWorkflowTypes() ProfileAccessProfileItsmWorkflowTypeLinkableWrapperable
 	GetProvisioning() ProfileAccessProfileProvisioningLinkableWrapperable
 	SetAttributeRules(value IdentityAccountAttributeRuleLinkableWrapperable)
 	SetAudit(value AuditInfoable)
 	SetClients(value ProfileAccessProfileClientLinkableWrapperable)
 	SetGroups(value ProfileAccessProfileGroupLinkableWrapperable)
+	SetItsmWorkflowTypes(value ProfileAccessProfileItsmWorkflowTypeLinkableWrapperable)
 	SetProvisioning(value ProfileAccessProfileProvisioningLinkableWrapperable)
 }

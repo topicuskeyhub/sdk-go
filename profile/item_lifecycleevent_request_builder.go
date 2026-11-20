@@ -26,6 +26,8 @@ type ItemLifecycleeventRequestBuilderGetQueryParameters struct {
 	AccessProfileOwnedBy []int64 "uriparametername:\"accessProfileOwnedBy\""
 	// Filter lifecycle events on the given accounts, specified by id. This parameter supports composition with all parameters from the account resource.
 	Account []int64 "uriparametername:\"account\""
+	// Filter lifecycle events of the given lifecycle actions, specified by id. This parameter supports composition with all parameters from the lifecycle action resource.
+	Action []int64 "uriparametername:\"action\""
 	// Request additional information to be returned for every record.
 	// Deprecated: This property is deprecated, use AdditionalAsGetAdditionalQueryParameterType instead
 	Additional []string "uriparametername:\"additional\""
@@ -46,10 +48,14 @@ type ItemLifecycleeventRequestBuilderGetQueryParameters struct {
 	DueOnOrBefore []i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly "uriparametername:\"dueOnOrBefore\""
 	// Filter the results to exclude the given ids.
 	Exclude []int64 "uriparametername:\"exclude\""
+	// Only return lifecycle events whose anchor transition is, or is not, still predicted after today for their account.
+	HasFutureAnchor []bool "uriparametername:\"hasFutureAnchor\""
 	// Filter the results on the given ids.
 	Id []int64 "uriparametername:\"id\""
 	// Only return records that have been modified since the given instant.
 	ModifiedSince []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"modifiedSince\""
+	// Filter lifecycle events on the organizational unit of the group that owns their access profile, specified by id. This parameter supports composition with all parameters from the organizational unit resource.
+	OrganizationalUnit []int64 "uriparametername:\"organizationalUnit\""
 	// Filter records on a complex CQL query.
 	Q []string "uriparametername:\"q\""
 	// Sort the items. Use 'asc-<name>' for ascending and 'desc-<name>' for descending order.
@@ -99,7 +105,7 @@ func (m *ItemLifecycleeventRequestBuilder) ByLifecycleeventidInt64(lifecycleeven
 // NewItemLifecycleeventRequestBuilderInternal instantiates a new ItemLifecycleeventRequestBuilder and sets the default values.
 func NewItemLifecycleeventRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemLifecycleeventRequestBuilder {
 	m := &ItemLifecycleeventRequestBuilder{
-		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/lifecycleevent{?accessProfile*,accessProfileOwnedBy*,account*,additional*,anchor*,any*,createdAfter*,createdBefore*,dueOnOrBefore*,exclude*,id*,modifiedSince*,q*,sort*,status*}", pathParameters),
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/profile/{accessprofile%2Did}/lifecycleevent{?accessProfile*,accessProfileOwnedBy*,account*,action*,additional*,anchor*,any*,createdAfter*,createdBefore*,dueOnOrBefore*,exclude*,hasFutureAnchor*,id*,modifiedSince*,organizationalUnit*,q*,sort*,status*}", pathParameters),
 	}
 	return m
 }
@@ -143,7 +149,7 @@ func (m *ItemLifecycleeventRequestBuilder) ToGetRequestInformation(ctx context.C
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

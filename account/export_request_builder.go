@@ -84,11 +84,11 @@ type ExportRequestBuilderPostQueryParameters struct {
 	NameDoesNotStartWith []string "uriparametername:\"nameDoesNotStartWith\""
 	// Only return accounts for which the display name starts with one of the given values.
 	NameStartsWith []string "uriparametername:\"nameStartsWith\""
-	// Filter the accounts on not being a member of any group excluded by any of the given groups, specified by id. 
+	// Filter the accounts on not being a member of any group excluded by any of the given groups, specified by id.
 	NotExcludedForGroup []int64 "uriparametername:\"notExcludedForGroup\""
-	// Filter the accounts that are not a member of the given access profiles, specified by id. 
+	// Filter the accounts that are not a member of the given access profiles, specified by id.
 	NotInAccessProfile []int64 "uriparametername:\"notInAccessProfile\""
-	// Filter the accounts that are not a member of the given groups, specified by id. 
+	// Filter the accounts that are not a member of the given groups, specified by id.
 	NotInGroup []int64 "uriparametername:\"notInGroup\""
 	// Filter the accounts on their 'owning' clients, specified by id. An 'owning client' is a client which can potentially modify the account. Typically this is the client which created the account (if applicable), but it could be a client which has been registered as such after the fact.
 	OwningClient []int64 "uriparametername:\"owningClient\""
@@ -177,7 +177,7 @@ func (m *ExportRequestBuilder) ToPostRequestInformation(ctx context.Context, req
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

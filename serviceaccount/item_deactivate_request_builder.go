@@ -37,7 +37,7 @@ func NewItemDeactivateRequestBuilder(rawUrl string, requestAdapter i2ae4187f7dae
 	return NewItemDeactivateRequestBuilderInternal(urlParams, requestAdapter)
 }
 
-// Post deactivates the service account. 
+// Post deactivates the service account.
 // returns a ErrorReport error when the service returns a 4XX or 5XX status code
 func (m *ItemDeactivateRequestBuilder) Post(ctx context.Context, requestConfiguration *ItemDeactivateRequestBuilderPostRequestConfiguration) error {
 	requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration)
@@ -54,7 +54,7 @@ func (m *ItemDeactivateRequestBuilder) Post(ctx context.Context, requestConfigur
 	return nil
 }
 
-// ToPostRequestInformation deactivates the service account. 
+// ToPostRequestInformation deactivates the service account.
 // returns a *RequestInformation when successful
 func (m *ItemDeactivateRequestBuilder) ToPostRequestInformation(ctx context.Context, requestConfiguration *ItemDeactivateRequestBuilderPostRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
 	requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
@@ -62,7 +62,7 @@ func (m *ItemDeactivateRequestBuilder) ToPostRequestInformation(ctx context.Cont
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

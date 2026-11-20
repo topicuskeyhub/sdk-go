@@ -53,6 +53,8 @@ type AuditRequestBuilderGetQueryParameters struct {
 	OnGroup1 []int64 "uriparametername:\"onGroup1\""
 	// Only return audit records targeting the given group on system, specified by id.
 	OnGroupOnSystem []int64 "uriparametername:\"onGroupOnSystem\""
+	// Only return audit records targeting the given workflow type, specified by id.
+	OnItsmWorkflowType []int64 "uriparametername:\"onItsmWorkflowType\""
 	// Only return audit records performed by or targeting the given account, specified by id.
 	OnOrByAccount []int64 "uriparametername:\"onOrByAccount\""
 	// Only return audit records performed by or targeting the given client, specified by id.
@@ -116,7 +118,7 @@ func (m *AuditRequestBuilder) ByAuditidInt64(auditid int64) *WithAuditItemReques
 // NewAuditRequestBuilderInternal instantiates a new AuditRequestBuilder and sets the default values.
 func NewAuditRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *AuditRequestBuilder {
 	m := &AuditRequestBuilder{
-		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/audit{?additional*,after*,any*,before*,containing*,createdAfter*,createdBefore*,exclude*,id*,includeDaily*,modifiedSince*,onAccessProfile*,onDirectory*,onGroup*,onGroup1*,onGroupOnSystem*,onOrByAccount*,onOrByClient*,onServiceAccount*,onVaultRecord*,performedByNameSet*,performedByUuid*,q*,sort*,type*,visibleFor*}", pathParameters),
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/audit{?additional*,after*,any*,before*,containing*,createdAfter*,createdBefore*,exclude*,id*,includeDaily*,modifiedSince*,onAccessProfile*,onDirectory*,onGroup*,onGroup1*,onGroupOnSystem*,onItsmWorkflowType*,onOrByAccount*,onOrByClient*,onServiceAccount*,onVaultRecord*,performedByNameSet*,performedByUuid*,q*,sort*,type*,visibleFor*}", pathParameters),
 	}
 	return m
 }
@@ -166,7 +168,7 @@ func (m *AuditRequestBuilder) ToGetRequestInformation(ctx context.Context, reque
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 

@@ -72,6 +72,10 @@ type RequestRequestBuilderGetQueryParameters struct {
 	Id []int64 "uriparametername:\"id\""
 	// Only return VerifyInternalAccountRequest for the given internal account(s), specified by id. This parameter supports composition with all parameters from the internal account resource.
 	InternalAccount []int64 "uriparametername:\"internalAccount\""
+	// Filter requests on the given ITSM systems, specified by id. This parameter supports composition with all parameters from the ITSM system resource.
+	ItsmSystem []int64 "uriparametername:\"itsmSystem\""
+	// Filter requests on the given workflow types, specified by id. This parameter supports composition with all parameters from the workflow type resource.
+	ItsmWorkflowType []int64 "uriparametername:\"itsmWorkflowType\""
 	// Filter requests on the exact mail keys.
 	MailKey []string "uriparametername:\"mailKey\""
 	// Only return records that have been modified since the given instant.
@@ -181,7 +185,7 @@ func (m *RequestRequestBuilder) ByRequestidInt64(requestid int64) *WithRequestIt
 // NewRequestRequestBuilderInternal instantiates a new RequestRequestBuilder and sets the default values.
 func NewRequestRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *RequestRequestBuilder {
 	m := &RequestRequestBuilder{
-		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request{?accessProfile*,accountToUpdate*,additional*,adminToRevoke*,any*,application*,authorizationType*,authorizingGroupType*,clientPermission*,connectAuthorization*,createdAfter*,createdBefore*,directory*,exclude*,grantGroupOnSystemRequestActivationRequired*,grantGroupOnSystemRequestRequestActivationRequired*,group*,groupOnSystem*,groupsOverlapWith*,id*,internalAccount*,mailKey*,modifiedSince*,newAdmin*,newGroupName*,newGroupOnSystemName*,newNamespaceName*,newServiceAccountName*,organizationalUnit*,ownerGroup*,precededBy*,processedBy*,q*,requestedBy*,requestingGroup*,serviceAccount*,sort*,status*,system*,triggeredFollowUpRequest*,type*,updateGroupMembershipType*,wasProcessedBy*}", pathParameters),
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/request{?accessProfile*,accountToUpdate*,additional*,adminToRevoke*,any*,application*,authorizationType*,authorizingGroupType*,clientPermission*,connectAuthorization*,createdAfter*,createdBefore*,directory*,exclude*,grantGroupOnSystemRequestActivationRequired*,grantGroupOnSystemRequestRequestActivationRequired*,group*,groupOnSystem*,groupsOverlapWith*,id*,internalAccount*,itsmSystem*,itsmWorkflowType*,mailKey*,modifiedSince*,newAdmin*,newGroupName*,newGroupOnSystemName*,newNamespaceName*,newServiceAccountName*,organizationalUnit*,ownerGroup*,precededBy*,processedBy*,q*,requestedBy*,requestingGroup*,serviceAccount*,sort*,status*,system*,triggeredFollowUpRequest*,type*,updateGroupMembershipType*,wasProcessedBy*}", pathParameters),
 	}
 	return m
 }
@@ -252,7 +256,7 @@ func (m *RequestRequestBuilder) ToGetRequestInformation(ctx context.Context, req
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -267,8 +271,8 @@ func (m *RequestRequestBuilder) ToPostRequestInformation(ctx context.Context, bo
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
-	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=88", body)
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
+	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=89", body)
 	if err != nil {
 		return nil, err
 	}

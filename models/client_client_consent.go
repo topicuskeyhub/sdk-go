@@ -15,6 +15,8 @@ type ClientClientConsent struct {
 	client ClientClientApplicationPrimerable
 	// The identifier property
 	identifier *string
+	// The lastUsed property
+	lastUsed *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
 	// The trustedIPs property
 	trustedIPs []string
 }
@@ -87,6 +89,16 @@ func (m *ClientClientConsent) GetFieldDeserializers() map[string]func(i878a80d23
 		}
 		return nil
 	}
+	res["lastUsed"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetDateOnlyValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetLastUsed(val)
+		}
+		return nil
+	}
 	res["trustedIPs"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetCollectionOfPrimitiveValues("string")
 		if err != nil {
@@ -110,6 +122,12 @@ func (m *ClientClientConsent) GetFieldDeserializers() map[string]func(i878a80d23
 // returns a *string when successful
 func (m *ClientClientConsent) GetIdentifier() *string {
 	return m.identifier
+}
+
+// GetLastUsed gets the lastUsed property value. The lastUsed property
+// returns a *DateOnly when successful
+func (m *ClientClientConsent) GetLastUsed() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly {
+	return m.lastUsed
 }
 
 // GetTrustedIPs gets the trustedIPs property value. The trustedIPs property
@@ -160,6 +178,11 @@ func (m *ClientClientConsent) SetIdentifier(value *string) {
 	m.identifier = value
 }
 
+// SetLastUsed sets the lastUsed property value. The lastUsed property
+func (m *ClientClientConsent) SetLastUsed(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly) {
+	m.lastUsed = value
+}
+
 // SetTrustedIPs sets the trustedIPs property value. The trustedIPs property
 func (m *ClientClientConsent) SetTrustedIPs(value []string) {
 	m.trustedIPs = value
@@ -171,9 +194,11 @@ type ClientClientConsentable interface {
 	GetAllowedScopes() []string
 	GetClient() ClientClientApplicationPrimerable
 	GetIdentifier() *string
+	GetLastUsed() *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly
 	GetTrustedIPs() []string
 	SetAllowedScopes(value []string)
 	SetClient(value ClientClientApplicationPrimerable)
 	SetIdentifier(value *string)
+	SetLastUsed(value *i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.DateOnly)
 	SetTrustedIPs(value []string)
 }

@@ -46,6 +46,8 @@ func CreateRequestAbstractAccessProfileModificationRequestFromDiscriminatorValue
 					return NewRequestGrantGroupOnSystemRequest(), nil
 				case "request.GrantGroupOnSystemRequestRequest":
 					return NewRequestGrantGroupOnSystemRequestRequest(), nil
+				case "request.GrantItsmWorkflowTypeRequest":
+					return NewRequestGrantItsmWorkflowTypeRequest(), nil
 				case "request.JoinGroupRequest":
 					return NewRequestJoinGroupRequest(), nil
 				case "request.LinkDirectoryToAccessProfileRequest":

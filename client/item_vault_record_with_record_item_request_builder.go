@@ -141,6 +141,18 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) Put(ctx context.Context, b
 	return res.(ie2969523f41a2fae7d38164656da4464a9222947e5ea7fbe5cbfbbf94304e5c1.VaultVaultRecordable), nil
 }
 
+// Secrethistory the secrethistory property
+// returns a *ItemVaultRecordItemSecrethistoryRequestBuilder when successful
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) Secrethistory() *ItemVaultRecordItemSecrethistoryRequestBuilder {
+	return NewItemVaultRecordItemSecrethistoryRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+
+// Status the status property
+// returns a *ItemVaultRecordItemStatusRequestBuilder when successful
+func (m *ItemVaultRecordWithRecordItemRequestBuilder) Status() *ItemVaultRecordItemStatusRequestBuilder {
+	return NewItemVaultRecordItemStatusRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+
 // ToDeleteRequestInformation removes the vault record identified by the id. This cannot be undone.
 // returns a *RequestInformation when successful
 func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToDeleteRequestInformation(ctx context.Context, requestConfiguration *ItemVaultRecordWithRecordItemRequestBuilderDeleteRequestConfiguration) (*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
@@ -149,7 +161,7 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToDeleteRequestInformation
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -164,7 +176,7 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToGetRequestInformation(ct
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -179,8 +191,8 @@ func (m *ItemVaultRecordWithRecordItemRequestBuilder) ToPutRequestInformation(ct
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
-	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=88", body)
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
+	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=89", body)
 	if err != nil {
 		return nil, err
 	}

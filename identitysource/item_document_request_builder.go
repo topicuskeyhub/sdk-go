@@ -32,6 +32,8 @@ type ItemDocumentRequestBuilderGetQueryParameters struct {
 	CreatedBefore []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"createdBefore\""
 	// Filter the results to exclude the given ids.
 	Exclude []int64 "uriparametername:\"exclude\""
+	// Only return documents whose import retention has expired at the given instant.
+	ExpiredAt []i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time "uriparametername:\"expiredAt\""
 	// Filter the results on the given ids.
 	Id []int64 "uriparametername:\"id\""
 	// Only return imported documents for the given identity sources, specified by id. This parameter supports composition with all parameters from the identity source resource.
@@ -101,7 +103,7 @@ func (m *ItemDocumentRequestBuilder) ByDocumentidInt64(documentid int64) *ItemDo
 // NewItemDocumentRequestBuilderInternal instantiates a new ItemDocumentRequestBuilder and sets the default values.
 func NewItemDocumentRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter) *ItemDocumentRequestBuilder {
 	m := &ItemDocumentRequestBuilder{
-		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/identitysource/{identitysource%2Did}/document{?additional*,any*,createdAfter*,createdBefore*,exclude*,id*,identitySource*,modifiedSince*,q*,sort*}", pathParameters),
+		BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/identitysource/{identitysource%2Did}/document{?additional*,any*,createdAfter*,createdBefore*,exclude*,expiredAt*,id*,identitySource*,modifiedSince*,q*,sort*}", pathParameters),
 	}
 	return m
 }
@@ -172,7 +174,7 @@ func (m *ItemDocumentRequestBuilder) ToGetRequestInformation(ctx context.Context
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
 	return requestInfo, nil
 }
 
@@ -187,8 +189,8 @@ func (m *ItemDocumentRequestBuilder) ToPostRequestInformation(ctx context.Contex
 		requestInfo.Headers.AddAll(requestConfiguration.Headers)
 		requestInfo.AddRequestOptions(requestConfiguration.Options)
 	}
-	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=88")
-	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=88", body)
+	requestInfo.Headers.TryAdd("Accept", "application/vnd.topicus.keyhub+json;version=89")
+	err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/vnd.topicus.keyhub+json;version=89", body)
 	if err != nil {
 		return nil, err
 	}

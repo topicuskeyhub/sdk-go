@@ -19,8 +19,12 @@ type ProvisioningProvisionedSCIM struct {
 	basicAuthUsername *string
 	// The bearerToken property
 	bearerToken *string
+	// The connectorAuthentication property
+	connectorAuthentication *string
 	// The connectorConfiguration property
 	connectorConfiguration *string
+	// The connectorTargetUrl property
+	connectorTargetUrl *string
 	// The cursorBasedPagination property
 	cursorBasedPagination *bool
 	// The customHeaderName property
@@ -43,6 +47,10 @@ type ProvisioningProvisionedSCIM struct {
 	pageSize *int32
 	// The passwordSupported property
 	passwordSupported *bool
+	// The tls property
+	tls *TLSLevel
+	// The trustedCertificate property
+	trustedCertificate CertificateCertificatePrimerable
 	// The updateStrategy property
 	updateStrategy *ProvisioningSCIMUpdateStrategy
 	// The url property
@@ -99,10 +107,22 @@ func (m *ProvisioningProvisionedSCIM) GetBearerToken() *string {
 	return m.bearerToken
 }
 
+// GetConnectorAuthentication gets the connectorAuthentication property value. The connectorAuthentication property
+// returns a *string when successful
+func (m *ProvisioningProvisionedSCIM) GetConnectorAuthentication() *string {
+	return m.connectorAuthentication
+}
+
 // GetConnectorConfiguration gets the connectorConfiguration property value. The connectorConfiguration property
 // returns a *string when successful
 func (m *ProvisioningProvisionedSCIM) GetConnectorConfiguration() *string {
 	return m.connectorConfiguration
+}
+
+// GetConnectorTargetUrl gets the connectorTargetUrl property value. The connectorTargetUrl property
+// returns a *string when successful
+func (m *ProvisioningProvisionedSCIM) GetConnectorTargetUrl() *string {
+	return m.connectorTargetUrl
 }
 
 // GetCursorBasedPagination gets the cursorBasedPagination property value. The cursorBasedPagination property
@@ -189,6 +209,16 @@ func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers() map[string]func(i8
 		}
 		return nil
 	}
+	res["connectorAuthentication"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetConnectorAuthentication(val)
+		}
+		return nil
+	}
 	res["connectorConfiguration"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetStringValue()
 		if err != nil {
@@ -196,6 +226,16 @@ func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers() map[string]func(i8
 		}
 		if val != nil {
 			m.SetConnectorConfiguration(val)
+		}
+		return nil
+	}
+	res["connectorTargetUrl"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetConnectorTargetUrl(val)
 		}
 		return nil
 	}
@@ -309,6 +349,26 @@ func (m *ProvisioningProvisionedSCIM) GetFieldDeserializers() map[string]func(i8
 		}
 		return nil
 	}
+	res["tls"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseTLSLevel)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetTls(val.(*TLSLevel))
+		}
+		return nil
+	}
+	res["trustedCertificate"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateCertificateCertificatePrimerFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetTrustedCertificate(val.(CertificateCertificatePrimerable))
+		}
+		return nil
+	}
 	res["updateStrategy"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetEnumValue(ParseProvisioningSCIMUpdateStrategy)
 		if err != nil {
@@ -394,6 +454,18 @@ func (m *ProvisioningProvisionedSCIM) GetPasswordSupported() *bool {
 	return m.passwordSupported
 }
 
+// GetTls gets the tls property value. The tls property
+// returns a *TLSLevel when successful
+func (m *ProvisioningProvisionedSCIM) GetTls() *TLSLevel {
+	return m.tls
+}
+
+// GetTrustedCertificate gets the trustedCertificate property value. The trustedCertificate property
+// returns a CertificateCertificatePrimerable when successful
+func (m *ProvisioningProvisionedSCIM) GetTrustedCertificate() CertificateCertificatePrimerable {
+	return m.trustedCertificate
+}
+
 // GetUpdateStrategy gets the updateStrategy property value. The updateStrategy property
 // returns a *ProvisioningSCIMUpdateStrategy when successful
 func (m *ProvisioningProvisionedSCIM) GetUpdateStrategy() *ProvisioningSCIMUpdateStrategy {
@@ -462,7 +534,19 @@ func (m *ProvisioningProvisionedSCIM) Serialize(writer i878a80d2330e89d26896388a
 		}
 	}
 	{
+		err = writer.WriteStringValue("connectorAuthentication", m.GetConnectorAuthentication())
+		if err != nil {
+			return err
+		}
+	}
+	{
 		err = writer.WriteStringValue("connectorConfiguration", m.GetConnectorConfiguration())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteStringValue("connectorTargetUrl", m.GetConnectorTargetUrl())
 		if err != nil {
 			return err
 		}
@@ -533,6 +617,19 @@ func (m *ProvisioningProvisionedSCIM) Serialize(writer i878a80d2330e89d26896388a
 			return err
 		}
 	}
+	if m.GetTls() != nil {
+		cast := (*m.GetTls()).String()
+		err = writer.WriteStringValue("tls", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("trustedCertificate", m.GetTrustedCertificate())
+		if err != nil {
+			return err
+		}
+	}
 	if m.GetUpdateStrategy() != nil {
 		cast := (*m.GetUpdateStrategy()).String()
 		err = writer.WriteStringValue("updateStrategy", &cast)
@@ -587,9 +684,19 @@ func (m *ProvisioningProvisionedSCIM) SetBearerToken(value *string) {
 	m.bearerToken = value
 }
 
+// SetConnectorAuthentication sets the connectorAuthentication property value. The connectorAuthentication property
+func (m *ProvisioningProvisionedSCIM) SetConnectorAuthentication(value *string) {
+	m.connectorAuthentication = value
+}
+
 // SetConnectorConfiguration sets the connectorConfiguration property value. The connectorConfiguration property
 func (m *ProvisioningProvisionedSCIM) SetConnectorConfiguration(value *string) {
 	m.connectorConfiguration = value
+}
+
+// SetConnectorTargetUrl sets the connectorTargetUrl property value. The connectorTargetUrl property
+func (m *ProvisioningProvisionedSCIM) SetConnectorTargetUrl(value *string) {
+	m.connectorTargetUrl = value
 }
 
 // SetCursorBasedPagination sets the cursorBasedPagination property value. The cursorBasedPagination property
@@ -647,6 +754,16 @@ func (m *ProvisioningProvisionedSCIM) SetPasswordSupported(value *bool) {
 	m.passwordSupported = value
 }
 
+// SetTls sets the tls property value. The tls property
+func (m *ProvisioningProvisionedSCIM) SetTls(value *TLSLevel) {
+	m.tls = value
+}
+
+// SetTrustedCertificate sets the trustedCertificate property value. The trustedCertificate property
+func (m *ProvisioningProvisionedSCIM) SetTrustedCertificate(value CertificateCertificatePrimerable) {
+	m.trustedCertificate = value
+}
+
 // SetUpdateStrategy sets the updateStrategy property value. The updateStrategy property
 func (m *ProvisioningProvisionedSCIM) SetUpdateStrategy(value *ProvisioningSCIMUpdateStrategy) {
 	m.updateStrategy = value
@@ -675,7 +792,9 @@ type ProvisioningProvisionedSCIMable interface {
 	GetBasicAuthPassword() *string
 	GetBasicAuthUsername() *string
 	GetBearerToken() *string
+	GetConnectorAuthentication() *string
 	GetConnectorConfiguration() *string
+	GetConnectorTargetUrl() *string
 	GetCursorBasedPagination() *bool
 	GetCustomHeaderName() *string
 	GetCustomHeaderValue() *string
@@ -687,6 +806,8 @@ type ProvisioningProvisionedSCIMable interface {
 	GetLowerCaseFilterComparators() *bool
 	GetPageSize() *int32
 	GetPasswordSupported() *bool
+	GetTls() *TLSLevel
+	GetTrustedCertificate() CertificateCertificatePrimerable
 	GetUpdateStrategy() *ProvisioningSCIMUpdateStrategy
 	GetUrl() *string
 	GetUseScimJsonMimetype() *bool
@@ -696,7 +817,9 @@ type ProvisioningProvisionedSCIMable interface {
 	SetBasicAuthPassword(value *string)
 	SetBasicAuthUsername(value *string)
 	SetBearerToken(value *string)
+	SetConnectorAuthentication(value *string)
 	SetConnectorConfiguration(value *string)
+	SetConnectorTargetUrl(value *string)
 	SetCursorBasedPagination(value *bool)
 	SetCustomHeaderName(value *string)
 	SetCustomHeaderValue(value *string)
@@ -708,6 +831,8 @@ type ProvisioningProvisionedSCIMable interface {
 	SetLowerCaseFilterComparators(value *bool)
 	SetPageSize(value *int32)
 	SetPasswordSupported(value *bool)
+	SetTls(value *TLSLevel)
+	SetTrustedCertificate(value CertificateCertificatePrimerable)
 	SetUpdateStrategy(value *ProvisioningSCIMUpdateStrategy)
 	SetUrl(value *string)
 	SetUseScimJsonMimetype(value *bool)

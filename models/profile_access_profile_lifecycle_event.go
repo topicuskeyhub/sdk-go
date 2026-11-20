@@ -30,8 +30,14 @@ type ProfileAccessProfileLifecycleEvent struct {
 	lastAttemptAt *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	// The lastError property
 	lastError *string
+	// The preconditionReason property
+	preconditionReason *ProfileAccessProfileLifecyclePreconditionReason
+	// The subject of the precondition reason, such as the name of a group.
+	preconditionReasonParameter *string
 	// The status property
 	status *ProfileAccessProfileLifecycleEventStatus
+	// The deadline of a waiting event, after which it fails.
+	waitingUntil *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 }
 
 // NewProfileAccessProfileLifecycleEvent instantiates a new ProfileAccessProfileLifecycleEvent and sets the default values.
@@ -196,6 +202,26 @@ func (m *ProfileAccessProfileLifecycleEvent) GetFieldDeserializers() map[string]
 		}
 		return nil
 	}
+	res["preconditionReason"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetEnumValue(ParseProfileAccessProfileLifecyclePreconditionReason)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetPreconditionReason(val.(*ProfileAccessProfileLifecyclePreconditionReason))
+		}
+		return nil
+	}
+	res["preconditionReasonParameter"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetStringValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetPreconditionReasonParameter(val)
+		}
+		return nil
+	}
 	res["status"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetEnumValue(ParseProfileAccessProfileLifecycleEventStatus)
 		if err != nil {
@@ -203,6 +229,16 @@ func (m *ProfileAccessProfileLifecycleEvent) GetFieldDeserializers() map[string]
 		}
 		if val != nil {
 			m.SetStatus(val.(*ProfileAccessProfileLifecycleEventStatus))
+		}
+		return nil
+	}
+	res["waitingUntil"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetTimeValue()
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetWaitingUntil(val)
 		}
 		return nil
 	}
@@ -227,10 +263,28 @@ func (m *ProfileAccessProfileLifecycleEvent) GetLastError() *string {
 	return m.lastError
 }
 
+// GetPreconditionReason gets the preconditionReason property value. The preconditionReason property
+// returns a *ProfileAccessProfileLifecyclePreconditionReason when successful
+func (m *ProfileAccessProfileLifecycleEvent) GetPreconditionReason() *ProfileAccessProfileLifecyclePreconditionReason {
+	return m.preconditionReason
+}
+
+// GetPreconditionReasonParameter gets the preconditionReasonParameter property value. The subject of the precondition reason, such as the name of a group.
+// returns a *string when successful
+func (m *ProfileAccessProfileLifecycleEvent) GetPreconditionReasonParameter() *string {
+	return m.preconditionReasonParameter
+}
+
 // GetStatus gets the status property value. The status property
 // returns a *ProfileAccessProfileLifecycleEventStatus when successful
 func (m *ProfileAccessProfileLifecycleEvent) GetStatus() *ProfileAccessProfileLifecycleEventStatus {
 	return m.status
+}
+
+// GetWaitingUntil gets the waitingUntil property value. The deadline of a waiting event, after which it fails.
+// returns a *Time when successful
+func (m *ProfileAccessProfileLifecycleEvent) GetWaitingUntil() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time {
+	return m.waitingUntil
 }
 
 // Serialize serializes information the current object
@@ -254,6 +308,13 @@ func (m *ProfileAccessProfileLifecycleEvent) Serialize(writer i878a80d2330e89d26
 	if m.GetAnchor() != nil {
 		cast := (*m.GetAnchor()).String()
 		err = writer.WriteStringValue("anchor", &cast)
+		if err != nil {
+			return err
+		}
+	}
+	if m.GetPreconditionReason() != nil {
+		cast := (*m.GetPreconditionReason()).String()
+		err = writer.WriteStringValue("preconditionReason", &cast)
 		if err != nil {
 			return err
 		}
@@ -318,9 +379,24 @@ func (m *ProfileAccessProfileLifecycleEvent) SetLastError(value *string) {
 	m.lastError = value
 }
 
+// SetPreconditionReason sets the preconditionReason property value. The preconditionReason property
+func (m *ProfileAccessProfileLifecycleEvent) SetPreconditionReason(value *ProfileAccessProfileLifecyclePreconditionReason) {
+	m.preconditionReason = value
+}
+
+// SetPreconditionReasonParameter sets the preconditionReasonParameter property value. The subject of the precondition reason, such as the name of a group.
+func (m *ProfileAccessProfileLifecycleEvent) SetPreconditionReasonParameter(value *string) {
+	m.preconditionReasonParameter = value
+}
+
 // SetStatus sets the status property value. The status property
 func (m *ProfileAccessProfileLifecycleEvent) SetStatus(value *ProfileAccessProfileLifecycleEventStatus) {
 	m.status = value
+}
+
+// SetWaitingUntil sets the waitingUntil property value. The deadline of a waiting event, after which it fails.
+func (m *ProfileAccessProfileLifecycleEvent) SetWaitingUntil(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
+	m.waitingUntil = value
 }
 
 type ProfileAccessProfileLifecycleEventable interface {
@@ -336,7 +412,10 @@ type ProfileAccessProfileLifecycleEventable interface {
 	GetFiredAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	GetLastAttemptAt() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	GetLastError() *string
+	GetPreconditionReason() *ProfileAccessProfileLifecyclePreconditionReason
+	GetPreconditionReasonParameter() *string
 	GetStatus() *ProfileAccessProfileLifecycleEventStatus
+	GetWaitingUntil() *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
 	SetAccount(value AuthAccountPrimerable)
 	SetActionName(value *string)
 	SetAdditionalObjects(value ProfileAccessProfileLifecycleEvent_additionalObjectsable)
@@ -347,5 +426,8 @@ type ProfileAccessProfileLifecycleEventable interface {
 	SetFiredAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
 	SetLastAttemptAt(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
 	SetLastError(value *string)
+	SetPreconditionReason(value *ProfileAccessProfileLifecyclePreconditionReason)
+	SetPreconditionReasonParameter(value *string)
 	SetStatus(value *ProfileAccessProfileLifecycleEventStatus)
+	SetWaitingUntil(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
 }

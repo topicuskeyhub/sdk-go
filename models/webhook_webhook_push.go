@@ -32,6 +32,10 @@ type WebhookWebhookPush struct {
 	groupOnSystem WebhookWebhookNameUuidable
 	// The identitySource property
 	identitySource WebhookWebhookNameUuidable
+	// The itsmSystem property
+	itsmSystem WebhookWebhookNameUuidable
+	// The itsmWorkflowType property
+	itsmWorkflowType WebhookWebhookNameUuidable
 	// The machineHostname property
 	machineHostname *string
 	// The modificationRequest property
@@ -232,6 +236,26 @@ func (m *WebhookWebhookPush) GetFieldDeserializers() map[string]func(i878a80d233
 		}
 		return nil
 	}
+	res["itsmSystem"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetItsmSystem(val.(WebhookWebhookNameUuidable))
+		}
+		return nil
+	}
+	res["itsmWorkflowType"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateWebhookWebhookNameUuidFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetItsmWorkflowType(val.(WebhookWebhookNameUuidable))
+		}
+		return nil
+	}
 	res["machineHostname"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
 		val, err := n.GetStringValue()
 		if err != nil {
@@ -425,6 +449,18 @@ func (m *WebhookWebhookPush) GetIdentitySource() WebhookWebhookNameUuidable {
 	return m.identitySource
 }
 
+// GetItsmSystem gets the itsmSystem property value. The itsmSystem property
+// returns a WebhookWebhookNameUuidable when successful
+func (m *WebhookWebhookPush) GetItsmSystem() WebhookWebhookNameUuidable {
+	return m.itsmSystem
+}
+
+// GetItsmWorkflowType gets the itsmWorkflowType property value. The itsmWorkflowType property
+// returns a WebhookWebhookNameUuidable when successful
+func (m *WebhookWebhookPush) GetItsmWorkflowType() WebhookWebhookNameUuidable {
+	return m.itsmWorkflowType
+}
+
 // GetMachineHostname gets the machineHostname property value. The machineHostname property
 // returns a *string when successful
 func (m *WebhookWebhookPush) GetMachineHostname() *string {
@@ -594,6 +630,18 @@ func (m *WebhookWebhookPush) Serialize(writer i878a80d2330e89d26896388a3f487eef2
 		}
 	}
 	{
+		err = writer.WriteObjectValue("itsmSystem", m.GetItsmSystem())
+		if err != nil {
+			return err
+		}
+	}
+	{
+		err = writer.WriteObjectValue("itsmWorkflowType", m.GetItsmWorkflowType())
+		if err != nil {
+			return err
+		}
+	}
+	{
 		err = writer.WriteStringValue("machineHostname", m.GetMachineHostname())
 		if err != nil {
 			return err
@@ -749,6 +797,16 @@ func (m *WebhookWebhookPush) SetIdentitySource(value WebhookWebhookNameUuidable)
 	m.identitySource = value
 }
 
+// SetItsmSystem sets the itsmSystem property value. The itsmSystem property
+func (m *WebhookWebhookPush) SetItsmSystem(value WebhookWebhookNameUuidable) {
+	m.itsmSystem = value
+}
+
+// SetItsmWorkflowType sets the itsmWorkflowType property value. The itsmWorkflowType property
+func (m *WebhookWebhookPush) SetItsmWorkflowType(value WebhookWebhookNameUuidable) {
+	m.itsmWorkflowType = value
+}
+
 // SetMachineHostname sets the machineHostname property value. The machineHostname property
 func (m *WebhookWebhookPush) SetMachineHostname(value *string) {
 	m.machineHostname = value
@@ -843,6 +901,8 @@ type WebhookWebhookPushable interface {
 	GetGroupClassification() WebhookWebhookNameUuidable
 	GetGroupOnSystem() WebhookWebhookNameUuidable
 	GetIdentitySource() WebhookWebhookNameUuidable
+	GetItsmSystem() WebhookWebhookNameUuidable
+	GetItsmWorkflowType() WebhookWebhookNameUuidable
 	GetMachineHostname() *string
 	GetModificationRequest() WebhookWebhookNameUuidable
 	GetOrganizationalUnit() WebhookWebhookNameUuidable
@@ -870,6 +930,8 @@ type WebhookWebhookPushable interface {
 	SetGroupClassification(value WebhookWebhookNameUuidable)
 	SetGroupOnSystem(value WebhookWebhookNameUuidable)
 	SetIdentitySource(value WebhookWebhookNameUuidable)
+	SetItsmSystem(value WebhookWebhookNameUuidable)
+	SetItsmWorkflowType(value WebhookWebhookNameUuidable)
 	SetMachineHostname(value *string)
 	SetModificationRequest(value WebhookWebhookNameUuidable)
 	SetOrganizationalUnit(value WebhookWebhookNameUuidable)

@@ -7,11 +7,10 @@ type PutAdditionalQueryParameterType int
 
 const (
 	AUDIT_PUTADDITIONALQUERYPARAMETERTYPE PutAdditionalQueryParameterType = iota
-	LASTIMPORT_PUTADDITIONALQUERYPARAMETERTYPE
 )
 
 func (i PutAdditionalQueryParameterType) String() string {
-	return []string{"audit", "lastImport"}[i]
+	return []string{"audit"}[i]
 }
 
 func ParsePutAdditionalQueryParameterType(v string) (any, error) {
@@ -19,8 +18,6 @@ func ParsePutAdditionalQueryParameterType(v string) (any, error) {
 	switch v {
 	case "audit":
 		result = AUDIT_PUTADDITIONALQUERYPARAMETERTYPE
-	case "lastImport":
-		result = LASTIMPORT_PUTADDITIONALQUERYPARAMETERTYPE
 	default:
 		return nil, nil
 	}

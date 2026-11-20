@@ -46,6 +46,8 @@ func CreateProfileAccessProfileLifecycleActionFromDiscriminatorValue(parseNode i
 			}
 			if mappingValue != nil {
 				switch *mappingValue {
+				case "profile.AccessProfileItsmLifecycleAction":
+					return NewProfileAccessProfileItsmLifecycleAction(), nil
 				case "profile.AccessProfileMailLifecycleAction":
 					return NewProfileAccessProfileMailLifecycleAction(), nil
 				}

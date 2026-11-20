@@ -11,6 +11,8 @@ type IdentitysourceCSVImportIdentitySource struct {
 	IdentitysourceIdentitySource
 	// The identifier property
 	identifier IdentityAccountAttributeDefinitionable
+	// The importedDocumentRetention property
+	importedDocumentRetention IdentitysourceCSVImportIdentitySource_importedDocumentRetentionable
 }
 
 // NewIdentitysourceCSVImportIdentitySource instantiates a new IdentitysourceCSVImportIdentitySource and sets the default values.
@@ -43,6 +45,16 @@ func (m *IdentitysourceCSVImportIdentitySource) GetFieldDeserializers() map[stri
 		}
 		return nil
 	}
+	res["importedDocumentRetention"] = func(n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+		val, err := n.GetObjectValue(CreateIdentitysourceCSVImportIdentitySource_importedDocumentRetentionFromDiscriminatorValue)
+		if err != nil {
+			return err
+		}
+		if val != nil {
+			m.SetImportedDocumentRetention(val.(IdentitysourceCSVImportIdentitySource_importedDocumentRetentionable))
+		}
+		return nil
+	}
 	return res
 }
 
@@ -50,6 +62,12 @@ func (m *IdentitysourceCSVImportIdentitySource) GetFieldDeserializers() map[stri
 // returns a IdentityAccountAttributeDefinitionable when successful
 func (m *IdentitysourceCSVImportIdentitySource) GetIdentifier() IdentityAccountAttributeDefinitionable {
 	return m.identifier
+}
+
+// GetImportedDocumentRetention gets the importedDocumentRetention property value. The importedDocumentRetention property
+// returns a IdentitysourceCSVImportIdentitySource_importedDocumentRetentionable when successful
+func (m *IdentitysourceCSVImportIdentitySource) GetImportedDocumentRetention() IdentitysourceCSVImportIdentitySource_importedDocumentRetentionable {
+	return m.importedDocumentRetention
 }
 
 // Serialize serializes information the current object
@@ -64,6 +82,12 @@ func (m *IdentitysourceCSVImportIdentitySource) Serialize(writer i878a80d2330e89
 			return err
 		}
 	}
+	{
+		err = writer.WriteObjectValue("importedDocumentRetention", m.GetImportedDocumentRetention())
+		if err != nil {
+			return err
+		}
+	}
 	return nil
 }
 
@@ -72,9 +96,16 @@ func (m *IdentitysourceCSVImportIdentitySource) SetIdentifier(value IdentityAcco
 	m.identifier = value
 }
 
+// SetImportedDocumentRetention sets the importedDocumentRetention property value. The importedDocumentRetention property
+func (m *IdentitysourceCSVImportIdentitySource) SetImportedDocumentRetention(value IdentitysourceCSVImportIdentitySource_importedDocumentRetentionable) {
+	m.importedDocumentRetention = value
+}
+
 type IdentitysourceCSVImportIdentitySourceable interface {
 	IdentitysourceIdentitySourceable
 	i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
 	GetIdentifier() IdentityAccountAttributeDefinitionable
+	GetImportedDocumentRetention() IdentitysourceCSVImportIdentitySource_importedDocumentRetentionable
 	SetIdentifier(value IdentityAccountAttributeDefinitionable)
+	SetImportedDocumentRetention(value IdentitysourceCSVImportIdentitySource_importedDocumentRetentionable)
 }

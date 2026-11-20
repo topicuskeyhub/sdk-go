@@ -56,6 +56,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
 					return NewRequestAbstractAccessProfileModificationRequest(), nil
 				case "request.AbstractApplicationModificationRequest":
 					return NewRequestAbstractApplicationModificationRequest(), nil
+				case "request.AbstractItsmSystemModificationRequest":
+					return NewRequestAbstractItsmSystemModificationRequest(), nil
 				case "request.AbstractOrganizationalUnitModificationRequest":
 					return NewRequestAbstractOrganizationalUnitModificationRequest(), nil
 				case "request.AbstractProvisionedSystemModificationRequest":
@@ -90,6 +92,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
 					return NewRequestGrantGroupOnSystemRequest(), nil
 				case "request.GrantGroupOnSystemRequestRequest":
 					return NewRequestGrantGroupOnSystemRequestRequest(), nil
+				case "request.GrantItsmWorkflowTypeRequest":
+					return NewRequestGrantItsmWorkflowTypeRequest(), nil
 				case "request.GrantServiceAccountGroupRequest":
 					return NewRequestGrantServiceAccountGroupRequest(), nil
 				case "request.JoinGroupRequest":
@@ -106,6 +110,8 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
 					return NewRequestRemoveAccessProfileRequest(), nil
 				case "request.RemoveGroupRequest":
 					return NewRequestRemoveGroupRequest(), nil
+				case "request.RemoveItsmSystemRequest":
+					return NewRequestRemoveItsmSystemRequest(), nil
 				case "request.RemoveOrganizationalUnitRequest":
 					return NewRequestRemoveOrganizationalUnitRequest(), nil
 				case "request.RemoveProvisionedSystemRequest":
@@ -128,6 +134,12 @@ func CreateRequestModificationRequestFromDiscriminatorValue(parseNode i878a80d23
 					return NewRequestTransferApplicationOwnershipRequest(), nil
 				case "request.TransferGroupOnSystemOwnershipRequest":
 					return NewRequestTransferGroupOnSystemOwnershipRequest(), nil
+				case "request.TransferItsmSystemAdministrationRequest":
+					return NewRequestTransferItsmSystemAdministrationRequest(), nil
+				case "request.TransferItsmSystemOwnershipRequest":
+					return NewRequestTransferItsmSystemOwnershipRequest(), nil
+				case "request.TransferItsmWorkflowTypeOwnershipRequest":
+					return NewRequestTransferItsmWorkflowTypeOwnershipRequest(), nil
 				case "request.TransferOrganizationalUnitOwnershipRequest":
 					return NewRequestTransferOrganizationalUnitOwnershipRequest(), nil
 				case "request.TransferProvisionedSystemAdministrationRequest":
